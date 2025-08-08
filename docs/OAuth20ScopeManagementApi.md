@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.OAuth20ScopeManagementApi
+# DocSpace.API.SDK.Api.ScopeManagementApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -40,7 +40,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -49,7 +49,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20ScopeManagementApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ScopeManagementApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -59,7 +59,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20ScopeManagementApi.GetScopes: " + e.Message);
+                Debug.Print("Exception when calling ScopeManagementApi.GetScopes: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -82,7 +82,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20ScopeManagementApi.GetScopesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ScopeManagementApi.GetScopesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

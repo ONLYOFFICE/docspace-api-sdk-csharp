@@ -19,9 +19,9 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The error type.
+    /// [0 - None, 1 - Form role blocking deletion]
     /// </summary>
-    /// <value>The error type.</value>
+    /// <value>[0 - None, 1 - Form role blocking deletion]</value>
     public enum RoomSecurityError
     {
         /// <summary>

@@ -5,8 +5,8 @@ The folder content information.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Files** | [**List&lt;FileEntryDto&gt;**](FileEntryDto.md) | The list of files in the folder. | [optional] 
-**Folders** | [**List&lt;FileEntryDto&gt;**](FileEntryDto.md) | The list of folders in the folder. | [optional] 
+**Files** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of files in the folder. | [optional] 
+**Folders** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of folders in the folder. | [optional] 
 **Current** | [**FolderDtoInteger**](FolderDtoInteger.md) |  | [optional] 
 **PathParts** | **Object** | The folder path. | [optional] 
 **StartIndex** | **int** | The folder start index. | [optional] 

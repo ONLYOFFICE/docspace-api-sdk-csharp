@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PeoplePhotosApi
+# DocSpace.API.SDK.Api.PhotosApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -49,7 +49,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -69,7 +69,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
             var thumbnailsRequest = new ThumbnailsRequest?(); // ThumbnailsRequest? | The thumbnail request. (optional) 
 
@@ -81,7 +81,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeoplePhotosApi.CreateMemberPhotoThumbnails: " + e.Message);
+                Debug.Print("Exception when calling PhotosApi.CreateMemberPhotoThumbnails: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -104,7 +104,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeoplePhotosApi.CreateMemberPhotoThumbnailsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PhotosApi.CreateMemberPhotoThumbnailsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -164,7 +164,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -184,7 +184,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
 
             try
@@ -195,7 +195,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeoplePhotosApi.DeleteMemberPhoto: " + e.Message);
+                Debug.Print("Exception when calling PhotosApi.DeleteMemberPhoto: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -218,7 +218,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeoplePhotosApi.DeleteMemberPhotoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PhotosApi.DeleteMemberPhotoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -278,7 +278,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -298,7 +298,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
 
             try
@@ -309,7 +309,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeoplePhotosApi.GetMemberPhoto: " + e.Message);
+                Debug.Print("Exception when calling PhotosApi.GetMemberPhoto: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -332,7 +332,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeoplePhotosApi.GetMemberPhotoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PhotosApi.GetMemberPhotoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -393,7 +393,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -413,7 +413,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
             var updatePhotoMemberRequest = new UpdatePhotoMemberRequest?(); // UpdatePhotoMemberRequest? | The request parameters for updating a photo. (optional) 
 
@@ -425,7 +425,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeoplePhotosApi.UpdateMemberPhoto: " + e.Message);
+                Debug.Print("Exception when calling PhotosApi.UpdateMemberPhoto: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -448,7 +448,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeoplePhotosApi.UpdateMemberPhotoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PhotosApi.UpdateMemberPhotoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -509,7 +509,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -529,7 +529,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
             var formCollection = new List<KeyValuePairStringStringValues>(); // List<KeyValuePairStringStringValues> | The image data.
 
@@ -541,7 +541,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeoplePhotosApi.UploadMemberPhoto: " + e.Message);
+                Debug.Print("Exception when calling PhotosApi.UploadMemberPhoto: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -564,7 +564,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeoplePhotosApi.UploadMemberPhotoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PhotosApi.UploadMemberPhotoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

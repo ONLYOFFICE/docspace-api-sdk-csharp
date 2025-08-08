@@ -22,32 +22,21 @@ namespace DocSpace.API.SDK.Model
     /// MigratingApiGroup
     /// </summary>
     [DataContract(Name = "MigratingApiGroup")]
-    public partial class MigratingApiGroup : IValidatableObject
+    public partial class MigratingApiGroup : ImportableApiEntity, IValidatableObject
     {
     
         /// <summary>
         /// Initializes a new instance of the <see cref="MigratingApiGroup" /> class.
         /// </summary>
-        /// <param name="shouldImport">shouldImport.</param>
         /// <param name="groupName">groupName.</param>
         /// <param name="moduleName">moduleName.</param>
         /// <param name="userUidList">userUidList.</param>
-        public MigratingApiGroup(bool shouldImport = default, string groupName = default, string moduleName = default, List<string> userUidList = default)
+        public MigratingApiGroup(string groupName = default, string moduleName = default, List<string> userUidList = default)
         {
-            this.ShouldImport = shouldImport;
             this.GroupName = groupName;
             this.ModuleName = moduleName;
             this.UserUidList = userUidList;
         }
-
-        /// <summary>
-        /// Gets or Sets ShouldImport
-        /// </summary>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "shouldImport", EmitDefaultValue = true)]
-        public bool ShouldImport { get; set; }
 
         /// <summary>
         /// Gets or Sets GroupName
@@ -84,7 +73,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class MigratingApiGroup {\n");
-            sb.Append("  ShouldImport: ").Append(ShouldImport).Append("\n");
             sb.Append("  GroupName: ").Append(GroupName).Append("\n");
             sb.Append("  ModuleName: ").Append(ModuleName).Append("\n");
             sb.Append("  UserUidList: ").Append(UserUidList).Append("\n");
@@ -96,10 +84,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -111,6 +100,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

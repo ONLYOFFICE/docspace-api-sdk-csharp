@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsGreetingSettingsApi
+# DocSpace.API.SDK.Api.GreetingSettingsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -43,7 +43,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -63,7 +63,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsGreetingSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new GreetingSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -73,7 +73,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsGreetingSettingsApi.GetGreetingSettings: " + e.Message);
+                Debug.Print("Exception when calling GreetingSettingsApi.GetGreetingSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -96,7 +96,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsGreetingSettingsApi.GetGreetingSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling GreetingSettingsApi.GetGreetingSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -150,7 +150,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -170,7 +170,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsGreetingSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new GreetingSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -180,7 +180,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsGreetingSettingsApi.GetIsDefaultGreetingSettings: " + e.Message);
+                Debug.Print("Exception when calling GreetingSettingsApi.GetIsDefaultGreetingSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -203,7 +203,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsGreetingSettingsApi.GetIsDefaultGreetingSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling GreetingSettingsApi.GetIsDefaultGreetingSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -257,7 +257,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -277,7 +277,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsGreetingSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new GreetingSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -287,7 +287,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsGreetingSettingsApi.RestoreGreetingSettings: " + e.Message);
+                Debug.Print("Exception when calling GreetingSettingsApi.RestoreGreetingSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -310,7 +310,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsGreetingSettingsApi.RestoreGreetingSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling GreetingSettingsApi.RestoreGreetingSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -368,7 +368,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -388,7 +388,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsGreetingSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new GreetingSettingsApi(httpClient, config, httpClientHandler);
             var greetingSettingsRequestsDto = new GreetingSettingsRequestsDto?(); // GreetingSettingsRequestsDto? | The request parameters for managing the greeting settings. (optional) 
 
             try
@@ -399,7 +399,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsGreetingSettingsApi.SaveGreetingSettings: " + e.Message);
+                Debug.Print("Exception when calling GreetingSettingsApi.SaveGreetingSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -422,7 +422,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsGreetingSettingsApi.SaveGreetingSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling GreetingSettingsApi.SaveGreetingSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

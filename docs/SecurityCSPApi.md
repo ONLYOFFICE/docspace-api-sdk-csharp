@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SecurityCSPApi
+# DocSpace.API.SDK.Api.CSPApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -45,7 +45,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -65,7 +65,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityCSPApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CSPApi(httpClient, config, httpClientHandler);
             var cspRequestsDto = new CspRequestsDto?(); // CspRequestsDto? | The request parameters for configuring the Content Security Policy (CSP) settings. (optional) 
 
             try
@@ -76,7 +76,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityCSPApi.ConfigureCsp: " + e.Message);
+                Debug.Print("Exception when calling CSPApi.ConfigureCsp: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -99,7 +99,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityCSPApi.ConfigureCspWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CSPApi.ConfigureCspWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -154,11 +154,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityCSPApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CSPApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -168,7 +168,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityCSPApi.GetCspSettings: " + e.Message);
+                Debug.Print("Exception when calling CSPApi.GetCspSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -191,7 +191,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityCSPApi.GetCspSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CSPApi.GetCspSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.EncryprtionStatus
+[0 - Decrypted, 1 - Encryption started, 2 - Encrypted, 3 - Decryption started]
 
 ## Properties
 

@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.SortOrder
+[0 - Ascending, 1 - Descending]
 
 ## Properties
 

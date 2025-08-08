@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **ProviderKey** | **string** | The provider key of the file entry. | [optional] 
 **ProviderId** | **int?** | The provider ID of the file entry. | [optional] 
 **Order** | **string** | The order of the file entry. | [optional] 
+**FileEntryType** | **FileEntryType** |  | [optional] 
 **Id** | **string** | The file entry ID. | [optional] 
 **RootFolderId** | **string** | The root folder ID of the file entry. | [optional] 
 **OriginId** | **string** | The origin ID of the file entry. | [optional] 
@@ -26,7 +27,7 @@ Name | Type | Description | Notes
 **OriginTitle** | **string** | The origin title of the file entry. | [optional] 
 **OriginRoomTitle** | **string** | The origin room title of the file entry. | [optional] 
 **CanShare** | **bool** | Specifies if the file entry can be shared or not. | [optional] 
-**Security** | [**FileDtoIntegerSecurity**](FileDtoIntegerSecurity.md) |  | [optional] 
+**Security** | [**FileEntryDtoIntegerAllOfSecurity**](FileEntryDtoIntegerAllOfSecurity.md) |  | [optional] 
 **RequestToken** | **string** | The request token of the file entry. | [optional] 
 **ParentId** | **string** | The parent folder ID of the folder. | [optional] 
 **FilesCount** | **int** | The number of files that the folder contains. | [optional] 
@@ -52,7 +53,6 @@ Name | Type | Description | Notes
 **External** | **bool?** | Specifies if the folder can be accessed via an external link or not. | [optional] 
 **PasswordProtected** | **bool?** | Specifies if the folder is password protected or not. | [optional] 
 **Expired** | **bool?** | Specifies if an external link to the folder is expired or not. | [optional] 
-**FileEntryType** | **FileEntryType** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

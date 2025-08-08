@@ -22,7 +22,7 @@ namespace DocSpace.API.SDK.Model
     /// The room invitation parameters.
     /// </summary>
     [DataContract(Name = "RoomInvitation")]
-    public partial class RoomInvitation : IValidatableObject
+    public partial class RoomInvitation : EmailInvitationDto, IValidatableObject
     {
 
         /// <summary>
@@ -34,25 +34,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomInvitation" /> class.
         /// </summary>
-        /// <param name="email">The email address..</param>
         /// <param name="id">The ID of the user to share a room with..</param>
         /// <param name="access">access.</param>
-        public RoomInvitation(string email = default, Guid id = default, FileShare? access = default)
+        public RoomInvitation(Guid id = default, FileShare? access = default)
         {
-            this.Email = email;
             this.Id = id;
             this.Access = access;
         }
-
-        /// <summary>
-        /// The email address.
-        /// </summary>
-        /// <value>The email address.</value>
-        /*
-        <example>Sydney_Roberts4@hotmail.com</example>
-        */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
-        public string Email { get; set; }
 
         /// <summary>
         /// The ID of the user to share a room with.
@@ -72,7 +60,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class RoomInvitation {\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Access: ").Append(Access).Append("\n");
             sb.Append("}\n");
@@ -83,10 +70,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -98,6 +86,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

@@ -19,9 +19,9 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The deep link handling mode.
+    /// [0 - Provide choice, 1 - Web, 2 - App]
     /// </summary>
-    /// <value>The deep link handling mode.</value>
+    /// <value>[0 - Provide choice, 1 - Web, 2 - App]</value>
     public enum DeepLinkHandlingMode
     {
         /// <summary>

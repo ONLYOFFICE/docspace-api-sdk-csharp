@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsStorageApi
+# DocSpace.API.SDK.Api.StorageApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -52,7 +52,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -72,7 +72,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsStorageApi(httpClient, config, httpClientHandler);
+            var apiInstance = new StorageApi(httpClient, config, httpClientHandler);
             var dump = true;  // bool? |  (optional) 
 
             try
@@ -83,7 +83,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsStorageApi.GetAllBackupStorages: " + e.Message);
+                Debug.Print("Exception when calling StorageApi.GetAllBackupStorages: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -106,7 +106,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsStorageApi.GetAllBackupStoragesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling StorageApi.GetAllBackupStoragesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -161,7 +161,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -181,7 +181,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsStorageApi(httpClient, config, httpClientHandler);
+            var apiInstance = new StorageApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -191,7 +191,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsStorageApi.GetAllCdnStorages: " + e.Message);
+                Debug.Print("Exception when calling StorageApi.GetAllCdnStorages: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -214,7 +214,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsStorageApi.GetAllCdnStoragesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling StorageApi.GetAllCdnStoragesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -269,7 +269,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -289,7 +289,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsStorageApi(httpClient, config, httpClientHandler);
+            var apiInstance = new StorageApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -299,7 +299,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsStorageApi.GetAllStorages: " + e.Message);
+                Debug.Print("Exception when calling StorageApi.GetAllStorages: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -322,7 +322,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsStorageApi.GetAllStoragesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling StorageApi.GetAllStoragesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -377,7 +377,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -397,7 +397,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsStorageApi(httpClient, config, httpClientHandler);
+            var apiInstance = new StorageApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -407,7 +407,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsStorageApi.GetAmazonS3Regions: " + e.Message);
+                Debug.Print("Exception when calling StorageApi.GetAmazonS3Regions: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -430,7 +430,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsStorageApi.GetAmazonS3RegionsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling StorageApi.GetAmazonS3RegionsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -484,7 +484,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -504,7 +504,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsStorageApi(httpClient, config, httpClientHandler);
+            var apiInstance = new StorageApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -514,7 +514,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsStorageApi.GetStorageProgress: " + e.Message);
+                Debug.Print("Exception when calling StorageApi.GetStorageProgress: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -537,7 +537,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsStorageApi.GetStorageProgressWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling StorageApi.GetStorageProgressWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -591,7 +591,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -611,7 +611,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsStorageApi(httpClient, config, httpClientHandler);
+            var apiInstance = new StorageApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -620,7 +620,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsStorageApi.ResetCdnToDefault: " + e.Message);
+                Debug.Print("Exception when calling StorageApi.ResetCdnToDefault: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -640,7 +640,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsStorageApi.ResetCdnToDefaultWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling StorageApi.ResetCdnToDefaultWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -695,7 +695,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -715,7 +715,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsStorageApi(httpClient, config, httpClientHandler);
+            var apiInstance = new StorageApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -724,7 +724,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsStorageApi.ResetStorageToDefault: " + e.Message);
+                Debug.Print("Exception when calling StorageApi.ResetStorageToDefault: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -744,7 +744,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsStorageApi.ResetStorageToDefaultWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling StorageApi.ResetStorageToDefaultWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -803,7 +803,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -823,7 +823,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsStorageApi(httpClient, config, httpClientHandler);
+            var apiInstance = new StorageApi(httpClient, config, httpClientHandler);
             var storageRequestsDto = new StorageRequestsDto?(); // StorageRequestsDto? | The request parameters for configuring the storage module settings. (optional) 
 
             try
@@ -834,7 +834,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsStorageApi.UpdateCdnStorage: " + e.Message);
+                Debug.Print("Exception when calling StorageApi.UpdateCdnStorage: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -857,7 +857,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsStorageApi.UpdateCdnStorageWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling StorageApi.UpdateCdnStorageWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -917,7 +917,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -937,7 +937,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsStorageApi(httpClient, config, httpClientHandler);
+            var apiInstance = new StorageApi(httpClient, config, httpClientHandler);
             var storageRequestsDto = new StorageRequestsDto?(); // StorageRequestsDto? | The request parameters for configuring the storage module settings. (optional) 
 
             try
@@ -948,7 +948,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsStorageApi.UpdateStorage: " + e.Message);
+                Debug.Print("Exception when calling StorageApi.UpdateStorage: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -971,7 +971,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsStorageApi.UpdateStorageWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling StorageApi.UpdateStorageWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

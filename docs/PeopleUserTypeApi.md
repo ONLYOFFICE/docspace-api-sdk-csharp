@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PeopleUserTypeApi
+# DocSpace.API.SDK.Api.UserTypeApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -47,7 +47,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -67,7 +67,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserTypeApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserTypeApi(httpClient, config, httpClientHandler);
             var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID.
 
             try
@@ -78,7 +78,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserTypeApi.GetUserTypeUpdateProgress: " + e.Message);
+                Debug.Print("Exception when calling UserTypeApi.GetUserTypeUpdateProgress: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -101,7 +101,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserTypeApi.GetUserTypeUpdateProgressWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserTypeApi.GetUserTypeUpdateProgressWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -159,7 +159,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -179,7 +179,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserTypeApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserTypeApi(httpClient, config, httpClientHandler);
             var startUpdateUserTypeDto = new StartUpdateUserTypeDto?(); // StartUpdateUserTypeDto? | The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional) 
 
             try
@@ -190,7 +190,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserTypeApi.StarUserTypetUpdate: " + e.Message);
+                Debug.Print("Exception when calling UserTypeApi.StarUserTypetUpdate: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -213,7 +213,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserTypeApi.StarUserTypetUpdateWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserTypeApi.StarUserTypetUpdateWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -272,7 +272,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -292,7 +292,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserTypeApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserTypeApi(httpClient, config, httpClientHandler);
             var terminateRequestDto = new TerminateRequestDto?(); // TerminateRequestDto? | The request parameters for terminating the reassignment/deletion process. (optional) 
 
             try
@@ -303,7 +303,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserTypeApi.TerminateUserTypeUpdate: " + e.Message);
+                Debug.Print("Exception when calling UserTypeApi.TerminateUserTypeUpdate: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -326,7 +326,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserTypeApi.TerminateUserTypeUpdateWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserTypeApi.TerminateUserTypeUpdateWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -385,7 +385,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -405,7 +405,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserTypeApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserTypeApi(httpClient, config, httpClientHandler);
             var type = (EmployeeType) "0";  // EmployeeType | The new user type.
             var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? | The request parameters for updating the user information. (optional) 
 
@@ -417,7 +417,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserTypeApi.UpdateUserType: " + e.Message);
+                Debug.Print("Exception when calling UserTypeApi.UpdateUserType: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -440,7 +440,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserTypeApi.UpdateUserTypeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserTypeApi.UpdateUserTypeWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

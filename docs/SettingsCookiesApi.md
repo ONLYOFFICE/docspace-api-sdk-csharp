@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsCookiesApi
+# DocSpace.API.SDK.Api.CookiesApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -41,7 +41,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -61,7 +61,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCookiesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CookiesApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -71,7 +71,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCookiesApi.GetCookieSettings: " + e.Message);
+                Debug.Print("Exception when calling CookiesApi.GetCookieSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -94,7 +94,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCookiesApi.GetCookieSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CookiesApi.GetCookieSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -152,7 +152,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -172,7 +172,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCookiesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CookiesApi(httpClient, config, httpClientHandler);
             var cookieSettingsRequestsDto = new CookieSettingsRequestsDto?(); // CookieSettingsRequestsDto? | The request parameters for managing cookie settings. (optional) 
 
             try
@@ -183,7 +183,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCookiesApi.UpdateCookieSettings: " + e.Message);
+                Debug.Print("Exception when calling CookiesApi.UpdateCookieSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -206,7 +206,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCookiesApi.UpdateCookieSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CookiesApi.UpdateCookieSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

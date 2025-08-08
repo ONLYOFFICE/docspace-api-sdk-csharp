@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SecuritySMTPSettingsApi
+# DocSpace.API.SDK.Api.SMTPSettingsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -44,7 +44,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -64,7 +64,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecuritySMTPSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SMTPSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -74,7 +74,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecuritySMTPSettingsApi.GetSmtpOperationStatus: " + e.Message);
+                Debug.Print("Exception when calling SMTPSettingsApi.GetSmtpOperationStatus: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -97,7 +97,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecuritySMTPSettingsApi.GetSmtpOperationStatusWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SMTPSettingsApi.GetSmtpOperationStatusWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -152,7 +152,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -172,7 +172,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecuritySMTPSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SMTPSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -182,7 +182,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecuritySMTPSettingsApi.GetSmtpSettings: " + e.Message);
+                Debug.Print("Exception when calling SMTPSettingsApi.GetSmtpSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -205,7 +205,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecuritySMTPSettingsApi.GetSmtpSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SMTPSettingsApi.GetSmtpSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -260,7 +260,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -280,7 +280,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecuritySMTPSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SMTPSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -290,7 +290,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecuritySMTPSettingsApi.ResetSmtpSettings: " + e.Message);
+                Debug.Print("Exception when calling SMTPSettingsApi.ResetSmtpSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -313,7 +313,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecuritySMTPSettingsApi.ResetSmtpSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SMTPSettingsApi.ResetSmtpSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -372,7 +372,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -392,7 +392,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecuritySMTPSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SMTPSettingsApi(httpClient, config, httpClientHandler);
             var smtpSettingsDto = new SmtpSettingsDto?(); // SmtpSettingsDto? | The SMTP settings parameters. (optional) 
 
             try
@@ -403,7 +403,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecuritySMTPSettingsApi.SaveSmtpSettings: " + e.Message);
+                Debug.Print("Exception when calling SMTPSettingsApi.SaveSmtpSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -426,7 +426,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecuritySMTPSettingsApi.SaveSmtpSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SMTPSettingsApi.SaveSmtpSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -481,7 +481,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -501,7 +501,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecuritySMTPSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SMTPSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -511,7 +511,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecuritySMTPSettingsApi.TestSmtpSettings: " + e.Message);
+                Debug.Print("Exception when calling SMTPSettingsApi.TestSmtpSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -534,7 +534,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecuritySMTPSettingsApi.TestSmtpSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SMTPSettingsApi.TestSmtpSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

@@ -22,47 +22,35 @@ namespace DocSpace.API.SDK.Model
     /// The request parameters for downloading files.
     /// </summary>
     [DataContract(Name = "DownloadRequestDto")]
-    public partial class DownloadRequestDto : IValidatableObject
+    public partial class DownloadRequestDto : FileOperationRequestBaseDto, IValidatableObject
     {
     
         /// <summary>
         /// Initializes a new instance of the <see cref="DownloadRequestDto" /> class.
         /// </summary>
-        /// <param name="returnSingleOperation">Specifies whether to return only the current operation.</param>
         /// <param name="folderIds">The list of folder IDs to be downloaded..</param>
         /// <param name="fileIds">The list of file IDs to be downloaded..</param>
         /// <param name="fileConvertIds">The list of file IDs which will be converted..</param>
-        public DownloadRequestDto(bool returnSingleOperation = default, List<BaseBatchRequestDtoFolderIdsInner> folderIds = default, List<BaseBatchRequestDtoFolderIdsInner> fileIds = default, List<DownloadRequestItemDto> fileConvertIds = default)
+        public DownloadRequestDto(List<DownloadRequestDtoAllOfFolderIds> folderIds = default, List<DownloadRequestDtoAllOfFileIds> fileIds = default, List<DownloadRequestItemDto> fileConvertIds = default)
         {
-            this.ReturnSingleOperation = returnSingleOperation;
             this.FolderIds = folderIds;
             this.FileIds = fileIds;
             this.FileConvertIds = fileConvertIds;
         }
 
         /// <summary>
-        /// Specifies whether to return only the current operation
-        /// </summary>
-        /// <value>Specifies whether to return only the current operation</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "returnSingleOperation", EmitDefaultValue = true)]
-        public bool ReturnSingleOperation { get; set; }
-
-        /// <summary>
         /// The list of folder IDs to be downloaded.
         /// </summary>
         /// <value>The list of folder IDs to be downloaded.</value>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoFolderIdsInner> FolderIds { get; set; }
+        public List<DownloadRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to be downloaded.
         /// </summary>
         /// <value>The list of file IDs to be downloaded.</value>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoFolderIdsInner> FileIds { get; set; }
+        public List<DownloadRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
         /// The list of file IDs which will be converted.
@@ -79,7 +67,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DownloadRequestDto {\n");
-            sb.Append("  ReturnSingleOperation: ").Append(ReturnSingleOperation).Append("\n");
             sb.Append("  FolderIds: ").Append(FolderIds).Append("\n");
             sb.Append("  FileIds: ").Append(FileIds).Append("\n");
             sb.Append("  FileConvertIds: ").Append(FileConvertIds).Append("\n");
@@ -91,10 +78,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -106,6 +94,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

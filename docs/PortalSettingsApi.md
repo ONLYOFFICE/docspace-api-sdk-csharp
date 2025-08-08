@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PortalSettingsApi
+# DocSpace.API.SDK.Api.SettingsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -46,7 +46,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -66,7 +66,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -75,7 +75,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalSettingsApi.ContinuePortal: " + e.Message);
+                Debug.Print("Exception when calling SettingsApi.ContinuePortal: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -95,7 +95,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalSettingsApi.ContinuePortalWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsApi.ContinuePortalWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -149,7 +149,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -169,7 +169,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -179,7 +179,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalSettingsApi.DeletePortal: " + e.Message);
+                Debug.Print("Exception when calling SettingsApi.DeletePortal: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -202,7 +202,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalSettingsApi.DeletePortalWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsApi.DeletePortalWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -256,7 +256,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -276,7 +276,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -286,7 +286,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalSettingsApi.GetPortalInformation: " + e.Message);
+                Debug.Print("Exception when calling SettingsApi.GetPortalInformation: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -309,7 +309,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalSettingsApi.GetPortalInformationWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsApi.GetPortalInformationWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -367,7 +367,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -387,7 +387,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
             var virtualPath = some text;  // string? | The virtual path for the portal resource access. (optional) 
 
             try
@@ -398,7 +398,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalSettingsApi.GetPortalPath: " + e.Message);
+                Debug.Print("Exception when calling SettingsApi.GetPortalPath: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -421,7 +421,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalSettingsApi.GetPortalPathWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsApi.GetPortalPathWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -475,7 +475,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -495,7 +495,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -504,7 +504,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalSettingsApi.SendDeleteInstructions: " + e.Message);
+                Debug.Print("Exception when calling SettingsApi.SendDeleteInstructions: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -524,7 +524,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalSettingsApi.SendDeleteInstructionsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsApi.SendDeleteInstructionsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -578,7 +578,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -598,7 +598,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -607,7 +607,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalSettingsApi.SendSuspendInstructions: " + e.Message);
+                Debug.Print("Exception when calling SettingsApi.SendSuspendInstructions: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -627,7 +627,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalSettingsApi.SendSuspendInstructionsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsApi.SendSuspendInstructionsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -681,7 +681,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -701,7 +701,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -710,7 +710,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalSettingsApi.SuspendPortal: " + e.Message);
+                Debug.Print("Exception when calling SettingsApi.SuspendPortal: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -730,7 +730,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalSettingsApi.SuspendPortalWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SettingsApi.SuspendPortalWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

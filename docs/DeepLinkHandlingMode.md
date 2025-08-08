@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.DeepLinkHandlingMode
-The deep link handling mode.
+[0 - Provide choice, 1 - Web, 2 - App]
 
 ## Properties
 

@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PeopleUserDataApi
+# DocSpace.API.SDK.Api.UserDataApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -49,7 +49,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -69,7 +69,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserDataApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -79,7 +79,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserDataApi.GetDeletePersonalFolderProgress: " + e.Message);
+                Debug.Print("Exception when calling UserDataApi.GetDeletePersonalFolderProgress: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -102,7 +102,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserDataApi.GetDeletePersonalFolderProgressWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserDataApi.GetDeletePersonalFolderProgressWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -160,7 +160,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -180,7 +180,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserDataApi(httpClient, config, httpClientHandler);
             var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID.
 
             try
@@ -191,7 +191,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserDataApi.GetReassignProgress: " + e.Message);
+                Debug.Print("Exception when calling UserDataApi.GetReassignProgress: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -214,7 +214,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserDataApi.GetReassignProgressWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserDataApi.GetReassignProgressWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -272,7 +272,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -292,7 +292,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserDataApi(httpClient, config, httpClientHandler);
             var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID.
 
             try
@@ -303,7 +303,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserDataApi.GetRemoveProgress: " + e.Message);
+                Debug.Print("Exception when calling UserDataApi.GetRemoveProgress: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -326,7 +326,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserDataApi.GetRemoveProgressWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserDataApi.GetRemoveProgressWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -385,7 +385,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -405,7 +405,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserDataApi(httpClient, config, httpClientHandler);
             var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The user ID. (optional) 
             var type = new EmployeeType?(); // EmployeeType? | The expected user type. (optional) 
 
@@ -417,7 +417,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserDataApi.NecessaryReassign: " + e.Message);
+                Debug.Print("Exception when calling UserDataApi.NecessaryReassign: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -440,7 +440,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserDataApi.NecessaryReassignWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserDataApi.NecessaryReassignWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -494,7 +494,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -514,7 +514,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserDataApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -524,7 +524,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserDataApi.SendInstructionsToDelete: " + e.Message);
+                Debug.Print("Exception when calling UserDataApi.SendInstructionsToDelete: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -547,7 +547,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserDataApi.SendInstructionsToDeleteWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserDataApi.SendInstructionsToDeleteWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -602,7 +602,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -622,7 +622,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserDataApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -632,7 +632,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserDataApi.StartDeletePersonalFolder: " + e.Message);
+                Debug.Print("Exception when calling UserDataApi.StartDeletePersonalFolder: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -655,7 +655,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserDataApi.StartDeletePersonalFolderWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserDataApi.StartDeletePersonalFolderWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -714,7 +714,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -734,7 +734,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserDataApi(httpClient, config, httpClientHandler);
             var startReassignRequestDto = new StartReassignRequestDto?(); // StartReassignRequestDto? | The request parameters for starting the reassignment process. (optional) 
 
             try
@@ -745,7 +745,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserDataApi.StartReassign: " + e.Message);
+                Debug.Print("Exception when calling UserDataApi.StartReassign: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -768,7 +768,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserDataApi.StartReassignWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserDataApi.StartReassignWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -827,7 +827,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -847,7 +847,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserDataApi(httpClient, config, httpClientHandler);
             var terminateRequestDto = new TerminateRequestDto?(); // TerminateRequestDto? | The request parameters for terminating the reassignment/deletion process. (optional) 
 
             try
@@ -858,7 +858,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserDataApi.StartRemove: " + e.Message);
+                Debug.Print("Exception when calling UserDataApi.StartRemove: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -881,7 +881,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserDataApi.StartRemoveWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserDataApi.StartRemoveWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -942,7 +942,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -962,7 +962,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserDataApi(httpClient, config, httpClientHandler);
             var terminateRequestDto = new TerminateRequestDto?(); // TerminateRequestDto? | The request parameters for terminating the reassignment/deletion process. (optional) 
 
             try
@@ -973,7 +973,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserDataApi.TerminateReassign: " + e.Message);
+                Debug.Print("Exception when calling UserDataApi.TerminateReassign: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -996,7 +996,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserDataApi.TerminateReassignWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserDataApi.TerminateReassignWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1054,7 +1054,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1074,7 +1074,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserDataApi(httpClient, config, httpClientHandler);
             var terminateRequestDto = new TerminateRequestDto?(); // TerminateRequestDto? | The request parameters for terminating the reassignment/deletion process. (optional) 
 
             try
@@ -1084,7 +1084,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserDataApi.TerminateRemove: " + e.Message);
+                Debug.Print("Exception when calling UserDataApi.TerminateRemove: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1104,7 +1104,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserDataApi.TerminateRemoveWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserDataApi.TerminateRemoveWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

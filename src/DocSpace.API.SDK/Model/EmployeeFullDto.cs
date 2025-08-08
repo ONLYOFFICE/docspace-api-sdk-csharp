@@ -22,7 +22,7 @@ namespace DocSpace.API.SDK.Model
     /// The full list of user parameters.
     /// </summary>
     [DataContract(Name = "EmployeeFullDto")]
-    public partial class EmployeeFullDto : IValidatableObject
+    public partial class EmployeeFullDto : EmployeeDto, IValidatableObject
     {
 
         /// <summary>
@@ -52,17 +52,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmployeeFullDto" /> class.
         /// </summary>
-        /// <param name="id">The user ID..</param>
-        /// <param name="displayName">The user display name..</param>
-        /// <param name="title">The user title..</param>
-        /// <param name="avatar">The user avatar..</param>
-        /// <param name="avatarOriginal">The user original size avatar..</param>
-        /// <param name="avatarMax">The user maximum size avatar..</param>
-        /// <param name="avatarMedium">The user medium size avatar..</param>
-        /// <param name="avatarSmall">The user small size avatar..</param>
-        /// <param name="profileUrl">The user profile URL..</param>
-        /// <param name="hasAvatar">Specifies if the user has an avatar or not..</param>
-        /// <param name="isAnonim">Specifies if the user is anonymous or not..</param>
         /// <param name="firstName">The user first name..</param>
         /// <param name="lastName">The user last name..</param>
         /// <param name="userName">The user username..</param>
@@ -99,19 +88,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="registrationDate">registrationDate.</param>
         /// <param name="hasPersonalFolder">Specifies if the user has a personal folder or not..</param>
         /// <param name="tfaAppEnabled">Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app..</param>
-        public EmployeeFullDto(Guid id = default, string displayName = default, string title = default, string avatar = default, string avatarOriginal = default, string avatarMax = default, string avatarMedium = default, string avatarSmall = default, string profileUrl = default, bool hasAvatar = default, bool isAnonim = default, string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, ApiDateTime birthday = default, string sex = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, ApiDateTime workFrom = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool hasPersonalFolder = default, bool? tfaAppEnabled = default)
+        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, ApiDateTime birthday = default, string sex = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, ApiDateTime workFrom = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool hasPersonalFolder = default, bool? tfaAppEnabled = default)
         {
-            this.Id = id;
-            this.DisplayName = displayName;
-            this.Title = title;
-            this.Avatar = avatar;
-            this.AvatarOriginal = avatarOriginal;
-            this.AvatarMax = avatarMax;
-            this.AvatarMedium = avatarMedium;
-            this.AvatarSmall = avatarSmall;
-            this.ProfileUrl = profileUrl;
-            this.HasAvatar = hasAvatar;
-            this.IsAnonim = isAnonim;
             this.FirstName = firstName;
             this.LastName = lastName;
             this.UserName = userName;
@@ -149,113 +127,6 @@ namespace DocSpace.API.SDK.Model
             this.HasPersonalFolder = hasPersonalFolder;
             this.TfaAppEnabled = tfaAppEnabled;
         }
-
-        /// <summary>
-        /// The user ID.
-        /// </summary>
-        /// <value>The user ID.</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public Guid Id { get; set; }
-
-        /// <summary>
-        /// The user display name.
-        /// </summary>
-        /// <value>The user display name.</value>
-        /*
-        <example>Mike Zanyatski</example>
-        */
-        [DataMember(Name = "displayName", EmitDefaultValue = true)]
-        public string DisplayName { get; set; }
-
-        /// <summary>
-        /// The user title.
-        /// </summary>
-        /// <value>The user title.</value>
-        /*
-        <example>Manager</example>
-        */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
-        public string Title { get; set; }
-
-        /// <summary>
-        /// The user avatar.
-        /// </summary>
-        /// <value>The user avatar.</value>
-        /*
-        <example>some text</example>
-        */
-        [DataMember(Name = "avatar", EmitDefaultValue = true)]
-        public string Avatar { get; set; }
-
-        /// <summary>
-        /// The user original size avatar.
-        /// </summary>
-        /// <value>The user original size avatar.</value>
-        /*
-        <example>some text</example>
-        */
-        [DataMember(Name = "avatarOriginal", EmitDefaultValue = true)]
-        public string AvatarOriginal { get; set; }
-
-        /// <summary>
-        /// The user maximum size avatar.
-        /// </summary>
-        /// <value>The user maximum size avatar.</value>
-        /*
-        <example>some text</example>
-        */
-        [DataMember(Name = "avatarMax", EmitDefaultValue = true)]
-        public string AvatarMax { get; set; }
-
-        /// <summary>
-        /// The user medium size avatar.
-        /// </summary>
-        /// <value>The user medium size avatar.</value>
-        /*
-        <example>some text</example>
-        */
-        [DataMember(Name = "avatarMedium", EmitDefaultValue = true)]
-        public string AvatarMedium { get; set; }
-
-        /// <summary>
-        /// The user small size avatar.
-        /// </summary>
-        /// <value>The user small size avatar.</value>
-        /*
-        <example>url to small avatar</example>
-        */
-        [DataMember(Name = "avatarSmall", EmitDefaultValue = true)]
-        public string AvatarSmall { get; set; }
-
-        /// <summary>
-        /// The user profile URL.
-        /// </summary>
-        /// <value>The user profile URL.</value>
-        /*
-        <example>some text</example>
-        */
-        [DataMember(Name = "profileUrl", EmitDefaultValue = true)]
-        public string ProfileUrl { get; set; }
-
-        /// <summary>
-        /// Specifies if the user has an avatar or not.
-        /// </summary>
-        /// <value>Specifies if the user has an avatar or not.</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "hasAvatar", EmitDefaultValue = true)]
-        public bool HasAvatar { get; set; }
-
-        /// <summary>
-        /// Specifies if the user is anonymous or not.
-        /// </summary>
-        /// <value>Specifies if the user is anonymous or not.</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "isAnonim", EmitDefaultValue = true)]
-        public bool IsAnonim { get; set; }
 
         /// <summary>
         /// The user first name.
@@ -559,17 +430,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class EmployeeFullDto {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  Avatar: ").Append(Avatar).Append("\n");
-            sb.Append("  AvatarOriginal: ").Append(AvatarOriginal).Append("\n");
-            sb.Append("  AvatarMax: ").Append(AvatarMax).Append("\n");
-            sb.Append("  AvatarMedium: ").Append(AvatarMedium).Append("\n");
-            sb.Append("  AvatarSmall: ").Append(AvatarSmall).Append("\n");
-            sb.Append("  ProfileUrl: ").Append(ProfileUrl).Append("\n");
-            sb.Append("  HasAvatar: ").Append(HasAvatar).Append("\n");
-            sb.Append("  IsAnonim: ").Append(IsAnonim).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  UserName: ").Append(UserName).Append("\n");
@@ -614,10 +474,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -629,6 +490,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

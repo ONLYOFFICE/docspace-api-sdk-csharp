@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsRebrandingApi
+# DocSpace.API.SDK.Api.RebrandingApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -56,7 +56,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -76,7 +76,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -86,7 +86,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.DeleteAdditionalWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.DeleteAdditionalWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -109,7 +109,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.DeleteAdditionalWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.DeleteAdditionalWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -164,7 +164,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -184,7 +184,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -194,7 +194,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.DeleteCompanyWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.DeleteCompanyWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -217,7 +217,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.DeleteCompanyWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.DeleteCompanyWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -272,7 +272,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -292,7 +292,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -302,7 +302,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetAdditionalWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetAdditionalWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -325,7 +325,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetAdditionalWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetAdditionalWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -379,7 +379,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -399,7 +399,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -409,7 +409,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetCompanyWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetCompanyWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -432,7 +432,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetCompanyWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetCompanyWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -486,7 +486,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -506,7 +506,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -516,7 +516,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetEnableWhitelabel: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetEnableWhitelabel: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -539,7 +539,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetEnableWhitelabelWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetEnableWhitelabelWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -598,7 +598,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -618,7 +618,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -630,7 +630,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetIsDefaultWhiteLabelLogoText: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetIsDefaultWhiteLabelLogoText: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -653,7 +653,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetIsDefaultWhiteLabelLogoTextWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetIsDefaultWhiteLabelLogoTextWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -712,7 +712,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -732,7 +732,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -744,7 +744,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetIsDefaultWhiteLabelLogos: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetIsDefaultWhiteLabelLogos: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -767,7 +767,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetIsDefaultWhiteLabelLogosWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetIsDefaultWhiteLabelLogosWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -821,7 +821,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -841,7 +841,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -851,7 +851,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetLicensorData: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetLicensorData: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -874,7 +874,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetLicensorDataWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetLicensorDataWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -933,7 +933,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -953,7 +953,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -965,7 +965,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetWhiteLabelLogoText: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetWhiteLabelLogoText: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -988,7 +988,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetWhiteLabelLogoTextWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetWhiteLabelLogoTextWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1047,11 +1047,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -1063,7 +1063,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetWhiteLabelLogos: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetWhiteLabelLogos: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1086,7 +1086,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetWhiteLabelLogosWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetWhiteLabelLogosWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1144,7 +1144,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1164,7 +1164,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -1176,7 +1176,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.RestoreWhiteLabelLogoText: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.RestoreWhiteLabelLogoText: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1199,7 +1199,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.RestoreWhiteLabelLogoTextWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.RestoreWhiteLabelLogoTextWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1259,7 +1259,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1279,7 +1279,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -1291,7 +1291,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.RestoreWhiteLabelLogos: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.RestoreWhiteLabelLogos: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1314,7 +1314,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.RestoreWhiteLabelLogosWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.RestoreWhiteLabelLogosWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1373,7 +1373,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1393,7 +1393,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var additionalWhiteLabelSettingsWrapper = new AdditionalWhiteLabelSettingsWrapper?(); // AdditionalWhiteLabelSettingsWrapper? | The additional white label settings wrapper. (optional) 
 
             try
@@ -1404,7 +1404,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.SaveAdditionalWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.SaveAdditionalWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1427,7 +1427,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.SaveAdditionalWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.SaveAdditionalWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1487,7 +1487,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1507,7 +1507,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var companyWhiteLabelSettingsWrapper = new CompanyWhiteLabelSettingsWrapper?(); // CompanyWhiteLabelSettingsWrapper? | The company white label settings wrapper. (optional) 
 
             try
@@ -1518,7 +1518,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.SaveCompanyWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.SaveCompanyWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1541,7 +1541,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.SaveCompanyWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.SaveCompanyWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1603,7 +1603,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1623,7 +1623,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
             var whiteLabelRequestsDto = new WhiteLabelRequestsDto?(); // WhiteLabelRequestsDto? | The request parameters for configuring the white label branding settings. (optional) 
@@ -1636,7 +1636,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.SaveWhiteLabelLogoText: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.SaveWhiteLabelLogoText: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1659,7 +1659,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.SaveWhiteLabelLogoTextWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.SaveWhiteLabelLogoTextWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1720,7 +1720,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1740,7 +1740,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
             var whiteLabelRequestsDto = new WhiteLabelRequestsDto?(); // WhiteLabelRequestsDto? | The request parameters for configuring the white label branding settings. (optional) 
@@ -1753,7 +1753,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.SaveWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.SaveWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1776,7 +1776,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.SaveWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.SaveWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1836,7 +1836,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1856,7 +1856,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -1868,7 +1868,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.SaveWhiteLabelSettingsFromFiles: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.SaveWhiteLabelSettingsFromFiles: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1891,7 +1891,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.SaveWhiteLabelSettingsFromFilesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.SaveWhiteLabelSettingsFromFilesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

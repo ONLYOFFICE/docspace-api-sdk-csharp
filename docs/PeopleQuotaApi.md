@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PeopleQuotaApi
+# DocSpace.API.SDK.Api.QuotaApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -45,7 +45,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -65,7 +65,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleQuotaApi(httpClient, config, httpClientHandler);
+            var apiInstance = new QuotaApi(httpClient, config, httpClientHandler);
             var updateMembersQuotaRequestDto = new UpdateMembersQuotaRequestDto?(); // UpdateMembersQuotaRequestDto? | The request parameters for updating a user quota. (optional) 
 
             try
@@ -76,7 +76,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleQuotaApi.ResetUsersQuota: " + e.Message);
+                Debug.Print("Exception when calling QuotaApi.ResetUsersQuota: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -99,7 +99,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleQuotaApi.ResetUsersQuotaWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling QuotaApi.ResetUsersQuotaWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -160,7 +160,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -180,7 +180,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleQuotaApi(httpClient, config, httpClientHandler);
+            var apiInstance = new QuotaApi(httpClient, config, httpClientHandler);
             var updateMembersQuotaRequestDto = new UpdateMembersQuotaRequestDto?(); // UpdateMembersQuotaRequestDto? | The request parameters for updating a user quota. (optional) 
 
             try
@@ -191,7 +191,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleQuotaApi.UpdateUserQuota: " + e.Message);
+                Debug.Print("Exception when calling QuotaApi.UpdateUserQuota: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -214,7 +214,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleQuotaApi.UpdateUserQuotaWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling QuotaApi.UpdateUserQuotaWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

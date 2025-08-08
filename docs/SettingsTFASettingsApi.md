@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsTFASettingsApi
+# DocSpace.API.SDK.Api.TFASettingsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -48,7 +48,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -68,7 +68,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsTFASettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new TFASettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -78,7 +78,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsTFASettingsApi.GetTfaAppCodes: " + e.Message);
+                Debug.Print("Exception when calling TFASettingsApi.GetTfaAppCodes: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -101,7 +101,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsTFASettingsApi.GetTfaAppCodesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TFASettingsApi.GetTfaAppCodesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -156,7 +156,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -176,7 +176,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsTFASettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new TFASettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -186,7 +186,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsTFASettingsApi.GetTfaConfirmUrl: " + e.Message);
+                Debug.Print("Exception when calling TFASettingsApi.GetTfaConfirmUrl: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -209,7 +209,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsTFASettingsApi.GetTfaConfirmUrlWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TFASettingsApi.GetTfaConfirmUrlWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -263,7 +263,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -283,7 +283,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsTFASettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new TFASettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -293,7 +293,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsTFASettingsApi.GetTfaSettings: " + e.Message);
+                Debug.Print("Exception when calling TFASettingsApi.GetTfaSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -316,7 +316,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsTFASettingsApi.GetTfaSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TFASettingsApi.GetTfaSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -370,7 +370,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -390,7 +390,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsTFASettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new TFASettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -400,7 +400,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsTFASettingsApi.TfaAppGenerateSetupCode: " + e.Message);
+                Debug.Print("Exception when calling TFASettingsApi.TfaAppGenerateSetupCode: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -423,7 +423,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsTFASettingsApi.TfaAppGenerateSetupCodeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TFASettingsApi.TfaAppGenerateSetupCodeWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -482,7 +482,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -502,7 +502,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsTFASettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new TFASettingsApi(httpClient, config, httpClientHandler);
             var tfaValidateRequestsDto = new TfaValidateRequestsDto?(); // TfaValidateRequestsDto? | The request parameters for validating the two-factor authentication codes. (optional) 
 
             try
@@ -513,7 +513,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsTFASettingsApi.TfaValidateAuthCode: " + e.Message);
+                Debug.Print("Exception when calling TFASettingsApi.TfaValidateAuthCode: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -536,7 +536,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsTFASettingsApi.TfaValidateAuthCodeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TFASettingsApi.TfaValidateAuthCodeWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -594,7 +594,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -614,7 +614,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsTFASettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new TFASettingsApi(httpClient, config, httpClientHandler);
             var tfaRequestsDto = new TfaRequestsDto?(); // TfaRequestsDto? | The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional) 
 
             try
@@ -625,7 +625,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsTFASettingsApi.UnlinkTfaApp: " + e.Message);
+                Debug.Print("Exception when calling TFASettingsApi.UnlinkTfaApp: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -648,7 +648,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsTFASettingsApi.UnlinkTfaAppWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TFASettingsApi.UnlinkTfaAppWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -704,7 +704,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -724,7 +724,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsTFASettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new TFASettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -734,7 +734,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsTFASettingsApi.UpdateTfaAppCodes: " + e.Message);
+                Debug.Print("Exception when calling TFASettingsApi.UpdateTfaAppCodes: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -757,7 +757,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsTFASettingsApi.UpdateTfaAppCodesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TFASettingsApi.UpdateTfaAppCodesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -816,7 +816,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -836,7 +836,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsTFASettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new TFASettingsApi(httpClient, config, httpClientHandler);
             var tfaRequestsDto = new TfaRequestsDto?(); // TfaRequestsDto? | The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional) 
 
             try
@@ -847,7 +847,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsTFASettingsApi.UpdateTfaSettings: " + e.Message);
+                Debug.Print("Exception when calling TFASettingsApi.UpdateTfaSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -870,7 +870,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsTFASettingsApi.UpdateTfaSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TFASettingsApi.UpdateTfaSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -929,7 +929,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -949,7 +949,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsTFASettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new TFASettingsApi(httpClient, config, httpClientHandler);
             var tfaRequestsDto = new TfaRequestsDto?(); // TfaRequestsDto? | The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional) 
 
             try
@@ -960,7 +960,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsTFASettingsApi.UpdateTfaSettingsLink: " + e.Message);
+                Debug.Print("Exception when calling TFASettingsApi.UpdateTfaSettingsLink: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -983,7 +983,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsTFASettingsApi.UpdateTfaSettingsLinkWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TFASettingsApi.UpdateTfaSettingsLinkWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

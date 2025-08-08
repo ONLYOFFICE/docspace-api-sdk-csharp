@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsWebhooksApi
+# DocSpace.API.SDK.Api.WebhooksApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -52,7 +52,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -72,7 +72,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
             var createWebhooksConfigRequestsDto = new CreateWebhooksConfigRequestsDto?(); // CreateWebhooksConfigRequestsDto? | The request parameters for creating the webhook configuration. (optional) 
 
             try
@@ -83,7 +83,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebhooksApi.CreateWebhook: " + e.Message);
+                Debug.Print("Exception when calling WebhooksApi.CreateWebhook: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -106,7 +106,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebhooksApi.CreateWebhookWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebhooksApi.CreateWebhookWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -164,7 +164,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -184,7 +184,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
             var updateWebhooksConfigRequestsDto = new UpdateWebhooksConfigRequestsDto?(); // UpdateWebhooksConfigRequestsDto? | The request parameters for updating the webhook configuration. (optional) 
 
             try
@@ -195,7 +195,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebhooksApi.EnableWebhook: " + e.Message);
+                Debug.Print("Exception when calling WebhooksApi.EnableWebhook: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -218,7 +218,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebhooksApi.EnableWebhookWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebhooksApi.EnableWebhookWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -272,7 +272,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -292,7 +292,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -302,7 +302,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebhooksApi.GetTenantWebhooks: " + e.Message);
+                Debug.Print("Exception when calling WebhooksApi.GetTenantWebhooks: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -325,7 +325,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebhooksApi.GetTenantWebhooksWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebhooksApi.GetTenantWebhooksWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -379,7 +379,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -399,7 +399,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -409,7 +409,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebhooksApi.GetWebhookTriggers: " + e.Message);
+                Debug.Print("Exception when calling WebhooksApi.GetWebhookTriggers: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -432,7 +432,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebhooksApi.GetWebhookTriggersWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebhooksApi.GetWebhookTriggersWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -500,7 +500,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -520,7 +520,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
             var deliveryFrom = 2008-04-10T06:30+04:00;  // DateTime? | The delivery start time for filtering webhook logs. (optional) 
             var deliveryTo = 2008-04-10T06:30+04:00;  // DateTime? | The delivery end time for filtering webhook logs. (optional) 
             var hookUri = some text;  // string? | The destination URL where webhooks are delivered. (optional) 
@@ -541,7 +541,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebhooksApi.GetWebhooksLogs: " + e.Message);
+                Debug.Print("Exception when calling WebhooksApi.GetWebhooksLogs: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -564,7 +564,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebhooksApi.GetWebhooksLogsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebhooksApi.GetWebhooksLogsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -622,7 +622,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -642,7 +642,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
             var id = 9846;  // int | The ID extracted from the route parameters.
 
             try
@@ -653,7 +653,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebhooksApi.RemoveWebhook: " + e.Message);
+                Debug.Print("Exception when calling WebhooksApi.RemoveWebhook: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -676,7 +676,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebhooksApi.RemoveWebhookWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebhooksApi.RemoveWebhookWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -734,7 +734,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -754,7 +754,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
             var id = 9846;  // int | The ID extracted from the route parameters.
 
             try
@@ -765,7 +765,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebhooksApi.RetryWebhook: " + e.Message);
+                Debug.Print("Exception when calling WebhooksApi.RetryWebhook: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -788,7 +788,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebhooksApi.RetryWebhookWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebhooksApi.RetryWebhookWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -848,7 +848,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -868,7 +868,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
             var webhookRetryRequestsDto = new WebhookRetryRequestsDto?(); // WebhookRetryRequestsDto? | The request parameters for requesting the webhook delivery retries. (optional) 
 
             try
@@ -879,7 +879,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebhooksApi.RetryWebhooks: " + e.Message);
+                Debug.Print("Exception when calling WebhooksApi.RetryWebhooks: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -902,7 +902,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebhooksApi.RetryWebhooksWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebhooksApi.RetryWebhooksWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -960,7 +960,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -980,7 +980,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebhooksApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
             var updateWebhooksConfigRequestsDto = new UpdateWebhooksConfigRequestsDto?(); // UpdateWebhooksConfigRequestsDto? | The request parameters for updating the webhook configuration. (optional) 
 
             try
@@ -991,7 +991,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebhooksApi.UpdateWebhook: " + e.Message);
+                Debug.Print("Exception when calling WebhooksApi.UpdateWebhook: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1014,7 +1014,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebhooksApi.UpdateWebhookWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebhooksApi.UpdateWebhookWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**Schedule**](Schedule.md) |  | [optional] 
+**Response** | [**ScheduleDto**](ScheduleDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
 **Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 

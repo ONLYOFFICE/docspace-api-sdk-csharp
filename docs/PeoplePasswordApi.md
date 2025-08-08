@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PeoplePasswordApi
+# DocSpace.API.SDK.Api.PasswordApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -46,7 +46,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -66,7 +66,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeoplePasswordApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PasswordApi(httpClient, config, httpClientHandler);
             var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID.
             var memberBaseRequestDto = new MemberBaseRequestDto?(); // MemberBaseRequestDto? | The request parameters for the user generic information. (optional) 
 
@@ -78,7 +78,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeoplePasswordApi.ChangeUserPassword: " + e.Message);
+                Debug.Print("Exception when calling PasswordApi.ChangeUserPassword: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -101,7 +101,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeoplePasswordApi.ChangeUserPasswordWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PasswordApi.ChangeUserPasswordWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -162,11 +162,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeoplePasswordApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PasswordApi(httpClient, config, httpClientHandler);
             var emailMemberRequestDto = new EmailMemberRequestDto?(); // EmailMemberRequestDto? | The request parameters for the user email. (optional) 
 
             try
@@ -177,7 +177,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeoplePasswordApi.SendUserPassword: " + e.Message);
+                Debug.Print("Exception when calling PasswordApi.SendUserPassword: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -200,7 +200,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeoplePasswordApi.SendUserPasswordWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PasswordApi.SendUserPasswordWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.OAuth20ClientManagementApi
+# DocSpace.API.SDK.Api.ClientManagementApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -50,7 +50,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -59,7 +59,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20ClientManagementApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ClientManagementApi(httpClient, config, httpClientHandler);
             var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier.
             var changeClientActivationRequest = new ChangeClientActivationRequest(); // ChangeClientActivationRequest | The request parameters for changing the client activation status.
 
@@ -71,7 +71,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20ClientManagementApi.ChangeActivation: " + e.Message);
+                Debug.Print("Exception when calling ClientManagementApi.ChangeActivation: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -94,7 +94,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20ClientManagementApi.ChangeActivationWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ClientManagementApi.ChangeActivationWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -156,7 +156,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -165,7 +165,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20ClientManagementApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ClientManagementApi(httpClient, config, httpClientHandler);
             var createClientRequest = new CreateClientRequest(); // CreateClientRequest | The request parameters for creating a client.
 
             try
@@ -176,7 +176,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20ClientManagementApi.CreateClient: " + e.Message);
+                Debug.Print("Exception when calling ClientManagementApi.CreateClient: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -199,7 +199,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20ClientManagementApi.CreateClientWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ClientManagementApi.CreateClientWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -260,7 +260,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -269,7 +269,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20ClientManagementApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ClientManagementApi(httpClient, config, httpClientHandler);
             var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier.
 
             try
@@ -280,7 +280,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20ClientManagementApi.DeleteClient: " + e.Message);
+                Debug.Print("Exception when calling ClientManagementApi.DeleteClient: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -303,7 +303,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20ClientManagementApi.DeleteClientWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ClientManagementApi.DeleteClientWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -365,7 +365,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -374,7 +374,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20ClientManagementApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ClientManagementApi(httpClient, config, httpClientHandler);
             var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier.
 
             try
@@ -385,7 +385,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20ClientManagementApi.RegenerateSecret: " + e.Message);
+                Debug.Print("Exception when calling ClientManagementApi.RegenerateSecret: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -408,7 +408,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20ClientManagementApi.RegenerateSecretWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ClientManagementApi.RegenerateSecretWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -470,7 +470,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -479,7 +479,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20ClientManagementApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ClientManagementApi(httpClient, config, httpClientHandler);
             var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier.
 
             try
@@ -490,7 +490,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20ClientManagementApi.RevokeUserClient: " + e.Message);
+                Debug.Print("Exception when calling ClientManagementApi.RevokeUserClient: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -513,7 +513,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20ClientManagementApi.RevokeUserClientWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ClientManagementApi.RevokeUserClientWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -577,7 +577,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -586,7 +586,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20ClientManagementApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ClientManagementApi(httpClient, config, httpClientHandler);
             var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier.
             var updateClientRequest = new UpdateClientRequest(); // UpdateClientRequest | The request for updating client details.
 
@@ -598,7 +598,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20ClientManagementApi.UpdateClient: " + e.Message);
+                Debug.Print("Exception when calling ClientManagementApi.UpdateClient: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -621,7 +621,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20ClientManagementApi.UpdateClientWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ClientManagementApi.UpdateClientWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

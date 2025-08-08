@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsWebpluginsApi
+# DocSpace.API.SDK.Api.WebpluginsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -48,7 +48,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -68,7 +68,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebpluginsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
             var @system = true;  // bool? | Specifies whether to load the system plugins or not. (optional) 
 
             try
@@ -79,7 +79,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebpluginsApi.AddWebPluginFromFile: " + e.Message);
+                Debug.Print("Exception when calling WebpluginsApi.AddWebPluginFromFile: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -102,7 +102,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebpluginsApi.AddWebPluginFromFileWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebpluginsApi.AddWebPluginFromFileWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -162,7 +162,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -182,7 +182,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebpluginsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
             var name = Winfield Upton;  // string | The web plugin name.
 
             try
@@ -192,7 +192,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebpluginsApi.DeleteWebPlugin: " + e.Message);
+                Debug.Print("Exception when calling WebpluginsApi.DeleteWebPlugin: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -212,7 +212,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebpluginsApi.DeleteWebPluginWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebpluginsApi.DeleteWebPluginWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -271,7 +271,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -291,7 +291,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebpluginsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
             var name = Winfield Upton;  // string | The web plugin name.
 
             try
@@ -302,7 +302,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebpluginsApi.GetWebPlugin: " + e.Message);
+                Debug.Print("Exception when calling WebpluginsApi.GetWebPlugin: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -325,7 +325,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebpluginsApi.GetWebPluginWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebpluginsApi.GetWebPluginWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -384,7 +384,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -404,7 +404,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebpluginsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
             var enabled = true;  // bool? | The optional filter for the plugin enabled state. (optional) 
 
             try
@@ -415,7 +415,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebpluginsApi.GetWebPlugins: " + e.Message);
+                Debug.Print("Exception when calling WebpluginsApi.GetWebPlugins: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -438,7 +438,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebpluginsApi.GetWebPluginsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebpluginsApi.GetWebPluginsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -498,7 +498,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -518,7 +518,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsWebpluginsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
             var name = Winfield Upton;  // string | The web plugin name.
             var webPluginRequests = new WebPluginRequests?(); // WebPluginRequests? | The configuration settings for the web plugin instance. (optional) 
 
@@ -529,7 +529,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsWebpluginsApi.UpdateWebPlugin: " + e.Message);
+                Debug.Print("Exception when calling WebpluginsApi.UpdateWebPlugin: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -549,7 +549,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsWebpluginsApi.UpdateWebPluginWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling WebpluginsApi.UpdateWebPluginWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PeopleUserStatusApi
+# DocSpace.API.SDK.Api.UserStatusApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -53,7 +53,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -73,7 +73,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserStatusApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserStatusApi(httpClient, config, httpClientHandler);
             var status = (EmployeeStatus) "1";  // EmployeeStatus | The user status.
             var filterBy = some text;  // string? | Specifies the criteria used to filter the profiles in the request. (optional) 
             var count = 1234;  // int? | The maximum number of user profiles to retrieve. (optional) 
@@ -91,7 +91,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserStatusApi.GetByStatus: " + e.Message);
+                Debug.Print("Exception when calling UserStatusApi.GetByStatus: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -114,7 +114,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserStatusApi.GetByStatusWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserStatusApi.GetByStatusWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -173,7 +173,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -193,7 +193,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserStatusApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserStatusApi(httpClient, config, httpClientHandler);
             var activationstatus = (EmployeeActivationStatus) "0";  // EmployeeActivationStatus | The new user activation status.
             var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? | The request parameters for updating the user information. (optional) 
 
@@ -205,7 +205,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserStatusApi.UpdateUserActivationStatus: " + e.Message);
+                Debug.Print("Exception when calling UserStatusApi.UpdateUserActivationStatus: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -228,7 +228,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserStatusApi.UpdateUserActivationStatusWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserStatusApi.UpdateUserActivationStatusWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -287,7 +287,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -307,7 +307,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleUserStatusApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UserStatusApi(httpClient, config, httpClientHandler);
             var status = (EmployeeStatus) "1";  // EmployeeStatus | The new user status.
             var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? | The request parameters for updating the user information. (optional) 
 
@@ -319,7 +319,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleUserStatusApi.UpdateUserStatus: " + e.Message);
+                Debug.Print("Exception when calling UserStatusApi.UpdateUserStatus: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -342,7 +342,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleUserStatusApi.UpdateUserStatusWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserStatusApi.UpdateUserStatusWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

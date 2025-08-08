@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PortalGuestsApi
+# DocSpace.API.SDK.Api.GuestsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -44,7 +44,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -64,7 +64,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalGuestsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new GuestsApi(httpClient, config, httpClientHandler);
             var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID.
 
             try
@@ -75,7 +75,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalGuestsApi.GetGuestSharingLink: " + e.Message);
+                Debug.Print("Exception when calling GuestsApi.GetGuestSharingLink: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -98,7 +98,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalGuestsApi.GetGuestSharingLinkWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling GuestsApi.GetGuestSharingLinkWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

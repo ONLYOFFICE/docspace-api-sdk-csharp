@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PortalUsersApi
+# DocSpace.API.SDK.Api.UsersApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -48,7 +48,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -68,7 +68,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalUsersApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UsersApi(httpClient, config, httpClientHandler);
             var employeeType = (EmployeeType) "0";  // EmployeeType | The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).
 
             try
@@ -79,7 +79,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalUsersApi.GetInvitationLink: " + e.Message);
+                Debug.Print("Exception when calling UsersApi.GetInvitationLink: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -102,7 +102,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalUsersApi.GetInvitationLinkWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersApi.GetInvitationLinkWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -156,7 +156,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -176,7 +176,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalUsersApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UsersApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -186,7 +186,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalUsersApi.GetPortalUsersCount: " + e.Message);
+                Debug.Print("Exception when calling UsersApi.GetPortalUsersCount: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -209,7 +209,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalUsersApi.GetPortalUsersCountWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersApi.GetPortalUsersCountWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -267,7 +267,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -287,7 +287,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalUsersApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UsersApi(httpClient, config, httpClientHandler);
             var userID = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID extracted from the route parameters.
 
             try
@@ -298,7 +298,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalUsersApi.GetUserById: " + e.Message);
+                Debug.Print("Exception when calling UsersApi.GetUserById: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -321,7 +321,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalUsersApi.GetUserByIdWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersApi.GetUserByIdWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -375,7 +375,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -395,7 +395,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalUsersApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UsersApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -404,7 +404,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalUsersApi.MarkGiftMessageAsRead: " + e.Message);
+                Debug.Print("Exception when calling UsersApi.MarkGiftMessageAsRead: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -424,7 +424,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalUsersApi.MarkGiftMessageAsReadWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersApi.MarkGiftMessageAsReadWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -483,11 +483,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalUsersApi(httpClient, config, httpClientHandler);
+            var apiInstance = new UsersApi(httpClient, config, httpClientHandler);
             var userid = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user ID to receive the congratulatory message. (optional) 
             var key = some text;  // string? | The template identifier or email configuration key. (optional) 
 
@@ -498,7 +498,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalUsersApi.SendCongratulations: " + e.Message);
+                Debug.Print("Exception when calling UsersApi.SendCongratulations: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -518,7 +518,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalUsersApi.SendCongratulationsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UsersApi.SendCongratulationsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

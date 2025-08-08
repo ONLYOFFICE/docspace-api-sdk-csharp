@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsLicenseApi
+# DocSpace.API.SDK.Api.LicenseApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -43,7 +43,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -63,7 +63,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsLicenseApi(httpClient, config, httpClientHandler);
+            var apiInstance = new LicenseApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -73,7 +73,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsLicenseApi.AcceptLicense: " + e.Message);
+                Debug.Print("Exception when calling LicenseApi.AcceptLicense: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -96,7 +96,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsLicenseApi.AcceptLicenseWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling LicenseApi.AcceptLicenseWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -150,11 +150,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsLicenseApi(httpClient, config, httpClientHandler);
+            var apiInstance = new LicenseApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -164,7 +164,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsLicenseApi.GetIsLicenseRequired: " + e.Message);
+                Debug.Print("Exception when calling LicenseApi.GetIsLicenseRequired: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -187,7 +187,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsLicenseApi.GetIsLicenseRequiredWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling LicenseApi.GetIsLicenseRequiredWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -240,7 +240,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -260,7 +260,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsLicenseApi(httpClient, config, httpClientHandler);
+            var apiInstance = new LicenseApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -270,7 +270,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsLicenseApi.RefreshLicense: " + e.Message);
+                Debug.Print("Exception when calling LicenseApi.RefreshLicense: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -293,7 +293,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsLicenseApi.RefreshLicenseWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling LicenseApi.RefreshLicenseWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -351,7 +351,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -371,7 +371,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsLicenseApi(httpClient, config, httpClientHandler);
+            var apiInstance = new LicenseApi(httpClient, config, httpClientHandler);
             var files = new List<FileParameter>(); // List<FileParameter> | The list of license files to be uploaded.
 
             try
@@ -382,7 +382,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsLicenseApi.UploadLicense: " + e.Message);
+                Debug.Print("Exception when calling LicenseApi.UploadLicense: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -405,7 +405,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsLicenseApi.UploadLicenseWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling LicenseApi.UploadLicenseWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

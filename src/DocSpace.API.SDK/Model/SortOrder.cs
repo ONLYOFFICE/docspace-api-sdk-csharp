@@ -19,8 +19,9 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Defines SortOrder
+    /// [0 - Ascending, 1 - Descending]
     /// </summary>
+    /// <value>[0 - Ascending, 1 - Descending]</value>
     public enum SortOrder
     {
         /// <summary>

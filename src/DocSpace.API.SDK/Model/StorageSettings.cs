@@ -22,48 +22,15 @@ namespace DocSpace.API.SDK.Model
     /// StorageSettings
     /// </summary>
     [DataContract(Name = "StorageSettings")]
-    public partial class StorageSettings : IValidatableObject
+    public partial class StorageSettings : BaseStorageSettingsStorageSettings, IValidatableObject
     {
     
         /// <summary>
         /// Initializes a new instance of the <see cref="StorageSettings" /> class.
         /// </summary>
-        /// <param name="module">module.</param>
-        /// <param name="props">props.</param>
-        /// <param name="lastModified">lastModified.</param>
-        public StorageSettings(string module = default, Dictionary<string, string> props = default, DateTime lastModified = default)
+        public StorageSettings()
         {
-            this.Module = module;
-            this.Props = props;
-            this.LastModified = lastModified;
         }
-
-        /// <summary>
-        /// Gets or Sets Module
-        /// </summary>
-        /*
-        <example>some text</example>
-        */
-        [DataMember(Name = "module", EmitDefaultValue = true)]
-        public string Module { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Props
-        /// </summary>
-        /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
-        */
-        [DataMember(Name = "props", EmitDefaultValue = true)]
-        public Dictionary<string, string> Props { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LastModified
-        /// </summary>
-        /*
-        <example>2008-04-10T06:30+04:00</example>
-        */
-        [DataMember(Name = "lastModified", EmitDefaultValue = false)]
-        public DateTime LastModified { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,9 +40,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class StorageSettings {\n");
-            sb.Append("  Module: ").Append(Module).Append("\n");
-            sb.Append("  Props: ").Append(Props).Append("\n");
-            sb.Append("  LastModified: ").Append(LastModified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,10 +48,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -99,6 +64,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

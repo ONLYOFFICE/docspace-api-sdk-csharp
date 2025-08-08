@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.ProductQuantityType
-The product quantity type.
+[0 - Set, 1 - Add, 2 - Sub, 3 - Renew]
 
 ## Properties
 

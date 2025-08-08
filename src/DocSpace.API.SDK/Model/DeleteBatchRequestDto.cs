@@ -22,20 +22,18 @@ namespace DocSpace.API.SDK.Model
     /// The request parameters for deleting files.
     /// </summary>
     [DataContract(Name = "DeleteBatchRequestDto")]
-    public partial class DeleteBatchRequestDto : IValidatableObject
+    public partial class DeleteBatchRequestDto : FileOperationRequestBaseDto, IValidatableObject
     {
     
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteBatchRequestDto" /> class.
         /// </summary>
-        /// <param name="returnSingleOperation">Specifies whether to return only the current operation.</param>
         /// <param name="folderIds">The list of folder IDs to be deleted..</param>
         /// <param name="fileIds">The list of file IDs to be deleted..</param>
         /// <param name="deleteAfter">Specifies whether to delete a file after the editing session is finished or not.</param>
         /// <param name="immediately">Specifies whether to move a file to the \\\&quot;Trash\\\&quot; folder or delete it immediately..</param>
-        public DeleteBatchRequestDto(bool returnSingleOperation = default, List<BaseBatchRequestDtoFolderIdsInner> folderIds = default, List<BaseBatchRequestDtoFolderIdsInner> fileIds = default, bool deleteAfter = default, bool immediately = default)
+        public DeleteBatchRequestDto(List<DeleteBatchRequestDtoAllOfFolderIds> folderIds = default, List<DeleteBatchRequestDtoAllOfFileIds> fileIds = default, bool deleteAfter = default, bool immediately = default)
         {
-            this.ReturnSingleOperation = returnSingleOperation;
             this.FolderIds = folderIds;
             this.FileIds = fileIds;
             this.DeleteAfter = deleteAfter;
@@ -43,28 +41,18 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether to return only the current operation
-        /// </summary>
-        /// <value>Specifies whether to return only the current operation</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "returnSingleOperation", EmitDefaultValue = true)]
-        public bool ReturnSingleOperation { get; set; }
-
-        /// <summary>
         /// The list of folder IDs to be deleted.
         /// </summary>
         /// <value>The list of folder IDs to be deleted.</value>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoFolderIdsInner> FolderIds { get; set; }
+        public List<DeleteBatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to be deleted.
         /// </summary>
         /// <value>The list of file IDs to be deleted.</value>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoFolderIdsInner> FileIds { get; set; }
+        public List<DeleteBatchRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
         /// Specifies whether to delete a file after the editing session is finished or not
@@ -94,7 +82,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DeleteBatchRequestDto {\n");
-            sb.Append("  ReturnSingleOperation: ").Append(ReturnSingleOperation).Append("\n");
             sb.Append("  FolderIds: ").Append(FolderIds).Append("\n");
             sb.Append("  FileIds: ").Append(FileIds).Append("\n");
             sb.Append("  DeleteAfter: ").Append(DeleteAfter).Append("\n");
@@ -107,10 +94,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -122,6 +110,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

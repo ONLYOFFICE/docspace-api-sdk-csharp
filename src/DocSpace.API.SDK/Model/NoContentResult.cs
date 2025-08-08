@@ -22,26 +22,15 @@ namespace DocSpace.API.SDK.Model
     /// NoContentResult
     /// </summary>
     [DataContract(Name = "NoContentResult")]
-    public partial class NoContentResult : IValidatableObject
+    public partial class NoContentResult : StatusCodeResult, IValidatableObject
     {
     
         /// <summary>
         /// Initializes a new instance of the <see cref="NoContentResult" /> class.
         /// </summary>
-        /// <param name="statusCode">statusCode.</param>
-        public NoContentResult(int statusCode = default)
+        public NoContentResult()
         {
-            this.StatusCode = statusCode;
         }
-
-        /// <summary>
-        /// Gets or Sets StatusCode
-        /// </summary>
-        /*
-        <example>1234</example>
-        */
-        [DataMember(Name = "statusCode", EmitDefaultValue = false)]
-        public int StatusCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -51,7 +40,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class NoContentResult {\n");
-            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -60,10 +48,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -75,6 +64,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

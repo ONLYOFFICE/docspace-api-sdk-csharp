@@ -19,8 +19,9 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Defines EncryprtionStatus
+    /// [0 - Decrypted, 1 - Encryption started, 2 - Encrypted, 3 - Decryption started]
     /// </summary>
+    /// <value>[0 - Decrypted, 1 - Encryption started, 2 - Encrypted, 3 - Decryption started]</value>
     public enum EncryprtionStatus
     {
         /// <summary>

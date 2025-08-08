@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsIPRestrictionsApi
+# DocSpace.API.SDK.Api.IPRestrictionsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -43,7 +43,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -63,7 +63,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsIPRestrictionsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new IPRestrictionsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -73,7 +73,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsIPRestrictionsApi.GetIpRestrictions: " + e.Message);
+                Debug.Print("Exception when calling IPRestrictionsApi.GetIpRestrictions: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -96,7 +96,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsIPRestrictionsApi.GetIpRestrictionsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling IPRestrictionsApi.GetIpRestrictionsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -150,7 +150,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -170,7 +170,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsIPRestrictionsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new IPRestrictionsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -180,7 +180,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsIPRestrictionsApi.ReadIpRestrictionsSettings: " + e.Message);
+                Debug.Print("Exception when calling IPRestrictionsApi.ReadIpRestrictionsSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -203,7 +203,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsIPRestrictionsApi.ReadIpRestrictionsSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling IPRestrictionsApi.ReadIpRestrictionsSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -261,7 +261,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -281,7 +281,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsIPRestrictionsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new IPRestrictionsApi(httpClient, config, httpClientHandler);
             var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? | The parameters for configuring new IP restriction settings. (optional) 
 
             try
@@ -292,7 +292,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsIPRestrictionsApi.SaveIpRestrictions: " + e.Message);
+                Debug.Print("Exception when calling IPRestrictionsApi.SaveIpRestrictions: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -315,7 +315,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsIPRestrictionsApi.SaveIpRestrictionsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling IPRestrictionsApi.SaveIpRestrictionsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -373,7 +373,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -393,7 +393,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsIPRestrictionsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new IPRestrictionsApi(httpClient, config, httpClientHandler);
             var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? | The parameters for configuring new IP restriction settings. (optional) 
 
             try
@@ -404,7 +404,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsIPRestrictionsApi.UpdateIpRestrictionsSettings: " + e.Message);
+                Debug.Print("Exception when calling IPRestrictionsApi.UpdateIpRestrictionsSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -427,7 +427,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsIPRestrictionsApi.UpdateIpRestrictionsSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling IPRestrictionsApi.UpdateIpRestrictionsSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

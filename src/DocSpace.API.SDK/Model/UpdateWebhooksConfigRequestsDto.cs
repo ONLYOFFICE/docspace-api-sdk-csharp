@@ -22,14 +22,8 @@ namespace DocSpace.API.SDK.Model
     /// The request parameters for updating the webhook configuration.
     /// </summary>
     [DataContract(Name = "UpdateWebhooksConfigRequestsDto")]
-    public partial class UpdateWebhooksConfigRequestsDto : IValidatableObject
+    public partial class UpdateWebhooksConfigRequestsDto : CreateWebhooksConfigRequestsDto, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets Triggers
-        /// </summary>
-        [DataMember(Name = "triggers", EmitDefaultValue = false)]
-        public WebhookTrigger? Triggers { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateWebhooksConfigRequestsDto" /> class.
@@ -39,95 +33,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateWebhooksConfigRequestsDto" /> class.
         /// </summary>
-        /// <param name="name">The human-readable name of the webhook configuration. (required).</param>
-        /// <param name="uri">The destination URL where the webhook events will be sent. (required).</param>
-        /// <param name="secretKey">The webhook secret key used to sign the webhook payloads for the security verification..</param>
-        /// <param name="enabled">Specifies whether the webhook configuration is active or not..</param>
-        /// <param name="ssl">Specifies whether the SSL certificate verification is required or not..</param>
-        /// <param name="triggers">triggers.</param>
-        /// <param name="targetId">Target ID.</param>
         /// <param name="id">The webhook configuration ID..</param>
-        public UpdateWebhooksConfigRequestsDto(string name = default, string uri = default, string secretKey = default, bool enabled = default, bool ssl = default, WebhookTrigger? triggers = default, string targetId = default, int id = default)
+        public UpdateWebhooksConfigRequestsDto(int id = default)
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new ArgumentNullException("name is a required property for UpdateWebhooksConfigRequestsDto and cannot be null");
-            }
-            this.Name = name;
-            // to ensure "uri" is required (not null)
-            if (uri == null)
-            {
-                throw new ArgumentNullException("uri is a required property for UpdateWebhooksConfigRequestsDto and cannot be null");
-            }
-            this.Uri = uri;
-            this.SecretKey = secretKey;
-            this.Enabled = enabled;
-            this.Ssl = ssl;
-            this.Triggers = triggers;
-            this.TargetId = targetId;
             this.Id = id;
         }
-
-        /// <summary>
-        /// The human-readable name of the webhook configuration.
-        /// </summary>
-        /// <value>The human-readable name of the webhook configuration.</value>
-        /*
-        <example>Winfield Upton</example>
-        */
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// The destination URL where the webhook events will be sent.
-        /// </summary>
-        /// <value>The destination URL where the webhook events will be sent.</value>
-        /*
-        <example>some text</example>
-        */
-        [DataMember(Name = "uri", IsRequired = true, EmitDefaultValue = true)]
-        public string Uri { get; set; }
-
-        /// <summary>
-        /// The webhook secret key used to sign the webhook payloads for the security verification.
-        /// </summary>
-        /// <value>The webhook secret key used to sign the webhook payloads for the security verification.</value>
-        /*
-        <example>some text</example>
-        */
-        [DataMember(Name = "secretKey", EmitDefaultValue = true)]
-        public string SecretKey { get; set; }
-
-        /// <summary>
-        /// Specifies whether the webhook configuration is active or not.
-        /// </summary>
-        /// <value>Specifies whether the webhook configuration is active or not.</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "enabled", EmitDefaultValue = true)]
-        public bool Enabled { get; set; }
-
-        /// <summary>
-        /// Specifies whether the SSL certificate verification is required or not.
-        /// </summary>
-        /// <value>Specifies whether the SSL certificate verification is required or not.</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "ssl", EmitDefaultValue = true)]
-        public bool Ssl { get; set; }
-
-        /// <summary>
-        /// Target ID
-        /// </summary>
-        /// <value>Target ID</value>
-        /*
-        <example>some text</example>
-        */
-        [DataMember(Name = "targetId", EmitDefaultValue = true)]
-        public string TargetId { get; set; }
 
         /// <summary>
         /// The webhook configuration ID.
@@ -147,13 +57,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UpdateWebhooksConfigRequestsDto {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Uri: ").Append(Uri).Append("\n");
-            sb.Append("  SecretKey: ").Append(SecretKey).Append("\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  Ssl: ").Append(Ssl).Append("\n");
-            sb.Append("  Triggers: ").Append(Triggers).Append("\n");
-            sb.Append("  TargetId: ").Append(TargetId).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -163,10 +66,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -208,6 +112,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

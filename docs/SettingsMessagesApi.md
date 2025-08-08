@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsMessagesApi
+# DocSpace.API.SDK.Api.MessagesApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -46,7 +46,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -66,7 +66,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsMessagesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new MessagesApi(httpClient, config, httpClientHandler);
             var turnOnAdminMessageSettingsRequestDto = new TurnOnAdminMessageSettingsRequestDto?(); // TurnOnAdminMessageSettingsRequestDto? | The request parameters for enabling or disabling administrator messaging system. (optional) 
 
             try
@@ -77,7 +77,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsMessagesApi.EnableAdminMessageSettings: " + e.Message);
+                Debug.Print("Exception when calling MessagesApi.EnableAdminMessageSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -100,7 +100,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsMessagesApi.EnableAdminMessageSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MessagesApi.EnableAdminMessageSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -158,11 +158,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsMessagesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new MessagesApi(httpClient, config, httpClientHandler);
             var adminMessageSettingsRequestsDto = new AdminMessageSettingsRequestsDto?(); // AdminMessageSettingsRequestsDto? | The request parameters for configuring the administrator message content. (optional) 
 
             try
@@ -173,7 +173,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsMessagesApi.SendAdminMail: " + e.Message);
+                Debug.Print("Exception when calling MessagesApi.SendAdminMail: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -196,7 +196,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsMessagesApi.SendAdminMailWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MessagesApi.SendAdminMailWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -255,11 +255,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsMessagesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new MessagesApi(httpClient, config, httpClientHandler);
             var adminMessageBaseSettingsRequestsDto = new AdminMessageBaseSettingsRequestsDto?(); // AdminMessageBaseSettingsRequestsDto? | The request parameters for the administrator message configuration. (optional) 
 
             try
@@ -270,7 +270,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsMessagesApi.SendJoinInviteMail: " + e.Message);
+                Debug.Print("Exception when calling MessagesApi.SendJoinInviteMail: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -293,7 +293,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsMessagesApi.SendJoinInviteMailWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MessagesApi.SendJoinInviteMailWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

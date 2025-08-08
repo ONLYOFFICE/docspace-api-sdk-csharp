@@ -22,45 +22,33 @@ namespace DocSpace.API.SDK.Model
     /// The duplicate request parameters.
     /// </summary>
     [DataContract(Name = "DuplicateRequestDto")]
-    public partial class DuplicateRequestDto : IValidatableObject
+    public partial class DuplicateRequestDto : FileOperationRequestBaseDto, IValidatableObject
     {
     
         /// <summary>
         /// Initializes a new instance of the <see cref="DuplicateRequestDto" /> class.
         /// </summary>
-        /// <param name="returnSingleOperation">Specifies whether to return only the current operation.</param>
         /// <param name="folderIds">The list of folder IDs..</param>
         /// <param name="fileIds">The list of file IDs..</param>
-        public DuplicateRequestDto(bool returnSingleOperation = default, List<BaseBatchRequestDtoFolderIdsInner> folderIds = default, List<BaseBatchRequestDtoFolderIdsInner> fileIds = default)
+        public DuplicateRequestDto(List<DuplicateRequestDtoAllOfFolderIds> folderIds = default, List<DuplicateRequestDtoAllOfFileIds> fileIds = default)
         {
-            this.ReturnSingleOperation = returnSingleOperation;
             this.FolderIds = folderIds;
             this.FileIds = fileIds;
         }
-
-        /// <summary>
-        /// Specifies whether to return only the current operation
-        /// </summary>
-        /// <value>Specifies whether to return only the current operation</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "returnSingleOperation", EmitDefaultValue = true)]
-        public bool ReturnSingleOperation { get; set; }
 
         /// <summary>
         /// The list of folder IDs.
         /// </summary>
         /// <value>The list of folder IDs.</value>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoFolderIdsInner> FolderIds { get; set; }
+        public List<DuplicateRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs.
         /// </summary>
         /// <value>The list of file IDs.</value>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoFolderIdsInner> FileIds { get; set; }
+        public List<DuplicateRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,7 +58,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DuplicateRequestDto {\n");
-            sb.Append("  ReturnSingleOperation: ").Append(ReturnSingleOperation).Append("\n");
             sb.Append("  FolderIds: ").Append(FolderIds).Append("\n");
             sb.Append("  FileIds: ").Append(FileIds).Append("\n");
             sb.Append("}\n");
@@ -81,10 +68,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -96,6 +84,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

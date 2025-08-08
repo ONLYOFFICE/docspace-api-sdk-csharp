@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **ProviderKey** | **string** | The provider key of the file entry. | [optional] 
 **ProviderId** | **int?** | The provider ID of the file entry. | [optional] 
 **Order** | **string** | The order of the file entry. | [optional] 
+**FileEntryType** | **FileEntryType** |  | [optional] 
 **Id** | **int** | The file entry ID. | [optional] 
 **RootFolderId** | **int** | The root folder ID of the file entry. | [optional] 
 **OriginId** | **int** | The origin ID of the file entry. | [optional] 
@@ -26,7 +27,7 @@ Name | Type | Description | Notes
 **OriginTitle** | **string** | The origin title of the file entry. | [optional] 
 **OriginRoomTitle** | **string** | The origin room title of the file entry. | [optional] 
 **CanShare** | **bool** | Specifies if the file entry can be shared or not. | [optional] 
-**Security** | [**FileDtoIntegerSecurity**](FileDtoIntegerSecurity.md) |  | [optional] 
+**Security** | [**FileEntryDtoIntegerAllOfSecurity**](FileEntryDtoIntegerAllOfSecurity.md) |  | [optional] 
 **RequestToken** | **string** | The request token of the file entry. | [optional] 
 **FolderId** | **int** | The folder ID where the file is located. | [optional] 
 **@Version** | **int** | The file version. | [optional] 
@@ -55,11 +56,10 @@ Name | Type | Description | Notes
 **InProcessFolderId** | **int?** | The InProcess folder ID of the file. | [optional] 
 **InProcessFolderTitle** | **string** | The InProcess folder title of the file. | [optional] 
 **DraftLocation** | [**DraftLocationInteger**](DraftLocationInteger.md) |  | [optional] 
-**ViewAccessibility** | [**FileDtoIntegerViewAccessibility**](FileDtoIntegerViewAccessibility.md) |  | [optional] 
+**ViewAccessibility** | [**FileDtoIntegerAllOfViewAccessibility**](FileDtoIntegerAllOfViewAccessibility.md) |  | [optional] 
 **AvailableExternalRights** | **Dictionary&lt;string, bool&gt;** | The available external rights of the file. | [optional] 
 **LastOpened** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **Expired** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
-**FileEntryType** | **FileEntryType** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SecurityAuditTrailDataApi
+# DocSpace.API.SDK.Api.AuditTrailDataApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -46,7 +46,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -66,7 +66,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new AuditTrailDataApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -76,7 +76,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityAuditTrailDataApi.CreateAuditTrailReport: " + e.Message);
+                Debug.Print("Exception when calling AuditTrailDataApi.CreateAuditTrailReport: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -99,7 +99,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityAuditTrailDataApi.CreateAuditTrailReportWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AuditTrailDataApi.CreateAuditTrailReportWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -170,7 +170,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -190,7 +190,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new AuditTrailDataApi(httpClient, config, httpClientHandler);
             var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The ID of the user who triggered the audit event. (optional) 
             var productType = new ProductType?(); // ProductType? | The type of product related to the audit event. (optional) 
             var moduleType = new ModuleType?(); // ModuleType? | The module within the product where the audit event occurred. (optional) 
@@ -212,7 +212,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetAuditEventsByFilter: " + e.Message);
+                Debug.Print("Exception when calling AuditTrailDataApi.GetAuditEventsByFilter: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -235,7 +235,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetAuditEventsByFilterWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AuditTrailDataApi.GetAuditEventsByFilterWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -290,7 +290,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -310,7 +310,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new AuditTrailDataApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -320,7 +320,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetAuditSettings: " + e.Message);
+                Debug.Print("Exception when calling AuditTrailDataApi.GetAuditSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -343,7 +343,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetAuditSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AuditTrailDataApi.GetAuditSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -403,11 +403,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new AuditTrailDataApi(httpClient, config, httpClientHandler);
             var productType = new ProductType?(); // ProductType? | The type of product related to the audit trail. (optional) 
             var moduleType = new ModuleType?(); // ModuleType? | The module within the product associated with the audit trail. (optional) 
 
@@ -419,7 +419,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetAuditTrailMappers: " + e.Message);
+                Debug.Print("Exception when calling AuditTrailDataApi.GetAuditTrailMappers: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -442,7 +442,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetAuditTrailMappersWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AuditTrailDataApi.GetAuditTrailMappersWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -495,11 +495,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new AuditTrailDataApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -509,7 +509,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetAuditTrailTypes: " + e.Message);
+                Debug.Print("Exception when calling AuditTrailDataApi.GetAuditTrailTypes: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -532,7 +532,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetAuditTrailTypesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AuditTrailDataApi.GetAuditTrailTypesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -585,7 +585,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -605,7 +605,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new AuditTrailDataApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -615,7 +615,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetLastAuditEvents: " + e.Message);
+                Debug.Print("Exception when calling AuditTrailDataApi.GetLastAuditEvents: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -638,7 +638,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityAuditTrailDataApi.GetLastAuditEventsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AuditTrailDataApi.GetLastAuditEventsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -697,7 +697,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -717,7 +717,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityAuditTrailDataApi(httpClient, config, httpClientHandler);
+            var apiInstance = new AuditTrailDataApi(httpClient, config, httpClientHandler);
             var tenantAuditSettingsWrapper = new TenantAuditSettingsWrapper?(); // TenantAuditSettingsWrapper? | The tenant audit settings wrapper. (optional) 
 
             try
@@ -728,7 +728,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityAuditTrailDataApi.SetAuditSettings: " + e.Message);
+                Debug.Print("Exception when calling AuditTrailDataApi.SetAuditSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -751,7 +751,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityAuditTrailDataApi.SetAuditSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AuditTrailDataApi.SetAuditSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SecurityLoginHistoryApi
+# DocSpace.API.SDK.Api.LoginHistoryApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -42,7 +42,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -62,7 +62,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityLoginHistoryApi(httpClient, config, httpClientHandler);
+            var apiInstance = new LoginHistoryApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -72,7 +72,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityLoginHistoryApi.CreateLoginHistoryReport: " + e.Message);
+                Debug.Print("Exception when calling LoginHistoryApi.CreateLoginHistoryReport: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -95,7 +95,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityLoginHistoryApi.CreateLoginHistoryReportWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling LoginHistoryApi.CreateLoginHistoryReportWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -150,7 +150,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -170,7 +170,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityLoginHistoryApi(httpClient, config, httpClientHandler);
+            var apiInstance = new LoginHistoryApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -180,7 +180,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityLoginHistoryApi.GetLastLoginEvents: " + e.Message);
+                Debug.Print("Exception when calling LoginHistoryApi.GetLastLoginEvents: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -203,7 +203,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityLoginHistoryApi.GetLastLoginEventsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling LoginHistoryApi.GetLastLoginEventsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -268,7 +268,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -288,7 +288,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityLoginHistoryApi(httpClient, config, httpClientHandler);
+            var apiInstance = new LoginHistoryApi(httpClient, config, httpClientHandler);
             var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The ID of the user whose login events are being queried. (optional) 
             var action = new MessageAction?(); // MessageAction? | The login-related action to filter events by. (optional) 
             var from = new ApiDateTime?(); // ApiDateTime? | The starting date and time for filtering login events. (optional) 
@@ -305,7 +305,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityLoginHistoryApi.GetLoginEventsByFilter: " + e.Message);
+                Debug.Print("Exception when calling LoginHistoryApi.GetLoginEventsByFilter: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -328,7 +328,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityLoginHistoryApi.GetLoginEventsByFilterWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling LoginHistoryApi.GetLoginEventsByFilterWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="url">The file operation URL..</param>
         /// <param name="files">The list of files of the file operation..</param>
         /// <param name="folders">The list of folders of the file operation..</param>
-        public FileOperationDto(string id = default, FileOperationType? operation = default, int progress = default, string error = default, string processed = default, bool finished = default, string url = default, List<FileEntryDto> files = default, List<FileEntryDto> folders = default)
+        public FileOperationDto(string id = default, FileOperationType? operation = default, int progress = default, string error = default, string processed = default, bool finished = default, string url = default, List<FileEntryBaseDto> files = default, List<FileEntryBaseDto> folders = default)
         {
             this.Id = id;
             this.Operation = operation;
@@ -118,14 +118,14 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of files of the file operation.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
-        public List<FileEntryDto> Files { get; set; }
+        public List<FileEntryBaseDto> Files { get; set; }
 
         /// <summary>
         /// The list of folders of the file operation.
         /// </summary>
         /// <value>The list of folders of the file operation.</value>
         [DataMember(Name = "folders", EmitDefaultValue = true)]
-        public List<FileEntryDto> Folders { get; set; }
+        public List<FileEntryBaseDto> Folders { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

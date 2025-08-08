@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SecurityActiveConnectionsApi
+# DocSpace.API.SDK.Api.ActiveConnectionsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -44,7 +44,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -64,7 +64,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityActiveConnectionsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ActiveConnectionsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -74,7 +74,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityActiveConnectionsApi.GetAllActiveConnections: " + e.Message);
+                Debug.Print("Exception when calling ActiveConnectionsApi.GetAllActiveConnections: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -97,7 +97,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityActiveConnectionsApi.GetAllActiveConnectionsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ActiveConnectionsApi.GetAllActiveConnectionsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -155,7 +155,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -175,7 +175,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityActiveConnectionsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ActiveConnectionsApi(httpClient, config, httpClientHandler);
             var loginEventId = 9846;  // int | The ID of the specific login event.
 
             try
@@ -186,7 +186,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityActiveConnectionsApi.LogOutActiveConnection: " + e.Message);
+                Debug.Print("Exception when calling ActiveConnectionsApi.LogOutActiveConnection: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -209,7 +209,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityActiveConnectionsApi.LogOutActiveConnectionWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ActiveConnectionsApi.LogOutActiveConnectionWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -264,7 +264,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -284,7 +284,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityActiveConnectionsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ActiveConnectionsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -294,7 +294,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityActiveConnectionsApi.LogOutAllActiveConnectionsChangePassword: " + e.Message);
+                Debug.Print("Exception when calling ActiveConnectionsApi.LogOutAllActiveConnectionsChangePassword: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -317,7 +317,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityActiveConnectionsApi.LogOutAllActiveConnectionsChangePasswordWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ActiveConnectionsApi.LogOutAllActiveConnectionsChangePasswordWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -375,7 +375,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -395,7 +395,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityActiveConnectionsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ActiveConnectionsApi(httpClient, config, httpClientHandler);
             var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID extracted from the route parameters.
 
             try
@@ -405,7 +405,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityActiveConnectionsApi.LogOutAllActiveConnectionsForUser: " + e.Message);
+                Debug.Print("Exception when calling ActiveConnectionsApi.LogOutAllActiveConnectionsForUser: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -425,7 +425,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityActiveConnectionsApi.LogOutAllActiveConnectionsForUserWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ActiveConnectionsApi.LogOutAllActiveConnectionsForUserWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -480,7 +480,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -500,7 +500,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityActiveConnectionsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ActiveConnectionsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -510,7 +510,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityActiveConnectionsApi.LogOutAllExceptThisConnection: " + e.Message);
+                Debug.Print("Exception when calling ActiveConnectionsApi.LogOutAllExceptThisConnection: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -533,7 +533,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityActiveConnectionsApi.LogOutAllExceptThisConnectionWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ActiveConnectionsApi.LogOutAllExceptThisConnectionWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

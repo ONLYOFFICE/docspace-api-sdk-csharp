@@ -34,8 +34,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="address">The company address..</param>
         /// <param name="phone">The company phone number..</param>
         /// <param name="isLicensor">Specifies if a company is a licensor or not..</param>
+        /// <param name="hideAbout">Specifies if the About page is visible or not.</param>
         /// <param name="lastModified">lastModified.</param>
-        public CompanyWhiteLabelSettings(string companyName = default, string site = default, string email = default, string address = default, string phone = default, bool isLicensor = default, DateTime lastModified = default)
+        public CompanyWhiteLabelSettings(string companyName = default, string site = default, string email = default, string address = default, string phone = default, bool isLicensor = default, bool hideAbout = default, DateTime lastModified = default)
         {
             this.CompanyName = companyName;
             this.Site = site;
@@ -43,6 +44,7 @@ namespace DocSpace.API.SDK.Model
             this.Address = address;
             this.Phone = phone;
             this.IsLicensor = isLicensor;
+            this.HideAbout = hideAbout;
             this.LastModified = lastModified;
         }
 
@@ -107,6 +109,16 @@ namespace DocSpace.API.SDK.Model
         public bool IsLicensor { get; set; }
 
         /// <summary>
+        /// Specifies if the About page is visible or not
+        /// </summary>
+        /// <value>Specifies if the About page is visible or not</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "hideAbout", EmitDefaultValue = true)]
+        public bool HideAbout { get; set; }
+
+        /// <summary>
         /// Gets or Sets LastModified
         /// </summary>
         /*
@@ -129,6 +141,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  IsLicensor: ").Append(IsLicensor).Append("\n");
+            sb.Append("  HideAbout: ").Append(HideAbout).Append("\n");
             sb.Append("  LastModified: ").Append(LastModified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

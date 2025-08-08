@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsAuthorizationApi
+# DocSpace.API.SDK.Api.AuthorizationApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -41,7 +41,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -61,7 +61,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsAuthorizationApi(httpClient, config, httpClientHandler);
+            var apiInstance = new AuthorizationApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -71,7 +71,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsAuthorizationApi.GetAuthServices: " + e.Message);
+                Debug.Print("Exception when calling AuthorizationApi.GetAuthServices: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -94,7 +94,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsAuthorizationApi.GetAuthServicesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AuthorizationApi.GetAuthServicesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -152,7 +152,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -172,7 +172,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsAuthorizationApi(httpClient, config, httpClientHandler);
+            var apiInstance = new AuthorizationApi(httpClient, config, httpClientHandler);
             var authServiceRequestsDto = new AuthServiceRequestsDto?(); // AuthServiceRequestsDto? | The request parameters for handling the authorization service. (optional) 
 
             try
@@ -183,7 +183,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsAuthorizationApi.SaveAuthKeys: " + e.Message);
+                Debug.Print("Exception when calling AuthorizationApi.SaveAuthKeys: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -206,7 +206,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsAuthorizationApi.SaveAuthKeysWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AuthorizationApi.SaveAuthKeysWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

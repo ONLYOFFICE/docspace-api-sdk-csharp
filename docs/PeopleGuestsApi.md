@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PeopleGuestsApi
+# DocSpace.API.SDK.Api.GuestsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -45,7 +45,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -65,7 +65,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleGuestsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new GuestsApi(httpClient, config, httpClientHandler);
             var emailMemberRequestDto = new EmailMemberRequestDto?(); // EmailMemberRequestDto? | The request parameters for the user email. (optional) 
 
             try
@@ -76,7 +76,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleGuestsApi.ApproveGuestShareLink: " + e.Message);
+                Debug.Print("Exception when calling GuestsApi.ApproveGuestShareLink: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -99,7 +99,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleGuestsApi.ApproveGuestShareLinkWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling GuestsApi.ApproveGuestShareLinkWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -159,7 +159,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -179,7 +179,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleGuestsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new GuestsApi(httpClient, config, httpClientHandler);
             var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? | The request parameters for updating the user information. (optional) 
 
             try
@@ -189,7 +189,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleGuestsApi.DeleteGuests: " + e.Message);
+                Debug.Print("Exception when calling GuestsApi.DeleteGuests: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -209,7 +209,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleGuestsApi.DeleteGuestsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling GuestsApi.DeleteGuestsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PortalPaymentApi
+# DocSpace.API.SDK.Api.PaymentApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -61,7 +61,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -81,7 +81,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var walletQuantityRequestDto = new WalletQuantityRequestDto?(); // WalletQuantityRequestDto? | The request parameters for the wallet payment quantity specifications. (optional) 
 
             try
@@ -92,7 +92,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.CalculateWalletPayment: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.CalculateWalletPayment: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -115,7 +115,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.CalculateWalletPaymentWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.CalculateWalletPaymentWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -174,7 +174,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -194,7 +194,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var customerOperationsReportRequestDto = new CustomerOperationsReportRequestDto?(); // CustomerOperationsReportRequestDto? | Parameters of the request for generating the report on client operations (optional) 
 
             try
@@ -205,7 +205,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.CreateCustomerOperationsReport: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.CreateCustomerOperationsReport: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -228,7 +228,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.CreateCustomerOperationsReportWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.CreateCustomerOperationsReportWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -286,7 +286,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -306,7 +306,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var backUrl = some text;  // string? | Back URL (optional) 
 
             try
@@ -317,7 +317,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetCheckoutSetupUrl: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.GetCheckoutSetupUrl: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -340,7 +340,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetCheckoutSetupUrlWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.GetCheckoutSetupUrlWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -399,7 +399,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -419,7 +419,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var refresh = true;  // bool? | Specifies whether to refresh the payment information cache or not. (optional) 
 
             try
@@ -430,7 +430,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetCustomerBalance: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.GetCustomerBalance: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -453,7 +453,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetCustomerBalanceWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.GetCustomerBalanceWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -512,7 +512,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -532,7 +532,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var refresh = true;  // bool? | Specifies whether to refresh the payment information cache or not. (optional) 
 
             try
@@ -543,7 +543,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetCustomerInfo: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.GetCustomerInfo: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -566,7 +566,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetCustomerInfoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.GetCustomerInfoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -630,7 +630,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -650,7 +650,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var startDate = 2008-04-10T06:30+04:00;  // DateTime? | Start date (optional) 
             var endDate = 2008-04-10T06:30+04:00;  // DateTime? | End date (optional) 
             var credit = true;  // bool? | Include credit operations (true by default) (optional) 
@@ -666,7 +666,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetCustomerOperations: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.GetCustomerOperations: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -689,7 +689,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetCustomerOperationsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.GetCustomerOperationsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -748,7 +748,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -768,7 +768,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var backUrl = some text;  // string? | The URL where the user will be redirected after payment processing. (optional) 
 
             try
@@ -779,7 +779,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetPaymentAccount: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.GetPaymentAccount: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -802,7 +802,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetPaymentAccountWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.GetPaymentAccountWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -857,7 +857,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -877,7 +877,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -887,7 +887,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetPaymentCurrencies: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.GetPaymentCurrencies: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -910,7 +910,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetPaymentCurrenciesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.GetPaymentCurrenciesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -968,7 +968,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -988,7 +988,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var wallet = true;  // bool? | Get wallet quotas only (optional) 
 
             try
@@ -999,7 +999,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetPaymentQuotas: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.GetPaymentQuotas: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1022,7 +1022,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetPaymentQuotasWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.GetPaymentQuotasWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1080,7 +1080,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1100,7 +1100,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var paymentUrlRequestsDto = new PaymentUrlRequestsDto?(); // PaymentUrlRequestsDto? | The request parameters for the payment URL configuration with quantity information. (optional) 
 
             try
@@ -1111,7 +1111,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetPaymentUrl: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.GetPaymentUrl: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1134,7 +1134,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetPaymentUrlWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.GetPaymentUrlWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1189,7 +1189,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1209,7 +1209,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -1219,7 +1219,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetPortalPrices: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.GetPortalPrices: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1242,7 +1242,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetPortalPricesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.GetPortalPricesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1300,7 +1300,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1320,7 +1320,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var refresh = true;  // bool? | Specifies whether to refresh the payment information cache or not. (optional) 
 
             try
@@ -1331,7 +1331,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetQuotaPaymentInformation: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.GetQuotaPaymentInformation: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1354,7 +1354,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetQuotaPaymentInformationWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.GetQuotaPaymentInformationWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1409,7 +1409,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1429,7 +1429,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -1439,7 +1439,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.GetTenantWalletSettings: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.GetTenantWalletSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1462,7 +1462,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.GetTenantWalletSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.GetTenantWalletSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1521,7 +1521,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1541,7 +1541,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var salesRequestsDto = new SalesRequestsDto?(); // SalesRequestsDto? | The request parameters for handling sales and payment inquiries in the portal. (optional) 
 
             try
@@ -1551,7 +1551,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.SendPaymentRequest: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.SendPaymentRequest: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1571,7 +1571,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.SendPaymentRequestWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.SendPaymentRequestWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1631,7 +1631,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1651,7 +1651,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var tenantWalletSettingsWrapper = new TenantWalletSettingsWrapper?(); // TenantWalletSettingsWrapper? | Tenant wallet settings (optional) 
 
             try
@@ -1662,7 +1662,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.SetTenantWalletSettings: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.SetTenantWalletSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1685,7 +1685,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.SetTenantWalletSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.SetTenantWalletSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1744,7 +1744,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1764,7 +1764,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var topUpDepositRequestDto = new TopUpDepositRequestDto?(); // TopUpDepositRequestDto? | Put money on deposit request parameters (optional) 
 
             try
@@ -1775,7 +1775,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.TopUpDeposit: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.TopUpDeposit: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1798,7 +1798,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.TopUpDepositWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.TopUpDepositWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1857,7 +1857,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1877,7 +1877,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var quantityRequestDto = new QuantityRequestDto?(); // QuantityRequestDto? | The request parameters for the payment quantity specifications. (optional) 
 
             try
@@ -1888,7 +1888,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.UpdatePayment: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.UpdatePayment: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1911,7 +1911,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.UpdatePaymentWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.UpdatePaymentWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1970,7 +1970,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1990,7 +1990,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalPaymentApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var walletQuantityRequestDto = new WalletQuantityRequestDto?(); // WalletQuantityRequestDto? | The request parameters for the wallet payment quantity specifications. (optional) 
 
             try
@@ -2001,7 +2001,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalPaymentApi.UpdateWalletPayment: " + e.Message);
+                Debug.Print("Exception when calling PaymentApi.UpdateWalletPayment: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -2024,7 +2024,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalPaymentApi.UpdateWalletPaymentWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PaymentApi.UpdateWalletPaymentWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

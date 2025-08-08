@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SecurityBannersVisibilityApi
+# DocSpace.API.SDK.Api.BannersVisibilityApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -44,7 +44,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -64,7 +64,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityBannersVisibilityApi(httpClient, config, httpClientHandler);
+            var apiInstance = new BannersVisibilityApi(httpClient, config, httpClientHandler);
             var tenantBannerSettingsDto = new TenantBannerSettingsDto?(); // TenantBannerSettingsDto? | The request parameters for managing the promotional banners visibility settings for the current tenant. (optional) 
 
             try
@@ -75,7 +75,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityBannersVisibilityApi.SetTenantBannerSettings: " + e.Message);
+                Debug.Print("Exception when calling BannersVisibilityApi.SetTenantBannerSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -98,7 +98,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityBannersVisibilityApi.SetTenantBannerSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling BannersVisibilityApi.SetTenantBannerSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

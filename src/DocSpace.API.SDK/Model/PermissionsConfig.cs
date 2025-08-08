@@ -36,10 +36,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="modifyFilter">Defines if the filter can be applied globally (true) affecting all the other users,  or locally (false), i.e. for the current user only..</param>
         /// <param name="protect">Defines if the \&quot;Protection\&quot; tab on the toolbar and the \&quot;Protect\&quot; button in the left menu are displayedor hidden..</param>
         /// <param name="print">Defines if the document can be printed or not..</param>
-        /// <param name="rename">Specifies whether to display the \&quot;Rename...\&quot; button when using the \&quot;onRequestRename\&quot; event..</param>
         /// <param name="review">Defines if the document can be reviewed or not..</param>
         /// <param name="copy">Defines if the content can be copied to the clipboard or not..</param>
-        public PermissionsConfig(bool comment = default, bool chat = default, bool download = default, bool edit = default, bool fillForms = default, bool modifyFilter = default, bool protect = default, bool print = default, bool rename = default, bool review = default, bool copy = default)
+        public PermissionsConfig(bool comment = default, bool chat = default, bool download = default, bool edit = default, bool fillForms = default, bool modifyFilter = default, bool protect = default, bool print = default, bool review = default, bool copy = default)
         {
             this.Comment = comment;
             this.Chat = chat;
@@ -49,7 +48,6 @@ namespace DocSpace.API.SDK.Model
             this.ModifyFilter = modifyFilter;
             this.Protect = protect;
             this.Print = print;
-            this.Rename = rename;
             this.Review = review;
             this.Copy = copy;
         }
@@ -135,16 +133,6 @@ namespace DocSpace.API.SDK.Model
         public bool Print { get; set; }
 
         /// <summary>
-        /// Specifies whether to display the \&quot;Rename...\&quot; button when using the \&quot;onRequestRename\&quot; event.
-        /// </summary>
-        /// <value>Specifies whether to display the \&quot;Rename...\&quot; button when using the \&quot;onRequestRename\&quot; event.</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "rename", EmitDefaultValue = true)]
-        public bool Rename { get; set; }
-
-        /// <summary>
         /// Defines if the document can be reviewed or not.
         /// </summary>
         /// <value>Defines if the document can be reviewed or not.</value>
@@ -180,7 +168,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ModifyFilter: ").Append(ModifyFilter).Append("\n");
             sb.Append("  Protect: ").Append(Protect).Append("\n");
             sb.Append("  Print: ").Append(Print).Append("\n");
-            sb.Append("  Rename: ").Append(Rename).Append("\n");
             sb.Append("  Review: ").Append(Review).Append("\n");
             sb.Append("  Copy: ").Append(Copy).Append("\n");
             sb.Append("}\n");

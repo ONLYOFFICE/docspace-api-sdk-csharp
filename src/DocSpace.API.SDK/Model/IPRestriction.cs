@@ -22,41 +22,19 @@ namespace DocSpace.API.SDK.Model
     /// IPRestriction
     /// </summary>
     [DataContract(Name = "IPRestriction")]
-    public partial class IPRestriction : IValidatableObject
+    public partial class IPRestriction : IpRestrictionBase, IValidatableObject
     {
     
         /// <summary>
         /// Initializes a new instance of the <see cref="IPRestriction" /> class.
         /// </summary>
-        /// <param name="ip">ip.</param>
-        /// <param name="forAdmin">forAdmin.</param>
         /// <param name="id">id.</param>
         /// <param name="tenantId">tenantId.</param>
-        public IPRestriction(string ip = default, bool forAdmin = default, int id = default, int tenantId = default)
+        public IPRestriction(int id = default, int tenantId = default)
         {
-            this.Ip = ip;
-            this.ForAdmin = forAdmin;
             this.Id = id;
             this.TenantId = tenantId;
         }
-
-        /// <summary>
-        /// Gets or Sets Ip
-        /// </summary>
-        /*
-        <example>some text</example>
-        */
-        [DataMember(Name = "ip", EmitDefaultValue = true)]
-        public string Ip { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ForAdmin
-        /// </summary>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "forAdmin", EmitDefaultValue = true)]
-        public bool ForAdmin { get; set; }
 
         /// <summary>
         /// Gets or Sets Id
@@ -84,8 +62,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class IPRestriction {\n");
-            sb.Append("  Ip: ").Append(Ip).Append("\n");
-            sb.Append("  ForAdmin: ").Append(ForAdmin).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("}\n");
@@ -96,10 +72,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -111,6 +88,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

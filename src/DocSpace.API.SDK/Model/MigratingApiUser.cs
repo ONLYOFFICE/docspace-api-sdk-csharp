@@ -22,7 +22,7 @@ namespace DocSpace.API.SDK.Model
     /// MigratingApiUser
     /// </summary>
     [DataContract(Name = "MigratingApiUser")]
-    public partial class MigratingApiUser : IValidatableObject
+    public partial class MigratingApiUser : ImportableApiEntity, IValidatableObject
     {
 
         /// <summary>
@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MigratingApiUser" /> class.
         /// </summary>
-        /// <param name="shouldImport">shouldImport.</param>
         /// <param name="key">key.</param>
         /// <param name="email">email.</param>
         /// <param name="displayName">displayName.</param>
@@ -42,9 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="lastName">lastName.</param>
         /// <param name="userType">userType.</param>
         /// <param name="migratingFiles">migratingFiles.</param>
-        public MigratingApiUser(bool shouldImport = default, string key = default, string email = default, string displayName = default, string firstName = default, string lastName = default, EmployeeType? userType = default, MigratingApiFiles migratingFiles = default)
+        public MigratingApiUser(string key = default, string email = default, string displayName = default, string firstName = default, string lastName = default, EmployeeType? userType = default, MigratingApiFiles migratingFiles = default)
         {
-            this.ShouldImport = shouldImport;
             this.Key = key;
             this.Email = email;
             this.DisplayName = displayName;
@@ -53,15 +51,6 @@ namespace DocSpace.API.SDK.Model
             this.UserType = userType;
             this.MigratingFiles = migratingFiles;
         }
-
-        /// <summary>
-        /// Gets or Sets ShouldImport
-        /// </summary>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "shouldImport", EmitDefaultValue = true)]
-        public bool ShouldImport { get; set; }
 
         /// <summary>
         /// Gets or Sets Key
@@ -122,7 +111,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class MigratingApiUser {\n");
-            sb.Append("  ShouldImport: ").Append(ShouldImport).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
@@ -138,10 +126,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -153,6 +142,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

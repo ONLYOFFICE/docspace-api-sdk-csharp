@@ -33,7 +33,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="links">links.</param>
         /// <param name="status">status.</param>
         /// <param name="statusCode">statusCode.</param>
-        public ScheduleWrapper(Schedule response = default, int count = default, List<ActiveConnectionsWrapperLinksInner> links = default, int status = default, int statusCode = default)
+        public ScheduleWrapper(ScheduleDto response = default, int count = default, List<ActiveConnectionsWrapperLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets Response
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
-        public Schedule Response { get; set; }
+        public ScheduleDto Response { get; set; }
 
         /// <summary>
         /// Gets or Sets Count

@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.OAuth20AuthorizationApi
+# DocSpace.API.SDK.Api.AuthorizationApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -49,7 +49,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -58,7 +58,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20AuthorizationApi(httpClient, config, httpClientHandler);
+            var apiInstance = new AuthorizationApi(httpClient, config, httpClientHandler);
             var responseType = code;  // string | The OAuth 2.0 response type, must be 'code' for authorization code flow.
             var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier issued to the client during registration.
             var redirectUri = https://example.com;  // string | The URL to redirect to after authorization is complete.
@@ -71,7 +71,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20AuthorizationApi.AuthorizeOAuth: " + e.Message);
+                Debug.Print("Exception when calling AuthorizationApi.AuthorizeOAuth: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -91,7 +91,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20AuthorizationApi.AuthorizeOAuthWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AuthorizationApi.AuthorizeOAuthWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -153,11 +153,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20AuthorizationApi(httpClient, config, httpClientHandler);
+            var apiInstance = new AuthorizationApi(httpClient, config, httpClientHandler);
             var grantType = "grantType_example";  // string? | The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional) 
             var code = "code_example";  // string? | A temporary authorization code that is sent to the client to be exchanged for a token. (optional) 
             var redirectUri = "redirectUri_example";  // string? | The URL where the user will be redirected after successful or unsuccessful authentication. (optional) 
@@ -172,7 +172,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20AuthorizationApi.ExchangeToken: " + e.Message);
+                Debug.Print("Exception when calling AuthorizationApi.ExchangeToken: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -195,7 +195,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20AuthorizationApi.ExchangeTokenWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AuthorizationApi.ExchangeTokenWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -255,7 +255,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -264,7 +264,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20AuthorizationApi(httpClient, config, httpClientHandler);
+            var apiInstance = new AuthorizationApi(httpClient, config, httpClientHandler);
             var clientId = "clientId_example";  // string? | The client identifier issued to the client during registration. (optional) 
             var state = "state_example";  // string? | The random string used to solve the CSRF vulnerability problem. (optional) 
             var scope = "scope_example";  // string? | The space-separated list of requested scope permissions. (optional) 
@@ -276,7 +276,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20AuthorizationApi.SubmitConsent: " + e.Message);
+                Debug.Print("Exception when calling AuthorizationApi.SubmitConsent: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -296,7 +296,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20AuthorizationApi.SubmitConsentWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AuthorizationApi.SubmitConsentWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

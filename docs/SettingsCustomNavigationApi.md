@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsCustomNavigationApi
+# DocSpace.API.SDK.Api.CustomNavigationApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -48,7 +48,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -68,7 +68,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCustomNavigationApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CustomNavigationApi(httpClient, config, httpClientHandler);
             var customNavigationItem = new CustomNavigationItem?(); // CustomNavigationItem? | The custom navigation item parameters. (optional) 
 
             try
@@ -79,7 +79,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCustomNavigationApi.CreateCustomNavigationItem: " + e.Message);
+                Debug.Print("Exception when calling CustomNavigationApi.CreateCustomNavigationItem: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -102,7 +102,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCustomNavigationApi.CreateCustomNavigationItemWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CustomNavigationApi.CreateCustomNavigationItemWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -160,7 +160,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -180,7 +180,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCustomNavigationApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CustomNavigationApi(httpClient, config, httpClientHandler);
             var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The ID extracted from the route parameters.
 
             try
@@ -190,7 +190,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCustomNavigationApi.DeleteCustomNavigationItem: " + e.Message);
+                Debug.Print("Exception when calling CustomNavigationApi.DeleteCustomNavigationItem: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -210,7 +210,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCustomNavigationApi.DeleteCustomNavigationItemWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CustomNavigationApi.DeleteCustomNavigationItemWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -225,7 +225,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Ok |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -268,7 +268,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -288,7 +288,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCustomNavigationApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CustomNavigationApi(httpClient, config, httpClientHandler);
             var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The ID extracted from the route parameters.
 
             try
@@ -299,7 +299,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCustomNavigationApi.GetCustomNavigationItem: " + e.Message);
+                Debug.Print("Exception when calling CustomNavigationApi.GetCustomNavigationItem: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -322,7 +322,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCustomNavigationApi.GetCustomNavigationItemWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CustomNavigationApi.GetCustomNavigationItemWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -376,7 +376,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -396,7 +396,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCustomNavigationApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CustomNavigationApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -406,7 +406,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCustomNavigationApi.GetCustomNavigationItemSample: " + e.Message);
+                Debug.Print("Exception when calling CustomNavigationApi.GetCustomNavigationItemSample: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -429,7 +429,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCustomNavigationApi.GetCustomNavigationItemSampleWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CustomNavigationApi.GetCustomNavigationItemSampleWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -483,7 +483,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -503,7 +503,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCustomNavigationApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CustomNavigationApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -513,7 +513,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCustomNavigationApi.GetCustomNavigationItems: " + e.Message);
+                Debug.Print("Exception when calling CustomNavigationApi.GetCustomNavigationItems: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -536,7 +536,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCustomNavigationApi.GetCustomNavigationItemsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CustomNavigationApi.GetCustomNavigationItemsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

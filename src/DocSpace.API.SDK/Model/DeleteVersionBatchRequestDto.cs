@@ -22,7 +22,7 @@ namespace DocSpace.API.SDK.Model
     /// The request parameters for deleting file versions.
     /// </summary>
     [DataContract(Name = "DeleteVersionBatchRequestDto")]
-    public partial class DeleteVersionBatchRequestDto : IValidatableObject
+    public partial class DeleteVersionBatchRequestDto : FileOperationRequestBaseDto, IValidatableObject
     {
     
         /// <summary>
@@ -33,11 +33,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteVersionBatchRequestDto" /> class.
         /// </summary>
-        /// <param name="returnSingleOperation">Specifies whether to return only the current operation.</param>
         /// <param name="deleteAfter">Specifies whether to delete a file after the editing session is finished or not..</param>
         /// <param name="fileId">The file ID to delete. (required).</param>
         /// <param name="versions">The collection of file versions to be deleted. (required).</param>
-        public DeleteVersionBatchRequestDto(bool returnSingleOperation = default, bool deleteAfter = default, int fileId = default, List<int> versions = default)
+        public DeleteVersionBatchRequestDto(bool deleteAfter = default, int fileId = default, List<int> versions = default)
         {
             this.FileId = fileId;
             // to ensure "versions" is required (not null)
@@ -46,19 +45,8 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("versions is a required property for DeleteVersionBatchRequestDto and cannot be null");
             }
             this.Versions = versions;
-            this.ReturnSingleOperation = returnSingleOperation;
             this.DeleteAfter = deleteAfter;
         }
-
-        /// <summary>
-        /// Specifies whether to return only the current operation
-        /// </summary>
-        /// <value>Specifies whether to return only the current operation</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "returnSingleOperation", EmitDefaultValue = true)]
-        public bool ReturnSingleOperation { get; set; }
 
         /// <summary>
         /// Specifies whether to delete a file after the editing session is finished or not.
@@ -98,7 +86,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class DeleteVersionBatchRequestDto {\n");
-            sb.Append("  ReturnSingleOperation: ").Append(ReturnSingleOperation).Append("\n");
             sb.Append("  DeleteAfter: ").Append(DeleteAfter).Append("\n");
             sb.Append("  FileId: ").Append(FileId).Append("\n");
             sb.Append("  Versions: ").Append(Versions).Append("\n");
@@ -110,10 +97,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -125,6 +113,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

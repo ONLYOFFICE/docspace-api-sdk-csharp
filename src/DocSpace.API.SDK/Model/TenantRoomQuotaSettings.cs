@@ -22,53 +22,17 @@ namespace DocSpace.API.SDK.Model
     /// The room quota settings.
     /// </summary>
     [DataContract(Name = "TenantRoomQuotaSettings")]
-    public partial class TenantRoomQuotaSettings : IValidatableObject
+    public partial class TenantRoomQuotaSettings : TenantEntityQuotaSettings, IValidatableObject
     {
     
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantRoomQuotaSettings" /> class.
         /// </summary>
-        /// <param name="enableQuota">Specifies if the quota is enabled for the tenant entity or not..</param>
-        /// <param name="defaultQuota">The default quota of the tenant entity..</param>
-        /// <param name="lastRecalculateDate">The date of the last quota recalculation..</param>
         /// <param name="lastModified">lastModified.</param>
-        public TenantRoomQuotaSettings(bool enableQuota = default, long defaultQuota = default, DateTime? lastRecalculateDate = default, DateTime lastModified = default)
+        public TenantRoomQuotaSettings(DateTime lastModified = default)
         {
-            this.EnableQuota = enableQuota;
-            this.DefaultQuota = defaultQuota;
-            this.LastRecalculateDate = lastRecalculateDate;
             this.LastModified = lastModified;
         }
-
-        /// <summary>
-        /// Specifies if the quota is enabled for the tenant entity or not.
-        /// </summary>
-        /// <value>Specifies if the quota is enabled for the tenant entity or not.</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "enableQuota", EmitDefaultValue = true)]
-        public bool EnableQuota { get; set; }
-
-        /// <summary>
-        /// The default quota of the tenant entity.
-        /// </summary>
-        /// <value>The default quota of the tenant entity.</value>
-        /*
-        <example>1234</example>
-        */
-        [DataMember(Name = "defaultQuota", EmitDefaultValue = false)]
-        public long DefaultQuota { get; set; }
-
-        /// <summary>
-        /// The date of the last quota recalculation.
-        /// </summary>
-        /// <value>The date of the last quota recalculation.</value>
-        /*
-        <example>2008-04-10T06:30+04:00</example>
-        */
-        [DataMember(Name = "lastRecalculateDate", EmitDefaultValue = true)]
-        public DateTime? LastRecalculateDate { get; set; }
 
         /// <summary>
         /// Gets or Sets LastModified
@@ -87,9 +51,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TenantRoomQuotaSettings {\n");
-            sb.Append("  EnableQuota: ").Append(EnableQuota).Append("\n");
-            sb.Append("  DefaultQuota: ").Append(DefaultQuota).Append("\n");
-            sb.Append("  LastRecalculateDate: ").Append(LastRecalculateDate).Append("\n");
             sb.Append("  LastModified: ").Append(LastModified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -99,10 +60,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -114,6 +76,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

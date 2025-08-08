@@ -30,7 +30,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="room">room.</param>
         /// <param name="items">The list of file entry items..</param>
-        public RoomNewItemsDto(FileEntryDto room = default, List<FileEntryDto> items = default)
+        public RoomNewItemsDto(FileEntryBaseDto room = default, List<FileEntryBaseDto> items = default)
         {
             this.Room = room;
             this.Items = items;
@@ -40,14 +40,14 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets Room
         /// </summary>
         [DataMember(Name = "room", EmitDefaultValue = false)]
-        public FileEntryDto Room { get; set; }
+        public FileEntryBaseDto Room { get; set; }
 
         /// <summary>
         /// The list of file entry items.
         /// </summary>
         /// <value>The list of file entry items.</value>
         [DataMember(Name = "items", EmitDefaultValue = true)]
-        public List<FileEntryDto> Items { get; set; }
+        public List<FileEntryBaseDto> Items { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

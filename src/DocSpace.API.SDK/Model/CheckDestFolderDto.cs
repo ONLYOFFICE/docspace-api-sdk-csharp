@@ -36,7 +36,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="result">result.</param>
         /// <param name="files">The list of files of the destination folder..</param>
-        public CheckDestFolderDto(CheckDestFolderResult? result = default, List<FileEntryDto> files = default)
+        public CheckDestFolderDto(CheckDestFolderResult? result = default, List<FileEntryBaseDto> files = default)
         {
             this.Result = result;
             this.Files = files;
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of files of the destination folder.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
-        public List<FileEntryDto> Files { get; set; }
+        public List<FileEntryBaseDto> Files { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -36,7 +36,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="count">The number of folder elements..</param>
         /// <param name="total">The total number of elements in the folder..</param>
         /// <param name="@new">The new element index in the folder..</param>
-        public FolderContentDtoInteger(List<FileEntryDto> files = default, List<FileEntryDto> folders = default, FolderDtoInteger current = default, Object pathParts = default, int startIndex = default, int count = default, int total = default, int @new = default)
+        public FolderContentDtoInteger(List<FileEntryBaseDto> files = default, List<FileEntryBaseDto> folders = default, FolderDtoInteger current = default, Object pathParts = default, int startIndex = default, int count = default, int total = default, int @new = default)
         {
             this.Files = files;
             this.Folders = folders;
@@ -53,14 +53,14 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of files in the folder.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
-        public List<FileEntryDto> Files { get; set; }
+        public List<FileEntryBaseDto> Files { get; set; }
 
         /// <summary>
         /// The list of folders in the folder.
         /// </summary>
         /// <value>The list of folders in the folder.</value>
         [DataMember(Name = "folders", EmitDefaultValue = true)]
-        public List<FileEntryDto> Folders { get; set; }
+        public List<FileEntryBaseDto> Folders { get; set; }
 
         /// <summary>
         /// Gets or Sets Current

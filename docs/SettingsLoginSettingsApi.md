@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsLoginSettingsApi
+# DocSpace.API.SDK.Api.LoginSettingsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -42,7 +42,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -62,7 +62,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsLoginSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new LoginSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -72,7 +72,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsLoginSettingsApi.GetLoginSettings: " + e.Message);
+                Debug.Print("Exception when calling LoginSettingsApi.GetLoginSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -95,7 +95,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsLoginSettingsApi.GetLoginSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling LoginSettingsApi.GetLoginSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -149,7 +149,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -169,7 +169,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsLoginSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new LoginSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -179,7 +179,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsLoginSettingsApi.SetDefaultLoginSettings: " + e.Message);
+                Debug.Print("Exception when calling LoginSettingsApi.SetDefaultLoginSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -202,7 +202,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsLoginSettingsApi.SetDefaultLoginSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling LoginSettingsApi.SetDefaultLoginSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -260,7 +260,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -280,7 +280,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsLoginSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new LoginSettingsApi(httpClient, config, httpClientHandler);
             var loginSettingsRequestDto = new LoginSettingsRequestDto?(); // LoginSettingsRequestDto? | The request parameters for configuring login security and performance settings. (optional) 
 
             try
@@ -291,7 +291,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsLoginSettingsApi.UpdateLoginSettings: " + e.Message);
+                Debug.Print("Exception when calling LoginSettingsApi.UpdateLoginSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -314,7 +314,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsLoginSettingsApi.UpdateLoginSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling LoginSettingsApi.UpdateLoginSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

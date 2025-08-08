@@ -36,7 +36,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="folderIds">The list of folder IDs to change the owner..</param>
         /// <param name="fileIds">The list of file IDs to change the owner..</param>
         /// <param name="userId">The new file owner ID. (required).</param>
-        public ChangeOwnerRequestDto(List<BaseBatchRequestDtoFolderIdsInner> folderIds = default, List<BaseBatchRequestDtoFolderIdsInner> fileIds = default, Guid userId = default)
+        public ChangeOwnerRequestDto(List<BatchRequestDtoAllOfFileIds> folderIds = default, List<BatchRequestDtoAllOfFileIds> fileIds = default, Guid userId = default)
         {
             this.UserId = userId;
             this.FolderIds = folderIds;
@@ -48,14 +48,14 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of folder IDs to change the owner.</value>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoFolderIdsInner> FolderIds { get; set; }
+        public List<BatchRequestDtoAllOfFileIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to change the owner.
         /// </summary>
         /// <value>The list of file IDs to change the owner.</value>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoFolderIdsInner> FileIds { get; set; }
+        public List<BatchRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
         /// The new file owner ID.

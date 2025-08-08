@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PortalQuotaApi
+# DocSpace.API.SDK.Api.QuotaApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -43,7 +43,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -63,7 +63,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalQuotaApi(httpClient, config, httpClientHandler);
+            var apiInstance = new QuotaApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -73,7 +73,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalQuotaApi.GetPortalQuota: " + e.Message);
+                Debug.Print("Exception when calling QuotaApi.GetPortalQuota: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -96,7 +96,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalQuotaApi.GetPortalQuotaWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling QuotaApi.GetPortalQuotaWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -155,7 +155,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -175,7 +175,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalQuotaApi(httpClient, config, httpClientHandler);
+            var apiInstance = new QuotaApi(httpClient, config, httpClientHandler);
             var refresh = true;  // bool? | The value indicating whether the current portal tariff information should be refreshed. (optional) 
 
             try
@@ -186,7 +186,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalQuotaApi.GetPortalTariff: " + e.Message);
+                Debug.Print("Exception when calling QuotaApi.GetPortalTariff: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -209,7 +209,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalQuotaApi.GetPortalTariffWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling QuotaApi.GetPortalTariffWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -263,7 +263,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -283,7 +283,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalQuotaApi(httpClient, config, httpClientHandler);
+            var apiInstance = new QuotaApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -293,7 +293,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalQuotaApi.GetPortalUsedSpace: " + e.Message);
+                Debug.Print("Exception when calling QuotaApi.GetPortalUsedSpace: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -316,7 +316,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalQuotaApi.GetPortalUsedSpaceWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling QuotaApi.GetPortalUsedSpaceWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -370,7 +370,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -390,7 +390,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PortalQuotaApi(httpClient, config, httpClientHandler);
+            var apiInstance = new QuotaApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -400,7 +400,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PortalQuotaApi.GetRightQuota: " + e.Message);
+                Debug.Print("Exception when calling QuotaApi.GetRightQuota: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -423,7 +423,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PortalQuotaApi.GetRightQuotaWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling QuotaApi.GetRightQuotaWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

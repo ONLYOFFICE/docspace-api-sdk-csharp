@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsSSOApi
+# DocSpace.API.SDK.Api.SSOApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -44,7 +44,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -64,7 +64,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSSOApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SSOApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -74,7 +74,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSSOApi.GetDefaultSsoSettingsV2: " + e.Message);
+                Debug.Print("Exception when calling SSOApi.GetDefaultSsoSettingsV2: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -97,7 +97,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSSOApi.GetDefaultSsoSettingsV2WithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SSOApi.GetDefaultSsoSettingsV2WithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -151,11 +151,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSSOApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SSOApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -165,7 +165,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSSOApi.GetSsoSettingsV2: " + e.Message);
+                Debug.Print("Exception when calling SSOApi.GetSsoSettingsV2: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -188,7 +188,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSSOApi.GetSsoSettingsV2WithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SSOApi.GetSsoSettingsV2WithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -241,7 +241,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -261,7 +261,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSSOApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SSOApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -271,7 +271,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSSOApi.GetSsoSettingsV2Constants: " + e.Message);
+                Debug.Print("Exception when calling SSOApi.GetSsoSettingsV2Constants: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -294,7 +294,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSSOApi.GetSsoSettingsV2ConstantsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SSOApi.GetSsoSettingsV2ConstantsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -348,7 +348,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -368,7 +368,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSSOApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SSOApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -378,7 +378,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSSOApi.ResetSsoSettingsV2: " + e.Message);
+                Debug.Print("Exception when calling SSOApi.ResetSsoSettingsV2: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -401,7 +401,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSSOApi.ResetSsoSettingsV2WithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SSOApi.ResetSsoSettingsV2WithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -459,7 +459,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -479,7 +479,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSSOApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SSOApi(httpClient, config, httpClientHandler);
             var ssoSettingsRequestsDto = new SsoSettingsRequestsDto?(); // SsoSettingsRequestsDto? | The request parameters for the Single Sign-On (SSO) configuration settings. (optional) 
 
             try
@@ -490,7 +490,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSSOApi.SaveSsoSettingsV2: " + e.Message);
+                Debug.Print("Exception when calling SSOApi.SaveSsoSettingsV2: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -513,7 +513,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSSOApi.SaveSsoSettingsV2WithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SSOApi.SaveSsoSettingsV2WithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

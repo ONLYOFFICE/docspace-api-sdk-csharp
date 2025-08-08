@@ -22,7 +22,7 @@ namespace DocSpace.API.SDK.Model
     /// The request parameters for copying/moving files.
     /// </summary>
     [DataContract(Name = "BatchRequestDto")]
-    public partial class BatchRequestDto : IValidatableObject
+    public partial class BatchRequestDto : FileOperationRequestBaseDto, IValidatableObject
     {
 
         /// <summary>
@@ -34,7 +34,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchRequestDto" /> class.
         /// </summary>
-        /// <param name="returnSingleOperation">Specifies whether to return only the current operation.</param>
         /// <param name="folderIds">The list of folder IDs to be copied/moved..</param>
         /// <param name="fileIds">The list of file IDs to be copied/moved..</param>
         /// <param name="destFolderId">destFolderId.</param>
@@ -42,9 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="deleteAfter">Specifies whether to delete the source files/folders after they are moved or copied to the destination folder..</param>
         /// <param name="content">Specifies whether to copy or move the folder content or not..</param>
         /// <param name="toFillOut">Specifies whether the file is copied for filling out.</param>
-        public BatchRequestDto(bool returnSingleOperation = default, List<BaseBatchRequestDtoFolderIdsInner> folderIds = default, List<BaseBatchRequestDtoFolderIdsInner> fileIds = default, BatchRequestDtoDestFolderId destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool deleteAfter = default, bool content = default, bool toFillOut = default)
+        public BatchRequestDto(List<BatchRequestDtoAllOfFolderIds> folderIds = default, List<BatchRequestDtoAllOfFileIds> fileIds = default, BatchRequestDtoAllOfDestFolderId destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool deleteAfter = default, bool content = default, bool toFillOut = default)
         {
-            this.ReturnSingleOperation = returnSingleOperation;
             this.FolderIds = folderIds;
             this.FileIds = fileIds;
             this.DestFolderId = destFolderId;
@@ -55,34 +53,24 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether to return only the current operation
-        /// </summary>
-        /// <value>Specifies whether to return only the current operation</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "returnSingleOperation", EmitDefaultValue = true)]
-        public bool ReturnSingleOperation { get; set; }
-
-        /// <summary>
         /// The list of folder IDs to be copied/moved.
         /// </summary>
         /// <value>The list of folder IDs to be copied/moved.</value>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoFolderIdsInner> FolderIds { get; set; }
+        public List<BatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to be copied/moved.
         /// </summary>
         /// <value>The list of file IDs to be copied/moved.</value>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoFolderIdsInner> FileIds { get; set; }
+        public List<BatchRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
         /// Gets or Sets DestFolderId
         /// </summary>
         [DataMember(Name = "destFolderId", EmitDefaultValue = false)]
-        public BatchRequestDtoDestFolderId DestFolderId { get; set; }
+        public BatchRequestDtoAllOfDestFolderId DestFolderId { get; set; }
 
         /// <summary>
         /// Specifies whether to delete the source files/folders after they are moved or copied to the destination folder.
@@ -122,7 +110,6 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class BatchRequestDto {\n");
-            sb.Append("  ReturnSingleOperation: ").Append(ReturnSingleOperation).Append("\n");
             sb.Append("  FolderIds: ").Append(FolderIds).Append("\n");
             sb.Append("  FileIds: ").Append(FileIds).Append("\n");
             sb.Append("  DestFolderId: ").Append(DestFolderId).Append("\n");
@@ -138,10 +125,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -153,6 +141,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

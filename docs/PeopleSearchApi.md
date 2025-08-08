@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PeopleSearchApi
+# DocSpace.API.SDK.Api.SearchApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -62,7 +62,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -82,7 +82,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
             var id = 9846;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
@@ -105,7 +105,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleSearchApi.GetAccountsEntriesWithShared: " + e.Message);
+                Debug.Print("Exception when calling SearchApi.GetAccountsEntriesWithShared: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -128,7 +128,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleSearchApi.GetAccountsEntriesWithSharedWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SearchApi.GetAccountsEntriesWithSharedWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -189,7 +189,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -209,7 +209,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
             var query = some text;  // string | The search query.
             var filterBy = some text;  // string? | Specifies a filter criteria for the user search query. (optional) 
             var filterValue = some text;  // string? | The value used for filtering users, allowing additional constraints for the query. (optional) 
@@ -222,7 +222,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleSearchApi.GetSearch: " + e.Message);
+                Debug.Print("Exception when calling SearchApi.GetSearch: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -245,7 +245,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleSearchApi.GetSearchWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SearchApi.GetSearchWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -324,7 +324,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -344,7 +344,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The group ID. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
@@ -375,7 +375,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleSearchApi.GetSimpleByFilter: " + e.Message);
+                Debug.Print("Exception when calling SearchApi.GetSimpleByFilter: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -398,7 +398,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleSearchApi.GetSimpleByFilterWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SearchApi.GetSimpleByFilterWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -469,7 +469,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -489,7 +489,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
             var id = 9846;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
@@ -512,7 +512,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleSearchApi.GetUsersWithRoomShared: " + e.Message);
+                Debug.Print("Exception when calling SearchApi.GetUsersWithRoomShared: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -535,7 +535,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleSearchApi.GetUsersWithRoomSharedWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SearchApi.GetUsersWithRoomSharedWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -614,7 +614,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -634,7 +634,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The group ID. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
@@ -665,7 +665,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleSearchApi.SearchUsersByExtendedFilter: " + e.Message);
+                Debug.Print("Exception when calling SearchApi.SearchUsersByExtendedFilter: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -688,7 +688,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleSearchApi.SearchUsersByExtendedFilterWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SearchApi.SearchUsersByExtendedFilterWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -747,7 +747,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -767,7 +767,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
             var query = some text;  // string? | The search query. (optional) 
 
             try
@@ -778,7 +778,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleSearchApi.SearchUsersByQuery: " + e.Message);
+                Debug.Print("Exception when calling SearchApi.SearchUsersByQuery: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -801,7 +801,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleSearchApi.SearchUsersByQueryWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SearchApi.SearchUsersByQueryWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -862,7 +862,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -882,7 +882,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleSearchApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
             var status = (EmployeeStatus) "1";  // EmployeeStatus | The user status.
             var query = some text;  // string? | The advanced search query. (optional) 
             var filterBy = some text;  // string? | Specifies the criteria used to filter search results in advanced queries. (optional) 
@@ -896,7 +896,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleSearchApi.SearchUsersByStatus: " + e.Message);
+                Debug.Print("Exception when calling SearchApi.SearchUsersByStatus: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -919,7 +919,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleSearchApi.SearchUsersByStatusWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SearchApi.SearchUsersByStatusWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

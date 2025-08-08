@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsCommonSettingsApi
+# DocSpace.API.SDK.Api.CommonSettingsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -58,7 +58,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -78,7 +78,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -87,7 +87,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.CloseAdminHelper: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.CloseAdminHelper: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -107,7 +107,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.CloseAdminHelperWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.CloseAdminHelperWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -166,7 +166,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -186,7 +186,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
             var wizardRequestsDto = new WizardRequestsDto?(); // WizardRequestsDto? | The request parameters for initial configuration of the setup wizard. (optional) 
 
             try
@@ -197,7 +197,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.CompleteWizard: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.CompleteWizard: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -220,7 +220,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.CompleteWizardWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.CompleteWizardWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -280,7 +280,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -300,7 +300,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
             var deepLinkConfigurationRequestsDto = new DeepLinkConfigurationRequestsDto?(); // DeepLinkConfigurationRequestsDto? | The request parameters for managing the deep link configuration. (optional) 
 
             try
@@ -311,7 +311,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.ConfigureDeepLink: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.ConfigureDeepLink: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -334,7 +334,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.ConfigureDeepLinkWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.ConfigureDeepLinkWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -393,7 +393,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -413,7 +413,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
             var id = 9846;  // int? | The ID of the portal theme to delete. (optional) 
 
             try
@@ -424,7 +424,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.DeletePortalColorTheme: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.DeletePortalColorTheme: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -447,7 +447,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.DeletePortalColorThemeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.DeletePortalColorThemeWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -501,7 +501,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -521,7 +521,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -531,7 +531,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetDeepLinkSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetDeepLinkSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -554,7 +554,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetDeepLinkSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetDeepLinkSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -608,7 +608,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -628,7 +628,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -638,7 +638,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetPaymentSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetPaymentSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -661,7 +661,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetPaymentSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetPaymentSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -715,11 +715,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -729,7 +729,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetPortalColorTheme: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetPortalColorTheme: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -752,7 +752,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetPortalColorThemeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetPortalColorThemeWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -805,7 +805,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -825,7 +825,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -835,7 +835,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetPortalHostname: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetPortalHostname: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -858,7 +858,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetPortalHostnameWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetPortalHostnameWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -912,7 +912,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -932,7 +932,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -942,7 +942,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetPortalLogo: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetPortalLogo: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -965,7 +965,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetPortalLogoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetPortalLogoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1023,11 +1023,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
             var withpassword = true;  // bool? | Specifies whether to include the password hashing configuration in the response. (optional) 
 
             try
@@ -1038,7 +1038,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetPortalSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetPortalSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1061,7 +1061,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetPortalSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetPortalSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1114,7 +1114,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1134,7 +1134,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -1144,7 +1144,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetSocketSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetSocketSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1167,7 +1167,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetSocketSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetSocketSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1221,11 +1221,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -1235,7 +1235,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetSupportedCultures: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetSupportedCultures: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1258,7 +1258,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetSupportedCulturesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetSupportedCulturesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1311,11 +1311,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -1325,7 +1325,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetTenantUserInvitationSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetTenantUserInvitationSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1348,7 +1348,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetTenantUserInvitationSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetTenantUserInvitationSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1401,7 +1401,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1421,7 +1421,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -1431,7 +1431,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetTimeZones: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetTimeZones: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1454,7 +1454,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetTimeZonesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetTimeZonesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1512,7 +1512,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1532,7 +1532,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
             var dnsSettingsRequestsDto = new DnsSettingsRequestsDto?(); // DnsSettingsRequestsDto? | The request parameters for managing the DNS (Domain Name System) settings. (optional) 
 
             try
@@ -1543,7 +1543,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.SaveDnsSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.SaveDnsSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1566,7 +1566,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.SaveDnsSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.SaveDnsSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1627,7 +1627,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1647,7 +1647,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
             var mailDomainSettingsRequestsDto = new MailDomainSettingsRequestsDto?(); // MailDomainSettingsRequestsDto? | The request parameters for configuring trusted mail domains and visitor invitation settings. (optional) 
 
             try
@@ -1658,7 +1658,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.SaveMailDomainSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.SaveMailDomainSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1681,7 +1681,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.SaveMailDomainSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.SaveMailDomainSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1739,7 +1739,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1759,7 +1759,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
             var customColorThemesSettingsRequestsDto = new CustomColorThemesSettingsRequestsDto?(); // CustomColorThemesSettingsRequestsDto? | The request parameters for managing the portal theme settings. (optional) 
 
             try
@@ -1770,7 +1770,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.SavePortalColorTheme: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.SavePortalColorTheme: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1793,7 +1793,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.SavePortalColorThemeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.SavePortalColorThemeWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1851,7 +1851,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1871,7 +1871,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
             var emailActivationSettings = new EmailActivationSettings?(); // EmailActivationSettings? | The email activation settings. (optional) 
 
             try
@@ -1882,7 +1882,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.UpdateEmailActivationSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.UpdateEmailActivationSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1905,7 +1905,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.UpdateEmailActivationSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.UpdateEmailActivationSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1963,7 +1963,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1983,7 +1983,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
             var tenantUserInvitationSettingsRequestDto = new TenantUserInvitationSettingsRequestDto?(); // TenantUserInvitationSettingsRequestDto? | User invitation settings (optional) 
 
             try
@@ -1994,7 +1994,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.UpdateInvitationSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.UpdateInvitationSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -2017,7 +2017,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.UpdateInvitationSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.UpdateInvitationSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

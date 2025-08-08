@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsSecurityApi
+# DocSpace.API.SDK.Api.SecurityApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -49,7 +49,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -69,7 +69,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -79,7 +79,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSecurityApi.GetEnabledModules: " + e.Message);
+                Debug.Print("Exception when calling SecurityApi.GetEnabledModules: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -102,7 +102,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSecurityApi.GetEnabledModulesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SecurityApi.GetEnabledModulesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -161,7 +161,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -181,7 +181,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
             var productid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The ID of the product extracted from the query parameters. (optional) 
             var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The user ID extracted from the query parameters. (optional) 
 
@@ -193,7 +193,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSecurityApi.GetIsProductAdministrator: " + e.Message);
+                Debug.Print("Exception when calling SecurityApi.GetIsProductAdministrator: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -216,7 +216,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSecurityApi.GetIsProductAdministratorWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SecurityApi.GetIsProductAdministratorWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -270,7 +270,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -290,7 +290,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -300,7 +300,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSecurityApi.GetPasswordSettings: " + e.Message);
+                Debug.Print("Exception when calling SecurityApi.GetPasswordSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -323,7 +323,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSecurityApi.GetPasswordSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SecurityApi.GetPasswordSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -381,7 +381,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -401,7 +401,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
             var productid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The ID of the product extracted from the route parameters.
 
             try
@@ -412,7 +412,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSecurityApi.GetProductAdministrators: " + e.Message);
+                Debug.Print("Exception when calling SecurityApi.GetProductAdministrators: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -435,7 +435,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSecurityApi.GetProductAdministratorsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SecurityApi.GetProductAdministratorsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -493,7 +493,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -513,7 +513,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
             var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The ID extracted from the route parameters.
 
             try
@@ -524,7 +524,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSecurityApi.GetWebItemSecurityInfo: " + e.Message);
+                Debug.Print("Exception when calling SecurityApi.GetWebItemSecurityInfo: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -547,7 +547,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSecurityApi.GetWebItemSecurityInfoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SecurityApi.GetWebItemSecurityInfoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -605,7 +605,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -625,7 +625,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
             var ids = new List<string>?(); // List<string>? | The list of module identifiers for which to retrieve the security settings. (optional) 
 
             try
@@ -636,7 +636,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSecurityApi.GetWebItemSettingsSecurityInfo: " + e.Message);
+                Debug.Print("Exception when calling SecurityApi.GetWebItemSettingsSecurityInfo: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -659,7 +659,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSecurityApi.GetWebItemSettingsSecurityInfoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SecurityApi.GetWebItemSettingsSecurityInfoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -717,7 +717,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -737,7 +737,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
             var webItemsSecurityRequestsDto = new WebItemsSecurityRequestsDto?(); // WebItemsSecurityRequestsDto? | The request parameters for configuring security settings across multiple web modules. (optional) 
 
             try
@@ -748,7 +748,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSecurityApi.SetAccessToWebItems: " + e.Message);
+                Debug.Print("Exception when calling SecurityApi.SetAccessToWebItems: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -771,7 +771,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSecurityApi.SetAccessToWebItemsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SecurityApi.SetAccessToWebItemsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -830,7 +830,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -850,7 +850,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
             var securityRequestsDto = new SecurityRequestsDto?(); // SecurityRequestsDto? | The request parameters for managing user security and access permissions. (optional) 
 
             try
@@ -861,7 +861,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSecurityApi.SetProductAdministrator: " + e.Message);
+                Debug.Print("Exception when calling SecurityApi.SetProductAdministrator: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -884,7 +884,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSecurityApi.SetProductAdministratorWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SecurityApi.SetProductAdministratorWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -944,7 +944,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -964,7 +964,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
             var webItemSecurityRequestsDto = new WebItemSecurityRequestsDto?(); // WebItemSecurityRequestsDto? | The request parameters for configuring security settings of a single web module. (optional) 
 
             try
@@ -975,7 +975,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSecurityApi.SetWebItemSecurity: " + e.Message);
+                Debug.Print("Exception when calling SecurityApi.SetWebItemSecurity: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -998,7 +998,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSecurityApi.SetWebItemSecurityWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SecurityApi.SetWebItemSecurityWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1057,7 +1057,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1077,7 +1077,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsSecurityApi(httpClient, config, httpClientHandler);
+            var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
             var passwordSettingsRequestsDto = new PasswordSettingsRequestsDto?(); // PasswordSettingsRequestsDto? | The request parameters for configuring the password complexity requirements. (optional) 
 
             try
@@ -1088,7 +1088,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsSecurityApi.UpdatePasswordSettings: " + e.Message);
+                Debug.Print("Exception when calling SecurityApi.UpdatePasswordSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1111,7 +1111,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsSecurityApi.UpdatePasswordSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SecurityApi.UpdatePasswordSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

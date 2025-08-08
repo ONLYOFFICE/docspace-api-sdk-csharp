@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsNotificationsApi
+# DocSpace.API.SDK.Api.NotificationsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -47,7 +47,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -67,7 +67,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsNotificationsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new NotificationsApi(httpClient, config, httpClientHandler);
             var type = (NotificationType) "0";  // NotificationType | The type of notification to query, specified in the route.
 
             try
@@ -78,7 +78,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsNotificationsApi.GetNotificationSettings: " + e.Message);
+                Debug.Print("Exception when calling NotificationsApi.GetNotificationSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -101,7 +101,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsNotificationsApi.GetNotificationSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling NotificationsApi.GetNotificationSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -155,7 +155,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -175,7 +175,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsNotificationsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new NotificationsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -185,7 +185,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsNotificationsApi.GetRoomsNotificationSettings: " + e.Message);
+                Debug.Print("Exception when calling NotificationsApi.GetRoomsNotificationSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -208,7 +208,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsNotificationsApi.GetRoomsNotificationSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling NotificationsApi.GetRoomsNotificationSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -266,7 +266,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -286,7 +286,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsNotificationsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new NotificationsApi(httpClient, config, httpClientHandler);
             var notificationSettingsRequestsDto = new NotificationSettingsRequestsDto?(); // NotificationSettingsRequestsDto? | The request parameters for configuring notification settings. (optional) 
 
             try
@@ -297,7 +297,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsNotificationsApi.SetNotificationSettings: " + e.Message);
+                Debug.Print("Exception when calling NotificationsApi.SetNotificationSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -320,7 +320,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsNotificationsApi.SetNotificationSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling NotificationsApi.SetNotificationSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -378,7 +378,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -398,7 +398,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsNotificationsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new NotificationsApi(httpClient, config, httpClientHandler);
             var roomsNotificationsSettingsRequestDto = new RoomsNotificationsSettingsRequestDto?(); // RoomsNotificationsSettingsRequestDto? | The request parameters for configuring notification settings for the chat or collaboration rooms. (optional) 
 
             try
@@ -409,7 +409,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsNotificationsApi.SetRoomsNotificationStatus: " + e.Message);
+                Debug.Print("Exception when calling NotificationsApi.SetRoomsNotificationStatus: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -432,7 +432,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsNotificationsApi.SetRoomsNotificationStatusWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling NotificationsApi.SetRoomsNotificationStatusWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

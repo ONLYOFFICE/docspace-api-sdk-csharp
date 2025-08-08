@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.OAuth20ClientQueryingApi
+# DocSpace.API.SDK.Api.ClientQueryingApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -49,7 +49,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -58,7 +58,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20ClientQueryingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ClientQueryingApi(httpClient, config, httpClientHandler);
             var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier.
 
             try
@@ -69,7 +69,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20ClientQueryingApi.GetClient: " + e.Message);
+                Debug.Print("Exception when calling ClientQueryingApi.GetClient: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -92,7 +92,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20ClientQueryingApi.GetClientWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ClientQueryingApi.GetClientWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -154,7 +154,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -163,7 +163,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20ClientQueryingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ClientQueryingApi(httpClient, config, httpClientHandler);
             var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier.
 
             try
@@ -174,7 +174,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20ClientQueryingApi.GetClientInfo: " + e.Message);
+                Debug.Print("Exception when calling ClientQueryingApi.GetClientInfo: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -197,7 +197,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20ClientQueryingApi.GetClientInfoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ClientQueryingApi.GetClientInfoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -259,7 +259,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -268,7 +268,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20ClientQueryingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ClientQueryingApi(httpClient, config, httpClientHandler);
             var limit = 1;  // int | The maximum number of results returned per page.
             var lastClientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string? | The ID of the last retrieved client. (optional) 
             var lastCreatedOn = 2024-04-04T12:00:00Z;  // DateTime? | The creation date of the last retrieved client. (optional) 
@@ -281,7 +281,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20ClientQueryingApi.GetClients: " + e.Message);
+                Debug.Print("Exception when calling ClientQueryingApi.GetClients: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -304,7 +304,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20ClientQueryingApi.GetClientsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ClientQueryingApi.GetClientsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -367,7 +367,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -376,7 +376,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20ClientQueryingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ClientQueryingApi(httpClient, config, httpClientHandler);
             var limit = 1;  // int | The maximum number of results returned per page.
             var lastClientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string? | The identifier of the last retrieved client. (optional) 
             var lastCreatedOn = 2024-04-04T12:00:00Z;  // DateTime? | The creation date of the last retrieved client. (optional) 
@@ -389,7 +389,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20ClientQueryingApi.GetClientsInfo: " + e.Message);
+                Debug.Print("Exception when calling ClientQueryingApi.GetClientsInfo: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -412,7 +412,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20ClientQueryingApi.GetClientsInfoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ClientQueryingApi.GetClientsInfoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -473,7 +473,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -482,7 +482,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20ClientQueryingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ClientQueryingApi(httpClient, config, httpClientHandler);
             var limit = 1;  // int | The maximum number of results returned per page.
             var lastModifiedOn = 2024-04-04T12:00:00Z;  // DateTime? | The date when the user consent was last modified. (optional) 
 
@@ -494,7 +494,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20ClientQueryingApi.GetConsents: " + e.Message);
+                Debug.Print("Exception when calling ClientQueryingApi.GetConsents: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -517,7 +517,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20ClientQueryingApi.GetConsentsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ClientQueryingApi.GetConsentsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -574,11 +574,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new OAuth20ClientQueryingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ClientQueryingApi(httpClient, config, httpClientHandler);
             var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier.
 
             try
@@ -589,7 +589,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling OAuth20ClientQueryingApi.GetPublicClientInfo: " + e.Message);
+                Debug.Print("Exception when calling ClientQueryingApi.GetPublicClientInfo: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -612,7 +612,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling OAuth20ClientQueryingApi.GetPublicClientInfoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ClientQueryingApi.GetPublicClientInfoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

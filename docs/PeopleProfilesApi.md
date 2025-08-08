@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.PeopleProfilesApi
+# DocSpace.API.SDK.Api.ProfilesApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -57,7 +57,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -77,7 +77,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
             var memberRequestDto = new MemberRequestDto?(); // MemberRequestDto? | The user request parameters. (optional) 
 
             try
@@ -88,7 +88,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.AddMember: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.AddMember: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -111,7 +111,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.AddMemberWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.AddMemberWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -170,7 +170,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -190,7 +190,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
 
             try
@@ -201,7 +201,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.DeleteMember: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.DeleteMember: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -224,7 +224,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.DeleteMemberWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.DeleteMemberWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -281,7 +281,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -301,7 +301,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -311,7 +311,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.DeleteProfile: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.DeleteProfile: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -334,7 +334,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.DeleteProfileWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.DeleteProfileWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -401,7 +401,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -421,7 +421,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
             var count = 1234;  // int? | The maximum number of items to be retrieved in the response. (optional) 
             var startIndex = 1234;  // int? | The zero-based index of the first item to be retrieved in a filtered result set. (optional) 
             var filterBy = some text;  // string? | Specifies the filter criteria for user-related queries. (optional) 
@@ -439,7 +439,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.GetAllProfiles: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.GetAllProfiles: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -462,7 +462,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.GetAllProfilesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.GetAllProfilesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -516,7 +516,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -536,7 +536,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -546,7 +546,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.GetClaims: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.GetClaims: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -569,7 +569,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.GetClaimsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.GetClaimsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -628,7 +628,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -648,7 +648,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
             var email = Sydney_Roberts4@hotmail.com;  // string? | The user email address. (optional) 
             var culture = some text;  // string? | Culture (optional) 
 
@@ -660,7 +660,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.GetProfileByEmail: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.GetProfileByEmail: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -683,7 +683,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.GetProfileByEmailWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.GetProfileByEmailWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -742,7 +742,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -762,7 +762,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
 
             try
@@ -773,7 +773,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.GetProfileByUserId: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.GetProfileByUserId: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -796,7 +796,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.GetProfileByUserIdWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.GetProfileByUserIdWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -852,7 +852,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -872,7 +872,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -882,7 +882,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.GetSelfProfile: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.GetSelfProfile: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -905,7 +905,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.GetSelfProfileWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.GetSelfProfileWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -963,7 +963,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -983,7 +983,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
             var inviteUsersRequestDto = new InviteUsersRequestDto?(); // InviteUsersRequestDto? | The request parameters for inviting users. (optional) 
 
             try
@@ -994,7 +994,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.InviteUsers: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.InviteUsers: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1017,7 +1017,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.InviteUsersWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.InviteUsersWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1076,7 +1076,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1096,7 +1096,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
             var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? | The request parameters for updating the user information. (optional) 
 
             try
@@ -1107,7 +1107,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.RemoveUsers: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.RemoveUsers: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1130,7 +1130,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.RemoveUsersWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.RemoveUsersWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1189,7 +1189,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1209,7 +1209,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
             var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? | The request parameters for updating the user information. (optional) 
 
             try
@@ -1220,7 +1220,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.ResendUserInvites: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.ResendUserInvites: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1243,7 +1243,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.ResendUserInvitesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.ResendUserInvitesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1302,7 +1302,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1322,7 +1322,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
             var updateMemberRequestDto = new UpdateMemberRequestDto?(); // UpdateMemberRequestDto? | The request parameters for updating the user information. (optional) 
 
             try
@@ -1333,7 +1333,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.SendEmailChangeInstructions: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.SendEmailChangeInstructions: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1356,7 +1356,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.SendEmailChangeInstructionsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.SendEmailChangeInstructionsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1418,7 +1418,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1438,7 +1438,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
             var updateMemberRequestDto = new UpdateMemberRequestDto?(); // UpdateMemberRequestDto? | The request parameters for updating the user information. (optional) 
 
@@ -1450,7 +1450,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.UpdateMember: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.UpdateMember: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1473,7 +1473,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.UpdateMemberWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.UpdateMemberWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -1535,7 +1535,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -1555,7 +1555,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleProfilesApi(httpClient, config, httpClientHandler);
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
             var culture = new Culture?(); // Culture? | The culture code parameters. (optional) 
 
@@ -1567,7 +1567,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleProfilesApi.UpdateMemberCulture: " + e.Message);
+                Debug.Print("Exception when calling ProfilesApi.UpdateMemberCulture: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1590,7 +1590,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleProfilesApi.UpdateMemberCultureWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ProfilesApi.UpdateMemberCultureWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

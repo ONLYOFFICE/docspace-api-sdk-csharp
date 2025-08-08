@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.GroupRoomsApi
+# DocSpace.API.SDK.Api.RoomsApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -48,7 +48,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -68,7 +68,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new GroupRoomsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
             var id = 9846;  // int | The group ID.
             var excludeShared = true;  // bool? | Specifies whether to exclude the group sharing settings from the response. (optional) 
             var count = 1234;  // int? | The number of groups to retrieve in the request. (optional) 
@@ -83,7 +83,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupRoomsApi.GetGroupsWithShared: " + e.Message);
+                Debug.Print("Exception when calling RoomsApi.GetGroupsWithShared: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -106,7 +106,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling GroupRoomsApi.GetGroupsWithSharedWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RoomsApi.GetGroupsWithSharedWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

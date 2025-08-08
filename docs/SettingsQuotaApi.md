@@ -1,6 +1,6 @@
-# DocSpace.API.SDK.Api.SettingsQuotaApi
+# DocSpace.API.SDK.Api.QuotaApi
 
-All URIs are relative to *http://localhost:8092*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
@@ -42,7 +42,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -62,7 +62,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsQuotaApi(httpClient, config, httpClientHandler);
+            var apiInstance = new QuotaApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -72,7 +72,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsQuotaApi.GetUserQuotaSettings: " + e.Message);
+                Debug.Print("Exception when calling QuotaApi.GetUserQuotaSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -95,7 +95,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsQuotaApi.GetUserQuotaSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling QuotaApi.GetUserQuotaSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -153,7 +153,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -173,7 +173,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsQuotaApi(httpClient, config, httpClientHandler);
+            var apiInstance = new QuotaApi(httpClient, config, httpClientHandler);
             var quotaSettingsRequestsDto = new QuotaSettingsRequestsDto?(); // QuotaSettingsRequestsDto? | The request parameters for managing the user storage quota configurations. (optional) 
 
             try
@@ -184,7 +184,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsQuotaApi.SaveRoomQuotaSettings: " + e.Message);
+                Debug.Print("Exception when calling QuotaApi.SaveRoomQuotaSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -207,7 +207,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsQuotaApi.SaveRoomQuotaSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling QuotaApi.SaveRoomQuotaSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -266,7 +266,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://localhost:8092";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -286,7 +286,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsQuotaApi(httpClient, config, httpClientHandler);
+            var apiInstance = new QuotaApi(httpClient, config, httpClientHandler);
             var tenantQuotaSettingsRequestsDto = new TenantQuotaSettingsRequestsDto?(); // TenantQuotaSettingsRequestsDto? | The request parameters for managing the tenant storage quota settings in a multi-tenant system. (optional) 
 
             try
@@ -297,7 +297,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsQuotaApi.SetTenantQuotaSettings: " + e.Message);
+                Debug.Print("Exception when calling QuotaApi.SetTenantQuotaSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -320,7 +320,7 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsQuotaApi.SetTenantQuotaSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling QuotaApi.SetTenantQuotaSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

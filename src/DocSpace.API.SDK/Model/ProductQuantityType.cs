@@ -19,28 +19,28 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The product quantity type.
+    /// [0 - Set, 1 - Add, 2 - Sub, 3 - Renew]
     /// </summary>
-    /// <value>The product quantity type.</value>
+    /// <value>[0 - Set, 1 - Add, 2 - Sub, 3 - Renew]</value>
     public enum ProductQuantityType
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum Set for value: 0
         /// </summary>
         Set = 0,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum Add for value: 1
         /// </summary>
         Add = 1,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum Sub for value: 2
         /// </summary>
         Sub = 2,
 
         /// <summary>
-        /// Enum NUMBER_3 for value: 3
+        /// Enum Renew for value: 3
         /// </summary>
         Renew = 3
     }
