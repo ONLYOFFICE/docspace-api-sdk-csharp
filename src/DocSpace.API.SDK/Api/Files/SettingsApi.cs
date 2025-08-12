@@ -24,8 +24,11 @@ namespace DocSpace.API.SDK.Api.Files
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Change the third-party settings access
         /// </summary>
+        /// <remarks>
+        /// Changes the access to the third-party settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/">REST API Reference for ChangeAccessToThirdparty Operation</seealso>
@@ -33,10 +36,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper ChangeAccessToThirdparty(SettingsRequestDto? settingsRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Change the third-party settings access
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the access to the third-party settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -44,8 +47,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> ChangeAccessToThirdpartyWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
         /// <summary>
-        /// 
+        /// Update the trash bin auto-clearing setting
         /// </summary>
+        /// <remarks>
+        /// Updates the trash bin auto-clearing setting.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
@@ -53,10 +59,10 @@ namespace DocSpace.API.SDK.Api.Files
         AutoCleanUpDataWrapper ChangeAutomaticallyCleanUp(AutoCleanupRequestDto? autoCleanupRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Update the trash bin auto-clearing setting
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the trash bin auto-clearing setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
@@ -64,8 +70,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of AutoCleanUpDataWrapper</returns>
         ApiResponse<AutoCleanUpDataWrapper> ChangeAutomaticallyCleanUpWithHttpInfo(AutoCleanupRequestDto? autoCleanupRequestDto = default);
         /// <summary>
-        /// 
+        /// Change the default access rights
         /// </summary>
+        /// <remarks>
+        /// Changes the default access rights in the sharing settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
@@ -73,10 +82,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileShareArrayWrapper ChangeDefaultAccessRights(List<int>? requestBody = default);
 
         /// <summary>
-        /// 
+        /// Change the default access rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the default access rights in the sharing settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
@@ -84,8 +93,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
         ApiResponse<FileShareArrayWrapper> ChangeDefaultAccessRightsWithHttpInfo(List<int>? requestBody = default);
         /// <summary>
-        /// 
+        /// Confirm the file deletion
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to confirm the file deletion or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/">REST API Reference for ChangeDeleteConfirm Operation</seealso>
@@ -93,10 +105,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper ChangeDeleteConfirm(SettingsRequestDto? settingsRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Confirm the file deletion
         /// </summary>
         /// <remarks>
-        /// 
+        /// Specifies whether to confirm the file deletion or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -104,8 +116,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> ChangeDeleteConfirmWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
         /// <summary>
-        /// 
+        /// Change the archive format (using body parameters)
         /// </summary>
+        /// <remarks>
+        /// Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/">REST API Reference for ChangeDownloadZipFromBody Operation</seealso>
@@ -113,10 +128,10 @@ namespace DocSpace.API.SDK.Api.Files
         ICompressWrapper ChangeDownloadZipFromBody(DisplayRequestDto? displayRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Change the archive format (using body parameters)
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
@@ -124,8 +139,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of ICompressWrapper</returns>
         ApiResponse<ICompressWrapper> ChangeDownloadZipFromBodyWithHttpInfo(DisplayRequestDto? displayRequestDto = default);
         /// <summary>
-        /// 
+        /// Check the document service URL
         /// </summary>
+        /// <remarks>
+        /// Checks the document service location URL.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/">REST API Reference for CheckDocServiceUrl Operation</seealso>
@@ -133,10 +151,10 @@ namespace DocSpace.API.SDK.Api.Files
         DocServiceUrlWrapper CheckDocServiceUrl(CheckDocServiceUrlRequestDto? checkDocServiceUrlRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Check the document service URL
         /// </summary>
         /// <remarks>
-        /// 
+        /// Checks the document service location URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
@@ -144,8 +162,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of DocServiceUrlWrapper</returns>
         ApiResponse<DocServiceUrlWrapper> CheckDocServiceUrlWithHttpInfo(CheckDocServiceUrlRequestDto? checkDocServiceUrlRequestDto = default);
         /// <summary>
-        /// 
+        /// Display a file extension
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to display a file extension or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/">REST API Reference for DisplayFileExtension Operation</seealso>
@@ -153,10 +174,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper DisplayFileExtension(SettingsRequestDto? settingsRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Display a file extension
         /// </summary>
         /// <remarks>
-        /// 
+        /// Specifies whether to display a file extension or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -164,8 +185,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> DisplayFileExtensionWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
         /// <summary>
-        /// 
+        /// Change the external sharing ability
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to share a file externally.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/">REST API Reference for ExternalShare Operation</seealso>
@@ -173,10 +197,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper ExternalShare(DisplayRequestDto? displayRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Change the external sharing ability
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to share a file externally.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
@@ -184,8 +208,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> ExternalShareWithHttpInfo(DisplayRequestDto? displayRequestDto = default);
         /// <summary>
-        /// 
+        /// Change the external sharing ability on social networks
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to share a file externally on social networks.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/">REST API Reference for ExternalShareSocialMedia Operation</seealso>
@@ -193,10 +220,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper ExternalShareSocialMedia(DisplayRequestDto? displayRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Change the external sharing ability on social networks
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to share a file externally on social networks.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
@@ -204,44 +231,53 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> ExternalShareSocialMediaWithHttpInfo(DisplayRequestDto? displayRequestDto = default);
         /// <summary>
-        /// 
+        /// Change the forcesaving ability
         /// </summary>
+        /// <remarks>
+        /// Specifies if the file forcesaving is enabled or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper Forcesave();
 
         /// <summary>
-        /// 
+        /// Change the forcesaving ability
         /// </summary>
         /// <remarks>
-        /// 
+        /// Specifies if the file forcesaving is enabled or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> ForcesaveWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get the trash bin auto-clearing setting
         /// </summary>
+        /// <remarks>
+        /// Returns the trash bin auto-clearing setting.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
         /// <returns>AutoCleanUpDataWrapper</returns>
         AutoCleanUpDataWrapper GetAutomaticallyCleanUp();
 
         /// <summary>
-        /// 
+        /// Get the trash bin auto-clearing setting
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the trash bin auto-clearing setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
         /// <returns>ApiResponse of AutoCleanUpDataWrapper</returns>
         ApiResponse<AutoCleanUpDataWrapper> GetAutomaticallyCleanUpWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get the document service URL
         /// </summary>
+        /// <remarks>
+        /// Returns the URL address of the connected editors.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/">REST API Reference for GetDocServiceUrl Operation</seealso>
@@ -249,10 +285,10 @@ namespace DocSpace.API.SDK.Api.Files
         DocServiceUrlWrapper GetDocServiceUrl(bool? version = default);
 
         /// <summary>
-        /// 
+        /// Get the document service URL
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the URL address of the connected editors.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
@@ -260,44 +296,53 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of DocServiceUrlWrapper</returns>
         ApiResponse<DocServiceUrlWrapper> GetDocServiceUrlWithHttpInfo(bool? version = default);
         /// <summary>
-        /// 
+        /// Get the \&quot;Documents\&quot; information
         /// </summary>
+        /// <remarks>
+        /// Returns the information about the \&quot;Documents\&quot; module.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
         /// <returns>ModuleWrapper</returns>
         ModuleWrapper GetFilesModule();
 
         /// <summary>
-        /// 
+        /// Get the \&quot;Documents\&quot; information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the information about the \&quot;Documents\&quot; module.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
         /// <returns>ApiResponse of ModuleWrapper</returns>
         ApiResponse<ModuleWrapper> GetFilesModuleWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get file settings
         /// </summary>
+        /// <remarks>
+        /// Returns all the file settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
         /// <returns>FilesSettingsWrapper</returns>
         FilesSettingsWrapper GetFilesSettings();
 
         /// <summary>
-        /// 
+        /// Get file settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all the file settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
         /// <returns>ApiResponse of FilesSettingsWrapper</returns>
         ApiResponse<FilesSettingsWrapper> GetFilesSettingsWithHttpInfo();
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when canceling operations
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog when canceling operations.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/">REST API Reference for HideConfirmCancelOperation Operation</seealso>
@@ -305,10 +350,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper HideConfirmCancelOperation(SettingsRequestDto? settingsRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when canceling operations
         /// </summary>
         /// <remarks>
-        /// 
+        /// Hides the confirmation dialog when canceling operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -316,8 +361,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> HideConfirmCancelOperationWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
         /// <summary>
-        /// 
+        /// Hide the confirmation dialog when converting
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog for saving the file copy in the original format when converting a file.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
@@ -325,10 +373,10 @@ namespace DocSpace.API.SDK.Api.Files
         ModuleWrapper HideConfirmConvert(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Hide the confirmation dialog when converting
         /// </summary>
         /// <remarks>
-        /// 
+        /// Hides the confirmation dialog for saving the file copy in the original format when converting a file.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
@@ -336,8 +384,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of ModuleWrapper</returns>
         ApiResponse<ModuleWrapper> HideConfirmConvertWithHttpInfo(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default);
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when changing room lifetime settings
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog when changing the room lifetime settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/">REST API Reference for HideConfirmRoomLifetime Operation</seealso>
@@ -345,10 +396,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper HideConfirmRoomLifetime(SettingsRequestDto? settingsRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when changing room lifetime settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Hides the confirmation dialog when changing the room lifetime settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -356,26 +407,32 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> HideConfirmRoomLifetimeWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
         /// <summary>
-        /// 
+        /// Check the \&quot;Private Room\&quot; availability
         /// </summary>
+        /// <remarks>
+        /// Checks if the \&quot;Private Room\&quot; settings are available or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper IsAvailablePrivacyRoomSettings();
 
         /// <summary>
-        /// 
+        /// Check the \&quot;Private Room\&quot; availability
         /// </summary>
         /// <remarks>
-        /// 
+        /// Checks if the \&quot;Private Room\&quot; settings are available or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> IsAvailablePrivacyRoomSettingsWithHttpInfo();
         /// <summary>
-        /// 
+        /// Ask a new file name
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to ask a user for a file name on creation or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/">REST API Reference for KeepNewFileName Operation</seealso>
@@ -383,10 +440,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper KeepNewFileName(SettingsRequestDto? settingsRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Ask a new file name
         /// </summary>
         /// <remarks>
-        /// 
+        /// Specifies whether to ask a user for a file name on creation or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -394,8 +451,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> KeepNewFileNameWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
         /// <summary>
-        /// 
+        /// Open document in the same browser tab
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to open the document in the same browser tab.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/">REST API Reference for SetOpenEditorInSameTab Operation</seealso>
@@ -403,10 +463,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper SetOpenEditorInSameTab(SettingsRequestDto? settingsRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Open document in the same browser tab
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to open the document in the same browser tab.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -414,26 +474,32 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> SetOpenEditorInSameTabWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
         /// <summary>
-        /// 
+        /// Change the ability to store the forcesaved files
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to store the forcesaved file versions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper StoreForcesave();
 
         /// <summary>
-        /// 
+        /// Change the ability to store the forcesaved files
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to store the forcesaved file versions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> StoreForcesaveWithHttpInfo();
         /// <summary>
-        /// 
+        /// Change the ability to upload original formats
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to upload documents in the original formats as well.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/">REST API Reference for StoreOriginal Operation</seealso>
@@ -441,10 +507,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper StoreOriginal(SettingsRequestDto? settingsRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Change the ability to upload original formats
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to upload documents in the original formats as well.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -452,8 +518,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> StoreOriginalWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
         /// <summary>
-        /// 
+        /// Update a file version if it exists
         /// </summary>
+        /// <remarks>
+        /// Updates a file version if a file with such a name already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/">REST API Reference for UpdateFileIfExist Operation</seealso>
@@ -461,10 +530,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper UpdateFileIfExist(SettingsRequestDto? settingsRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Update a file version if it exists
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates a file version if a file with such a name already exists.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -481,10 +550,10 @@ namespace DocSpace.API.SDK.Api.Files
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Change the third-party settings access
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the access to the third-party settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -494,10 +563,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> ChangeAccessToThirdpartyAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Change the third-party settings access
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the access to the third-party settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -506,10 +575,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> ChangeAccessToThirdpartyWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Update the trash bin auto-clearing setting
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the trash bin auto-clearing setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
@@ -519,10 +588,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<AutoCleanUpDataWrapper> ChangeAutomaticallyCleanUpAsync(AutoCleanupRequestDto? autoCleanupRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Update the trash bin auto-clearing setting
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the trash bin auto-clearing setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
@@ -531,10 +600,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (AutoCleanUpDataWrapper)</returns>
         Task<ApiResponse<AutoCleanUpDataWrapper>> ChangeAutomaticallyCleanUpWithHttpInfoAsync(AutoCleanupRequestDto? autoCleanupRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Change the default access rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the default access rights in the sharing settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
@@ -544,10 +613,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileShareArrayWrapper> ChangeDefaultAccessRightsAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Change the default access rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the default access rights in the sharing settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
@@ -556,10 +625,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
         Task<ApiResponse<FileShareArrayWrapper>> ChangeDefaultAccessRightsWithHttpInfoAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Confirm the file deletion
         /// </summary>
         /// <remarks>
-        /// 
+        /// Specifies whether to confirm the file deletion or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -569,10 +638,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> ChangeDeleteConfirmAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Confirm the file deletion
         /// </summary>
         /// <remarks>
-        /// 
+        /// Specifies whether to confirm the file deletion or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -581,10 +650,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> ChangeDeleteConfirmWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Change the archive format (using body parameters)
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
@@ -594,10 +663,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<ICompressWrapper> ChangeDownloadZipFromBodyAsync(DisplayRequestDto? displayRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Change the archive format (using body parameters)
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
@@ -606,10 +675,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (ICompressWrapper)</returns>
         Task<ApiResponse<ICompressWrapper>> ChangeDownloadZipFromBodyWithHttpInfoAsync(DisplayRequestDto? displayRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Check the document service URL
         /// </summary>
         /// <remarks>
-        /// 
+        /// Checks the document service location URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
@@ -619,10 +688,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<DocServiceUrlWrapper> CheckDocServiceUrlAsync(CheckDocServiceUrlRequestDto? checkDocServiceUrlRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Check the document service URL
         /// </summary>
         /// <remarks>
-        /// 
+        /// Checks the document service location URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
@@ -631,10 +700,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (DocServiceUrlWrapper)</returns>
         Task<ApiResponse<DocServiceUrlWrapper>> CheckDocServiceUrlWithHttpInfoAsync(CheckDocServiceUrlRequestDto? checkDocServiceUrlRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Display a file extension
         /// </summary>
         /// <remarks>
-        /// 
+        /// Specifies whether to display a file extension or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -644,10 +713,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> DisplayFileExtensionAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Display a file extension
         /// </summary>
         /// <remarks>
-        /// 
+        /// Specifies whether to display a file extension or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -656,10 +725,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> DisplayFileExtensionWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Change the external sharing ability
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to share a file externally.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
@@ -669,10 +738,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> ExternalShareAsync(DisplayRequestDto? displayRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Change the external sharing ability
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to share a file externally.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
@@ -681,10 +750,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> ExternalShareWithHttpInfoAsync(DisplayRequestDto? displayRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Change the external sharing ability on social networks
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to share a file externally on social networks.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
@@ -694,10 +763,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> ExternalShareSocialMediaAsync(DisplayRequestDto? displayRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Change the external sharing ability on social networks
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to share a file externally on social networks.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
@@ -706,10 +775,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> ExternalShareSocialMediaWithHttpInfoAsync(DisplayRequestDto? displayRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Change the forcesaving ability
         /// </summary>
         /// <remarks>
-        /// 
+        /// Specifies if the file forcesaving is enabled or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -718,10 +787,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> ForcesaveAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Change the forcesaving ability
         /// </summary>
         /// <remarks>
-        /// 
+        /// Specifies if the file forcesaving is enabled or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -729,10 +798,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> ForcesaveWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the trash bin auto-clearing setting
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the trash bin auto-clearing setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -741,10 +810,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<AutoCleanUpDataWrapper> GetAutomaticallyCleanUpAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the trash bin auto-clearing setting
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the trash bin auto-clearing setting.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -752,10 +821,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (AutoCleanUpDataWrapper)</returns>
         Task<ApiResponse<AutoCleanUpDataWrapper>> GetAutomaticallyCleanUpWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the document service URL
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the URL address of the connected editors.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
@@ -765,10 +834,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<DocServiceUrlWrapper> GetDocServiceUrlAsync(bool? version = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the document service URL
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the URL address of the connected editors.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
@@ -777,10 +846,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (DocServiceUrlWrapper)</returns>
         Task<ApiResponse<DocServiceUrlWrapper>> GetDocServiceUrlWithHttpInfoAsync(bool? version = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the \&quot;Documents\&quot; information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the information about the \&quot;Documents\&quot; module.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -789,10 +858,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<ModuleWrapper> GetFilesModuleAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the \&quot;Documents\&quot; information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the information about the \&quot;Documents\&quot; module.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -800,10 +869,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (ModuleWrapper)</returns>
         Task<ApiResponse<ModuleWrapper>> GetFilesModuleWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get file settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all the file settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -812,10 +881,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FilesSettingsWrapper> GetFilesSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get file settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns all the file settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -823,10 +892,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FilesSettingsWrapper)</returns>
         Task<ApiResponse<FilesSettingsWrapper>> GetFilesSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when canceling operations
         /// </summary>
         /// <remarks>
-        /// 
+        /// Hides the confirmation dialog when canceling operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -836,10 +905,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> HideConfirmCancelOperationAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when canceling operations
         /// </summary>
         /// <remarks>
-        /// 
+        /// Hides the confirmation dialog when canceling operations.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -848,10 +917,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> HideConfirmCancelOperationWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Hide the confirmation dialog when converting
         /// </summary>
         /// <remarks>
-        /// 
+        /// Hides the confirmation dialog for saving the file copy in the original format when converting a file.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
@@ -861,10 +930,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<ModuleWrapper> HideConfirmConvertAsync(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Hide the confirmation dialog when converting
         /// </summary>
         /// <remarks>
-        /// 
+        /// Hides the confirmation dialog for saving the file copy in the original format when converting a file.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
@@ -873,10 +942,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (ModuleWrapper)</returns>
         Task<ApiResponse<ModuleWrapper>> HideConfirmConvertWithHttpInfoAsync(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when changing room lifetime settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Hides the confirmation dialog when changing the room lifetime settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -886,10 +955,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> HideConfirmRoomLifetimeAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when changing room lifetime settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Hides the confirmation dialog when changing the room lifetime settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -898,10 +967,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> HideConfirmRoomLifetimeWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Check the \&quot;Private Room\&quot; availability
         /// </summary>
         /// <remarks>
-        /// 
+        /// Checks if the \&quot;Private Room\&quot; settings are available or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -910,10 +979,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> IsAvailablePrivacyRoomSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Check the \&quot;Private Room\&quot; availability
         /// </summary>
         /// <remarks>
-        /// 
+        /// Checks if the \&quot;Private Room\&quot; settings are available or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -921,10 +990,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> IsAvailablePrivacyRoomSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Ask a new file name
         /// </summary>
         /// <remarks>
-        /// 
+        /// Specifies whether to ask a user for a file name on creation or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -934,10 +1003,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> KeepNewFileNameAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Ask a new file name
         /// </summary>
         /// <remarks>
-        /// 
+        /// Specifies whether to ask a user for a file name on creation or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -946,10 +1015,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> KeepNewFileNameWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Open document in the same browser tab
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to open the document in the same browser tab.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -959,10 +1028,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> SetOpenEditorInSameTabAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Open document in the same browser tab
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to open the document in the same browser tab.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -971,10 +1040,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> SetOpenEditorInSameTabWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Change the ability to store the forcesaved files
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to store the forcesaved file versions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -983,10 +1052,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> StoreForcesaveAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Change the ability to store the forcesaved files
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to store the forcesaved file versions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -994,10 +1063,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> StoreForcesaveWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Change the ability to upload original formats
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to upload documents in the original formats as well.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -1007,10 +1076,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> StoreOriginalAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Change the ability to upload original formats
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the ability to upload documents in the original formats as well.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -1019,10 +1088,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> StoreOriginalWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Update a file version if it exists
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates a file version if a file with such a name already exists.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -1032,10 +1101,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> UpdateFileIfExistAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Update a file version if it exists
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates a file version if a file with such a name already exists.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
@@ -1257,8 +1326,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the third-party settings access
         /// </summary>
+        /// <remarks>
+        /// Changes the access to the third-party settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/">REST API Reference for ChangeAccessToThirdparty Operation</seealso>
@@ -1270,8 +1342,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the third-party settings access
         /// </summary>
+        /// <remarks>
+        /// Changes the access to the third-party settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/">REST API Reference for ChangeAccessToThirdparty Operation</seealso>
@@ -1293,6 +1368,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/thirdparty", localVarRequestOptions, Configuration);
@@ -1310,8 +1415,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the third-party settings access
         /// </summary>
+        /// <remarks>
+        /// Changes the access to the third-party settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1324,8 +1432,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the third-party settings access
         /// </summary>
+        /// <remarks>
+        /// Changes the access to the third-party settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1349,6 +1460,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1367,8 +1508,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Update the trash bin auto-clearing setting
         /// </summary>
+        /// <remarks>
+        /// Updates the trash bin auto-clearing setting.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
@@ -1380,8 +1524,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Update the trash bin auto-clearing setting
         /// </summary>
+        /// <remarks>
+        /// Updates the trash bin auto-clearing setting.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
@@ -1403,6 +1550,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (autoCleanupRequestDto != null) localVarRequestOptions.Data = autoCleanupRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<AutoCleanUpDataWrapper>("/api/2.0/files/settings/autocleanup", localVarRequestOptions, Configuration);
@@ -1420,8 +1597,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Update the trash bin auto-clearing setting
         /// </summary>
+        /// <remarks>
+        /// Updates the trash bin auto-clearing setting.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1434,8 +1614,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Update the trash bin auto-clearing setting
         /// </summary>
+        /// <remarks>
+        /// Updates the trash bin auto-clearing setting.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1459,6 +1642,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (autoCleanupRequestDto != null) localVarRequestOptions.Data = autoCleanupRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1477,8 +1690,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the default access rights
         /// </summary>
+        /// <remarks>
+        /// Changes the default access rights in the sharing settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
@@ -1490,8 +1706,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the default access rights
         /// </summary>
+        /// <remarks>
+        /// Changes the default access rights in the sharing settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/">REST API Reference for ChangeDefaultAccessRights Operation</seealso>
@@ -1513,6 +1732,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FileShareArrayWrapper>("/api/2.0/files/settings/dafaultaccessrights", localVarRequestOptions, Configuration);
@@ -1530,8 +1779,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the default access rights
         /// </summary>
+        /// <remarks>
+        /// Changes the default access rights in the sharing settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1544,8 +1796,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the default access rights
         /// </summary>
+        /// <remarks>
+        /// Changes the default access rights in the sharing settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">Sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1569,6 +1824,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1587,8 +1872,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Confirm the file deletion
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to confirm the file deletion or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/">REST API Reference for ChangeDeleteConfirm Operation</seealso>
@@ -1600,8 +1888,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Confirm the file deletion
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to confirm the file deletion or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/">REST API Reference for ChangeDeleteConfirm Operation</seealso>
@@ -1623,6 +1914,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/changedeleteconfrim", localVarRequestOptions, Configuration);
@@ -1640,8 +1961,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Confirm the file deletion
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to confirm the file deletion or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1654,8 +1978,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Confirm the file deletion
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to confirm the file deletion or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1679,6 +2006,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1697,8 +2054,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the archive format (using body parameters)
         /// </summary>
+        /// <remarks>
+        /// Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/">REST API Reference for ChangeDownloadZipFromBody Operation</seealso>
@@ -1710,8 +2070,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the archive format (using body parameters)
         /// </summary>
+        /// <remarks>
+        /// Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/">REST API Reference for ChangeDownloadZipFromBody Operation</seealso>
@@ -1733,6 +2096,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (displayRequestDto != null) localVarRequestOptions.Data = displayRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<ICompressWrapper>("/api/2.0/files/settings/downloadtargz", localVarRequestOptions, Configuration);
@@ -1750,8 +2143,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the archive format (using body parameters)
         /// </summary>
+        /// <remarks>
+        /// Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1764,8 +2160,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the archive format (using body parameters)
         /// </summary>
+        /// <remarks>
+        /// Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1789,6 +2188,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (displayRequestDto != null) localVarRequestOptions.Data = displayRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1807,8 +2236,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Check the document service URL
         /// </summary>
+        /// <remarks>
+        /// Checks the document service location URL.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/">REST API Reference for CheckDocServiceUrl Operation</seealso>
@@ -1820,8 +2252,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Check the document service URL
         /// </summary>
+        /// <remarks>
+        /// Checks the document service location URL.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/">REST API Reference for CheckDocServiceUrl Operation</seealso>
@@ -1843,6 +2278,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (checkDocServiceUrlRequestDto != null) localVarRequestOptions.Data = checkDocServiceUrlRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<DocServiceUrlWrapper>("/api/2.0/files/docservice", localVarRequestOptions, Configuration);
@@ -1860,8 +2325,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Check the document service URL
         /// </summary>
+        /// <remarks>
+        /// Checks the document service location URL.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1874,8 +2342,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Check the document service URL
         /// </summary>
+        /// <remarks>
+        /// Checks the document service location URL.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="checkDocServiceUrlRequestDto">The request parameters for checking the document service location. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1899,6 +2370,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (checkDocServiceUrlRequestDto != null) localVarRequestOptions.Data = checkDocServiceUrlRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1917,8 +2418,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Display a file extension
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to display a file extension or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/">REST API Reference for DisplayFileExtension Operation</seealso>
@@ -1930,8 +2434,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Display a file extension
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to display a file extension or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/">REST API Reference for DisplayFileExtension Operation</seealso>
@@ -1953,6 +2460,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/displayfileextension", localVarRequestOptions, Configuration);
@@ -1970,8 +2507,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Display a file extension
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to display a file extension or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1984,8 +2524,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Display a file extension
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to display a file extension or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2009,6 +2552,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2027,8 +2600,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the external sharing ability
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to share a file externally.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/">REST API Reference for ExternalShare Operation</seealso>
@@ -2040,8 +2616,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the external sharing ability
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to share a file externally.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/">REST API Reference for ExternalShare Operation</seealso>
@@ -2063,6 +2642,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (displayRequestDto != null) localVarRequestOptions.Data = displayRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/settings/external", localVarRequestOptions, Configuration);
@@ -2080,8 +2689,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the external sharing ability
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to share a file externally.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2094,8 +2706,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the external sharing ability
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to share a file externally.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2119,6 +2734,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (displayRequestDto != null) localVarRequestOptions.Data = displayRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2137,8 +2782,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the external sharing ability on social networks
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to share a file externally on social networks.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/">REST API Reference for ExternalShareSocialMedia Operation</seealso>
@@ -2150,8 +2798,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the external sharing ability on social networks
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to share a file externally on social networks.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/">REST API Reference for ExternalShareSocialMedia Operation</seealso>
@@ -2173,6 +2824,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (displayRequestDto != null) localVarRequestOptions.Data = displayRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/settings/externalsocialmedia", localVarRequestOptions, Configuration);
@@ -2190,8 +2871,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the external sharing ability on social networks
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to share a file externally on social networks.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2204,8 +2888,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the external sharing ability on social networks
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to share a file externally on social networks.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="displayRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2229,6 +2916,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (displayRequestDto != null) localVarRequestOptions.Data = displayRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2247,8 +2964,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the forcesaving ability
         /// </summary>
+        /// <remarks>
+        /// Specifies if the file forcesaving is enabled or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -2259,8 +2979,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the forcesaving ability
         /// </summary>
+        /// <remarks>
+        /// Specifies if the file forcesaving is enabled or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -2280,6 +3003,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/forcesave", localVarRequestOptions, Configuration);
@@ -2297,8 +3050,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the forcesaving ability
         /// </summary>
+        /// <remarks>
+        /// Specifies if the file forcesaving is enabled or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
@@ -2310,8 +3066,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the forcesaving ability
         /// </summary>
+        /// <remarks>
+        /// Specifies if the file forcesaving is enabled or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/">REST API Reference for Forcesave Operation</seealso>
@@ -2333,6 +3092,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2351,8 +3140,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the trash bin auto-clearing setting
         /// </summary>
+        /// <remarks>
+        /// Returns the trash bin auto-clearing setting.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
         /// <returns>AutoCleanUpDataWrapper</returns>
@@ -2363,8 +3155,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the trash bin auto-clearing setting
         /// </summary>
+        /// <remarks>
+        /// Returns the trash bin auto-clearing setting.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
         /// <returns>ApiResponse of AutoCleanUpDataWrapper</returns>
@@ -2384,6 +3179,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<AutoCleanUpDataWrapper>("/api/2.0/files/settings/autocleanup", localVarRequestOptions, Configuration);
@@ -2401,8 +3226,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the trash bin auto-clearing setting
         /// </summary>
+        /// <remarks>
+        /// Returns the trash bin auto-clearing setting.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
@@ -2414,8 +3242,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the trash bin auto-clearing setting
         /// </summary>
+        /// <remarks>
+        /// Returns the trash bin auto-clearing setting.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/">REST API Reference for GetAutomaticallyCleanUp Operation</seealso>
@@ -2437,6 +3268,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2455,8 +3316,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the document service URL
         /// </summary>
+        /// <remarks>
+        /// Returns the URL address of the connected editors.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/">REST API Reference for GetDocServiceUrl Operation</seealso>
@@ -2468,8 +3332,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the document service URL
         /// </summary>
+        /// <remarks>
+        /// Returns the URL address of the connected editors.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/">REST API Reference for GetDocServiceUrl Operation</seealso>
@@ -2511,8 +3378,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the document service URL
         /// </summary>
+        /// <remarks>
+        /// Returns the URL address of the connected editors.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2525,8 +3395,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the document service URL
         /// </summary>
+        /// <remarks>
+        /// Returns the URL address of the connected editors.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="version">Specifies whether to return the editor version or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2571,8 +3444,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the \&quot;Documents\&quot; information
         /// </summary>
+        /// <remarks>
+        /// Returns the information about the \&quot;Documents\&quot; module.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
         /// <returns>ModuleWrapper</returns>
@@ -2583,8 +3459,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the \&quot;Documents\&quot; information
         /// </summary>
+        /// <remarks>
+        /// Returns the information about the \&quot;Documents\&quot; module.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
         /// <returns>ApiResponse of ModuleWrapper</returns>
@@ -2604,6 +3483,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<ModuleWrapper>("/api/2.0/files/info", localVarRequestOptions, Configuration);
@@ -2621,8 +3530,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the \&quot;Documents\&quot; information
         /// </summary>
+        /// <remarks>
+        /// Returns the information about the \&quot;Documents\&quot; module.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
@@ -2634,8 +3546,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the \&quot;Documents\&quot; information
         /// </summary>
+        /// <remarks>
+        /// Returns the information about the \&quot;Documents\&quot; module.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
@@ -2657,6 +3572,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2675,8 +3620,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get file settings
         /// </summary>
+        /// <remarks>
+        /// Returns all the file settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
         /// <returns>FilesSettingsWrapper</returns>
@@ -2687,8 +3635,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get file settings
         /// </summary>
+        /// <remarks>
+        /// Returns all the file settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
         /// <returns>ApiResponse of FilesSettingsWrapper</returns>
@@ -2725,8 +3676,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get file settings
         /// </summary>
+        /// <remarks>
+        /// Returns all the file settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
@@ -2738,8 +3692,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get file settings
         /// </summary>
+        /// <remarks>
+        /// Returns all the file settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/">REST API Reference for GetFilesSettings Operation</seealso>
@@ -2779,8 +3736,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when canceling operations
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog when canceling operations.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/">REST API Reference for HideConfirmCancelOperation Operation</seealso>
@@ -2792,8 +3752,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when canceling operations
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog when canceling operations.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/">REST API Reference for HideConfirmCancelOperation Operation</seealso>
@@ -2815,6 +3778,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/hideconfirmcanceloperation", localVarRequestOptions, Configuration);
@@ -2832,8 +3825,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when canceling operations
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog when canceling operations.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2846,8 +3842,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when canceling operations
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog when canceling operations.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2871,6 +3870,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2889,8 +3918,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Hide the confirmation dialog when converting
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog for saving the file copy in the original format when converting a file.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
@@ -2902,8 +3934,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Hide the confirmation dialog when converting
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog for saving the file copy in the original format when converting a file.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
@@ -2925,6 +3960,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (hideConfirmConvertRequestDto != null) localVarRequestOptions.Data = hideConfirmConvertRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<ModuleWrapper>("/api/2.0/files/hideconfirmconvert", localVarRequestOptions, Configuration);
@@ -2942,8 +4007,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Hide the confirmation dialog when converting
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog for saving the file copy in the original format when converting a file.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2956,8 +4024,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Hide the confirmation dialog when converting
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog for saving the file copy in the original format when converting a file.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2981,6 +4052,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (hideConfirmConvertRequestDto != null) localVarRequestOptions.Data = hideConfirmConvertRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2999,8 +4100,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when changing room lifetime settings
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog when changing the room lifetime settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/">REST API Reference for HideConfirmRoomLifetime Operation</seealso>
@@ -3012,8 +4116,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when changing room lifetime settings
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog when changing the room lifetime settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/">REST API Reference for HideConfirmRoomLifetime Operation</seealso>
@@ -3035,6 +4142,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/hideconfirmroomlifetime", localVarRequestOptions, Configuration);
@@ -3052,8 +4189,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when changing room lifetime settings
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog when changing the room lifetime settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3066,8 +4206,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Hide confirmation dialog when changing room lifetime settings
         /// </summary>
+        /// <remarks>
+        /// Hides the confirmation dialog when changing the room lifetime settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3091,6 +4234,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3109,8 +4282,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Check the \&quot;Private Room\&quot; availability
         /// </summary>
+        /// <remarks>
+        /// Checks if the \&quot;Private Room\&quot; settings are available or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -3121,8 +4297,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Check the \&quot;Private Room\&quot; availability
         /// </summary>
+        /// <remarks>
+        /// Checks if the \&quot;Private Room\&quot; settings are available or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -3142,6 +4321,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<BooleanWrapper>("/api/2.0/files/@privacy/available", localVarRequestOptions, Configuration);
@@ -3159,8 +4368,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Check the \&quot;Private Room\&quot; availability
         /// </summary>
+        /// <remarks>
+        /// Checks if the \&quot;Private Room\&quot; settings are available or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
@@ -3172,8 +4384,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Check the \&quot;Private Room\&quot; availability
         /// </summary>
+        /// <remarks>
+        /// Checks if the \&quot;Private Room\&quot; settings are available or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/">REST API Reference for IsAvailablePrivacyRoomSettings Operation</seealso>
@@ -3195,6 +4410,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3213,8 +4458,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Ask a new file name
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to ask a user for a file name on creation or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/">REST API Reference for KeepNewFileName Operation</seealso>
@@ -3226,8 +4474,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Ask a new file name
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to ask a user for a file name on creation or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/">REST API Reference for KeepNewFileName Operation</seealso>
@@ -3249,6 +4500,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/keepnewfilename", localVarRequestOptions, Configuration);
@@ -3266,8 +4547,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Ask a new file name
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to ask a user for a file name on creation or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3280,8 +4564,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Ask a new file name
         /// </summary>
+        /// <remarks>
+        /// Specifies whether to ask a user for a file name on creation or not.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3305,6 +4592,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3323,8 +4640,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Open document in the same browser tab
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to open the document in the same browser tab.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/">REST API Reference for SetOpenEditorInSameTab Operation</seealso>
@@ -3336,8 +4656,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Open document in the same browser tab
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to open the document in the same browser tab.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/">REST API Reference for SetOpenEditorInSameTab Operation</seealso>
@@ -3359,6 +4682,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/settings/openeditorinsametab", localVarRequestOptions, Configuration);
@@ -3376,8 +4729,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Open document in the same browser tab
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to open the document in the same browser tab.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3390,8 +4746,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Open document in the same browser tab
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to open the document in the same browser tab.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3415,6 +4774,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3433,8 +4822,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the ability to store the forcesaved files
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to store the forcesaved file versions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -3445,8 +4837,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the ability to store the forcesaved files
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to store the forcesaved file versions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -3466,6 +4861,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/storeforcesave", localVarRequestOptions, Configuration);
@@ -3483,8 +4908,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the ability to store the forcesaved files
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to store the forcesaved file versions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
@@ -3496,8 +4924,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the ability to store the forcesaved files
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to store the forcesaved file versions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/">REST API Reference for StoreForcesave Operation</seealso>
@@ -3519,6 +4950,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3537,8 +4998,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the ability to upload original formats
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to upload documents in the original formats as well.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/">REST API Reference for StoreOriginal Operation</seealso>
@@ -3550,8 +5014,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the ability to upload original formats
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to upload documents in the original formats as well.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/">REST API Reference for StoreOriginal Operation</seealso>
@@ -3573,6 +5040,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/storeoriginal", localVarRequestOptions, Configuration);
@@ -3590,8 +5087,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the ability to upload original formats
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to upload documents in the original formats as well.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3604,8 +5104,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the ability to upload original formats
         /// </summary>
+        /// <remarks>
+        /// Changes the ability to upload documents in the original formats as well.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3629,6 +5132,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3647,8 +5180,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Update a file version if it exists
         /// </summary>
+        /// <remarks>
+        /// Updates a file version if a file with such a name already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/">REST API Reference for UpdateFileIfExist Operation</seealso>
@@ -3660,8 +5196,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Update a file version if it exists
         /// </summary>
+        /// <remarks>
+        /// Updates a file version if a file with such a name already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/">REST API Reference for UpdateFileIfExist Operation</seealso>
@@ -3683,6 +5222,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/updateifexist", localVarRequestOptions, Configuration);
@@ -3700,8 +5269,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Update a file version if it exists
         /// </summary>
+        /// <remarks>
+        /// Updates a file version if a file with such a name already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3714,8 +5286,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Update a file version if it exists
         /// </summary>
+        /// <remarks>
+        /// Updates a file version if a file with such a name already exists.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="settingsRequestDto">The settings request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3739,6 +5314,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (settingsRequestDto != null) localVarRequestOptions.Data = settingsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 

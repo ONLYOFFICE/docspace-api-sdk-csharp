@@ -24,8 +24,11 @@ namespace DocSpace.API.SDK.Api.Files
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Remove a third-party account
         /// </summary>
+        /// <remarks>
+        /// Removes the third-party storage service account with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/">REST API Reference for DeleteThirdParty Operation</seealso>
@@ -33,10 +36,10 @@ namespace DocSpace.API.SDK.Api.Files
         StringWrapper DeleteThirdParty(int providerId);
 
         /// <summary>
-        /// 
+        /// Remove a third-party account
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the third-party storage service account with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
@@ -44,98 +47,116 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> DeleteThirdPartyWithHttpInfo(int providerId);
         /// <summary>
-        /// 
+        /// Get all providers
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
         /// <returns>ProviderArrayWrapper</returns>
         ProviderArrayWrapper GetAllProviders();
 
         /// <summary>
-        /// 
+        /// Get all providers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
         /// <returns>ApiResponse of ProviderArrayWrapper</returns>
         ApiResponse<ProviderArrayWrapper> GetAllProvidersWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get a third-party account backup
         /// </summary>
+        /// <remarks>
+        /// Returns a backup of the connected third-party account.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
         /// <returns>FolderStringWrapper</returns>
         FolderStringWrapper GetBackupThirdPartyAccount();
 
         /// <summary>
-        /// 
+        /// Get a third-party account backup
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a backup of the connected third-party account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
         /// <returns>ApiResponse of FolderStringWrapper</returns>
         ApiResponse<FolderStringWrapper> GetBackupThirdPartyAccountWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get providers
         /// </summary>
+        /// <remarks>
+        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
         /// <returns>ArrayArrayWrapper</returns>
         ArrayArrayWrapper GetCapabilities();
 
         /// <summary>
-        /// 
+        /// Get providers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
         /// <returns>ApiResponse of ArrayArrayWrapper</returns>
         ApiResponse<ArrayArrayWrapper> GetCapabilitiesWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get the common third-party services
         /// </summary>
+        /// <remarks>
+        /// Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
         /// <returns>FolderStringArrayWrapper</returns>
         FolderStringArrayWrapper GetCommonThirdPartyFolders();
 
         /// <summary>
-        /// 
+        /// Get the common third-party services
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
         /// <returns>ApiResponse of FolderStringArrayWrapper</returns>
         ApiResponse<FolderStringArrayWrapper> GetCommonThirdPartyFoldersWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get the third-party accounts
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the connected third-party accounts.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
         /// <returns>ThirdPartyParamsArrayWrapper</returns>
         ThirdPartyParamsArrayWrapper GetThirdPartyAccounts();
 
         /// <summary>
-        /// 
+        /// Get the third-party accounts
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of all the connected third-party accounts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
         /// <returns>ApiResponse of ThirdPartyParamsArrayWrapper</returns>
         ApiResponse<ThirdPartyParamsArrayWrapper> GetThirdPartyAccountsWithHttpInfo();
         /// <summary>
-        /// 
+        /// Save a third-party account
         /// </summary>
+        /// <remarks>
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
@@ -143,10 +164,10 @@ namespace DocSpace.API.SDK.Api.Files
         FolderStringWrapper SaveThirdParty(ThirdPartyRequestDto? thirdPartyRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Save a third-party account
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
@@ -154,8 +175,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FolderStringWrapper</returns>
         ApiResponse<FolderStringWrapper> SaveThirdPartyWithHttpInfo(ThirdPartyRequestDto? thirdPartyRequestDto = default);
         /// <summary>
-        /// 
+        /// Save a third-party account backup
         /// </summary>
+        /// <remarks>
+        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
@@ -163,10 +187,10 @@ namespace DocSpace.API.SDK.Api.Files
         FolderStringWrapper SaveThirdPartyBackup(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Save a third-party account backup
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
@@ -183,10 +207,10 @@ namespace DocSpace.API.SDK.Api.Files
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Remove a third-party account
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the third-party storage service account with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
@@ -196,10 +220,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<StringWrapper> DeleteThirdPartyAsync(int providerId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Remove a third-party account
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the third-party storage service account with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
@@ -208,10 +232,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
         Task<ApiResponse<StringWrapper>> DeleteThirdPartyWithHttpInfoAsync(int providerId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get all providers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -220,10 +244,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<ProviderArrayWrapper> GetAllProvidersAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get all providers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -231,10 +255,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (ProviderArrayWrapper)</returns>
         Task<ApiResponse<ProviderArrayWrapper>> GetAllProvidersWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get a third-party account backup
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a backup of the connected third-party account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -243,10 +267,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FolderStringWrapper> GetBackupThirdPartyAccountAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get a third-party account backup
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a backup of the connected third-party account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -254,10 +278,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
         Task<ApiResponse<FolderStringWrapper>> GetBackupThirdPartyAccountWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get providers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -266,10 +290,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<ArrayArrayWrapper> GetCapabilitiesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get providers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -277,10 +301,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (ArrayArrayWrapper)</returns>
         Task<ApiResponse<ArrayArrayWrapper>> GetCapabilitiesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the common third-party services
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -289,10 +313,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FolderStringArrayWrapper> GetCommonThirdPartyFoldersAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the common third-party services
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -300,10 +324,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FolderStringArrayWrapper)</returns>
         Task<ApiResponse<FolderStringArrayWrapper>> GetCommonThirdPartyFoldersWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the third-party accounts
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of all the connected third-party accounts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -312,10 +336,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<ThirdPartyParamsArrayWrapper> GetThirdPartyAccountsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the third-party accounts
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of all the connected third-party accounts.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -323,10 +347,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (ThirdPartyParamsArrayWrapper)</returns>
         Task<ApiResponse<ThirdPartyParamsArrayWrapper>> GetThirdPartyAccountsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Save a third-party account
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
@@ -336,10 +360,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FolderStringWrapper> SaveThirdPartyAsync(ThirdPartyRequestDto? thirdPartyRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Save a third-party account
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
@@ -348,10 +372,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
         Task<ApiResponse<FolderStringWrapper>> SaveThirdPartyWithHttpInfoAsync(ThirdPartyRequestDto? thirdPartyRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Save a third-party account backup
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
@@ -361,10 +385,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FolderStringWrapper> SaveThirdPartyBackupAsync(ThirdPartyBackupRequestDto? thirdPartyBackupRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Save a third-party account backup
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
@@ -586,8 +610,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Remove a third-party account
         /// </summary>
+        /// <remarks>
+        /// Removes the third-party storage service account with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/">REST API Reference for DeleteThirdParty Operation</seealso>
@@ -599,8 +626,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Remove a third-party account
         /// </summary>
+        /// <remarks>
+        /// Removes the third-party storage service account with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-third-party/">REST API Reference for DeleteThirdParty Operation</seealso>
@@ -622,6 +652,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("providerId", ClientUtils.ParameterToString(providerId)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Delete<StringWrapper>("/api/2.0/files/thirdparty/{providerId}", localVarRequestOptions, Configuration);
@@ -639,8 +699,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Remove a third-party account
         /// </summary>
+        /// <remarks>
+        /// Removes the third-party storage service account with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -653,8 +716,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Remove a third-party account
         /// </summary>
+        /// <remarks>
+        /// Removes the third-party storage service account with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="providerId">The provider ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -678,6 +744,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("providerId", ClientUtils.ParameterToString(providerId)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -696,8 +792,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get all providers
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
         /// <returns>ProviderArrayWrapper</returns>
@@ -708,8 +807,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get all providers
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
         /// <returns>ApiResponse of ProviderArrayWrapper</returns>
@@ -729,6 +831,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<ProviderArrayWrapper>("/api/2.0/files/thirdparty/providers", localVarRequestOptions, Configuration);
@@ -746,8 +878,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get all providers
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
@@ -759,8 +894,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get all providers
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-providers/">REST API Reference for GetAllProviders Operation</seealso>
@@ -782,6 +920,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -800,8 +968,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get a third-party account backup
         /// </summary>
+        /// <remarks>
+        /// Returns a backup of the connected third-party account.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
         /// <returns>FolderStringWrapper</returns>
@@ -812,8 +983,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get a third-party account backup
         /// </summary>
+        /// <remarks>
+        /// Returns a backup of the connected third-party account.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
         /// <returns>ApiResponse of FolderStringWrapper</returns>
@@ -833,6 +1007,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<FolderStringWrapper>("/api/2.0/files/thirdparty/backup", localVarRequestOptions, Configuration);
@@ -850,8 +1054,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get a third-party account backup
         /// </summary>
+        /// <remarks>
+        /// Returns a backup of the connected third-party account.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
@@ -863,8 +1070,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get a third-party account backup
         /// </summary>
+        /// <remarks>
+        /// Returns a backup of the connected third-party account.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backup-third-party-account/">REST API Reference for GetBackupThirdPartyAccount Operation</seealso>
@@ -886,6 +1096,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -904,8 +1144,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get providers
         /// </summary>
+        /// <remarks>
+        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
         /// <returns>ArrayArrayWrapper</returns>
@@ -916,8 +1159,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get providers
         /// </summary>
+        /// <remarks>
+        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
         /// <returns>ApiResponse of ArrayArrayWrapper</returns>
@@ -937,6 +1183,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<ArrayArrayWrapper>("/api/2.0/files/thirdparty/capabilities", localVarRequestOptions, Configuration);
@@ -954,8 +1230,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get providers
         /// </summary>
+        /// <remarks>
+        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
@@ -967,8 +1246,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get providers
         /// </summary>
+        /// <remarks>
+        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
@@ -990,6 +1272,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1008,8 +1320,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the common third-party services
         /// </summary>
+        /// <remarks>
+        /// Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
         /// <returns>FolderStringArrayWrapper</returns>
@@ -1020,8 +1335,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the common third-party services
         /// </summary>
+        /// <remarks>
+        /// Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
         /// <returns>ApiResponse of FolderStringArrayWrapper</returns>
@@ -1041,6 +1359,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<FolderStringArrayWrapper>("/api/2.0/files/thirdparty/common", localVarRequestOptions, Configuration);
@@ -1058,8 +1406,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the common third-party services
         /// </summary>
+        /// <remarks>
+        /// Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
@@ -1071,8 +1422,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the common third-party services
         /// </summary>
+        /// <remarks>
+        /// Returns a list of the third-party services connected to the \&quot;Common\&quot; section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-common-third-party-folders/">REST API Reference for GetCommonThirdPartyFolders Operation</seealso>
@@ -1094,6 +1448,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1112,8 +1496,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the third-party accounts
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the connected third-party accounts.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
         /// <returns>ThirdPartyParamsArrayWrapper</returns>
@@ -1124,8 +1511,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the third-party accounts
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the connected third-party accounts.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
         /// <returns>ApiResponse of ThirdPartyParamsArrayWrapper</returns>
@@ -1145,6 +1535,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<ThirdPartyParamsArrayWrapper>("/api/2.0/files/thirdparty", localVarRequestOptions, Configuration);
@@ -1162,8 +1582,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the third-party accounts
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the connected third-party accounts.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
@@ -1175,8 +1598,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the third-party accounts
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the connected third-party accounts.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-accounts/">REST API Reference for GetThirdPartyAccounts Operation</seealso>
@@ -1198,6 +1624,36 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1216,8 +1672,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Save a third-party account
         /// </summary>
+        /// <remarks>
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
@@ -1229,8 +1688,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Save a third-party account
         /// </summary>
+        /// <remarks>
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party/">REST API Reference for SaveThirdParty Operation</seealso>
@@ -1252,6 +1714,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (thirdPartyRequestDto != null) localVarRequestOptions.Data = thirdPartyRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FolderStringWrapper>("/api/2.0/files/thirdparty", localVarRequestOptions, Configuration);
@@ -1269,8 +1761,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Save a third-party account
         /// </summary>
+        /// <remarks>
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1283,8 +1778,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Save a third-party account
         /// </summary>
+        /// <remarks>
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1308,6 +1806,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (thirdPartyRequestDto != null) localVarRequestOptions.Data = thirdPartyRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1326,8 +1854,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Save a third-party account backup
         /// </summary>
+        /// <remarks>
+        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
@@ -1339,8 +1870,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Save a third-party account backup
         /// </summary>
+        /// <remarks>
+        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-third-party-backup/">REST API Reference for SaveThirdPartyBackup Operation</seealso>
@@ -1362,6 +1896,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (thirdPartyBackupRequestDto != null) localVarRequestOptions.Data = thirdPartyBackupRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FolderStringWrapper>("/api/2.0/files/thirdparty/backup", localVarRequestOptions, Configuration);
@@ -1379,8 +1943,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Save a third-party account backup
         /// </summary>
+        /// <remarks>
+        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1393,8 +1960,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Save a third-party account backup
         /// </summary>
+        /// <remarks>
+        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1418,6 +1988,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (thirdPartyBackupRequestDto != null) localVarRequestOptions.Data = thirdPartyBackupRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 

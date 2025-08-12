@@ -245,7 +245,7 @@ catch (ApiException e)
 
 <a id="deletegroup"></a>
 # **DeleteGroup**
-> void DeleteGroup (Guid id)
+> NoContentResultWrapper DeleteGroup (Guid id)
 
 Deletes a group with the ID specified in the request from the list of groups on the portal.
 
@@ -259,7 +259,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-void (empty response body)
+[**NoContentResultWrapper**](NoContentResultWrapper.md)
 
 ### Authorization
 
@@ -307,7 +307,8 @@ namespace Example
             try
             {
                 // Delete a group
-                apiInstance.DeleteGroup(id);
+                NoContentResultWrapper result = apiInstance.DeleteGroup(id);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
@@ -327,7 +328,10 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete a group
-    apiInstance.DeleteGroupWithHttpInfo(id);
+    ApiResponse<NoContentResultWrapper> response = apiInstance.DeleteGroupWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
@@ -340,13 +344,13 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | No content |  -  |
+| **200** | No content |  -  |
 | **401** | Unauthorized |  -  |
 | **404** | Group not found |  -  |
 

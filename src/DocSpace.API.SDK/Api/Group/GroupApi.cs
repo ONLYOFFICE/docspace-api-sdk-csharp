@@ -80,8 +80,8 @@ namespace DocSpace.API.SDK.Api.Group
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
-        /// <returns></returns>
-        void DeleteGroup(Guid id);
+        /// <returns>NoContentResultWrapper</returns>
+        NoContentResultWrapper DeleteGroup(Guid id);
 
         /// <summary>
         /// Delete a group
@@ -92,8 +92,8 @@ namespace DocSpace.API.SDK.Api.Group
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteGroupWithHttpInfo(Guid id);
+        /// <returns>ApiResponse of NoContentResultWrapper</returns>
+        ApiResponse<NoContentResultWrapper> DeleteGroupWithHttpInfo(Guid id);
         /// <summary>
         /// Get a group
         /// </summary>
@@ -375,8 +375,8 @@ namespace DocSpace.API.SDK.Api.Group
         /// <param name="id">The group ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
-        /// <returns>Task of void</returns>
-        Task DeleteGroupAsync(Guid id, CancellationToken cancellationToken = default);
+        /// <returns>Task of NoContentResultWrapper</returns>
+        Task<NoContentResultWrapper> DeleteGroupAsync(Guid id, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a group
@@ -388,8 +388,8 @@ namespace DocSpace.API.SDK.Api.Group
         /// <param name="id">The group ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
-        /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> DeleteGroupWithHttpInfoAsync(Guid id, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (NoContentResultWrapper)</returns>
+        Task<ApiResponse<NoContentResultWrapper>> DeleteGroupWithHttpInfoAsync(Guid id, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a group
         /// </summary>
@@ -1208,10 +1208,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
-        /// <returns></returns>
-        public void DeleteGroup(Guid id)
+        /// <returns>NoContentResultWrapper</returns>
+        public NoContentResultWrapper DeleteGroup(Guid id)
         {
-            DeleteGroupWithHttpInfo(id);
+            var localVarResponse = DeleteGroupWithHttpInfo(id);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1223,15 +1224,15 @@ namespace DocSpace.API.SDK.Api.Group
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteGroupWithHttpInfo(Guid id)
+        /// <returns>ApiResponse of NoContentResultWrapper</returns>
+        public ApiResponse<NoContentResultWrapper> DeleteGroupWithHttpInfo(Guid id)
         {
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -1273,7 +1274,7 @@ namespace DocSpace.API.SDK.Api.Group
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Delete<Object>("/api/2.0/group/{id}", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Delete<NoContentResultWrapper>("/api/2.0/group/{id}", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1297,10 +1298,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// <param name="id">The group ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
-        /// <returns>Task of void</returns>
-        public async Task DeleteGroupAsync(Guid id, CancellationToken cancellationToken = default)
+        /// <returns>Task of NoContentResultWrapper</returns>
+        public async Task<NoContentResultWrapper> DeleteGroupAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            await DeleteGroupWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await DeleteGroupWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -1313,15 +1315,15 @@ namespace DocSpace.API.SDK.Api.Group
         /// <param name="id">The group ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/">REST API Reference for DeleteGroup Operation</seealso>
-        /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> DeleteGroupWithHttpInfoAsync(Guid id, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (NoContentResultWrapper)</returns>
+        public async Task<ApiResponse<NoContentResultWrapper>> DeleteGroupWithHttpInfoAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -1365,7 +1367,7 @@ namespace DocSpace.API.SDK.Api.Group
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/group/{id}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.DeleteAsync<NoContentResultWrapper>("/api/2.0/group/{id}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

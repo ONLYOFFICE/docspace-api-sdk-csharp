@@ -24,8 +24,11 @@ namespace DocSpace.API.SDK.Api.Files
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Reset the room quota limit
         /// </summary>
+        /// <remarks>
+        /// Resets the quota limit for the rooms with the IDs specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
@@ -33,10 +36,10 @@ namespace DocSpace.API.SDK.Api.Files
         FolderIntegerArrayWrapper ResetRoomQuota(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default);
 
         /// <summary>
-        /// 
+        /// Reset the room quota limit
         /// </summary>
         /// <remarks>
-        /// 
+        /// Resets the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
@@ -44,8 +47,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FolderIntegerArrayWrapper</returns>
         ApiResponse<FolderIntegerArrayWrapper> ResetRoomQuotaWithHttpInfo(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default);
         /// <summary>
-        /// 
+        /// Change the room quota limit
         /// </summary>
+        /// <remarks>
+        /// Changes the quota limit for the rooms with the IDs specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
@@ -53,10 +59,10 @@ namespace DocSpace.API.SDK.Api.Files
         FolderIntegerArrayWrapper UpdateRoomsQuota(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default);
 
         /// <summary>
-        /// 
+        /// Change the room quota limit
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
@@ -73,10 +79,10 @@ namespace DocSpace.API.SDK.Api.Files
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Reset the room quota limit
         /// </summary>
         /// <remarks>
-        /// 
+        /// Resets the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
@@ -86,10 +92,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FolderIntegerArrayWrapper> ResetRoomQuotaAsync(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Reset the room quota limit
         /// </summary>
         /// <remarks>
-        /// 
+        /// Resets the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
@@ -98,10 +104,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FolderIntegerArrayWrapper)</returns>
         Task<ApiResponse<FolderIntegerArrayWrapper>> ResetRoomQuotaWithHttpInfoAsync(UpdateRoomsRoomIdsRequestDtoInteger? updateRoomsRoomIdsRequestDtoInteger = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Change the room quota limit
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
@@ -111,10 +117,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FolderIntegerArrayWrapper> UpdateRoomsQuotaAsync(UpdateRoomsQuotaRequestDtoInteger? updateRoomsQuotaRequestDtoInteger = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Change the room quota limit
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the quota limit for the rooms with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
@@ -336,8 +342,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Reset the room quota limit
         /// </summary>
+        /// <remarks>
+        /// Resets the quota limit for the rooms with the IDs specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
@@ -349,8 +358,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Reset the room quota limit
         /// </summary>
+        /// <remarks>
+        /// Resets the quota limit for the rooms with the IDs specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-room-quota/">REST API Reference for ResetRoomQuota Operation</seealso>
@@ -372,6 +384,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (updateRoomsRoomIdsRequestDtoInteger != null) localVarRequestOptions.Data = updateRoomsRoomIdsRequestDtoInteger;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FolderIntegerArrayWrapper>("/api/2.0/files/rooms/resetquota", localVarRequestOptions, Configuration);
@@ -389,8 +431,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Reset the room quota limit
         /// </summary>
+        /// <remarks>
+        /// Resets the quota limit for the rooms with the IDs specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -403,8 +448,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Reset the room quota limit
         /// </summary>
+        /// <remarks>
+        /// Resets the quota limit for the rooms with the IDs specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsRoomIdsRequestDtoInteger">The request parameters for updating the room. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -428,6 +476,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (updateRoomsRoomIdsRequestDtoInteger != null) localVarRequestOptions.Data = updateRoomsRoomIdsRequestDtoInteger;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -446,8 +524,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the room quota limit
         /// </summary>
+        /// <remarks>
+        /// Changes the quota limit for the rooms with the IDs specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
@@ -459,8 +540,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the room quota limit
         /// </summary>
+        /// <remarks>
+        /// Changes the quota limit for the rooms with the IDs specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-rooms-quota/">REST API Reference for UpdateRoomsQuota Operation</seealso>
@@ -482,6 +566,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (updateRoomsQuotaRequestDtoInteger != null) localVarRequestOptions.Data = updateRoomsQuotaRequestDtoInteger;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FolderIntegerArrayWrapper>("/api/2.0/files/rooms/roomquota", localVarRequestOptions, Configuration);
@@ -499,8 +613,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the room quota limit
         /// </summary>
+        /// <remarks>
+        /// Changes the quota limit for the rooms with the IDs specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -513,8 +630,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the room quota limit
         /// </summary>
+        /// <remarks>
+        /// Changes the quota limit for the rooms with the IDs specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateRoomsQuotaRequestDtoInteger">The request parameters for updating the room quota. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -538,6 +658,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (updateRoomsQuotaRequestDtoInteger != null) localVarRequestOptions.Data = updateRoomsQuotaRequestDtoInteger;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
