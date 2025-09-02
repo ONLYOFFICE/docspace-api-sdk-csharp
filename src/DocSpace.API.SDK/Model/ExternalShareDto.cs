@@ -30,6 +30,18 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public Status? Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public FileEntryType? Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EntityType
+        /// </summary>
+        [DataMember(Name = "entityType", EmitDefaultValue = false)]
+        public FileEntryType? EntityType { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalShareDto" /> class.
@@ -37,23 +49,31 @@ namespace DocSpace.API.SDK.Model
         /// <param name="status">status.</param>
         /// <param name="id">The external data ID..</param>
         /// <param name="title">The external data title..</param>
+        /// <param name="type">type.</param>
         /// <param name="tenantId">The tenant ID..</param>
         /// <param name="entityId">The unique identifier of the shared entity..</param>
-        /// <param name="entryTitle">The title of the shared entry..</param>
+        /// <param name="entityTitle">The title of the shared entity..</param>
+        /// <param name="entityType">entityType.</param>
+        /// <param name="isRoom">Indicates whether the entity represents a room..</param>
         /// <param name="shared">Specifies whether to share the external data or not..</param>
         /// <param name="linkId">The link ID of the external data..</param>
         /// <param name="isAuthenticated">Specifies whether the user is authenticated or not..</param>
-        public ExternalShareDto(Status? status = default, string id = default, string title = default, int tenantId = default, string entityId = default, string entryTitle = default, bool shared = default, Guid linkId = default, bool isAuthenticated = default)
+        /// <param name="isRoomMember">The room ID of the external data..</param>
+        public ExternalShareDto(Status? status = default, string id = default, string title = default, FileEntryType? type = default, int tenantId = default, string entityId = default, string entityTitle = default, FileEntryType? entityType = default, bool? isRoom = default, bool shared = default, Guid linkId = default, bool isAuthenticated = default, bool isRoomMember = default)
         {
             this.Status = status;
             this.Id = id;
             this.Title = title;
+            this.Type = type;
             this.TenantId = tenantId;
             this.EntityId = entityId;
-            this.EntryTitle = entryTitle;
+            this.EntityTitle = entityTitle;
+            this.EntityType = entityType;
+            this.IsRoom = isRoom;
             this.Shared = shared;
             this.LinkId = linkId;
             this.IsAuthenticated = isAuthenticated;
+            this.IsRoomMember = isRoomMember;
         }
 
         /// <summary>
@@ -97,14 +117,24 @@ namespace DocSpace.API.SDK.Model
         public string EntityId { get; set; }
 
         /// <summary>
-        /// The title of the shared entry.
+        /// The title of the shared entity.
         /// </summary>
-        /// <value>The title of the shared entry.</value>
+        /// <value>The title of the shared entity.</value>
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "entryTitle", EmitDefaultValue = true)]
-        public string EntryTitle { get; set; }
+        [DataMember(Name = "entityTitle", EmitDefaultValue = true)]
+        public string EntityTitle { get; set; }
+
+        /// <summary>
+        /// Indicates whether the entity represents a room.
+        /// </summary>
+        /// <value>Indicates whether the entity represents a room.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "isRoom", EmitDefaultValue = true)]
+        public bool? IsRoom { get; set; }
 
         /// <summary>
         /// Specifies whether to share the external data or not.
@@ -137,6 +167,16 @@ namespace DocSpace.API.SDK.Model
         public bool IsAuthenticated { get; set; }
 
         /// <summary>
+        /// The room ID of the external data.
+        /// </summary>
+        /// <value>The room ID of the external data.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "isRoomMember", EmitDefaultValue = true)]
+        public bool IsRoomMember { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -147,12 +187,16 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  EntityId: ").Append(EntityId).Append("\n");
-            sb.Append("  EntryTitle: ").Append(EntryTitle).Append("\n");
+            sb.Append("  EntityTitle: ").Append(EntityTitle).Append("\n");
+            sb.Append("  EntityType: ").Append(EntityType).Append("\n");
+            sb.Append("  IsRoom: ").Append(IsRoom).Append("\n");
             sb.Append("  Shared: ").Append(Shared).Append("\n");
             sb.Append("  LinkId: ").Append(LinkId).Append("\n");
             sb.Append("  IsAuthenticated: ").Append(IsAuthenticated).Append("\n");
+            sb.Append("  IsRoomMember: ").Append(IsRoomMember).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

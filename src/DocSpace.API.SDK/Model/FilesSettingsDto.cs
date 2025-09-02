@@ -105,7 +105,6 @@ namespace DocSpace.API.SDK.Model
         /// <param name="extsWebRestrictedEditing">The list of extensions of the files that are restricted for editing..</param>
         /// <param name="extsWebCommented">The list of extensions of the commented files..</param>
         /// <param name="extsWebTemplate">The list of extensions of the template files..</param>
-        /// <param name="extsCoAuthoring">The list of extensions of the co-authoring files..</param>
         /// <param name="extsMustConvert">The list of extensions of the files that must be converted..</param>
         /// <param name="extsConvertible">The list of the convertible extensions..</param>
         /// <param name="extsUploadable">The list of the uploadable extensions..</param>
@@ -153,7 +152,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="maxUploadThreadCount">The maximum number of upload threads..</param>
         /// <param name="chunkUploadSize">The size of a large file that is uploaded in chunks..</param>
         /// <param name="openEditorInSameTab">Specifies whether to open the editor in the same tab or not..</param>
-        public FilesSettingsDto(List<string> extsImagePreviewed = default, List<string> extsMediaPreviewed = default, List<string> extsWebPreviewed = default, List<string> extsWebEdited = default, List<string> extsWebEncrypt = default, List<string> extsWebReviewed = default, List<string> extsWebCustomFilterEditing = default, List<string> extsWebRestrictedEditing = default, List<string> extsWebCommented = default, List<string> extsWebTemplate = default, List<string> extsCoAuthoring = default, List<string> extsMustConvert = default, Dictionary<string, List<string>> extsConvertible = default, List<string> extsUploadable = default, List<string> extsArchive = default, List<string> extsVideo = default, List<string> extsAudio = default, List<string> extsImage = default, List<string> extsSpreadsheet = default, List<string> extsPresentation = default, List<string> extsDocument = default, List<string> extsDiagram = default, FilesSettingsDtoInternalFormats internalFormats = default, string masterFormExtension = default, string paramVersion = default, string paramOutType = default, string fileDownloadUrlString = default, string fileWebViewerUrlString = default, string fileWebViewerExternalUrlString = default, string fileWebEditorUrlString = default, string fileWebEditorExternalUrlString = default, string fileRedirectPreviewUrlString = default, string fileThumbnailUrlString = default, bool confirmDelete = default, bool enableThirdParty = default, bool externalShare = default, bool externalShareSocialMedia = default, bool storeOriginalFiles = default, bool keepNewFileName = default, bool displayFileExtension = default, bool convertNotify = default, bool hideConfirmCancelOperation = default, bool hideConfirmConvertSave = default, bool hideConfirmConvertOpen = default, bool hideConfirmRoomLifetime = default, OrderBy defaultOrder = default, bool forcesave = default, bool storeForcesave = default, bool recentSection = default, bool favoritesSection = default, bool templatesSection = default, bool downloadTarGz = default, AutoCleanUpData automaticallyCleanUp = default, bool canSearchByContent = default, List<FilesSettingsDto.DefaultSharingAccessRightsEnum> defaultSharingAccessRights = default, int maxUploadThreadCount = default, long chunkUploadSize = default, bool openEditorInSameTab = default)
+        public FilesSettingsDto(List<string> extsImagePreviewed = default, List<string> extsMediaPreviewed = default, List<string> extsWebPreviewed = default, List<string> extsWebEdited = default, List<string> extsWebEncrypt = default, List<string> extsWebReviewed = default, List<string> extsWebCustomFilterEditing = default, List<string> extsWebRestrictedEditing = default, List<string> extsWebCommented = default, List<string> extsWebTemplate = default, List<string> extsMustConvert = default, Dictionary<string, List<string>> extsConvertible = default, List<string> extsUploadable = default, List<string> extsArchive = default, List<string> extsVideo = default, List<string> extsAudio = default, List<string> extsImage = default, List<string> extsSpreadsheet = default, List<string> extsPresentation = default, List<string> extsDocument = default, List<string> extsDiagram = default, FilesSettingsDtoInternalFormats internalFormats = default, string masterFormExtension = default, string paramVersion = default, string paramOutType = default, string fileDownloadUrlString = default, string fileWebViewerUrlString = default, string fileWebViewerExternalUrlString = default, string fileWebEditorUrlString = default, string fileWebEditorExternalUrlString = default, string fileRedirectPreviewUrlString = default, string fileThumbnailUrlString = default, bool confirmDelete = default, bool enableThirdParty = default, bool externalShare = default, bool externalShareSocialMedia = default, bool storeOriginalFiles = default, bool keepNewFileName = default, bool displayFileExtension = default, bool convertNotify = default, bool hideConfirmCancelOperation = default, bool hideConfirmConvertSave = default, bool hideConfirmConvertOpen = default, bool hideConfirmRoomLifetime = default, OrderBy defaultOrder = default, bool forcesave = default, bool storeForcesave = default, bool recentSection = default, bool favoritesSection = default, bool templatesSection = default, bool downloadTarGz = default, AutoCleanUpData automaticallyCleanUp = default, bool canSearchByContent = default, List<FilesSettingsDto.DefaultSharingAccessRightsEnum> defaultSharingAccessRights = default, int maxUploadThreadCount = default, long chunkUploadSize = default, bool openEditorInSameTab = default)
         {
             this.ExtsImagePreviewed = extsImagePreviewed;
             this.ExtsMediaPreviewed = extsMediaPreviewed;
@@ -165,7 +164,6 @@ namespace DocSpace.API.SDK.Model
             this.ExtsWebRestrictedEditing = extsWebRestrictedEditing;
             this.ExtsWebCommented = extsWebCommented;
             this.ExtsWebTemplate = extsWebTemplate;
-            this.ExtsCoAuthoring = extsCoAuthoring;
             this.ExtsMustConvert = extsMustConvert;
             this.ExtsConvertible = extsConvertible;
             this.ExtsUploadable = extsUploadable;
@@ -314,16 +312,6 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "extsWebTemplate", EmitDefaultValue = true)]
         public List<string> ExtsWebTemplate { get; set; }
-
-        /// <summary>
-        /// The list of extensions of the co-authoring files.
-        /// </summary>
-        /// <value>The list of extensions of the co-authoring files.</value>
-        /*
-        <example>[&quot;some text&quot;]</example>
-        */
-        [DataMember(Name = "extsCoAuthoring", EmitDefaultValue = true)]
-        public List<string> ExtsCoAuthoring { get; set; }
 
         /// <summary>
         /// The list of extensions of the files that must be converted.
@@ -798,7 +786,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ExtsWebRestrictedEditing: ").Append(ExtsWebRestrictedEditing).Append("\n");
             sb.Append("  ExtsWebCommented: ").Append(ExtsWebCommented).Append("\n");
             sb.Append("  ExtsWebTemplate: ").Append(ExtsWebTemplate).Append("\n");
-            sb.Append("  ExtsCoAuthoring: ").Append(ExtsCoAuthoring).Append("\n");
             sb.Append("  ExtsMustConvert: ").Append(ExtsMustConvert).Append("\n");
             sb.Append("  ExtsConvertible: ").Append(ExtsConvertible).Append("\n");
             sb.Append("  ExtsUploadable: ").Append(ExtsUploadable).Append("\n");

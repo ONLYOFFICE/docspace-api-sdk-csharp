@@ -36,12 +36,13 @@ namespace DocSpace.API.SDK.Model
         /// <param name="version">The version of the document service. (required).</param>
         /// <param name="docServiceUrlApi">The document service URL API. (required).</param>
         /// <param name="docServiceUrl">The document service URL. (required).</param>
+        /// <param name="docServicePreloadUrl">The URL used to preload the document service scripts. (required).</param>
         /// <param name="docServiceUrlInternal">The internal document service URL. (required).</param>
         /// <param name="docServicePortalUrl">The document service portal URL. (required).</param>
         /// <param name="docServiceSignatureHeader">The document service signature header..</param>
         /// <param name="docServiceSslVerification">Specifies if the document service SSL verification is enabled..</param>
         /// <param name="isDefault">Specifies if the document service is default. (required).</param>
-        public DocServiceUrlDto(string version = default, string docServiceUrlApi = default, string docServiceUrl = default, string docServiceUrlInternal = default, string docServicePortalUrl = default, string docServiceSignatureHeader = default, bool docServiceSslVerification = default, bool isDefault = default)
+        public DocServiceUrlDto(string version = default, string docServiceUrlApi = default, string docServiceUrl = default, string docServicePreloadUrl = default, string docServiceUrlInternal = default, string docServicePortalUrl = default, string docServiceSignatureHeader = default, bool docServiceSslVerification = default, bool isDefault = default)
         {
             // to ensure "version" is required (not null)
             if (version == null)
@@ -61,6 +62,12 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("docServiceUrl is a required property for DocServiceUrlDto and cannot be null");
             }
             this.DocServiceUrl = docServiceUrl;
+            // to ensure "docServicePreloadUrl" is required (not null)
+            if (docServicePreloadUrl == null)
+            {
+                throw new ArgumentNullException("docServicePreloadUrl is a required property for DocServiceUrlDto and cannot be null");
+            }
+            this.DocServicePreloadUrl = docServicePreloadUrl;
             // to ensure "docServiceUrlInternal" is required (not null)
             if (docServiceUrlInternal == null)
             {
@@ -107,6 +114,16 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "docServiceUrl", IsRequired = true, EmitDefaultValue = true)]
         public string DocServiceUrl { get; set; }
+
+        /// <summary>
+        /// The URL used to preload the document service scripts.
+        /// </summary>
+        /// <value>The URL used to preload the document service scripts.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "docServicePreloadUrl", IsRequired = true, EmitDefaultValue = true)]
+        public string DocServicePreloadUrl { get; set; }
 
         /// <summary>
         /// The internal document service URL.
@@ -169,6 +186,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  @Version: ").Append(@Version).Append("\n");
             sb.Append("  DocServiceUrlApi: ").Append(DocServiceUrlApi).Append("\n");
             sb.Append("  DocServiceUrl: ").Append(DocServiceUrl).Append("\n");
+            sb.Append("  DocServicePreloadUrl: ").Append(DocServicePreloadUrl).Append("\n");
             sb.Append("  DocServiceUrlInternal: ").Append(DocServiceUrlInternal).Append("\n");
             sb.Append("  DocServicePortalUrl: ").Append(DocServicePortalUrl).Append("\n");
             sb.Append("  DocServiceSignatureHeader: ").Append(DocServiceSignatureHeader).Append("\n");

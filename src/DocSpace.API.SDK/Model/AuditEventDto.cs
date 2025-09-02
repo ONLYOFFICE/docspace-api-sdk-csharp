@@ -44,10 +44,10 @@ namespace DocSpace.API.SDK.Model
         public ProductType? Product { get; set; }
 
         /// <summary>
-        /// Gets or Sets Module
+        /// Gets or Sets Location
         /// </summary>
-        [DataMember(Name = "module", EmitDefaultValue = false)]
-        public ModuleType? Module { get; set; }
+        [DataMember(Name = "location", EmitDefaultValue = false)]
+        public LocationType? Location { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="AuditEventDto" /> class.
@@ -66,11 +66,11 @@ namespace DocSpace.API.SDK.Model
         /// <param name="page">The audit event page..</param>
         /// <param name="actionType">actionType.</param>
         /// <param name="product">product.</param>
-        /// <param name="module">module.</param>
+        /// <param name="location">location.</param>
         /// <param name="target">The list of target objects affected by the audit event (e.g., document ID, user account)..</param>
         /// <param name="entries">The list of audit entry types (e.g., Folder, User, File)..</param>
         /// <param name="context">The audit event context..</param>
-        public AuditEventDto(int id = default, ApiDateTime date = default, string user = default, Guid userId = default, string action = default, MessageAction? actionId = default, string ip = default, string country = default, string city = default, string browser = default, string platform = default, string page = default, ActionType? actionType = default, ProductType? product = default, ModuleType? module = default, List<string> target = default, List<EntryType> entries = default, string context = default)
+        public AuditEventDto(int id = default, ApiDateTime date = default, string user = default, Guid userId = default, string action = default, MessageAction? actionId = default, string ip = default, string country = default, string city = default, string browser = default, string platform = default, string page = default, ActionType? actionType = default, ProductType? product = default, LocationType? location = default, List<string> target = default, List<EntryType> entries = default, string context = default)
         {
             this.Id = id;
             this.Date = date;
@@ -86,7 +86,7 @@ namespace DocSpace.API.SDK.Model
             this.Page = page;
             this.ActionType = actionType;
             this.Product = product;
-            this.Module = module;
+            this.Location = location;
             this.Target = target;
             this.Entries = entries;
             this.Context = context;
@@ -247,7 +247,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Page: ").Append(Page).Append("\n");
             sb.Append("  ActionType: ").Append(ActionType).Append("\n");
             sb.Append("  Product: ").Append(Product).Append("\n");
-            sb.Append("  Module: ").Append(Module).Append("\n");
+            sb.Append("  Location: ").Append(Location).Append("\n");
             sb.Append("  Target: ").Append(Target).Append("\n");
             sb.Append("  Entries: ").Append(Entries).Append("\n");
             sb.Append("  Context: ").Append(Context).Append("\n");

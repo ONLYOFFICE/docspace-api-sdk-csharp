@@ -61,7 +61,6 @@ namespace DocSpace.API.SDK.Model
         /// <param name="mute">Specifies if the file is muted or not..</param>
         /// <param name="viewUrl">The URL link to view the file..</param>
         /// <param name="webUrl">The Web URL link to the file..</param>
-        /// <param name="shortWebUrl">The short Web URL..</param>
         /// <param name="fileType">fileType.</param>
         /// <param name="fileExst">The file extension..</param>
         /// <param name="comment">The comment to the file..</param>
@@ -80,10 +79,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="inProcessFolderTitle">The InProcess folder title of the file..</param>
         /// <param name="draftLocation">draftLocation.</param>
         /// <param name="viewAccessibility">viewAccessibility.</param>
-        /// <param name="availableExternalRights">The available external rights of the file..</param>
         /// <param name="lastOpened">lastOpened.</param>
         /// <param name="expired">expired.</param>
-        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, bool mute = default, string viewUrl = default, string webUrl = default, string shortWebUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, Dictionary<string, bool> availableExternalRights = default, ApiDateTime lastOpened = default, ApiDateTime expired = default)
+        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default)
         {
             this.FolderId = folderId;
             this.@Version = version;
@@ -94,7 +92,6 @@ namespace DocSpace.API.SDK.Model
             this.Mute = mute;
             this.ViewUrl = viewUrl;
             this.WebUrl = webUrl;
-            this.ShortWebUrl = shortWebUrl;
             this.FileType = fileType;
             this.FileExst = fileExst;
             this.Comment = comment;
@@ -113,7 +110,6 @@ namespace DocSpace.API.SDK.Model
             this.InProcessFolderTitle = inProcessFolderTitle;
             this.DraftLocation = draftLocation;
             this.ViewAccessibility = viewAccessibility;
-            this.AvailableExternalRights = availableExternalRights;
             this.LastOpened = lastOpened;
             this.Expired = expired;
         }
@@ -197,16 +193,6 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "webUrl", EmitDefaultValue = true)]
         public string WebUrl { get; set; }
-
-        /// <summary>
-        /// The short Web URL.
-        /// </summary>
-        /// <value>The short Web URL.</value>
-        /*
-        <example>some text</example>
-        */
-        [DataMember(Name = "shortWebUrl", EmitDefaultValue = true)]
-        public string ShortWebUrl { get; set; }
 
         /// <summary>
         /// The file extension.
@@ -351,16 +337,6 @@ namespace DocSpace.API.SDK.Model
         public FileDtoIntegerAllOfViewAccessibility ViewAccessibility { get; set; }
 
         /// <summary>
-        /// The available external rights of the file.
-        /// </summary>
-        /// <value>The available external rights of the file.</value>
-        /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:true}]</example>
-        */
-        [DataMember(Name = "availableExternalRights", EmitDefaultValue = true)]
-        public Dictionary<string, bool> AvailableExternalRights { get; set; }
-
-        /// <summary>
         /// Gets or Sets LastOpened
         /// </summary>
         [DataMember(Name = "lastOpened", EmitDefaultValue = false)]
@@ -389,7 +365,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Mute: ").Append(Mute).Append("\n");
             sb.Append("  ViewUrl: ").Append(ViewUrl).Append("\n");
             sb.Append("  WebUrl: ").Append(WebUrl).Append("\n");
-            sb.Append("  ShortWebUrl: ").Append(ShortWebUrl).Append("\n");
             sb.Append("  FileType: ").Append(FileType).Append("\n");
             sb.Append("  FileExst: ").Append(FileExst).Append("\n");
             sb.Append("  Comment: ").Append(Comment).Append("\n");
@@ -408,7 +383,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  InProcessFolderTitle: ").Append(InProcessFolderTitle).Append("\n");
             sb.Append("  DraftLocation: ").Append(DraftLocation).Append("\n");
             sb.Append("  ViewAccessibility: ").Append(ViewAccessibility).Append("\n");
-            sb.Append("  AvailableExternalRights: ").Append(AvailableExternalRights).Append("\n");
             sb.Append("  LastOpened: ").Append(LastOpened).Append("\n");
             sb.Append("  Expired: ").Append(Expired).Append("\n");
             sb.Append("}\n");

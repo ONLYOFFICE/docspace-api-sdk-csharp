@@ -35,9 +35,11 @@ namespace DocSpace.API.SDK.Model
         /// <param name="originTitle">The origin title of the file entry..</param>
         /// <param name="originRoomTitle">The origin room title of the file entry..</param>
         /// <param name="canShare">Specifies if the file entry can be shared or not..</param>
+        /// <param name="shareSettings">shareSettings.</param>
         /// <param name="security">security.</param>
+        /// <param name="availableExternalRights">The available external rights of the file entry..</param>
         /// <param name="requestToken">The request token of the file entry..</param>
-        public FileEntryDtoInteger(int id = default, int rootFolderId = default, int originId = default, int originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileEntryDtoIntegerAllOfSecurity security = default, string requestToken = default)
+        public FileEntryDtoInteger(int id = default, int rootFolderId = default, int originId = default, int originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileEntryDtoIntegerAllOfShareSettings shareSettings = default, FileEntryDtoIntegerAllOfSecurity security = default, Dictionary<string, bool> availableExternalRights = default, string requestToken = default)
         {
             this.Id = id;
             this.RootFolderId = rootFolderId;
@@ -46,7 +48,9 @@ namespace DocSpace.API.SDK.Model
             this.OriginTitle = originTitle;
             this.OriginRoomTitle = originRoomTitle;
             this.CanShare = canShare;
+            this.ShareSettings = shareSettings;
             this.Security = security;
+            this.AvailableExternalRights = availableExternalRights;
             this.RequestToken = requestToken;
         }
 
@@ -121,10 +125,26 @@ namespace DocSpace.API.SDK.Model
         public bool CanShare { get; set; }
 
         /// <summary>
+        /// Gets or Sets ShareSettings
+        /// </summary>
+        [DataMember(Name = "shareSettings", EmitDefaultValue = true)]
+        public FileEntryDtoIntegerAllOfShareSettings ShareSettings { get; set; }
+
+        /// <summary>
         /// Gets or Sets Security
         /// </summary>
         [DataMember(Name = "security", EmitDefaultValue = true)]
         public FileEntryDtoIntegerAllOfSecurity Security { get; set; }
+
+        /// <summary>
+        /// The available external rights of the file entry.
+        /// </summary>
+        /// <value>The available external rights of the file entry.</value>
+        /*
+        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:true}]</example>
+        */
+        [DataMember(Name = "availableExternalRights", EmitDefaultValue = true)]
+        public Dictionary<string, bool> AvailableExternalRights { get; set; }
 
         /// <summary>
         /// The request token of the file entry.
@@ -151,7 +171,9 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  OriginTitle: ").Append(OriginTitle).Append("\n");
             sb.Append("  OriginRoomTitle: ").Append(OriginRoomTitle).Append("\n");
             sb.Append("  CanShare: ").Append(CanShare).Append("\n");
+            sb.Append("  ShareSettings: ").Append(ShareSettings).Append("\n");
             sb.Append("  Security: ").Append(Security).Append("\n");
+            sb.Append("  AvailableExternalRights: ").Append(AvailableExternalRights).Append("\n");
             sb.Append("  RequestToken: ").Append(RequestToken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

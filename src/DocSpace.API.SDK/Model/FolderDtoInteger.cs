@@ -44,7 +44,6 @@ namespace DocSpace.API.SDK.Model
         /// <param name="filesCount">The number of files that the folder contains..</param>
         /// <param name="foldersCount">The number of folders that the folder contains..</param>
         /// <param name="isShareable">Specifies if the folder can be shared or not..</param>
-        /// <param name="isFavorite">Specifies if the folder is favorite or not..</param>
         /// <param name="@new">The new element index in the folder..</param>
         /// <param name="mute">Specifies if the folder notifications are enabled or not..</param>
         /// <param name="tags">The list of tags of the folder..</param>
@@ -64,13 +63,12 @@ namespace DocSpace.API.SDK.Model
         /// <param name="external">Specifies if the folder can be accessed via an external link or not..</param>
         /// <param name="passwordProtected">Specifies if the folder is password protected or not..</param>
         /// <param name="expired">Specifies if an external link to the folder is expired or not..</param>
-        public FolderDtoInteger(int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, bool? isFavorite = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? external = default, bool? passwordProtected = default, bool? expired = default)
+        public FolderDtoInteger(int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? external = default, bool? passwordProtected = default, bool? expired = default)
         {
             this.ParentId = parentId;
             this.FilesCount = filesCount;
             this.FoldersCount = foldersCount;
             this.IsShareable = isShareable;
-            this.IsFavorite = isFavorite;
             this.New = @new;
             this.Mute = mute;
             this.Tags = tags;
@@ -131,16 +129,6 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "isShareable", EmitDefaultValue = true)]
         public bool? IsShareable { get; set; }
-
-        /// <summary>
-        /// Specifies if the folder is favorite or not.
-        /// </summary>
-        /// <value>Specifies if the folder is favorite or not.</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "isFavorite", EmitDefaultValue = true)]
-        public bool? IsFavorite { get; set; }
 
         /// <summary>
         /// The new element index in the folder.
@@ -312,7 +300,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  FilesCount: ").Append(FilesCount).Append("\n");
             sb.Append("  FoldersCount: ").Append(FoldersCount).Append("\n");
             sb.Append("  IsShareable: ").Append(IsShareable).Append("\n");
-            sb.Append("  IsFavorite: ").Append(IsFavorite).Append("\n");
             sb.Append("  New: ").Append(New).Append("\n");
             sb.Append("  Mute: ").Append(Mute).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");

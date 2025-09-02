@@ -45,14 +45,20 @@ namespace DocSpace.API.SDK.Model
         /// <param name="isLocked">Specifies if the access right is locked or not..</param>
         /// <param name="isOwner">Specifies if the user is an owner of the specified file or not..</param>
         /// <param name="canEditAccess">Specifies if the user can edit the access to the specified file or not..</param>
+        /// <param name="canEditInternal">Indicates whether internal editing permissions are granted..</param>
+        /// <param name="canEditDenyDownload">Determines whether the user has permission to modify the deny download setting for the file share..</param>
+        /// <param name="canEditExpirationDate">Indicates whether the expiration date of access permissions can be edited..</param>
         /// <param name="subjectType">subjectType.</param>
-        public FileShareDto(FileShare? access = default, Object sharedTo = default, bool isLocked = default, bool isOwner = default, bool canEditAccess = default, SubjectType? subjectType = default)
+        public FileShareDto(FileShare? access = default, Object sharedTo = default, bool isLocked = default, bool isOwner = default, bool canEditAccess = default, bool canEditInternal = default, bool canEditDenyDownload = default, bool canEditExpirationDate = default, SubjectType? subjectType = default)
         {
             this.Access = access;
             this.SharedTo = sharedTo;
             this.IsLocked = isLocked;
             this.IsOwner = isOwner;
             this.CanEditAccess = canEditAccess;
+            this.CanEditInternal = canEditInternal;
+            this.CanEditDenyDownload = canEditDenyDownload;
+            this.CanEditExpirationDate = canEditExpirationDate;
             this.SubjectType = subjectType;
         }
 
@@ -97,6 +103,36 @@ namespace DocSpace.API.SDK.Model
         public bool CanEditAccess { get; set; }
 
         /// <summary>
+        /// Indicates whether internal editing permissions are granted.
+        /// </summary>
+        /// <value>Indicates whether internal editing permissions are granted.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "canEditInternal", EmitDefaultValue = true)]
+        public bool CanEditInternal { get; set; }
+
+        /// <summary>
+        /// Determines whether the user has permission to modify the deny download setting for the file share.
+        /// </summary>
+        /// <value>Determines whether the user has permission to modify the deny download setting for the file share.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "canEditDenyDownload", EmitDefaultValue = true)]
+        public bool CanEditDenyDownload { get; set; }
+
+        /// <summary>
+        /// Indicates whether the expiration date of access permissions can be edited.
+        /// </summary>
+        /// <value>Indicates whether the expiration date of access permissions can be edited.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "canEditExpirationDate", EmitDefaultValue = true)]
+        public bool CanEditExpirationDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -109,6 +145,9 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  IsLocked: ").Append(IsLocked).Append("\n");
             sb.Append("  IsOwner: ").Append(IsOwner).Append("\n");
             sb.Append("  CanEditAccess: ").Append(CanEditAccess).Append("\n");
+            sb.Append("  CanEditInternal: ").Append(CanEditInternal).Append("\n");
+            sb.Append("  CanEditDenyDownload: ").Append(CanEditDenyDownload).Append("\n");
+            sb.Append("  CanEditExpirationDate: ").Append(CanEditExpirationDate).Append("\n");
             sb.Append("  SubjectType: ").Append(SubjectType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

@@ -31,11 +31,13 @@ namespace DocSpace.API.SDK.Model
         /// <param name="password">The user password..</param>
         /// <param name="passwordHash">The user password hash..</param>
         /// <param name="email">The user email address..</param>
-        public MemberBaseRequestDto(string password = default, string passwordHash = default, string email = default)
+        /// <param name="encEmail">The user encrypted email address..</param>
+        public MemberBaseRequestDto(string password = default, string passwordHash = default, string email = default, string encEmail = default)
         {
             this.Password = password;
             this.PasswordHash = passwordHash;
             this.Email = email;
+            this.EncEmail = encEmail;
         }
 
         /// <summary>
@@ -69,6 +71,16 @@ namespace DocSpace.API.SDK.Model
         public string Email { get; set; }
 
         /// <summary>
+        /// The user encrypted email address.
+        /// </summary>
+        /// <value>The user encrypted email address.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "encEmail", EmitDefaultValue = true)]
+        public string EncEmail { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -79,6 +91,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("  PasswordHash: ").Append(PasswordHash).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  EncEmail: ").Append(EncEmail).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

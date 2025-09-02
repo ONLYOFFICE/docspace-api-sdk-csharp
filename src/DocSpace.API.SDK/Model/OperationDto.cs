@@ -31,21 +31,27 @@ namespace DocSpace.API.SDK.Model
         /// <param name="date">date.</param>
         /// <param name="service">Service related to the operation..</param>
         /// <param name="description">Brief description of the operation..</param>
+        /// <param name="details">Brief details of the operation..</param>
         /// <param name="serviceUnit">Unit of the service..</param>
         /// <param name="quantity">Quantity of the service used..</param>
         /// <param name="currency">The three-character ISO 4217 currency symbol of the operation..</param>
         /// <param name="credit">Credit amount of the operation..</param>
-        /// <param name="withdrawal">Withdrawal amount of the operation..</param>
-        public OperationDto(ApiDateTime date = default, string service = default, string description = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double withdrawal = default)
+        /// <param name="debit">Debit amount of the operation..</param>
+        /// <param name="participantName">Original name of the participant..</param>
+        /// <param name="participantDisplayName">Display name of the participant..</param>
+        public OperationDto(ApiDateTime date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, string participantName = default, string participantDisplayName = default)
         {
             this.Date = date;
             this.Service = service;
             this.Description = description;
+            this.Details = details;
             this.ServiceUnit = serviceUnit;
             this.Quantity = quantity;
             this.Currency = currency;
             this.Credit = credit;
-            this.Withdrawal = withdrawal;
+            this.Debit = debit;
+            this.ParticipantName = participantName;
+            this.ParticipantDisplayName = participantDisplayName;
         }
 
         /// <summary>
@@ -73,6 +79,16 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Brief details of the operation.
+        /// </summary>
+        /// <value>Brief details of the operation.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "details", EmitDefaultValue = true)]
+        public string Details { get; set; }
 
         /// <summary>
         /// Unit of the service.
@@ -112,11 +128,31 @@ namespace DocSpace.API.SDK.Model
         public double Credit { get; set; }
 
         /// <summary>
-        /// Withdrawal amount of the operation.
+        /// Debit amount of the operation.
         /// </summary>
-        /// <value>Withdrawal amount of the operation.</value>
-        [DataMember(Name = "withdrawal", EmitDefaultValue = false)]
-        public double Withdrawal { get; set; }
+        /// <value>Debit amount of the operation.</value>
+        [DataMember(Name = "debit", EmitDefaultValue = false)]
+        public double Debit { get; set; }
+
+        /// <summary>
+        /// Original name of the participant.
+        /// </summary>
+        /// <value>Original name of the participant.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "participantName", EmitDefaultValue = true)]
+        public string ParticipantName { get; set; }
+
+        /// <summary>
+        /// Display name of the participant.
+        /// </summary>
+        /// <value>Display name of the participant.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "participantDisplayName", EmitDefaultValue = true)]
+        public string ParticipantDisplayName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -129,11 +165,14 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  Service: ").Append(Service).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("  ServiceUnit: ").Append(ServiceUnit).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  Credit: ").Append(Credit).Append("\n");
-            sb.Append("  Withdrawal: ").Append(Withdrawal).Append("\n");
+            sb.Append("  Debit: ").Append(Debit).Append("\n");
+            sb.Append("  ParticipantName: ").Append(ParticipantName).Append("\n");
+            sb.Append("  ParticipantDisplayName: ").Append(ParticipantDisplayName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

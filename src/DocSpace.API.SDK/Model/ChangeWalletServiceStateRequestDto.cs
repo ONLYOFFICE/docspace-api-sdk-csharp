@@ -19,54 +19,38 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The white label item parameters.
+    /// Tenant wallet service state request parameters
     /// </summary>
-    [DataContract(Name = "WhiteLabelItemDto")]
-    public partial class WhiteLabelItemDto : IValidatableObject
+    [DataContract(Name = "ChangeWalletServiceStateRequestDto")]
+    public partial class ChangeWalletServiceStateRequestDto : IValidatableObject
     {
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Gets or Sets Service
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public WhiteLabelLogoType? Type { get; set; }
+        [DataMember(Name = "service", EmitDefaultValue = false)]
+        public TenantWalletService? Service { get; set; }
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="WhiteLabelItemDto" /> class.
+        /// Initializes a new instance of the <see cref="ChangeWalletServiceStateRequestDto" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
-        /// <param name="name">The white label file name..</param>
-        /// <param name="size">size.</param>
-        /// <param name="path">path.</param>
-        public WhiteLabelItemDto(WhiteLabelLogoType? type = default, string name = default, IMagickGeometry size = default, WhiteLabelItemPathDto path = default)
+        /// <param name="service">service.</param>
+        /// <param name="enabled">Service state.</param>
+        public ChangeWalletServiceStateRequestDto(TenantWalletService? service = default, bool enabled = default)
         {
-            this.Type = type;
-            this.Name = name;
-            this.Size = size;
-            this.Path = path;
+            this.Service = service;
+            this.Enabled = enabled;
         }
 
         /// <summary>
-        /// The white label file name.
+        /// Service state
         /// </summary>
-        /// <value>The white label file name.</value>
+        /// <value>Service state</value>
         /*
-        <example>Winfield Upton</example>
+        <example>true</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = true)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Size
-        /// </summary>
-        [DataMember(Name = "size", EmitDefaultValue = false)]
-        public IMagickGeometry Size { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Path
-        /// </summary>
-        [DataMember(Name = "path", EmitDefaultValue = false)]
-        public WhiteLabelItemPathDto Path { get; set; }
+        [DataMember(Name = "enabled", EmitDefaultValue = true)]
+        public bool Enabled { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -75,11 +59,9 @@ namespace DocSpace.API.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class WhiteLabelItemDto {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Size: ").Append(Size).Append("\n");
-            sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("class ChangeWalletServiceStateRequestDto {\n");
+            sb.Append("  Service: ").Append(Service).Append("\n");
+            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

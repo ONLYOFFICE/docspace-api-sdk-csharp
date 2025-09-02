@@ -55,6 +55,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="title">The file entry title..</param>
         /// <param name="access">access.</param>
         /// <param name="shared">Specifies if the file entry is shared or not..</param>
+        /// <param name="parentShared">Indicates whether the parent entity is shared..</param>
+        /// <param name="shortWebUrl">The short Web URL..</param>
         /// <param name="created">created.</param>
         /// <param name="createdBy">createdBy.</param>
         /// <param name="updated">updated.</param>
@@ -66,12 +68,15 @@ namespace DocSpace.API.SDK.Model
         /// <param name="providerKey">The provider key of the file entry..</param>
         /// <param name="providerId">The provider ID of the file entry..</param>
         /// <param name="order">The order of the file entry..</param>
+        /// <param name="isFavorite">Specifies if the file is a favorite or not..</param>
         /// <param name="fileEntryType">fileEntryType.</param>
-        public FileEntryBaseDto(string title = default, FileShare? access = default, bool shared = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, FileEntryType? fileEntryType = default)
+        public FileEntryBaseDto(string title = default, FileShare? access = default, bool shared = default, bool parentShared = default, string shortWebUrl = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, bool? isFavorite = default, FileEntryType? fileEntryType = default)
         {
             this.Title = title;
             this.Access = access;
             this.Shared = shared;
+            this.ParentShared = parentShared;
+            this.ShortWebUrl = shortWebUrl;
             this.Created = created;
             this.CreatedBy = createdBy;
             this.Updated = updated;
@@ -83,6 +88,7 @@ namespace DocSpace.API.SDK.Model
             this.ProviderKey = providerKey;
             this.ProviderId = providerId;
             this.Order = order;
+            this.IsFavorite = isFavorite;
             this.FileEntryType = fileEntryType;
         }
 
@@ -105,6 +111,26 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "shared", EmitDefaultValue = true)]
         public bool Shared { get; set; }
+
+        /// <summary>
+        /// Indicates whether the parent entity is shared.
+        /// </summary>
+        /// <value>Indicates whether the parent entity is shared.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "parentShared", EmitDefaultValue = true)]
+        public bool ParentShared { get; set; }
+
+        /// <summary>
+        /// The short Web URL.
+        /// </summary>
+        /// <value>The short Web URL.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "shortWebUrl", EmitDefaultValue = true)]
+        public string ShortWebUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Created
@@ -177,6 +203,16 @@ namespace DocSpace.API.SDK.Model
         public string Order { get; set; }
 
         /// <summary>
+        /// Specifies if the file is a favorite or not.
+        /// </summary>
+        /// <value>Specifies if the file is a favorite or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "isFavorite", EmitDefaultValue = true)]
+        public bool? IsFavorite { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -187,6 +223,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Access: ").Append(Access).Append("\n");
             sb.Append("  Shared: ").Append(Shared).Append("\n");
+            sb.Append("  ParentShared: ").Append(ParentShared).Append("\n");
+            sb.Append("  ShortWebUrl: ").Append(ShortWebUrl).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  Updated: ").Append(Updated).Append("\n");
@@ -198,6 +236,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ProviderKey: ").Append(ProviderKey).Append("\n");
             sb.Append("  ProviderId: ").Append(ProviderId).Append("\n");
             sb.Append("  Order: ").Append(Order).Append("\n");
+            sb.Append("  IsFavorite: ").Append(IsFavorite).Append("\n");
             sb.Append("  FileEntryType: ").Append(FileEntryType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

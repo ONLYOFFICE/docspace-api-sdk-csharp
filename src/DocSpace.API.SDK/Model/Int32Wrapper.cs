@@ -19,62 +19,58 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The confirmation parameters.
+    /// Int32Wrapper
     /// </summary>
-    [DataContract(Name = "ConfirmDto")]
-    public partial class ConfirmDto : IValidatableObject
+    [DataContract(Name = "Int32Wrapper")]
+    public partial class Int32Wrapper : IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets Result
-        /// </summary>
-        [DataMember(Name = "result", EmitDefaultValue = false)]
-        public ValidationResult? Result { get; set; }
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConfirmDto" /> class.
+        /// Initializes a new instance of the <see cref="Int32Wrapper" /> class.
         /// </summary>
-        /// <param name="result">result.</param>
-        /// <param name="roomId">The confirmation room ID..</param>
-        /// <param name="title">The confirmation title..</param>
-        /// <param name="email">The confirmation email..</param>
-        public ConfirmDto(ValidationResult? result = default, string roomId = default, string title = default, string email = default)
+        /// <param name="response">response.</param>
+        /// <param name="count">count.</param>
+        /// <param name="links">links.</param>
+        /// <param name="status">status.</param>
+        /// <param name="statusCode">statusCode.</param>
+        public Int32Wrapper(int response = default, int count = default, List<ActiveConnectionsWrapperLinksInner> links = default, int status = default, int statusCode = default)
         {
-            this.Result = result;
-            this.RoomId = roomId;
-            this.Title = title;
-            this.Email = email;
+            this.Response = response;
+            this.Count = count;
+            this.Links = links;
+            this.Status = status;
+            this.StatusCode = statusCode;
         }
 
         /// <summary>
-        /// The confirmation room ID.
+        /// Gets or Sets Response
         /// </summary>
-        /// <value>The confirmation room ID.</value>
-        /*
-        <example>9846</example>
-        */
-        [DataMember(Name = "roomId", EmitDefaultValue = true)]
-        public string RoomId { get; set; }
+        [DataMember(Name = "response", EmitDefaultValue = false)]
+        public int Response { get; set; }
 
         /// <summary>
-        /// The confirmation title.
+        /// Gets or Sets Count
         /// </summary>
-        /// <value>The confirmation title.</value>
-        /*
-        <example>legacy_1080p_small_wooden_mouse</example>
-        */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
-        public string Title { get; set; }
+        [DataMember(Name = "count", EmitDefaultValue = false)]
+        public int Count { get; set; }
 
         /// <summary>
-        /// The confirmation email.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>The confirmation email.</value>
-        /*
-        <example>Sydney_Roberts4@hotmail.com</example>
-        */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
-        public string Email { get; set; }
+        [DataMember(Name = "links", EmitDefaultValue = false)]
+        public List<ActiveConnectionsWrapperLinksInner> Links { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public int Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StatusCode
+        /// </summary>
+        [DataMember(Name = "statusCode", EmitDefaultValue = false)]
+        public int StatusCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,11 +79,12 @@ namespace DocSpace.API.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConfirmDto {\n");
-            sb.Append("  Result: ").Append(Result).Append("\n");
-            sb.Append("  RoomId: ").Append(RoomId).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("class Int32Wrapper {\n");
+            sb.Append("  Response: ").Append(Response).Append("\n");
+            sb.Append("  Count: ").Append(Count).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

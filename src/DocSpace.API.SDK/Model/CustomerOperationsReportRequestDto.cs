@@ -30,14 +30,16 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="startDate">Start date.</param>
         /// <param name="endDate">End date.</param>
+        /// <param name="participantName">Participant name.</param>
         /// <param name="credit">Include credit operations.</param>
-        /// <param name="withdrawal">Include withdrawal operations.</param>
-        public CustomerOperationsReportRequestDto(DateTime? startDate = default, DateTime? endDate = default, bool? credit = default, bool? withdrawal = default)
+        /// <param name="debit">Include debit operations.</param>
+        public CustomerOperationsReportRequestDto(DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default)
         {
             this.StartDate = startDate;
             this.EndDate = endDate;
+            this.ParticipantName = participantName;
             this.Credit = credit;
-            this.Withdrawal = withdrawal;
+            this.Debit = debit;
         }
 
         /// <summary>
@@ -61,6 +63,16 @@ namespace DocSpace.API.SDK.Model
         public DateTime? EndDate { get; set; }
 
         /// <summary>
+        /// Participant name
+        /// </summary>
+        /// <value>Participant name</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "participantName", EmitDefaultValue = true)]
+        public string ParticipantName { get; set; }
+
+        /// <summary>
         /// Include credit operations
         /// </summary>
         /// <value>Include credit operations</value>
@@ -71,14 +83,14 @@ namespace DocSpace.API.SDK.Model
         public bool? Credit { get; set; }
 
         /// <summary>
-        /// Include withdrawal operations
+        /// Include debit operations
         /// </summary>
-        /// <value>Include withdrawal operations</value>
+        /// <value>Include debit operations</value>
         /*
         <example>true</example>
         */
-        [DataMember(Name = "withdrawal", EmitDefaultValue = true)]
-        public bool? Withdrawal { get; set; }
+        [DataMember(Name = "debit", EmitDefaultValue = true)]
+        public bool? Debit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -90,8 +102,9 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class CustomerOperationsReportRequestDto {\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
+            sb.Append("  ParticipantName: ").Append(ParticipantName).Append("\n");
             sb.Append("  Credit: ").Append(Credit).Append("\n");
-            sb.Append("  Withdrawal: ").Append(Withdrawal).Append("\n");
+            sb.Append("  Debit: ").Append(Debit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

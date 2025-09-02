@@ -84,8 +84,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
-        /// <returns></returns>
-        void SignupThirdPartyAccount(SignupAccountRequestDto? signupAccountRequestDto = default);
+        /// <returns>EmployeeWrapper</returns>
+        EmployeeWrapper SignupThirdPartyAccount(SignupAccountRequestDto? signupAccountRequestDto = default);
 
         /// <summary>
         /// Create a third-pary account
@@ -96,8 +96,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SignupThirdPartyAccountWithHttpInfo(SignupAccountRequestDto? signupAccountRequestDto = default);
+        /// <returns>ApiResponse of EmployeeWrapper</returns>
+        ApiResponse<EmployeeWrapper> SignupThirdPartyAccountWithHttpInfo(SignupAccountRequestDto? signupAccountRequestDto = default);
         /// <summary>
         /// Unlink a third-pary account
         /// </summary>
@@ -196,8 +196,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
-        /// <returns>Task of void</returns>
-        Task SignupThirdPartyAccountAsync(SignupAccountRequestDto? signupAccountRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of EmployeeWrapper</returns>
+        Task<EmployeeWrapper> SignupThirdPartyAccountAsync(SignupAccountRequestDto? signupAccountRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create a third-pary account
@@ -209,8 +209,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
-        /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> SignupThirdPartyAccountWithHttpInfoAsync(SignupAccountRequestDto? signupAccountRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (EmployeeWrapper)</returns>
+        Task<ApiResponse<EmployeeWrapper>> SignupThirdPartyAccountWithHttpInfoAsync(SignupAccountRequestDto? signupAccountRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Unlink a third-pary account
         /// </summary>
@@ -802,10 +802,11 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
-        /// <returns></returns>
-        public void SignupThirdPartyAccount(SignupAccountRequestDto? signupAccountRequestDto = default)
+        /// <returns>EmployeeWrapper</returns>
+        public EmployeeWrapper SignupThirdPartyAccount(SignupAccountRequestDto? signupAccountRequestDto = default)
         {
-            SignupThirdPartyAccountWithHttpInfo(signupAccountRequestDto);
+            var localVarResponse = SignupThirdPartyAccountWithHttpInfo(signupAccountRequestDto);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -817,15 +818,15 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SignupThirdPartyAccountWithHttpInfo(SignupAccountRequestDto? signupAccountRequestDto = default)
+        /// <returns>ApiResponse of EmployeeWrapper</returns>
+        public ApiResponse<EmployeeWrapper> SignupThirdPartyAccountWithHttpInfo(SignupAccountRequestDto? signupAccountRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -837,7 +838,7 @@ namespace DocSpace.API.SDK.Api.People
 
 
             // make the HTTP request
-            var localVarResponse = Client.Post<Object>("/api/2.0/people/thirdparty/signup", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<EmployeeWrapper>("/api/2.0/people/thirdparty/signup", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -861,10 +862,11 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
-        /// <returns>Task of void</returns>
-        public async Task SignupThirdPartyAccountAsync(SignupAccountRequestDto? signupAccountRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of EmployeeWrapper</returns>
+        public async Task<EmployeeWrapper> SignupThirdPartyAccountAsync(SignupAccountRequestDto? signupAccountRequestDto = default, CancellationToken cancellationToken = default)
         {
-            await SignupThirdPartyAccountWithHttpInfoAsync(signupAccountRequestDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SignupThirdPartyAccountWithHttpInfoAsync(signupAccountRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -877,15 +879,15 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="signupAccountRequestDto">The request parameters for creating a third-party account. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/signup-third-party-account/">REST API Reference for SignupThirdPartyAccount Operation</seealso>
-        /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> SignupThirdPartyAccountWithHttpInfoAsync(SignupAccountRequestDto? signupAccountRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (EmployeeWrapper)</returns>
+        public async Task<ApiResponse<EmployeeWrapper>> SignupThirdPartyAccountWithHttpInfoAsync(SignupAccountRequestDto? signupAccountRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -899,7 +901,7 @@ namespace DocSpace.API.SDK.Api.People
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<Object>("/api/2.0/people/thirdparty/signup", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<EmployeeWrapper>("/api/2.0/people/thirdparty/signup", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

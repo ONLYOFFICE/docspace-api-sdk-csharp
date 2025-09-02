@@ -24,11 +24,28 @@ namespace DocSpace.API.SDK.Api.Files
     {
         #region Synchronous Operations
         /// <summary>
-        /// Add template files
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
+        /// <returns>FileIntegerWrapper</returns>
+        FileIntegerWrapper AddFileToRecent(int fileId);
+
+        /// <summary>
+        /// 
         /// </summary>
         /// <remarks>
-        /// Adds files with the IDs specified in the request to the template list.
+        /// 
         /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
+        /// <returns>ApiResponse of FileIntegerWrapper</returns>
+        ApiResponse<FileIntegerWrapper> AddFileToRecentWithHttpInfo(int fileId);
+        /// <summary>
+        /// 
+        /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/">REST API Reference for AddTemplates Operation</seealso>
@@ -36,10 +53,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper AddTemplates(TemplatesRequestDto? templatesRequestDto = default);
 
         /// <summary>
-        /// Add template files
+        /// 
         /// </summary>
         /// <remarks>
-        /// Adds files with the IDs specified in the request to the template list.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
@@ -47,36 +64,30 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> AddTemplatesWithHttpInfo(TemplatesRequestDto? templatesRequestDto = default);
         /// <summary>
-        /// Change version history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Changes the version history of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
-        /// <returns>FileStringArrayWrapper</returns>
-        FileStringArrayWrapper ChangeVersionHistory(int fileId, ChangeHistory? changeHistory = default);
+        /// <returns>FileIntegerArrayWrapper</returns>
+        FileIntegerArrayWrapper ChangeVersionHistory(int fileId, ChangeHistory? changeHistory = default);
 
         /// <summary>
-        /// Change version history
+        /// 
         /// </summary>
         /// <remarks>
-        /// Changes the version history of a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
-        /// <returns>ApiResponse of FileStringArrayWrapper</returns>
-        ApiResponse<FileStringArrayWrapper> ChangeVersionHistoryWithHttpInfo(int fileId, ChangeHistory? changeHistory = default);
+        /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
+        ApiResponse<FileIntegerArrayWrapper> ChangeVersionHistoryWithHttpInfo(int fileId, ChangeHistory? changeHistory = default);
         /// <summary>
-        /// Check the form draft filling
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Checks if the current file is a form draft which can be filled out.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
         /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
@@ -85,10 +96,10 @@ namespace DocSpace.API.SDK.Api.Files
         StringWrapper CheckFillFormDraft(int fileId, CheckFillFormDraft? checkFillFormDraft = default);
 
         /// <summary>
-        /// Check the form draft filling
+        /// 
         /// </summary>
         /// <remarks>
-        /// Checks if the current file is a form draft which can be filled out.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
@@ -97,11 +108,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> CheckFillFormDraftWithHttpInfo(int fileId, CheckFillFormDraft? checkFillFormDraft = default);
         /// <summary>
-        /// Copy a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Copies (and converts if possible) an existing file to the specified folder.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
         /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
@@ -110,10 +118,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileEntryBaseWrapper CopyFileAs(int fileId, CopyAsJsonElement? copyAsJsonElement = default);
 
         /// <summary>
-        /// Copy a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Copies (and converts if possible) an existing file to the specified folder.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
@@ -122,11 +130,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileEntryBaseWrapper</returns>
         ApiResponse<FileEntryBaseWrapper> CopyFileAsWithHttpInfo(int fileId, CopyAsJsonElement? copyAsJsonElement = default);
         /// <summary>
-        /// Create the editing session
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
@@ -135,10 +140,10 @@ namespace DocSpace.API.SDK.Api.Files
         ObjectWrapper CreateEditSession(int fileId, long? fileSize = default);
 
         /// <summary>
-        /// Create the editing session
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -147,11 +152,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of ObjectWrapper</returns>
         ApiResponse<ObjectWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default);
         /// <summary>
-        /// Create a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -160,10 +162,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper CreateFile(int folderId, CreateFileJsonElement? createFileJsonElement = default);
 
         /// <summary>
-        /// Create a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -172,11 +174,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> CreateFileWithHttpInfo(int folderId, CreateFileJsonElement? createFileJsonElement = default);
         /// <summary>
-        /// Create a file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/">REST API Reference for CreateFileInMyDocuments Operation</seealso>
@@ -184,10 +183,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper CreateFileInMyDocuments(CreateFileJsonElement? createFileJsonElement = default);
 
         /// <summary>
-        /// Create a file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -195,11 +194,30 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> CreateFileInMyDocumentsWithHttpInfo(CreateFileJsonElement? createFileJsonElement = default);
         /// <summary>
-        /// Create an HTML file
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID.</param>
+        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
+        /// <returns>FileShareWrapper</returns>
+        FileShareWrapper CreateFilePrimaryExternalLink(int id, FileLinkRequest? fileLinkRequest = default);
+
+        /// <summary>
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
+        /// 
         /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID.</param>
+        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
+        /// <returns>ApiResponse of FileShareWrapper</returns>
+        ApiResponse<FileShareWrapper> CreateFilePrimaryExternalLinkWithHttpInfo(int id, FileLinkRequest? fileLinkRequest = default);
+        /// <summary>
+        /// 
+        /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -208,10 +226,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper CreateHtmlFile(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default);
 
         /// <summary>
-        /// Create an HTML file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
@@ -220,11 +238,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> CreateHtmlFileWithHttpInfo(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default);
         /// <summary>
-        /// Create an HTML file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/">REST API Reference for CreateHtmlFileInMyDocuments Operation</seealso>
@@ -232,10 +247,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper CreateHtmlFileInMyDocuments(CreateTextOrHtmlFile? createTextOrHtmlFile = default);
 
         /// <summary>
-        /// Create an HTML file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -243,36 +258,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> CreateHtmlFileInMyDocumentsWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default);
         /// <summary>
-        /// Create primary external link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a primary external link by the identifier specified in the request.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-primary-external-link/">REST API Reference for CreatePrimaryExternalLink Operation</seealso>
-        /// <returns>FileShareWrapper</returns>
-        FileShareWrapper CreatePrimaryExternalLink(int id, FileLinkRequest? fileLinkRequest = default);
-
-        /// <summary>
-        /// Create primary external link
-        /// </summary>
-        /// <remarks>
-        /// Creates a primary external link by the identifier specified in the request.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-primary-external-link/">REST API Reference for CreatePrimaryExternalLink Operation</seealso>
-        /// <returns>ApiResponse of FileShareWrapper</returns>
-        ApiResponse<FileShareWrapper> CreatePrimaryExternalLinkWithHttpInfo(int id, FileLinkRequest? fileLinkRequest = default);
-        /// <summary>
-        /// Create a text file
-        /// </summary>
-        /// <remarks>
-        /// Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -281,10 +268,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper CreateTextFile(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default);
 
         /// <summary>
-        /// Create a text file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
@@ -293,11 +280,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> CreateTextFileWithHttpInfo(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default);
         /// <summary>
-        /// Create a text file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/">REST API Reference for CreateTextFileInMyDocuments Operation</seealso>
@@ -305,10 +289,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper CreateTextFileInMyDocuments(CreateTextOrHtmlFile? createTextOrHtmlFile = default);
 
         /// <summary>
-        /// Create a text file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -316,11 +300,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> CreateTextFileInMyDocumentsWithHttpInfo(CreateTextOrHtmlFile? createTextOrHtmlFile = default);
         /// <summary>
-        /// Create file thumbnails
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates thumbnails for the files with the IDs specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/">REST API Reference for CreateThumbnails Operation</seealso>
@@ -328,10 +309,10 @@ namespace DocSpace.API.SDK.Api.Files
         ObjectArrayWrapper CreateThumbnails(BaseBatchRequestDto? baseBatchRequestDto = default);
 
         /// <summary>
-        /// Create file thumbnails
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates thumbnails for the files with the IDs specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
@@ -339,11 +320,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
         ApiResponse<ObjectArrayWrapper> CreateThumbnailsWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
         /// <summary>
-        /// Delete a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Deletes a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
@@ -352,10 +330,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileOperationArrayWrapper DeleteFile(int fileId, Delete delete);
 
         /// <summary>
-        /// Delete a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Deletes a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
@@ -364,11 +342,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         ApiResponse<FileOperationArrayWrapper> DeleteFileWithHttpInfo(int fileId, Delete delete);
         /// <summary>
-        /// Delete recent files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
@@ -376,10 +351,10 @@ namespace DocSpace.API.SDK.Api.Files
         NoContentResultWrapper DeleteRecent(BaseBatchRequestDto? baseBatchRequestDto = default);
 
         /// <summary>
-        /// Delete recent files
+        /// 
         /// </summary>
         /// <remarks>
-        /// Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
@@ -387,11 +362,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of NoContentResultWrapper</returns>
         ApiResponse<NoContentResultWrapper> DeleteRecentWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
         /// <summary>
-        /// Delete template files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Removes files with the IDs specified in the request from the template list.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/">REST API Reference for DeleteTemplates Operation</seealso>
@@ -399,10 +371,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper DeleteTemplates(List<int>? requestBody = default);
 
         /// <summary>
-        /// Delete template files
+        /// 
         /// </summary>
         /// <remarks>
-        /// Removes files with the IDs specified in the request from the template list.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
@@ -410,11 +382,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> DeleteTemplatesWithHttpInfo(List<int>? requestBody = default);
         /// <summary>
-        /// Get form roles
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns all roles for the specified form.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
@@ -422,10 +391,10 @@ namespace DocSpace.API.SDK.Api.Files
         FormRoleArrayWrapper GetAllFormRoles(int fileId);
 
         /// <summary>
-        /// Get form roles
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns all roles for the specified form.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -433,11 +402,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FormRoleArrayWrapper</returns>
         ApiResponse<FormRoleArrayWrapper> GetAllFormRolesWithHttpInfo(int fileId);
         /// <summary>
-        /// Get changes URL
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a URL to the changes of a file version specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
@@ -446,10 +412,10 @@ namespace DocSpace.API.SDK.Api.Files
         EditHistoryDataWrapper GetEditDiffUrl(int fileId, int? version = default);
 
         /// <summary>
-        /// Get changes URL
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns a URL to the changes of a file version specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -458,11 +424,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of EditHistoryDataWrapper</returns>
         ApiResponse<EditHistoryDataWrapper> GetEditDiffUrlWithHttpInfo(int fileId, int? version = default);
         /// <summary>
-        /// Get version history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the version history of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
@@ -470,10 +433,10 @@ namespace DocSpace.API.SDK.Api.Files
         EditHistoryArrayWrapper GetEditHistory(int fileId);
 
         /// <summary>
-        /// Get version history
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the version history of a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -481,11 +444,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of EditHistoryArrayWrapper</returns>
         ApiResponse<EditHistoryArrayWrapper> GetEditHistoryWithHttpInfo(int fileId);
         /// <summary>
-        /// Get file history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the list of actions performed on the file with the specified identifier.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
@@ -497,10 +457,10 @@ namespace DocSpace.API.SDK.Api.Files
         HistoryArrayWrapper GetFileHistory(int fileId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default);
 
         /// <summary>
-        /// Get file history
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the list of actions performed on the file with the specified identifier.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
@@ -512,11 +472,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of HistoryArrayWrapper</returns>
         ApiResponse<HistoryArrayWrapper> GetFileHistoryWithHttpInfo(int fileId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default);
         /// <summary>
-        /// Get file information
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the detailed information about a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
@@ -525,10 +482,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper GetFileInfo(int fileId, int? version = default);
 
         /// <summary>
-        /// Get file information
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -537,11 +494,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> GetFileInfoWithHttpInfo(int fileId, int? version = default);
         /// <summary>
-        /// Get file external links
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the external links of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -551,10 +505,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileShareArrayWrapper GetFileLinks(int id, int? count = default, int? startIndex = default);
 
         /// <summary>
-        /// Get file external links
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the external links of a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
@@ -564,11 +518,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
         ApiResponse<FileShareArrayWrapper> GetFileLinksWithHttpInfo(int id, int? count = default, int? startIndex = default);
         /// <summary>
-        /// Get primary external link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the primary external link by the identifier specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -578,10 +529,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileShareWrapper GetFilePrimaryExternalLink(int id, int? count = default, int? startIndex = default);
 
         /// <summary>
-        /// Get primary external link
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the primary external link by the identifier specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
@@ -591,34 +542,28 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileShareWrapper</returns>
         ApiResponse<FileShareWrapper> GetFilePrimaryExternalLinkWithHttpInfo(int id, int? count = default, int? startIndex = default);
         /// <summary>
-        /// Get file versions
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the detailed information about all the available file versions with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
-        /// <returns>FileStringArrayWrapper</returns>
-        FileStringArrayWrapper GetFileVersionInfo(int fileId);
+        /// <returns>FileIntegerArrayWrapper</returns>
+        FileIntegerArrayWrapper GetFileVersionInfo(int fileId);
 
         /// <summary>
-        /// Get file versions
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about all the available file versions with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
-        /// <returns>ApiResponse of FileStringArrayWrapper</returns>
-        ApiResponse<FileStringArrayWrapper> GetFileVersionInfoWithHttpInfo(int fileId);
+        /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
+        ApiResponse<FileIntegerArrayWrapper> GetFileVersionInfoWithHttpInfo(int fileId);
         /// <summary>
-        /// Get form-filling result
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Retrieves the result of a form-filling session.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/">REST API Reference for GetFillResult Operation</seealso>
@@ -626,10 +571,10 @@ namespace DocSpace.API.SDK.Api.Files
         FillingFormResultIntegerWrapper GetFillResult(string? fillingSessionId = default);
 
         /// <summary>
-        /// Get form-filling result
+        /// 
         /// </summary>
         /// <remarks>
-        /// Retrieves the result of a form-filling session.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
@@ -637,11 +582,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FillingFormResultIntegerWrapper</returns>
         ApiResponse<FillingFormResultIntegerWrapper> GetFillResultWithHttpInfo(string? fillingSessionId = default);
         /// <summary>
-        /// Get file download link asynchronously
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a link to download a file with the ID specified in the request asynchronously.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
@@ -649,10 +591,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileLinkWrapper GetPresignedFileUri(int fileId);
 
         /// <summary>
-        /// Get file download link asynchronously
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns a link to download a file with the ID specified in the request asynchronously.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -660,11 +602,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileLinkWrapper</returns>
         ApiResponse<FileLinkWrapper> GetPresignedFileUriWithHttpInfo(int fileId);
         /// <summary>
-        /// Get file download link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
@@ -672,10 +611,10 @@ namespace DocSpace.API.SDK.Api.Files
         StringWrapper GetPresignedUri(int fileId);
 
         /// <summary>
-        /// Get file download link
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -683,11 +622,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> GetPresignedUriWithHttpInfo(int fileId);
         /// <summary>
-        /// Get users access rights to the protected file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
@@ -695,10 +631,10 @@ namespace DocSpace.API.SDK.Api.Files
         MentionWrapperArrayWrapper GetProtectedFileUsers(int fileId);
 
         /// <summary>
-        /// Get users access rights to the protected file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -706,11 +642,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
         ApiResponse<MentionWrapperArrayWrapper> GetProtectedFileUsersWithHttpInfo(int fileId);
         /// <summary>
-        /// Get reference data
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
@@ -718,10 +651,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileReferenceWrapper GetReferenceData(GetReferenceDataDtoInteger? getReferenceDataDtoInteger = default);
 
         /// <summary>
-        /// Get reference data
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
@@ -729,11 +662,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileReferenceWrapper</returns>
         ApiResponse<FileReferenceWrapper> GetReferenceDataWithHttpInfo(GetReferenceDataDtoInteger? getReferenceDataDtoInteger = default);
         /// <summary>
-        /// Check the PDF file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Checks if the PDF file is a form or not.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
@@ -741,10 +671,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper IsFormPDF(int fileId);
 
         /// <summary>
-        /// Check the PDF file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Checks if the PDF file is a form or not.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -752,11 +682,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> IsFormPDFWithHttpInfo(int fileId);
         /// <summary>
-        /// Lock a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Locks a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
         /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
@@ -765,10 +692,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper LockFile(int fileId, LockFileParameters? lockFileParameters = default);
 
         /// <summary>
-        /// Lock a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Locks a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
@@ -777,11 +704,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> LockFileWithHttpInfo(int fileId, LockFileParameters? lockFileParameters = default);
         /// <summary>
-        /// Perform form filling action
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Performs the specified form filling action.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
         /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
@@ -790,10 +714,10 @@ namespace DocSpace.API.SDK.Api.Files
         void ManageFormFilling(string fileId, ManageFormFillingDtoInteger? manageFormFillingDtoInteger = default);
 
         /// <summary>
-        /// Perform form filling action
+        /// 
         /// </summary>
         /// <remarks>
-        /// Performs the specified form filling action.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
@@ -802,11 +726,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ManageFormFillingWithHttpInfo(string fileId, ManageFormFillingDtoInteger? manageFormFillingDtoInteger = default);
         /// <summary>
-        /// Open a file configuration
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the initialization configuration of a file to open it in the editor.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
         /// <param name="version">The file version to open. (optional)</param>
@@ -819,10 +740,10 @@ namespace DocSpace.API.SDK.Api.Files
         ConfigurationIntegerWrapper OpenEditFile(int fileId, int? version = default, bool? view = default, EditorType? editorType = default, bool? edit = default, bool? fill = default);
 
         /// <summary>
-        /// Open a file configuration
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the initialization configuration of a file to open it in the editor.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
@@ -835,11 +756,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of ConfigurationIntegerWrapper</returns>
         ApiResponse<ConfigurationIntegerWrapper> OpenEditFileWithHttpInfo(int fileId, int? version = default, bool? view = default, EditorType? editorType = default, bool? edit = default, bool? fill = default);
         /// <summary>
-        /// Restore a file version
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Restores a file version specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
         /// <param name="version">The file version of the restore. (optional)</param>
@@ -849,10 +767,10 @@ namespace DocSpace.API.SDK.Api.Files
         EditHistoryArrayWrapper RestoreFileVersion(int fileId, int? version = default, string? url = default);
 
         /// <summary>
-        /// Restore a file version
+        /// 
         /// </summary>
         /// <remarks>
-        /// Restores a file version specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
@@ -862,11 +780,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of EditHistoryArrayWrapper</returns>
         ApiResponse<EditHistoryArrayWrapper> RestoreFileVersionWithHttpInfo(int fileId, int? version = default, string? url = default);
         /// <summary>
-        /// Save file edits
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves edits to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
         /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
@@ -878,10 +793,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper SaveEditingFileFromForm(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default);
 
         /// <summary>
-        /// Save file edits
+        /// 
         /// </summary>
         /// <remarks>
-        /// Saves edits to a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
@@ -893,11 +808,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> SaveEditingFileFromFormWithHttpInfo(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default);
         /// <summary>
-        /// Save a file as PDF
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves a file with the identifier specified in the request as a PDF document.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
         /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
@@ -906,10 +818,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper SaveFileAsPdf(int id, SaveAsPdfInteger? saveAsPdfInteger = default);
 
         /// <summary>
-        /// Save a file as PDF
+        /// 
         /// </summary>
         /// <remarks>
-        /// Saves a file with the identifier specified in the request as a PDF document.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
@@ -918,11 +830,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> SaveFileAsPdfWithHttpInfo(int id, SaveAsPdfInteger? saveAsPdfInteger = default);
         /// <summary>
-        /// Save form role mapping
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves the form role mapping.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
@@ -931,10 +840,10 @@ namespace DocSpace.API.SDK.Api.Files
         FormRoleWrapper SaveFormRoleMapping(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default);
 
         /// <summary>
-        /// Save form role mapping
+        /// 
         /// </summary>
         /// <remarks>
-        /// Saves the form role mapping.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
@@ -943,11 +852,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FormRoleWrapper</returns>
         ApiResponse<FormRoleWrapper> SaveFormRoleMappingWithHttpInfo(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default);
         /// <summary>
-        /// Set the Custom Filter editing mode
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets the Custom Filter editing mode to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
@@ -956,10 +862,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper SetCustomFilterTag(int fileId, CustomFilterParameters? customFilterParameters = default);
 
         /// <summary>
-        /// Set the Custom Filter editing mode
+        /// 
         /// </summary>
         /// <remarks>
-        /// Sets the Custom Filter editing mode to a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -968,36 +874,30 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> SetCustomFilterTagWithHttpInfo(int fileId, CustomFilterParameters? customFilterParameters = default);
         /// <summary>
-        /// Set an external link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets an external link to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-external-link/">REST API Reference for SetExternalLink Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        FileShareWrapper SetExternalLink(int id, FileLinkRequest? fileLinkRequest = default);
+        FileShareWrapper SetFileExternalLink(int id, FileLinkRequest? fileLinkRequest = default);
 
         /// <summary>
-        /// Set an external link
+        /// 
         /// </summary>
         /// <remarks>
-        /// Sets an external link to a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-external-link/">REST API Reference for SetExternalLink Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        ApiResponse<FileShareWrapper> SetExternalLinkWithHttpInfo(int id, FileLinkRequest? fileLinkRequest = default);
+        ApiResponse<FileShareWrapper> SetFileExternalLinkWithHttpInfo(int id, FileLinkRequest? fileLinkRequest = default);
         /// <summary>
-        /// Set file order
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets order of the file with ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="orderRequestDto">The file order information. (optional)</param>
@@ -1006,10 +906,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper SetFileOrder(int fileId, OrderRequestDto? orderRequestDto = default);
 
         /// <summary>
-        /// Set file order
+        /// 
         /// </summary>
         /// <remarks>
-        /// Sets order of the file with ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
@@ -1018,34 +918,28 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> SetFileOrderWithHttpInfo(int fileId, OrderRequestDto? orderRequestDto = default);
         /// <summary>
-        /// Set order of files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets order of the files.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
-        /// <returns>FileEntryStringArrayWrapper</returns>
-        FileEntryStringArrayWrapper SetFilesOrder(OrdersRequestDtoInteger? ordersRequestDtoInteger = default);
+        /// <returns>FileEntryIntegerArrayWrapper</returns>
+        FileEntryIntegerArrayWrapper SetFilesOrder(OrdersRequestDtoInteger? ordersRequestDtoInteger = default);
 
         /// <summary>
-        /// Set order of files
+        /// 
         /// </summary>
         /// <remarks>
-        /// Sets order of the files.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
-        /// <returns>ApiResponse of FileEntryStringArrayWrapper</returns>
-        ApiResponse<FileEntryStringArrayWrapper> SetFilesOrderWithHttpInfo(OrdersRequestDtoInteger? ordersRequestDtoInteger = default);
+        /// <returns>ApiResponse of FileEntryIntegerArrayWrapper</returns>
+        ApiResponse<FileEntryIntegerArrayWrapper> SetFilesOrderWithHttpInfo(OrdersRequestDtoInteger? ordersRequestDtoInteger = default);
         /// <summary>
-        /// Start file editing
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
@@ -1054,10 +948,10 @@ namespace DocSpace.API.SDK.Api.Files
         StringWrapper StartEditFile(int fileId, StartEdit? startEdit = default);
 
         /// <summary>
-        /// Start file editing
+        /// 
         /// </summary>
         /// <remarks>
-        /// Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
@@ -1066,11 +960,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> StartEditFileWithHttpInfo(int fileId, StartEdit? startEdit = default);
         /// <summary>
-        /// Start file filling
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Starts filling a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/">REST API Reference for StartFillingFile Operation</seealso>
@@ -1078,10 +969,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper StartFillingFile(int fileId);
 
         /// <summary>
-        /// Start file filling
+        /// 
         /// </summary>
         /// <remarks>
-        /// Starts filling a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
@@ -1089,11 +980,30 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> StartFillingFileWithHttpInfo(int fileId);
         /// <summary>
-        /// Track file editing
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="favorite">Specifies if the file is marked as favorite or not. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/toggle-file-favorite/">REST API Reference for ToggleFileFavorite Operation</seealso>
+        /// <returns>BooleanWrapper</returns>
+        BooleanWrapper ToggleFileFavorite(int fileId, bool? favorite = default);
+
+        /// <summary>
+        /// 
         /// </summary>
         /// <remarks>
-        /// Tracks file changes when editing.
+        /// 
         /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="favorite">Specifies if the file is marked as favorite or not. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/toggle-file-favorite/">REST API Reference for ToggleFileFavorite Operation</seealso>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        ApiResponse<BooleanWrapper> ToggleFileFavoriteWithHttpInfo(int fileId, bool? favorite = default);
+        /// <summary>
+        /// 
+        /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
         /// <param name="tabId">The tab ID to track editing changes. (optional)</param>
@@ -1104,10 +1014,10 @@ namespace DocSpace.API.SDK.Api.Files
         KeyValuePairBooleanStringWrapper TrackEditFile(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default);
 
         /// <summary>
-        /// Track file editing
+        /// 
         /// </summary>
         /// <remarks>
-        /// Tracks file changes when editing.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
@@ -1118,11 +1028,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of KeyValuePairBooleanStringWrapper</returns>
         ApiResponse<KeyValuePairBooleanStringWrapper> TrackEditFileWithHttpInfo(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default);
         /// <summary>
-        /// Update a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Updates the information of the selected file with the parameters specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
         /// <param name="updateFile">The parameters for updating a file. (optional)</param>
@@ -1131,10 +1038,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileIntegerWrapper UpdateFile(int fileId, UpdateFile? updateFile = default);
 
         /// <summary>
-        /// Update a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Updates the information of the selected file with the parameters specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
@@ -1152,10 +1059,35 @@ namespace DocSpace.API.SDK.Api.Files
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Add template files
+        /// 
         /// </summary>
         /// <remarks>
-        /// Adds files with the IDs specified in the request to the template list.
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
+        /// <returns>Task of FileIntegerWrapper</returns>
+        Task<FileIntegerWrapper> AddFileToRecentAsync(int fileId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
+        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
+        Task<ApiResponse<FileIntegerWrapper>> AddFileToRecentWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
@@ -1165,10 +1097,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> AddTemplatesAsync(TemplatesRequestDto? templatesRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Add template files
+        /// 
         /// </summary>
         /// <remarks>
-        /// Adds files with the IDs specified in the request to the template list.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
@@ -1177,37 +1109,37 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> AddTemplatesWithHttpInfoAsync(TemplatesRequestDto? templatesRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Change version history
+        /// 
         /// </summary>
         /// <remarks>
-        /// Changes the version history of a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
-        /// <returns>Task of FileStringArrayWrapper</returns>
-        Task<FileStringArrayWrapper> ChangeVersionHistoryAsync(int fileId, ChangeHistory? changeHistory = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of FileIntegerArrayWrapper</returns>
+        Task<FileIntegerArrayWrapper> ChangeVersionHistoryAsync(int fileId, ChangeHistory? changeHistory = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Change version history
+        /// 
         /// </summary>
         /// <remarks>
-        /// Changes the version history of a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
-        /// <returns>Task of ApiResponse (FileStringArrayWrapper)</returns>
-        Task<ApiResponse<FileStringArrayWrapper>> ChangeVersionHistoryWithHttpInfoAsync(int fileId, ChangeHistory? changeHistory = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
+        Task<ApiResponse<FileIntegerArrayWrapper>> ChangeVersionHistoryWithHttpInfoAsync(int fileId, ChangeHistory? changeHistory = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Check the form draft filling
+        /// 
         /// </summary>
         /// <remarks>
-        /// Checks if the current file is a form draft which can be filled out.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
@@ -1218,10 +1150,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<StringWrapper> CheckFillFormDraftAsync(int fileId, CheckFillFormDraft? checkFillFormDraft = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Check the form draft filling
+        /// 
         /// </summary>
         /// <remarks>
-        /// Checks if the current file is a form draft which can be filled out.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
@@ -1231,10 +1163,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
         Task<ApiResponse<StringWrapper>> CheckFillFormDraftWithHttpInfoAsync(int fileId, CheckFillFormDraft? checkFillFormDraft = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Copy a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Copies (and converts if possible) an existing file to the specified folder.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
@@ -1245,10 +1177,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileEntryBaseWrapper> CopyFileAsAsync(int fileId, CopyAsJsonElement? copyAsJsonElement = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Copy a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Copies (and converts if possible) an existing file to the specified folder.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
@@ -1258,10 +1190,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileEntryBaseWrapper)</returns>
         Task<ApiResponse<FileEntryBaseWrapper>> CopyFileAsWithHttpInfoAsync(int fileId, CopyAsJsonElement? copyAsJsonElement = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create the editing session
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -1272,10 +1204,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<ObjectWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Create the editing session
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -1285,10 +1217,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
         Task<ApiResponse<ObjectWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -1299,10 +1231,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> CreateFileAsync(int folderId, CreateFileJsonElement? createFileJsonElement = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Create a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -1312,10 +1244,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> CreateFileWithHttpInfoAsync(int folderId, CreateFileJsonElement? createFileJsonElement = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create a file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -1325,10 +1257,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> CreateFileInMyDocumentsAsync(CreateFileJsonElement? createFileJsonElement = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Create a file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -1337,10 +1269,37 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> CreateFileInMyDocumentsWithHttpInfoAsync(CreateFileJsonElement? createFileJsonElement = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create an HTML file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID.</param>
+        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
+        /// <returns>Task of FileShareWrapper</returns>
+        Task<FileShareWrapper> CreateFilePrimaryExternalLinkAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID.</param>
+        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
+        Task<ApiResponse<FileShareWrapper>> CreateFilePrimaryExternalLinkWithHttpInfoAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
@@ -1351,10 +1310,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> CreateHtmlFileAsync(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Create an HTML file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
@@ -1364,10 +1323,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> CreateHtmlFileWithHttpInfoAsync(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create an HTML file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -1377,10 +1336,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> CreateHtmlFileInMyDocumentsAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Create an HTML file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -1389,37 +1348,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> CreateHtmlFileInMyDocumentsWithHttpInfoAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create primary external link
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a primary external link by the identifier specified in the request.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-primary-external-link/">REST API Reference for CreatePrimaryExternalLink Operation</seealso>
-        /// <returns>Task of FileShareWrapper</returns>
-        Task<FileShareWrapper> CreatePrimaryExternalLinkAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Create primary external link
-        /// </summary>
-        /// <remarks>
-        /// Creates a primary external link by the identifier specified in the request.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-primary-external-link/">REST API Reference for CreatePrimaryExternalLink Operation</seealso>
-        /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        Task<ApiResponse<FileShareWrapper>> CreatePrimaryExternalLinkWithHttpInfoAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default);
-        /// <summary>
-        /// Create a text file
-        /// </summary>
-        /// <remarks>
-        /// Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
@@ -1430,10 +1362,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> CreateTextFileAsync(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Create a text file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
@@ -1443,10 +1375,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> CreateTextFileWithHttpInfoAsync(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create a text file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -1456,10 +1388,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> CreateTextFileInMyDocumentsAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Create a text file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -1468,10 +1400,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> CreateTextFileInMyDocumentsWithHttpInfoAsync(CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Create file thumbnails
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates thumbnails for the files with the IDs specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
@@ -1481,10 +1413,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<ObjectArrayWrapper> CreateThumbnailsAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Create file thumbnails
+        /// 
         /// </summary>
         /// <remarks>
-        /// Creates thumbnails for the files with the IDs specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
@@ -1493,10 +1425,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
         Task<ApiResponse<ObjectArrayWrapper>> CreateThumbnailsWithHttpInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Delete a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Deletes a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
@@ -1507,10 +1439,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileOperationArrayWrapper> DeleteFileAsync(int fileId, Delete delete, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Delete a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Deletes a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
@@ -1520,10 +1452,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
         Task<ApiResponse<FileOperationArrayWrapper>> DeleteFileWithHttpInfoAsync(int fileId, Delete delete, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Delete recent files
+        /// 
         /// </summary>
         /// <remarks>
-        /// Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
@@ -1533,10 +1465,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<NoContentResultWrapper> DeleteRecentAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Delete recent files
+        /// 
         /// </summary>
         /// <remarks>
-        /// Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
@@ -1545,10 +1477,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (NoContentResultWrapper)</returns>
         Task<ApiResponse<NoContentResultWrapper>> DeleteRecentWithHttpInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Delete template files
+        /// 
         /// </summary>
         /// <remarks>
-        /// Removes files with the IDs specified in the request from the template list.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
@@ -1558,10 +1490,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> DeleteTemplatesAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Delete template files
+        /// 
         /// </summary>
         /// <remarks>
-        /// Removes files with the IDs specified in the request from the template list.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
@@ -1570,10 +1502,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> DeleteTemplatesWithHttpInfoAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get form roles
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns all roles for the specified form.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -1583,10 +1515,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FormRoleArrayWrapper> GetAllFormRolesAsync(int fileId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get form roles
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns all roles for the specified form.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -1595,10 +1527,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FormRoleArrayWrapper)</returns>
         Task<ApiResponse<FormRoleArrayWrapper>> GetAllFormRolesWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get changes URL
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns a URL to the changes of a file version specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -1609,10 +1541,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<EditHistoryDataWrapper> GetEditDiffUrlAsync(int fileId, int? version = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get changes URL
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns a URL to the changes of a file version specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -1622,10 +1554,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (EditHistoryDataWrapper)</returns>
         Task<ApiResponse<EditHistoryDataWrapper>> GetEditDiffUrlWithHttpInfoAsync(int fileId, int? version = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get version history
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the version history of a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -1635,10 +1567,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<EditHistoryArrayWrapper> GetEditHistoryAsync(int fileId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get version history
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the version history of a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -1647,10 +1579,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (EditHistoryArrayWrapper)</returns>
         Task<ApiResponse<EditHistoryArrayWrapper>> GetEditHistoryWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get file history
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the list of actions performed on the file with the specified identifier.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
@@ -1664,10 +1596,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<HistoryArrayWrapper> GetFileHistoryAsync(int fileId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get file history
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the list of actions performed on the file with the specified identifier.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
@@ -1680,10 +1612,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (HistoryArrayWrapper)</returns>
         Task<ApiResponse<HistoryArrayWrapper>> GetFileHistoryWithHttpInfoAsync(int fileId, ApiDateTime? fromDate = default, ApiDateTime? toDate = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get file information
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -1694,10 +1626,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> GetFileInfoAsync(int fileId, int? version = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get file information
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -1707,10 +1639,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> GetFileInfoWithHttpInfoAsync(int fileId, int? version = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get file external links
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the external links of a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
@@ -1722,10 +1654,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileShareArrayWrapper> GetFileLinksAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get file external links
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the external links of a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
@@ -1736,10 +1668,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
         Task<ApiResponse<FileShareArrayWrapper>> GetFileLinksWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get primary external link
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the primary external link by the identifier specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
@@ -1751,10 +1683,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileShareWrapper> GetFilePrimaryExternalLinkAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get primary external link
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the primary external link by the identifier specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
@@ -1765,35 +1697,35 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
         Task<ApiResponse<FileShareWrapper>> GetFilePrimaryExternalLinkWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get file versions
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about all the available file versions with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
-        /// <returns>Task of FileStringArrayWrapper</returns>
-        Task<FileStringArrayWrapper> GetFileVersionInfoAsync(int fileId, CancellationToken cancellationToken = default);
+        /// <returns>Task of FileIntegerArrayWrapper</returns>
+        Task<FileIntegerArrayWrapper> GetFileVersionInfoAsync(int fileId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get file versions
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about all the available file versions with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
-        /// <returns>Task of ApiResponse (FileStringArrayWrapper)</returns>
-        Task<ApiResponse<FileStringArrayWrapper>> GetFileVersionInfoWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
+        Task<ApiResponse<FileIntegerArrayWrapper>> GetFileVersionInfoWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get form-filling result
+        /// 
         /// </summary>
         /// <remarks>
-        /// Retrieves the result of a form-filling session.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
@@ -1803,10 +1735,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FillingFormResultIntegerWrapper> GetFillResultAsync(string? fillingSessionId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get form-filling result
+        /// 
         /// </summary>
         /// <remarks>
-        /// Retrieves the result of a form-filling session.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
@@ -1815,10 +1747,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FillingFormResultIntegerWrapper)</returns>
         Task<ApiResponse<FillingFormResultIntegerWrapper>> GetFillResultWithHttpInfoAsync(string? fillingSessionId = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get file download link asynchronously
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns a link to download a file with the ID specified in the request asynchronously.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -1828,10 +1760,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileLinkWrapper> GetPresignedFileUriAsync(int fileId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get file download link asynchronously
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns a link to download a file with the ID specified in the request asynchronously.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -1840,10 +1772,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileLinkWrapper)</returns>
         Task<ApiResponse<FileLinkWrapper>> GetPresignedFileUriWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get file download link
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -1853,10 +1785,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<StringWrapper> GetPresignedUriAsync(int fileId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get file download link
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -1865,10 +1797,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
         Task<ApiResponse<StringWrapper>> GetPresignedUriWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get users access rights to the protected file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -1878,10 +1810,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<MentionWrapperArrayWrapper> GetProtectedFileUsersAsync(int fileId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get users access rights to the protected file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -1890,10 +1822,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
         Task<ApiResponse<MentionWrapperArrayWrapper>> GetProtectedFileUsersWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get reference data
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
@@ -1903,10 +1835,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileReferenceWrapper> GetReferenceDataAsync(GetReferenceDataDtoInteger? getReferenceDataDtoInteger = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get reference data
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
@@ -1915,10 +1847,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileReferenceWrapper)</returns>
         Task<ApiResponse<FileReferenceWrapper>> GetReferenceDataWithHttpInfoAsync(GetReferenceDataDtoInteger? getReferenceDataDtoInteger = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Check the PDF file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Checks if the PDF file is a form or not.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -1928,10 +1860,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> IsFormPDFAsync(int fileId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Check the PDF file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Checks if the PDF file is a form or not.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
@@ -1940,10 +1872,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> IsFormPDFWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Lock a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Locks a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
@@ -1954,10 +1886,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> LockFileAsync(int fileId, LockFileParameters? lockFileParameters = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Lock a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Locks a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
@@ -1967,10 +1899,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> LockFileWithHttpInfoAsync(int fileId, LockFileParameters? lockFileParameters = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Perform form filling action
+        /// 
         /// </summary>
         /// <remarks>
-        /// Performs the specified form filling action.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
@@ -1981,10 +1913,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task ManageFormFillingAsync(string fileId, ManageFormFillingDtoInteger? manageFormFillingDtoInteger = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Perform form filling action
+        /// 
         /// </summary>
         /// <remarks>
-        /// Performs the specified form filling action.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
@@ -1994,10 +1926,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> ManageFormFillingWithHttpInfoAsync(string fileId, ManageFormFillingDtoInteger? manageFormFillingDtoInteger = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Open a file configuration
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the initialization configuration of a file to open it in the editor.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
@@ -2012,10 +1944,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<ConfigurationIntegerWrapper> OpenEditFileAsync(int fileId, int? version = default, bool? view = default, EditorType? editorType = default, bool? edit = default, bool? fill = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Open a file configuration
+        /// 
         /// </summary>
         /// <remarks>
-        /// Returns the initialization configuration of a file to open it in the editor.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
@@ -2029,10 +1961,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (ConfigurationIntegerWrapper)</returns>
         Task<ApiResponse<ConfigurationIntegerWrapper>> OpenEditFileWithHttpInfoAsync(int fileId, int? version = default, bool? view = default, EditorType? editorType = default, bool? edit = default, bool? fill = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Restore a file version
+        /// 
         /// </summary>
         /// <remarks>
-        /// Restores a file version specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
@@ -2044,10 +1976,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<EditHistoryArrayWrapper> RestoreFileVersionAsync(int fileId, int? version = default, string? url = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Restore a file version
+        /// 
         /// </summary>
         /// <remarks>
-        /// Restores a file version specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
@@ -2058,10 +1990,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (EditHistoryArrayWrapper)</returns>
         Task<ApiResponse<EditHistoryArrayWrapper>> RestoreFileVersionWithHttpInfoAsync(int fileId, int? version = default, string? url = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Save file edits
+        /// 
         /// </summary>
         /// <remarks>
-        /// Saves edits to a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
@@ -2075,10 +2007,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> SaveEditingFileFromFormAsync(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Save file edits
+        /// 
         /// </summary>
         /// <remarks>
-        /// Saves edits to a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
@@ -2091,10 +2023,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> SaveEditingFileFromFormWithHttpInfoAsync(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Save a file as PDF
+        /// 
         /// </summary>
         /// <remarks>
-        /// Saves a file with the identifier specified in the request as a PDF document.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
@@ -2105,10 +2037,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> SaveFileAsPdfAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Save a file as PDF
+        /// 
         /// </summary>
         /// <remarks>
-        /// Saves a file with the identifier specified in the request as a PDF document.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
@@ -2118,10 +2050,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> SaveFileAsPdfWithHttpInfoAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Save form role mapping
+        /// 
         /// </summary>
         /// <remarks>
-        /// Saves the form role mapping.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
@@ -2132,10 +2064,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FormRoleWrapper> SaveFormRoleMappingAsync(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Save form role mapping
+        /// 
         /// </summary>
         /// <remarks>
-        /// Saves the form role mapping.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
@@ -2145,10 +2077,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FormRoleWrapper)</returns>
         Task<ApiResponse<FormRoleWrapper>> SaveFormRoleMappingWithHttpInfoAsync(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Set the Custom Filter editing mode
+        /// 
         /// </summary>
         /// <remarks>
-        /// Sets the Custom Filter editing mode to a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -2159,10 +2091,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> SetCustomFilterTagAsync(int fileId, CustomFilterParameters? customFilterParameters = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Set the Custom Filter editing mode
+        /// 
         /// </summary>
         /// <remarks>
-        /// Sets the Custom Filter editing mode to a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -2172,37 +2104,37 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> SetCustomFilterTagWithHttpInfoAsync(int fileId, CustomFilterParameters? customFilterParameters = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Set an external link
+        /// 
         /// </summary>
         /// <remarks>
-        /// Sets an external link to a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-external-link/">REST API Reference for SetExternalLink Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        Task<FileShareWrapper> SetExternalLinkAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default);
+        Task<FileShareWrapper> SetFileExternalLinkAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Set an external link
+        /// 
         /// </summary>
         /// <remarks>
-        /// Sets an external link to a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-external-link/">REST API Reference for SetExternalLink Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        Task<ApiResponse<FileShareWrapper>> SetExternalLinkWithHttpInfoAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileShareWrapper>> SetFileExternalLinkWithHttpInfoAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Set file order
+        /// 
         /// </summary>
         /// <remarks>
-        /// Sets order of the file with ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
@@ -2213,10 +2145,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> SetFileOrderAsync(int fileId, OrderRequestDto? orderRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Set file order
+        /// 
         /// </summary>
         /// <remarks>
-        /// Sets order of the file with ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
@@ -2226,35 +2158,35 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> SetFileOrderWithHttpInfoAsync(int fileId, OrderRequestDto? orderRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Set order of files
+        /// 
         /// </summary>
         /// <remarks>
-        /// Sets order of the files.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
-        /// <returns>Task of FileEntryStringArrayWrapper</returns>
-        Task<FileEntryStringArrayWrapper> SetFilesOrderAsync(OrdersRequestDtoInteger? ordersRequestDtoInteger = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of FileEntryIntegerArrayWrapper</returns>
+        Task<FileEntryIntegerArrayWrapper> SetFilesOrderAsync(OrdersRequestDtoInteger? ordersRequestDtoInteger = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Set order of files
+        /// 
         /// </summary>
         /// <remarks>
-        /// Sets order of the files.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
-        /// <returns>Task of ApiResponse (FileEntryStringArrayWrapper)</returns>
-        Task<ApiResponse<FileEntryStringArrayWrapper>> SetFilesOrderWithHttpInfoAsync(OrdersRequestDtoInteger? ordersRequestDtoInteger = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FileEntryIntegerArrayWrapper)</returns>
+        Task<ApiResponse<FileEntryIntegerArrayWrapper>> SetFilesOrderWithHttpInfoAsync(OrdersRequestDtoInteger? ordersRequestDtoInteger = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Start file editing
+        /// 
         /// </summary>
         /// <remarks>
-        /// Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
@@ -2265,10 +2197,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<StringWrapper> StartEditFileAsync(int fileId, StartEdit? startEdit = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Start file editing
+        /// 
         /// </summary>
         /// <remarks>
-        /// Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
@@ -2278,10 +2210,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
         Task<ApiResponse<StringWrapper>> StartEditFileWithHttpInfoAsync(int fileId, StartEdit? startEdit = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Start file filling
+        /// 
         /// </summary>
         /// <remarks>
-        /// Starts filling a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
@@ -2291,10 +2223,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> StartFillingFileAsync(int fileId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Start file filling
+        /// 
         /// </summary>
         /// <remarks>
-        /// Starts filling a file with the ID specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
@@ -2303,10 +2235,37 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> StartFillingFileWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Track file editing
+        /// 
         /// </summary>
         /// <remarks>
-        /// Tracks file changes when editing.
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="favorite">Specifies if the file is marked as favorite or not. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/toggle-file-favorite/">REST API Reference for ToggleFileFavorite Operation</seealso>
+        /// <returns>Task of BooleanWrapper</returns>
+        Task<BooleanWrapper> ToggleFileFavoriteAsync(int fileId, bool? favorite = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="favorite">Specifies if the file is marked as favorite or not. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/toggle-file-favorite/">REST API Reference for ToggleFileFavorite Operation</seealso>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        Task<ApiResponse<BooleanWrapper>> ToggleFileFavoriteWithHttpInfoAsync(int fileId, bool? favorite = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
@@ -2319,10 +2278,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<KeyValuePairBooleanStringWrapper> TrackEditFileAsync(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Track file editing
+        /// 
         /// </summary>
         /// <remarks>
-        /// Tracks file changes when editing.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
@@ -2334,10 +2293,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (KeyValuePairBooleanStringWrapper)</returns>
         Task<ApiResponse<KeyValuePairBooleanStringWrapper>> TrackEditFileWithHttpInfoAsync(int fileId, Guid? tabId = default, string? docKeyForTrack = default, bool? isFinish = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Updates the information of the selected file with the parameters specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
@@ -2348,10 +2307,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileIntegerWrapper> UpdateFileAsync(int fileId, UpdateFile? updateFile = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Update a file
+        /// 
         /// </summary>
         /// <remarks>
-        /// Updates the information of the selected file with the parameters specified in the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
@@ -2574,11 +2533,118 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Add template files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Adds files with the IDs specified in the request to the template list.
-        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
+        /// <returns>FileIntegerWrapper</returns>
+        public FileIntegerWrapper AddFileToRecent(int fileId)
+        {
+            var localVarResponse = AddFileToRecentWithHttpInfo(fileId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
+        /// <returns>ApiResponse of FileIntegerWrapper</returns>
+        public ApiResponse<FileIntegerWrapper> AddFileToRecentWithHttpInfo(int fileId)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<FileIntegerWrapper>("/api/2.0/files/file/{fileId}/recent", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AddFileToRecent", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
+        /// <returns>Task of FileIntegerWrapper</returns>
+        public async Task<FileIntegerWrapper> AddFileToRecentAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await AddFileToRecentWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
+        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
+        public async Task<ApiResponse<FileIntegerWrapper>> AddFileToRecentWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<FileIntegerWrapper>("/api/2.0/files/file/{fileId}/recent", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AddFileToRecent", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/">REST API Reference for AddTemplates Operation</seealso>
@@ -2590,11 +2656,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Add template files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Adds files with the IDs specified in the request to the template list.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-templates/">REST API Reference for AddTemplates Operation</seealso>
@@ -2616,36 +2679,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (templatesRequestDto != null) localVarRequestOptions.Data = templatesRequestDto;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<BooleanWrapper>("/api/2.0/files/templates", localVarRequestOptions, Configuration);
@@ -2663,11 +2696,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Add template files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Adds files with the IDs specified in the request to the template list.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2680,11 +2710,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Add template files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Adds files with the IDs specified in the request to the template list.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templatesRequestDto">The request parameters for adding files to the template list. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2708,36 +2735,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (templatesRequestDto != null) localVarRequestOptions.Data = templatesRequestDto;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2756,34 +2753,28 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Change version history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Changes the version history of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
-        /// <returns>FileStringArrayWrapper</returns>
-        public FileStringArrayWrapper ChangeVersionHistory(int fileId, ChangeHistory? changeHistory = default)
+        /// <returns>FileIntegerArrayWrapper</returns>
+        public FileIntegerArrayWrapper ChangeVersionHistory(int fileId, ChangeHistory? changeHistory = default)
         {
             var localVarResponse = ChangeVersionHistoryWithHttpInfo(fileId, changeHistory);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Change version history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Changes the version history of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
-        /// <returns>ApiResponse of FileStringArrayWrapper</returns>
-        public ApiResponse<FileStringArrayWrapper> ChangeVersionHistoryWithHttpInfo(int fileId, ChangeHistory? changeHistory = default)
+        /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
+        public ApiResponse<FileIntegerArrayWrapper> ChangeVersionHistoryWithHttpInfo(int fileId, ChangeHistory? changeHistory = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2801,39 +2792,9 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (changeHistory != null) localVarRequestOptions.Data = changeHistory;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<FileStringArrayWrapper>("/api/2.0/files/file/{fileId}/history", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<FileIntegerArrayWrapper>("/api/2.0/files/file/{fileId}/history", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -2848,36 +2809,30 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Change version history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Changes the version history of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
-        /// <returns>Task of FileStringArrayWrapper</returns>
-        public async Task<FileStringArrayWrapper> ChangeVersionHistoryAsync(int fileId, ChangeHistory? changeHistory = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of FileIntegerArrayWrapper</returns>
+        public async Task<FileIntegerArrayWrapper> ChangeVersionHistoryAsync(int fileId, ChangeHistory? changeHistory = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await ChangeVersionHistoryWithHttpInfoAsync(fileId, changeHistory, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Change version history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Changes the version history of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
         /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
-        /// <returns>Task of ApiResponse (FileStringArrayWrapper)</returns>
-        public async Task<ApiResponse<FileStringArrayWrapper>> ChangeVersionHistoryWithHttpInfoAsync(int fileId, ChangeHistory? changeHistory = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
+        public async Task<ApiResponse<FileIntegerArrayWrapper>> ChangeVersionHistoryWithHttpInfoAsync(int fileId, ChangeHistory? changeHistory = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2896,40 +2851,10 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (changeHistory != null) localVarRequestOptions.Data = changeHistory;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<FileStringArrayWrapper>("/api/2.0/files/file/{fileId}/history", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<FileIntegerArrayWrapper>("/api/2.0/files/file/{fileId}/history", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -2944,11 +2869,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Check the form draft filling
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Checks if the current file is a form draft which can be filled out.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
         /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
@@ -2961,11 +2883,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Check the form draft filling
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Checks if the current file is a form draft which can be filled out.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
         /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
@@ -3006,11 +2925,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Check the form draft filling
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Checks if the current file is a form draft which can be filled out.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
         /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
@@ -3024,11 +2940,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Check the form draft filling
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Checks if the current file is a form draft which can be filled out.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
         /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
@@ -3072,11 +2985,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Copy a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Copies (and converts if possible) an existing file to the specified folder.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
         /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
@@ -3089,11 +2999,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Copy a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Copies (and converts if possible) an existing file to the specified folder.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
         /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
@@ -3117,36 +3024,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (copyAsJsonElement != null) localVarRequestOptions.Data = copyAsJsonElement;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FileEntryBaseWrapper>("/api/2.0/files/file/{fileId}/copyas", localVarRequestOptions, Configuration);
@@ -3164,11 +3041,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Copy a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Copies (and converts if possible) an existing file to the specified folder.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
         /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
@@ -3182,11 +3056,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Copy a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Copies (and converts if possible) an existing file to the specified folder.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
         /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
@@ -3212,36 +3083,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (copyAsJsonElement != null) localVarRequestOptions.Data = copyAsJsonElement;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3260,11 +3101,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create the editing session
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
@@ -3277,11 +3115,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create the editing session
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
@@ -3308,36 +3143,6 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fileSize", fileSize));
             }
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<ObjectWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration);
@@ -3355,11 +3160,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create the editing session
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
@@ -3373,11 +3175,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create the editing session
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
@@ -3406,36 +3205,6 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fileSize", fileSize));
             }
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3454,11 +3223,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -3471,11 +3237,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -3499,36 +3262,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (createFileJsonElement != null) localVarRequestOptions.Data = createFileJsonElement;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FileIntegerWrapper>("/api/2.0/files/{folderId}/file", localVarRequestOptions, Configuration);
@@ -3546,11 +3279,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -3564,11 +3294,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -3594,36 +3321,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (createFileJsonElement != null) localVarRequestOptions.Data = createFileJsonElement;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3642,11 +3339,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/">REST API Reference for CreateFileInMyDocuments Operation</seealso>
@@ -3658,11 +3352,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/">REST API Reference for CreateFileInMyDocuments Operation</seealso>
@@ -3684,36 +3375,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (createFileJsonElement != null) localVarRequestOptions.Data = createFileJsonElement;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FileIntegerWrapper>("/api/2.0/files/@my/file", localVarRequestOptions, Configuration);
@@ -3731,11 +3392,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3748,11 +3406,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a new file in the \&quot;My documents\&quot; section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3776,36 +3431,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (createFileJsonElement != null) localVarRequestOptions.Data = createFileJsonElement;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3824,11 +3449,124 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create an HTML file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
-        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID.</param>
+        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
+        /// <returns>FileShareWrapper</returns>
+        public FileShareWrapper CreateFilePrimaryExternalLink(int id, FileLinkRequest? fileLinkRequest = default)
+        {
+            var localVarResponse = CreateFilePrimaryExternalLinkWithHttpInfo(id, fileLinkRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID.</param>
+        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
+        /// <returns>ApiResponse of FileShareWrapper</returns>
+        public ApiResponse<FileShareWrapper> CreateFilePrimaryExternalLinkWithHttpInfo(int id, FileLinkRequest? fileLinkRequest = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (fileLinkRequest != null) localVarRequestOptions.Data = fileLinkRequest;
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<FileShareWrapper>("/api/2.0/files/file/{id}/link", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("CreateFilePrimaryExternalLink", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID.</param>
+        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
+        /// <returns>Task of FileShareWrapper</returns>
+        public async Task<FileShareWrapper> CreateFilePrimaryExternalLinkAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await CreateFilePrimaryExternalLinkWithHttpInfoAsync(id, fileLinkRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file ID.</param>
+        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
+        public async Task<ApiResponse<FileShareWrapper>> CreateFilePrimaryExternalLinkWithHttpInfoAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (fileLinkRequest != null) localVarRequestOptions.Data = fileLinkRequest;
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<FileShareWrapper>("/api/2.0/files/file/{id}/link", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("CreateFilePrimaryExternalLink", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -3841,11 +3579,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create an HTML file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -3869,36 +3604,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (createTextOrHtmlFile != null) localVarRequestOptions.Data = createTextOrHtmlFile;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FileIntegerWrapper>("/api/2.0/files/{folderId}/html", localVarRequestOptions, Configuration);
@@ -3916,11 +3621,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create an HTML file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -3934,11 +3636,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create an HTML file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates an HTML (.html) file in the selected folder with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -3964,36 +3663,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (createTextOrHtmlFile != null) localVarRequestOptions.Data = createTextOrHtmlFile;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -4012,11 +3681,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create an HTML file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/">REST API Reference for CreateHtmlFileInMyDocuments Operation</seealso>
@@ -4028,11 +3694,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create an HTML file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file-in-my-documents/">REST API Reference for CreateHtmlFileInMyDocuments Operation</seealso>
@@ -4054,36 +3717,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (createTextOrHtmlFile != null) localVarRequestOptions.Data = createTextOrHtmlFile;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FileIntegerWrapper>("/api/2.0/files/@my/html", localVarRequestOptions, Configuration);
@@ -4101,11 +3734,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create an HTML file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4118,11 +3748,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create an HTML file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates an HTML (.html) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4146,36 +3773,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (createTextOrHtmlFile != null) localVarRequestOptions.Data = createTextOrHtmlFile;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -4194,199 +3791,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create primary external link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a primary external link by the identifier specified in the request.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-primary-external-link/">REST API Reference for CreatePrimaryExternalLink Operation</seealso>
-        /// <returns>FileShareWrapper</returns>
-        public FileShareWrapper CreatePrimaryExternalLink(int id, FileLinkRequest? fileLinkRequest = default)
-        {
-            var localVarResponse = CreatePrimaryExternalLinkWithHttpInfo(id, fileLinkRequest);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create primary external link
-        /// </summary>
-        /// <remarks>
-        /// Creates a primary external link by the identifier specified in the request.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-primary-external-link/">REST API Reference for CreatePrimaryExternalLink Operation</seealso>
-        /// <returns>ApiResponse of FileShareWrapper</returns>
-        public ApiResponse<FileShareWrapper> CreatePrimaryExternalLinkWithHttpInfo(int id, FileLinkRequest? fileLinkRequest = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [ "application/json"];
-
-            // to determine the Accept header
-            string[] accepts = ["application/json"];
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
-            if (fileLinkRequest != null) localVarRequestOptions.Data = fileLinkRequest;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = Client.Post<FileShareWrapper>("/api/2.0/files/file/{id}/link", localVarRequestOptions, Configuration);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("CreatePrimaryExternalLink", localVarResponse);
-                if (exception != null)
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Create primary external link
-        /// </summary>
-        /// <remarks>
-        /// Creates a primary external link by the identifier specified in the request.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-primary-external-link/">REST API Reference for CreatePrimaryExternalLink Operation</seealso>
-        /// <returns>Task of FileShareWrapper</returns>
-        public async Task<FileShareWrapper> CreatePrimaryExternalLinkAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default)
-        {
-            var localVarResponse = await CreatePrimaryExternalLinkWithHttpInfoAsync(id, fileLinkRequest, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Create primary external link
-        /// </summary>
-        /// <remarks>
-        /// Creates a primary external link by the identifier specified in the request.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-primary-external-link/">REST API Reference for CreatePrimaryExternalLink Operation</seealso>
-        /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        public async Task<ApiResponse<FileShareWrapper>> CreatePrimaryExternalLinkWithHttpInfoAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [ "application/json"];
-
-            // to determine the Accept header
-            string[] accepts = [ "application/json"];
-
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
-            if (fileLinkRequest != null) localVarRequestOptions.Data = fileLinkRequest;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await AsynchronousClient.PostAsync<FileShareWrapper>("/api/2.0/files/file/{id}/link", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("CreatePrimaryExternalLink", localVarResponse);
-                if (exception != null) 
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Create a text file
-        /// </summary>
-        /// <remarks>
-        /// Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -4399,11 +3805,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a text file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -4427,36 +3830,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (createTextOrHtmlFile != null) localVarRequestOptions.Data = createTextOrHtmlFile;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FileIntegerWrapper>("/api/2.0/files/{folderId}/text", localVarRequestOptions, Configuration);
@@ -4474,11 +3847,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a text file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -4492,11 +3862,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a text file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a text (.txt) file in the selected folder with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
@@ -4522,36 +3889,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (createTextOrHtmlFile != null) localVarRequestOptions.Data = createTextOrHtmlFile;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -4570,11 +3907,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a text file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/">REST API Reference for CreateTextFileInMyDocuments Operation</seealso>
@@ -4586,11 +3920,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a text file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file-in-my-documents/">REST API Reference for CreateTextFileInMyDocuments Operation</seealso>
@@ -4612,36 +3943,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (createTextOrHtmlFile != null) localVarRequestOptions.Data = createTextOrHtmlFile;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FileIntegerWrapper>("/api/2.0/files/@my/text", localVarRequestOptions, Configuration);
@@ -4659,11 +3960,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a text file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4676,11 +3974,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create a text file in the \&quot;My documents\&quot; section
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates a text (.txt) file in the \&quot;My documents\&quot; section with the title and contents specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4704,36 +3999,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (createTextOrHtmlFile != null) localVarRequestOptions.Data = createTextOrHtmlFile;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -4752,11 +4017,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create file thumbnails
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates thumbnails for the files with the IDs specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/">REST API Reference for CreateThumbnails Operation</seealso>
@@ -4768,11 +4030,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create file thumbnails
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates thumbnails for the files with the IDs specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-thumbnails/">REST API Reference for CreateThumbnails Operation</seealso>
@@ -4811,11 +4070,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create file thumbnails
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates thumbnails for the files with the IDs specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4828,11 +4084,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Create file thumbnails
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Creates thumbnails for the files with the IDs specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4874,11 +4127,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Delete a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Deletes a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
@@ -4891,11 +4141,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Delete a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Deletes a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
@@ -4923,36 +4170,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (delete != null) localVarRequestOptions.Data = delete;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Delete<FileOperationArrayWrapper>("/api/2.0/files/file/{fileId}", localVarRequestOptions, Configuration);
@@ -4970,11 +4187,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Delete a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Deletes a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
@@ -4988,11 +4202,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Delete a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Deletes a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
@@ -5022,36 +4233,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (delete != null) localVarRequestOptions.Data = delete;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -5070,11 +4251,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Delete recent files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
@@ -5086,11 +4264,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Delete recent files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-recent/">REST API Reference for DeleteRecent Operation</seealso>
@@ -5112,36 +4287,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (baseBatchRequestDto != null) localVarRequestOptions.Data = baseBatchRequestDto;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Delete<NoContentResultWrapper>("/api/2.0/files/recent", localVarRequestOptions, Configuration);
@@ -5159,11 +4304,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Delete recent files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5176,11 +4318,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Delete recent files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Removes files with the IDs specified in the request from the \&quot;Recent\&quot; section.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5204,36 +4343,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (baseBatchRequestDto != null) localVarRequestOptions.Data = baseBatchRequestDto;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -5252,11 +4361,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Delete template files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Removes files with the IDs specified in the request from the template list.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/">REST API Reference for DeleteTemplates Operation</seealso>
@@ -5268,11 +4374,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Delete template files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Removes files with the IDs specified in the request from the template list.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/">REST API Reference for DeleteTemplates Operation</seealso>
@@ -5294,36 +4397,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Delete<BooleanWrapper>("/api/2.0/files/templates", localVarRequestOptions, Configuration);
@@ -5341,11 +4414,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Delete template files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Removes files with the IDs specified in the request from the template list.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5358,11 +4428,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Delete template files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Removes files with the IDs specified in the request from the template list.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestBody">The file IDs. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5386,36 +4453,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (requestBody != null) localVarRequestOptions.Data = requestBody;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -5434,11 +4471,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get form roles
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns all roles for the specified form.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
@@ -5450,11 +4484,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get form roles
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns all roles for the specified form.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
@@ -5476,36 +4507,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<FormRoleArrayWrapper>("/api/2.0/files/file/{fileId}/formroles", localVarRequestOptions, Configuration);
@@ -5523,11 +4524,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get form roles
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns all roles for the specified form.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5540,11 +4538,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get form roles
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns all roles for the specified form.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5568,36 +4563,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -5616,11 +4581,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get changes URL
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a URL to the changes of a file version specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
@@ -5633,11 +4595,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get changes URL
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a URL to the changes of a file version specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
@@ -5681,11 +4640,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get changes URL
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a URL to the changes of a file version specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
@@ -5699,11 +4655,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get changes URL
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a URL to the changes of a file version specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
@@ -5750,11 +4703,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get version history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the version history of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
@@ -5766,11 +4716,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get version history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the version history of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
@@ -5809,11 +4756,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get version history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the version history of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5826,11 +4770,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get version history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the version history of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5872,11 +4813,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the list of actions performed on the file with the specified identifier.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
@@ -5892,11 +4830,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the list of actions performed on the file with the specified identifier.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
@@ -5938,36 +4873,6 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<HistoryArrayWrapper>("/api/2.0/files/file/{fileId}/log", localVarRequestOptions, Configuration);
@@ -5985,11 +4890,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the list of actions performed on the file with the specified identifier.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
@@ -6006,11 +4908,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file history
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the list of actions performed on the file with the specified identifier.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the history request.</param>
         /// <param name="fromDate">The start date of the history. (optional)</param>
@@ -6054,36 +4953,6 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -6102,11 +4971,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file information
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the detailed information about a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
@@ -6119,11 +4985,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file information
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the detailed information about a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
@@ -6167,11 +5030,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file information
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the detailed information about a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
@@ -6185,11 +5045,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file information
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the detailed information about a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="version">The file version. (optional)</param>
@@ -6236,11 +5093,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file external links
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the external links of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -6254,11 +5108,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file external links
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the external links of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -6290,36 +5141,6 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<FileShareArrayWrapper>("/api/2.0/files/file/{id}/links", localVarRequestOptions, Configuration);
@@ -6337,11 +5158,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file external links
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the external links of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -6356,11 +5174,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file external links
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the external links of a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -6394,36 +5209,6 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -6442,11 +5227,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get primary external link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the primary external link by the identifier specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -6460,11 +5242,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get primary external link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the primary external link by the identifier specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -6513,11 +5292,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get primary external link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the primary external link by the identifier specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -6532,11 +5308,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get primary external link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the primary external link by the identifier specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID of the request.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -6588,32 +5361,26 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file versions
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the detailed information about all the available file versions with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
-        /// <returns>FileStringArrayWrapper</returns>
-        public FileStringArrayWrapper GetFileVersionInfo(int fileId)
+        /// <returns>FileIntegerArrayWrapper</returns>
+        public FileIntegerArrayWrapper GetFileVersionInfo(int fileId)
         {
             var localVarResponse = GetFileVersionInfoWithHttpInfo(fileId);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get file versions
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the detailed information about all the available file versions with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
-        /// <returns>ApiResponse of FileStringArrayWrapper</returns>
-        public ApiResponse<FileStringArrayWrapper> GetFileVersionInfoWithHttpInfo(int fileId)
+        /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
+        public ApiResponse<FileIntegerArrayWrapper> GetFileVersionInfoWithHttpInfo(int fileId)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6632,7 +5399,7 @@ namespace DocSpace.API.SDK.Api.Files
 
 
             // make the HTTP request
-            var localVarResponse = Client.Get<FileStringArrayWrapper>("/api/2.0/files/file/{fileId}/history", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<FileIntegerArrayWrapper>("/api/2.0/files/file/{fileId}/history", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -6647,34 +5414,28 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file versions
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the detailed information about all the available file versions with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
-        /// <returns>Task of FileStringArrayWrapper</returns>
-        public async Task<FileStringArrayWrapper> GetFileVersionInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        /// <returns>Task of FileIntegerArrayWrapper</returns>
+        public async Task<FileIntegerArrayWrapper> GetFileVersionInfoAsync(int fileId, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetFileVersionInfoWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get file versions
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the detailed information about all the available file versions with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
-        /// <returns>Task of ApiResponse (FileStringArrayWrapper)</returns>
-        public async Task<ApiResponse<FileStringArrayWrapper>> GetFileVersionInfoWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
+        public async Task<ApiResponse<FileIntegerArrayWrapper>> GetFileVersionInfoWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6695,7 +5456,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<FileStringArrayWrapper>("/api/2.0/files/file/{fileId}/history", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FileIntegerArrayWrapper>("/api/2.0/files/file/{fileId}/history", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -6710,11 +5471,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get form-filling result
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Retrieves the result of a form-filling session.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/">REST API Reference for GetFillResult Operation</seealso>
@@ -6726,11 +5484,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get form-filling result
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Retrieves the result of a form-filling session.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/">REST API Reference for GetFillResult Operation</seealso>
@@ -6772,11 +5527,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get form-filling result
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Retrieves the result of a form-filling session.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6789,11 +5541,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get form-filling result
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Retrieves the result of a form-filling session.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fillingSessionId">The form-filling session ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6838,11 +5587,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file download link asynchronously
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a link to download a file with the ID specified in the request asynchronously.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
@@ -6854,11 +5600,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file download link asynchronously
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a link to download a file with the ID specified in the request asynchronously.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
@@ -6880,36 +5623,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<FileLinkWrapper>("/api/2.0/files/file/{fileId}/presigned", localVarRequestOptions, Configuration);
@@ -6927,11 +5640,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file download link asynchronously
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a link to download a file with the ID specified in the request asynchronously.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6944,11 +5654,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file download link asynchronously
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a link to download a file with the ID specified in the request asynchronously.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6972,36 +5679,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -7020,11 +5697,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file download link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
@@ -7036,11 +5710,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file download link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
@@ -7062,36 +5733,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<StringWrapper>("/api/2.0/files/file/{fileId}/presigneduri", localVarRequestOptions, Configuration);
@@ -7109,11 +5750,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file download link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7126,11 +5764,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get file download link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a pre-signed URL to download a file with the specified ID.  This temporary link provides secure access to the file.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7154,36 +5789,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -7202,11 +5807,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get users access rights to the protected file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
@@ -7218,11 +5820,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get users access rights to the protected file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
@@ -7244,36 +5843,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/protectusers", localVarRequestOptions, Configuration);
@@ -7291,11 +5860,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get users access rights to the protected file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7308,11 +5874,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get users access rights to the protected file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns a list of users with their access rights to the protected file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7336,36 +5899,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -7384,11 +5917,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get reference data
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
@@ -7400,11 +5930,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get reference data
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
@@ -7426,36 +5953,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (getReferenceDataDtoInteger != null) localVarRequestOptions.Data = getReferenceDataDtoInteger;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FileReferenceWrapper>("/api/2.0/files/file/referencedata", localVarRequestOptions, Configuration);
@@ -7473,11 +5970,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get reference data
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7490,11 +5984,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get reference data
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the reference data to uniquely identify a file in its system and check the availability of insering data into the destination spreadsheet by the external link.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getReferenceDataDtoInteger">The request parameters for getting reference data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7518,36 +6009,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (getReferenceDataDtoInteger != null) localVarRequestOptions.Data = getReferenceDataDtoInteger;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -7566,11 +6027,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Check the PDF file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Checks if the PDF file is a form or not.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
@@ -7582,11 +6040,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Check the PDF file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Checks if the PDF file is a form or not.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
@@ -7608,36 +6063,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<BooleanWrapper>("/api/2.0/files/file/{fileId}/isformpdf", localVarRequestOptions, Configuration);
@@ -7655,11 +6080,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Check the PDF file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Checks if the PDF file is a form or not.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7672,11 +6094,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Check the PDF file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Checks if the PDF file is a form or not.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -7700,36 +6119,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -7748,11 +6137,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Lock a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Locks a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
         /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
@@ -7765,11 +6151,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Lock a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Locks a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
         /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
@@ -7793,36 +6176,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (lockFileParameters != null) localVarRequestOptions.Data = lockFileParameters;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FileIntegerWrapper>("/api/2.0/files/file/{fileId}/lock", localVarRequestOptions, Configuration);
@@ -7840,11 +6193,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Lock a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Locks a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
         /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
@@ -7858,11 +6208,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Lock a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Locks a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
         /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
@@ -7888,36 +6235,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (lockFileParameters != null) localVarRequestOptions.Data = lockFileParameters;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -7936,11 +6253,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Perform form filling action
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Performs the specified form filling action.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
         /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
@@ -7952,11 +6266,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Perform form filling action
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Performs the specified form filling action.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
         /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
@@ -7984,36 +6295,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (manageFormFillingDtoInteger != null) localVarRequestOptions.Data = manageFormFillingDtoInteger;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<Object>("/api/2.0/files/file/{fileId}/manageformfilling", localVarRequestOptions, Configuration);
@@ -8031,11 +6312,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Perform form filling action
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Performs the specified form filling action.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
         /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
@@ -8048,11 +6326,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Perform form filling action
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Performs the specified form filling action.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
         /// <param name="manageFormFillingDtoInteger">The parameters for managing form filling. (optional)</param>
@@ -8082,36 +6357,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (manageFormFillingDtoInteger != null) localVarRequestOptions.Data = manageFormFillingDtoInteger;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -8130,11 +6375,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Open a file configuration
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the initialization configuration of a file to open it in the editor.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
         /// <param name="version">The file version to open. (optional)</param>
@@ -8151,11 +6393,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Open a file configuration
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the initialization configuration of a file to open it in the editor.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
         /// <param name="version">The file version to open. (optional)</param>
@@ -8219,11 +6458,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Open a file configuration
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the initialization configuration of a file to open it in the editor.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
         /// <param name="version">The file version to open. (optional)</param>
@@ -8241,11 +6477,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Open a file configuration
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Returns the initialization configuration of a file to open it in the editor.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to open.</param>
         /// <param name="version">The file version to open. (optional)</param>
@@ -8312,11 +6545,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Restore a file version
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Restores a file version specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
         /// <param name="version">The file version of the restore. (optional)</param>
@@ -8330,11 +6560,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Restore a file version
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Restores a file version specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
         /// <param name="version">The file version of the restore. (optional)</param>
@@ -8383,11 +6610,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Restore a file version
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Restores a file version specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
         /// <param name="version">The file version of the restore. (optional)</param>
@@ -8402,11 +6626,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Restore a file version
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Restores a file version specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the restore version.</param>
         /// <param name="version">The file version of the restore. (optional)</param>
@@ -8458,11 +6679,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Save file edits
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves edits to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
         /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
@@ -8478,11 +6696,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Save file edits
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves edits to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
         /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
@@ -8524,36 +6739,6 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.FormParameters.Add("Forcesave",ClientUtils.ParameterToString(forcesave)); // form parameter
             }
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FileIntegerWrapper>("/api/2.0/files/file/{fileId}/saveediting", localVarRequestOptions, Configuration);
@@ -8571,11 +6756,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Save file edits
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves edits to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
         /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
@@ -8592,11 +6774,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Save file edits
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves edits to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
         /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
@@ -8640,36 +6819,6 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.FormParameters.Add("Forcesave", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(forcesave)); // form parameter
             }
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -8688,11 +6837,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Save a file as PDF
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves a file with the identifier specified in the request as a PDF document.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
         /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
@@ -8705,11 +6851,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Save a file as PDF
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves a file with the identifier specified in the request as a PDF document.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
         /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
@@ -8733,36 +6876,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (saveAsPdfInteger != null) localVarRequestOptions.Data = saveAsPdfInteger;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FileIntegerWrapper>("/api/2.0/files/file/{id}/saveaspdf", localVarRequestOptions, Configuration);
@@ -8780,11 +6893,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Save a file as PDF
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves a file with the identifier specified in the request as a PDF document.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
         /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
@@ -8798,11 +6908,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Save a file as PDF
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves a file with the identifier specified in the request as a PDF document.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
         /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
@@ -8828,36 +6935,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (saveAsPdfInteger != null) localVarRequestOptions.Data = saveAsPdfInteger;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -8876,11 +6953,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Save form role mapping
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves the form role mapping.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
@@ -8893,11 +6967,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Save form role mapping
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves the form role mapping.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
@@ -8925,36 +6996,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (saveFormRoleMappingDtoInteger != null) localVarRequestOptions.Data = saveFormRoleMappingDtoInteger;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FormRoleWrapper>("/api/2.0/files/file/{fileId}/formrolemapping", localVarRequestOptions, Configuration);
@@ -8972,11 +7013,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Save form role mapping
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves the form role mapping.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
@@ -8990,11 +7028,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Save form role mapping
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Saves the form role mapping.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId"></param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
@@ -9024,36 +7059,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (saveFormRoleMappingDtoInteger != null) localVarRequestOptions.Data = saveFormRoleMappingDtoInteger;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -9072,11 +7077,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Set the Custom Filter editing mode
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets the Custom Filter editing mode to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
@@ -9089,11 +7091,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Set the Custom Filter editing mode
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets the Custom Filter editing mode to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
@@ -9117,36 +7116,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (customFilterParameters != null) localVarRequestOptions.Data = customFilterParameters;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FileIntegerWrapper>("/api/2.0/files/file/{fileId}/customfilter", localVarRequestOptions, Configuration);
@@ -9164,11 +7133,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Set the Custom Filter editing mode
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets the Custom Filter editing mode to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
@@ -9182,11 +7148,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Set the Custom Filter editing mode
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets the Custom Filter editing mode to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
@@ -9212,36 +7175,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (customFilterParameters != null) localVarRequestOptions.Data = customFilterParameters;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -9260,34 +7193,28 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Set an external link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets an external link to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-external-link/">REST API Reference for SetExternalLink Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        public FileShareWrapper SetExternalLink(int id, FileLinkRequest? fileLinkRequest = default)
+        public FileShareWrapper SetFileExternalLink(int id, FileLinkRequest? fileLinkRequest = default)
         {
-            var localVarResponse = SetExternalLinkWithHttpInfo(id, fileLinkRequest);
+            var localVarResponse = SetFileExternalLinkWithHttpInfo(id, fileLinkRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Set an external link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets an external link to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-external-link/">REST API Reference for SetExternalLink Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        public ApiResponse<FileShareWrapper> SetExternalLinkWithHttpInfo(int id, FileLinkRequest? fileLinkRequest = default)
+        public ApiResponse<FileShareWrapper> SetFileExternalLinkWithHttpInfo(int id, FileLinkRequest? fileLinkRequest = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -9305,43 +7232,13 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (fileLinkRequest != null) localVarRequestOptions.Data = fileLinkRequest;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FileShareWrapper>("/api/2.0/files/file/{id}/links", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("SetExternalLink", localVarResponse);
+                var exception = ExceptionFactory("SetFileExternalLink", localVarResponse);
                 if (exception != null)
                 {
                     throw exception;
@@ -9352,36 +7249,30 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Set an external link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets an external link to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-external-link/">REST API Reference for SetExternalLink Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        public async Task<FileShareWrapper> SetExternalLinkAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default)
+        public async Task<FileShareWrapper> SetFileExternalLinkAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SetExternalLinkWithHttpInfoAsync(id, fileLinkRequest, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SetFileExternalLinkWithHttpInfoAsync(id, fileLinkRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Set an external link
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets an external link to a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
         /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-external-link/">REST API Reference for SetExternalLink Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        public async Task<ApiResponse<FileShareWrapper>> SetExternalLinkWithHttpInfoAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileShareWrapper>> SetFileExternalLinkWithHttpInfoAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -9400,36 +7291,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (fileLinkRequest != null) localVarRequestOptions.Data = fileLinkRequest;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -9437,7 +7298,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("SetExternalLink", localVarResponse);
+                var exception = ExceptionFactory("SetFileExternalLink", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -9448,11 +7309,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Set file order
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets order of the file with ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="orderRequestDto">The file order information. (optional)</param>
@@ -9465,11 +7323,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Set file order
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets order of the file with ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="orderRequestDto">The file order information. (optional)</param>
@@ -9493,36 +7348,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (orderRequestDto != null) localVarRequestOptions.Data = orderRequestDto;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FileIntegerWrapper>("/api/2.0/files/{fileId}/order", localVarRequestOptions, Configuration);
@@ -9540,11 +7365,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Set file order
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets order of the file with ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="orderRequestDto">The file order information. (optional)</param>
@@ -9558,11 +7380,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Set file order
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets order of the file with ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="orderRequestDto">The file order information. (optional)</param>
@@ -9588,36 +7407,6 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (orderRequestDto != null) localVarRequestOptions.Data = orderRequestDto;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -9636,32 +7425,26 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Set order of files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets order of the files.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
-        /// <returns>FileEntryStringArrayWrapper</returns>
-        public FileEntryStringArrayWrapper SetFilesOrder(OrdersRequestDtoInteger? ordersRequestDtoInteger = default)
+        /// <returns>FileEntryIntegerArrayWrapper</returns>
+        public FileEntryIntegerArrayWrapper SetFilesOrder(OrdersRequestDtoInteger? ordersRequestDtoInteger = default)
         {
             var localVarResponse = SetFilesOrderWithHttpInfo(ordersRequestDtoInteger);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Set order of files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets order of the files.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
-        /// <returns>ApiResponse of FileEntryStringArrayWrapper</returns>
-        public ApiResponse<FileEntryStringArrayWrapper> SetFilesOrderWithHttpInfo(OrdersRequestDtoInteger? ordersRequestDtoInteger = default)
+        /// <returns>ApiResponse of FileEntryIntegerArrayWrapper</returns>
+        public ApiResponse<FileEntryIntegerArrayWrapper> SetFilesOrderWithHttpInfo(OrdersRequestDtoInteger? ordersRequestDtoInteger = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -9678,39 +7461,9 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (ordersRequestDtoInteger != null) localVarRequestOptions.Data = ordersRequestDtoInteger;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<FileEntryStringArrayWrapper>("/api/2.0/files/order", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<FileEntryIntegerArrayWrapper>("/api/2.0/files/order", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -9725,34 +7478,28 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Set order of files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets order of the files.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
-        /// <returns>Task of FileEntryStringArrayWrapper</returns>
-        public async Task<FileEntryStringArrayWrapper> SetFilesOrderAsync(OrdersRequestDtoInteger? ordersRequestDtoInteger = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of FileEntryIntegerArrayWrapper</returns>
+        public async Task<FileEntryIntegerArrayWrapper> SetFilesOrderAsync(OrdersRequestDtoInteger? ordersRequestDtoInteger = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SetFilesOrderWithHttpInfoAsync(ordersRequestDtoInteger, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Set order of files
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Sets order of the files.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ordersRequestDtoInteger">The collection of items to be ordered. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-files-order/">REST API Reference for SetFilesOrder Operation</seealso>
-        /// <returns>Task of ApiResponse (FileEntryStringArrayWrapper)</returns>
-        public async Task<ApiResponse<FileEntryStringArrayWrapper>> SetFilesOrderWithHttpInfoAsync(OrdersRequestDtoInteger? ordersRequestDtoInteger = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FileEntryIntegerArrayWrapper)</returns>
+        public async Task<ApiResponse<FileEntryIntegerArrayWrapper>> SetFilesOrderWithHttpInfoAsync(OrdersRequestDtoInteger? ordersRequestDtoInteger = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -9770,40 +7517,10 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (ordersRequestDtoInteger != null) localVarRequestOptions.Data = ordersRequestDtoInteger;
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<FileEntryStringArrayWrapper>("/api/2.0/files/order", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<FileEntryIntegerArrayWrapper>("/api/2.0/files/order", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -9818,11 +7535,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Start file editing
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
@@ -9835,11 +7549,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Start file editing
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
@@ -9880,11 +7591,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Start file editing
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
@@ -9898,11 +7606,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Start file editing
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Informs about opening a file with the ID specified in the request for editing, locking it from being deleted or moved (this method is called by the mobile editors).
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
         /// <param name="startEdit">The file parameters to start editing. (optional)</param>
@@ -9946,11 +7651,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Start file filling
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Starts filling a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/">REST API Reference for StartFillingFile Operation</seealso>
@@ -9962,11 +7664,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Start file filling
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Starts filling a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-filling-file/">REST API Reference for StartFillingFile Operation</seealso>
@@ -9988,36 +7687,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FileIntegerWrapper>("/api/2.0/files/file/{fileId}/startfilling", localVarRequestOptions, Configuration);
@@ -10035,11 +7704,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Start file filling
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Starts filling a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -10052,11 +7718,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Start file filling
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Starts filling a file with the ID specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -10080,36 +7743,6 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -10128,11 +7761,130 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Track file editing
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Tracks file changes when editing.
-        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="favorite">Specifies if the file is marked as favorite or not. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/toggle-file-favorite/">REST API Reference for ToggleFileFavorite Operation</seealso>
+        /// <returns>BooleanWrapper</returns>
+        public BooleanWrapper ToggleFileFavorite(int fileId, bool? favorite = default)
+        {
+            var localVarResponse = ToggleFileFavoriteWithHttpInfo(fileId, favorite);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="favorite">Specifies if the file is marked as favorite or not. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/toggle-file-favorite/">REST API Reference for ToggleFileFavorite Operation</seealso>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        public ApiResponse<BooleanWrapper> ToggleFileFavoriteWithHttpInfo(int fileId, bool? favorite = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (favorite != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "favorite", favorite));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<BooleanWrapper>("/api/2.0/files/favorites/{fileId}", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("ToggleFileFavorite", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="favorite">Specifies if the file is marked as favorite or not. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/toggle-file-favorite/">REST API Reference for ToggleFileFavorite Operation</seealso>
+        /// <returns>Task of BooleanWrapper</returns>
+        public async Task<BooleanWrapper> ToggleFileFavoriteAsync(int fileId, bool? favorite = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await ToggleFileFavoriteWithHttpInfoAsync(fileId, favorite, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="favorite">Specifies if the file is marked as favorite or not. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/toggle-file-favorite/">REST API Reference for ToggleFileFavorite Operation</seealso>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        public async Task<ApiResponse<BooleanWrapper>> ToggleFileFavoriteWithHttpInfoAsync(int fileId, bool? favorite = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (favorite != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "favorite", favorite));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<BooleanWrapper>("/api/2.0/files/favorites/{fileId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("ToggleFileFavorite", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
         /// <param name="tabId">The tab ID to track editing changes. (optional)</param>
@@ -10147,11 +7899,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Track file editing
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Tracks file changes when editing.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
         /// <param name="tabId">The tab ID to track editing changes. (optional)</param>
@@ -10205,11 +7954,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Track file editing
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Tracks file changes when editing.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
         /// <param name="tabId">The tab ID to track editing changes. (optional)</param>
@@ -10225,11 +7971,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Track file editing
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Tracks file changes when editing.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to track editing changes.</param>
         /// <param name="tabId">The tab ID to track editing changes. (optional)</param>
@@ -10286,11 +8029,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Update a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Updates the information of the selected file with the parameters specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
         /// <param name="updateFile">The parameters for updating a file. (optional)</param>
@@ -10303,11 +8043,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Update a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Updates the information of the selected file with the parameters specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
         /// <param name="updateFile">The parameters for updating a file. (optional)</param>
@@ -10348,11 +8085,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Update a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Updates the information of the selected file with the parameters specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
         /// <param name="updateFile">The parameters for updating a file. (optional)</param>
@@ -10366,11 +8100,8 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Update a file
+        /// 
         /// </summary>
-        /// <remarks>
-        /// Updates the information of the selected file with the parameters specified in the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
         /// <param name="updateFile">The parameters for updating a file. (optional)</param>

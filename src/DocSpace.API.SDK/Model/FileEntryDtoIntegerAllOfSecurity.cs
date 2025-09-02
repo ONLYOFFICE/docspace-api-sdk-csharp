@@ -66,7 +66,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="resetFilling">resetFilling.</param>
         /// <param name="stopFilling">stopFilling.</param>
         /// <param name="openForm">openForm.</param>
-        public FileEntryDtoIntegerAllOfSecurity(bool read = default, bool comment = default, bool fillForms = default, bool review = default, bool create = default, bool createFrom = default, bool edit = default, bool delete = default, bool customFilter = default, bool editRoom = default, bool rename = default, bool readHistory = default, bool @lock = default, bool editHistory = default, bool copyTo = default, bool copy = default, bool moveTo = default, bool move = default, bool pin = default, bool mute = default, bool editAccess = default, bool duplicate = default, bool submitToFormGallery = default, bool download = default, bool convert = default, bool copySharedLink = default, bool readLinks = default, bool reconnect = default, bool createRoomFrom = default, bool copyLink = default, bool embed = default, bool changeOwner = default, bool indexExport = default, bool startFilling = default, bool fillingStatus = default, bool resetFilling = default, bool stopFilling = default, bool openForm = default)
+        /// <param name="editInternal">editInternal.</param>
+        /// <param name="editExpiration">editExpiration.</param>
+        public FileEntryDtoIntegerAllOfSecurity(bool read = default, bool comment = default, bool fillForms = default, bool review = default, bool create = default, bool createFrom = default, bool edit = default, bool delete = default, bool customFilter = default, bool editRoom = default, bool rename = default, bool readHistory = default, bool @lock = default, bool editHistory = default, bool copyTo = default, bool copy = default, bool moveTo = default, bool move = default, bool pin = default, bool mute = default, bool editAccess = default, bool duplicate = default, bool submitToFormGallery = default, bool download = default, bool convert = default, bool copySharedLink = default, bool readLinks = default, bool reconnect = default, bool createRoomFrom = default, bool copyLink = default, bool embed = default, bool changeOwner = default, bool indexExport = default, bool startFilling = default, bool fillingStatus = default, bool resetFilling = default, bool stopFilling = default, bool openForm = default, bool editInternal = default, bool editExpiration = default)
         {
             this.Read = read;
             this.Comment = comment;
@@ -106,6 +108,8 @@ namespace DocSpace.API.SDK.Model
             this.ResetFilling = resetFilling;
             this.StopFilling = stopFilling;
             this.OpenForm = openForm;
+            this.EditInternal = editInternal;
+            this.EditExpiration = editExpiration;
         }
 
         /// <summary>
@@ -337,6 +341,18 @@ namespace DocSpace.API.SDK.Model
         public bool OpenForm { get; set; }
 
         /// <summary>
+        /// Gets or Sets EditInternal
+        /// </summary>
+        [DataMember(Name = "EditInternal", EmitDefaultValue = true)]
+        public bool EditInternal { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EditExpiration
+        /// </summary>
+        [DataMember(Name = "EditExpiration", EmitDefaultValue = true)]
+        public bool EditExpiration { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -382,6 +398,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ResetFilling: ").Append(ResetFilling).Append("\n");
             sb.Append("  StopFilling: ").Append(StopFilling).Append("\n");
             sb.Append("  OpenForm: ").Append(OpenForm).Append("\n");
+            sb.Append("  EditInternal: ").Append(EditInternal).Append("\n");
+            sb.Append("  EditExpiration: ").Append(EditExpiration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

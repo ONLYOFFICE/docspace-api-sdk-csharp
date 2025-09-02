@@ -57,12 +57,14 @@ namespace DocSpace.API.SDK.Model
         /// <param name="customization">Specifies if the customization settings are available or not..</param>
         /// <param name="lifetime">Specifies if the license has the lifetime settings or not..</param>
         /// <param name="custom">Specifies if the custom domain URL is available or not..</param>
-        /// <param name="autoBackupRestore">Specifies if the automatic backup option is enabled or not..</param>
+        /// <param name="restore">Specifies if the restore is enabled or not..</param>
         /// <param name="oauth">Specifies if Oauth is available or not..</param>
         /// <param name="contentSearch">Specifies if the content search is available or not..</param>
         /// <param name="thirdParty">Specifies if the third-party accounts linking is available or not..</param>
         /// <param name="year">Specifies if the tenant quota is yearly subscription or not..</param>
-        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, bool visible = default, bool wallet = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool custom = default, bool autoBackupRestore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default)
+        /// <param name="countFreeBackup">The number of free backups within a month..</param>
+        /// <param name="backup">Specifies if the backup anabled as a wallet service or not..</param>
+        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, bool visible = default, bool wallet = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default)
         {
             this.TenantId = tenantId;
             this.Name = name;
@@ -93,11 +95,13 @@ namespace DocSpace.API.SDK.Model
             this.Customization = customization;
             this.Lifetime = lifetime;
             this.Custom = custom;
-            this.AutoBackupRestore = autoBackupRestore;
+            this.Restore = restore;
             this.Oauth = oauth;
             this.ContentSearch = contentSearch;
             this.ThirdParty = thirdParty;
             this.Year = year;
+            this.CountFreeBackup = countFreeBackup;
+            this.Backup = backup;
         }
 
         /// <summary>
@@ -388,14 +392,14 @@ namespace DocSpace.API.SDK.Model
         public bool Custom { get; set; }
 
         /// <summary>
-        /// Specifies if the automatic backup option is enabled or not.
+        /// Specifies if the restore is enabled or not.
         /// </summary>
-        /// <value>Specifies if the automatic backup option is enabled or not.</value>
+        /// <value>Specifies if the restore is enabled or not.</value>
         /*
         <example>true</example>
         */
-        [DataMember(Name = "autoBackupRestore", EmitDefaultValue = true)]
-        public bool AutoBackupRestore { get; set; }
+        [DataMember(Name = "restore", EmitDefaultValue = true)]
+        public bool Restore { get; set; }
 
         /// <summary>
         /// Specifies if Oauth is available or not.
@@ -438,6 +442,26 @@ namespace DocSpace.API.SDK.Model
         public bool Year { get; set; }
 
         /// <summary>
+        /// The number of free backups within a month.
+        /// </summary>
+        /// <value>The number of free backups within a month.</value>
+        /*
+        <example>1234</example>
+        */
+        [DataMember(Name = "countFreeBackup", EmitDefaultValue = false)]
+        public int CountFreeBackup { get; set; }
+
+        /// <summary>
+        /// Specifies if the backup anabled as a wallet service or not.
+        /// </summary>
+        /// <value>Specifies if the backup anabled as a wallet service or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "backup", EmitDefaultValue = true)]
+        public bool Backup { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -474,11 +498,13 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Customization: ").Append(Customization).Append("\n");
             sb.Append("  Lifetime: ").Append(Lifetime).Append("\n");
             sb.Append("  Custom: ").Append(Custom).Append("\n");
-            sb.Append("  AutoBackupRestore: ").Append(AutoBackupRestore).Append("\n");
+            sb.Append("  Restore: ").Append(Restore).Append("\n");
             sb.Append("  Oauth: ").Append(Oauth).Append("\n");
             sb.Append("  ContentSearch: ").Append(ContentSearch).Append("\n");
             sb.Append("  ThirdParty: ").Append(ThirdParty).Append("\n");
             sb.Append("  Year: ").Append(Year).Append("\n");
+            sb.Append("  CountFreeBackup: ").Append(CountFreeBackup).Append("\n");
+            sb.Append("  Backup: ").Append(Backup).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

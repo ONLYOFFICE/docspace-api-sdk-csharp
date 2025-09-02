@@ -36,10 +36,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="webCustomFilterEditing">webCustomFilterEditing.</param>
         /// <param name="webRestrictedEditing">webRestrictedEditing.</param>
         /// <param name="webComment">webComment.</param>
-        /// <param name="coAuhtoring">coAuhtoring.</param>
         /// <param name="canConvert">canConvert.</param>
         /// <param name="mustConvert">mustConvert.</param>
-        public FileDtoIntegerAllOfViewAccessibility(bool imageView = default, bool mediaView = default, bool webView = default, bool webEdit = default, bool webReview = default, bool webCustomFilterEditing = default, bool webRestrictedEditing = default, bool webComment = default, bool coAuhtoring = default, bool canConvert = default, bool mustConvert = default)
+        public FileDtoIntegerAllOfViewAccessibility(bool imageView = default, bool mediaView = default, bool webView = default, bool webEdit = default, bool webReview = default, bool webCustomFilterEditing = default, bool webRestrictedEditing = default, bool webComment = default, bool canConvert = default, bool mustConvert = default)
         {
             this.ImageView = imageView;
             this.MediaView = mediaView;
@@ -49,7 +48,6 @@ namespace DocSpace.API.SDK.Model
             this.WebCustomFilterEditing = webCustomFilterEditing;
             this.WebRestrictedEditing = webRestrictedEditing;
             this.WebComment = webComment;
-            this.CoAuhtoring = coAuhtoring;
             this.CanConvert = canConvert;
             this.MustConvert = mustConvert;
         }
@@ -103,12 +101,6 @@ namespace DocSpace.API.SDK.Model
         public bool WebComment { get; set; }
 
         /// <summary>
-        /// Gets or Sets CoAuhtoring
-        /// </summary>
-        [DataMember(Name = "CoAuhtoring", EmitDefaultValue = true)]
-        public bool CoAuhtoring { get; set; }
-
-        /// <summary>
         /// Gets or Sets CanConvert
         /// </summary>
         [DataMember(Name = "CanConvert", EmitDefaultValue = true)]
@@ -136,7 +128,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  WebCustomFilterEditing: ").Append(WebCustomFilterEditing).Append("\n");
             sb.Append("  WebRestrictedEditing: ").Append(WebRestrictedEditing).Append("\n");
             sb.Append("  WebComment: ").Append(WebComment).Append("\n");
-            sb.Append("  CoAuhtoring: ").Append(CoAuhtoring).Append("\n");
             sb.Append("  CanConvert: ").Append(CanConvert).Append("\n");
             sb.Append("  MustConvert: ").Append(MustConvert).Append("\n");
             sb.Append("}\n");

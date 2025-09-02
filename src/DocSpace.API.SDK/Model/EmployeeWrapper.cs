@@ -19,63 +19,58 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The group summary parameters.
+    /// EmployeeWrapper
     /// </summary>
-    [DataContract(Name = "GroupSummaryDto")]
-    public partial class GroupSummaryDto : IValidatableObject
+    [DataContract(Name = "EmployeeWrapper")]
+    public partial class EmployeeWrapper : IValidatableObject
     {
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="GroupSummaryDto" /> class.
+        /// Initializes a new instance of the <see cref="EmployeeWrapper" /> class.
         /// </summary>
-        /// <param name="id">The group ID..</param>
-        /// <param name="name">The group name..</param>
-        /// <param name="manager">The group manager..</param>
-        /// <param name="isSystem">Indicates whether the group is a system group..</param>
-        public GroupSummaryDto(Guid id = default, string name = default, string manager = default, bool? isSystem = default)
+        /// <param name="response">response.</param>
+        /// <param name="count">count.</param>
+        /// <param name="links">links.</param>
+        /// <param name="status">status.</param>
+        /// <param name="statusCode">statusCode.</param>
+        public EmployeeWrapper(EmployeeDto response = default, int count = default, List<ActiveConnectionsWrapperLinksInner> links = default, int status = default, int statusCode = default)
         {
-            this.Id = id;
-            this.Name = name;
-            this.Manager = manager;
-            this.IsSystem = isSystem;
+            this.Response = response;
+            this.Count = count;
+            this.Links = links;
+            this.Status = status;
+            this.StatusCode = statusCode;
         }
 
         /// <summary>
-        /// The group ID.
+        /// Gets or Sets Response
         /// </summary>
-        /// <value>The group ID.</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public Guid Id { get; set; }
+        [DataMember(Name = "response", EmitDefaultValue = false)]
+        public EmployeeDto Response { get; set; }
 
         /// <summary>
-        /// The group name.
+        /// Gets or Sets Count
         /// </summary>
-        /// <value>The group name.</value>
-        /*
-        <example>Group Name</example>
-        */
-        [DataMember(Name = "name", EmitDefaultValue = true)]
-        public string Name { get; set; }
+        [DataMember(Name = "count", EmitDefaultValue = false)]
+        public int Count { get; set; }
 
         /// <summary>
-        /// The group manager.
+        /// Gets or Sets Links
         /// </summary>
-        /// <value>The group manager.</value>
-        /*
-        <example>Jake.Zazhitski</example>
-        */
-        [DataMember(Name = "manager", EmitDefaultValue = true)]
-        public string Manager { get; set; }
+        [DataMember(Name = "links", EmitDefaultValue = false)]
+        public List<ActiveConnectionsWrapperLinksInner> Links { get; set; }
 
         /// <summary>
-        /// Indicates whether the group is a system group.
+        /// Gets or Sets Status
         /// </summary>
-        /// <value>Indicates whether the group is a system group.</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "isSystem", EmitDefaultValue = true)]
-        public bool? IsSystem { get; set; }
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public int Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StatusCode
+        /// </summary>
+        [DataMember(Name = "statusCode", EmitDefaultValue = false)]
+        public int StatusCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,11 +79,12 @@ namespace DocSpace.API.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class GroupSummaryDto {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Manager: ").Append(Manager).Append("\n");
-            sb.Append("  IsSystem: ").Append(IsSystem).Append("\n");
+            sb.Append("class EmployeeWrapper {\n");
+            sb.Append("  Response: ").Append(Response).Append("\n");
+            sb.Append("  Count: ").Append(Count).Append("\n");
+            sb.Append("  Links: ").Append(Links).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  StatusCode: ").Append(StatusCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

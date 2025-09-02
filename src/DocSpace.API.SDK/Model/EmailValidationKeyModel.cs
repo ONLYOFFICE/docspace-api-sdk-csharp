@@ -43,15 +43,17 @@ namespace DocSpace.API.SDK.Model
         /// <param name="key">The email validation key..</param>
         /// <param name="emplType">emplType.</param>
         /// <param name="email">The email address..</param>
+        /// <param name="encEmail">The encrypted email address..</param>
         /// <param name="uiD">The user ID..</param>
         /// <param name="type">type.</param>
         /// <param name="first">Specifies whether it is the first time account access or not..</param>
         /// <param name="roomId">The room ID..</param>
-        public EmailValidationKeyModel(string key = default, EmployeeType? emplType = default, string email = default, Guid? uiD = default, ConfirmType? type = default, string first = default, string roomId = default)
+        public EmailValidationKeyModel(string key = default, EmployeeType? emplType = default, string email = default, string encEmail = default, Guid? uiD = default, ConfirmType? type = default, string first = default, string roomId = default)
         {
             this.Key = key;
             this.EmplType = emplType;
             this.Email = email;
+            this.EncEmail = encEmail;
             this.UiD = uiD;
             this.Type = type;
             this.First = first;
@@ -77,6 +79,16 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
+
+        /// <summary>
+        /// The encrypted email address.
+        /// </summary>
+        /// <value>The encrypted email address.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "encEmail", EmitDefaultValue = true)]
+        public string EncEmail { get; set; }
 
         /// <summary>
         /// The user ID.
@@ -119,6 +131,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  EmplType: ").Append(EmplType).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  EncEmail: ").Append(EncEmail).Append("\n");
             sb.Append("  UiD: ").Append(UiD).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  First: ").Append(First).Append("\n");

@@ -52,8 +52,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
-        /// <param name="productType">The type of product related to the audit event. (optional)</param>
-        /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
+        /// <param name="moduleType">The location where the audit event occurred. (optional)</param>
         /// <param name="actionType">The type of action performed in the audit event (e.g., Create, Update, Delete). (optional)</param>
         /// <param name="action">The specific action that occurred within the audit event. (optional)</param>
         /// <param name="entryType">The type of audit entry (e.g., Folder, User, File). (optional)</param>
@@ -65,7 +64,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>AuditEventArrayWrapper</returns>
-        AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default);
+        AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default);
 
         /// <summary>
         /// Get filtered audit trail data
@@ -75,8 +74,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
-        /// <param name="productType">The type of product related to the audit event. (optional)</param>
-        /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
+        /// <param name="moduleType">The location where the audit event occurred. (optional)</param>
         /// <param name="actionType">The type of action performed in the audit event (e.g., Create, Update, Delete). (optional)</param>
         /// <param name="action">The specific action that occurred within the audit event. (optional)</param>
         /// <param name="entryType">The type of audit entry (e.g., Folder, User, File). (optional)</param>
@@ -88,7 +86,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>ApiResponse of AuditEventArrayWrapper</returns>
-        ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default);
+        ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default);
         /// <summary>
         /// Get the audit trail settings
         /// </summary>
@@ -118,10 +116,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
         /// <returns>ObjectWrapper</returns>
-        ObjectWrapper GetAuditTrailMappers(ProductType? productType = default, ModuleType? moduleType = default);
+        ObjectWrapper GetAuditTrailMappers(ProductType? productType = default, LocationType? moduleType = default);
 
         /// <summary>
         /// Get audit trail mappers
@@ -131,10 +129,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, ModuleType? moduleType = default);
+        ApiResponse<ObjectWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, LocationType? moduleType = default);
         /// <summary>
         /// Get audit trail types
         /// </summary>
@@ -240,8 +238,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
-        /// <param name="productType">The type of product related to the audit event. (optional)</param>
-        /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
+        /// <param name="moduleType">The location where the audit event occurred. (optional)</param>
         /// <param name="actionType">The type of action performed in the audit event (e.g., Create, Update, Delete). (optional)</param>
         /// <param name="action">The specific action that occurred within the audit event. (optional)</param>
         /// <param name="entryType">The type of audit entry (e.g., Folder, User, File). (optional)</param>
@@ -254,7 +251,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>Task of AuditEventArrayWrapper</returns>
-        Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get filtered audit trail data
@@ -264,8 +261,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
-        /// <param name="productType">The type of product related to the audit event. (optional)</param>
-        /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
+        /// <param name="moduleType">The location where the audit event occurred. (optional)</param>
         /// <param name="actionType">The type of action performed in the audit event (e.g., Create, Update, Delete). (optional)</param>
         /// <param name="action">The specific action that occurred within the audit event. (optional)</param>
         /// <param name="entryType">The type of audit entry (e.g., Folder, User, File). (optional)</param>
@@ -278,7 +274,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (AuditEventArrayWrapper)</returns>
-        Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the audit trail settings
         /// </summary>
@@ -310,11 +306,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> GetAuditTrailMappersAsync(ProductType? productType = default, ModuleType? moduleType = default, CancellationToken cancellationToken = default);
+        Task<ObjectWrapper> GetAuditTrailMappersAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get audit trail mappers
@@ -324,11 +320,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, ModuleType? moduleType = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ObjectWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get audit trail types
         /// </summary>
@@ -797,8 +793,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
-        /// <param name="productType">The type of product related to the audit event. (optional)</param>
-        /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
+        /// <param name="moduleType">The location where the audit event occurred. (optional)</param>
         /// <param name="actionType">The type of action performed in the audit event (e.g., Create, Update, Delete). (optional)</param>
         /// <param name="action">The specific action that occurred within the audit event. (optional)</param>
         /// <param name="entryType">The type of audit entry (e.g., Folder, User, File). (optional)</param>
@@ -810,9 +805,9 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>AuditEventArrayWrapper</returns>
-        public AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default)
+        public AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default)
         {
-            var localVarResponse = GetAuditEventsByFilterWithHttpInfo(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex, fields);
+            var localVarResponse = GetAuditEventsByFilterWithHttpInfo(userId, moduleType, actionType, action, entryType, target, from, to, count, startIndex, fields);
             return localVarResponse.Data;
         }
 
@@ -824,8 +819,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
-        /// <param name="productType">The type of product related to the audit event. (optional)</param>
-        /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
+        /// <param name="moduleType">The location where the audit event occurred. (optional)</param>
         /// <param name="actionType">The type of action performed in the audit event (e.g., Create, Update, Delete). (optional)</param>
         /// <param name="action">The specific action that occurred within the audit event. (optional)</param>
         /// <param name="entryType">The type of audit entry (e.g., Folder, User, File). (optional)</param>
@@ -837,7 +831,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>ApiResponse of AuditEventArrayWrapper</returns>
-        public ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default)
+        public ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -855,10 +849,6 @@ namespace DocSpace.API.SDK.Api.Security
             if (userId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userId", userId));
-            }
-            if (productType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productType", productType));
             }
             if (moduleType != null)
             {
@@ -955,8 +945,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
-        /// <param name="productType">The type of product related to the audit event. (optional)</param>
-        /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
+        /// <param name="moduleType">The location where the audit event occurred. (optional)</param>
         /// <param name="actionType">The type of action performed in the audit event (e.g., Create, Update, Delete). (optional)</param>
         /// <param name="action">The specific action that occurred within the audit event. (optional)</param>
         /// <param name="entryType">The type of audit entry (e.g., Folder, User, File). (optional)</param>
@@ -969,9 +958,9 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>Task of AuditEventArrayWrapper</returns>
-        public async Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetAuditEventsByFilterWithHttpInfoAsync(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex, fields, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAuditEventsByFilterWithHttpInfoAsync(userId, moduleType, actionType, action, entryType, target, from, to, count, startIndex, fields, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -983,8 +972,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The ID of the user who triggered the audit event. (optional)</param>
-        /// <param name="productType">The type of product related to the audit event. (optional)</param>
-        /// <param name="moduleType">The module within the product where the audit event occurred. (optional)</param>
+        /// <param name="moduleType">The location where the audit event occurred. (optional)</param>
         /// <param name="actionType">The type of action performed in the audit event (e.g., Create, Update, Delete). (optional)</param>
         /// <param name="action">The specific action that occurred within the audit event. (optional)</param>
         /// <param name="entryType">The type of audit entry (e.g., Folder, User, File). (optional)</param>
@@ -997,7 +985,7 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (AuditEventArrayWrapper)</returns>
-        public async Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, ProductType? productType = default, ModuleType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1016,10 +1004,6 @@ namespace DocSpace.API.SDK.Api.Security
             if (userId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userId", userId));
-            }
-            if (productType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productType", productType));
             }
             if (moduleType != null)
             {
@@ -1293,10 +1277,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
         /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper GetAuditTrailMappers(ProductType? productType = default, ModuleType? moduleType = default)
+        public ObjectWrapper GetAuditTrailMappers(ProductType? productType = default, LocationType? moduleType = default)
         {
             var localVarResponse = GetAuditTrailMappersWithHttpInfo(productType, moduleType);
             return localVarResponse.Data;
@@ -1310,10 +1294,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, ModuleType? moduleType = default)
+        public ApiResponse<ObjectWrapper> GetAuditTrailMappersWithHttpInfo(ProductType? productType = default, LocationType? moduleType = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1361,11 +1345,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> GetAuditTrailMappersAsync(ProductType? productType = default, ModuleType? moduleType = default, CancellationToken cancellationToken = default)
+        public async Task<ObjectWrapper> GetAuditTrailMappersAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetAuditTrailMappersWithHttpInfoAsync(productType, moduleType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1379,11 +1363,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="productType">The type of product related to the audit trail. (optional)</param>
-        /// <param name="moduleType">The module within the product associated with the audit trail. (optional)</param>
+        /// <param name="moduleType">The location associated with the audit trail. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-trail-mappers/">REST API Reference for GetAuditTrailMappers Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, ModuleType? moduleType = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ObjectWrapper>> GetAuditTrailMappersWithHttpInfoAsync(ProductType? productType = default, LocationType? moduleType = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 

@@ -19,62 +19,55 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The confirmation parameters.
+    /// TenantWalletServiceSettings
     /// </summary>
-    [DataContract(Name = "ConfirmDto")]
-    public partial class ConfirmDto : IValidatableObject
+    [DataContract(Name = "TenantWalletServiceSettings")]
+    public partial class TenantWalletServiceSettings : IValidatableObject
     {
-
         /// <summary>
-        /// Gets or Sets Result
+        /// Enabled services
         /// </summary>
-        [DataMember(Name = "result", EmitDefaultValue = false)]
-        public ValidationResult? Result { get; set; }
+        /// <value>Enabled services</value>
+        public enum EnabledServicesEnum
+        {
+            /// <summary>
+            /// Enum Backup for value: -12
+            /// </summary>
+            Backup = -12,
+
+            /// <summary>
+            /// Enum Storage for value: -11
+            /// </summary>
+            Storage = -11
+        }
+
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="ConfirmDto" /> class.
+        /// Initializes a new instance of the <see cref="TenantWalletServiceSettings" /> class.
         /// </summary>
-        /// <param name="result">result.</param>
-        /// <param name="roomId">The confirmation room ID..</param>
-        /// <param name="title">The confirmation title..</param>
-        /// <param name="email">The confirmation email..</param>
-        public ConfirmDto(ValidationResult? result = default, string roomId = default, string title = default, string email = default)
+        /// <param name="enabledServices">Enabled services.</param>
+        /// <param name="lastModified">lastModified.</param>
+        public TenantWalletServiceSettings(List<TenantWalletServiceSettings.EnabledServicesEnum> enabledServices = default, DateTime lastModified = default)
         {
-            this.Result = result;
-            this.RoomId = roomId;
-            this.Title = title;
-            this.Email = email;
+            this.EnabledServices = enabledServices;
+            this.LastModified = lastModified;
         }
 
         /// <summary>
-        /// The confirmation room ID.
+        /// Enabled services
         /// </summary>
-        /// <value>The confirmation room ID.</value>
-        /*
-        <example>9846</example>
-        */
-        [DataMember(Name = "roomId", EmitDefaultValue = true)]
-        public string RoomId { get; set; }
+        /// <value>Enabled services</value>
+        [DataMember(Name = "enabledServices", EmitDefaultValue = true)]
+        public List<TenantWalletServiceSettings.EnabledServicesEnum> EnabledServices { get; set; }
 
         /// <summary>
-        /// The confirmation title.
+        /// Gets or Sets LastModified
         /// </summary>
-        /// <value>The confirmation title.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
-        public string Title { get; set; }
-
-        /// <summary>
-        /// The confirmation email.
-        /// </summary>
-        /// <value>The confirmation email.</value>
-        /*
-        <example>Sydney_Roberts4@hotmail.com</example>
-        */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
-        public string Email { get; set; }
+        [DataMember(Name = "lastModified", EmitDefaultValue = false)]
+        public DateTime LastModified { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,11 +76,9 @@ namespace DocSpace.API.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConfirmDto {\n");
-            sb.Append("  Result: ").Append(Result).Append("\n");
-            sb.Append("  RoomId: ").Append(RoomId).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("class TenantWalletServiceSettings {\n");
+            sb.Append("  EnabledServices: ").Append(EnabledServices).Append("\n");
+            sb.Append("  LastModified: ").Append(LastModified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

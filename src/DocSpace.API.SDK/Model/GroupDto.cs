@@ -33,17 +33,19 @@ namespace DocSpace.API.SDK.Model
         /// <param name="category">The group category ID..</param>
         /// <param name="id">The group ID..</param>
         /// <param name="isLDAP">Specifies if the LDAP settings are enabled for the group or not..</param>
+        /// <param name="isSystem">Indicates whether the group is a system group..</param>
         /// <param name="manager">manager.</param>
         /// <param name="members">The list of group members..</param>
         /// <param name="shared">Specifies whether the group can be shared or not..</param>
         /// <param name="membersCount">The number of group members..</param>
-        public GroupDto(string name = default, Guid? parent = default, Guid category = default, Guid id = default, bool isLDAP = default, EmployeeFullDto manager = default, List<EmployeeFullDto> members = default, bool? shared = default, int membersCount = default)
+        public GroupDto(string name = default, Guid? parent = default, Guid category = default, Guid id = default, bool isLDAP = default, bool? isSystem = default, EmployeeFullDto manager = default, List<EmployeeFullDto> members = default, bool? shared = default, int membersCount = default)
         {
             this.Name = name;
             this.Parent = parent;
             this.Category = category;
             this.Id = id;
             this.IsLDAP = isLDAP;
+            this.IsSystem = isSystem;
             this.Manager = manager;
             this.Members = members;
             this.Shared = shared;
@@ -101,6 +103,16 @@ namespace DocSpace.API.SDK.Model
         public bool IsLDAP { get; set; }
 
         /// <summary>
+        /// Indicates whether the group is a system group.
+        /// </summary>
+        /// <value>Indicates whether the group is a system group.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "isSystem", EmitDefaultValue = true)]
+        public bool? IsSystem { get; set; }
+
+        /// <summary>
         /// Gets or Sets Manager
         /// </summary>
         [DataMember(Name = "manager", EmitDefaultValue = false)]
@@ -146,6 +158,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  IsLDAP: ").Append(IsLDAP).Append("\n");
+            sb.Append("  IsSystem: ").Append(IsSystem).Append("\n");
             sb.Append("  Manager: ").Append(Manager).Append("\n");
             sb.Append("  Members: ").Append(Members).Append("\n");
             sb.Append("  Shared: ").Append(Shared).Append("\n");

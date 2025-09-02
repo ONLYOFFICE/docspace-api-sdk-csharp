@@ -19,10 +19,10 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The room link parameters.
+    /// The folder link parameters.
     /// </summary>
-    [DataContract(Name = "RoomLinkRequest")]
-    public partial class RoomLinkRequest : IValidatableObject
+    [DataContract(Name = "FolderLinkRequest")]
+    public partial class FolderLinkRequest : IValidatableObject
     {
 
         /// <summary>
@@ -30,40 +30,34 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "access", EmitDefaultValue = false)]
         public FileShare? Access { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LinkType
-        /// </summary>
-        [DataMember(Name = "linkType", EmitDefaultValue = false)]
-        public LinkType? LinkType { get; set; }
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="RoomLinkRequest" /> class.
+        /// Initializes a new instance of the <see cref="FolderLinkRequest" /> class.
         /// </summary>
-        /// <param name="linkId">The room link ID..</param>
+        /// <param name="linkId">The folder link ID..</param>
         /// <param name="access">access.</param>
         /// <param name="expirationDate">expirationDate.</param>
-        /// <param name="@internal">The link scope, whether it is internal or not..</param>
         /// <param name="title">The link name..</param>
-        /// <param name="linkType">linkType.</param>
         /// <param name="password">The link password..</param>
         /// <param name="denyDownload">Specifies if downloading the file from the link is disabled or not..</param>
-        public RoomLinkRequest(Guid linkId = default, FileShare? access = default, ApiDateTime expirationDate = default, bool @internal = default, string title = default, LinkType? linkType = default, string password = default, bool denyDownload = default)
+        /// <param name="@internal">The link scope, whether it is internal or not..</param>
+        /// <param name="primary">Specifies whether the folder link is primary or not..</param>
+        public FolderLinkRequest(Guid linkId = default, FileShare? access = default, ApiDateTime expirationDate = default, string title = default, string password = default, bool denyDownload = default, bool @internal = default, bool primary = default)
         {
             this.LinkId = linkId;
             this.Access = access;
             this.ExpirationDate = expirationDate;
-            this.Internal = @internal;
             this.Title = title;
-            this.LinkType = linkType;
             this.Password = password;
             this.DenyDownload = denyDownload;
+            this.Internal = @internal;
+            this.Primary = primary;
         }
 
         /// <summary>
-        /// The room link ID.
+        /// The folder link ID.
         /// </summary>
-        /// <value>The room link ID.</value>
+        /// <value>The folder link ID.</value>
         /*
         <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
         */
@@ -75,16 +69,6 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
         public ApiDateTime ExpirationDate { get; set; }
-
-        /// <summary>
-        /// The link scope, whether it is internal or not.
-        /// </summary>
-        /// <value>The link scope, whether it is internal or not.</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "internal", EmitDefaultValue = true)]
-        public bool Internal { get; set; }
 
         /// <summary>
         /// The link name.
@@ -117,21 +101,41 @@ namespace DocSpace.API.SDK.Model
         public bool DenyDownload { get; set; }
 
         /// <summary>
+        /// The link scope, whether it is internal or not.
+        /// </summary>
+        /// <value>The link scope, whether it is internal or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "internal", EmitDefaultValue = true)]
+        public bool Internal { get; set; }
+
+        /// <summary>
+        /// Specifies whether the folder link is primary or not.
+        /// </summary>
+        /// <value>Specifies whether the folder link is primary or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "primary", EmitDefaultValue = true)]
+        public bool Primary { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RoomLinkRequest {\n");
+            sb.Append("class FolderLinkRequest {\n");
             sb.Append("  LinkId: ").Append(LinkId).Append("\n");
             sb.Append("  Access: ").Append(Access).Append("\n");
             sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
-            sb.Append("  Internal: ").Append(Internal).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  LinkType: ").Append(LinkType).Append("\n");
             sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("  DenyDownload: ").Append(DenyDownload).Append("\n");
+            sb.Append("  Internal: ").Append(Internal).Append("\n");
+            sb.Append("  Primary: ").Append(Primary).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
