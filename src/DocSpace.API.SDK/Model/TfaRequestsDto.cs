@@ -28,18 +28,23 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public TfaRequestsDtoType? Type { get; set; }
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = true)]
+        public TfaRequestsDtoType Type { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="TfaRequestsDto" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
-        /// <param name="id">The ID of the user for whom the TFA settings are being configured..</param>
+        [JsonConstructorAttribute]
+        protected TfaRequestsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TfaRequestsDto" /> class.
+        /// </summary>
+        /// <param name="type">type (required).</param>
+        /// <param name="id">The ID of the user for whom the TFA settings are being configured. (required).</param>
         /// <param name="trustedIps">The list of IP addresses that bypass TFA verification..</param>
         /// <param name="mandatoryUsers">The list of user IDs for whom TFA is mandatory..</param>
         /// <param name="mandatoryGroups">The list group IDs whose members must use TFA..</param>
-        public TfaRequestsDto(TfaRequestsDtoType? type = default, Guid id = default, List<string> trustedIps = default, List<Guid> mandatoryUsers = default, List<Guid> mandatoryGroups = default)
+        public TfaRequestsDto(TfaRequestsDtoType type = default, Guid id = default, List<string> trustedIps = default, List<Guid> mandatoryUsers = default, List<Guid> mandatoryGroups = default)
         {
             this.Type = type;
             this.Id = id;
@@ -55,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
 
         /// <summary>

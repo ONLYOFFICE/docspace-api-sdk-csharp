@@ -28,11 +28,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SaveFormRoleMappingDtoInteger" /> class.
         /// </summary>
-        /// <param name="formId">The form ID..</param>
-        /// <param name="roles">The collection of roles..</param>
+        [JsonConstructorAttribute]
+        protected SaveFormRoleMappingDtoInteger() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SaveFormRoleMappingDtoInteger" /> class.
+        /// </summary>
+        /// <param name="formId">The form ID. (required).</param>
+        /// <param name="roles">The collection of roles. (required).</param>
         public SaveFormRoleMappingDtoInteger(int formId = default, List<FormRole> roles = default)
         {
             this.FormId = formId;
+            // to ensure "roles" is required (not null)
+            if (roles == null)
+            {
+                throw new ArgumentNullException("roles is a required property for SaveFormRoleMappingDtoInteger and cannot be null");
+            }
             this.Roles = roles;
         }
 
@@ -43,14 +53,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "formId", EmitDefaultValue = false)]
+        [DataMember(Name = "formId", IsRequired = true, EmitDefaultValue = true)]
         public int FormId { get; set; }
 
         /// <summary>
         /// The collection of roles.
         /// </summary>
         /// <value>The collection of roles.</value>
-        [DataMember(Name = "roles", EmitDefaultValue = true)]
+        [DataMember(Name = "roles", IsRequired = true, EmitDefaultValue = true)]
         public List<FormRole> Roles { get; set; }
 
         /// <summary>

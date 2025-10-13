@@ -61,10 +61,9 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
         /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
         /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>AuditEventArrayWrapper</returns>
-        AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default);
+        AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default);
 
         /// <summary>
         /// Get filtered audit trail data
@@ -83,10 +82,9 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
         /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
         /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>ApiResponse of AuditEventArrayWrapper</returns>
-        ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default);
+        ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default);
         /// <summary>
         /// Get the audit trail settings
         /// </summary>
@@ -247,11 +245,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
         /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
         /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>Task of AuditEventArrayWrapper</returns>
-        Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get filtered audit trail data
@@ -270,11 +267,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
         /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
         /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (AuditEventArrayWrapper)</returns>
-        Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the audit trail settings
         /// </summary>
@@ -609,6 +605,20 @@ namespace DocSpace.API.SDK.Api.Security
             set => _exceptionFactory = value; 
         }
 
+        private string? _fields;
+
+        /// <summary>
+        /// Specifies which fields should be included in the API response.
+        /// </summary>
+        /// <param name="fields">A comma-separated list of field paths to include in the response</param>
+        /// <returns></returns>
+
+        public AuditTrailDataApi WithFields(string fields)
+        {
+            _fields = fields;
+            return this;
+        }
+
         /// <summary>
         /// Generate the audit trail report
         /// </summary>
@@ -802,12 +812,11 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
         /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
         /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>AuditEventArrayWrapper</returns>
-        public AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default)
+        public AuditEventArrayWrapper GetAuditEventsByFilter(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default)
         {
-            var localVarResponse = GetAuditEventsByFilterWithHttpInfo(userId, moduleType, actionType, action, entryType, target, from, to, count, startIndex, fields);
+            var localVarResponse = GetAuditEventsByFilterWithHttpInfo(userId, moduleType, actionType, action, entryType, target, from, to, count, startIndex);
             return localVarResponse.Data;
         }
 
@@ -828,10 +837,9 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
         /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
         /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>ApiResponse of AuditEventArrayWrapper</returns>
-        public ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default)
+        public ApiResponse<AuditEventArrayWrapper> GetAuditEventsByFilterWithHttpInfo(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -886,9 +894,9 @@ namespace DocSpace.API.SDK.Api.Security
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
-            if (fields != null)
+            if (_fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
             // authentication (Basic) required
@@ -954,13 +962,12 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
         /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
         /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>Task of AuditEventArrayWrapper</returns>
-        public async Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<AuditEventArrayWrapper> GetAuditEventsByFilterAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetAuditEventsByFilterWithHttpInfoAsync(userId, moduleType, actionType, action, entryType, target, from, to, count, startIndex, fields, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAuditEventsByFilterWithHttpInfoAsync(userId, moduleType, actionType, action, entryType, target, from, to, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -981,11 +988,10 @@ namespace DocSpace.API.SDK.Api.Security
         /// <param name="to">The ending date and time for filtering audit events. (optional)</param>
         /// <param name="count">The maximum number of audit event records to retrieve. (optional)</param>
         /// <param name="startIndex">The index of the first audit event record to retrieve in a paged query. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-audit-events-by-filter/">REST API Reference for GetAuditEventsByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (AuditEventArrayWrapper)</returns>
-        public async Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AuditEventArrayWrapper>> GetAuditEventsByFilterWithHttpInfoAsync(Guid? userId = default, LocationType? moduleType = default, ActionType? actionType = default, MessageAction? action = default, EntryType? entryType = default, string? target = default, ApiDateTime? from = default, ApiDateTime? to = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1040,10 +1046,6 @@ namespace DocSpace.API.SDK.Api.Security
             if (startIndex != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
             }
 
             // authentication (Basic) required

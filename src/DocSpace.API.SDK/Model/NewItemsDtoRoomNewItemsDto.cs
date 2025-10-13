@@ -28,25 +28,40 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewItemsDtoRoomNewItemsDto" /> class.
         /// </summary>
-        /// <param name="date">date.</param>
-        /// <param name="items">The list of items..</param>
+        [JsonConstructorAttribute]
+        protected NewItemsDtoRoomNewItemsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NewItemsDtoRoomNewItemsDto" /> class.
+        /// </summary>
+        /// <param name="date">date (required).</param>
+        /// <param name="items">The list of items. (required).</param>
         public NewItemsDtoRoomNewItemsDto(ApiDateTime date = default, List<RoomNewItemsDto> items = default)
         {
+            // to ensure "date" is required (not null)
+            if (date == null)
+            {
+                throw new ArgumentNullException("date is a required property for NewItemsDtoRoomNewItemsDto and cannot be null");
+            }
             this.Date = date;
+            // to ensure "items" is required (not null)
+            if (items == null)
+            {
+                throw new ArgumentNullException("items is a required property for NewItemsDtoRoomNewItemsDto and cannot be null");
+            }
             this.Items = items;
         }
 
         /// <summary>
         /// Gets or Sets Date
         /// </summary>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
         public ApiDateTime Date { get; set; }
 
         /// <summary>
         /// The list of items.
         /// </summary>
         /// <value>The list of items.</value>
-        [DataMember(Name = "items", EmitDefaultValue = true)]
+        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
         public List<RoomNewItemsDto> Items { get; set; }
 
         /// <summary>

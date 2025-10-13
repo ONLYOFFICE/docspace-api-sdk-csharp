@@ -46,10 +46,15 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsDto" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected SettingsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SettingsDto" /> class.
+        /// </summary>
         /// <param name="timezone">The time zone..</param>
         /// <param name="trustedDomains">The list of the trusted domains..</param>
         /// <param name="trustedDomainsType">trustedDomainsType.</param>
-        /// <param name="culture">The language..</param>
+        /// <param name="culture">The language. (required).</param>
         /// <param name="utcOffset">The UTC offset in the TimeSpan format..</param>
         /// <param name="utcHoursOffset">The UTC offset in hours..</param>
         /// <param name="greetingSettings">The greeting settings..</param>
@@ -61,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="docSpace">Specifies if this portal is a DocSpace portal or not..</param>
         /// <param name="standalone">Indicates whether the system is running in standalone mode..</param>
         /// <param name="isAmi">Specifies if this portal is the AMI instance or not..</param>
-        /// <param name="baseDomain">The base domain..</param>
+        /// <param name="baseDomain">The base domain. (required).</param>
         /// <param name="wizardToken">The wizard token..</param>
         /// <param name="passwordHash">passwordHash.</param>
         /// <param name="firebase">firebase.</param>
@@ -72,28 +77,46 @@ namespace DocSpace.API.SDK.Model
         /// <param name="socketUrl">The socket URL..</param>
         /// <param name="tenantStatus">tenantStatus.</param>
         /// <param name="tenantAlias">The tenant alias..</param>
-        /// <param name="displayAbout">Specifies whether to display the \&quot;About\&quot; portal section..</param>
+        /// <param name="displayAbout">Specifies whether to display the About portal section..</param>
         /// <param name="domainValidator">domainValidator.</param>
         /// <param name="zendeskKey">The Zendesk key..</param>
         /// <param name="tagManagerId">The tag manager ID..</param>
-        /// <param name="cookieSettingsEnabled">Specifies whether the cookie settings are enabled..</param>
+        /// <param name="cookieSettingsEnabled">Specifies whether the cookie settings are enabled. (required).</param>
         /// <param name="limitedAccessSpace">Specifies whether the access to the space management is limited or not..</param>
         /// <param name="limitedAccessDevToolsForUsers">Specifies whether the access to the Developer Tools is limited for users or not..</param>
         /// <param name="displayBanners">Specifies whether to display the promotional banners..</param>
         /// <param name="userNameRegex">The user name validation regex..</param>
         /// <param name="invitationLimit">The maximum number of invitations to the portal..</param>
         /// <param name="plugins">plugins.</param>
-        /// <param name="deepLink">deepLink.</param>
+        /// <param name="deepLink">deepLink (required).</param>
         /// <param name="formGallery">formGallery.</param>
         /// <param name="maxImageUploadSize">The maximum image upload size..</param>
         /// <param name="logoText">The white label logo text..</param>
         /// <param name="externalResources">externalResources.</param>
         public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default)
         {
+            // to ensure "culture" is required (not null)
+            if (culture == null)
+            {
+                throw new ArgumentNullException("culture is a required property for SettingsDto and cannot be null");
+            }
+            this.Culture = culture;
+            // to ensure "baseDomain" is required (not null)
+            if (baseDomain == null)
+            {
+                throw new ArgumentNullException("baseDomain is a required property for SettingsDto and cannot be null");
+            }
+            this.BaseDomain = baseDomain;
+            this.CookieSettingsEnabled = cookieSettingsEnabled;
+            // to ensure "deepLink" is required (not null)
+            if (deepLink == null)
+            {
+                throw new ArgumentNullException("deepLink is a required property for SettingsDto and cannot be null");
+            }
+            this.DeepLink = deepLink;
             this.Timezone = timezone;
             this.TrustedDomains = trustedDomains;
             this.TrustedDomainsType = trustedDomainsType;
-            this.Culture = culture;
             this.UtcOffset = utcOffset;
             this.UtcHoursOffset = utcHoursOffset;
             this.GreetingSettings = greetingSettings;
@@ -105,7 +128,6 @@ namespace DocSpace.API.SDK.Model
             this.DocSpace = docSpace;
             this.Standalone = standalone;
             this.IsAmi = isAmi;
-            this.BaseDomain = baseDomain;
             this.WizardToken = wizardToken;
             this.PasswordHash = passwordHash;
             this.Firebase = firebase;
@@ -120,14 +142,12 @@ namespace DocSpace.API.SDK.Model
             this.DomainValidator = domainValidator;
             this.ZendeskKey = zendeskKey;
             this.TagManagerId = tagManagerId;
-            this.CookieSettingsEnabled = cookieSettingsEnabled;
             this.LimitedAccessSpace = limitedAccessSpace;
             this.LimitedAccessDevToolsForUsers = limitedAccessDevToolsForUsers;
             this.DisplayBanners = displayBanners;
             this.UserNameRegex = userNameRegex;
             this.InvitationLimit = invitationLimit;
             this.Plugins = plugins;
-            this.DeepLink = deepLink;
             this.FormGallery = formGallery;
             this.MaxImageUploadSize = maxImageUploadSize;
             this.LogoText = logoText;
@@ -161,7 +181,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>en-US</example>
         */
-        [DataMember(Name = "culture", EmitDefaultValue = true)]
+        [DataMember(Name = "culture", IsRequired = true, EmitDefaultValue = true)]
         public string Culture { get; set; }
 
         /// <summary>
@@ -281,7 +301,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "baseDomain", EmitDefaultValue = true)]
+        [DataMember(Name = "baseDomain", IsRequired = true, EmitDefaultValue = true)]
         public string BaseDomain { get; set; }
 
         /// <summary>
@@ -357,9 +377,9 @@ namespace DocSpace.API.SDK.Model
         public string TenantAlias { get; set; }
 
         /// <summary>
-        /// Specifies whether to display the \&quot;About\&quot; portal section.
+        /// Specifies whether to display the About portal section.
         /// </summary>
-        /// <value>Specifies whether to display the \&quot;About\&quot; portal section.</value>
+        /// <value>Specifies whether to display the About portal section.</value>
         /*
         <example>true</example>
         */
@@ -399,7 +419,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "cookieSettingsEnabled", EmitDefaultValue = true)]
+        [DataMember(Name = "cookieSettingsEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool CookieSettingsEnabled { get; set; }
 
         /// <summary>
@@ -461,7 +481,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets DeepLink
         /// </summary>
-        [DataMember(Name = "deepLink", EmitDefaultValue = false)]
+        [DataMember(Name = "deepLink", IsRequired = true, EmitDefaultValue = true)]
         public DeepLinkDto DeepLink { get; set; }
 
         /// <summary>

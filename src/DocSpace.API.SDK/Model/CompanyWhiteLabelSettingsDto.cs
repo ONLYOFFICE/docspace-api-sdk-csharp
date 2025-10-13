@@ -28,20 +28,50 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CompanyWhiteLabelSettingsDto" /> class.
         /// </summary>
-        /// <param name="companyName">The company name..</param>
-        /// <param name="site">The company site..</param>
-        /// <param name="email">The company email address..</param>
-        /// <param name="address">The company address..</param>
-        /// <param name="phone">The company phone number..</param>
-        /// <param name="isLicensor">Specifies if a company is a licensor or not..</param>
-        /// <param name="hideAbout">Specifies if the About page is visible or not..</param>
-        /// <param name="isDefault">Specifies if these settings are default or not..</param>
+        [JsonConstructorAttribute]
+        protected CompanyWhiteLabelSettingsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CompanyWhiteLabelSettingsDto" /> class.
+        /// </summary>
+        /// <param name="companyName">The company name. (required).</param>
+        /// <param name="site">The company site. (required).</param>
+        /// <param name="email">The company email address. (required).</param>
+        /// <param name="address">The company address. (required).</param>
+        /// <param name="phone">The company phone number. (required).</param>
+        /// <param name="isLicensor">Specifies if a company is a licensor or not. (required).</param>
+        /// <param name="hideAbout">Specifies if the About page is visible or not. (required).</param>
+        /// <param name="isDefault">Specifies if these settings are default or not. (required).</param>
         public CompanyWhiteLabelSettingsDto(string companyName = default, string site = default, string email = default, string address = default, string phone = default, bool isLicensor = default, bool hideAbout = default, bool isDefault = default)
         {
+            // to ensure "companyName" is required (not null)
+            if (companyName == null)
+            {
+                throw new ArgumentNullException("companyName is a required property for CompanyWhiteLabelSettingsDto and cannot be null");
+            }
             this.CompanyName = companyName;
+            // to ensure "site" is required (not null)
+            if (site == null)
+            {
+                throw new ArgumentNullException("site is a required property for CompanyWhiteLabelSettingsDto and cannot be null");
+            }
             this.Site = site;
+            // to ensure "email" is required (not null)
+            if (email == null)
+            {
+                throw new ArgumentNullException("email is a required property for CompanyWhiteLabelSettingsDto and cannot be null");
+            }
             this.Email = email;
+            // to ensure "address" is required (not null)
+            if (address == null)
+            {
+                throw new ArgumentNullException("address is a required property for CompanyWhiteLabelSettingsDto and cannot be null");
+            }
             this.Address = address;
+            // to ensure "phone" is required (not null)
+            if (phone == null)
+            {
+                throw new ArgumentNullException("phone is a required property for CompanyWhiteLabelSettingsDto and cannot be null");
+            }
             this.Phone = phone;
             this.IsLicensor = isLicensor;
             this.HideAbout = hideAbout;
@@ -55,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "companyName", EmitDefaultValue = true)]
+        [DataMember(Name = "companyName", IsRequired = true, EmitDefaultValue = true)]
         public string CompanyName { get; set; }
 
         /// <summary>
@@ -65,7 +95,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "site", EmitDefaultValue = true)]
+        [DataMember(Name = "site", IsRequired = true, EmitDefaultValue = true)]
         public string Site { get; set; }
 
         /// <summary>
@@ -75,7 +105,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Sydney_Roberts4@hotmail.com</example>
         */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
+        [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
@@ -85,7 +115,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "address", EmitDefaultValue = true)]
+        [DataMember(Name = "address", IsRequired = true, EmitDefaultValue = true)]
         public string Address { get; set; }
 
         /// <summary>
@@ -95,7 +125,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "phone", EmitDefaultValue = true)]
+        [DataMember(Name = "phone", IsRequired = true, EmitDefaultValue = true)]
         public string Phone { get; set; }
 
         /// <summary>
@@ -105,7 +135,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isLicensor", EmitDefaultValue = true)]
+        [DataMember(Name = "isLicensor", IsRequired = true, EmitDefaultValue = true)]
         public bool IsLicensor { get; set; }
 
         /// <summary>
@@ -115,7 +145,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "hideAbout", EmitDefaultValue = true)]
+        [DataMember(Name = "hideAbout", IsRequired = true, EmitDefaultValue = true)]
         public bool HideAbout { get; set; }
 
         /// <summary>
@@ -125,7 +155,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isDefault", EmitDefaultValue = true)]
+        [DataMember(Name = "isDefault", IsRequired = true, EmitDefaultValue = true)]
         public bool IsDefault { get; set; }
 
         /// <summary>

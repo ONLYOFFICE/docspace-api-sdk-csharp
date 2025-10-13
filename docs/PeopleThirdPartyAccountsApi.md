@@ -221,7 +221,7 @@ catch (ApiException e)
 
 <a id="signupthirdpartyaccount"></a>
 # **SignupThirdPartyAccount**
-> void SignupThirdPartyAccount (SignupAccountRequestDto? signupAccountRequestDto = null)
+> EmployeeWrapper SignupThirdPartyAccount (SignupAccountRequestDto? signupAccountRequestDto = null)
 
 Creates a third-party account with the parameters specified in the request.
 
@@ -235,7 +235,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-void (empty response body)
+[**EmployeeWrapper**](EmployeeWrapper.md)
 
 ### Authorization
 
@@ -267,7 +267,8 @@ namespace Example
             try
             {
                 // Create a third-pary account
-                apiInstance.SignupThirdPartyAccount(signupAccountRequestDto);
+                EmployeeWrapper result = apiInstance.SignupThirdPartyAccount(signupAccountRequestDto);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
@@ -287,7 +288,10 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create a third-pary account
-    apiInstance.SignupThirdPartyAccountWithHttpInfo(signupAccountRequestDto);
+    ApiResponse<EmployeeWrapper> response = apiInstance.SignupThirdPartyAccountWithHttpInfo(signupAccountRequestDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
@@ -300,7 +304,7 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details

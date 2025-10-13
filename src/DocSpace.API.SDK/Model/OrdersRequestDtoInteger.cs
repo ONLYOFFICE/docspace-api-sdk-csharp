@@ -28,9 +28,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="OrdersRequestDtoInteger" /> class.
         /// </summary>
-        /// <param name="items">The list of items with their ordering information..</param>
+        [JsonConstructorAttribute]
+        protected OrdersRequestDtoInteger() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OrdersRequestDtoInteger" /> class.
+        /// </summary>
+        /// <param name="items">The list of items with their ordering information. (required).</param>
         public OrdersRequestDtoInteger(List<OrdersItemRequestDtoInteger> items = default)
         {
+            // to ensure "items" is required (not null)
+            if (items == null)
+            {
+                throw new ArgumentNullException("items is a required property for OrdersRequestDtoInteger and cannot be null");
+            }
             this.Items = items;
         }
 
@@ -38,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of items with their ordering information.
         /// </summary>
         /// <value>The list of items with their ordering information.</value>
-        [DataMember(Name = "items", EmitDefaultValue = true)]
+        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
         public List<OrdersItemRequestDtoInteger> Items { get; set; }
 
         /// <summary>

@@ -28,7 +28,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AnonymousConfigDto" /> class.
         /// </summary>
-        /// <param name="request">Specifies if the anonymous is a request..</param>
+        [JsonConstructorAttribute]
+        protected AnonymousConfigDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AnonymousConfigDto" /> class.
+        /// </summary>
+        /// <param name="request">Specifies if the anonymous is a request. (required).</param>
         public AnonymousConfigDto(bool request = default)
         {
             this.Request = request;
@@ -41,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "request", EmitDefaultValue = true)]
+        [DataMember(Name = "request", IsRequired = true, EmitDefaultValue = true)]
         public bool Request { get; set; }
 
         /// <summary>

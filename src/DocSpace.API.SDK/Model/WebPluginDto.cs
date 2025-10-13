@@ -28,38 +28,105 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebPluginDto" /> class.
         /// </summary>
-        /// <param name="name">The web plugin name..</param>
-        /// <param name="version">The web plugin version..</param>
-        /// <param name="description">The web plugin description..</param>
-        /// <param name="license">The web plugin license..</param>
-        /// <param name="author">The web plugin author..</param>
-        /// <param name="homePage">The web plugin home page URL..</param>
-        /// <param name="pluginName">The name by which the web plugin is registered in the window object..</param>
-        /// <param name="scopes">The web plugin scopes..</param>
-        /// <param name="image">The web plugin image..</param>
-        /// <param name="createBy">createBy.</param>
-        /// <param name="createOn">The date and time when the web plugin was created..</param>
-        /// <param name="enabled">Specifies if the web plugin is enabled or not..</param>
-        /// <param name="@system">Specifies if the web plugin is system or not..</param>
-        /// <param name="url">The web plugin URL..</param>
-        /// <param name="settings">The web plugin settings..</param>
-        public WebPluginDto(string name = default, string version = default, string description = default, string license = default, string author = default, string homePage = default, string pluginName = default, string scopes = default, string image = default, EmployeeDto createBy = default, DateTime createOn = default, bool enabled = default, bool @system = default, string url = default, string settings = default)
+        [JsonConstructorAttribute]
+        protected WebPluginDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WebPluginDto" /> class.
+        /// </summary>
+        /// <param name="name">The web plugin name. (required).</param>
+        /// <param name="version">The web plugin version. (required).</param>
+        /// <param name="minDocSpaceVersion">The minimum version of DocSpace with which the plugin is guaranteed to work..</param>
+        /// <param name="description">The web plugin description. (required).</param>
+        /// <param name="license">The web plugin license. (required).</param>
+        /// <param name="author">The web plugin author. (required).</param>
+        /// <param name="homePage">The web plugin home page URL. (required).</param>
+        /// <param name="pluginName">The name by which the web plugin is registered in the window object. (required).</param>
+        /// <param name="scopes">The web plugin scopes. (required).</param>
+        /// <param name="image">The web plugin image. (required).</param>
+        /// <param name="createBy">createBy (required).</param>
+        /// <param name="createOn">The date and time when the web plugin was created. (required).</param>
+        /// <param name="enabled">Specifies if the web plugin is enabled or not. (required).</param>
+        /// <param name="@system">Specifies if the web plugin is system or not. (required).</param>
+        /// <param name="url">The web plugin URL. (required).</param>
+        /// <param name="settings">The web plugin settings. (required).</param>
+        public WebPluginDto(string name = default, string version = default, string minDocSpaceVersion = default, string description = default, string license = default, string author = default, string homePage = default, string pluginName = default, string scopes = default, string image = default, EmployeeDto createBy = default, DateTime createOn = default, bool enabled = default, bool @system = default, string url = default, string settings = default)
         {
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for WebPluginDto and cannot be null");
+            }
             this.Name = name;
+            // to ensure "version" is required (not null)
+            if (version == null)
+            {
+                throw new ArgumentNullException("version is a required property for WebPluginDto and cannot be null");
+            }
             this.@Version = version;
+            // to ensure "description" is required (not null)
+            if (description == null)
+            {
+                throw new ArgumentNullException("description is a required property for WebPluginDto and cannot be null");
+            }
             this.Description = description;
+            // to ensure "license" is required (not null)
+            if (license == null)
+            {
+                throw new ArgumentNullException("license is a required property for WebPluginDto and cannot be null");
+            }
             this.License = license;
+            // to ensure "author" is required (not null)
+            if (author == null)
+            {
+                throw new ArgumentNullException("author is a required property for WebPluginDto and cannot be null");
+            }
             this.Author = author;
+            // to ensure "homePage" is required (not null)
+            if (homePage == null)
+            {
+                throw new ArgumentNullException("homePage is a required property for WebPluginDto and cannot be null");
+            }
             this.HomePage = homePage;
+            // to ensure "pluginName" is required (not null)
+            if (pluginName == null)
+            {
+                throw new ArgumentNullException("pluginName is a required property for WebPluginDto and cannot be null");
+            }
             this.PluginName = pluginName;
+            // to ensure "scopes" is required (not null)
+            if (scopes == null)
+            {
+                throw new ArgumentNullException("scopes is a required property for WebPluginDto and cannot be null");
+            }
             this.Scopes = scopes;
+            // to ensure "image" is required (not null)
+            if (image == null)
+            {
+                throw new ArgumentNullException("image is a required property for WebPluginDto and cannot be null");
+            }
             this.Image = image;
+            // to ensure "createBy" is required (not null)
+            if (createBy == null)
+            {
+                throw new ArgumentNullException("createBy is a required property for WebPluginDto and cannot be null");
+            }
             this.CreateBy = createBy;
             this.CreateOn = createOn;
             this.Enabled = enabled;
             this.System = @system;
+            // to ensure "url" is required (not null)
+            if (url == null)
+            {
+                throw new ArgumentNullException("url is a required property for WebPluginDto and cannot be null");
+            }
             this.Url = url;
+            // to ensure "settings" is required (not null)
+            if (settings == null)
+            {
+                throw new ArgumentNullException("settings is a required property for WebPluginDto and cannot be null");
+            }
             this.Settings = settings;
+            this.MinDocSpaceVersion = minDocSpaceVersion;
         }
 
         /// <summary>
@@ -69,7 +136,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Winfield Upton</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -79,8 +146,18 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "version", EmitDefaultValue = true)]
+        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public string @Version { get; set; }
+
+        /// <summary>
+        /// The minimum version of DocSpace with which the plugin is guaranteed to work.
+        /// </summary>
+        /// <value>The minimum version of DocSpace with which the plugin is guaranteed to work.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "minDocSpaceVersion", EmitDefaultValue = true)]
+        public string MinDocSpaceVersion { get; set; }
 
         /// <summary>
         /// The web plugin description.
@@ -89,7 +166,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "description", EmitDefaultValue = true)]
+        [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
@@ -99,7 +176,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "license", EmitDefaultValue = true)]
+        [DataMember(Name = "license", IsRequired = true, EmitDefaultValue = true)]
         public string License { get; set; }
 
         /// <summary>
@@ -109,7 +186,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "author", EmitDefaultValue = true)]
+        [DataMember(Name = "author", IsRequired = true, EmitDefaultValue = true)]
         public string Author { get; set; }
 
         /// <summary>
@@ -119,7 +196,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "homePage", EmitDefaultValue = true)]
+        [DataMember(Name = "homePage", IsRequired = true, EmitDefaultValue = true)]
         public string HomePage { get; set; }
 
         /// <summary>
@@ -129,7 +206,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "pluginName", EmitDefaultValue = true)]
+        [DataMember(Name = "pluginName", IsRequired = true, EmitDefaultValue = true)]
         public string PluginName { get; set; }
 
         /// <summary>
@@ -139,7 +216,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "scopes", EmitDefaultValue = true)]
+        [DataMember(Name = "scopes", IsRequired = true, EmitDefaultValue = true)]
         public string Scopes { get; set; }
 
         /// <summary>
@@ -149,13 +226,13 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "image", EmitDefaultValue = true)]
+        [DataMember(Name = "image", IsRequired = true, EmitDefaultValue = true)]
         public string Image { get; set; }
 
         /// <summary>
         /// Gets or Sets CreateBy
         /// </summary>
-        [DataMember(Name = "createBy", EmitDefaultValue = false)]
+        [DataMember(Name = "createBy", IsRequired = true, EmitDefaultValue = true)]
         public EmployeeDto CreateBy { get; set; }
 
         /// <summary>
@@ -165,7 +242,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "createOn", EmitDefaultValue = false)]
+        [DataMember(Name = "createOn", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreateOn { get; set; }
 
         /// <summary>
@@ -175,7 +252,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "enabled", EmitDefaultValue = true)]
+        [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
@@ -185,7 +262,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "system", EmitDefaultValue = true)]
+        [DataMember(Name = "system", IsRequired = true, EmitDefaultValue = true)]
         public bool System { get; set; }
 
         /// <summary>
@@ -195,7 +272,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "url", EmitDefaultValue = true)]
+        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
@@ -205,7 +282,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "settings", EmitDefaultValue = true)]
+        [DataMember(Name = "settings", IsRequired = true, EmitDefaultValue = true)]
         public string Settings { get; set; }
 
         /// <summary>
@@ -218,6 +295,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class WebPluginDto {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  @Version: ").Append(@Version).Append("\n");
+            sb.Append("  MinDocSpaceVersion: ").Append(MinDocSpaceVersion).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  License: ").Append(License).Append("\n");
             sb.Append("  Author: ").Append(Author).Append("\n");

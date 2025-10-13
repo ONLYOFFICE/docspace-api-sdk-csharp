@@ -4,35 +4,36 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ChangeAccessToThirdparty**](#changeaccesstothirdparty) | **PUT** /api/2.0/files/thirdparty | Change the third-party settings access |
-| [**ChangeAutomaticallyCleanUp**](#changeautomaticallycleanup) | **PUT** /api/2.0/files/settings/autocleanup | Update the trash bin auto-clearing setting |
-| [**ChangeDefaultAccessRights**](#changedefaultaccessrights) | **PUT** /api/2.0/files/settings/dafaultaccessrights | Change the default access rights |
-| [**ChangeDeleteConfirm**](#changedeleteconfirm) | **PUT** /api/2.0/files/changedeleteconfrim | Confirm the file deletion |
-| [**ChangeDownloadZipFromBody**](#changedownloadzipfrombody) | **PUT** /api/2.0/files/settings/downloadtargz | Change the archive format (using body parameters) |
-| [**CheckDocServiceUrl**](#checkdocserviceurl) | **PUT** /api/2.0/files/docservice | Check the document service URL |
-| [**DisplayFileExtension**](#displayfileextension) | **PUT** /api/2.0/files/displayfileextension | Display a file extension |
-| [**ExternalShare**](#externalshare) | **PUT** /api/2.0/files/settings/external | Change the external sharing ability |
-| [**ExternalShareSocialMedia**](#externalsharesocialmedia) | **PUT** /api/2.0/files/settings/externalsocialmedia | Change the external sharing ability on social networks |
-| [**Forcesave**](#forcesave) | **PUT** /api/2.0/files/forcesave | Change the forcesaving ability |
-| [**GetAutomaticallyCleanUp**](#getautomaticallycleanup) | **GET** /api/2.0/files/settings/autocleanup | Get the trash bin auto-clearing setting |
-| [**GetDocServiceUrl**](#getdocserviceurl) | **GET** /api/2.0/files/docservice | Get the document service URL |
-| [**GetFilesModule**](#getfilesmodule) | **GET** /api/2.0/files/info | Get the \&quot;Documents\&quot; information |
-| [**GetFilesSettings**](#getfilessettings) | **GET** /api/2.0/files/settings | Get file settings |
-| [**HideConfirmCancelOperation**](#hideconfirmcanceloperation) | **PUT** /api/2.0/files/hideconfirmcanceloperation | Hide confirmation dialog when canceling operations |
-| [**HideConfirmConvert**](#hideconfirmconvert) | **PUT** /api/2.0/files/hideconfirmconvert | Hide the confirmation dialog when converting |
-| [**HideConfirmRoomLifetime**](#hideconfirmroomlifetime) | **PUT** /api/2.0/files/hideconfirmroomlifetime | Hide confirmation dialog when changing room lifetime settings |
-| [**IsAvailablePrivacyRoomSettings**](#isavailableprivacyroomsettings) | **GET** /api/2.0/files/@privacy/available | Check the \&quot;Private Room\&quot; availability |
-| [**KeepNewFileName**](#keepnewfilename) | **PUT** /api/2.0/files/keepnewfilename | Ask a new file name |
-| [**SetOpenEditorInSameTab**](#setopeneditorinsametab) | **PUT** /api/2.0/files/settings/openeditorinsametab | Open document in the same browser tab |
-| [**StoreForcesave**](#storeforcesave) | **PUT** /api/2.0/files/storeforcesave | Change the ability to store the forcesaved files |
-| [**StoreOriginal**](#storeoriginal) | **PUT** /api/2.0/files/storeoriginal | Change the ability to upload original formats |
-| [**UpdateFileIfExist**](#updatefileifexist) | **PUT** /api/2.0/files/updateifexist | Update a file version if it exists |
+| [**ChangeAccessToThirdparty**](#changeaccesstothirdparty) | **PUT** /api/2.0/files/thirdparty |  |
+| [**ChangeAutomaticallyCleanUp**](#changeautomaticallycleanup) | **PUT** /api/2.0/files/settings/autocleanup |  |
+| [**ChangeDefaultAccessRights**](#changedefaultaccessrights) | **PUT** /api/2.0/files/settings/dafaultaccessrights |  |
+| [**ChangeDeleteConfirm**](#changedeleteconfirm) | **PUT** /api/2.0/files/changedeleteconfrim |  |
+| [**ChangeDownloadZipFromBody**](#changedownloadzipfrombody) | **PUT** /api/2.0/files/settings/downloadtargz |  |
+| [**CheckDocServiceUrl**](#checkdocserviceurl) | **PUT** /api/2.0/files/docservice |  |
+| [**DisplayFileExtension**](#displayfileextension) | **PUT** /api/2.0/files/displayfileextension |  |
+| [**DisplayRecent**](#displayrecent) | **PUT** /api/2.0/files/displayrecent |  |
+| [**ExternalShare**](#externalshare) | **PUT** /api/2.0/files/settings/external |  |
+| [**ExternalShareSocialMedia**](#externalsharesocialmedia) | **PUT** /api/2.0/files/settings/externalsocialmedia |  |
+| [**Forcesave**](#forcesave) | **PUT** /api/2.0/files/forcesave |  |
+| [**GetAutomaticallyCleanUp**](#getautomaticallycleanup) | **GET** /api/2.0/files/settings/autocleanup |  |
+| [**GetDocServiceUrl**](#getdocserviceurl) | **GET** /api/2.0/files/docservice |  |
+| [**GetFilesModule**](#getfilesmodule) | **GET** /api/2.0/files/info |  |
+| [**GetFilesSettings**](#getfilessettings) | **GET** /api/2.0/files/settings |  |
+| [**HideConfirmCancelOperation**](#hideconfirmcanceloperation) | **PUT** /api/2.0/files/hideconfirmcanceloperation |  |
+| [**HideConfirmConvert**](#hideconfirmconvert) | **PUT** /api/2.0/files/hideconfirmconvert |  |
+| [**HideConfirmRoomLifetime**](#hideconfirmroomlifetime) | **PUT** /api/2.0/files/hideconfirmroomlifetime |  |
+| [**IsAvailablePrivacyRoomSettings**](#isavailableprivacyroomsettings) | **GET** /api/2.0/files/@privacy/available |  |
+| [**KeepNewFileName**](#keepnewfilename) | **PUT** /api/2.0/files/keepnewfilename |  |
+| [**SetOpenEditorInSameTab**](#setopeneditorinsametab) | **PUT** /api/2.0/files/settings/openeditorinsametab |  |
+| [**StoreForcesave**](#storeforcesave) | **PUT** /api/2.0/files/storeforcesave |  |
+| [**StoreOriginal**](#storeoriginal) | **PUT** /api/2.0/files/storeoriginal |  |
+| [**UpdateFileIfExist**](#updatefileifexist) | **PUT** /api/2.0/files/updateifexist |  |
 
 <a id="changeaccesstothirdparty"></a>
 # **ChangeAccessToThirdparty**
 > BooleanWrapper ChangeAccessToThirdparty (SettingsRequestDto? settingsRequestDto = null)
 
-Changes the access to the third-party settings.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-access-to-thirdparty/).
 
@@ -48,7 +49,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -67,22 +68,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -91,7 +76,6 @@ namespace Example
 
             try
             {
-                // Change the third-party settings access
                 BooleanWrapper result = apiInstance.ChangeAccessToThirdparty(settingsRequestDto);
                 Debug.WriteLine(result);
             }
@@ -112,7 +96,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Change the third-party settings access
     ApiResponse<BooleanWrapper> response = apiInstance.ChangeAccessToThirdpartyWithHttpInfo(settingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -136,7 +119,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -144,7 +126,7 @@ catch (ApiException e)
 # **ChangeAutomaticallyCleanUp**
 > AutoCleanUpDataWrapper ChangeAutomaticallyCleanUp (AutoCleanupRequestDto? autoCleanupRequestDto = null)
 
-Updates the trash bin auto-clearing setting.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/).
 
@@ -160,7 +142,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -179,22 +161,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -203,7 +169,6 @@ namespace Example
 
             try
             {
-                // Update the trash bin auto-clearing setting
                 AutoCleanUpDataWrapper result = apiInstance.ChangeAutomaticallyCleanUp(autoCleanupRequestDto);
                 Debug.WriteLine(result);
             }
@@ -224,7 +189,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Update the trash bin auto-clearing setting
     ApiResponse<AutoCleanUpDataWrapper> response = apiInstance.ChangeAutomaticallyCleanUpWithHttpInfo(autoCleanupRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -248,7 +212,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The auto-clearing setting properties: auto-clearing or not, a time interval when the auto-clearing will be performed |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -256,7 +219,7 @@ catch (ApiException e)
 # **ChangeDefaultAccessRights**
 > FileShareArrayWrapper ChangeDefaultAccessRights (List<int>? requestBody = null)
 
-Changes the default access rights in the sharing settings.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-default-access-rights/).
 
@@ -272,7 +235,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -291,22 +254,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -315,7 +262,6 @@ namespace Example
 
             try
             {
-                // Change the default access rights
                 FileShareArrayWrapper result = apiInstance.ChangeDefaultAccessRights(requestBody);
                 Debug.WriteLine(result);
             }
@@ -336,7 +282,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Change the default access rights
     ApiResponse<FileShareArrayWrapper> response = apiInstance.ChangeDefaultAccessRightsWithHttpInfo(requestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -360,7 +305,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated sharing rights (None, ReadWrite, Read, Restrict, Varies, Review, Comment, FillForms, CustomFilter, RoomAdmin, Editing, Collaborator) |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -368,7 +312,7 @@ catch (ApiException e)
 # **ChangeDeleteConfirm**
 > BooleanWrapper ChangeDeleteConfirm (SettingsRequestDto? settingsRequestDto = null)
 
-Specifies whether to confirm the file deletion or not.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-delete-confirm/).
 
@@ -384,7 +328,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -403,22 +347,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -427,7 +355,6 @@ namespace Example
 
             try
             {
-                // Confirm the file deletion
                 BooleanWrapper result = apiInstance.ChangeDeleteConfirm(settingsRequestDto);
                 Debug.WriteLine(result);
             }
@@ -448,7 +375,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Confirm the file deletion
     ApiResponse<BooleanWrapper> response = apiInstance.ChangeDeleteConfirmWithHttpInfo(settingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -472,7 +398,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -480,7 +405,7 @@ catch (ApiException e)
 # **ChangeDownloadZipFromBody**
 > ICompressWrapper ChangeDownloadZipFromBody (DisplayRequestDto? displayRequestDto = null)
 
-Changes the format of the downloaded archive from .zip to .tar.gz. This method uses the body parameters.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/).
 
@@ -496,7 +421,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -515,22 +440,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -539,7 +448,6 @@ namespace Example
 
             try
             {
-                // Change the archive format (using body parameters)
                 ICompressWrapper result = apiInstance.ChangeDownloadZipFromBody(displayRequestDto);
                 Debug.WriteLine(result);
             }
@@ -560,7 +468,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Change the archive format (using body parameters)
     ApiResponse<ICompressWrapper> response = apiInstance.ChangeDownloadZipFromBodyWithHttpInfo(displayRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -584,7 +491,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Archive |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -592,7 +498,7 @@ catch (ApiException e)
 # **CheckDocServiceUrl**
 > DocServiceUrlWrapper CheckDocServiceUrl (CheckDocServiceUrlRequestDto? checkDocServiceUrlRequestDto = null)
 
-Checks the document service location URL.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-doc-service-url/).
 
@@ -608,7 +514,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -627,22 +533,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -651,7 +541,6 @@ namespace Example
 
             try
             {
-                // Check the document service URL
                 DocServiceUrlWrapper result = apiInstance.CheckDocServiceUrl(checkDocServiceUrlRequestDto);
                 Debug.WriteLine(result);
             }
@@ -672,7 +561,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Check the document service URL
     ApiResponse<DocServiceUrlWrapper> response = apiInstance.CheckDocServiceUrlWithHttpInfo(checkDocServiceUrlRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -697,7 +585,6 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Document service information: the Document Server address, the Document Server address in the local private network, the Community Server address |  -  |
 | **400** | Invalid input urls/Mixed Active Content is not allowed. HTTPS address for Document Server is required |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -705,7 +592,7 @@ catch (ApiException e)
 # **DisplayFileExtension**
 > BooleanWrapper DisplayFileExtension (SettingsRequestDto? settingsRequestDto = null)
 
-Specifies whether to display a file extension or not.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/display-file-extension/).
 
@@ -721,7 +608,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -740,22 +627,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -764,7 +635,6 @@ namespace Example
 
             try
             {
-                // Display a file extension
                 BooleanWrapper result = apiInstance.DisplayFileExtension(settingsRequestDto);
                 Debug.WriteLine(result);
             }
@@ -785,7 +655,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Display a file extension
     ApiResponse<BooleanWrapper> response = apiInstance.DisplayFileExtensionWithHttpInfo(settingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -809,7 +678,100 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
-| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="displayrecent"></a>
+# **DisplayRecent**
+> BooleanWrapper DisplayRecent (DisplayRequestDto? displayRequestDto = null)
+
+
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/display-recent/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **displayRequestDto** | [**DisplayRequestDto?**](DisplayRequestDto.md) | The settings request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+No authorization required
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class DisplayRecentExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
+            var displayRequestDto = new DisplayRequestDto?(); // DisplayRequestDto? | The settings request parameters. (optional) 
+
+            try
+            {
+                BooleanWrapper result = apiInstance.DisplayRecent(displayRequestDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SettingsApi.DisplayRecent: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DisplayRecentWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<BooleanWrapper> response = apiInstance.DisplayRecentWithHttpInfo(displayRequestDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SettingsApi.DisplayRecentWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Boolean value: true if the parameter is enabled |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -817,7 +779,7 @@ catch (ApiException e)
 # **ExternalShare**
 > BooleanWrapper ExternalShare (DisplayRequestDto? displayRequestDto = null)
 
-Changes the ability to share a file externally.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share/).
 
@@ -833,7 +795,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -852,22 +814,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -876,7 +822,6 @@ namespace Example
 
             try
             {
-                // Change the external sharing ability
                 BooleanWrapper result = apiInstance.ExternalShare(displayRequestDto);
                 Debug.WriteLine(result);
             }
@@ -897,7 +842,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Change the external sharing ability
     ApiResponse<BooleanWrapper> response = apiInstance.ExternalShareWithHttpInfo(displayRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -921,7 +865,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -929,7 +872,7 @@ catch (ApiException e)
 # **ExternalShareSocialMedia**
 > BooleanWrapper ExternalShareSocialMedia (DisplayRequestDto? displayRequestDto = null)
 
-Changes the ability to share a file externally on social networks.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/external-share-social-media/).
 
@@ -945,7 +888,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -964,22 +907,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -988,7 +915,6 @@ namespace Example
 
             try
             {
-                // Change the external sharing ability on social networks
                 BooleanWrapper result = apiInstance.ExternalShareSocialMedia(displayRequestDto);
                 Debug.WriteLine(result);
             }
@@ -1009,7 +935,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Change the external sharing ability on social networks
     ApiResponse<BooleanWrapper> response = apiInstance.ExternalShareSocialMediaWithHttpInfo(displayRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1033,7 +958,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1041,7 +965,7 @@ catch (ApiException e)
 # **Forcesave**
 > BooleanWrapper Forcesave ()
 
-Specifies if the file forcesaving is enabled or not.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/forcesave/).
 
@@ -1053,7 +977,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -1072,22 +996,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1095,7 +1003,6 @@ namespace Example
 
             try
             {
-                // Change the forcesaving ability
                 BooleanWrapper result = apiInstance.Forcesave();
                 Debug.WriteLine(result);
             }
@@ -1116,7 +1023,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Change the forcesaving ability
     ApiResponse<BooleanWrapper> response = apiInstance.ForcesaveWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1140,7 +1046,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1148,7 +1053,7 @@ catch (ApiException e)
 # **GetAutomaticallyCleanUp**
 > AutoCleanUpDataWrapper GetAutomaticallyCleanUp ()
 
-Returns the trash bin auto-clearing setting.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-automatically-clean-up/).
 
@@ -1160,7 +1065,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -1179,22 +1084,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1202,7 +1091,6 @@ namespace Example
 
             try
             {
-                // Get the trash bin auto-clearing setting
                 AutoCleanUpDataWrapper result = apiInstance.GetAutomaticallyCleanUp();
                 Debug.WriteLine(result);
             }
@@ -1223,7 +1111,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get the trash bin auto-clearing setting
     ApiResponse<AutoCleanUpDataWrapper> response = apiInstance.GetAutomaticallyCleanUpWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1247,7 +1134,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The auto-clearing setting properties: auto-clearing or not, a time interval when the auto-clearing will be performed |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1255,7 +1141,7 @@ catch (ApiException e)
 # **GetDocServiceUrl**
 > DocServiceUrlWrapper GetDocServiceUrl (bool? version = null)
 
-Returns the URL address of the connected editors.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-doc-service-url/).
 
@@ -1298,7 +1184,6 @@ namespace Example
 
             try
             {
-                // Get the document service URL
                 DocServiceUrlWrapper result = apiInstance.GetDocServiceUrl(version);
                 Debug.WriteLine(result);
             }
@@ -1319,7 +1204,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get the document service URL
     ApiResponse<DocServiceUrlWrapper> response = apiInstance.GetDocServiceUrlWithHttpInfo(version);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1350,7 +1234,7 @@ catch (ApiException e)
 # **GetFilesModule**
 > ModuleWrapper GetFilesModule ()
 
-Returns the information about the \"Documents\" module.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/).
 
@@ -1362,7 +1246,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -1381,22 +1265,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1404,7 +1272,6 @@ namespace Example
 
             try
             {
-                // Get the \"Documents\" information
                 ModuleWrapper result = apiInstance.GetFilesModule();
                 Debug.WriteLine(result);
             }
@@ -1425,7 +1292,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get the \"Documents\" information
     ApiResponse<ModuleWrapper> response = apiInstance.GetFilesModuleWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1449,7 +1315,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Module information: ID, product class name, title, description, icon URL, large icon URL, start URL, primary or nor, help URL |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1457,7 +1322,7 @@ catch (ApiException e)
 # **GetFilesSettings**
 > FilesSettingsWrapper GetFilesSettings ()
 
-Returns all the file settings.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-settings/).
 
@@ -1495,7 +1360,6 @@ namespace Example
 
             try
             {
-                // Get file settings
                 FilesSettingsWrapper result = apiInstance.GetFilesSettings();
                 Debug.WriteLine(result);
             }
@@ -1516,7 +1380,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get file settings
     ApiResponse<FilesSettingsWrapper> response = apiInstance.GetFilesSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1547,7 +1410,7 @@ catch (ApiException e)
 # **HideConfirmCancelOperation**
 > BooleanWrapper HideConfirmCancelOperation (SettingsRequestDto? settingsRequestDto = null)
 
-Hides the confirmation dialog when canceling operations.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-cancel-operation/).
 
@@ -1563,7 +1426,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -1582,22 +1445,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1606,7 +1453,6 @@ namespace Example
 
             try
             {
-                // Hide confirmation dialog when canceling operations
                 BooleanWrapper result = apiInstance.HideConfirmCancelOperation(settingsRequestDto);
                 Debug.WriteLine(result);
             }
@@ -1627,7 +1473,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Hide confirmation dialog when canceling operations
     ApiResponse<BooleanWrapper> response = apiInstance.HideConfirmCancelOperationWithHttpInfo(settingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1651,7 +1496,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1659,7 +1503,7 @@ catch (ApiException e)
 # **HideConfirmConvert**
 > ModuleWrapper HideConfirmConvert (HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = null)
 
-Hides the confirmation dialog for saving the file copy in the original format when converting a file.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/).
 
@@ -1675,7 +1519,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -1694,22 +1538,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1718,7 +1546,6 @@ namespace Example
 
             try
             {
-                // Hide the confirmation dialog when converting
                 ModuleWrapper result = apiInstance.HideConfirmConvert(hideConfirmConvertRequestDto);
                 Debug.WriteLine(result);
             }
@@ -1739,7 +1566,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Hide the confirmation dialog when converting
     ApiResponse<ModuleWrapper> response = apiInstance.HideConfirmConvertWithHttpInfo(hideConfirmConvertRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1763,7 +1589,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1771,7 +1596,7 @@ catch (ApiException e)
 # **HideConfirmRoomLifetime**
 > BooleanWrapper HideConfirmRoomLifetime (SettingsRequestDto? settingsRequestDto = null)
 
-Hides the confirmation dialog when changing the room lifetime settings.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-room-lifetime/).
 
@@ -1787,7 +1612,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -1806,22 +1631,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1830,7 +1639,6 @@ namespace Example
 
             try
             {
-                // Hide confirmation dialog when changing room lifetime settings
                 BooleanWrapper result = apiInstance.HideConfirmRoomLifetime(settingsRequestDto);
                 Debug.WriteLine(result);
             }
@@ -1851,7 +1659,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Hide confirmation dialog when changing room lifetime settings
     ApiResponse<BooleanWrapper> response = apiInstance.HideConfirmRoomLifetimeWithHttpInfo(settingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1875,7 +1682,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1883,7 +1689,7 @@ catch (ApiException e)
 # **IsAvailablePrivacyRoomSettings**
 > BooleanWrapper IsAvailablePrivacyRoomSettings ()
 
-Checks if the \"Private Room\" settings are available or not.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/is-available-privacy-room-settings/).
 
@@ -1895,7 +1701,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -1914,22 +1720,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1937,7 +1727,6 @@ namespace Example
 
             try
             {
-                // Check the \"Private Room\" availability
                 BooleanWrapper result = apiInstance.IsAvailablePrivacyRoomSettings();
                 Debug.WriteLine(result);
             }
@@ -1958,7 +1747,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Check the \"Private Room\" availability
     ApiResponse<BooleanWrapper> response = apiInstance.IsAvailablePrivacyRoomSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1982,7 +1770,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the Private Room settings are available |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1990,7 +1777,7 @@ catch (ApiException e)
 # **KeepNewFileName**
 > BooleanWrapper KeepNewFileName (SettingsRequestDto? settingsRequestDto = null)
 
-Specifies whether to ask a user for a file name on creation or not.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/keep-new-file-name/).
 
@@ -2006,7 +1793,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -2025,22 +1812,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -2049,7 +1820,6 @@ namespace Example
 
             try
             {
-                // Ask a new file name
                 BooleanWrapper result = apiInstance.KeepNewFileName(settingsRequestDto);
                 Debug.WriteLine(result);
             }
@@ -2070,7 +1840,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Ask a new file name
     ApiResponse<BooleanWrapper> response = apiInstance.KeepNewFileNameWithHttpInfo(settingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -2094,7 +1863,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2102,7 +1870,7 @@ catch (ApiException e)
 # **SetOpenEditorInSameTab**
 > BooleanWrapper SetOpenEditorInSameTab (SettingsRequestDto? settingsRequestDto = null)
 
-Changes the ability to open the document in the same browser tab.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-open-editor-in-same-tab/).
 
@@ -2118,7 +1886,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -2137,22 +1905,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -2161,7 +1913,6 @@ namespace Example
 
             try
             {
-                // Open document in the same browser tab
                 BooleanWrapper result = apiInstance.SetOpenEditorInSameTab(settingsRequestDto);
                 Debug.WriteLine(result);
             }
@@ -2182,7 +1933,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Open document in the same browser tab
     ApiResponse<BooleanWrapper> response = apiInstance.SetOpenEditorInSameTabWithHttpInfo(settingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -2206,7 +1956,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2214,7 +1963,7 @@ catch (ApiException e)
 # **StoreForcesave**
 > BooleanWrapper StoreForcesave ()
 
-Changes the ability to store the forcesaved file versions.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/store-forcesave/).
 
@@ -2226,7 +1975,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -2245,22 +1994,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -2268,7 +2001,6 @@ namespace Example
 
             try
             {
-                // Change the ability to store the forcesaved files
                 BooleanWrapper result = apiInstance.StoreForcesave();
                 Debug.WriteLine(result);
             }
@@ -2289,7 +2021,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Change the ability to store the forcesaved files
     ApiResponse<BooleanWrapper> response = apiInstance.StoreForcesaveWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -2313,7 +2044,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2321,7 +2051,7 @@ catch (ApiException e)
 # **StoreOriginal**
 > BooleanWrapper StoreOriginal (SettingsRequestDto? settingsRequestDto = null)
 
-Changes the ability to upload documents in the original formats as well.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/store-original/).
 
@@ -2337,7 +2067,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -2356,22 +2086,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -2380,7 +2094,6 @@ namespace Example
 
             try
             {
-                // Change the ability to upload original formats
                 BooleanWrapper result = apiInstance.StoreOriginal(settingsRequestDto);
                 Debug.WriteLine(result);
             }
@@ -2401,7 +2114,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Change the ability to upload original formats
     ApiResponse<BooleanWrapper> response = apiInstance.StoreOriginalWithHttpInfo(settingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -2425,7 +2137,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2433,7 +2144,7 @@ catch (ApiException e)
 # **UpdateFileIfExist**
 > BooleanWrapper UpdateFileIfExist (SettingsRequestDto? settingsRequestDto = null)
 
-Updates a file version if a file with such a name already exists.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/).
 
@@ -2449,7 +2160,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -2468,22 +2179,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -2492,7 +2187,6 @@ namespace Example
 
             try
             {
-                // Update a file version if it exists
                 BooleanWrapper result = apiInstance.UpdateFileIfExist(settingsRequestDto);
                 Debug.WriteLine(result);
             }
@@ -2513,7 +2207,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Update a file version if it exists
     ApiResponse<BooleanWrapper> response = apiInstance.UpdateFileIfExistWithHttpInfo(settingsRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -2537,7 +2230,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -577,6 +577,7 @@ namespace DocSpace.API.SDK.Api.Authentication
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Authenticate a user
         /// </summary>

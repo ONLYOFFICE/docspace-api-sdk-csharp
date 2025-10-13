@@ -429,6 +429,7 @@ namespace DocSpace.API.SDK.Api.Settings
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Get the IP portal restrictions
         /// </summary>

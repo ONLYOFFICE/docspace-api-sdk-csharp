@@ -293,6 +293,7 @@ namespace DocSpace.API.SDK.Api.Security
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Set the promotional banners visibility settings
         /// </summary>

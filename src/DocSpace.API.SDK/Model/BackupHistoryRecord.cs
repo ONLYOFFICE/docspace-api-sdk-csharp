@@ -28,20 +28,30 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets StorageType
         /// </summary>
-        [DataMember(Name = "storageType", EmitDefaultValue = false)]
-        public BackupStorageType? StorageType { get; set; }
+        [DataMember(Name = "storageType", IsRequired = true, EmitDefaultValue = true)]
+        public BackupStorageType StorageType { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupHistoryRecord" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="fileName">fileName.</param>
-        /// <param name="storageType">storageType.</param>
-        /// <param name="createdOn">createdOn.</param>
-        /// <param name="expiresOn">expiresOn.</param>
-        public BackupHistoryRecord(Guid id = default, string fileName = default, BackupStorageType? storageType = default, DateTime createdOn = default, DateTime expiresOn = default)
+        [JsonConstructorAttribute]
+        protected BackupHistoryRecord() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BackupHistoryRecord" /> class.
+        /// </summary>
+        /// <param name="id">id (required).</param>
+        /// <param name="fileName">fileName (required).</param>
+        /// <param name="storageType">storageType (required).</param>
+        /// <param name="createdOn">createdOn (required).</param>
+        /// <param name="expiresOn">expiresOn (required).</param>
+        public BackupHistoryRecord(Guid id = default, string fileName = default, BackupStorageType storageType = default, DateTime createdOn = default, DateTime expiresOn = default)
         {
             this.Id = id;
+            // to ensure "fileName" is required (not null)
+            if (fileName == null)
+            {
+                throw new ArgumentNullException("fileName is a required property for BackupHistoryRecord and cannot be null");
+            }
             this.FileName = fileName;
             this.StorageType = storageType;
             this.CreatedOn = createdOn;
@@ -54,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
 
         /// <summary>
@@ -63,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileName", EmitDefaultValue = true)]
+        [DataMember(Name = "fileName", IsRequired = true, EmitDefaultValue = true)]
         public string FileName { get; set; }
 
         /// <summary>
@@ -72,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "createdOn", EmitDefaultValue = false)]
+        [DataMember(Name = "createdOn", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreatedOn { get; set; }
 
         /// <summary>
@@ -81,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "expiresOn", EmitDefaultValue = false)]
+        [DataMember(Name = "expiresOn", IsRequired = true, EmitDefaultValue = true)]
         public DateTime ExpiresOn { get; set; }
 
         /// <summary>

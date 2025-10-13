@@ -142,9 +142,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="defaultOrder">defaultOrder.</param>
         /// <param name="forcesave">Specifies whether to forcesave the files or not..</param>
         /// <param name="storeForcesave">Specifies whether to store the forcesaved file versions or not..</param>
-        /// <param name="recentSection">Specifies if the \&quot;Recent\&quot; section is displayed or not..</param>
-        /// <param name="favoritesSection">Specifies if the \&quot;Favorites\&quot; section is displayed or not..</param>
-        /// <param name="templatesSection">Specifies if the \&quot;Templates\&quot; section is displayed or not..</param>
+        /// <param name="recentSection">Specifies if the Recent section is displayed or not..</param>
+        /// <param name="favoritesSection">Specifies if the Favorites section is displayed or not..</param>
+        /// <param name="templatesSection">Specifies if the Templates section is displayed or not..</param>
         /// <param name="downloadTarGz">Specifies whether to download the .tar.gz files or not..</param>
         /// <param name="automaticallyCleanUp">automaticallyCleanUp.</param>
         /// <param name="canSearchByContent">Specifies whether the file can be searched by its content or not..</param>
@@ -676,9 +676,9 @@ namespace DocSpace.API.SDK.Model
         public bool StoreForcesave { get; set; }
 
         /// <summary>
-        /// Specifies if the \&quot;Recent\&quot; section is displayed or not.
+        /// Specifies if the Recent section is displayed or not.
         /// </summary>
-        /// <value>Specifies if the \&quot;Recent\&quot; section is displayed or not.</value>
+        /// <value>Specifies if the Recent section is displayed or not.</value>
         /*
         <example>true</example>
         */
@@ -686,9 +686,9 @@ namespace DocSpace.API.SDK.Model
         public bool RecentSection { get; set; }
 
         /// <summary>
-        /// Specifies if the \&quot;Favorites\&quot; section is displayed or not.
+        /// Specifies if the Favorites section is displayed or not.
         /// </summary>
-        /// <value>Specifies if the \&quot;Favorites\&quot; section is displayed or not.</value>
+        /// <value>Specifies if the Favorites section is displayed or not.</value>
         /*
         <example>true</example>
         */
@@ -696,9 +696,9 @@ namespace DocSpace.API.SDK.Model
         public bool FavoritesSection { get; set; }
 
         /// <summary>
-        /// Specifies if the \&quot;Templates\&quot; section is displayed or not.
+        /// Specifies if the Templates section is displayed or not.
         /// </summary>
-        /// <value>Specifies if the \&quot;Templates\&quot; section is displayed or not.</value>
+        /// <value>Specifies if the Templates section is displayed or not.</value>
         /*
         <example>true</example>
         */

@@ -28,14 +28,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Theme
         /// </summary>
-        [DataMember(Name = "theme", EmitDefaultValue = false)]
-        public DarkThemeSettingsType? Theme { get; set; }
+        [DataMember(Name = "theme", IsRequired = true, EmitDefaultValue = true)]
+        public DarkThemeSettingsType Theme { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="DarkThemeSettingsRequestDto" /> class.
         /// </summary>
-        /// <param name="theme">theme.</param>
-        public DarkThemeSettingsRequestDto(DarkThemeSettingsType? theme = default)
+        [JsonConstructorAttribute]
+        protected DarkThemeSettingsRequestDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DarkThemeSettingsRequestDto" /> class.
+        /// </summary>
+        /// <param name="theme">theme (required).</param>
+        public DarkThemeSettingsRequestDto(DarkThemeSettingsType theme = default)
         {
             this.Theme = theme;
         }

@@ -28,18 +28,33 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StorageDto" /> class.
         /// </summary>
-        /// <param name="id">The storage ID..</param>
-        /// <param name="title">The storage title..</param>
+        [JsonConstructorAttribute]
+        protected StorageDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StorageDto" /> class.
+        /// </summary>
+        /// <param name="id">The storage ID. (required).</param>
+        /// <param name="title">The storage title. (required).</param>
         /// <param name="properties">The list of storage authentication keys..</param>
-        /// <param name="current">Specifies if this is the current portal storage or not..</param>
-        /// <param name="isSet">Specifies if this storage can be set or not..</param>
+        /// <param name="current">Specifies if this is the current portal storage or not. (required).</param>
+        /// <param name="isSet">Specifies if this storage can be set or not. (required).</param>
         public StorageDto(string id = default, string title = default, List<AuthKey> properties = default, bool current = default, bool isSet = default)
         {
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for StorageDto and cannot be null");
+            }
             this.Id = id;
+            // to ensure "title" is required (not null)
+            if (title == null)
+            {
+                throw new ArgumentNullException("title is a required property for StorageDto and cannot be null");
+            }
             this.Title = title;
-            this.Properties = properties;
             this.Current = current;
             this.IsSet = isSet;
+            this.Properties = properties;
         }
 
         /// <summary>
@@ -49,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -59,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>legacy_1080p_small_wooden_mouse</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
@@ -76,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "current", EmitDefaultValue = true)]
+        [DataMember(Name = "current", IsRequired = true, EmitDefaultValue = true)]
         public bool Current { get; set; }
 
         /// <summary>
@@ -86,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isSet", EmitDefaultValue = true)]
+        [DataMember(Name = "isSet", IsRequired = true, EmitDefaultValue = true)]
         public bool IsSet { get; set; }
 
         /// <summary>

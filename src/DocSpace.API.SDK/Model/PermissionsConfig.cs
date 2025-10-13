@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="edit">Defines if the document can be edited or only viewed..</param>
         /// <param name="fillForms">Defines if the forms can be filled..</param>
         /// <param name="modifyFilter">Defines if the filter can be applied globally (true) affecting all the other users,  or locally (false), i.e. for the current user only..</param>
-        /// <param name="protect">Defines if the \&quot;Protection\&quot; tab on the toolbar and the \&quot;Protect\&quot; button in the left menu are displayedor hidden..</param>
+        /// <param name="protect">Defines if the Protection tab on the toolbar and the Protect button in the left menu are displayedor hidden..</param>
         /// <param name="print">Defines if the document can be printed or not..</param>
         /// <param name="review">Defines if the document can be reviewed or not..</param>
         /// <param name="copy">Defines if the content can be copied to the clipboard or not..</param>
@@ -113,9 +113,9 @@ namespace DocSpace.API.SDK.Model
         public bool ModifyFilter { get; set; }
 
         /// <summary>
-        /// Defines if the \&quot;Protection\&quot; tab on the toolbar and the \&quot;Protect\&quot; button in the left menu are displayedor hidden.
+        /// Defines if the Protection tab on the toolbar and the Protect button in the left menu are displayedor hidden.
         /// </summary>
-        /// <value>Defines if the \&quot;Protection\&quot; tab on the toolbar and the \&quot;Protect\&quot; button in the left menu are displayedor hidden.</value>
+        /// <value>Defines if the Protection tab on the toolbar and the Protect button in the left menu are displayedor hidden.</value>
         /*
         <example>true</example>
         */

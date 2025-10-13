@@ -24,6 +24,27 @@ namespace DocSpace.API.SDK.Api.Settings
     {
         #region Synchronous Operations
         /// <summary>
+        /// Gets notification channel settings
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of notification channels
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-channels/">REST API Reference for GetNotificationChannels Operation</seealso>
+        /// <returns>NotificationChannelStatusWrapper</returns>
+        NotificationChannelStatusWrapper GetNotificationChannels();
+
+        /// <summary>
+        /// Gets notification channel settings
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of notification channels
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-channels/">REST API Reference for GetNotificationChannels Operation</seealso>
+        /// <returns>ApiResponse of NotificationChannelStatusWrapper</returns>
+        ApiResponse<NotificationChannelStatusWrapper> GetNotificationChannelsWithHttpInfo();
+        /// <summary>
         /// Check notification availability
         /// </summary>
         /// <remarks>
@@ -122,6 +143,29 @@ namespace DocSpace.API.SDK.Api.Settings
     public interface INotificationsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Gets notification channel settings
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of notification channels
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-channels/">REST API Reference for GetNotificationChannels Operation</seealso>
+        /// <returns>Task of NotificationChannelStatusWrapper</returns>
+        Task<NotificationChannelStatusWrapper> GetNotificationChannelsAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Gets notification channel settings
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of notification channels
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-channels/">REST API Reference for GetNotificationChannels Operation</seealso>
+        /// <returns>Task of ApiResponse (NotificationChannelStatusWrapper)</returns>
+        Task<ApiResponse<NotificationChannelStatusWrapper>> GetNotificationChannelsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Check notification availability
         /// </summary>
@@ -431,6 +475,183 @@ namespace DocSpace.API.SDK.Api.Settings
                 return _exceptionFactory;
             }
             set => _exceptionFactory = value; 
+        }
+
+
+        /// <summary>
+        /// Gets notification channel settings
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of notification channels
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-channels/">REST API Reference for GetNotificationChannels Operation</seealso>
+        /// <returns>NotificationChannelStatusWrapper</returns>
+        public NotificationChannelStatusWrapper GetNotificationChannels()
+        {
+            var localVarResponse = GetNotificationChannelsWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Gets notification channel settings
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of notification channels
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-channels/">REST API Reference for GetNotificationChannels Operation</seealso>
+        /// <returns>ApiResponse of NotificationChannelStatusWrapper</returns>
+        public ApiResponse<NotificationChannelStatusWrapper> GetNotificationChannelsWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<NotificationChannelStatusWrapper>("/api/2.0/settings/notification/channels", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetNotificationChannels", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Gets notification channel settings
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of notification channels
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-channels/">REST API Reference for GetNotificationChannels Operation</seealso>
+        /// <returns>Task of NotificationChannelStatusWrapper</returns>
+        public async Task<NotificationChannelStatusWrapper> GetNotificationChannelsAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetNotificationChannelsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Gets notification channel settings
+        /// </summary>
+        /// <remarks>
+        /// Returns a list of notification channels
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-channels/">REST API Reference for GetNotificationChannels Operation</seealso>
+        /// <returns>Task of ApiResponse (NotificationChannelStatusWrapper)</returns>
+        public async Task<ApiResponse<NotificationChannelStatusWrapper>> GetNotificationChannelsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<NotificationChannelStatusWrapper>("/api/2.0/settings/notification/channels", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetNotificationChannels", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>

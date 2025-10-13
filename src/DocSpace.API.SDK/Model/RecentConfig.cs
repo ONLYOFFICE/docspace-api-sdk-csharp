@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The presence or absence of the documents in the \&quot;Open Recent...\&quot; menu option.
+    /// The presence or absence of the documents in the Open Recent... menu option.
     /// </summary>
     [DataContract(Name = "RecentConfig")]
     public partial class RecentConfig : IValidatableObject

@@ -5,10 +5,10 @@ The room logo information.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Original** | **string** | The original logo. | [optional] 
-**Large** | **string** | The large logo. | [optional] 
-**Medium** | **string** | The medium logo. | [optional] 
-**Small** | **string** | The small logo. | [optional] 
+**Original** | **string** | The original logo. | 
+**Large** | **string** | The large logo. | 
+**Medium** | **string** | The medium logo. | 
+**Small** | **string** | The small logo. | 
 **Color** | **string** | The logo color. | [optional] 
 **Cover** | [**LogoCover**](LogoCover.md) |  | [optional] 
 

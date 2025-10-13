@@ -5,7 +5,7 @@ The request parameters for configuring the password complexity requirements.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MinLength** | **int** | The minimum number of characters required for valid passwords. | [optional] 
+**MinLength** | **int** | The minimum number of characters required for valid passwords. | 
 **UpperCase** | **bool** | Specifies whether the password should contain the uppercase letters or not. | [optional] 
 **Digits** | **bool** | Specifies whether the password should contain the digits or not. | [optional] 
 **SpecSymbols** | **bool** | Specifies whether the password should contain the special symbols or not. | [optional] 

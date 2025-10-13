@@ -28,22 +28,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EditHistoryDataDto" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected EditHistoryDataDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EditHistoryDataDto" /> class.
+        /// </summary>
         /// <param name="changesUrl">The URL address of the file with the document changes data..</param>
-        /// <param name="key">The document identifier used to unambiguously identify the document file..</param>
+        /// <param name="key">The document identifier used to unambiguously identify the document file. (required).</param>
         /// <param name="previous">previous.</param>
         /// <param name="token">The encrypted signature added to the parameter in the form of a token..</param>
-        /// <param name="url">The URL address of the current document version..</param>
-        /// <param name="version">The document version number..</param>
-        /// <param name="fileType">The document extension..</param>
+        /// <param name="url">The URL address of the current document version. (required).</param>
+        /// <param name="version">The document version number. (required).</param>
+        /// <param name="fileType">The document extension. (required).</param>
         public EditHistoryDataDto(string changesUrl = default, string key = default, EditHistoryUrl previous = default, string token = default, string url = default, int version = default, string fileType = default)
         {
-            this.ChangesUrl = changesUrl;
+            // to ensure "key" is required (not null)
+            if (key == null)
+            {
+                throw new ArgumentNullException("key is a required property for EditHistoryDataDto and cannot be null");
+            }
             this.Key = key;
-            this.Previous = previous;
-            this.Token = token;
+            // to ensure "url" is required (not null)
+            if (url == null)
+            {
+                throw new ArgumentNullException("url is a required property for EditHistoryDataDto and cannot be null");
+            }
             this.Url = url;
             this.@Version = version;
+            // to ensure "fileType" is required (not null)
+            if (fileType == null)
+            {
+                throw new ArgumentNullException("fileType is a required property for EditHistoryDataDto and cannot be null");
+            }
             this.FileType = fileType;
+            this.ChangesUrl = changesUrl;
+            this.Previous = previous;
+            this.Token = token;
         }
 
         /// <summary>
@@ -63,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "key", EmitDefaultValue = true)]
+        [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
@@ -89,7 +109,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "url", EmitDefaultValue = true)]
+        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
@@ -99,7 +119,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "version", EmitDefaultValue = false)]
+        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public int @Version { get; set; }
 
         /// <summary>
@@ -109,7 +129,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileType", EmitDefaultValue = true)]
+        [DataMember(Name = "fileType", IsRequired = true, EmitDefaultValue = true)]
         public string FileType { get; set; }
 
         /// <summary>

@@ -1081,6 +1081,7 @@ namespace DocSpace.API.SDK.Api.Settings
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Delete the additional white label settings
         /// </summary>

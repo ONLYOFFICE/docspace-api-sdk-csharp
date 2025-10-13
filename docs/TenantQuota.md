@@ -34,11 +34,13 @@ Name | Type | Description | Notes
 **Customization** | **bool** | Specifies if the customization settings are available or not. | [optional] 
 **Lifetime** | **bool** | Specifies if the license has the lifetime settings or not. | [optional] 
 **Custom** | **bool** | Specifies if the custom domain URL is available or not. | [optional] 
-**AutoBackupRestore** | **bool** | Specifies if the automatic backup option is enabled or not. | [optional] 
+**Restore** | **bool** | Specifies if the restore is enabled or not. | [optional] 
 **Oauth** | **bool** | Specifies if Oauth is available or not. | [optional] 
 **ContentSearch** | **bool** | Specifies if the content search is available or not. | [optional] 
 **ThirdParty** | **bool** | Specifies if the third-party accounts linking is available or not. | [optional] 
 **Year** | **bool** | Specifies if the tenant quota is yearly subscription or not. | [optional] 
+**CountFreeBackup** | **int** | The number of free backups within a month. | [optional] 
+**Backup** | **bool** | Specifies if the backup anabled as a wallet service or not. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

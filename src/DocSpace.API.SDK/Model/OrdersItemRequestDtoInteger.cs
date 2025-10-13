@@ -28,16 +28,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets EntryType
         /// </summary>
-        [DataMember(Name = "entryType", EmitDefaultValue = false)]
-        public FileEntryType? EntryType { get; set; }
+        [DataMember(Name = "entryType", IsRequired = true, EmitDefaultValue = true)]
+        public FileEntryType EntryType { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="OrdersItemRequestDtoInteger" /> class.
         /// </summary>
-        /// <param name="entryId">The entry unique identifier (file or folder)..</param>
-        /// <param name="entryType">entryType.</param>
-        /// <param name="order">The order value..</param>
-        public OrdersItemRequestDtoInteger(int entryId = default, FileEntryType? entryType = default, int order = default)
+        [JsonConstructorAttribute]
+        protected OrdersItemRequestDtoInteger() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OrdersItemRequestDtoInteger" /> class.
+        /// </summary>
+        /// <param name="entryId">The entry unique identifier (file or folder). (required).</param>
+        /// <param name="entryType">entryType (required).</param>
+        /// <param name="order">The order value. (required).</param>
+        public OrdersItemRequestDtoInteger(int entryId = default, FileEntryType entryType = default, int order = default)
         {
             this.EntryId = entryId;
             this.EntryType = entryType;
@@ -51,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "entryId", EmitDefaultValue = false)]
+        [DataMember(Name = "entryId", IsRequired = true, EmitDefaultValue = true)]
         public int EntryId { get; set; }
 
         /// <summary>
@@ -61,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "order", EmitDefaultValue = false)]
+        [DataMember(Name = "order", IsRequired = true, EmitDefaultValue = true)]
         public int Order { get; set; }
 
         /// <summary>

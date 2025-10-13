@@ -34,24 +34,44 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SignupAccountRequestDto" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected SignupAccountRequestDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SignupAccountRequestDto" /> class.
+        /// </summary>
         /// <param name="employeeType">employeeType.</param>
         /// <param name="firstName">The user first name..</param>
         /// <param name="lastName">The user last name..</param>
-        /// <param name="email">The user email address..</param>
+        /// <param name="email">The user email address. (required).</param>
         /// <param name="passwordHash">The user password hash..</param>
-        /// <param name="key">The user link key..</param>
+        /// <param name="key">The user link key. (required).</param>
         /// <param name="culture">The user culture code..</param>
-        /// <param name="serializedProfile">Third-party profile in the serialized format.</param>
+        /// <param name="serializedProfile">Third-party profile in the serialized format (required).</param>
         public SignupAccountRequestDto(EmployeeType? employeeType = default, string firstName = default, string lastName = default, string email = default, string passwordHash = default, string key = default, string culture = default, string serializedProfile = default)
         {
+            // to ensure "email" is required (not null)
+            if (email == null)
+            {
+                throw new ArgumentNullException("email is a required property for SignupAccountRequestDto and cannot be null");
+            }
+            this.Email = email;
+            // to ensure "key" is required (not null)
+            if (key == null)
+            {
+                throw new ArgumentNullException("key is a required property for SignupAccountRequestDto and cannot be null");
+            }
+            this.Key = key;
+            // to ensure "serializedProfile" is required (not null)
+            if (serializedProfile == null)
+            {
+                throw new ArgumentNullException("serializedProfile is a required property for SignupAccountRequestDto and cannot be null");
+            }
+            this.SerializedProfile = serializedProfile;
             this.EmployeeType = employeeType;
             this.FirstName = firstName;
             this.LastName = lastName;
-            this.Email = email;
             this.PasswordHash = passwordHash;
-            this.Key = key;
             this.Culture = culture;
-            this.SerializedProfile = serializedProfile;
         }
 
         /// <summary>
@@ -81,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Sydney_Roberts4@hotmail.com</example>
         */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
+        [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
@@ -101,7 +121,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "key", EmitDefaultValue = true)]
+        [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
@@ -121,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "serializedProfile", EmitDefaultValue = true)]
+        [DataMember(Name = "serializedProfile", IsRequired = true, EmitDefaultValue = true)]
         public string SerializedProfile { get; set; }
 
         /// <summary>

@@ -68,10 +68,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
-        /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
+        /// <param name="changeHistory">The parameters for changing version history.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
         /// <returns>FileIntegerArrayWrapper</returns>
-        FileIntegerArrayWrapper ChangeVersionHistory(int fileId, ChangeHistory? changeHistory = default);
+        FileIntegerArrayWrapper ChangeVersionHistory(int fileId, ChangeHistory changeHistory);
 
         /// <summary>
         /// 
@@ -81,19 +81,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
-        /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
+        /// <param name="changeHistory">The parameters for changing version history.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
         /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
-        ApiResponse<FileIntegerArrayWrapper> ChangeVersionHistoryWithHttpInfo(int fileId, ChangeHistory? changeHistory = default);
+        ApiResponse<FileIntegerArrayWrapper> ChangeVersionHistoryWithHttpInfo(int fileId, ChangeHistory changeHistory);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
-        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
+        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/">REST API Reference for CheckFillFormDraft Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper CheckFillFormDraft(int fileId, CheckFillFormDraft? checkFillFormDraft = default);
+        StringWrapper CheckFillFormDraft(int fileId, CheckFillFormDraft checkFillFormDraft);
 
         /// <summary>
         /// 
@@ -103,19 +103,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
-        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
+        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/">REST API Reference for CheckFillFormDraft Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> CheckFillFormDraftWithHttpInfo(int fileId, CheckFillFormDraft? checkFillFormDraft = default);
+        ApiResponse<StringWrapper> CheckFillFormDraftWithHttpInfo(int fileId, CheckFillFormDraft checkFillFormDraft);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
-        /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
+        /// <param name="copyAsJsonElement">The parameters for copying a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/">REST API Reference for CopyFileAs Operation</seealso>
         /// <returns>FileEntryBaseWrapper</returns>
-        FileEntryBaseWrapper CopyFileAs(int fileId, CopyAsJsonElement? copyAsJsonElement = default);
+        FileEntryBaseWrapper CopyFileAs(int fileId, CopyAsJsonElement copyAsJsonElement);
 
         /// <summary>
         /// 
@@ -125,10 +125,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
-        /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
+        /// <param name="copyAsJsonElement">The parameters for copying a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/">REST API Reference for CopyFileAs Operation</seealso>
         /// <returns>ApiResponse of FileEntryBaseWrapper</returns>
-        ApiResponse<FileEntryBaseWrapper> CopyFileAsWithHttpInfo(int fileId, CopyAsJsonElement? copyAsJsonElement = default);
+        ApiResponse<FileEntryBaseWrapper> CopyFileAsWithHttpInfo(int fileId, CopyAsJsonElement copyAsJsonElement);
         /// <summary>
         /// 
         /// </summary>
@@ -156,10 +156,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
-        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
+        /// <param name="createFileJsonElement">The parameters for creating a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/">REST API Reference for CreateFile Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper CreateFile(int folderId, CreateFileJsonElement? createFileJsonElement = default);
+        FileIntegerWrapper CreateFile(int folderId, CreateFileJsonElement createFileJsonElement);
 
         /// <summary>
         /// 
@@ -169,10 +169,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
-        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
+        /// <param name="createFileJsonElement">The parameters for creating a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/">REST API Reference for CreateFile Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> CreateFileWithHttpInfo(int folderId, CreateFileJsonElement? createFileJsonElement = default);
+        ApiResponse<FileIntegerWrapper> CreateFileWithHttpInfo(int folderId, CreateFileJsonElement createFileJsonElement);
         /// <summary>
         /// 
         /// </summary>
@@ -198,10 +198,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        FileShareWrapper CreateFilePrimaryExternalLink(int id, FileLinkRequest? fileLinkRequest = default);
+        FileShareWrapper CreateFilePrimaryExternalLink(int id, FileLinkRequest fileLinkRequest);
 
         /// <summary>
         /// 
@@ -211,19 +211,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        ApiResponse<FileShareWrapper> CreateFilePrimaryExternalLinkWithHttpInfo(int id, FileLinkRequest? fileLinkRequest = default);
+        ApiResponse<FileShareWrapper> CreateFilePrimaryExternalLinkWithHttpInfo(int id, FileLinkRequest fileLinkRequest);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/">REST API Reference for CreateHtmlFile Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper CreateHtmlFile(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default);
+        FileIntegerWrapper CreateHtmlFile(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile);
 
         /// <summary>
         /// 
@@ -233,10 +233,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/">REST API Reference for CreateHtmlFile Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> CreateHtmlFileWithHttpInfo(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default);
+        ApiResponse<FileIntegerWrapper> CreateHtmlFileWithHttpInfo(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile);
         /// <summary>
         /// 
         /// </summary>
@@ -262,10 +262,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/">REST API Reference for CreateTextFile Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper CreateTextFile(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default);
+        FileIntegerWrapper CreateTextFile(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile);
 
         /// <summary>
         /// 
@@ -275,10 +275,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/">REST API Reference for CreateTextFile Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> CreateTextFileWithHttpInfo(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default);
+        ApiResponse<FileIntegerWrapper> CreateTextFileWithHttpInfo(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile);
         /// <summary>
         /// 
         /// </summary>
@@ -686,10 +686,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
-        /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
+        /// <param name="lockFileParameters">The parameters for locking a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/">REST API Reference for LockFile Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper LockFile(int fileId, LockFileParameters? lockFileParameters = default);
+        FileIntegerWrapper LockFile(int fileId, LockFileParameters lockFileParameters);
 
         /// <summary>
         /// 
@@ -699,10 +699,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
-        /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
+        /// <param name="lockFileParameters">The parameters for locking a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/">REST API Reference for LockFile Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> LockFileWithHttpInfo(int fileId, LockFileParameters? lockFileParameters = default);
+        ApiResponse<FileIntegerWrapper> LockFileWithHttpInfo(int fileId, LockFileParameters lockFileParameters);
         /// <summary>
         /// 
         /// </summary>
@@ -812,10 +812,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper SaveFileAsPdf(int id, SaveAsPdfInteger? saveAsPdfInteger = default);
+        FileIntegerWrapper SaveFileAsPdf(int id, SaveAsPdfInteger saveAsPdfInteger);
 
         /// <summary>
         /// 
@@ -825,10 +825,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> SaveFileAsPdfWithHttpInfo(int id, SaveAsPdfInteger? saveAsPdfInteger = default);
+        ApiResponse<FileIntegerWrapper> SaveFileAsPdfWithHttpInfo(int id, SaveAsPdfInteger saveAsPdfInteger);
         /// <summary>
         /// 
         /// </summary>
@@ -836,8 +836,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId"></param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
-        /// <returns>FormRoleWrapper</returns>
-        FormRoleWrapper SaveFormRoleMapping(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default);
+        /// <returns></returns>
+        void SaveFormRoleMapping(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default);
 
         /// <summary>
         /// 
@@ -849,17 +849,17 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId"></param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
-        /// <returns>ApiResponse of FormRoleWrapper</returns>
-        ApiResponse<FormRoleWrapper> SaveFormRoleMappingWithHttpInfo(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> SaveFormRoleMappingWithHttpInfo(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
-        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
+        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper SetCustomFilterTag(int fileId, CustomFilterParameters? customFilterParameters = default);
+        FileIntegerWrapper SetCustomFilterTag(int fileId, CustomFilterParameters customFilterParameters);
 
         /// <summary>
         /// 
@@ -869,19 +869,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
-        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
+        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> SetCustomFilterTagWithHttpInfo(int fileId, CustomFilterParameters? customFilterParameters = default);
+        ApiResponse<FileIntegerWrapper> SetCustomFilterTagWithHttpInfo(int fileId, CustomFilterParameters customFilterParameters);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        FileShareWrapper SetFileExternalLink(int id, FileLinkRequest? fileLinkRequest = default);
+        FileShareWrapper SetFileExternalLink(int id, FileLinkRequest fileLinkRequest);
 
         /// <summary>
         /// 
@@ -891,10 +891,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        ApiResponse<FileShareWrapper> SetFileExternalLinkWithHttpInfo(int id, FileLinkRequest? fileLinkRequest = default);
+        ApiResponse<FileShareWrapper> SetFileExternalLinkWithHttpInfo(int id, FileLinkRequest fileLinkRequest);
         /// <summary>
         /// 
         /// </summary>
@@ -942,10 +942,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
-        /// <param name="startEdit">The file parameters to start editing. (optional)</param>
+        /// <param name="startEdit">The file parameters to start editing.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/">REST API Reference for StartEditFile Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper StartEditFile(int fileId, StartEdit? startEdit = default);
+        StringWrapper StartEditFile(int fileId, StartEdit startEdit);
 
         /// <summary>
         /// 
@@ -955,10 +955,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
-        /// <param name="startEdit">The file parameters to start editing. (optional)</param>
+        /// <param name="startEdit">The file parameters to start editing.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/">REST API Reference for StartEditFile Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> StartEditFileWithHttpInfo(int fileId, StartEdit? startEdit = default);
+        ApiResponse<StringWrapper> StartEditFileWithHttpInfo(int fileId, StartEdit startEdit);
         /// <summary>
         /// 
         /// </summary>
@@ -1032,10 +1032,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
-        /// <param name="updateFile">The parameters for updating a file. (optional)</param>
+        /// <param name="updateFile">The parameters for updating a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/">REST API Reference for UpdateFile Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper UpdateFile(int fileId, UpdateFile? updateFile = default);
+        FileIntegerWrapper UpdateFile(int fileId, UpdateFile updateFile);
 
         /// <summary>
         /// 
@@ -1045,10 +1045,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
-        /// <param name="updateFile">The parameters for updating a file. (optional)</param>
+        /// <param name="updateFile">The parameters for updating a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/">REST API Reference for UpdateFile Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> UpdateFileWithHttpInfo(int fileId, UpdateFile? updateFile = default);
+        ApiResponse<FileIntegerWrapper> UpdateFileWithHttpInfo(int fileId, UpdateFile updateFile);
         #endregion Synchronous Operations
     }
 
@@ -1116,11 +1116,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
-        /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
+        /// <param name="changeHistory">The parameters for changing version history.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
         /// <returns>Task of FileIntegerArrayWrapper</returns>
-        Task<FileIntegerArrayWrapper> ChangeVersionHistoryAsync(int fileId, ChangeHistory? changeHistory = default, CancellationToken cancellationToken = default);
+        Task<FileIntegerArrayWrapper> ChangeVersionHistoryAsync(int fileId, ChangeHistory changeHistory, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1130,11 +1130,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
-        /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
+        /// <param name="changeHistory">The parameters for changing version history.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
-        Task<ApiResponse<FileIntegerArrayWrapper>> ChangeVersionHistoryWithHttpInfoAsync(int fileId, ChangeHistory? changeHistory = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileIntegerArrayWrapper>> ChangeVersionHistoryWithHttpInfoAsync(int fileId, ChangeHistory changeHistory, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1143,11 +1143,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
-        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
+        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/">REST API Reference for CheckFillFormDraft Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> CheckFillFormDraftAsync(int fileId, CheckFillFormDraft? checkFillFormDraft = default, CancellationToken cancellationToken = default);
+        Task<StringWrapper> CheckFillFormDraftAsync(int fileId, CheckFillFormDraft checkFillFormDraft, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1157,11 +1157,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
-        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
+        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/">REST API Reference for CheckFillFormDraft Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> CheckFillFormDraftWithHttpInfoAsync(int fileId, CheckFillFormDraft? checkFillFormDraft = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> CheckFillFormDraftWithHttpInfoAsync(int fileId, CheckFillFormDraft checkFillFormDraft, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1170,11 +1170,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
-        /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
+        /// <param name="copyAsJsonElement">The parameters for copying a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/">REST API Reference for CopyFileAs Operation</seealso>
         /// <returns>Task of FileEntryBaseWrapper</returns>
-        Task<FileEntryBaseWrapper> CopyFileAsAsync(int fileId, CopyAsJsonElement? copyAsJsonElement = default, CancellationToken cancellationToken = default);
+        Task<FileEntryBaseWrapper> CopyFileAsAsync(int fileId, CopyAsJsonElement copyAsJsonElement, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1184,11 +1184,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
-        /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
+        /// <param name="copyAsJsonElement">The parameters for copying a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/">REST API Reference for CopyFileAs Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryBaseWrapper)</returns>
-        Task<ApiResponse<FileEntryBaseWrapper>> CopyFileAsWithHttpInfoAsync(int fileId, CopyAsJsonElement? copyAsJsonElement = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileEntryBaseWrapper>> CopyFileAsWithHttpInfoAsync(int fileId, CopyAsJsonElement copyAsJsonElement, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1224,11 +1224,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
-        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
+        /// <param name="createFileJsonElement">The parameters for creating a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/">REST API Reference for CreateFile Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        Task<FileIntegerWrapper> CreateFileAsync(int folderId, CreateFileJsonElement? createFileJsonElement = default, CancellationToken cancellationToken = default);
+        Task<FileIntegerWrapper> CreateFileAsync(int folderId, CreateFileJsonElement createFileJsonElement, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1238,11 +1238,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
-        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
+        /// <param name="createFileJsonElement">The parameters for creating a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/">REST API Reference for CreateFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        Task<ApiResponse<FileIntegerWrapper>> CreateFileWithHttpInfoAsync(int folderId, CreateFileJsonElement? createFileJsonElement = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileIntegerWrapper>> CreateFileWithHttpInfoAsync(int folderId, CreateFileJsonElement createFileJsonElement, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1276,11 +1276,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        Task<FileShareWrapper> CreateFilePrimaryExternalLinkAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default);
+        Task<FileShareWrapper> CreateFilePrimaryExternalLinkAsync(int id, FileLinkRequest fileLinkRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1290,11 +1290,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        Task<ApiResponse<FileShareWrapper>> CreateFilePrimaryExternalLinkWithHttpInfoAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileShareWrapper>> CreateFilePrimaryExternalLinkWithHttpInfoAsync(int id, FileLinkRequest fileLinkRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1303,11 +1303,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/">REST API Reference for CreateHtmlFile Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        Task<FileIntegerWrapper> CreateHtmlFileAsync(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default);
+        Task<FileIntegerWrapper> CreateHtmlFileAsync(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1317,11 +1317,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/">REST API Reference for CreateHtmlFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        Task<ApiResponse<FileIntegerWrapper>> CreateHtmlFileWithHttpInfoAsync(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileIntegerWrapper>> CreateHtmlFileWithHttpInfoAsync(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1355,11 +1355,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/">REST API Reference for CreateTextFile Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        Task<FileIntegerWrapper> CreateTextFileAsync(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default);
+        Task<FileIntegerWrapper> CreateTextFileAsync(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1369,11 +1369,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/">REST API Reference for CreateTextFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        Task<ApiResponse<FileIntegerWrapper>> CreateTextFileWithHttpInfoAsync(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileIntegerWrapper>> CreateTextFileWithHttpInfoAsync(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1879,11 +1879,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
-        /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
+        /// <param name="lockFileParameters">The parameters for locking a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/">REST API Reference for LockFile Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        Task<FileIntegerWrapper> LockFileAsync(int fileId, LockFileParameters? lockFileParameters = default, CancellationToken cancellationToken = default);
+        Task<FileIntegerWrapper> LockFileAsync(int fileId, LockFileParameters lockFileParameters, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1893,11 +1893,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
-        /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
+        /// <param name="lockFileParameters">The parameters for locking a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/">REST API Reference for LockFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        Task<ApiResponse<FileIntegerWrapper>> LockFileWithHttpInfoAsync(int fileId, LockFileParameters? lockFileParameters = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileIntegerWrapper>> LockFileWithHttpInfoAsync(int fileId, LockFileParameters lockFileParameters, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -2030,11 +2030,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        Task<FileIntegerWrapper> SaveFileAsPdfAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default, CancellationToken cancellationToken = default);
+        Task<FileIntegerWrapper> SaveFileAsPdfAsync(int id, SaveAsPdfInteger saveAsPdfInteger, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -2044,11 +2044,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        Task<ApiResponse<FileIntegerWrapper>> SaveFileAsPdfWithHttpInfoAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileIntegerWrapper>> SaveFileAsPdfWithHttpInfoAsync(int id, SaveAsPdfInteger saveAsPdfInteger, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -2060,8 +2060,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
-        /// <returns>Task of FormRoleWrapper</returns>
-        Task<FormRoleWrapper> SaveFormRoleMappingAsync(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of void</returns>
+        Task SaveFormRoleMappingAsync(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -2074,8 +2074,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
-        /// <returns>Task of ApiResponse (FormRoleWrapper)</returns>
-        Task<ApiResponse<FormRoleWrapper>> SaveFormRoleMappingWithHttpInfoAsync(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> SaveFormRoleMappingWithHttpInfoAsync(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -2084,11 +2084,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
-        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
+        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        Task<FileIntegerWrapper> SetCustomFilterTagAsync(int fileId, CustomFilterParameters? customFilterParameters = default, CancellationToken cancellationToken = default);
+        Task<FileIntegerWrapper> SetCustomFilterTagAsync(int fileId, CustomFilterParameters customFilterParameters, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -2098,11 +2098,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
-        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
+        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        Task<ApiResponse<FileIntegerWrapper>> SetCustomFilterTagWithHttpInfoAsync(int fileId, CustomFilterParameters? customFilterParameters = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileIntegerWrapper>> SetCustomFilterTagWithHttpInfoAsync(int fileId, CustomFilterParameters customFilterParameters, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -2111,11 +2111,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        Task<FileShareWrapper> SetFileExternalLinkAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default);
+        Task<FileShareWrapper> SetFileExternalLinkAsync(int id, FileLinkRequest fileLinkRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -2125,11 +2125,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        Task<ApiResponse<FileShareWrapper>> SetFileExternalLinkWithHttpInfoAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileShareWrapper>> SetFileExternalLinkWithHttpInfoAsync(int id, FileLinkRequest fileLinkRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -2190,11 +2190,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
-        /// <param name="startEdit">The file parameters to start editing. (optional)</param>
+        /// <param name="startEdit">The file parameters to start editing.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/">REST API Reference for StartEditFile Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> StartEditFileAsync(int fileId, StartEdit? startEdit = default, CancellationToken cancellationToken = default);
+        Task<StringWrapper> StartEditFileAsync(int fileId, StartEdit startEdit, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -2204,11 +2204,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
-        /// <param name="startEdit">The file parameters to start editing. (optional)</param>
+        /// <param name="startEdit">The file parameters to start editing.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/">REST API Reference for StartEditFile Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> StartEditFileWithHttpInfoAsync(int fileId, StartEdit? startEdit = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> StartEditFileWithHttpInfoAsync(int fileId, StartEdit startEdit, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -2300,11 +2300,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
-        /// <param name="updateFile">The parameters for updating a file. (optional)</param>
+        /// <param name="updateFile">The parameters for updating a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/">REST API Reference for UpdateFile Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        Task<FileIntegerWrapper> UpdateFileAsync(int fileId, UpdateFile? updateFile = default, CancellationToken cancellationToken = default);
+        Task<FileIntegerWrapper> UpdateFileAsync(int fileId, UpdateFile updateFile, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -2314,11 +2314,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
-        /// <param name="updateFile">The parameters for updating a file. (optional)</param>
+        /// <param name="updateFile">The parameters for updating a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/">REST API Reference for UpdateFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        Task<ApiResponse<FileIntegerWrapper>> UpdateFileWithHttpInfoAsync(int fileId, UpdateFile? updateFile = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileIntegerWrapper>> UpdateFileWithHttpInfoAsync(int fileId, UpdateFile updateFile, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -2531,6 +2531,7 @@ namespace DocSpace.API.SDK.Api.Files
             }
             set => _exceptionFactory = value; 
         }
+
 
         /// <summary>
         /// 
@@ -2757,10 +2758,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
-        /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
+        /// <param name="changeHistory">The parameters for changing version history.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
         /// <returns>FileIntegerArrayWrapper</returns>
-        public FileIntegerArrayWrapper ChangeVersionHistory(int fileId, ChangeHistory? changeHistory = default)
+        public FileIntegerArrayWrapper ChangeVersionHistory(int fileId, ChangeHistory changeHistory)
         {
             var localVarResponse = ChangeVersionHistoryWithHttpInfo(fileId, changeHistory);
             return localVarResponse.Data;
@@ -2771,11 +2772,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
-        /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
+        /// <param name="changeHistory">The parameters for changing version history.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
         /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
-        public ApiResponse<FileIntegerArrayWrapper> ChangeVersionHistoryWithHttpInfo(int fileId, ChangeHistory? changeHistory = default)
+        public ApiResponse<FileIntegerArrayWrapper> ChangeVersionHistoryWithHttpInfo(int fileId, ChangeHistory changeHistory)
         {
+            // verify the required parameter 'changeHistory' is set
+            if (changeHistory == null)
+                throw new ApiException(400, "Missing required parameter 'changeHistory' when calling FilesApi->ChangeVersionHistory");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2813,11 +2818,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
-        /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
+        /// <param name="changeHistory">The parameters for changing version history.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
         /// <returns>Task of FileIntegerArrayWrapper</returns>
-        public async Task<FileIntegerArrayWrapper> ChangeVersionHistoryAsync(int fileId, ChangeHistory? changeHistory = default, CancellationToken cancellationToken = default)
+        public async Task<FileIntegerArrayWrapper> ChangeVersionHistoryAsync(int fileId, ChangeHistory changeHistory, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await ChangeVersionHistoryWithHttpInfoAsync(fileId, changeHistory, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2828,12 +2833,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file Id to change its version history.</param>
-        /// <param name="changeHistory">The parameters for changing version history. (optional)</param>
+        /// <param name="changeHistory">The parameters for changing version history.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-version-history/">REST API Reference for ChangeVersionHistory Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
-        public async Task<ApiResponse<FileIntegerArrayWrapper>> ChangeVersionHistoryWithHttpInfoAsync(int fileId, ChangeHistory? changeHistory = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileIntegerArrayWrapper>> ChangeVersionHistoryWithHttpInfoAsync(int fileId, ChangeHistory changeHistory, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'changeHistory' is set
+            if (changeHistory == null)
+                throw new ApiException(400, "Missing required parameter 'changeHistory' when calling FilesApi->ChangeVersionHistory");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2873,10 +2882,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
-        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
+        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/">REST API Reference for CheckFillFormDraft Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper CheckFillFormDraft(int fileId, CheckFillFormDraft? checkFillFormDraft = default)
+        public StringWrapper CheckFillFormDraft(int fileId, CheckFillFormDraft checkFillFormDraft)
         {
             var localVarResponse = CheckFillFormDraftWithHttpInfo(fileId, checkFillFormDraft);
             return localVarResponse.Data;
@@ -2887,11 +2896,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
-        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
+        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/">REST API Reference for CheckFillFormDraft Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> CheckFillFormDraftWithHttpInfo(int fileId, CheckFillFormDraft? checkFillFormDraft = default)
+        public ApiResponse<StringWrapper> CheckFillFormDraftWithHttpInfo(int fileId, CheckFillFormDraft checkFillFormDraft)
         {
+            // verify the required parameter 'checkFillFormDraft' is set
+            if (checkFillFormDraft == null)
+                throw new ApiException(400, "Missing required parameter 'checkFillFormDraft' when calling FilesApi->CheckFillFormDraft");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2929,11 +2942,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
-        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
+        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/">REST API Reference for CheckFillFormDraft Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> CheckFillFormDraftAsync(int fileId, CheckFillFormDraft? checkFillFormDraft = default, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> CheckFillFormDraftAsync(int fileId, CheckFillFormDraft checkFillFormDraft, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CheckFillFormDraftWithHttpInfoAsync(fileId, checkFillFormDraft, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2944,12 +2957,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID of the form draft.</param>
-        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling. (optional)</param>
+        /// <param name="checkFillFormDraft">The parameters for checking the form draft filling.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-fill-form-draft/">REST API Reference for CheckFillFormDraft Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> CheckFillFormDraftWithHttpInfoAsync(int fileId, CheckFillFormDraft? checkFillFormDraft = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> CheckFillFormDraftWithHttpInfoAsync(int fileId, CheckFillFormDraft checkFillFormDraft, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'checkFillFormDraft' is set
+            if (checkFillFormDraft == null)
+                throw new ApiException(400, "Missing required parameter 'checkFillFormDraft' when calling FilesApi->CheckFillFormDraft");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2989,10 +3006,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
-        /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
+        /// <param name="copyAsJsonElement">The parameters for copying a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/">REST API Reference for CopyFileAs Operation</seealso>
         /// <returns>FileEntryBaseWrapper</returns>
-        public FileEntryBaseWrapper CopyFileAs(int fileId, CopyAsJsonElement? copyAsJsonElement = default)
+        public FileEntryBaseWrapper CopyFileAs(int fileId, CopyAsJsonElement copyAsJsonElement)
         {
             var localVarResponse = CopyFileAsWithHttpInfo(fileId, copyAsJsonElement);
             return localVarResponse.Data;
@@ -3003,11 +3020,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
-        /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
+        /// <param name="copyAsJsonElement">The parameters for copying a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/">REST API Reference for CopyFileAs Operation</seealso>
         /// <returns>ApiResponse of FileEntryBaseWrapper</returns>
-        public ApiResponse<FileEntryBaseWrapper> CopyFileAsWithHttpInfo(int fileId, CopyAsJsonElement? copyAsJsonElement = default)
+        public ApiResponse<FileEntryBaseWrapper> CopyFileAsWithHttpInfo(int fileId, CopyAsJsonElement copyAsJsonElement)
         {
+            // verify the required parameter 'copyAsJsonElement' is set
+            if (copyAsJsonElement == null)
+                throw new ApiException(400, "Missing required parameter 'copyAsJsonElement' when calling FilesApi->CopyFileAs");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -3045,11 +3066,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
-        /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
+        /// <param name="copyAsJsonElement">The parameters for copying a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/">REST API Reference for CopyFileAs Operation</seealso>
         /// <returns>Task of FileEntryBaseWrapper</returns>
-        public async Task<FileEntryBaseWrapper> CopyFileAsAsync(int fileId, CopyAsJsonElement? copyAsJsonElement = default, CancellationToken cancellationToken = default)
+        public async Task<FileEntryBaseWrapper> CopyFileAsAsync(int fileId, CopyAsJsonElement copyAsJsonElement, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CopyFileAsWithHttpInfoAsync(fileId, copyAsJsonElement, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3060,12 +3081,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to copy.</param>
-        /// <param name="copyAsJsonElement">The parameters for copying a file. (optional)</param>
+        /// <param name="copyAsJsonElement">The parameters for copying a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-file-as/">REST API Reference for CopyFileAs Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryBaseWrapper)</returns>
-        public async Task<ApiResponse<FileEntryBaseWrapper>> CopyFileAsWithHttpInfoAsync(int fileId, CopyAsJsonElement? copyAsJsonElement = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileEntryBaseWrapper>> CopyFileAsWithHttpInfoAsync(int fileId, CopyAsJsonElement copyAsJsonElement, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'copyAsJsonElement' is set
+            if (copyAsJsonElement == null)
+                throw new ApiException(400, "Missing required parameter 'copyAsJsonElement' when calling FilesApi->CopyFileAs");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -3227,10 +3252,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
-        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
+        /// <param name="createFileJsonElement">The parameters for creating a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/">REST API Reference for CreateFile Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper CreateFile(int folderId, CreateFileJsonElement? createFileJsonElement = default)
+        public FileIntegerWrapper CreateFile(int folderId, CreateFileJsonElement createFileJsonElement)
         {
             var localVarResponse = CreateFileWithHttpInfo(folderId, createFileJsonElement);
             return localVarResponse.Data;
@@ -3241,11 +3266,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
-        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
+        /// <param name="createFileJsonElement">The parameters for creating a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/">REST API Reference for CreateFile Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public ApiResponse<FileIntegerWrapper> CreateFileWithHttpInfo(int folderId, CreateFileJsonElement? createFileJsonElement = default)
+        public ApiResponse<FileIntegerWrapper> CreateFileWithHttpInfo(int folderId, CreateFileJsonElement createFileJsonElement)
         {
+            // verify the required parameter 'createFileJsonElement' is set
+            if (createFileJsonElement == null)
+                throw new ApiException(400, "Missing required parameter 'createFileJsonElement' when calling FilesApi->CreateFile");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -3283,11 +3312,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
-        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
+        /// <param name="createFileJsonElement">The parameters for creating a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/">REST API Reference for CreateFile Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async Task<FileIntegerWrapper> CreateFileAsync(int folderId, CreateFileJsonElement? createFileJsonElement = default, CancellationToken cancellationToken = default)
+        public async Task<FileIntegerWrapper> CreateFileAsync(int folderId, CreateFileJsonElement createFileJsonElement, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateFileWithHttpInfoAsync(folderId, createFileJsonElement, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3298,12 +3327,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
-        /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
+        /// <param name="createFileJsonElement">The parameters for creating a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/">REST API Reference for CreateFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async Task<ApiResponse<FileIntegerWrapper>> CreateFileWithHttpInfoAsync(int folderId, CreateFileJsonElement? createFileJsonElement = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileIntegerWrapper>> CreateFileWithHttpInfoAsync(int folderId, CreateFileJsonElement createFileJsonElement, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'createFileJsonElement' is set
+            if (createFileJsonElement == null)
+                throw new ApiException(400, "Missing required parameter 'createFileJsonElement' when calling FilesApi->CreateFile");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -3453,10 +3486,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        public FileShareWrapper CreateFilePrimaryExternalLink(int id, FileLinkRequest? fileLinkRequest = default)
+        public FileShareWrapper CreateFilePrimaryExternalLink(int id, FileLinkRequest fileLinkRequest)
         {
             var localVarResponse = CreateFilePrimaryExternalLinkWithHttpInfo(id, fileLinkRequest);
             return localVarResponse.Data;
@@ -3467,11 +3500,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        public ApiResponse<FileShareWrapper> CreateFilePrimaryExternalLinkWithHttpInfo(int id, FileLinkRequest? fileLinkRequest = default)
+        public ApiResponse<FileShareWrapper> CreateFilePrimaryExternalLinkWithHttpInfo(int id, FileLinkRequest fileLinkRequest)
         {
+            // verify the required parameter 'fileLinkRequest' is set
+            if (fileLinkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'fileLinkRequest' when calling FilesApi->CreateFilePrimaryExternalLink");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -3509,11 +3546,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        public async Task<FileShareWrapper> CreateFilePrimaryExternalLinkAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default)
+        public async Task<FileShareWrapper> CreateFilePrimaryExternalLinkAsync(int id, FileLinkRequest fileLinkRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateFilePrimaryExternalLinkWithHttpInfoAsync(id, fileLinkRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3524,12 +3561,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-primary-external-link/">REST API Reference for CreateFilePrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        public async Task<ApiResponse<FileShareWrapper>> CreateFilePrimaryExternalLinkWithHttpInfoAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileShareWrapper>> CreateFilePrimaryExternalLinkWithHttpInfoAsync(int id, FileLinkRequest fileLinkRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'fileLinkRequest' is set
+            if (fileLinkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'fileLinkRequest' when calling FilesApi->CreateFilePrimaryExternalLink");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -3569,10 +3610,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/">REST API Reference for CreateHtmlFile Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper CreateHtmlFile(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default)
+        public FileIntegerWrapper CreateHtmlFile(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile)
         {
             var localVarResponse = CreateHtmlFileWithHttpInfo(folderId, createTextOrHtmlFile);
             return localVarResponse.Data;
@@ -3583,11 +3624,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/">REST API Reference for CreateHtmlFile Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public ApiResponse<FileIntegerWrapper> CreateHtmlFileWithHttpInfo(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default)
+        public ApiResponse<FileIntegerWrapper> CreateHtmlFileWithHttpInfo(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile)
         {
+            // verify the required parameter 'createTextOrHtmlFile' is set
+            if (createTextOrHtmlFile == null)
+                throw new ApiException(400, "Missing required parameter 'createTextOrHtmlFile' when calling FilesApi->CreateHtmlFile");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -3625,11 +3670,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/">REST API Reference for CreateHtmlFile Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async Task<FileIntegerWrapper> CreateHtmlFileAsync(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default)
+        public async Task<FileIntegerWrapper> CreateHtmlFileAsync(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateHtmlFileWithHttpInfoAsync(folderId, createTextOrHtmlFile, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3640,12 +3685,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-html-file/">REST API Reference for CreateHtmlFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async Task<ApiResponse<FileIntegerWrapper>> CreateHtmlFileWithHttpInfoAsync(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileIntegerWrapper>> CreateHtmlFileWithHttpInfoAsync(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'createTextOrHtmlFile' is set
+            if (createTextOrHtmlFile == null)
+                throw new ApiException(400, "Missing required parameter 'createTextOrHtmlFile' when calling FilesApi->CreateHtmlFile");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -3795,10 +3844,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/">REST API Reference for CreateTextFile Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper CreateTextFile(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default)
+        public FileIntegerWrapper CreateTextFile(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile)
         {
             var localVarResponse = CreateTextFileWithHttpInfo(folderId, createTextOrHtmlFile);
             return localVarResponse.Data;
@@ -3809,11 +3858,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/">REST API Reference for CreateTextFile Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public ApiResponse<FileIntegerWrapper> CreateTextFileWithHttpInfo(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default)
+        public ApiResponse<FileIntegerWrapper> CreateTextFileWithHttpInfo(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile)
         {
+            // verify the required parameter 'createTextOrHtmlFile' is set
+            if (createTextOrHtmlFile == null)
+                throw new ApiException(400, "Missing required parameter 'createTextOrHtmlFile' when calling FilesApi->CreateTextFile");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -3851,11 +3904,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/">REST API Reference for CreateTextFile Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async Task<FileIntegerWrapper> CreateTextFileAsync(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default)
+        public async Task<FileIntegerWrapper> CreateTextFileAsync(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateTextFileWithHttpInfoAsync(folderId, createTextOrHtmlFile, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3866,12 +3919,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to create the text or HTML file.</param>
-        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file. (optional)</param>
+        /// <param name="createTextOrHtmlFile">The parameters for creating an HTML or text file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-text-file/">REST API Reference for CreateTextFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async Task<ApiResponse<FileIntegerWrapper>> CreateTextFileWithHttpInfoAsync(int folderId, CreateTextOrHtmlFile? createTextOrHtmlFile = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileIntegerWrapper>> CreateTextFileWithHttpInfoAsync(int folderId, CreateTextOrHtmlFile createTextOrHtmlFile, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'createTextOrHtmlFile' is set
+            if (createTextOrHtmlFile == null)
+                throw new ApiException(400, "Missing required parameter 'createTextOrHtmlFile' when calling FilesApi->CreateTextFile");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -6141,10 +6198,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
-        /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
+        /// <param name="lockFileParameters">The parameters for locking a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/">REST API Reference for LockFile Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper LockFile(int fileId, LockFileParameters? lockFileParameters = default)
+        public FileIntegerWrapper LockFile(int fileId, LockFileParameters lockFileParameters)
         {
             var localVarResponse = LockFileWithHttpInfo(fileId, lockFileParameters);
             return localVarResponse.Data;
@@ -6155,11 +6212,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
-        /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
+        /// <param name="lockFileParameters">The parameters for locking a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/">REST API Reference for LockFile Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public ApiResponse<FileIntegerWrapper> LockFileWithHttpInfo(int fileId, LockFileParameters? lockFileParameters = default)
+        public ApiResponse<FileIntegerWrapper> LockFileWithHttpInfo(int fileId, LockFileParameters lockFileParameters)
         {
+            // verify the required parameter 'lockFileParameters' is set
+            if (lockFileParameters == null)
+                throw new ApiException(400, "Missing required parameter 'lockFileParameters' when calling FilesApi->LockFile");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -6197,11 +6258,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
-        /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
+        /// <param name="lockFileParameters">The parameters for locking a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/">REST API Reference for LockFile Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async Task<FileIntegerWrapper> LockFileAsync(int fileId, LockFileParameters? lockFileParameters = default, CancellationToken cancellationToken = default)
+        public async Task<FileIntegerWrapper> LockFileAsync(int fileId, LockFileParameters lockFileParameters, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await LockFileWithHttpInfoAsync(fileId, lockFileParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6212,12 +6273,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID for locking.</param>
-        /// <param name="lockFileParameters">The parameters for locking a file. (optional)</param>
+        /// <param name="lockFileParameters">The parameters for locking a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/lock-file/">REST API Reference for LockFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async Task<ApiResponse<FileIntegerWrapper>> LockFileWithHttpInfoAsync(int fileId, LockFileParameters? lockFileParameters = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileIntegerWrapper>> LockFileWithHttpInfoAsync(int fileId, LockFileParameters lockFileParameters, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'lockFileParameters' is set
+            if (lockFileParameters == null)
+                throw new ApiException(400, "Missing required parameter 'lockFileParameters' when calling FilesApi->LockFile");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -6841,10 +6906,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper SaveFileAsPdf(int id, SaveAsPdfInteger? saveAsPdfInteger = default)
+        public FileIntegerWrapper SaveFileAsPdf(int id, SaveAsPdfInteger saveAsPdfInteger)
         {
             var localVarResponse = SaveFileAsPdfWithHttpInfo(id, saveAsPdfInteger);
             return localVarResponse.Data;
@@ -6855,11 +6920,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public ApiResponse<FileIntegerWrapper> SaveFileAsPdfWithHttpInfo(int id, SaveAsPdfInteger? saveAsPdfInteger = default)
+        public ApiResponse<FileIntegerWrapper> SaveFileAsPdfWithHttpInfo(int id, SaveAsPdfInteger saveAsPdfInteger)
         {
+            // verify the required parameter 'saveAsPdfInteger' is set
+            if (saveAsPdfInteger == null)
+                throw new ApiException(400, "Missing required parameter 'saveAsPdfInteger' when calling FilesApi->SaveFileAsPdf");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -6897,11 +6966,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async Task<FileIntegerWrapper> SaveFileAsPdfAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default, CancellationToken cancellationToken = default)
+        public async Task<FileIntegerWrapper> SaveFileAsPdfAsync(int id, SaveAsPdfInteger saveAsPdfInteger, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SaveFileAsPdfWithHttpInfoAsync(id, saveAsPdfInteger, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6912,12 +6981,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF. (optional)</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async Task<ApiResponse<FileIntegerWrapper>> SaveFileAsPdfWithHttpInfoAsync(int id, SaveAsPdfInteger? saveAsPdfInteger = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileIntegerWrapper>> SaveFileAsPdfWithHttpInfoAsync(int id, SaveAsPdfInteger saveAsPdfInteger, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'saveAsPdfInteger' is set
+            if (saveAsPdfInteger == null)
+                throw new ApiException(400, "Missing required parameter 'saveAsPdfInteger' when calling FilesApi->SaveFileAsPdf");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -6959,11 +7032,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId"></param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
-        /// <returns>FormRoleWrapper</returns>
-        public FormRoleWrapper SaveFormRoleMapping(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default)
+        /// <returns></returns>
+        public void SaveFormRoleMapping(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default)
         {
-            var localVarResponse = SaveFormRoleMappingWithHttpInfo(fileId, saveFormRoleMappingDtoInteger);
-            return localVarResponse.Data;
+            SaveFormRoleMappingWithHttpInfo(fileId, saveFormRoleMappingDtoInteger);
         }
 
         /// <summary>
@@ -6973,8 +7045,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId"></param>
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
-        /// <returns>ApiResponse of FormRoleWrapper</returns>
-        public ApiResponse<FormRoleWrapper> SaveFormRoleMappingWithHttpInfo(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> SaveFormRoleMappingWithHttpInfo(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -6985,7 +7057,7 @@ namespace DocSpace.API.SDK.Api.Files
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = ["application/json"];
+            string[] accepts = [];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -6998,7 +7070,7 @@ namespace DocSpace.API.SDK.Api.Files
 
 
             // make the HTTP request
-            var localVarResponse = Client.Post<FormRoleWrapper>("/api/2.0/files/file/{fileId}/formrolemapping", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<Object>("/api/2.0/files/file/{fileId}/formrolemapping", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -7020,11 +7092,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
-        /// <returns>Task of FormRoleWrapper</returns>
-        public async Task<FormRoleWrapper> SaveFormRoleMappingAsync(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of void</returns>
+        public async Task SaveFormRoleMappingAsync(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SaveFormRoleMappingWithHttpInfoAsync(fileId, saveFormRoleMappingDtoInteger, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await SaveFormRoleMappingWithHttpInfoAsync(fileId, saveFormRoleMappingDtoInteger, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -7035,8 +7106,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="saveFormRoleMappingDtoInteger">The parameters for saving form role mapping. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-form-role-mapping/">REST API Reference for SaveFormRoleMapping Operation</seealso>
-        /// <returns>Task of ApiResponse (FormRoleWrapper)</returns>
-        public async Task<ApiResponse<FormRoleWrapper>> SaveFormRoleMappingWithHttpInfoAsync(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> SaveFormRoleMappingWithHttpInfoAsync(string fileId, SaveFormRoleMappingDtoInteger? saveFormRoleMappingDtoInteger = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileId' is set
             if (fileId == null)
@@ -7047,7 +7118,7 @@ namespace DocSpace.API.SDK.Api.Files
             string[] contentTypes = [ "application/json"];
 
             // to determine the Accept header
-            string[] accepts = [ "application/json"];
+            string[] accepts = [];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -7062,7 +7133,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<FormRoleWrapper>("/api/2.0/files/file/{fileId}/formrolemapping", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<Object>("/api/2.0/files/file/{fileId}/formrolemapping", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -7081,10 +7152,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
-        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
+        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper SetCustomFilterTag(int fileId, CustomFilterParameters? customFilterParameters = default)
+        public FileIntegerWrapper SetCustomFilterTag(int fileId, CustomFilterParameters customFilterParameters)
         {
             var localVarResponse = SetCustomFilterTagWithHttpInfo(fileId, customFilterParameters);
             return localVarResponse.Data;
@@ -7095,11 +7166,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
-        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
+        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public ApiResponse<FileIntegerWrapper> SetCustomFilterTagWithHttpInfo(int fileId, CustomFilterParameters? customFilterParameters = default)
+        public ApiResponse<FileIntegerWrapper> SetCustomFilterTagWithHttpInfo(int fileId, CustomFilterParameters customFilterParameters)
         {
+            // verify the required parameter 'customFilterParameters' is set
+            if (customFilterParameters == null)
+                throw new ApiException(400, "Missing required parameter 'customFilterParameters' when calling FilesApi->SetCustomFilterTag");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -7137,11 +7212,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
-        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
+        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async Task<FileIntegerWrapper> SetCustomFilterTagAsync(int fileId, CustomFilterParameters? customFilterParameters = default, CancellationToken cancellationToken = default)
+        public async Task<FileIntegerWrapper> SetCustomFilterTagAsync(int fileId, CustomFilterParameters customFilterParameters, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SetCustomFilterTagWithHttpInfoAsync(fileId, customFilterParameters, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7152,12 +7227,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
-        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode. (optional)</param>
+        /// <param name="customFilterParameters">The parameters for setting the Custom Filter editing mode.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async Task<ApiResponse<FileIntegerWrapper>> SetCustomFilterTagWithHttpInfoAsync(int fileId, CustomFilterParameters? customFilterParameters = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileIntegerWrapper>> SetCustomFilterTagWithHttpInfoAsync(int fileId, CustomFilterParameters customFilterParameters, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'customFilterParameters' is set
+            if (customFilterParameters == null)
+                throw new ApiException(400, "Missing required parameter 'customFilterParameters' when calling FilesApi->SetCustomFilterTag");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -7197,10 +7276,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        public FileShareWrapper SetFileExternalLink(int id, FileLinkRequest? fileLinkRequest = default)
+        public FileShareWrapper SetFileExternalLink(int id, FileLinkRequest fileLinkRequest)
         {
             var localVarResponse = SetFileExternalLinkWithHttpInfo(id, fileLinkRequest);
             return localVarResponse.Data;
@@ -7211,11 +7290,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        public ApiResponse<FileShareWrapper> SetFileExternalLinkWithHttpInfo(int id, FileLinkRequest? fileLinkRequest = default)
+        public ApiResponse<FileShareWrapper> SetFileExternalLinkWithHttpInfo(int id, FileLinkRequest fileLinkRequest)
         {
+            // verify the required parameter 'fileLinkRequest' is set
+            if (fileLinkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'fileLinkRequest' when calling FilesApi->SetFileExternalLink");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -7253,11 +7336,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        public async Task<FileShareWrapper> SetFileExternalLinkAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default)
+        public async Task<FileShareWrapper> SetFileExternalLinkAsync(int id, FileLinkRequest fileLinkRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SetFileExternalLinkWithHttpInfoAsync(id, fileLinkRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7268,12 +7351,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID.</param>
-        /// <param name="fileLinkRequest">The file external link parameters. (optional)</param>
+        /// <param name="fileLinkRequest">The file external link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-external-link/">REST API Reference for SetFileExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        public async Task<ApiResponse<FileShareWrapper>> SetFileExternalLinkWithHttpInfoAsync(int id, FileLinkRequest? fileLinkRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileShareWrapper>> SetFileExternalLinkWithHttpInfoAsync(int id, FileLinkRequest fileLinkRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'fileLinkRequest' is set
+            if (fileLinkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'fileLinkRequest' when calling FilesApi->SetFileExternalLink");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -7539,10 +7626,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
-        /// <param name="startEdit">The file parameters to start editing. (optional)</param>
+        /// <param name="startEdit">The file parameters to start editing.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/">REST API Reference for StartEditFile Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper StartEditFile(int fileId, StartEdit? startEdit = default)
+        public StringWrapper StartEditFile(int fileId, StartEdit startEdit)
         {
             var localVarResponse = StartEditFileWithHttpInfo(fileId, startEdit);
             return localVarResponse.Data;
@@ -7553,11 +7640,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
-        /// <param name="startEdit">The file parameters to start editing. (optional)</param>
+        /// <param name="startEdit">The file parameters to start editing.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/">REST API Reference for StartEditFile Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> StartEditFileWithHttpInfo(int fileId, StartEdit? startEdit = default)
+        public ApiResponse<StringWrapper> StartEditFileWithHttpInfo(int fileId, StartEdit startEdit)
         {
+            // verify the required parameter 'startEdit' is set
+            if (startEdit == null)
+                throw new ApiException(400, "Missing required parameter 'startEdit' when calling FilesApi->StartEditFile");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -7595,11 +7686,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
-        /// <param name="startEdit">The file parameters to start editing. (optional)</param>
+        /// <param name="startEdit">The file parameters to start editing.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/">REST API Reference for StartEditFile Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> StartEditFileAsync(int fileId, StartEdit? startEdit = default, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> StartEditFileAsync(int fileId, StartEdit startEdit, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await StartEditFileWithHttpInfoAsync(fileId, startEdit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -7610,12 +7701,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to start editing.</param>
-        /// <param name="startEdit">The file parameters to start editing. (optional)</param>
+        /// <param name="startEdit">The file parameters to start editing.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-edit-file/">REST API Reference for StartEditFile Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> StartEditFileWithHttpInfoAsync(int fileId, StartEdit? startEdit = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> StartEditFileWithHttpInfoAsync(int fileId, StartEdit startEdit, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'startEdit' is set
+            if (startEdit == null)
+                throw new ApiException(400, "Missing required parameter 'startEdit' when calling FilesApi->StartEditFile");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -8033,10 +8128,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
-        /// <param name="updateFile">The parameters for updating a file. (optional)</param>
+        /// <param name="updateFile">The parameters for updating a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/">REST API Reference for UpdateFile Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper UpdateFile(int fileId, UpdateFile? updateFile = default)
+        public FileIntegerWrapper UpdateFile(int fileId, UpdateFile updateFile)
         {
             var localVarResponse = UpdateFileWithHttpInfo(fileId, updateFile);
             return localVarResponse.Data;
@@ -8047,11 +8142,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
-        /// <param name="updateFile">The parameters for updating a file. (optional)</param>
+        /// <param name="updateFile">The parameters for updating a file.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/">REST API Reference for UpdateFile Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public ApiResponse<FileIntegerWrapper> UpdateFileWithHttpInfo(int fileId, UpdateFile? updateFile = default)
+        public ApiResponse<FileIntegerWrapper> UpdateFileWithHttpInfo(int fileId, UpdateFile updateFile)
         {
+            // verify the required parameter 'updateFile' is set
+            if (updateFile == null)
+                throw new ApiException(400, "Missing required parameter 'updateFile' when calling FilesApi->UpdateFile");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -8089,11 +8188,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
-        /// <param name="updateFile">The parameters for updating a file. (optional)</param>
+        /// <param name="updateFile">The parameters for updating a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/">REST API Reference for UpdateFile Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async Task<FileIntegerWrapper> UpdateFileAsync(int fileId, UpdateFile? updateFile = default, CancellationToken cancellationToken = default)
+        public async Task<FileIntegerWrapper> UpdateFileAsync(int fileId, UpdateFile updateFile, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await UpdateFileWithHttpInfoAsync(fileId, updateFile, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -8104,12 +8203,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to update.</param>
-        /// <param name="updateFile">The parameters for updating a file. (optional)</param>
+        /// <param name="updateFile">The parameters for updating a file.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file/">REST API Reference for UpdateFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async Task<ApiResponse<FileIntegerWrapper>> UpdateFileWithHttpInfoAsync(int fileId, UpdateFile? updateFile = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileIntegerWrapper>> UpdateFileWithHttpInfoAsync(int fileId, UpdateFile updateFile, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'updateFile' is set
+            if (updateFile == null)
+                throw new ApiException(400, "Missing required parameter 'updateFile' when calling FilesApi->UpdateFile");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];

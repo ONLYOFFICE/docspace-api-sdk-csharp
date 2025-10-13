@@ -28,23 +28,48 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PasswordSettingsDto" /> class.
         /// </summary>
-        /// <param name="minLength">The minimum number of characters required for valid passwords..</param>
-        /// <param name="upperCase">Specifies whether the password should contain the uppercase letters or not..</param>
-        /// <param name="digits">Specifies whether the password should contain the digits or not..</param>
-        /// <param name="specSymbols">Specifies whether the password should contain the special symbols or not..</param>
-        /// <param name="allowedCharactersRegexStr">The allowed password characters in the regex string format..</param>
-        /// <param name="digitsRegexStr">The password digits in the regex string format..</param>
-        /// <param name="upperCaseRegexStr">The password uppercase letters in the regex string format..</param>
-        /// <param name="specSymbolsRegexStr">The passaword special symbols in the regex string format..</param>
+        [JsonConstructorAttribute]
+        protected PasswordSettingsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PasswordSettingsDto" /> class.
+        /// </summary>
+        /// <param name="minLength">The minimum number of characters required for valid passwords. (required).</param>
+        /// <param name="upperCase">Specifies whether the password should contain the uppercase letters or not. (required).</param>
+        /// <param name="digits">Specifies whether the password should contain the digits or not. (required).</param>
+        /// <param name="specSymbols">Specifies whether the password should contain the special symbols or not. (required).</param>
+        /// <param name="allowedCharactersRegexStr">The allowed password characters in the regex string format. (required).</param>
+        /// <param name="digitsRegexStr">The password digits in the regex string format. (required).</param>
+        /// <param name="upperCaseRegexStr">The password uppercase letters in the regex string format. (required).</param>
+        /// <param name="specSymbolsRegexStr">The passaword special symbols in the regex string format. (required).</param>
         public PasswordSettingsDto(int minLength = default, bool upperCase = default, bool digits = default, bool specSymbols = default, string allowedCharactersRegexStr = default, string digitsRegexStr = default, string upperCaseRegexStr = default, string specSymbolsRegexStr = default)
         {
             this.MinLength = minLength;
             this.UpperCase = upperCase;
             this.Digits = digits;
             this.SpecSymbols = specSymbols;
+            // to ensure "allowedCharactersRegexStr" is required (not null)
+            if (allowedCharactersRegexStr == null)
+            {
+                throw new ArgumentNullException("allowedCharactersRegexStr is a required property for PasswordSettingsDto and cannot be null");
+            }
             this.AllowedCharactersRegexStr = allowedCharactersRegexStr;
+            // to ensure "digitsRegexStr" is required (not null)
+            if (digitsRegexStr == null)
+            {
+                throw new ArgumentNullException("digitsRegexStr is a required property for PasswordSettingsDto and cannot be null");
+            }
             this.DigitsRegexStr = digitsRegexStr;
+            // to ensure "upperCaseRegexStr" is required (not null)
+            if (upperCaseRegexStr == null)
+            {
+                throw new ArgumentNullException("upperCaseRegexStr is a required property for PasswordSettingsDto and cannot be null");
+            }
             this.UpperCaseRegexStr = upperCaseRegexStr;
+            // to ensure "specSymbolsRegexStr" is required (not null)
+            if (specSymbolsRegexStr == null)
+            {
+                throw new ArgumentNullException("specSymbolsRegexStr is a required property for PasswordSettingsDto and cannot be null");
+            }
             this.SpecSymbolsRegexStr = specSymbolsRegexStr;
         }
 
@@ -55,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "minLength", EmitDefaultValue = false)]
+        [DataMember(Name = "minLength", IsRequired = true, EmitDefaultValue = true)]
         public int MinLength { get; set; }
 
         /// <summary>
@@ -65,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "upperCase", EmitDefaultValue = true)]
+        [DataMember(Name = "upperCase", IsRequired = true, EmitDefaultValue = true)]
         public bool UpperCase { get; set; }
 
         /// <summary>
@@ -75,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "digits", EmitDefaultValue = true)]
+        [DataMember(Name = "digits", IsRequired = true, EmitDefaultValue = true)]
         public bool Digits { get; set; }
 
         /// <summary>
@@ -85,7 +110,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "specSymbols", EmitDefaultValue = true)]
+        [DataMember(Name = "specSymbols", IsRequired = true, EmitDefaultValue = true)]
         public bool SpecSymbols { get; set; }
 
         /// <summary>
@@ -95,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "allowedCharactersRegexStr", EmitDefaultValue = true)]
+        [DataMember(Name = "allowedCharactersRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string AllowedCharactersRegexStr { get; set; }
 
         /// <summary>
@@ -105,7 +130,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "digitsRegexStr", EmitDefaultValue = true)]
+        [DataMember(Name = "digitsRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string DigitsRegexStr { get; set; }
 
         /// <summary>
@@ -115,7 +140,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "upperCaseRegexStr", EmitDefaultValue = true)]
+        [DataMember(Name = "upperCaseRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string UpperCaseRegexStr { get; set; }
 
         /// <summary>
@@ -125,7 +150,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "specSymbolsRegexStr", EmitDefaultValue = true)]
+        [DataMember(Name = "specSymbolsRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string SpecSymbolsRegexStr { get; set; }
 
         /// <summary>

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | [**List&lt;FormRole&gt;**](FormRole.md) |  | [optional] 
+**Response** | [**List&lt;FormRoleDto&gt;**](FormRoleDto.md) |  | [optional] 
 **Count** | **int** |  | [optional] 
 **Links** | [**List&lt;ActiveConnectionsWrapperLinksInner&gt;**](ActiveConnectionsWrapperLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 

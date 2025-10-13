@@ -123,10 +123,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
-        /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
+        /// <param name="webPluginRequests">The configuration settings for the web plugin instance.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns></returns>
-        void UpdateWebPlugin(string name, WebPluginRequests? webPluginRequests = default);
+        void UpdateWebPlugin(string name, WebPluginRequests webPluginRequests);
 
         /// <summary>
         /// Update a web plugin
@@ -136,10 +136,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
-        /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
+        /// <param name="webPluginRequests">The configuration settings for the web plugin instance.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateWebPluginWithHttpInfo(string name, WebPluginRequests? webPluginRequests = default);
+        ApiResponse<Object> UpdateWebPluginWithHttpInfo(string name, WebPluginRequests webPluginRequests);
         #endregion Synchronous Operations
     }
 
@@ -257,11 +257,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
-        /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
+        /// <param name="webPluginRequests">The configuration settings for the web plugin instance.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>Task of void</returns>
-        Task UpdateWebPluginAsync(string name, WebPluginRequests? webPluginRequests = default, CancellationToken cancellationToken = default);
+        Task UpdateWebPluginAsync(string name, WebPluginRequests webPluginRequests, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a web plugin
@@ -271,11 +271,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
-        /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
+        /// <param name="webPluginRequests">The configuration settings for the web plugin instance.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> UpdateWebPluginWithHttpInfoAsync(string name, WebPluginRequests? webPluginRequests = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<Object>> UpdateWebPluginWithHttpInfoAsync(string name, WebPluginRequests webPluginRequests, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -488,6 +488,7 @@ namespace DocSpace.API.SDK.Api.Settings
             }
             set => _exceptionFactory = value; 
         }
+
 
         /// <summary>
         /// Add a web plugin
@@ -1251,10 +1252,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
-        /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
+        /// <param name="webPluginRequests">The configuration settings for the web plugin instance.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns></returns>
-        public void UpdateWebPlugin(string name, WebPluginRequests? webPluginRequests = default)
+        public void UpdateWebPlugin(string name, WebPluginRequests webPluginRequests)
         {
             UpdateWebPluginWithHttpInfo(name, webPluginRequests);
         }
@@ -1267,14 +1268,18 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
-        /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
+        /// <param name="webPluginRequests">The configuration settings for the web plugin instance.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> UpdateWebPluginWithHttpInfo(string name, WebPluginRequests? webPluginRequests = default)
+        public ApiResponse<Object> UpdateWebPluginWithHttpInfo(string name, WebPluginRequests webPluginRequests)
         {
             // verify the required parameter 'name' is set
             if (name == null)
                 throw new ApiException(400, "Missing required parameter 'name' when calling WebpluginsApi->UpdateWebPlugin");
+
+            // verify the required parameter 'webPluginRequests' is set
+            if (webPluginRequests == null)
+                throw new ApiException(400, "Missing required parameter 'webPluginRequests' when calling WebpluginsApi->UpdateWebPlugin");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1346,11 +1351,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
-        /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
+        /// <param name="webPluginRequests">The configuration settings for the web plugin instance.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>Task of void</returns>
-        public async Task UpdateWebPluginAsync(string name, WebPluginRequests? webPluginRequests = default, CancellationToken cancellationToken = default)
+        public async Task UpdateWebPluginAsync(string name, WebPluginRequests webPluginRequests, CancellationToken cancellationToken = default)
         {
             await UpdateWebPluginWithHttpInfoAsync(name, webPluginRequests, cancellationToken).ConfigureAwait(false);
         }
@@ -1363,15 +1368,19 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="name">The web plugin name.</param>
-        /// <param name="webPluginRequests">The configuration settings for the web plugin instance. (optional)</param>
+        /// <param name="webPluginRequests">The configuration settings for the web plugin instance.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-web-plugin/">REST API Reference for UpdateWebPlugin Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> UpdateWebPluginWithHttpInfoAsync(string name, WebPluginRequests? webPluginRequests = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Object>> UpdateWebPluginWithHttpInfoAsync(string name, WebPluginRequests webPluginRequests, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'name' is set
             if (name == null)
                 throw new ApiException(400, "Missing required parameter 'name' when calling WebpluginsApi->UpdateWebPlugin");
+
+            // verify the required parameter 'webPluginRequests' is set
+            if (webPluginRequests == null)
+                throw new ApiException(400, "Missing required parameter 'webPluginRequests' when calling WebpluginsApi->UpdateWebPlugin");
 
             var localVarRequestOptions = new RequestOptions();
 

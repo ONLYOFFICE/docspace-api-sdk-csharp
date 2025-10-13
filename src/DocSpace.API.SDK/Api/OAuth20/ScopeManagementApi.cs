@@ -289,6 +289,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Get available OAuth2 scopes
         /// </summary>

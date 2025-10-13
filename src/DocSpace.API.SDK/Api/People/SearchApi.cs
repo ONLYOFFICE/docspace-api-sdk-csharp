@@ -24,10 +24,10 @@ namespace DocSpace.API.SDK.Api.People
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get account entries
+        /// Get account entries with file sharing settings
         /// </summary>
         /// <remarks>
-        /// Returns the account entries with their sharing settings.
+        /// Returns the account entries with their sharing settings for a file with the ID specified in request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
@@ -43,15 +43,109 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
         /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-shared/">REST API Reference for GetAccountsEntriesWithShared Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
         /// <returns>ObjectArrayWrapper</returns>
-        ObjectArrayWrapper GetAccountsEntriesWithShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        ObjectArrayWrapper GetAccountsEntriesWithFilesShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+
+        /// <summary>
+        /// Get account entries with file sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings for a file with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
+        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
+        ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithFilesSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <summary>
+        /// Get account entries with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
+        /// <returns>ObjectArrayWrapper</returns>
+        ObjectArrayWrapper GetAccountsEntriesWithFoldersShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+
+        /// <summary>
+        /// Get account entries with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
+        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
+        ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithFoldersSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <summary>
+        /// Get account entries
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings in a room with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
+        /// <returns>ObjectArrayWrapper</returns>
+        ObjectArrayWrapper GetAccountsEntriesWithRoomsShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Get account entries
         /// </summary>
         /// <remarks>
-        /// Returns the account entries with their sharing settings.
+        /// Returns the account entries with their sharing settings in a room with the ID specified in request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
@@ -67,9 +161,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
         /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-shared/">REST API Reference for GetAccountsEntriesWithShared Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithRoomsSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search users
         /// </summary>
@@ -124,10 +218,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>EmployeeArrayWrapper</returns>
-        EmployeeArrayWrapper GetSimpleByFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default);
+        EmployeeArrayWrapper GetSimpleByFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search users by extended filter
@@ -156,10 +249,103 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
-        ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default);
+        ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
+        /// <summary>
+        /// Get users with file sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a file with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
+        /// <returns>EmployeeFullArrayWrapper</returns>
+        EmployeeFullArrayWrapper GetUsersWithFilesShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+
+        /// <summary>
+        /// Get users with file sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a file with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
+        /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
+        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFilesSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+        /// <summary>
+        /// Get users with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
+        /// <returns>EmployeeFullArrayWrapper</returns>
+        EmployeeFullArrayWrapper GetUsersWithFoldersShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
+
+        /// <summary>
+        /// Get users with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
+        /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
+        ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Get users with room sharing settings
         /// </summary>
@@ -234,10 +420,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default);
+        EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Search users with detaailed information by extended filter
@@ -266,10 +451,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default);
+        ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Search users (using query parameters)
         /// </summary>
@@ -332,10 +516,10 @@ namespace DocSpace.API.SDK.Api.People
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get account entries
+        /// Get account entries with file sharing settings
         /// </summary>
         /// <remarks>
-        /// Returns the account entries with their sharing settings.
+        /// Returns the account entries with their sharing settings for a file with the ID specified in request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
@@ -352,15 +536,113 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
         /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-shared/">REST API Reference for GetAccountsEntriesWithShared Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
         /// <returns>Task of ObjectArrayWrapper</returns>
-        Task<ObjectArrayWrapper> GetAccountsEntriesWithSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ObjectArrayWrapper> GetAccountsEntriesWithFilesSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get account entries with file sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings for a file with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
+        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
+        Task<ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithFilesSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get account entries with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
+        /// <returns>Task of ObjectArrayWrapper</returns>
+        Task<ObjectArrayWrapper> GetAccountsEntriesWithFoldersSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get account entries with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
+        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
+        Task<ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithFoldersSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get account entries
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings in a room with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
+        /// <returns>Task of ObjectArrayWrapper</returns>
+        Task<ObjectArrayWrapper> GetAccountsEntriesWithRoomsSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get account entries
         /// </summary>
         /// <remarks>
-        /// Returns the account entries with their sharing settings.
+        /// Returns the account entries with their sharing settings in a room with the ID specified in request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
@@ -377,9 +659,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
         /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-shared/">REST API Reference for GetAccountsEntriesWithShared Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        Task<ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithRoomsSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search users
         /// </summary>
@@ -436,11 +718,10 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>Task of EmployeeArrayWrapper</returns>
-        Task<EmployeeArrayWrapper> GetSimpleByFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<EmployeeArrayWrapper> GetSimpleByFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search users by extended filter
@@ -469,11 +750,108 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get users with file sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a file with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
+        /// <returns>Task of EmployeeFullArrayWrapper</returns>
+        Task<EmployeeFullArrayWrapper> GetUsersWithFilesSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get users with file sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a file with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
+        /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
+        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFilesSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get users with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
+        /// <returns>Task of EmployeeFullArrayWrapper</returns>
+        Task<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get users with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
+        /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
+        Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFoldersSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get users with room sharing settings
         /// </summary>
@@ -550,11 +928,10 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Search users with detaailed information by extended filter
@@ -583,11 +960,10 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Search users (using query parameters)
         /// </summary>
@@ -857,11 +1233,25 @@ namespace DocSpace.API.SDK.Api.People
             set => _exceptionFactory = value; 
         }
 
+        private string? _fields;
+
         /// <summary>
-        /// Get account entries
+        /// Specifies which fields should be included in the API response.
+        /// </summary>
+        /// <param name="fields">A comma-separated list of field paths to include in the response</param>
+        /// <returns></returns>
+
+        public SearchApi WithFields(string fields)
+        {
+            _fields = fields;
+            return this;
+        }
+
+        /// <summary>
+        /// Get account entries with file sharing settings
         /// </summary>
         /// <remarks>
-        /// Returns the account entries with their sharing settings.
+        /// Returns the account entries with their sharing settings for a file with the ID specified in request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
@@ -877,11 +1267,661 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
         /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-shared/">REST API Reference for GetAccountsEntriesWithShared Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
         /// <returns>ObjectArrayWrapper</returns>
-        public ObjectArrayWrapper GetAccountsEntriesWithShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public ObjectArrayWrapper GetAccountsEntriesWithFilesShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
-            var localVarResponse = GetAccountsEntriesWithSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+            var localVarResponse = GetAccountsEntriesWithFilesSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get account entries with file sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings for a file with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
+        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
+        public ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithFilesSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (employeeStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+            }
+            if (activationStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+            }
+            if (excludeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+            }
+            if (includeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
+            }
+            if (invitedByMe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+            }
+            if (inviterId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+            }
+            if (area != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
+            }
+            if (employeeTypes != null)
+            {
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<ObjectArrayWrapper>("/api/2.0/accounts/file/{id}/search", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetAccountsEntriesWithFilesShared", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get account entries with file sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings for a file with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
+        /// <returns>Task of ObjectArrayWrapper</returns>
+        public async Task<ObjectArrayWrapper> GetAccountsEntriesWithFilesSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetAccountsEntriesWithFilesSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get account entries with file sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings for a file with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/">REST API Reference for GetAccountsEntriesWithFilesShared Operation</seealso>
+        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
+        public async Task<ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithFilesSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (employeeStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+            }
+            if (activationStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+            }
+            if (excludeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+            }
+            if (includeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
+            }
+            if (invitedByMe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+            }
+            if (inviterId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+            }
+            if (area != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
+            }
+            if (employeeTypes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<ObjectArrayWrapper>("/api/2.0/accounts/file/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetAccountsEntriesWithFilesShared", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get account entries with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
+        /// <returns>ObjectArrayWrapper</returns>
+        public ObjectArrayWrapper GetAccountsEntriesWithFoldersShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        {
+            var localVarResponse = GetAccountsEntriesWithFoldersSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get account entries with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
+        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
+        public ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithFoldersSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (employeeStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+            }
+            if (activationStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+            }
+            if (excludeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+            }
+            if (includeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
+            }
+            if (invitedByMe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+            }
+            if (inviterId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+            }
+            if (area != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
+            }
+            if (employeeTypes != null)
+            {
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<ObjectArrayWrapper>("/api/2.0/accounts/folder/{id}/search", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetAccountsEntriesWithFoldersShared", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get account entries with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
+        /// <returns>Task of ObjectArrayWrapper</returns>
+        public async Task<ObjectArrayWrapper> GetAccountsEntriesWithFoldersSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetAccountsEntriesWithFoldersSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get account entries with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/">REST API Reference for GetAccountsEntriesWithFoldersShared Operation</seealso>
+        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
+        public async Task<ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithFoldersSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (employeeStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+            }
+            if (activationStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+            }
+            if (excludeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+            }
+            if (includeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
+            }
+            if (invitedByMe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+            }
+            if (inviterId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+            }
+            if (area != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
+            }
+            if (employeeTypes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<ObjectArrayWrapper>("/api/2.0/accounts/folder/{id}/search", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetAccountsEntriesWithFoldersShared", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get account entries
+        /// </summary>
+        /// <remarks>
+        /// Returns the account entries with their sharing settings in a room with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the account sharing settings from the response. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the account sharing settings in the response. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user is invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The area of the account entries. (optional)</param>
+        /// <param name="employeeTypes">The list of the user types. (optional)</param>
+        /// <param name="count">The number of items to retrieve in a request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
+        /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
+        /// <returns>ObjectArrayWrapper</returns>
+        public ObjectArrayWrapper GetAccountsEntriesWithRoomsShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        {
+            var localVarResponse = GetAccountsEntriesWithRoomsSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -889,7 +1929,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Get account entries
         /// </summary>
         /// <remarks>
-        /// Returns the account entries with their sharing settings.
+        /// Returns the account entries with their sharing settings in a room with the ID specified in request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
@@ -905,9 +1945,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
         /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-shared/">REST API Reference for GetAccountsEntriesWithShared Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        public ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        public ApiResponse<ObjectArrayWrapper> GetAccountsEntriesWithRoomsSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1007,7 +2047,7 @@ namespace DocSpace.API.SDK.Api.People
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("GetAccountsEntriesWithShared", localVarResponse);
+                var exception = ExceptionFactory("GetAccountsEntriesWithRoomsShared", localVarResponse);
                 if (exception != null)
                 {
                     throw exception;
@@ -1021,7 +2061,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Get account entries
         /// </summary>
         /// <remarks>
-        /// Returns the account entries with their sharing settings.
+        /// Returns the account entries with their sharing settings in a room with the ID specified in request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
@@ -1038,11 +2078,11 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
         /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-shared/">REST API Reference for GetAccountsEntriesWithShared Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
         /// <returns>Task of ObjectArrayWrapper</returns>
-        public async Task<ObjectArrayWrapper> GetAccountsEntriesWithSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ObjectArrayWrapper> GetAccountsEntriesWithRoomsSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetAccountsEntriesWithSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAccountsEntriesWithRoomsSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1050,7 +2090,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Get account entries
         /// </summary>
         /// <remarks>
-        /// Returns the account entries with their sharing settings.
+        /// Returns the account entries with their sharing settings in a room with the ID specified in request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The user ID.</param>
@@ -1067,9 +2107,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="filterSeparator">Specifies the separator used in filter expressions. (optional)</param>
         /// <param name="filterValue">The text filter applied to the accounts search query. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-shared/">REST API Reference for GetAccountsEntriesWithShared Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/">REST API Reference for GetAccountsEntriesWithRoomsShared Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        public async Task<ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ObjectArrayWrapper>> GetAccountsEntriesWithRoomsSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1172,7 +2212,7 @@ namespace DocSpace.API.SDK.Api.People
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("GetAccountsEntriesWithShared", localVarResponse);
+                var exception = ExceptionFactory("GetAccountsEntriesWithRoomsShared", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -1423,12 +2463,11 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>EmployeeArrayWrapper</returns>
-        public EmployeeArrayWrapper GetSimpleByFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default)
+        public EmployeeArrayWrapper GetSimpleByFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
-            var localVarResponse = GetSimpleByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, fields);
+            var localVarResponse = GetSimpleByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1459,10 +2498,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>ApiResponse of EmployeeArrayWrapper</returns>
-        public ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default)
+        public ApiResponse<EmployeeArrayWrapper> GetSimpleByFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1556,9 +2594,9 @@ namespace DocSpace.API.SDK.Api.People
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
-            if (fields != null)
+            if (_fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
             // authentication (Basic) required
@@ -1634,13 +2672,12 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>Task of EmployeeArrayWrapper</returns>
-        public async Task<EmployeeArrayWrapper> GetSimpleByFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeArrayWrapper> GetSimpleByFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetSimpleByFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, fields, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetSimpleByFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1671,11 +2708,10 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-simple-by-filter/">REST API Reference for GetSimpleByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeArrayWrapper>> GetSimpleByFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1771,10 +2807,6 @@ namespace DocSpace.API.SDK.Api.People
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
-            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1814,6 +2846,656 @@ namespace DocSpace.API.SDK.Api.People
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetSimpleByFilter", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get users with file sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a file with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
+        /// <returns>EmployeeFullArrayWrapper</returns>
+        public EmployeeFullArrayWrapper GetUsersWithFilesShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        {
+            var localVarResponse = GetUsersWithFilesSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get users with file sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a file with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
+        /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
+        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFilesSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (employeeStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+            }
+            if (activationStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+            }
+            if (excludeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+            }
+            if (includeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
+            }
+            if (invitedByMe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+            }
+            if (inviterId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+            }
+            if (area != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
+            }
+            if (employeeTypes != null)
+            {
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<EmployeeFullArrayWrapper>("/api/2.0/people/file/{id}", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetUsersWithFilesShared", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get users with file sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a file with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
+        /// <returns>Task of EmployeeFullArrayWrapper</returns>
+        public async Task<EmployeeFullArrayWrapper> GetUsersWithFilesSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetUsersWithFilesSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get users with file sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a file with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/">REST API Reference for GetUsersWithFilesShared Operation</seealso>
+        /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFilesSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (employeeStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+            }
+            if (activationStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+            }
+            if (excludeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+            }
+            if (includeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
+            }
+            if (invitedByMe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+            }
+            if (inviterId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+            }
+            if (area != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
+            }
+            if (employeeTypes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<EmployeeFullArrayWrapper>("/api/2.0/people/file/{id}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetUsersWithFilesShared", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get users with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
+        /// <returns>EmployeeFullArrayWrapper</returns>
+        public EmployeeFullArrayWrapper GetUsersWithFoldersShared(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        {
+            var localVarResponse = GetUsersWithFoldersSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get users with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
+        /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
+        public ApiResponse<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (employeeStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+            }
+            if (activationStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+            }
+            if (excludeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+            }
+            if (includeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
+            }
+            if (invitedByMe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+            }
+            if (inviterId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+            }
+            if (area != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
+            }
+            if (employeeTypes != null)
+            {
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<EmployeeFullArrayWrapper>("/api/2.0/people/folder/{id}", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetUsersWithFoldersShared", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get users with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
+        /// <returns>Task of EmployeeFullArrayWrapper</returns>
+        public async Task<EmployeeFullArrayWrapper> GetUsersWithFoldersSharedAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetUsersWithFoldersSharedWithHttpInfoAsync(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get users with folder sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the users with the sharing settings in a folder with the ID specified in request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The user ID.</param>
+        /// <param name="employeeStatus">The user status. (optional)</param>
+        /// <param name="activationStatus">The user activation status. (optional)</param>
+        /// <param name="excludeShared">Specifies whether to exclude the user sharing settings or not. (optional)</param>
+        /// <param name="includeShared">Specifies whether to include the user sharing settings or not. (optional)</param>
+        /// <param name="invitedByMe">Specifies whether the user was invited by the current user or not. (optional)</param>
+        /// <param name="inviterId">The inviter ID. (optional)</param>
+        /// <param name="area">The user area. (optional)</param>
+        /// <param name="employeeTypes">The list of user types. (optional)</param>
+        /// <param name="count">The maximum number of users to be retrieved in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first record to retrieve in a paged query. (optional)</param>
+        /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
+        /// <param name="filterValue">The filter text value used for searching or filtering user results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/">REST API Reference for GetUsersWithFoldersShared Operation</seealso>
+        /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithFoldersSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (employeeStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "employeeStatus", employeeStatus));
+            }
+            if (activationStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "activationStatus", activationStatus));
+            }
+            if (excludeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeShared", excludeShared));
+            }
+            if (includeShared != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "includeShared", includeShared));
+            }
+            if (invitedByMe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "invitedByMe", invitedByMe));
+            }
+            if (inviterId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inviterId", inviterId));
+            }
+            if (area != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "area", area));
+            }
+            if (employeeTypes != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterSeparator != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterSeparator", filterSeparator));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<EmployeeFullArrayWrapper>("/api/2.0/people/folder/{id}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetUsersWithFoldersShared", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -2175,12 +3857,11 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default)
+        public EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
-            var localVarResponse = SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, fields);
+            var localVarResponse = SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -2211,10 +3892,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default)
+        public ApiResponse<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterWithHttpInfo(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2308,9 +3988,9 @@ namespace DocSpace.API.SDK.Api.People
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
-            if (fields != null)
+            if (_fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
             // authentication (Basic) required
@@ -2386,13 +4066,12 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SearchUsersByExtendedFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, fields, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SearchUsersByExtendedFilterWithHttpInfoAsync(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2423,11 +4102,10 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">Represents the separator used to split filter criteria in query parameters. (optional)</param>
         /// <param name="filterValue">The search text used to filter results based on user input. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/search-users-by-extended-filter/">REST API Reference for SearchUsersByExtendedFilter Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> SearchUsersByExtendedFilterWithHttpInfoAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2522,10 +4200,6 @@ namespace DocSpace.API.SDK.Api.People
             if (filterValue != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
             }
 
             // authentication (Basic) required

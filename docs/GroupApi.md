@@ -130,7 +130,7 @@ catch (ApiException e)
 
 <a id="addmembersto"></a>
 # **AddMembersTo**
-> GroupWrapper AddMembersTo (Guid id, MembersRequest? membersRequest = null)
+> GroupWrapper AddMembersTo (Guid id, MembersRequest membersRequest)
 
 Adds new group members to the group with the ID specified in the request.
 
@@ -141,7 +141,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **Guid** | The group ID. |  |
-| **membersRequest** | [**MembersRequest?**](MembersRequest.md) | The member request. | [optional]  |
+| **membersRequest** | [**MembersRequest**](MembersRequest.md) | The member request. |  |
 
 ### Return type
 
@@ -189,7 +189,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
             var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
-            var membersRequest = new MembersRequest?(); // MembersRequest? | The member request. (optional) 
+            var membersRequest = new MembersRequest(); // MembersRequest | The member request.
 
             try
             {
@@ -585,7 +585,7 @@ catch (ApiException e)
 
 <a id="getgroups"></a>
 # **GetGroups**
-> GroupArrayWrapper GetGroups (Guid? userId = null, bool? manager = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, string fields = null)
+> GroupArrayWrapper GetGroups (Guid? userId = null, bool? manager = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
 Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
 
@@ -602,7 +602,6 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortBy** | **string?** | Specifies the property used to sort the query results. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterValue** | **string?** | The text used for filtering or searching group data. | [optional]  |
-| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -656,12 +655,11 @@ namespace Example
             var sortBy = some text;  // string? | Specifies the property used to sort the query results. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterValue = some text;  // string? | The text used for filtering or searching group data. (optional) 
-            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get groups
-                GroupArrayWrapper result = apiInstance.GetGroups(userId, manager, count, startIndex, sortBy, sortOrder, filterValue, fields);
+                GroupArrayWrapper result = apiInstance.GetGroups(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -682,7 +680,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get groups
-    ApiResponse<GroupArrayWrapper> response = apiInstance.GetGroupsWithHttpInfo(userId, manager, count, startIndex, sortBy, sortOrder, filterValue, fields);
+    ApiResponse<GroupArrayWrapper> response = apiInstance.GetGroupsWithHttpInfo(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -826,7 +824,7 @@ catch (ApiException e)
 
 <a id="removemembersfrom"></a>
 # **RemoveMembersFrom**
-> GroupWrapper RemoveMembersFrom (Guid id, MembersRequest? membersRequest = null)
+> GroupWrapper RemoveMembersFrom (Guid id, MembersRequest membersRequest)
 
 Removes the group members specified in the request from the selected group.
 
@@ -837,7 +835,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **Guid** | The group ID. |  |
-| **membersRequest** | [**MembersRequest?**](MembersRequest.md) | The member request. | [optional]  |
+| **membersRequest** | [**MembersRequest**](MembersRequest.md) | The member request. |  |
 
 ### Return type
 
@@ -885,7 +883,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
             var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
-            var membersRequest = new MembersRequest?(); // MembersRequest? | The member request. (optional) 
+            var membersRequest = new MembersRequest(); // MembersRequest | The member request.
 
             try
             {
@@ -941,7 +939,7 @@ catch (ApiException e)
 
 <a id="setgroupmanager"></a>
 # **SetGroupManager**
-> GroupWrapper SetGroupManager (Guid id, SetManagerRequest? setManagerRequest = null)
+> GroupWrapper SetGroupManager (Guid id, SetManagerRequest setManagerRequest)
 
 Sets a user with the ID specified in the request as a group manager.
 
@@ -952,7 +950,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **Guid** | The group ID. |  |
-| **setManagerRequest** | [**SetManagerRequest?**](SetManagerRequest.md) | The request for setting a group manager. | [optional]  |
+| **setManagerRequest** | [**SetManagerRequest**](SetManagerRequest.md) | The request for setting a group manager. |  |
 
 ### Return type
 
@@ -1000,7 +998,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
             var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
-            var setManagerRequest = new SetManagerRequest?(); // SetManagerRequest? | The request for setting a group manager. (optional) 
+            var setManagerRequest = new SetManagerRequest(); // SetManagerRequest | The request for setting a group manager.
 
             try
             {
@@ -1056,7 +1054,7 @@ catch (ApiException e)
 
 <a id="setmembersto"></a>
 # **SetMembersTo**
-> GroupWrapper SetMembersTo (Guid id, MembersRequest? membersRequest = null)
+> GroupWrapper SetMembersTo (Guid id, MembersRequest membersRequest)
 
 Replaces the group members with those specified in the request.
 
@@ -1067,7 +1065,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **Guid** | The group ID. |  |
-| **membersRequest** | [**MembersRequest?**](MembersRequest.md) | The member request. | [optional]  |
+| **membersRequest** | [**MembersRequest**](MembersRequest.md) | The member request. |  |
 
 ### Return type
 
@@ -1115,7 +1113,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
             var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
-            var membersRequest = new MembersRequest?(); // MembersRequest? | The member request. (optional) 
+            var membersRequest = new MembersRequest(); // MembersRequest | The member request.
 
             try
             {
@@ -1170,7 +1168,7 @@ catch (ApiException e)
 
 <a id="updategroup"></a>
 # **UpdateGroup**
-> GroupWrapper UpdateGroup (Guid id, UpdateGroupRequest? updateGroupRequest = null)
+> GroupWrapper UpdateGroup (Guid id, UpdateGroupRequest updateGroupRequest)
 
 Updates the existing group changing the group manager, name, and/or members.
 
@@ -1181,7 +1179,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **Guid** | The group ID. |  |
-| **updateGroupRequest** | [**UpdateGroupRequest?**](UpdateGroupRequest.md) | The request for updating a group. | [optional]  |
+| **updateGroupRequest** | [**UpdateGroupRequest**](UpdateGroupRequest.md) | The request for updating a group. |  |
 
 ### Return type
 
@@ -1229,7 +1227,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
             var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
-            var updateGroupRequest = new UpdateGroupRequest?(); // UpdateGroupRequest? | The request for updating a group. (optional) 
+            var updateGroupRequest = new UpdateGroupRequest(); // UpdateGroupRequest | The request for updating a group.
 
             try
             {

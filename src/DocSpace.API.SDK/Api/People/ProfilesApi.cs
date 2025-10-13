@@ -104,10 +104,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
         /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-profiles/">REST API Reference for GetAllProfiles Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper GetAllProfiles(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default);
+        EmployeeFullArrayWrapper GetAllProfiles(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
         /// Get profiles
@@ -123,10 +122,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
         /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-profiles/">REST API Reference for GetAllProfiles Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> GetAllProfilesWithHttpInfo(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default);
+        ApiResponse<EmployeeFullArrayWrapper> GetAllProfilesWithHttpInfo(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
         /// Returns the user claims.
         /// </summary>
@@ -317,10 +315,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
-        EmployeeFullWrapper UpdateMember(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default);
+        EmployeeFullWrapper UpdateMember(string userid, UpdateMemberRequestDto updateMemberRequestDto);
 
         /// <summary>
         /// Update a user
@@ -330,10 +328,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        ApiResponse<EmployeeFullWrapper> UpdateMemberWithHttpInfo(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default);
+        ApiResponse<EmployeeFullWrapper> UpdateMemberWithHttpInfo(string userid, UpdateMemberRequestDto updateMemberRequestDto);
         /// <summary>
         /// Update a user culture code
         /// </summary>
@@ -455,11 +453,10 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
         /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-profiles/">REST API Reference for GetAllProfiles Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        Task<EmployeeFullArrayWrapper> GetAllProfilesAsync(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullArrayWrapper> GetAllProfilesAsync(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get profiles
@@ -475,11 +472,10 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
         /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-profiles/">REST API Reference for GetAllProfiles Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeFullArrayWrapper>> GetAllProfilesWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullArrayWrapper>> GetAllProfilesWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Returns the user claims.
         /// </summary>
@@ -686,11 +682,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
-        Task<EmployeeFullWrapper> UpdateMemberAsync(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullWrapper> UpdateMemberAsync(string userid, UpdateMemberRequestDto updateMemberRequestDto, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a user
@@ -700,11 +696,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        Task<ApiResponse<EmployeeFullWrapper>> UpdateMemberWithHttpInfoAsync(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullWrapper>> UpdateMemberWithHttpInfoAsync(string userid, UpdateMemberRequestDto updateMemberRequestDto, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a user culture code
         /// </summary>
@@ -943,6 +939,20 @@ namespace DocSpace.API.SDK.Api.People
                 return _exceptionFactory;
             }
             set => _exceptionFactory = value; 
+        }
+
+        private string? _fields;
+
+        /// <summary>
+        /// Specifies which fields should be included in the API response.
+        /// </summary>
+        /// <param name="fields">A comma-separated list of field paths to include in the response</param>
+        /// <returns></returns>
+
+        public ProfilesApi WithFields(string fields)
+        {
+            _fields = fields;
+            return this;
         }
 
         /// <summary>
@@ -1507,12 +1517,11 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
         /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-profiles/">REST API Reference for GetAllProfiles Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper GetAllProfiles(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default)
+        public EmployeeFullArrayWrapper GetAllProfiles(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
-            var localVarResponse = GetAllProfilesWithHttpInfo(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue, fields);
+            var localVarResponse = GetAllProfilesWithHttpInfo(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1530,10 +1539,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
         /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-profiles/">REST API Reference for GetAllProfiles Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public ApiResponse<EmployeeFullArrayWrapper> GetAllProfilesWithHttpInfo(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default)
+        public ApiResponse<EmployeeFullArrayWrapper> GetAllProfilesWithHttpInfo(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1576,9 +1584,9 @@ namespace DocSpace.API.SDK.Api.People
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
-            if (fields != null)
+            if (_fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
             // authentication (Basic) required
@@ -1641,13 +1649,12 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
         /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-profiles/">REST API Reference for GetAllProfiles Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async Task<EmployeeFullArrayWrapper> GetAllProfilesAsync(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullArrayWrapper> GetAllProfilesAsync(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetAllProfilesWithHttpInfoAsync(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue, fields, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAllProfilesWithHttpInfoAsync(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1665,11 +1672,10 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterSeparator">The character or string used to separate multiple filter values in a filtering query. (optional)</param>
         /// <param name="filterValue">The text value used as an additional filter criterion for profiles retrieval. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-profiles/">REST API Reference for GetAllProfiles Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetAllProfilesWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> GetAllProfilesWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1712,10 +1718,6 @@ namespace DocSpace.API.SDK.Api.People
             if (filterValue != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
             }
 
             // authentication (Basic) required
@@ -3243,10 +3245,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
-        public EmployeeFullWrapper UpdateMember(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default)
+        public EmployeeFullWrapper UpdateMember(string userid, UpdateMemberRequestDto updateMemberRequestDto)
         {
             var localVarResponse = UpdateMemberWithHttpInfo(userid, updateMemberRequestDto);
             return localVarResponse.Data;
@@ -3260,14 +3262,18 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        public ApiResponse<EmployeeFullWrapper> UpdateMemberWithHttpInfo(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default)
+        public ApiResponse<EmployeeFullWrapper> UpdateMemberWithHttpInfo(string userid, UpdateMemberRequestDto updateMemberRequestDto)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
                 throw new ApiException(400, "Missing required parameter 'userid' when calling ProfilesApi->UpdateMember");
+
+            // verify the required parameter 'updateMemberRequestDto' is set
+            if (updateMemberRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'updateMemberRequestDto' when calling ProfilesApi->UpdateMember");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -3339,11 +3345,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
-        public async Task<EmployeeFullWrapper> UpdateMemberAsync(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullWrapper> UpdateMemberAsync(string userid, UpdateMemberRequestDto updateMemberRequestDto, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await UpdateMemberWithHttpInfoAsync(userid, updateMemberRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3357,15 +3363,19 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMemberRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member/">REST API Reference for UpdateMember Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullWrapper>> UpdateMemberWithHttpInfoAsync(string userid, UpdateMemberRequestDto? updateMemberRequestDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullWrapper>> UpdateMemberWithHttpInfoAsync(string userid, UpdateMemberRequestDto updateMemberRequestDto, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
                 throw new ApiException(400, "Missing required parameter 'userid' when calling ProfilesApi->UpdateMember");
+
+            // verify the required parameter 'updateMemberRequestDto' is set
+            if (updateMemberRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'updateMemberRequestDto' when calling ProfilesApi->UpdateMember");
 
             var localVarRequestOptions = new RequestOptions();
 

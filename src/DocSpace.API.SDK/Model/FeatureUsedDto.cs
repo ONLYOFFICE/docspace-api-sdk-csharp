@@ -28,10 +28,20 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FeatureUsedDto" /> class.
         /// </summary>
-        /// <param name="value">The used space value..</param>
+        [JsonConstructorAttribute]
+        protected FeatureUsedDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FeatureUsedDto" /> class.
+        /// </summary>
+        /// <param name="value">The used space value. (required).</param>
         /// <param name="title">The used space title..</param>
         public FeatureUsedDto(Object value = default, string title = default)
         {
+            // to ensure "value" is required (not null)
+            if (value == null)
+            {
+                throw new ArgumentNullException("value is a required property for FeatureUsedDto and cannot be null");
+            }
             this.Value = value;
             this.Title = title;
         }
@@ -43,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>{&quot;int&quot;:1234,&quot;string&quot;:&quot;some text&quot;,&quot;boolean&quot;:true}</example>
         */
-        [DataMember(Name = "value", EmitDefaultValue = true)]
+        [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public Object Value { get; set; }
 
         /// <summary>

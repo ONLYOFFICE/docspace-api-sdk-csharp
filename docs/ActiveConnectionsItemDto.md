@@ -5,9 +5,9 @@ The active connection item parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | The active connection ID. | [optional] 
-**TenantId** | **int** | The tenant ID. | [optional] 
-**UserId** | **Guid** | The user ID. | [optional] 
+**Id** | **int** | The active connection ID. | 
+**TenantId** | **int** | The tenant ID. | 
+**UserId** | **Guid** | The user ID. | 
 **Mobile** | **bool** | Specifies if the active connection has a mobile phone or not. | [optional] 
 **Ip** | **string** | The IP address of the active connection. | [optional] 
 **Country** | **string** | The active connection country. | [optional] 

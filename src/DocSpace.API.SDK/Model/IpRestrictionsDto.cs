@@ -28,10 +28,20 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IpRestrictionsDto" /> class.
         /// </summary>
-        /// <param name="ipRestrictions">The list of IP restriction addresses..</param>
+        [JsonConstructorAttribute]
+        protected IpRestrictionsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IpRestrictionsDto" /> class.
+        /// </summary>
+        /// <param name="ipRestrictions">The list of IP restriction addresses. (required).</param>
         /// <param name="enable">Specifies whether to enable IP restrictions or not..</param>
         public IpRestrictionsDto(List<IpRestrictionBase> ipRestrictions = default, bool? enable = default)
         {
+            // to ensure "ipRestrictions" is required (not null)
+            if (ipRestrictions == null)
+            {
+                throw new ArgumentNullException("ipRestrictions is a required property for IpRestrictionsDto and cannot be null");
+            }
             this.IpRestrictions = ipRestrictions;
             this.Enable = enable;
         }
@@ -40,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of IP restriction addresses.
         /// </summary>
         /// <value>The list of IP restriction addresses.</value>
-        [DataMember(Name = "ipRestrictions", EmitDefaultValue = true)]
+        [DataMember(Name = "ipRestrictions", IsRequired = true, EmitDefaultValue = true)]
         public List<IpRestrictionBase> IpRestrictions { get; set; }
 
         /// <summary>

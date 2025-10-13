@@ -341,6 +341,7 @@ namespace DocSpace.API.SDK.Api.People
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Approve a guest sharing link
         /// </summary>

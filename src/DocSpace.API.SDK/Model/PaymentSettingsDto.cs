@@ -28,20 +28,40 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentSettingsDto" /> class.
         /// </summary>
-        /// <param name="salesEmail">The email address for sales inquiries and support..</param>
+        [JsonConstructorAttribute]
+        protected PaymentSettingsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PaymentSettingsDto" /> class.
+        /// </summary>
+        /// <param name="salesEmail">The email address for sales inquiries and support. (required).</param>
         /// <param name="feedbackAndSupportUrl">The URL for accessing the feedback and support resources..</param>
-        /// <param name="buyUrl">The URL for purchasing or upgrading the product..</param>
-        /// <param name="standalone">Indicates whether the system is running in standalone mode..</param>
-        /// <param name="currentLicense">currentLicense.</param>
-        /// <param name="max">The maximum quota quantity..</param>
+        /// <param name="buyUrl">The URL for purchasing or upgrading the product. (required).</param>
+        /// <param name="standalone">Indicates whether the system is running in standalone mode. (required).</param>
+        /// <param name="currentLicense">currentLicense (required).</param>
+        /// <param name="max">The maximum quota quantity. (required).</param>
         public PaymentSettingsDto(string salesEmail = default, string feedbackAndSupportUrl = default, string buyUrl = default, bool standalone = default, CurrentLicenseInfo currentLicense = default, int max = default)
         {
+            // to ensure "salesEmail" is required (not null)
+            if (salesEmail == null)
+            {
+                throw new ArgumentNullException("salesEmail is a required property for PaymentSettingsDto and cannot be null");
+            }
             this.SalesEmail = salesEmail;
-            this.FeedbackAndSupportUrl = feedbackAndSupportUrl;
+            // to ensure "buyUrl" is required (not null)
+            if (buyUrl == null)
+            {
+                throw new ArgumentNullException("buyUrl is a required property for PaymentSettingsDto and cannot be null");
+            }
             this.BuyUrl = buyUrl;
             this.Standalone = standalone;
+            // to ensure "currentLicense" is required (not null)
+            if (currentLicense == null)
+            {
+                throw new ArgumentNullException("currentLicense is a required property for PaymentSettingsDto and cannot be null");
+            }
             this.CurrentLicense = currentLicense;
             this.Max = max;
+            this.FeedbackAndSupportUrl = feedbackAndSupportUrl;
         }
 
         /// <summary>
@@ -51,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "salesEmail", EmitDefaultValue = true)]
+        [DataMember(Name = "salesEmail", IsRequired = true, EmitDefaultValue = true)]
         public string SalesEmail { get; set; }
 
         /// <summary>
@@ -71,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "buyUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "buyUrl", IsRequired = true, EmitDefaultValue = true)]
         public string BuyUrl { get; set; }
 
         /// <summary>
@@ -81,13 +101,13 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "standalone", EmitDefaultValue = true)]
+        [DataMember(Name = "standalone", IsRequired = true, EmitDefaultValue = true)]
         public bool Standalone { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentLicense
         /// </summary>
-        [DataMember(Name = "currentLicense", EmitDefaultValue = false)]
+        [DataMember(Name = "currentLicense", IsRequired = true, EmitDefaultValue = true)]
         public CurrentLicenseInfo CurrentLicense { get; set; }
 
         /// <summary>
@@ -97,7 +117,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "max", EmitDefaultValue = false)]
+        [DataMember(Name = "max", IsRequired = true, EmitDefaultValue = true)]
         public int Max { get; set; }
 
         /// <summary>

@@ -357,7 +357,7 @@ catch (ApiException e)
 
 <a id="deleteportalcolortheme"></a>
 # **DeletePortalColorTheme**
-> CustomColorThemesSettingsWrapper DeletePortalColorTheme (int? id = null)
+> CustomColorThemesSettingsWrapper DeletePortalColorTheme (int id)
 
 Deletes the portal color theme with the ID specified in the request.
 
@@ -367,7 +367,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int?** | The ID of the portal theme to delete. | [optional]  |
+| **id** | **int** | The ID of the portal theme to delete. |  |
 
 ### Return type
 
@@ -414,7 +414,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int? | The ID of the portal theme to delete. (optional) 
+            var id = 9846;  // int | The ID of the portal theme to delete.
 
             try
             {
@@ -1191,7 +1191,7 @@ catch (ApiException e)
 # **GetSupportedCultures**
 > STRINGArrayWrapper GetSupportedCultures ()
 
-Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \"de\", \"en-US\", etc.).
+Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. de, en-US, etc.).
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/).
 

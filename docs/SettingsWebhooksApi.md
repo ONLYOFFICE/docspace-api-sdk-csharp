@@ -454,7 +454,7 @@ catch (ApiException e)
 
 <a id="getwebhookslogs"></a>
 # **GetWebhooksLogs**
-> WebhooksLogArrayWrapper GetWebhooksLogs (DateTime? deliveryFrom = null, DateTime? deliveryTo = null, string? hookUri = null, int? configId = null, int? eventId = null, WebhookGroupStatus? groupStatus = null, Guid? userId = null, WebhookTrigger? trigger = null, int? count = null, int? startIndex = null, string fields = null)
+> WebhooksLogArrayWrapper GetWebhooksLogs (DateTime? deliveryFrom = null, DateTime? deliveryTo = null, string? hookUri = null, int? configId = null, int? eventId = null, WebhookGroupStatus? groupStatus = null, Guid? userId = null, WebhookTrigger? trigger = null, int? count = null, int? startIndex = null)
 
 Returns the logs of the webhook activities.
 
@@ -474,7 +474,6 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **trigger** | [**WebhookTrigger?**](WebhookTrigger.md) | The type of event that triggered the webhook. | [optional]  |
 | **count** | **int?** | The maximum number of webhook log records to return in the query response. | [optional]  |
 | **startIndex** | **int?** | Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. | [optional]  |
-| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -531,12 +530,11 @@ namespace Example
             var trigger = new WebhookTrigger?(); // WebhookTrigger? | The type of event that triggered the webhook. (optional) 
             var count = 1234;  // int? | The maximum number of webhook log records to return in the query response. (optional) 
             var startIndex = 1234;  // int? | Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional) 
-            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get webhook logs
-                WebhooksLogArrayWrapper result = apiInstance.GetWebhooksLogs(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex, fields);
+                WebhooksLogArrayWrapper result = apiInstance.GetWebhooksLogs(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -557,7 +555,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get webhook logs
-    ApiResponse<WebhooksLogArrayWrapper> response = apiInstance.GetWebhooksLogsWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex, fields);
+    ApiResponse<WebhooksLogArrayWrapper> response = apiInstance.GetWebhooksLogsWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

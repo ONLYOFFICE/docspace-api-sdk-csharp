@@ -33,7 +33,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateWebhooksConfigRequestsDto" /> class.
         /// </summary>
-        /// <param name="id">The webhook configuration ID..</param>
+        /// <param name="id">The webhook configuration ID. (required).</param>
         public UpdateWebhooksConfigRequestsDto(int id = default)
         {
             this.Id = id;
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>

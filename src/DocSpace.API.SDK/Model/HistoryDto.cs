@@ -28,16 +28,41 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HistoryDto" /> class.
         /// </summary>
-        /// <param name="action">action.</param>
-        /// <param name="initiator">initiator.</param>
-        /// <param name="date">date.</param>
-        /// <param name="data">data.</param>
+        [JsonConstructorAttribute]
+        protected HistoryDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HistoryDto" /> class.
+        /// </summary>
+        /// <param name="action">action (required).</param>
+        /// <param name="initiator">initiator (required).</param>
+        /// <param name="date">date (required).</param>
+        /// <param name="data">data (required).</param>
         /// <param name="related">The list of related history..</param>
         public HistoryDto(HistoryAction action = default, EmployeeDto initiator = default, ApiDateTime date = default, HistoryData data = default, List<HistoryDto> related = default)
         {
+            // to ensure "action" is required (not null)
+            if (action == null)
+            {
+                throw new ArgumentNullException("action is a required property for HistoryDto and cannot be null");
+            }
             this.Action = action;
+            // to ensure "initiator" is required (not null)
+            if (initiator == null)
+            {
+                throw new ArgumentNullException("initiator is a required property for HistoryDto and cannot be null");
+            }
             this.Initiator = initiator;
+            // to ensure "date" is required (not null)
+            if (date == null)
+            {
+                throw new ArgumentNullException("date is a required property for HistoryDto and cannot be null");
+            }
             this.Date = date;
+            // to ensure "data" is required (not null)
+            if (data == null)
+            {
+                throw new ArgumentNullException("data is a required property for HistoryDto and cannot be null");
+            }
             this.Data = data;
             this.Related = related;
         }
@@ -45,25 +70,25 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Action
         /// </summary>
-        [DataMember(Name = "action", EmitDefaultValue = false)]
+        [DataMember(Name = "action", IsRequired = true, EmitDefaultValue = true)]
         public HistoryAction Action { get; set; }
 
         /// <summary>
         /// Gets or Sets Initiator
         /// </summary>
-        [DataMember(Name = "initiator", EmitDefaultValue = false)]
+        [DataMember(Name = "initiator", IsRequired = true, EmitDefaultValue = true)]
         public EmployeeDto Initiator { get; set; }
 
         /// <summary>
         /// Gets or Sets Date
         /// </summary>
-        [DataMember(Name = "date", EmitDefaultValue = false)]
+        [DataMember(Name = "date", IsRequired = true, EmitDefaultValue = true)]
         public ApiDateTime Date { get; set; }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
         public HistoryData Data { get; set; }
 
         /// <summary>

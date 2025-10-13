@@ -118,11 +118,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends congratulations to the user after registering a portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
-        /// <param name="key">The template identifier or email configuration key. (optional)</param>
+        /// <param name="userid">The user ID to receive the congratulatory message.</param>
+        /// <param name="key">The template identifier or email configuration key.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns></returns>
-        void SendCongratulations(Guid? userid = default, string? key = default);
+        void SendCongratulations(Guid userid, string key);
 
         /// <summary>
         /// Send congratulations
@@ -131,11 +131,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends congratulations to the user after registering a portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
-        /// <param name="key">The template identifier or email configuration key. (optional)</param>
+        /// <param name="userid">The user ID to receive the congratulatory message.</param>
+        /// <param name="key">The template identifier or email configuration key.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SendCongratulationsWithHttpInfo(Guid? userid = default, string? key = default);
+        ApiResponse<Object> SendCongratulationsWithHttpInfo(Guid userid, string key);
         #endregion Synchronous Operations
     }
 
@@ -248,12 +248,12 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends congratulations to the user after registering a portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
-        /// <param name="key">The template identifier or email configuration key. (optional)</param>
+        /// <param name="userid">The user ID to receive the congratulatory message.</param>
+        /// <param name="key">The template identifier or email configuration key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns>Task of void</returns>
-        Task SendCongratulationsAsync(Guid? userid = default, string? key = default, CancellationToken cancellationToken = default);
+        Task SendCongratulationsAsync(Guid userid, string key, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send congratulations
@@ -262,12 +262,12 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends congratulations to the user after registering a portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
-        /// <param name="key">The template identifier or email configuration key. (optional)</param>
+        /// <param name="userid">The user ID to receive the congratulatory message.</param>
+        /// <param name="key">The template identifier or email configuration key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> SendCongratulationsWithHttpInfoAsync(Guid? userid = default, string? key = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<Object>> SendCongratulationsWithHttpInfoAsync(Guid userid, string key, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -480,6 +480,7 @@ namespace DocSpace.API.SDK.Api.Portal
             }
             set => _exceptionFactory = value; 
         }
+
 
         /// <summary>
         /// Get an invitation link
@@ -1202,11 +1203,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends congratulations to the user after registering a portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
-        /// <param name="key">The template identifier or email configuration key. (optional)</param>
+        /// <param name="userid">The user ID to receive the congratulatory message.</param>
+        /// <param name="key">The template identifier or email configuration key.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns></returns>
-        public void SendCongratulations(Guid? userid = default, string? key = default)
+        public void SendCongratulations(Guid userid, string key)
         {
             SendCongratulationsWithHttpInfo(userid, key);
         }
@@ -1218,12 +1219,16 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends congratulations to the user after registering a portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
-        /// <param name="key">The template identifier or email configuration key. (optional)</param>
+        /// <param name="userid">The user ID to receive the congratulatory message.</param>
+        /// <param name="key">The template identifier or email configuration key.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SendCongratulationsWithHttpInfo(Guid? userid = default, string? key = default)
+        public ApiResponse<Object> SendCongratulationsWithHttpInfo(Guid userid, string key)
         {
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new ApiException(400, "Missing required parameter 'key' when calling UsersApi->SendCongratulations");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1237,14 +1242,8 @@ namespace DocSpace.API.SDK.Api.Portal
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (userid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Userid", userid));
-            }
-            if (key != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Key", key));
-            }
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Userid", userid));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Key", key));
 
 
             // make the HTTP request
@@ -1269,12 +1268,12 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends congratulations to the user after registering a portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
-        /// <param name="key">The template identifier or email configuration key. (optional)</param>
+        /// <param name="userid">The user ID to receive the congratulatory message.</param>
+        /// <param name="key">The template identifier or email configuration key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns>Task of void</returns>
-        public async Task SendCongratulationsAsync(Guid? userid = default, string? key = default, CancellationToken cancellationToken = default)
+        public async Task SendCongratulationsAsync(Guid userid, string key, CancellationToken cancellationToken = default)
         {
             await SendCongratulationsWithHttpInfoAsync(userid, key, cancellationToken).ConfigureAwait(false);
         }
@@ -1286,13 +1285,17 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Sends congratulations to the user after registering a portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userid">The user ID to receive the congratulatory message. (optional)</param>
-        /// <param name="key">The template identifier or email configuration key. (optional)</param>
+        /// <param name="userid">The user ID to receive the congratulatory message.</param>
+        /// <param name="key">The template identifier or email configuration key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> SendCongratulationsWithHttpInfoAsync(Guid? userid = default, string? key = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Object>> SendCongratulationsWithHttpInfoAsync(Guid userid, string key, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new ApiException(400, "Missing required parameter 'key' when calling UsersApi->SendCongratulations");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
@@ -1307,14 +1310,8 @@ namespace DocSpace.API.SDK.Api.Portal
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (userid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Userid", userid));
-            }
-            if (key != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Key", key));
-            }
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Userid", userid));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Key", key));
 
 
             // make the HTTP request

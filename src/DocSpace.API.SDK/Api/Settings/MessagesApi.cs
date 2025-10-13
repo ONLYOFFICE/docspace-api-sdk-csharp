@@ -27,7 +27,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Enable the administrator message settings
         /// </summary>
         /// <remarks>
-        /// Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
+        /// Displays the contact form on the Sign In page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Enable the administrator message settings
         /// </summary>
         /// <remarks>
-        /// Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
+        /// Displays the contact form on the Sign In page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
@@ -105,7 +105,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Enable the administrator message settings
         /// </summary>
         /// <remarks>
-        /// Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
+        /// Displays the contact form on the Sign In page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
@@ -118,7 +118,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Enable the administrator message settings
         /// </summary>
         /// <remarks>
-        /// Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
+        /// Displays the contact form on the Sign In page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
@@ -389,11 +389,12 @@ namespace DocSpace.API.SDK.Api.Settings
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Enable the administrator message settings
         /// </summary>
         /// <remarks>
-        /// Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
+        /// Displays the contact form on the Sign In page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
@@ -409,7 +410,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Enable the administrator message settings
         /// </summary>
         /// <remarks>
-        /// Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
+        /// Displays the contact form on the Sign In page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
@@ -482,7 +483,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Enable the administrator message settings
         /// </summary>
         /// <remarks>
-        /// Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
+        /// Displays the contact form on the Sign In page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>
@@ -499,7 +500,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Enable the administrator message settings
         /// </summary>
         /// <remarks>
-        /// Displays the contact form on the \&quot;Sign In\&quot; page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
+        /// Displays the contact form on the Sign In page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="turnOnAdminMessageSettingsRequestDto">The request parameters for enabling or disabling administrator messaging system. (optional)</param>

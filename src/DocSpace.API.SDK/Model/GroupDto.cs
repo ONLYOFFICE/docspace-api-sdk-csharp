@@ -28,11 +28,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupDto" /> class.
         /// </summary>
-        /// <param name="name">The group name..</param>
+        [JsonConstructorAttribute]
+        protected GroupDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupDto" /> class.
+        /// </summary>
+        /// <param name="name">The group name. (required).</param>
         /// <param name="parent">The parent group ID..</param>
-        /// <param name="category">The group category ID..</param>
-        /// <param name="id">The group ID..</param>
-        /// <param name="isLDAP">Specifies if the LDAP settings are enabled for the group or not..</param>
+        /// <param name="category">The group category ID. (required).</param>
+        /// <param name="id">The group ID. (required).</param>
+        /// <param name="isLDAP">Specifies if the LDAP settings are enabled for the group or not. (required).</param>
         /// <param name="isSystem">Indicates whether the group is a system group..</param>
         /// <param name="manager">manager.</param>
         /// <param name="members">The list of group members..</param>
@@ -40,11 +45,16 @@ namespace DocSpace.API.SDK.Model
         /// <param name="membersCount">The number of group members..</param>
         public GroupDto(string name = default, Guid? parent = default, Guid category = default, Guid id = default, bool isLDAP = default, bool? isSystem = default, EmployeeFullDto manager = default, List<EmployeeFullDto> members = default, bool? shared = default, int membersCount = default)
         {
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for GroupDto and cannot be null");
+            }
             this.Name = name;
-            this.Parent = parent;
             this.Category = category;
             this.Id = id;
             this.IsLDAP = isLDAP;
+            this.Parent = parent;
             this.IsSystem = isSystem;
             this.Manager = manager;
             this.Members = members;
@@ -59,7 +69,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Winfield Upton</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -79,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
         */
-        [DataMember(Name = "category", EmitDefaultValue = false)]
+        [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
         public Guid Category { get; set; }
 
         /// <summary>
@@ -89,7 +99,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
 
         /// <summary>
@@ -99,7 +109,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isLDAP", EmitDefaultValue = true)]
+        [DataMember(Name = "isLDAP", IsRequired = true, EmitDefaultValue = true)]
         public bool IsLDAP { get; set; }
 
         /// <summary>

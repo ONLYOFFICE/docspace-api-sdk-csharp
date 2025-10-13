@@ -28,11 +28,26 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CoversResultDto" /> class.
         /// </summary>
-        /// <param name="id">The cover unique identifier..</param>
-        /// <param name="data">The cover image data..</param>
+        [JsonConstructorAttribute]
+        protected CoversResultDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CoversResultDto" /> class.
+        /// </summary>
+        /// <param name="id">The cover unique identifier. (required).</param>
+        /// <param name="data">The cover image data. (required).</param>
         public CoversResultDto(string id = default, string data = default)
         {
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for CoversResultDto and cannot be null");
+            }
             this.Id = id;
+            // to ensure "data" is required (not null)
+            if (data == null)
+            {
+                throw new ArgumentNullException("data is a required property for CoversResultDto and cannot be null");
+            }
             this.Data = data;
         }
 
@@ -43,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -53,7 +68,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "data", EmitDefaultValue = true)]
+        [DataMember(Name = "data", IsRequired = true, EmitDefaultValue = true)]
         public string Data { get; set; }
 
         /// <summary>

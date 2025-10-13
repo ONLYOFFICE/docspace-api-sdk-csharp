@@ -28,7 +28,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PasswordSettingsRequestsDto" /> class.
         /// </summary>
-        /// <param name="minLength">The minimum number of characters required for valid passwords..</param>
+        [JsonConstructorAttribute]
+        protected PasswordSettingsRequestsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PasswordSettingsRequestsDto" /> class.
+        /// </summary>
+        /// <param name="minLength">The minimum number of characters required for valid passwords. (required).</param>
         /// <param name="upperCase">Specifies whether the password should contain the uppercase letters or not..</param>
         /// <param name="digits">Specifies whether the password should contain the digits or not..</param>
         /// <param name="specSymbols">Specifies whether the password should contain the special symbols or not..</param>
@@ -47,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "minLength", EmitDefaultValue = false)]
+        [DataMember(Name = "minLength", IsRequired = true, EmitDefaultValue = true)]
         public int MinLength { get; set; }
 
         /// <summary>

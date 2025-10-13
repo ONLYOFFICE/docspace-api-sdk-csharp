@@ -28,22 +28,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CapabilitiesDto" /> class.
         /// </summary>
-        /// <param name="ldapEnabled">Specifies if the LDAP settings are enabled or not..</param>
+        [JsonConstructorAttribute]
+        protected CapabilitiesDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CapabilitiesDto" /> class.
+        /// </summary>
+        /// <param name="ldapEnabled">Specifies if the LDAP settings are enabled or not. (required).</param>
         /// <param name="ldapDomain">The LDAP domain..</param>
-        /// <param name="providers">The list of providers..</param>
-        /// <param name="ssoLabel">The SP login label..</param>
-        /// <param name="oauthEnabled">Specifies if OAuth is enabled or not..</param>
-        /// <param name="ssoUrl">The SSO URL. If this parameter is empty, then the SSO settings are disabled..</param>
-        /// <param name="identityServerEnabled">Specifies if identity server is enabled or not.</param>
+        /// <param name="providers">The list of providers. (required).</param>
+        /// <param name="ssoLabel">The SP login label. (required).</param>
+        /// <param name="oauthEnabled">Specifies if OAuth is enabled or not. (required).</param>
+        /// <param name="ssoUrl">The SSO URL. If this parameter is empty, then the SSO settings are disabled. (required).</param>
+        /// <param name="identityServerEnabled">Specifies if identity server is enabled or not (required).</param>
         public CapabilitiesDto(bool ldapEnabled = default, string ldapDomain = default, List<string> providers = default, string ssoLabel = default, bool oauthEnabled = default, string ssoUrl = default, bool identityServerEnabled = default)
         {
             this.LdapEnabled = ldapEnabled;
-            this.LdapDomain = ldapDomain;
+            // to ensure "providers" is required (not null)
+            if (providers == null)
+            {
+                throw new ArgumentNullException("providers is a required property for CapabilitiesDto and cannot be null");
+            }
             this.Providers = providers;
+            // to ensure "ssoLabel" is required (not null)
+            if (ssoLabel == null)
+            {
+                throw new ArgumentNullException("ssoLabel is a required property for CapabilitiesDto and cannot be null");
+            }
             this.SsoLabel = ssoLabel;
             this.OauthEnabled = oauthEnabled;
+            // to ensure "ssoUrl" is required (not null)
+            if (ssoUrl == null)
+            {
+                throw new ArgumentNullException("ssoUrl is a required property for CapabilitiesDto and cannot be null");
+            }
             this.SsoUrl = ssoUrl;
             this.IdentityServerEnabled = identityServerEnabled;
+            this.LdapDomain = ldapDomain;
         }
 
         /// <summary>
@@ -53,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>false</example>
         */
-        [DataMember(Name = "ldapEnabled", EmitDefaultValue = true)]
+        [DataMember(Name = "ldapEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool LdapEnabled { get; set; }
 
         /// <summary>
@@ -73,14 +93,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "providers", EmitDefaultValue = true)]
+        [DataMember(Name = "providers", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Providers { get; set; }
 
         /// <summary>
         /// The SP login label.
         /// </summary>
         /// <value>The SP login label.</value>
-        [DataMember(Name = "ssoLabel", EmitDefaultValue = true)]
+        [DataMember(Name = "ssoLabel", IsRequired = true, EmitDefaultValue = true)]
         public string SsoLabel { get; set; }
 
         /// <summary>
@@ -90,14 +110,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "oauthEnabled", EmitDefaultValue = true)]
+        [DataMember(Name = "oauthEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool OauthEnabled { get; set; }
 
         /// <summary>
         /// The SSO URL. If this parameter is empty, then the SSO settings are disabled.
         /// </summary>
         /// <value>The SSO URL. If this parameter is empty, then the SSO settings are disabled.</value>
-        [DataMember(Name = "ssoUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "ssoUrl", IsRequired = true, EmitDefaultValue = true)]
         public string SsoUrl { get; set; }
 
         /// <summary>
@@ -107,7 +127,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "identityServerEnabled", EmitDefaultValue = true)]
+        [DataMember(Name = "identityServerEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool IdentityServerEnabled { get; set; }
 
         /// <summary>

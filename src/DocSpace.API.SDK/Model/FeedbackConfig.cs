@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The settings for the \&quot;Feedback &amp; Support\&quot; menu button.
+    /// The settings for the Feedback &amp; Support menu button.
     /// </summary>
     [DataContract(Name = "FeedbackConfig")]
     public partial class FeedbackConfig : IValidatableObject
@@ -28,16 +28,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FeedbackConfig" /> class.
         /// </summary>
-        /// <param name="url">The absolute URL to the website address which will be opened when clicking the \&quot;Feedback &amp; Support\&quot; menu button..</param>
+        /// <param name="url">The absolute URL to the website address which will be opened when clicking the Feedback &amp; Support menu button..</param>
         public FeedbackConfig(string url = default)
         {
             this.Url = url;
         }
 
         /// <summary>
-        /// The absolute URL to the website address which will be opened when clicking the \&quot;Feedback &amp; Support\&quot; menu button.
+        /// The absolute URL to the website address which will be opened when clicking the Feedback &amp; Support menu button.
         /// </summary>
-        /// <value>The absolute URL to the website address which will be opened when clicking the \&quot;Feedback &amp; Support\&quot; menu button.</value>
+        /// <value>The absolute URL to the website address which will be opened when clicking the Feedback &amp; Support menu button.</value>
         /*
         <example>some text</example>
         */
@@ -45,9 +45,9 @@ namespace DocSpace.API.SDK.Model
         public string Url { get; set; }
 
         /// <summary>
-        /// Shows or hides the \&quot;Feedback &amp; Support\&quot; menu button.
+        /// Shows or hides the Feedback &amp; Support menu button.
         /// </summary>
-        /// <value>Shows or hides the \&quot;Feedback &amp; Support\&quot; menu button.</value>
+        /// <value>Shows or hides the Feedback &amp; Support menu button.</value>
         /*
         <example>true</example>
         */

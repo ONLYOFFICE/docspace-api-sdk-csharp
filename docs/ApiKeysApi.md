@@ -558,7 +558,7 @@ catch (ApiException e)
 
 <a id="updateapikey"></a>
 # **UpdateApiKey**
-> BooleanWrapper UpdateApiKey (Guid keyId, UpdateApiKeyRequest? updateApiKeyRequest = null)
+> BooleanWrapper UpdateApiKey (Guid keyId, UpdateApiKeyRequest updateApiKeyRequest)
 
 Updates an existing API key changing its name, permissions and status.
 
@@ -569,7 +569,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **keyId** | **Guid** | The unique identifier of the API key to update. |  |
-| **updateApiKeyRequest** | [**UpdateApiKeyRequest?**](UpdateApiKeyRequest.md) | The request parameters for updating an existing API key. | [optional]  |
+| **updateApiKeyRequest** | [**UpdateApiKeyRequest**](UpdateApiKeyRequest.md) | The request parameters for updating an existing API key. |  |
 
 ### Return type
 
@@ -617,7 +617,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ApiKeysApi(httpClient, config, httpClientHandler);
             var keyId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The unique identifier of the API key to update.
-            var updateApiKeyRequest = new UpdateApiKeyRequest?(); // UpdateApiKeyRequest? | The request parameters for updating an existing API key. (optional) 
+            var updateApiKeyRequest = new UpdateApiKeyRequest(); // UpdateApiKeyRequest | The request parameters for updating an existing API key.
 
             try
             {

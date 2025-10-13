@@ -28,23 +28,68 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FirebaseDto" /> class.
         /// </summary>
-        /// <param name="apiKey">The Firebase API key..</param>
-        /// <param name="authDomain">The Firebase authentication domain..</param>
-        /// <param name="projectId">The Firebase project ID..</param>
-        /// <param name="storageBucket">The Firebase storage bucket..</param>
-        /// <param name="messagingSenderId">The Firebase messaging sender ID..</param>
-        /// <param name="appId">The Firebase application ID..</param>
-        /// <param name="measurementId">The Firebase measurement ID..</param>
-        /// <param name="databaseURL">The Firebase database URL..</param>
+        [JsonConstructorAttribute]
+        protected FirebaseDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FirebaseDto" /> class.
+        /// </summary>
+        /// <param name="apiKey">The Firebase API key. (required).</param>
+        /// <param name="authDomain">The Firebase authentication domain. (required).</param>
+        /// <param name="projectId">The Firebase project ID. (required).</param>
+        /// <param name="storageBucket">The Firebase storage bucket. (required).</param>
+        /// <param name="messagingSenderId">The Firebase messaging sender ID. (required).</param>
+        /// <param name="appId">The Firebase application ID. (required).</param>
+        /// <param name="measurementId">The Firebase measurement ID. (required).</param>
+        /// <param name="databaseURL">The Firebase database URL. (required).</param>
         public FirebaseDto(string apiKey = default, string authDomain = default, string projectId = default, string storageBucket = default, string messagingSenderId = default, string appId = default, string measurementId = default, string databaseURL = default)
         {
+            // to ensure "apiKey" is required (not null)
+            if (apiKey == null)
+            {
+                throw new ArgumentNullException("apiKey is a required property for FirebaseDto and cannot be null");
+            }
             this.ApiKey = apiKey;
+            // to ensure "authDomain" is required (not null)
+            if (authDomain == null)
+            {
+                throw new ArgumentNullException("authDomain is a required property for FirebaseDto and cannot be null");
+            }
             this.AuthDomain = authDomain;
+            // to ensure "projectId" is required (not null)
+            if (projectId == null)
+            {
+                throw new ArgumentNullException("projectId is a required property for FirebaseDto and cannot be null");
+            }
             this.ProjectId = projectId;
+            // to ensure "storageBucket" is required (not null)
+            if (storageBucket == null)
+            {
+                throw new ArgumentNullException("storageBucket is a required property for FirebaseDto and cannot be null");
+            }
             this.StorageBucket = storageBucket;
+            // to ensure "messagingSenderId" is required (not null)
+            if (messagingSenderId == null)
+            {
+                throw new ArgumentNullException("messagingSenderId is a required property for FirebaseDto and cannot be null");
+            }
             this.MessagingSenderId = messagingSenderId;
+            // to ensure "appId" is required (not null)
+            if (appId == null)
+            {
+                throw new ArgumentNullException("appId is a required property for FirebaseDto and cannot be null");
+            }
             this.AppId = appId;
+            // to ensure "measurementId" is required (not null)
+            if (measurementId == null)
+            {
+                throw new ArgumentNullException("measurementId is a required property for FirebaseDto and cannot be null");
+            }
             this.MeasurementId = measurementId;
+            // to ensure "databaseURL" is required (not null)
+            if (databaseURL == null)
+            {
+                throw new ArgumentNullException("databaseURL is a required property for FirebaseDto and cannot be null");
+            }
             this.DatabaseURL = databaseURL;
         }
 
@@ -55,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "apiKey", EmitDefaultValue = true)]
+        [DataMember(Name = "apiKey", IsRequired = true, EmitDefaultValue = true)]
         public string ApiKey { get; set; }
 
         /// <summary>
@@ -65,7 +110,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "authDomain", EmitDefaultValue = true)]
+        [DataMember(Name = "authDomain", IsRequired = true, EmitDefaultValue = true)]
         public string AuthDomain { get; set; }
 
         /// <summary>
@@ -75,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "projectId", EmitDefaultValue = true)]
+        [DataMember(Name = "projectId", IsRequired = true, EmitDefaultValue = true)]
         public string ProjectId { get; set; }
 
         /// <summary>
@@ -85,7 +130,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "storageBucket", EmitDefaultValue = true)]
+        [DataMember(Name = "storageBucket", IsRequired = true, EmitDefaultValue = true)]
         public string StorageBucket { get; set; }
 
         /// <summary>
@@ -95,7 +140,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "messagingSenderId", EmitDefaultValue = true)]
+        [DataMember(Name = "messagingSenderId", IsRequired = true, EmitDefaultValue = true)]
         public string MessagingSenderId { get; set; }
 
         /// <summary>
@@ -105,7 +150,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "appId", EmitDefaultValue = true)]
+        [DataMember(Name = "appId", IsRequired = true, EmitDefaultValue = true)]
         public string AppId { get; set; }
 
         /// <summary>
@@ -115,7 +160,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "measurementId", EmitDefaultValue = true)]
+        [DataMember(Name = "measurementId", IsRequired = true, EmitDefaultValue = true)]
         public string MeasurementId { get; set; }
 
         /// <summary>
@@ -125,7 +170,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "databaseURL", EmitDefaultValue = true)]
+        [DataMember(Name = "databaseURL", IsRequired = true, EmitDefaultValue = true)]
         public string DatabaseURL { get; set; }
 
         /// <summary>

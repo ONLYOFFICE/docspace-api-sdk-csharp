@@ -557,6 +557,7 @@ namespace DocSpace.API.SDK.Api.Portal
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Restore a portal
         /// </summary>

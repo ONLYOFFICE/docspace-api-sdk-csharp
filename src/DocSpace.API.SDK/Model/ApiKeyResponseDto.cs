@@ -28,28 +28,48 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiKeyResponseDto" /> class.
         /// </summary>
-        /// <param name="id">The unique identifier of the API key..</param>
-        /// <param name="name">The API key name..</param>
-        /// <param name="key">The full API key value (only returned when creating a new key)..</param>
+        [JsonConstructorAttribute]
+        protected ApiKeyResponseDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApiKeyResponseDto" /> class.
+        /// </summary>
+        /// <param name="id">The unique identifier of the API key. (required).</param>
+        /// <param name="name">The API key name. (required).</param>
+        /// <param name="key">The full API key value (only returned when creating a new key). (required).</param>
         /// <param name="keyPostfix">The API key postfix (used for identification)..</param>
-        /// <param name="permissions">The list of permissions granted to the API key..</param>
+        /// <param name="permissions">The list of permissions granted to the API key. (required).</param>
         /// <param name="lastUsed">lastUsed.</param>
         /// <param name="createOn">createOn.</param>
         /// <param name="createBy">createBy.</param>
         /// <param name="expiresAt">expiresAt.</param>
-        /// <param name="isActive">Indicates whether the API key is active or not..</param>
+        /// <param name="isActive">Indicates whether the API key is active or not. (required).</param>
         public ApiKeyResponseDto(Guid id = default, string name = default, string key = default, string keyPostfix = default, List<string> permissions = default, ApiDateTime lastUsed = default, ApiDateTime createOn = default, EmployeeDto createBy = default, ApiDateTime expiresAt = default, bool isActive = default)
         {
             this.Id = id;
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for ApiKeyResponseDto and cannot be null");
+            }
             this.Name = name;
+            // to ensure "key" is required (not null)
+            if (key == null)
+            {
+                throw new ArgumentNullException("key is a required property for ApiKeyResponseDto and cannot be null");
+            }
             this.Key = key;
-            this.KeyPostfix = keyPostfix;
+            // to ensure "permissions" is required (not null)
+            if (permissions == null)
+            {
+                throw new ArgumentNullException("permissions is a required property for ApiKeyResponseDto and cannot be null");
+            }
             this.Permissions = permissions;
+            this.IsActive = isActive;
+            this.KeyPostfix = keyPostfix;
             this.LastUsed = lastUsed;
             this.CreateOn = createOn;
             this.CreateBy = createBy;
             this.ExpiresAt = expiresAt;
-            this.IsActive = isActive;
         }
 
         /// <summary>
@@ -59,7 +79,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
 
         /// <summary>
@@ -69,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Winfield Upton</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -79,7 +99,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "key", EmitDefaultValue = true)]
+        [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
@@ -99,7 +119,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "permissions", EmitDefaultValue = true)]
+        [DataMember(Name = "permissions", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Permissions { get; set; }
 
         /// <summary>
@@ -133,7 +153,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isActive", EmitDefaultValue = true)]
+        [DataMember(Name = "isActive", IsRequired = true, EmitDefaultValue = true)]
         public bool IsActive { get; set; }
 
         /// <summary>

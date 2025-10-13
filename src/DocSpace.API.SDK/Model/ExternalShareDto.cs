@@ -28,8 +28,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public Status? Status { get; set; }
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        public Status Status { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
@@ -46,33 +46,48 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalShareDto" /> class.
         /// </summary>
-        /// <param name="status">status.</param>
-        /// <param name="id">The external data ID..</param>
-        /// <param name="title">The external data title..</param>
+        [JsonConstructorAttribute]
+        protected ExternalShareDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ExternalShareDto" /> class.
+        /// </summary>
+        /// <param name="status">status (required).</param>
+        /// <param name="id">The external data ID. (required).</param>
+        /// <param name="title">The external data title. (required).</param>
         /// <param name="type">type.</param>
-        /// <param name="tenantId">The tenant ID..</param>
+        /// <param name="tenantId">The tenant ID. (required).</param>
         /// <param name="entityId">The unique identifier of the shared entity..</param>
         /// <param name="entityTitle">The title of the shared entity..</param>
         /// <param name="entityType">entityType.</param>
         /// <param name="isRoom">Indicates whether the entity represents a room..</param>
-        /// <param name="shared">Specifies whether to share the external data or not..</param>
-        /// <param name="linkId">The link ID of the external data..</param>
-        /// <param name="isAuthenticated">Specifies whether the user is authenticated or not..</param>
+        /// <param name="shared">Specifies whether to share the external data or not. (required).</param>
+        /// <param name="linkId">The link ID of the external data. (required).</param>
+        /// <param name="isAuthenticated">Specifies whether the user is authenticated or not. (required).</param>
         /// <param name="isRoomMember">The room ID of the external data..</param>
-        public ExternalShareDto(Status? status = default, string id = default, string title = default, FileEntryType? type = default, int tenantId = default, string entityId = default, string entityTitle = default, FileEntryType? entityType = default, bool? isRoom = default, bool shared = default, Guid linkId = default, bool isAuthenticated = default, bool isRoomMember = default)
+        public ExternalShareDto(Status status = default, string id = default, string title = default, FileEntryType? type = default, int tenantId = default, string entityId = default, string entityTitle = default, FileEntryType? entityType = default, bool? isRoom = default, bool shared = default, Guid linkId = default, bool isAuthenticated = default, bool isRoomMember = default)
         {
             this.Status = status;
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for ExternalShareDto and cannot be null");
+            }
             this.Id = id;
+            // to ensure "title" is required (not null)
+            if (title == null)
+            {
+                throw new ArgumentNullException("title is a required property for ExternalShareDto and cannot be null");
+            }
             this.Title = title;
-            this.Type = type;
             this.TenantId = tenantId;
+            this.Shared = shared;
+            this.LinkId = linkId;
+            this.IsAuthenticated = isAuthenticated;
+            this.Type = type;
             this.EntityId = entityId;
             this.EntityTitle = entityTitle;
             this.EntityType = entityType;
             this.IsRoom = isRoom;
-            this.Shared = shared;
-            this.LinkId = linkId;
-            this.IsAuthenticated = isAuthenticated;
             this.IsRoomMember = isRoomMember;
         }
 
@@ -83,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -93,7 +108,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>legacy_1080p_small_wooden_mouse</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
@@ -103,7 +118,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "tenantId", EmitDefaultValue = false)]
+        [DataMember(Name = "tenantId", IsRequired = true, EmitDefaultValue = true)]
         public int TenantId { get; set; }
 
         /// <summary>
@@ -143,7 +158,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "shared", EmitDefaultValue = true)]
+        [DataMember(Name = "shared", IsRequired = true, EmitDefaultValue = true)]
         public bool Shared { get; set; }
 
         /// <summary>
@@ -153,7 +168,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
         */
-        [DataMember(Name = "linkId", EmitDefaultValue = false)]
+        [DataMember(Name = "linkId", IsRequired = true, EmitDefaultValue = true)]
         public Guid LinkId { get; set; }
 
         /// <summary>
@@ -163,7 +178,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isAuthenticated", EmitDefaultValue = true)]
+        [DataMember(Name = "isAuthenticated", IsRequired = true, EmitDefaultValue = true)]
         public bool IsAuthenticated { get; set; }
 
         /// <summary>

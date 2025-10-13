@@ -28,13 +28,33 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthKey" /> class.
         /// </summary>
-        /// <param name="name">The authentication key name..</param>
-        /// <param name="value">The authentication key value..</param>
-        /// <param name="title">The authentication key title..</param>
+        [JsonConstructorAttribute]
+        protected AuthKey() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthKey" /> class.
+        /// </summary>
+        /// <param name="name">The authentication key name. (required).</param>
+        /// <param name="value">The authentication key value. (required).</param>
+        /// <param name="title">The authentication key title. (required).</param>
         public AuthKey(string name = default, string value = default, string title = default)
         {
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for AuthKey and cannot be null");
+            }
             this.Name = name;
+            // to ensure "value" is required (not null)
+            if (value == null)
+            {
+                throw new ArgumentNullException("value is a required property for AuthKey and cannot be null");
+            }
             this.Value = value;
+            // to ensure "title" is required (not null)
+            if (title == null)
+            {
+                throw new ArgumentNullException("title is a required property for AuthKey and cannot be null");
+            }
             this.Title = title;
         }
 
@@ -45,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Winfield Upton</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -55,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "value", EmitDefaultValue = true)]
+        [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
@@ -65,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>legacy_1080p_small_wooden_mouse</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>

@@ -4,29 +4,125 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**BulkDownload**](#bulkdownload) | **PUT** /api/2.0/files/fileops/bulkdownload | Bulk download |
-| [**CheckConversionStatus**](#checkconversionstatus) | **GET** /api/2.0/files/file/{fileId}/checkconversion | Get conversion status |
-| [**CheckMoveOrCopyBatchItems**](#checkmoveorcopybatchitems) | **GET** /api/2.0/files/fileops/move | Check and move or copy to a folder |
-| [**CheckMoveOrCopyDestFolder**](#checkmoveorcopydestfolder) | **GET** /api/2.0/files/fileops/checkdestfolder | Check for moving or copying to a folder |
-| [**CopyBatchItems**](#copybatchitems) | **PUT** /api/2.0/files/fileops/copy | Copy to the folder |
-| [**CreateUploadSession**](#createuploadsession) | **POST** /api/2.0/files/{folderId}/upload/create_session | Chunked upload |
-| [**DeleteBatchItems**](#deletebatchitems) | **PUT** /api/2.0/files/fileops/delete | Delete files and folders |
-| [**DeleteFileVersions**](#deletefileversions) | **PUT** /api/2.0/files/fileops/deleteversion | Delete file versions |
-| [**DuplicateBatchItems**](#duplicatebatchitems) | **PUT** /api/2.0/files/fileops/duplicate | Duplicate files and folders |
-| [**EmptyTrash**](#emptytrash) | **PUT** /api/2.0/files/fileops/emptytrash | Empty the \&quot;Trash\&quot; folder |
-| [**GetOperationStatuses**](#getoperationstatuses) | **GET** /api/2.0/files/fileops | Get active file operations |
-| [**GetOperationStatusesByType**](#getoperationstatusesbytype) | **GET** /api/2.0/files/fileops/{operationType} | Get file operation statuses |
-| [**MarkAsRead**](#markasread) | **PUT** /api/2.0/files/fileops/markasread | Mark as read |
-| [**MoveBatchItems**](#movebatchitems) | **PUT** /api/2.0/files/fileops/move | Move or copy to a folder |
-| [**StartFileConversion**](#startfileconversion) | **PUT** /api/2.0/files/file/{fileId}/checkconversion | Start file conversion |
-| [**TerminateTasks**](#terminatetasks) | **PUT** /api/2.0/files/fileops/terminate/{id} | Finish active operations |
-| [**UpdateFileComment**](#updatefilecomment) | **PUT** /api/2.0/files/file/{fileId}/comment | Update a comment |
+| [**AddFavorites**](#addfavorites) | **POST** /api/2.0/files/favorites |  |
+| [**BulkDownload**](#bulkdownload) | **PUT** /api/2.0/files/fileops/bulkdownload |  |
+| [**CheckConversionStatus**](#checkconversionstatus) | **GET** /api/2.0/files/file/{fileId}/checkconversion |  |
+| [**CheckMoveOrCopyBatchItems**](#checkmoveorcopybatchitems) | **GET** /api/2.0/files/fileops/move |  |
+| [**CheckMoveOrCopyDestFolder**](#checkmoveorcopydestfolder) | **GET** /api/2.0/files/fileops/checkdestfolder |  |
+| [**CopyBatchItems**](#copybatchitems) | **PUT** /api/2.0/files/fileops/copy |  |
+| [**CreateUploadSession**](#createuploadsession) | **POST** /api/2.0/files/{folderId}/upload/create_session |  |
+| [**DeleteBatchItems**](#deletebatchitems) | **PUT** /api/2.0/files/fileops/delete |  |
+| [**DeleteFavoritesFromBody**](#deletefavoritesfrombody) | **DELETE** /api/2.0/files/favorites |  |
+| [**DeleteFileVersions**](#deletefileversions) | **PUT** /api/2.0/files/fileops/deleteversion |  |
+| [**DuplicateBatchItems**](#duplicatebatchitems) | **PUT** /api/2.0/files/fileops/duplicate |  |
+| [**EmptyTrash**](#emptytrash) | **PUT** /api/2.0/files/fileops/emptytrash |  |
+| [**GetOperationStatuses**](#getoperationstatuses) | **GET** /api/2.0/files/fileops |  |
+| [**GetOperationStatusesByType**](#getoperationstatusesbytype) | **GET** /api/2.0/files/fileops/{operationType} |  |
+| [**MarkAsRead**](#markasread) | **PUT** /api/2.0/files/fileops/markasread |  |
+| [**MoveBatchItems**](#movebatchitems) | **PUT** /api/2.0/files/fileops/move |  |
+| [**StartFileConversion**](#startfileconversion) | **PUT** /api/2.0/files/file/{fileId}/checkconversion |  |
+| [**TerminateTasks**](#terminatetasks) | **PUT** /api/2.0/files/fileops/terminate/{id} |  |
+| [**UpdateFileComment**](#updatefilecomment) | **PUT** /api/2.0/files/file/{fileId}/comment |  |
+
+<a id="addfavorites"></a>
+# **AddFavorites**
+> BooleanWrapper AddFavorites (BaseBatchRequestDto? baseBatchRequestDto = null)
+
+
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-favorites/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **baseBatchRequestDto** | [**BaseBatchRequestDto?**](BaseBatchRequestDto.md) | The base batch request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+No authorization required
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class AddFavoritesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
+            var baseBatchRequestDto = new BaseBatchRequestDto?(); // BaseBatchRequestDto? | The base batch request parameters. (optional) 
+
+            try
+            {
+                BooleanWrapper result = apiInstance.AddFavorites(baseBatchRequestDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling OperationsApi.AddFavorites: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AddFavoritesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<BooleanWrapper> response = apiInstance.AddFavoritesWithHttpInfo(baseBatchRequestDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling OperationsApi.AddFavoritesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Boolean value: true if the operation is successful |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="bulkdownload"></a>
 # **BulkDownload**
 > FileOperationArrayWrapper BulkDownload (DownloadRequestDto? downloadRequestDto = null)
 
-Starts the download process of files and folders with the IDs specified in the request.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/bulk-download/).
 
@@ -69,7 +165,6 @@ namespace Example
 
             try
             {
-                // Bulk download
                 FileOperationArrayWrapper result = apiInstance.BulkDownload(downloadRequestDto);
                 Debug.WriteLine(result);
             }
@@ -90,7 +185,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Bulk download
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.BulkDownloadWithHttpInfo(downloadRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -122,7 +216,7 @@ catch (ApiException e)
 # **CheckConversionStatus**
 > ConversationResultArrayWrapper CheckConversionStatus (int fileId, bool? start = null)
 
-Checks the conversion status of a file with the ID specified in the request.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-conversion-status/).
 
@@ -139,7 +233,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -158,22 +252,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -183,7 +261,6 @@ namespace Example
 
             try
             {
-                // Get conversion status
                 ConversationResultArrayWrapper result = apiInstance.CheckConversionStatus(fileId, start);
                 Debug.WriteLine(result);
             }
@@ -204,7 +281,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get conversion status
     ApiResponse<ConversationResultArrayWrapper> response = apiInstance.CheckConversionStatusWithHttpInfo(fileId, start);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -228,7 +304,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Conversion result |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -236,7 +311,7 @@ catch (ApiException e)
 # **CheckMoveOrCopyBatchItems**
 > FileEntryBaseArrayWrapper CheckMoveOrCopyBatchItems (BatchRequestDto? inDto = null)
 
-Checks if files or folders can be moved or copied to the specified folder, moves or copies them, and returns their information.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-batch-items/).
 
@@ -252,7 +327,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -271,22 +346,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -295,7 +354,6 @@ namespace Example
 
             try
             {
-                // Check and move or copy to a folder
                 FileEntryBaseArrayWrapper result = apiInstance.CheckMoveOrCopyBatchItems(inDto);
                 Debug.WriteLine(result);
             }
@@ -316,7 +374,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Check and move or copy to a folder
     ApiResponse<FileEntryBaseArrayWrapper> response = apiInstance.CheckMoveOrCopyBatchItemsWithHttpInfo(inDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -340,7 +397,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file entry information |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -349,7 +405,7 @@ catch (ApiException e)
 # **CheckMoveOrCopyDestFolder**
 > CheckDestFolderWrapper CheckMoveOrCopyDestFolder (BatchRequestDto? inDto = null)
 
-Checks if files can be moved or copied to the specified folder.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-move-or-copy-dest-folder/).
 
@@ -365,7 +421,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -384,22 +440,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -408,7 +448,6 @@ namespace Example
 
             try
             {
-                // Check for moving or copying to a folder
                 CheckDestFolderWrapper result = apiInstance.CheckMoveOrCopyDestFolder(inDto);
                 Debug.WriteLine(result);
             }
@@ -429,7 +468,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Check for moving or copying to a folder
     ApiResponse<CheckDestFolderWrapper> response = apiInstance.CheckMoveOrCopyDestFolderWithHttpInfo(inDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -453,7 +491,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Result |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -462,7 +499,7 @@ catch (ApiException e)
 # **CopyBatchItems**
 > FileOperationArrayWrapper CopyBatchItems (BatchRequestDto? batchRequestDto = null)
 
-Copies all the selected files and folders to the folder with the ID specified in the request.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/copy-batch-items/).
 
@@ -478,7 +515,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -497,22 +534,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -521,7 +542,6 @@ namespace Example
 
             try
             {
-                // Copy to the folder
                 FileOperationArrayWrapper result = apiInstance.CopyBatchItems(batchRequestDto);
                 Debug.WriteLine(result);
             }
@@ -542,7 +562,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Copy to the folder
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.CopyBatchItemsWithHttpInfo(batchRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -566,16 +585,15 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file operations |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to copy |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="createuploadsession"></a>
 # **CreateUploadSession**
-> ObjectWrapper CreateUploadSession (int folderId, SessionRequest? sessionRequest = null)
+> ObjectWrapper CreateUploadSession (int folderId, SessionRequest sessionRequest)
 
-Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of <b>512</b> and greater or equal to <b>10 mb</b>. Last chunk can have any size.  After the initial response to the request with the <b>200 OK</b> status, you must get the <em>location</em> field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the <b>201 Created</b> status and sends you information about the uploaded file.  Information about created session which includes:  <ul>  <li><b>id:</b> unique ID of this upload session,</li>  <li><b>created:</b> UTC time when the session was created,</li>  <li><b>expired:</b> UTC time when the session will expire if no chunks are sent before that time,</li>  <li><b>location:</b> URL where you should send your next chunk,</li>  <li><b>bytes_uploaded:</b> number of bytes uploaded for the specific upload ID,</li>  <li><b>bytes_total:</b> total number of bytes which will be uploaded.</li>  </ul>
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/).
 
@@ -584,7 +602,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **folderId** | **int** | The folder ID of the session. |  |
-| **sessionRequest** | [**SessionRequest?**](SessionRequest.md) | The session parameters. | [optional]  |
+| **sessionRequest** | [**SessionRequest**](SessionRequest.md) | The session parameters. |  |
 
 ### Return type
 
@@ -592,7 +610,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -611,32 +629,15 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
             var folderId = 9846;  // int | The folder ID of the session.
-            var sessionRequest = new SessionRequest?(); // SessionRequest? | The session parameters. (optional) 
+            var sessionRequest = new SessionRequest(); // SessionRequest | The session parameters.
 
             try
             {
-                // Chunked upload
                 ObjectWrapper result = apiInstance.CreateUploadSession(folderId, sessionRequest);
                 Debug.WriteLine(result);
             }
@@ -657,7 +658,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Chunked upload
     ApiResponse<ObjectWrapper> response = apiInstance.CreateUploadSessionWithHttpInfo(folderId, sessionRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -681,7 +681,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Information about created session |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -690,7 +689,7 @@ catch (ApiException e)
 # **DeleteBatchItems**
 > FileOperationArrayWrapper DeleteBatchItems (DeleteBatchRequestDto? deleteBatchRequestDto = null)
 
-Deletes the files and folders with the IDs specified in the request.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-batch-items/).
 
@@ -706,7 +705,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -725,22 +724,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -749,7 +732,6 @@ namespace Example
 
             try
             {
-                // Delete files and folders
                 FileOperationArrayWrapper result = apiInstance.DeleteBatchItems(deleteBatchRequestDto);
                 Debug.WriteLine(result);
             }
@@ -770,7 +752,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Delete files and folders
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.DeleteBatchItemsWithHttpInfo(deleteBatchRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -794,8 +775,100 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file operations |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to delete |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="deletefavoritesfrombody"></a>
+# **DeleteFavoritesFromBody**
+> BooleanWrapper DeleteFavoritesFromBody (BaseBatchRequestDto? baseBatchRequestDto = null)
+
+
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-favorites-from-body/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **baseBatchRequestDto** | [**BaseBatchRequestDto?**](BaseBatchRequestDto.md) | The base batch request parameters. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+No authorization required
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class DeleteFavoritesFromBodyExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
+            var baseBatchRequestDto = new BaseBatchRequestDto?(); // BaseBatchRequestDto? | The base batch request parameters. (optional) 
+
+            try
+            {
+                BooleanWrapper result = apiInstance.DeleteFavoritesFromBody(baseBatchRequestDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling OperationsApi.DeleteFavoritesFromBody: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteFavoritesFromBodyWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<BooleanWrapper> response = apiInstance.DeleteFavoritesFromBodyWithHttpInfo(baseBatchRequestDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling OperationsApi.DeleteFavoritesFromBodyWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Boolean value: true if the operation is successful |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -803,7 +876,7 @@ catch (ApiException e)
 # **DeleteFileVersions**
 > FileOperationWrapper DeleteFileVersions (DeleteVersionBatchRequestDto? deleteVersionBatchRequestDto = null)
 
-Deletes the file versions with the IDs specified in the request.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file-versions/).
 
@@ -819,7 +892,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -838,22 +911,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -862,7 +919,6 @@ namespace Example
 
             try
             {
-                // Delete file versions
                 FileOperationWrapper result = apiInstance.DeleteFileVersions(deleteVersionBatchRequestDto);
                 Debug.WriteLine(result);
             }
@@ -883,7 +939,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Delete file versions
     ApiResponse<FileOperationWrapper> response = apiInstance.DeleteFileVersionsWithHttpInfo(deleteVersionBatchRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -907,7 +962,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file operations |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -915,7 +969,7 @@ catch (ApiException e)
 # **DuplicateBatchItems**
 > FileOperationArrayWrapper DuplicateBatchItems (DuplicateRequestDto? duplicateRequestDto = null)
 
-Duplicates all the selected files and folders.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/).
 
@@ -931,7 +985,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -950,22 +1004,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -974,7 +1012,6 @@ namespace Example
 
             try
             {
-                // Duplicate files and folders
                 FileOperationArrayWrapper result = apiInstance.DuplicateBatchItems(duplicateRequestDto);
                 Debug.WriteLine(result);
             }
@@ -995,7 +1032,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Duplicate files and folders
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.DuplicateBatchItemsWithHttpInfo(duplicateRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1019,7 +1055,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file operations |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to duplicate |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1028,7 +1063,7 @@ catch (ApiException e)
 # **EmptyTrash**
 > FileOperationArrayWrapper EmptyTrash (bool? single = null)
 
-Deletes all the files and folders from the \"Trash\" folder.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/).
 
@@ -1044,7 +1079,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -1063,22 +1098,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1087,7 +1106,6 @@ namespace Example
 
             try
             {
-                // Empty the \"Trash\" folder
                 FileOperationArrayWrapper result = apiInstance.EmptyTrash(single);
                 Debug.WriteLine(result);
             }
@@ -1108,7 +1126,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Empty the \"Trash\" folder
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.EmptyTrashWithHttpInfo(single);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1132,7 +1149,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file operations |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1140,7 +1156,7 @@ catch (ApiException e)
 # **GetOperationStatuses**
 > FileOperationArrayWrapper GetOperationStatuses (string? id = null)
 
-Returns a list of all the active file operations.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses/).
 
@@ -1183,7 +1199,6 @@ namespace Example
 
             try
             {
-                // Get active file operations
                 FileOperationArrayWrapper result = apiInstance.GetOperationStatuses(id);
                 Debug.WriteLine(result);
             }
@@ -1204,7 +1219,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get active file operations
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.GetOperationStatusesWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1235,7 +1249,7 @@ catch (ApiException e)
 # **GetOperationStatusesByType**
 > FileOperationArrayWrapper GetOperationStatusesByType (FileOperationType operationType, string? id = null)
 
-Retrieves the statuses of operations filtered by the specified operation type.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-operation-statuses-by-type/).
 
@@ -1280,7 +1294,6 @@ namespace Example
 
             try
             {
-                // Get file operation statuses
                 FileOperationArrayWrapper result = apiInstance.GetOperationStatusesByType(operationType, id);
                 Debug.WriteLine(result);
             }
@@ -1301,7 +1314,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get file operation statuses
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.GetOperationStatusesByTypeWithHttpInfo(operationType, id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1332,7 +1344,7 @@ catch (ApiException e)
 # **MarkAsRead**
 > FileOperationArrayWrapper MarkAsRead (BaseBatchRequestDto? baseBatchRequestDto = null)
 
-Marks the files and folders with the IDs specified in the request as read.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/mark-as-read/).
 
@@ -1348,7 +1360,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -1367,22 +1379,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1391,7 +1387,6 @@ namespace Example
 
             try
             {
-                // Mark as read
                 FileOperationArrayWrapper result = apiInstance.MarkAsRead(baseBatchRequestDto);
                 Debug.WriteLine(result);
             }
@@ -1412,7 +1407,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Mark as read
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.MarkAsReadWithHttpInfo(baseBatchRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1436,7 +1430,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file operations |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1444,7 +1437,7 @@ catch (ApiException e)
 # **MoveBatchItems**
 > FileOperationArrayWrapper MoveBatchItems (BatchRequestDto? batchRequestDto = null)
 
-Moves or copies all the selected files and folders to the folder with the ID specified in the request.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/move-batch-items/).
 
@@ -1460,7 +1453,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -1479,22 +1472,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1503,7 +1480,6 @@ namespace Example
 
             try
             {
-                // Move or copy to a folder
                 FileOperationArrayWrapper result = apiInstance.MoveBatchItems(batchRequestDto);
                 Debug.WriteLine(result);
             }
@@ -1524,7 +1500,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Move or copy to a folder
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.MoveBatchItemsWithHttpInfo(batchRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1548,7 +1523,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file operations |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to move |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1557,7 +1531,7 @@ catch (ApiException e)
 # **StartFileConversion**
 > ConversationResultArrayWrapper StartFileConversion (int fileId, CheckConversionRequestDtoInteger? checkConversionRequestDtoInteger = null)
 
-Starts a conversion operation of a file with the ID specified in the request.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-file-conversion/).
 
@@ -1574,7 +1548,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -1593,22 +1567,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -1618,7 +1576,6 @@ namespace Example
 
             try
             {
-                // Start file conversion
                 ConversationResultArrayWrapper result = apiInstance.StartFileConversion(fileId, checkConversionRequestDtoInteger);
                 Debug.WriteLine(result);
             }
@@ -1639,7 +1596,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Start file conversion
     ApiResponse<ConversationResultArrayWrapper> response = apiInstance.StartFileConversionWithHttpInfo(fileId, checkConversionRequestDtoInteger);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1663,7 +1619,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Conversion result |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1671,7 +1626,7 @@ catch (ApiException e)
 # **TerminateTasks**
 > FileOperationArrayWrapper TerminateTasks (string id)
 
-Finishes an operation with the ID specified in the request or all the active operations.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/).
 
@@ -1714,7 +1669,6 @@ namespace Example
 
             try
             {
-                // Finish active operations
                 FileOperationArrayWrapper result = apiInstance.TerminateTasks(id);
                 Debug.WriteLine(result);
             }
@@ -1735,7 +1689,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Finish active operations
     ApiResponse<FileOperationArrayWrapper> response = apiInstance.TerminateTasksWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1764,9 +1717,9 @@ catch (ApiException e)
 
 <a id="updatefilecomment"></a>
 # **UpdateFileComment**
-> StringWrapper UpdateFileComment (int fileId, UpdateComment? updateComment = null)
+> StringWrapper UpdateFileComment (int fileId, UpdateComment updateComment)
 
-Updates a comment in a file with the ID specified in the request.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/).
 
@@ -1775,7 +1728,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **int** | The file ID where the comment is located. |  |
-| **updateComment** | [**UpdateComment?**](UpdateComment.md) | The parameters for updating a comment. | [optional]  |
+| **updateComment** | [**UpdateComment**](UpdateComment.md) | The parameters for updating a comment. |  |
 
 ### Return type
 
@@ -1783,7 +1736,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -1802,32 +1755,15 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
             var fileId = 9846;  // int | The file ID where the comment is located.
-            var updateComment = new UpdateComment?(); // UpdateComment? | The parameters for updating a comment. (optional) 
+            var updateComment = new UpdateComment(); // UpdateComment | The parameters for updating a comment.
 
             try
             {
-                // Update a comment
                 StringWrapper result = apiInstance.UpdateFileComment(fileId, updateComment);
                 Debug.WriteLine(result);
             }
@@ -1848,7 +1784,6 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Update a comment
     ApiResponse<StringWrapper> response = apiInstance.UpdateFileCommentWithHttpInfo(fileId, updateComment);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1872,7 +1807,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated comment |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

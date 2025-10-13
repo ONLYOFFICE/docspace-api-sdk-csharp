@@ -28,6 +28,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IPRestriction" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected IPRestriction() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IPRestriction" /> class.
+        /// </summary>
         /// <param name="id">id.</param>
         /// <param name="tenantId">tenantId.</param>
         public IPRestriction(int id = default, int tenantId = default)

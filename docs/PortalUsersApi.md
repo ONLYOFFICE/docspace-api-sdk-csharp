@@ -446,7 +446,7 @@ catch (ApiException e)
 
 <a id="sendcongratulations"></a>
 # **SendCongratulations**
-> void SendCongratulations (Guid? userid = null, string? key = null)
+> void SendCongratulations (Guid userid, string key)
 
 Sends congratulations to the user after registering a portal.
 
@@ -456,8 +456,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userid** | **Guid?** | The user ID to receive the congratulatory message. | [optional]  |
-| **key** | **string?** | The template identifier or email configuration key. | [optional]  |
+| **userid** | **Guid** | The user ID to receive the congratulatory message. |  |
+| **key** | **string** | The template identifier or email configuration key. |  |
 
 ### Return type
 
@@ -488,8 +488,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UsersApi(httpClient, config, httpClientHandler);
-            var userid = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user ID to receive the congratulatory message. (optional) 
-            var key = some text;  // string? | The template identifier or email configuration key. (optional) 
+            var userid = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The user ID to receive the congratulatory message.
+            var key = some text;  // string | The template identifier or email configuration key.
 
             try
             {

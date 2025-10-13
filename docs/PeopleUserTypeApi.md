@@ -348,7 +348,7 @@ catch (ApiException e)
 
 <a id="updateusertype"></a>
 # **UpdateUserType**
-> EmployeeFullArrayWrapper UpdateUserType (EmployeeType type, UpdateMembersRequestDto? updateMembersRequestDto = null)
+> EmployeeFullArrayWrapper UpdateUserType (EmployeeType type, UpdateMembersRequestDto updateMembersRequestDto)
 
 Changes a type of the users with the IDs specified in the request.
 
@@ -359,7 +359,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **type** | **EmployeeType** | The new user type. |  |
-| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. | [optional]  |
+| **updateMembersRequestDto** | [**UpdateMembersRequestDto**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. |  |
 
 ### Return type
 
@@ -407,7 +407,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UserTypeApi(httpClient, config, httpClientHandler);
             var type = (EmployeeType) "0";  // EmployeeType | The new user type.
-            var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? | The request parameters for updating the user information. (optional) 
+            var updateMembersRequestDto = new UpdateMembersRequestDto(); // UpdateMembersRequestDto | The request parameters for updating the user information.
 
             try
             {

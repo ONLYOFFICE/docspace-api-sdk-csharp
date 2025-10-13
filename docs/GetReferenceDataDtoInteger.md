@@ -6,7 +6,7 @@ The request parameters for getting reference data.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FileKey** | **string** | The unique document identifier used by the service to get a link to the file. | 
-**InstanceId** | **string** | The unique system identifier. | [optional] 
+**InstanceId** | **string** | The unique system identifier. | 
 **SourceFileId** | **int** | The source file ID. | [optional] 
 **Path** | **string** | The file name or relative path for the formula editor. | [optional] 
 **Link** | **string** | The file link. | [optional] 

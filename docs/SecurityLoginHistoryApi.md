@@ -226,7 +226,7 @@ catch (ApiException e)
 
 <a id="getlogineventsbyfilter"></a>
 # **GetLoginEventsByFilter**
-> LoginEventArrayWrapper GetLoginEventsByFilter (Guid? userId = null, MessageAction? action = null, ApiDateTime? from = null, ApiDateTime? to = null, int? count = null, int? startIndex = null, string fields = null)
+> LoginEventArrayWrapper GetLoginEventsByFilter (Guid? userId = null, MessageAction? action = null, ApiDateTime? from = null, ApiDateTime? to = null, int? count = null, int? startIndex = null)
 
 Returns a list of the login events by the parameters specified in the request.
 
@@ -242,7 +242,6 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **to** | [**ApiDateTime?**](ApiDateTime.md) | The ending date and time for filtering login events. | [optional]  |
 | **count** | **int?** | The number of login events to retrieve in the query. | [optional]  |
 | **startIndex** | **int?** | The starting index for fetching a subset of login events from the query results. | [optional]  |
-| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -295,12 +294,11 @@ namespace Example
             var to = new ApiDateTime?(); // ApiDateTime? | The ending date and time for filtering login events. (optional) 
             var count = 1234;  // int? | The number of login events to retrieve in the query. (optional) 
             var startIndex = 1234;  // int? | The starting index for fetching a subset of login events from the query results. (optional) 
-            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get filtered login events
-                LoginEventArrayWrapper result = apiInstance.GetLoginEventsByFilter(userId, action, from, to, count, startIndex, fields);
+                LoginEventArrayWrapper result = apiInstance.GetLoginEventsByFilter(userId, action, from, to, count, startIndex);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -321,7 +319,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get filtered login events
-    ApiResponse<LoginEventArrayWrapper> response = apiInstance.GetLoginEventsByFilterWithHttpInfo(userId, action, from, to, count, startIndex, fields);
+    ApiResponse<LoginEventArrayWrapper> response = apiInstance.GetLoginEventsByFilterWithHttpInfo(userId, action, from, to, count, startIndex);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

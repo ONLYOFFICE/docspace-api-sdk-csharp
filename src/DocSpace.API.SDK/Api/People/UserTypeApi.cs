@@ -100,10 +100,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-type/">REST API Reference for UpdateUserType Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper UpdateUserType(EmployeeType type, UpdateMembersRequestDto? updateMembersRequestDto = default);
+        EmployeeFullArrayWrapper UpdateUserType(EmployeeType type, UpdateMembersRequestDto updateMembersRequestDto);
 
         /// <summary>
         /// Change a user type
@@ -113,10 +113,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-type/">REST API Reference for UpdateUserType Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> UpdateUserTypeWithHttpInfo(EmployeeType type, UpdateMembersRequestDto? updateMembersRequestDto = default);
+        ApiResponse<EmployeeFullArrayWrapper> UpdateUserTypeWithHttpInfo(EmployeeType type, UpdateMembersRequestDto updateMembersRequestDto);
         #endregion Synchronous Operations
     }
 
@@ -209,11 +209,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-type/">REST API Reference for UpdateUserType Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        Task<EmployeeFullArrayWrapper> UpdateUserTypeAsync(EmployeeType type, UpdateMembersRequestDto? updateMembersRequestDto = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullArrayWrapper> UpdateUserTypeAsync(EmployeeType type, UpdateMembersRequestDto updateMembersRequestDto, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Change a user type
@@ -223,11 +223,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-type/">REST API Reference for UpdateUserType Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateUserTypeWithHttpInfoAsync(EmployeeType type, UpdateMembersRequestDto? updateMembersRequestDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateUserTypeWithHttpInfoAsync(EmployeeType type, UpdateMembersRequestDto updateMembersRequestDto, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -440,6 +440,7 @@ namespace DocSpace.API.SDK.Api.People
             }
             set => _exceptionFactory = value; 
         }
+
 
         /// <summary>
         /// Get the progress of updating user type
@@ -995,10 +996,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-type/">REST API Reference for UpdateUserType Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper UpdateUserType(EmployeeType type, UpdateMembersRequestDto? updateMembersRequestDto = default)
+        public EmployeeFullArrayWrapper UpdateUserType(EmployeeType type, UpdateMembersRequestDto updateMembersRequestDto)
         {
             var localVarResponse = UpdateUserTypeWithHttpInfo(type, updateMembersRequestDto);
             return localVarResponse.Data;
@@ -1012,11 +1013,15 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-type/">REST API Reference for UpdateUserType Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public ApiResponse<EmployeeFullArrayWrapper> UpdateUserTypeWithHttpInfo(EmployeeType type, UpdateMembersRequestDto? updateMembersRequestDto = default)
+        public ApiResponse<EmployeeFullArrayWrapper> UpdateUserTypeWithHttpInfo(EmployeeType type, UpdateMembersRequestDto updateMembersRequestDto)
         {
+            // verify the required parameter 'updateMembersRequestDto' is set
+            if (updateMembersRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'updateMembersRequestDto' when calling UserTypeApi->UpdateUserType");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -1087,11 +1092,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-type/">REST API Reference for UpdateUserType Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async Task<EmployeeFullArrayWrapper> UpdateUserTypeAsync(EmployeeType type, UpdateMembersRequestDto? updateMembersRequestDto = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullArrayWrapper> UpdateUserTypeAsync(EmployeeType type, UpdateMembersRequestDto updateMembersRequestDto, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await UpdateUserTypeWithHttpInfoAsync(type, updateMembersRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1105,12 +1110,16 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The new user type.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-type/">REST API Reference for UpdateUserType Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateUserTypeWithHttpInfoAsync(EmployeeType type, UpdateMembersRequestDto? updateMembersRequestDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateUserTypeWithHttpInfoAsync(EmployeeType type, UpdateMembersRequestDto updateMembersRequestDto, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'updateMembersRequestDto' is set
+            if (updateMembersRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'updateMembersRequestDto' when calling UserTypeApi->UpdateUserType");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];

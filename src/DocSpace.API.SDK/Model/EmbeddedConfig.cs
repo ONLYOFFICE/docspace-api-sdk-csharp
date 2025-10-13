@@ -87,9 +87,9 @@ namespace DocSpace.API.SDK.Model
         public string ShareUrl { get; set; }
 
         /// <summary>
-        /// The place for the embedded viewer toolbar, can be either \&quot;top\&quot; or \&quot;bottom\&quot;.
+        /// The place for the embedded viewer toolbar, can be either top or bottom.
         /// </summary>
-        /// <value>The place for the embedded viewer toolbar, can be either \&quot;top\&quot; or \&quot;bottom\&quot;.</value>
+        /// <value>The place for the embedded viewer toolbar, can be either top or bottom.</value>
         /*
         <example>some text</example>
         */

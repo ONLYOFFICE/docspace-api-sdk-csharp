@@ -13,7 +13,6 @@ Name | Type | Description | Notes
 **WebCustomFilterEditing** | **bool** |  | [optional] 
 **WebRestrictedEditing** | **bool** |  | [optional] 
 **WebComment** | **bool** |  | [optional] 
-**CoAuhtoring** | **bool** |  | [optional] 
 **CanConvert** | **bool** |  | [optional] 
 **MustConvert** | **bool** |  | [optional] 
 

@@ -289,6 +289,7 @@ namespace DocSpace.API.SDK.Api.Capabilities
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Get portal capabilities
         /// </summary>

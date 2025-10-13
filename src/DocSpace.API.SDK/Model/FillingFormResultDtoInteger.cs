@@ -28,19 +28,24 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FillingFormResultDtoInteger" /> class.
         /// </summary>
-        /// <param name="formNumber">The filling form number..</param>
+        [JsonConstructorAttribute]
+        protected FillingFormResultDtoInteger() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FillingFormResultDtoInteger" /> class.
+        /// </summary>
+        /// <param name="formNumber">The filling form number. (required).</param>
         /// <param name="completedForm">completedForm.</param>
         /// <param name="originalForm">originalForm.</param>
         /// <param name="manager">manager.</param>
-        /// <param name="roomId">The room ID where filling the form..</param>
+        /// <param name="roomId">The room ID where filling the form. (required).</param>
         /// <param name="isRoomMember">Specifies if the manager who fills the form is a room member or not..</param>
         public FillingFormResultDtoInteger(int formNumber = default, FileDtoInteger completedForm = default, FileDtoInteger originalForm = default, EmployeeFullDto manager = default, int roomId = default, bool isRoomMember = default)
         {
             this.FormNumber = formNumber;
+            this.RoomId = roomId;
             this.CompletedForm = completedForm;
             this.OriginalForm = originalForm;
             this.Manager = manager;
-            this.RoomId = roomId;
             this.IsRoomMember = isRoomMember;
         }
 
@@ -51,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "formNumber", EmitDefaultValue = false)]
+        [DataMember(Name = "formNumber", IsRequired = true, EmitDefaultValue = true)]
         public int FormNumber { get; set; }
 
         /// <summary>
@@ -79,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "roomId", EmitDefaultValue = false)]
+        [DataMember(Name = "roomId", IsRequired = true, EmitDefaultValue = true)]
         public int RoomId { get; set; }
 
         /// <summary>

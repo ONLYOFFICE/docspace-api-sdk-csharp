@@ -717,6 +717,7 @@ namespace DocSpace.API.SDK.Api.People
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Get the progress of deleting the personal folder
         /// </summary>

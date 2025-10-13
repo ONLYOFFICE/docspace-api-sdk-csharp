@@ -28,24 +28,34 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public DistributedTaskStatus? Status { get; set; }
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        public DistributedTaskStatus Status { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="TaskProgressResponseDto" /> class.
         /// </summary>
-        /// <param name="id">The task progress ID..</param>
+        [JsonConstructorAttribute]
+        protected TaskProgressResponseDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TaskProgressResponseDto" /> class.
+        /// </summary>
+        /// <param name="id">The task progress ID. (required).</param>
         /// <param name="error">The task progress error message..</param>
-        /// <param name="percentage">The percentage of the task progress..</param>
-        /// <param name="isCompleted">Specifies if the task peogress is completed or not..</param>
-        /// <param name="status">status.</param>
-        public TaskProgressResponseDto(string id = default, string error = default, int percentage = default, bool isCompleted = default, DistributedTaskStatus? status = default)
+        /// <param name="percentage">The percentage of the task progress. (required).</param>
+        /// <param name="isCompleted">Specifies if the task peogress is completed or not. (required).</param>
+        /// <param name="status">status (required).</param>
+        public TaskProgressResponseDto(string id = default, string error = default, int percentage = default, bool isCompleted = default, DistributedTaskStatus status = default)
         {
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for TaskProgressResponseDto and cannot be null");
+            }
             this.Id = id;
-            this.Error = error;
             this.Percentage = percentage;
             this.IsCompleted = isCompleted;
             this.Status = status;
+            this.Error = error;
         }
 
         /// <summary>
@@ -55,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -75,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "percentage", EmitDefaultValue = false)]
+        [DataMember(Name = "percentage", IsRequired = true, EmitDefaultValue = true)]
         public int Percentage { get; set; }
 
         /// <summary>
@@ -85,7 +95,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isCompleted", EmitDefaultValue = true)]
+        [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]
         public bool IsCompleted { get; set; }
 
         /// <summary>

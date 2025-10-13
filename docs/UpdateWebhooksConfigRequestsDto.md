@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Ssl** | **bool** | Specifies whether the SSL certificate verification is required or not. | [optional] 
 **Triggers** | **WebhookTrigger** |  | [optional] 
 **TargetId** | **string** | Target ID | [optional] 
-**Id** | **int** | The webhook configuration ID. | [optional] 
+**Id** | **int** | The webhook configuration ID. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

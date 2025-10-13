@@ -425,6 +425,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// OAuth2 authorization endpoint
         /// </summary>

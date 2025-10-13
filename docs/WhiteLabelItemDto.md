@@ -5,6 +5,7 @@ The white label item parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Type** | **WhiteLabelLogoType** |  | [optional] 
 **Name** | **string** | The white label file name. | [optional] 
 **Size** | [**IMagickGeometry**](IMagickGeometry.md) |  | [optional] 
 **Path** | [**WhiteLabelItemPathDto**](WhiteLabelItemPathDto.md) |  | [optional] 

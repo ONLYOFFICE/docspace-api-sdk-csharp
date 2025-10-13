@@ -28,8 +28,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantUserInvitationSettingsDto" /> class.
         /// </summary>
-        /// <param name="allowInvitingMembers">Allow invite new DocSpace members through the Contacts section..</param>
-        /// <param name="allowInvitingGuests">Allow all DocSpace members to invite external guests to rooms..</param>
+        [JsonConstructorAttribute]
+        protected TenantUserInvitationSettingsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TenantUserInvitationSettingsDto" /> class.
+        /// </summary>
+        /// <param name="allowInvitingMembers">Allow invite new DocSpace members through the Contacts section. (required).</param>
+        /// <param name="allowInvitingGuests">Allow all DocSpace members to invite external guests to rooms. (required).</param>
         public TenantUserInvitationSettingsDto(bool allowInvitingMembers = default, bool allowInvitingGuests = default)
         {
             this.AllowInvitingMembers = allowInvitingMembers;
@@ -43,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "allowInvitingMembers", EmitDefaultValue = true)]
+        [DataMember(Name = "allowInvitingMembers", IsRequired = true, EmitDefaultValue = true)]
         public bool AllowInvitingMembers { get; set; }
 
         /// <summary>
@@ -53,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "allowInvitingGuests", EmitDefaultValue = true)]
+        [DataMember(Name = "allowInvitingGuests", IsRequired = true, EmitDefaultValue = true)]
         public bool AllowInvitingGuests { get; set; }
 
         /// <summary>

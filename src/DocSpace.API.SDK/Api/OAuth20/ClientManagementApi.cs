@@ -541,6 +541,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Change the client activation status
         /// </summary>

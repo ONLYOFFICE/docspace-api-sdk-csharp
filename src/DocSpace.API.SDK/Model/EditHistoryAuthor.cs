@@ -28,10 +28,20 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EditHistoryAuthor" /> class.
         /// </summary>
-        /// <param name="id">The author ID..</param>
+        [JsonConstructorAttribute]
+        protected EditHistoryAuthor() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EditHistoryAuthor" /> class.
+        /// </summary>
+        /// <param name="id">The author ID. (required).</param>
         /// <param name="name">The author name..</param>
         public EditHistoryAuthor(string id = default, string name = default)
         {
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for EditHistoryAuthor and cannot be null");
+            }
             this.Id = id;
             this.Name = name;
         }
@@ -43,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>

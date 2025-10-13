@@ -28,14 +28,24 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomFromTemplateStatusDto" /> class.
         /// </summary>
-        /// <param name="roomId">The room ID..</param>
-        /// <param name="progress">The progress of creating a room from the template..</param>
-        /// <param name="error">The error message that is sent when a room is not created successfully from the template..</param>
-        /// <param name="isCompleted">Specifies whether the process of creating a room from the template is completed..</param>
+        [JsonConstructorAttribute]
+        protected RoomFromTemplateStatusDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RoomFromTemplateStatusDto" /> class.
+        /// </summary>
+        /// <param name="roomId">The room ID. (required).</param>
+        /// <param name="progress">The progress of creating a room from the template. (required).</param>
+        /// <param name="error">The error message that is sent when a room is not created successfully from the template. (required).</param>
+        /// <param name="isCompleted">Specifies whether the process of creating a room from the template is completed. (required).</param>
         public RoomFromTemplateStatusDto(int roomId = default, double progress = default, string error = default, bool isCompleted = default)
         {
             this.RoomId = roomId;
             this.Progress = progress;
+            // to ensure "error" is required (not null)
+            if (error == null)
+            {
+                throw new ArgumentNullException("error is a required property for RoomFromTemplateStatusDto and cannot be null");
+            }
             this.Error = error;
             this.IsCompleted = isCompleted;
         }
@@ -47,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "roomId", EmitDefaultValue = false)]
+        [DataMember(Name = "roomId", IsRequired = true, EmitDefaultValue = true)]
         public int RoomId { get; set; }
 
         /// <summary>
@@ -57,7 +67,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>-8.5</example>
         */
-        [DataMember(Name = "progress", EmitDefaultValue = false)]
+        [DataMember(Name = "progress", IsRequired = true, EmitDefaultValue = true)]
         public double Progress { get; set; }
 
         /// <summary>
@@ -67,7 +77,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "error", EmitDefaultValue = true)]
+        [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
@@ -77,7 +87,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isCompleted", EmitDefaultValue = true)]
+        [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]
         public bool IsCompleted { get; set; }
 
         /// <summary>

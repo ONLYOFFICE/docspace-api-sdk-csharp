@@ -9,7 +9,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="changeuserpassword"></a>
 # **ChangeUserPassword**
-> EmployeeFullWrapper ChangeUserPassword (Guid userid, MemberBaseRequestDto? memberBaseRequestDto = null)
+> EmployeeFullWrapper ChangeUserPassword (Guid userid, MemberBaseRequestDto memberBaseRequestDto)
 
 Sets a new password to the user with the ID specified in the request.
 
@@ -20,7 +20,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userid** | **Guid** | The user ID. |  |
-| **memberBaseRequestDto** | [**MemberBaseRequestDto?**](MemberBaseRequestDto.md) | The request parameters for the user generic information. | [optional]  |
+| **memberBaseRequestDto** | [**MemberBaseRequestDto**](MemberBaseRequestDto.md) | The request parameters for the user generic information. |  |
 
 ### Return type
 
@@ -68,7 +68,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PasswordApi(httpClient, config, httpClientHandler);
             var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID.
-            var memberBaseRequestDto = new MemberBaseRequestDto?(); // MemberBaseRequestDto? | The request parameters for the user generic information. (optional) 
+            var memberBaseRequestDto = new MemberBaseRequestDto(); // MemberBaseRequestDto | The request parameters for the user generic information.
 
             try
             {

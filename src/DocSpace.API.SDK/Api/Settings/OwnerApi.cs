@@ -341,6 +341,7 @@ namespace DocSpace.API.SDK.Api.Settings
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Send the owner change instructions
         /// </summary>
