@@ -27,7 +27,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
         FileIntegerWrapper AddFileToRecent(int fileId);
@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> AddFileToRecentWithHttpInfo(int fileId);
@@ -385,7 +385,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
         /// <returns>FormRoleArrayWrapper</returns>
         FormRoleArrayWrapper GetAllFormRoles(int fileId);
@@ -397,7 +397,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
         /// <returns>ApiResponse of FormRoleArrayWrapper</returns>
         ApiResponse<FormRoleArrayWrapper> GetAllFormRolesWithHttpInfo(int fileId);
@@ -427,7 +427,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
         /// <returns>EditHistoryArrayWrapper</returns>
         EditHistoryArrayWrapper GetEditHistory(int fileId);
@@ -439,7 +439,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
         /// <returns>ApiResponse of EditHistoryArrayWrapper</returns>
         ApiResponse<EditHistoryArrayWrapper> GetEditHistoryWithHttpInfo(int fileId);
@@ -497,7 +497,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-links/">REST API Reference for GetFileLinks Operation</seealso>
@@ -511,7 +511,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-links/">REST API Reference for GetFileLinks Operation</seealso>
@@ -521,7 +521,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-primary-external-link/">REST API Reference for GetFilePrimaryExternalLink Operation</seealso>
@@ -535,7 +535,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-primary-external-link/">REST API Reference for GetFilePrimaryExternalLink Operation</seealso>
@@ -545,7 +545,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
         /// <returns>FileIntegerArrayWrapper</returns>
         FileIntegerArrayWrapper GetFileVersionInfo(int fileId);
@@ -557,7 +557,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
         /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
         ApiResponse<FileIntegerArrayWrapper> GetFileVersionInfoWithHttpInfo(int fileId);
@@ -585,7 +585,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
         /// <returns>FileLinkWrapper</returns>
         FileLinkWrapper GetPresignedFileUri(int fileId);
@@ -597,7 +597,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
         /// <returns>ApiResponse of FileLinkWrapper</returns>
         ApiResponse<FileLinkWrapper> GetPresignedFileUriWithHttpInfo(int fileId);
@@ -605,7 +605,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper GetPresignedUri(int fileId);
@@ -617,7 +617,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> GetPresignedUriWithHttpInfo(int fileId);
@@ -625,7 +625,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
         /// <returns>MentionWrapperArrayWrapper</returns>
         MentionWrapperArrayWrapper GetProtectedFileUsers(int fileId);
@@ -637,7 +637,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
         /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
         ApiResponse<MentionWrapperArrayWrapper> GetProtectedFileUsersWithHttpInfo(int fileId);
@@ -665,7 +665,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper IsFormPDF(int fileId);
@@ -677,7 +677,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> IsFormPDFWithHttpInfo(int fileId);
@@ -812,7 +812,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving the file as PDF.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
         FileIntegerWrapper SaveFileAsPdf(int id, SaveAsPdfInteger saveAsPdfInteger);
@@ -825,7 +825,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving the file as PDF.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> SaveFileAsPdfWithHttpInfo(int id, SaveAsPdfInteger saveAsPdfInteger);
@@ -1065,7 +1065,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
@@ -1078,7 +1078,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
@@ -1508,7 +1508,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
         /// <returns>Task of FormRoleArrayWrapper</returns>
@@ -1521,7 +1521,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
         /// <returns>Task of ApiResponse (FormRoleArrayWrapper)</returns>
@@ -1560,7 +1560,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
         /// <returns>Task of EditHistoryArrayWrapper</returns>
@@ -1573,7 +1573,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
         /// <returns>Task of ApiResponse (EditHistoryArrayWrapper)</returns>
@@ -1645,7 +1645,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1660,7 +1660,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1674,7 +1674,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1689,7 +1689,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1703,7 +1703,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
         /// <returns>Task of FileIntegerArrayWrapper</returns>
@@ -1716,7 +1716,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
@@ -1753,7 +1753,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
         /// <returns>Task of FileLinkWrapper</returns>
@@ -1766,7 +1766,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
         /// <returns>Task of ApiResponse (FileLinkWrapper)</returns>
@@ -1778,7 +1778,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -1791,7 +1791,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -1803,7 +1803,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
         /// <returns>Task of MentionWrapperArrayWrapper</returns>
@@ -1816,7 +1816,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
         /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
@@ -1853,7 +1853,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1866,7 +1866,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -2030,7 +2030,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving the file as PDF.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
@@ -2044,7 +2044,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving the file as PDF.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
@@ -2537,7 +2537,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
         public FileIntegerWrapper AddFileToRecent(int fileId)
@@ -2550,7 +2550,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         public ApiResponse<FileIntegerWrapper> AddFileToRecentWithHttpInfo(int fileId)
@@ -2590,7 +2590,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
@@ -2604,7 +2604,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-file-to-recent/">REST API Reference for AddFileToRecent Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
@@ -4531,7 +4531,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
         /// <returns>FormRoleArrayWrapper</returns>
         public FormRoleArrayWrapper GetAllFormRoles(int fileId)
@@ -4544,7 +4544,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
         /// <returns>ApiResponse of FormRoleArrayWrapper</returns>
         public ApiResponse<FormRoleArrayWrapper> GetAllFormRolesWithHttpInfo(int fileId)
@@ -4584,7 +4584,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
         /// <returns>Task of FormRoleArrayWrapper</returns>
@@ -4598,7 +4598,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-form-roles/">REST API Reference for GetAllFormRoles Operation</seealso>
         /// <returns>Task of ApiResponse (FormRoleArrayWrapper)</returns>
@@ -4763,7 +4763,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
         /// <returns>EditHistoryArrayWrapper</returns>
         public EditHistoryArrayWrapper GetEditHistory(int fileId)
@@ -4776,7 +4776,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
         /// <returns>ApiResponse of EditHistoryArrayWrapper</returns>
         public ApiResponse<EditHistoryArrayWrapper> GetEditHistoryWithHttpInfo(int fileId)
@@ -4816,7 +4816,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
         /// <returns>Task of EditHistoryArrayWrapper</returns>
@@ -4830,7 +4830,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-edit-history/">REST API Reference for GetEditHistory Operation</seealso>
         /// <returns>Task of ApiResponse (EditHistoryArrayWrapper)</returns>
@@ -5153,7 +5153,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-links/">REST API Reference for GetFileLinks Operation</seealso>
@@ -5168,7 +5168,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-links/">REST API Reference for GetFileLinks Operation</seealso>
@@ -5218,7 +5218,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5234,7 +5234,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5287,7 +5287,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-primary-external-link/">REST API Reference for GetFilePrimaryExternalLink Operation</seealso>
@@ -5302,7 +5302,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-primary-external-link/">REST API Reference for GetFilePrimaryExternalLink Operation</seealso>
@@ -5352,7 +5352,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5368,7 +5368,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5421,7 +5421,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
         /// <returns>FileIntegerArrayWrapper</returns>
         public FileIntegerArrayWrapper GetFileVersionInfo(int fileId)
@@ -5434,7 +5434,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
         /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
         public ApiResponse<FileIntegerArrayWrapper> GetFileVersionInfoWithHttpInfo(int fileId)
@@ -5474,7 +5474,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
         /// <returns>Task of FileIntegerArrayWrapper</returns>
@@ -5488,7 +5488,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-version-info/">REST API Reference for GetFileVersionInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
@@ -5647,7 +5647,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
         /// <returns>FileLinkWrapper</returns>
         public FileLinkWrapper GetPresignedFileUri(int fileId)
@@ -5660,7 +5660,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
         /// <returns>ApiResponse of FileLinkWrapper</returns>
         public ApiResponse<FileLinkWrapper> GetPresignedFileUriWithHttpInfo(int fileId)
@@ -5700,7 +5700,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
         /// <returns>Task of FileLinkWrapper</returns>
@@ -5714,7 +5714,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-file-uri/">REST API Reference for GetPresignedFileUri Operation</seealso>
         /// <returns>Task of ApiResponse (FileLinkWrapper)</returns>
@@ -5757,7 +5757,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper GetPresignedUri(int fileId)
@@ -5770,7 +5770,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> GetPresignedUriWithHttpInfo(int fileId)
@@ -5810,7 +5810,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -5824,7 +5824,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-presigned-uri/">REST API Reference for GetPresignedUri Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -5867,7 +5867,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
         /// <returns>MentionWrapperArrayWrapper</returns>
         public MentionWrapperArrayWrapper GetProtectedFileUsers(int fileId)
@@ -5880,7 +5880,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
         /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
         public ApiResponse<MentionWrapperArrayWrapper> GetProtectedFileUsersWithHttpInfo(int fileId)
@@ -5920,7 +5920,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
         /// <returns>Task of MentionWrapperArrayWrapper</returns>
@@ -5934,7 +5934,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-protected-file-users/">REST API Reference for GetProtectedFileUsers Operation</seealso>
         /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
@@ -6087,7 +6087,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper IsFormPDF(int fileId)
@@ -6100,7 +6100,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> IsFormPDFWithHttpInfo(int fileId)
@@ -6140,7 +6140,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -6154,7 +6154,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/is-form-pdf/">REST API Reference for IsFormPDF Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -6906,7 +6906,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving the file as PDF.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
         public FileIntegerWrapper SaveFileAsPdf(int id, SaveAsPdfInteger saveAsPdfInteger)
@@ -6920,7 +6920,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving the file as PDF.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         public ApiResponse<FileIntegerWrapper> SaveFileAsPdfWithHttpInfo(int id, SaveAsPdfInteger saveAsPdfInteger)
@@ -6966,7 +6966,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving the file as PDF.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
@@ -6981,7 +6981,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file ID to save as PDF.</param>
-        /// <param name="saveAsPdfInteger">The parameters for saving file as PDF.</param>
+        /// <param name="saveAsPdfInteger">The parameters for saving the file as PDF.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-file-as-pdf/">REST API Reference for SaveFileAsPdf Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>

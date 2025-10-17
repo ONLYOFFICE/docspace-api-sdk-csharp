@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for updating the room.
+    /// The request parameters for updating the rooms.
     /// </summary>
     [DataContract(Name = "UpdateRoomsRoomIdsRequestDtoInteger")]
     public partial class UpdateRoomsRoomIdsRequestDtoInteger : IValidatableObject

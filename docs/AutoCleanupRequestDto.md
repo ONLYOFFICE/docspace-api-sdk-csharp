@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.AutoCleanupRequestDto
-The auto-clearing request parameters.
+The request parameters for updating the trash bin auto-clearing setting.
 
 ## Properties
 

@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         ApiResponse<TaskProgressResponseWrapper> GetUserTypeUpdateProgressWithHttpInfo(Guid userid);
         /// <summary>
-        /// Update user type
+        /// Start updating user type
         /// </summary>
         /// <remarks>
         /// Starts updating the type of the user or guest when reassigning rooms and shared files.
@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Api.People
         TaskProgressResponseWrapper StarUserTypetUpdate(StartUpdateUserTypeDto? startUpdateUserTypeDto = default);
 
         /// <summary>
-        /// Update user type
+        /// Start updating user type
         /// </summary>
         /// <remarks>
         /// Starts updating the type of the user or guest when reassigning rooms and shared files.
@@ -70,7 +70,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         ApiResponse<TaskProgressResponseWrapper> StarUserTypetUpdateWithHttpInfo(StartUpdateUserTypeDto? startUpdateUserTypeDto = default);
         /// <summary>
-        /// Terminate update user type
+        /// Terminate updating user type
         /// </summary>
         /// <remarks>
         /// Terminates the process of updating the type of the user or guest.
@@ -82,7 +82,7 @@ namespace DocSpace.API.SDK.Api.People
         TaskProgressResponseWrapper TerminateUserTypeUpdate(TerminateRequestDto? terminateRequestDto = default);
 
         /// <summary>
-        /// Terminate update user type
+        /// Terminate updating user type
         /// </summary>
         /// <remarks>
         /// Terminates the process of updating the type of the user or guest.
@@ -152,7 +152,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
         Task<ApiResponse<TaskProgressResponseWrapper>> GetUserTypeUpdateProgressWithHttpInfoAsync(Guid userid, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update user type
+        /// Start updating user type
         /// </summary>
         /// <remarks>
         /// Starts updating the type of the user or guest when reassigning rooms and shared files.
@@ -165,7 +165,7 @@ namespace DocSpace.API.SDK.Api.People
         Task<TaskProgressResponseWrapper> StarUserTypetUpdateAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Update user type
+        /// Start updating user type
         /// </summary>
         /// <remarks>
         /// Starts updating the type of the user or guest when reassigning rooms and shared files.
@@ -177,7 +177,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
         Task<ApiResponse<TaskProgressResponseWrapper>> StarUserTypetUpdateWithHttpInfoAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Terminate update user type
+        /// Terminate updating user type
         /// </summary>
         /// <remarks>
         /// Terminates the process of updating the type of the user or guest.
@@ -190,7 +190,7 @@ namespace DocSpace.API.SDK.Api.People
         Task<TaskProgressResponseWrapper> TerminateUserTypeUpdateAsync(TerminateRequestDto? terminateRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Terminate update user type
+        /// Terminate updating user type
         /// </summary>
         /// <remarks>
         /// Terminates the process of updating the type of the user or guest.
@@ -625,7 +625,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Update user type
+        /// Start updating user type
         /// </summary>
         /// <remarks>
         /// Starts updating the type of the user or guest when reassigning rooms and shared files.
@@ -641,7 +641,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Update user type
+        /// Start updating user type
         /// </summary>
         /// <remarks>
         /// Starts updating the type of the user or guest when reassigning rooms and shared files.
@@ -714,7 +714,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Update user type
+        /// Start updating user type
         /// </summary>
         /// <remarks>
         /// Starts updating the type of the user or guest when reassigning rooms and shared files.
@@ -731,7 +731,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Update user type
+        /// Start updating user type
         /// </summary>
         /// <remarks>
         /// Starts updating the type of the user or guest when reassigning rooms and shared files.
@@ -807,7 +807,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Terminate update user type
+        /// Terminate updating user type
         /// </summary>
         /// <remarks>
         /// Terminates the process of updating the type of the user or guest.
@@ -823,7 +823,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Terminate update user type
+        /// Terminate updating user type
         /// </summary>
         /// <remarks>
         /// Terminates the process of updating the type of the user or guest.
@@ -896,7 +896,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Terminate update user type
+        /// Terminate updating user type
         /// </summary>
         /// <remarks>
         /// Terminates the process of updating the type of the user or guest.
@@ -913,7 +913,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Terminate update user type
+        /// Terminate updating user type
         /// </summary>
         /// <remarks>
         /// Terminates the process of updating the type of the user or guest.

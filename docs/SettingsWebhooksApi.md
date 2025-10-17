@@ -820,7 +820,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **webhookRetryRequestsDto** | [**WebhookRetryRequestsDto?**](WebhookRetryRequestsDto.md) | The request parameters for requesting the webhook delivery retries. | [optional]  |
+| **webhookRetryRequestsDto** | [**WebhookRetryRequestsDto?**](WebhookRetryRequestsDto.md) | The parameters for requesting the webhook delivery retries. | [optional]  |
 
 ### Return type
 
@@ -867,7 +867,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
-            var webhookRetryRequestsDto = new WebhookRetryRequestsDto?(); // WebhookRetryRequestsDto? | The request parameters for requesting the webhook delivery retries. (optional) 
+            var webhookRetryRequestsDto = new WebhookRetryRequestsDto?(); // WebhookRetryRequestsDto? | The parameters for requesting the webhook delivery retries. (optional) 
 
             try
             {

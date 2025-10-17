@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// NotificationChannelDto
+    /// The notification channel information.
     /// </summary>
     [DataContract(Name = "NotificationChannelDto")]
     public partial class NotificationChannelDto : IValidatableObject
@@ -33,8 +33,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationChannelDto" /> class.
         /// </summary>
-        /// <param name="name">name (required).</param>
-        /// <param name="isEnabled">isEnabled (required).</param>
+        /// <param name="name">The notification channel name. (required).</param>
+        /// <param name="isEnabled">Specifies whether the notification channel is enabled. (required).</param>
         public NotificationChannelDto(string name = default, bool isEnabled = default)
         {
             // to ensure "name" is required (not null)
@@ -47,8 +47,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// The notification channel name.
         /// </summary>
+        /// <value>The notification channel name.</value>
         /*
         <example>Winfield Upton</example>
         */
@@ -56,8 +57,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets IsEnabled
+        /// Specifies whether the notification channel is enabled.
         /// </summary>
+        /// <value>Specifies whether the notification channel is enabled.</value>
         /*
         <example>true</example>
         */

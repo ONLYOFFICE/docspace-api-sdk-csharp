@@ -19,15 +19,15 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// TenantWalletServiceSettings
+    /// The wallet services settings.
     /// </summary>
     [DataContract(Name = "TenantWalletServiceSettings")]
     public partial class TenantWalletServiceSettings : IValidatableObject
     {
         /// <summary>
-        /// Enabled services
+        /// The list of the enabled wallet services.
         /// </summary>
-        /// <value>Enabled services</value>
+        /// <value>The list of the enabled wallet services.</value>
         public enum EnabledServicesEnum
         {
             /// <summary>
@@ -45,8 +45,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantWalletServiceSettings" /> class.
         /// </summary>
-        /// <param name="enabledServices">Enabled services.</param>
-        /// <param name="lastModified">lastModified.</param>
+        /// <param name="enabledServices">The list of the enabled wallet services..</param>
+        /// <param name="lastModified">The date and time when the wallet services settings were last modified..</param>
         public TenantWalletServiceSettings(List<TenantWalletServiceSettings.EnabledServicesEnum> enabledServices = default, DateTime lastModified = default)
         {
             this.EnabledServices = enabledServices;
@@ -54,15 +54,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Enabled services
+        /// The list of the enabled wallet services.
         /// </summary>
-        /// <value>Enabled services</value>
+        /// <value>The list of the enabled wallet services.</value>
         [DataMember(Name = "enabledServices", EmitDefaultValue = true)]
         public List<TenantWalletServiceSettings.EnabledServicesEnum> EnabledServices { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastModified
+        /// The date and time when the wallet services settings were last modified.
         /// </summary>
+        /// <value>The date and time when the wallet services settings were last modified.</value>
         /*
         <example>2008-04-10T06:30+04:00</example>
         */

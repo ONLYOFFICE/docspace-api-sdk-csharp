@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The destination folder checking information.
+    /// The result of checking whether files can be moved or copied to the specified folder.
     /// </summary>
     [DataContract(Name = "CheckDestFolderDto")]
     public partial class CheckDestFolderDto : IValidatableObject
@@ -35,7 +35,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="CheckDestFolderDto" /> class.
         /// </summary>
         /// <param name="result">result.</param>
-        /// <param name="files">The list of files of the destination folder..</param>
+        /// <param name="files">The list of files in the destination folder..</param>
         public CheckDestFolderDto(CheckDestFolderResult? result = default, List<FileEntryBaseDto> files = default)
         {
             this.Result = result;
@@ -43,9 +43,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The list of files of the destination folder.
+        /// The list of files in the destination folder.
         /// </summary>
-        /// <value>The list of files of the destination folder.</value>
+        /// <value>The list of files in the destination folder.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Files { get; set; }
 

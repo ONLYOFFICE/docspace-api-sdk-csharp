@@ -42,19 +42,13 @@ namespace DocSpace.API.SDK.Model
         /// <param name="employeeType">employeeType.</param>
         /// <param name="firstName">The user first name..</param>
         /// <param name="lastName">The user last name..</param>
-        /// <param name="email">The user email address. (required).</param>
+        /// <param name="email">The user email address..</param>
         /// <param name="passwordHash">The user password hash..</param>
         /// <param name="key">The user link key. (required).</param>
         /// <param name="culture">The user culture code..</param>
-        /// <param name="serializedProfile">Third-party profile in the serialized format (required).</param>
+        /// <param name="serializedProfile">The third-party profile in the serialized format (required).</param>
         public SignupAccountRequestDto(EmployeeType? employeeType = default, string firstName = default, string lastName = default, string email = default, string passwordHash = default, string key = default, string culture = default, string serializedProfile = default)
         {
-            // to ensure "email" is required (not null)
-            if (email == null)
-            {
-                throw new ArgumentNullException("email is a required property for SignupAccountRequestDto and cannot be null");
-            }
-            this.Email = email;
             // to ensure "key" is required (not null)
             if (key == null)
             {
@@ -70,6 +64,7 @@ namespace DocSpace.API.SDK.Model
             this.EmployeeType = employeeType;
             this.FirstName = firstName;
             this.LastName = lastName;
+            this.Email = email;
             this.PasswordHash = passwordHash;
             this.Culture = culture;
         }
@@ -101,7 +96,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Sydney_Roberts4@hotmail.com</example>
         */
-        [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
@@ -135,9 +130,9 @@ namespace DocSpace.API.SDK.Model
         public string Culture { get; set; }
 
         /// <summary>
-        /// Third-party profile in the serialized format
+        /// The third-party profile in the serialized format
         /// </summary>
-        /// <value>Third-party profile in the serialized format</value>
+        /// <value>The third-party profile in the serialized format</value>
         /*
         <example>some text</example>
         */

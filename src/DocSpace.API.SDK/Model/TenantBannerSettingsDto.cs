@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for managing the promotional banners visibility settings for the current tenant.
+    /// The request parameters for managing the visibility settings of the promotional banners for the current tenant.
     /// </summary>
     [DataContract(Name = "TenantBannerSettingsDto")]
     public partial class TenantBannerSettingsDto : IValidatableObject

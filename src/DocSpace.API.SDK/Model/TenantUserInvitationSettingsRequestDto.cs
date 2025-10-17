@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// User invitation settings
+    /// The request parameters for updating the user invitation settings.
     /// </summary>
     [DataContract(Name = "TenantUserInvitationSettingsRequestDto")]
     public partial class TenantUserInvitationSettingsRequestDto : IValidatableObject
@@ -28,8 +28,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantUserInvitationSettingsRequestDto" /> class.
         /// </summary>
-        /// <param name="allowInvitingMembers">Allow invite new DocSpace members through the Contacts section..</param>
-        /// <param name="allowInvitingGuests">Allow all DocSpace members to invite external guests to rooms..</param>
+        /// <param name="allowInvitingMembers">Specifies whether to allow inviting new DocSpace members through the Contacts section..</param>
+        /// <param name="allowInvitingGuests">Specifies whether to allow all DocSpace members to invite external guests to the rooms..</param>
         public TenantUserInvitationSettingsRequestDto(bool allowInvitingMembers = default, bool allowInvitingGuests = default)
         {
             this.AllowInvitingMembers = allowInvitingMembers;
@@ -37,9 +37,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Allow invite new DocSpace members through the Contacts section.
+        /// Specifies whether to allow inviting new DocSpace members through the Contacts section.
         /// </summary>
-        /// <value>Allow invite new DocSpace members through the Contacts section.</value>
+        /// <value>Specifies whether to allow inviting new DocSpace members through the Contacts section.</value>
         /*
         <example>true</example>
         */
@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         public bool AllowInvitingMembers { get; set; }
 
         /// <summary>
-        /// Allow all DocSpace members to invite external guests to rooms.
+        /// Specifies whether to allow all DocSpace members to invite external guests to the rooms.
         /// </summary>
-        /// <value>Allow all DocSpace members to invite external guests to rooms.</value>
+        /// <value>Specifies whether to allow all DocSpace members to invite external guests to the rooms.</value>
         /*
         <example>true</example>
         */

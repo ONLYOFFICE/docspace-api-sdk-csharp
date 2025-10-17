@@ -24,10 +24,10 @@ namespace DocSpace.API.SDK.Api.Settings
     {
         #region Synchronous Operations
         /// <summary>
-        /// Gets notification channel settings
+        /// Get notification channels
         /// </summary>
         /// <remarks>
-        /// Returns a list of notification channels
+        /// Returns a list of notification channels.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-channels/">REST API Reference for GetNotificationChannels Operation</seealso>
@@ -35,10 +35,10 @@ namespace DocSpace.API.SDK.Api.Settings
         NotificationChannelStatusWrapper GetNotificationChannels();
 
         /// <summary>
-        /// Gets notification channel settings
+        /// Get notification channels
         /// </summary>
         /// <remarks>
-        /// Returns a list of notification channels
+        /// Returns a list of notification channels.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-channels/">REST API Reference for GetNotificationChannels Operation</seealso>
@@ -144,10 +144,10 @@ namespace DocSpace.API.SDK.Api.Settings
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Gets notification channel settings
+        /// Get notification channels
         /// </summary>
         /// <remarks>
-        /// Returns a list of notification channels
+        /// Returns a list of notification channels.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -156,10 +156,10 @@ namespace DocSpace.API.SDK.Api.Settings
         Task<NotificationChannelStatusWrapper> GetNotificationChannelsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Gets notification channel settings
+        /// Get notification channels
         /// </summary>
         /// <remarks>
-        /// Returns a list of notification channels
+        /// Returns a list of notification channels.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -479,10 +479,10 @@ namespace DocSpace.API.SDK.Api.Settings
 
 
         /// <summary>
-        /// Gets notification channel settings
+        /// Get notification channels
         /// </summary>
         /// <remarks>
-        /// Returns a list of notification channels
+        /// Returns a list of notification channels.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-channels/">REST API Reference for GetNotificationChannels Operation</seealso>
@@ -494,10 +494,10 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
         /// <summary>
-        /// Gets notification channel settings
+        /// Get notification channels
         /// </summary>
         /// <remarks>
-        /// Returns a list of notification channels
+        /// Returns a list of notification channels.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-channels/">REST API Reference for GetNotificationChannels Operation</seealso>
@@ -565,10 +565,10 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
         /// <summary>
-        /// Gets notification channel settings
+        /// Get notification channels
         /// </summary>
         /// <remarks>
-        /// Returns a list of notification channels
+        /// Returns a list of notification channels.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -581,10 +581,10 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
         /// <summary>
-        /// Gets notification channel settings
+        /// Get notification channels
         /// </summary>
         /// <remarks>
-        /// Returns a list of notification channels
+        /// Returns a list of notification channels.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

@@ -64,7 +64,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
+| **fileId** | **int** | The file unique identifier. |  |
 
 ### Return type
 
@@ -95,7 +95,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID of the request.
+            var fileId = 9846;  // int | The file unique identifier.
 
             try
             {
@@ -1672,7 +1672,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
+| **fileId** | **int** | The file unique identifier. |  |
 
 ### Return type
 
@@ -1703,7 +1703,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID of the request.
+            var fileId = 9846;  // int | The file unique identifier.
 
             try
             {
@@ -1861,7 +1861,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
+| **fileId** | **int** | The file unique identifier. |  |
 
 ### Return type
 
@@ -1892,7 +1892,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID of the request.
+            var fileId = 9846;  // int | The file unique identifier.
 
             try
             {
@@ -2152,7 +2152,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The file ID of the request. |  |
+| **id** | **int** | The file unique identifier. |  |
 | **count** | **int?** | The number of items to retrieve in the request. | [optional]  |
 | **startIndex** | **int?** | The starting index for the query results. | [optional]  |
 
@@ -2185,7 +2185,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The file ID of the request.
+            var id = 9846;  // int | The file unique identifier.
             var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
 
@@ -2249,7 +2249,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The file ID of the request. |  |
+| **id** | **int** | The file unique identifier. |  |
 | **count** | **int?** | The number of items to retrieve in the request. | [optional]  |
 | **startIndex** | **int?** | The starting index for the query results. | [optional]  |
 
@@ -2282,7 +2282,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The file ID of the request.
+            var id = 9846;  // int | The file unique identifier.
             var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
 
@@ -2347,7 +2347,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
+| **fileId** | **int** | The file unique identifier. |  |
 
 ### Return type
 
@@ -2378,7 +2378,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID of the request.
+            var fileId = 9846;  // int | The file unique identifier.
 
             try
             {
@@ -2533,7 +2533,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
+| **fileId** | **int** | The file unique identifier. |  |
 
 ### Return type
 
@@ -2564,7 +2564,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID of the request.
+            var fileId = 9846;  // int | The file unique identifier.
 
             try
             {
@@ -2626,7 +2626,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
+| **fileId** | **int** | The file unique identifier. |  |
 
 ### Return type
 
@@ -2657,7 +2657,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID of the request.
+            var fileId = 9846;  // int | The file unique identifier.
 
             try
             {
@@ -2719,7 +2719,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
+| **fileId** | **int** | The file unique identifier. |  |
 
 ### Return type
 
@@ -2750,7 +2750,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID of the request.
+            var fileId = 9846;  // int | The file unique identifier.
 
             try
             {
@@ -2905,7 +2905,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fileId** | **int** | The file ID of the request. |  |
+| **fileId** | **int** | The file unique identifier. |  |
 
 ### Return type
 
@@ -2936,7 +2936,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID of the request.
+            var fileId = 9846;  // int | The file unique identifier.
 
             try
             {
@@ -3492,7 +3492,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **int** | The file ID to save as PDF. |  |
-| **saveAsPdfInteger** | [**SaveAsPdfInteger**](SaveAsPdfInteger.md) | The parameters for saving file as PDF. |  |
+| **saveAsPdfInteger** | [**SaveAsPdfInteger**](SaveAsPdfInteger.md) | The parameters for saving the file as PDF. |  |
 
 ### Return type
 
@@ -3524,7 +3524,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var id = 9846;  // int | The file ID to save as PDF.
-            var saveAsPdfInteger = new SaveAsPdfInteger(); // SaveAsPdfInteger | The parameters for saving file as PDF.
+            var saveAsPdfInteger = new SaveAsPdfInteger(); // SaveAsPdfInteger | The parameters for saving the file as PDF.
 
             try
             {

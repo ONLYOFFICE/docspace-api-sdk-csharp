@@ -12,7 +12,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**GetUsersWithFilesShared**](#getuserswithfilesshared) | **GET** /api/2.0/people/file/{id} | Get users with file sharing settings |
 | [**GetUsersWithFoldersShared**](#getuserswithfoldersshared) | **GET** /api/2.0/people/folder/{id} | Get users with folder sharing settings |
 | [**GetUsersWithRoomShared**](#getuserswithroomshared) | **GET** /api/2.0/people/room/{id} | Get users with room sharing settings |
-| [**SearchUsersByExtendedFilter**](#searchusersbyextendedfilter) | **GET** /api/2.0/people/filter | Search users with detaailed information by extended filter |
+| [**SearchUsersByExtendedFilter**](#searchusersbyextendedfilter) | **GET** /api/2.0/people/filter | Search users with detailed information by extended filter |
 | [**SearchUsersByQuery**](#searchusersbyquery) | **GET** /api/2.0/people/search | Search users (using query parameters) |
 | [**SearchUsersByStatus**](#searchusersbystatus) | **GET** /api/2.0/people/status/{status}/search | Search users by status filter |
 
@@ -1207,7 +1207,7 @@ namespace Example
 
             try
             {
-                // Search users with detaailed information by extended filter
+                // Search users with detailed information by extended filter
                 EmployeeFullArrayWrapper result = apiInstance.SearchUsersByExtendedFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
@@ -1228,7 +1228,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Search users with detaailed information by extended filter
+    // Search users with detailed information by extended filter
     ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

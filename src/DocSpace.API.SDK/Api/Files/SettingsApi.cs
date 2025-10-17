@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
+        /// <param name="autoCleanupRequestDto">The request parameters for updating the trash bin auto-clearing setting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>AutoCleanUpDataWrapper</returns>
         AutoCleanUpDataWrapper ChangeAutomaticallyCleanUp(AutoCleanupRequestDto? autoCleanupRequestDto = default);
@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
+        /// <param name="autoCleanupRequestDto">The request parameters for updating the trash bin auto-clearing setting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>ApiResponse of AutoCleanUpDataWrapper</returns>
         ApiResponse<AutoCleanUpDataWrapper> ChangeAutomaticallyCleanUpWithHttpInfo(AutoCleanupRequestDto? autoCleanupRequestDto = default);
@@ -532,7 +532,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
+        /// <param name="autoCleanupRequestDto">The request parameters for updating the trash bin auto-clearing setting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>Task of AutoCleanUpDataWrapper</returns>
@@ -545,7 +545,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
+        /// <param name="autoCleanupRequestDto">The request parameters for updating the trash bin auto-clearing setting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>Task of ApiResponse (AutoCleanUpDataWrapper)</returns>
@@ -1416,7 +1416,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
+        /// <param name="autoCleanupRequestDto">The request parameters for updating the trash bin auto-clearing setting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>AutoCleanUpDataWrapper</returns>
         public AutoCleanUpDataWrapper ChangeAutomaticallyCleanUp(AutoCleanupRequestDto? autoCleanupRequestDto = default)
@@ -1429,7 +1429,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
+        /// <param name="autoCleanupRequestDto">The request parameters for updating the trash bin auto-clearing setting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>ApiResponse of AutoCleanUpDataWrapper</returns>
         public ApiResponse<AutoCleanUpDataWrapper> ChangeAutomaticallyCleanUpWithHttpInfo(AutoCleanupRequestDto? autoCleanupRequestDto = default)
@@ -1469,7 +1469,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
+        /// <param name="autoCleanupRequestDto">The request parameters for updating the trash bin auto-clearing setting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>Task of AutoCleanUpDataWrapper</returns>
@@ -1483,7 +1483,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="autoCleanupRequestDto">The auto-clearing request parameters. (optional)</param>
+        /// <param name="autoCleanupRequestDto">The request parameters for updating the trash bin auto-clearing setting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-automatically-clean-up/">REST API Reference for ChangeAutomaticallyCleanUp Operation</seealso>
         /// <returns>Task of ApiResponse (AutoCleanUpDataWrapper)</returns>

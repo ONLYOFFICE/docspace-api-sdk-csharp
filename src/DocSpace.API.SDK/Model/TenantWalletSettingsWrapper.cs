@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Tenant wallet settings
+    /// The wrapper for the tenant wallet settings.
     /// </summary>
     [DataContract(Name = "TenantWalletSettingsWrapper")]
     public partial class TenantWalletSettingsWrapper : IValidatableObject

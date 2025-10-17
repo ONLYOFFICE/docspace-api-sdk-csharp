@@ -5,8 +5,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**GetUserTypeUpdateProgress**](#getusertypeupdateprogress) | **GET** /api/2.0/people/type/progress/{userid} | Get the progress of updating user type |
-| [**StarUserTypetUpdate**](#starusertypetupdate) | **POST** /api/2.0/people/type | Update user type |
-| [**TerminateUserTypeUpdate**](#terminateusertypeupdate) | **PUT** /api/2.0/people/type/terminate | Terminate update user type |
+| [**StarUserTypetUpdate**](#starusertypetupdate) | **POST** /api/2.0/people/type | Start updating user type |
+| [**TerminateUserTypeUpdate**](#terminateusertypeupdate) | **PUT** /api/2.0/people/type/terminate | Terminate updating user type |
 | [**UpdateUserType**](#updateusertype) | **PUT** /api/2.0/people/type/{type} | Change a user type |
 
 <a id="getusertypeupdateprogress"></a>
@@ -184,7 +184,7 @@ namespace Example
 
             try
             {
-                // Update user type
+                // Start updating user type
                 TaskProgressResponseWrapper result = apiInstance.StarUserTypetUpdate(startUpdateUserTypeDto);
                 Debug.WriteLine(result);
             }
@@ -205,7 +205,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Update user type
+    // Start updating user type
     ApiResponse<TaskProgressResponseWrapper> response = apiInstance.StarUserTypetUpdateWithHttpInfo(startUpdateUserTypeDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -297,7 +297,7 @@ namespace Example
 
             try
             {
-                // Terminate update user type
+                // Terminate updating user type
                 TaskProgressResponseWrapper result = apiInstance.TerminateUserTypeUpdate(terminateRequestDto);
                 Debug.WriteLine(result);
             }
@@ -318,7 +318,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Terminate update user type
+    // Terminate updating user type
     ApiResponse<TaskProgressResponseWrapper> response = apiInstance.TerminateUserTypeUpdateWithHttpInfo(terminateRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **CanEditInternal** | **bool** | Indicates whether internal editing permissions are granted. | 
 **CanEditDenyDownload** | **bool** | Determines whether the user has permission to modify the deny download setting for the file share. | 
 **CanEditExpirationDate** | **bool** | Indicates whether the expiration date of access permissions can be edited. | 
+**CanRevoke** | **bool** | Specifies whether the file sharing access can be revoked by the current user. | 
 **SubjectType** | **SubjectType** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

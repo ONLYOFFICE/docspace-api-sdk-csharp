@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// TenantWalletSettings
+    /// The tenant wallet settings.
     /// </summary>
     [DataContract(Name = "TenantWalletSettings")]
     public partial class TenantWalletSettings : IValidatableObject
@@ -28,11 +28,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantWalletSettings" /> class.
         /// </summary>
-        /// <param name="enabled">Enabled.</param>
-        /// <param name="minBalance">Minimun balance.</param>
-        /// <param name="upToBalance">Up to balance.</param>
+        /// <param name="enabled">Specifies whether automatic top-up for the tenant wallet is enabled..</param>
+        /// <param name="minBalance">The minimum wallet balance at which automatic top-up will be triggered. Must be between 5 and 1000..</param>
+        /// <param name="upToBalance">The maximum wallet balance at which automatic top-up will be triggered. Must be between 6 and 5000..</param>
         /// <param name="currency">The three-character ISO 4217 currency symbol..</param>
-        /// <param name="lastModified">lastModified.</param>
+        /// <param name="lastModified">The date and time when the tenant wallet settings were last modified..</param>
         public TenantWalletSettings(bool enabled = default, int minBalance = default, int upToBalance = default, string currency = default, DateTime lastModified = default)
         {
             this.Enabled = enabled;
@@ -43,9 +43,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Enabled
+        /// Specifies whether automatic top-up for the tenant wallet is enabled.
         /// </summary>
-        /// <value>Enabled</value>
+        /// <value>Specifies whether automatic top-up for the tenant wallet is enabled.</value>
         /*
         <example>true</example>
         */
@@ -53,9 +53,9 @@ namespace DocSpace.API.SDK.Model
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Minimun balance
+        /// The minimum wallet balance at which automatic top-up will be triggered. Must be between 5 and 1000.
         /// </summary>
-        /// <value>Minimun balance</value>
+        /// <value>The minimum wallet balance at which automatic top-up will be triggered. Must be between 5 and 1000.</value>
         /*
         <example>1234</example>
         */
@@ -63,9 +63,9 @@ namespace DocSpace.API.SDK.Model
         public int MinBalance { get; set; }
 
         /// <summary>
-        /// Up to balance
+        /// The maximum wallet balance at which automatic top-up will be triggered. Must be between 6 and 5000.
         /// </summary>
-        /// <value>Up to balance</value>
+        /// <value>The maximum wallet balance at which automatic top-up will be triggered. Must be between 6 and 5000.</value>
         /*
         <example>1234</example>
         */
@@ -83,8 +83,9 @@ namespace DocSpace.API.SDK.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastModified
+        /// The date and time when the tenant wallet settings were last modified.
         /// </summary>
+        /// <value>The date and time when the tenant wallet settings were last modified.</value>
         /*
         <example>2008-04-10T06:30+04:00</example>
         */

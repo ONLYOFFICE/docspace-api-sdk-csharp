@@ -174,12 +174,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/ApiKeysApi.md#getapikey"><strong>GetApiKey</strong></a></td>
         <td><strong>GET</strong> /api/2.0/keys/@self</td>
-        <td>Get user API key info</td>
+        <td>Get current user&#39;s API key</td>
       </tr>
       <tr>
         <td><a href="docs/ApiKeysApi.md#getapikeys"><strong>GetApiKeys</strong></a></td>
         <td><strong>GET</strong> /api/2.0/keys</td>
-        <td>Get user API keys</td>
+        <td>Get current user&#39;s API keys</td>
       </tr>
       <tr>
         <td><a href="docs/ApiKeysApi.md#updateapikey"><strong>UpdateApiKey</strong></a></td>
@@ -660,6 +660,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/FilesFoldersApi.md#getfolderprimaryexternallink"><strong>GetFolderPrimaryExternalLink</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/folder/{id}/link</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesFoldersApi.md#getfolderrecent"><strong>GetFolderRecent</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/recent</td>
         <td></td>
       </tr>
       <tr>
@@ -1429,7 +1434,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/PeopleProfilesApi.md#getclaims"><strong>GetClaims</strong></a></td>
         <td><strong>GET</strong> /api/2.0/people/tokendiagnostics</td>
-        <td>Returns the user claims.</td>
+        <td>Get user claims</td>
       </tr>
       <tr>
         <td><a href="docs/PeopleProfilesApi.md#getprofilebyemail"><strong>GetProfileByEmail</strong></a></td>
@@ -1439,7 +1444,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/PeopleProfilesApi.md#getprofilebyuserid"><strong>GetProfileByUserId</strong></a></td>
         <td><strong>GET</strong> /api/2.0/people/{userid}</td>
-        <td>Get a profile by user name</td>
+        <td>Get a profile by user ID</td>
       </tr>
       <tr>
         <td><a href="docs/PeopleProfilesApi.md#getselfprofile"><strong>GetSelfProfile</strong></a></td>
@@ -1535,7 +1540,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/PeopleSearchApi.md#searchusersbyextendedfilter"><strong>SearchUsersByExtendedFilter</strong></a></td>
         <td><strong>GET</strong> /api/2.0/people/filter</td>
-        <td>Search users with detaailed information by extended filter</td>
+        <td>Search users with detailed information by extended filter</td>
       </tr>
       <tr>
         <td><a href="docs/PeopleSearchApi.md#searchusersbyquery"><strong>SearchUsersByQuery</strong></a></td>
@@ -1604,7 +1609,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/PeopleUserDataApi.md#necessaryreassign"><strong>NecessaryReassign</strong></a></td>
         <td><strong>GET</strong> /api/2.0/people/reassign/necessary</td>
-        <td>Check the data reassignment need</td>
+        <td>Check data for reassignment need</td>
       </tr>
       <tr>
         <td><a href="docs/PeopleUserDataApi.md#sendinstructionstodelete"><strong>SendInstructionsToDelete</strong></a></td>
@@ -1665,12 +1670,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/PeopleUserTypeApi.md#starusertypetupdate"><strong>StarUserTypetUpdate</strong></a></td>
         <td><strong>POST</strong> /api/2.0/people/type</td>
-        <td>Update user type</td>
+        <td>Start updating user type</td>
       </tr>
       <tr>
         <td><a href="docs/PeopleUserTypeApi.md#terminateusertypeupdate"><strong>TerminateUserTypeUpdate</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/people/type/terminate</td>
-        <td>Terminate update user type</td>
+        <td>Terminate updating user type</td>
       </tr>
       <tr>
         <td><a href="docs/PeopleUserTypeApi.md#updateusertype"><strong>UpdateUserType</strong></a></td>
@@ -1705,7 +1710,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/PortalPaymentApi.md#calculatewalletpayment"><strong>CalculateWalletPayment</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/portal/payment/calculatewallet</td>
-        <td>Calculate amount of the wallet payment</td>
+        <td>Calculate the wallet payment amount</td>
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#changetenantwalletservicestate"><strong>ChangeTenantWalletServiceState</strong></a></td>
@@ -1715,7 +1720,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/PortalPaymentApi.md#createcustomeroperationsreport"><strong>CreateCustomerOperationsReport</strong></a></td>
         <td><strong>POST</strong> /api/2.0/portal/payment/customer/operationsreport</td>
-        <td>Start generating the customer operations report</td>
+        <td>Start the customer operations report generation</td>
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#getcheckoutsetupurl"><strong>GetCheckoutSetupUrl</strong></a></td>
@@ -1730,7 +1735,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/PortalPaymentApi.md#getcustomerinfo"><strong>GetCustomerInfo</strong></a></td>
         <td><strong>GET</strong> /api/2.0/portal/payment/customerinfo</td>
-        <td>Get the customer info</td>
+        <td>Get the customer information</td>
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#getcustomeroperations"><strong>GetCustomerOperations</strong></a></td>
@@ -1740,7 +1745,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/PortalPaymentApi.md#getcustomeroperationsreport"><strong>GetCustomerOperationsReport</strong></a></td>
         <td><strong>GET</strong> /api/2.0/portal/payment/customer/operationsreport</td>
-        <td>Get the status of generating a customer operations report</td>
+        <td>Get the status of the customer operations report generation</td>
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#getpaymentaccount"><strong>GetPaymentAccount</strong></a></td>
@@ -1780,7 +1785,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/PortalPaymentApi.md#gettenantwalletsettings"><strong>GetTenantWalletSettings</strong></a></td>
         <td><strong>GET</strong> /api/2.0/portal/payment/topupsettings</td>
-        <td>Get wallet auto top up settings</td>
+        <td>Get wallet auto top-up settings</td>
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#getwalletservice"><strong>GetWalletService</strong></a></td>
@@ -1800,12 +1805,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/PortalPaymentApi.md#settenantwalletsettings"><strong>SetTenantWalletSettings</strong></a></td>
         <td><strong>POST</strong> /api/2.0/portal/payment/topupsettings</td>
-        <td>Set wallet auto top up settings</td>
+        <td>Set wallet auto top-up settings</td>
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#terminatecustomeroperationsreport"><strong>TerminateCustomerOperationsReport</strong></a></td>
         <td><strong>DELETE</strong> /api/2.0/portal/payment/customer/operationsreport</td>
-        <td>Terminate the generating a customer operations report</td>
+        <td>Terminate the customer operations report generation</td>
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#topupdeposit"><strong>TopUpDeposit</strong></a></td>
@@ -2212,7 +2217,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/SecurityBannersVisibilityApi.md#settenantbannersettings"><strong>SetTenantBannerSettings</strong></a></td>
         <td><strong>POST</strong> /api/2.0/settings/banner</td>
-        <td>Set the promotional banners visibility settings</td>
+        <td>Set the banners visibility</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>CSPApi</strong></td>
@@ -2335,7 +2340,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/SettingsBannersVisibilityApi.md#gettenantbannersettings"><strong>GetTenantBannerSettings</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/banner</td>
-        <td>Get the promotional banners visibility settings</td>
+        <td>Get the banners visibility</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>CommonSettingsApi</strong></td>
@@ -2577,7 +2582,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/SettingsNotificationsApi.md#getnotificationchannels"><strong>GetNotificationChannels</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/notification/channels</td>
-        <td>Gets notification channel settings</td>
+        <td>Get notification channels</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsNotificationsApi.md#getnotificationsettings"><strong>GetNotificationSettings</strong></a></td>

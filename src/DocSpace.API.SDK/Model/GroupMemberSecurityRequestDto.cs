@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The security request parameters of the group member.
+    /// The group member security information.
     /// </summary>
     [DataContract(Name = "GroupMemberSecurityRequestDto")]
     public partial class GroupMemberSecurityRequestDto : IValidatableObject

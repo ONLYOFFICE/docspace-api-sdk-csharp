@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The document builder task parameters.
+    /// The Document Builder task parameters.
     /// </summary>
     [DataContract(Name = "DocumentBuilderTaskDto")]
     public partial class DocumentBuilderTaskDto : IValidatableObject
@@ -39,9 +39,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentBuilderTaskDto" /> class.
         /// </summary>
-        /// <param name="id">The document builder ID. (required).</param>
-        /// <param name="error">The error message occured while the document building process. (required).</param>
-        /// <param name="percentage">The percentage of the progress of the document building process. (required).</param>
+        /// <param name="id">The Document Builder task ID. (required).</param>
+        /// <param name="error">The error message occurred during the document building process. (required).</param>
+        /// <param name="percentage">The progress percentage of the document building process. (required).</param>
         /// <param name="isCompleted">Specifies whether the document building process is completed or not. (required).</param>
         /// <param name="status">status (required).</param>
         /// <param name="resultFileId">The result file ID. (required).</param>
@@ -85,9 +85,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The document builder ID.
+        /// The Document Builder task ID.
         /// </summary>
-        /// <value>The document builder ID.</value>
+        /// <value>The Document Builder task ID.</value>
         /*
         <example>9846</example>
         */
@@ -95,9 +95,9 @@ namespace DocSpace.API.SDK.Model
         public string Id { get; set; }
 
         /// <summary>
-        /// The error message occured while the document building process.
+        /// The error message occurred during the document building process.
         /// </summary>
-        /// <value>The error message occured while the document building process.</value>
+        /// <value>The error message occurred during the document building process.</value>
         /*
         <example>some text</example>
         */
@@ -105,9 +105,9 @@ namespace DocSpace.API.SDK.Model
         public string Error { get; set; }
 
         /// <summary>
-        /// The percentage of the progress of the document building process.
+        /// The progress percentage of the document building process.
         /// </summary>
-        /// <value>The percentage of the progress of the document building process.</value>
+        /// <value>The progress percentage of the document building process.</value>
         /*
         <example>1234</example>
         */

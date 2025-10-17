@@ -56,7 +56,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **int** | The room Id. |  |
-| **batchTagsRequestDto** | [**BatchTagsRequestDto?**](BatchTagsRequestDto.md) | The parameters for adding tags. | [optional]  |
+| **batchTagsRequestDto** | [**BatchTagsRequestDto?**](BatchTagsRequestDto.md) | The parameters for managing tags. | [optional]  |
 
 ### Return type
 
@@ -88,7 +88,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
             var id = 9846;  // int | The room Id.
-            var batchTagsRequestDto = new BatchTagsRequestDto?(); // BatchTagsRequestDto? | The parameters for adding tags. (optional) 
+            var batchTagsRequestDto = new BatchTagsRequestDto?(); // BatchTagsRequestDto? | The parameters for managing tags. (optional) 
 
             try
             {
@@ -907,7 +907,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **batchTagsRequestDto** | [**BatchTagsRequestDto?**](BatchTagsRequestDto.md) | The parameters for adding tags. | [optional]  |
+| **batchTagsRequestDto** | [**BatchTagsRequestDto?**](BatchTagsRequestDto.md) | The parameters for managing room tags. | [optional]  |
 
 ### Return type
 
@@ -938,7 +938,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var batchTagsRequestDto = new BatchTagsRequestDto?(); // BatchTagsRequestDto? | The parameters for adding tags. (optional) 
+            var batchTagsRequestDto = new BatchTagsRequestDto?(); // BatchTagsRequestDto? | The parameters for managing room tags. (optional) 
 
             try
             {
@@ -1092,7 +1092,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
+| **id** | **int** | The room ID. |  |
 
 ### Return type
 
@@ -1123,7 +1123,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID of the request.
+            var id = 9846;  // int | The room ID.
 
             try
             {
@@ -1186,7 +1186,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **id** | **int** | The room Id. |  |
-| **batchTagsRequestDto** | [**BatchTagsRequestDto?**](BatchTagsRequestDto.md) | The parameters for adding tags. | [optional]  |
+| **batchTagsRequestDto** | [**BatchTagsRequestDto?**](BatchTagsRequestDto.md) | The parameters for managing tags. | [optional]  |
 
 ### Return type
 
@@ -1218,7 +1218,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
             var id = 9846;  // int | The room Id.
-            var batchTagsRequestDto = new BatchTagsRequestDto?(); // BatchTagsRequestDto? | The parameters for adding tags. (optional) 
+            var batchTagsRequestDto = new BatchTagsRequestDto?(); // BatchTagsRequestDto? | The parameters for managing tags. (optional) 
 
             try
             {
@@ -1281,7 +1281,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
+| **id** | **int** | The room ID. |  |
 
 ### Return type
 
@@ -1312,7 +1312,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID of the request.
+            var id = 9846;  // int | The room ID.
 
             try
             {
@@ -1731,7 +1731,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
+| **id** | **int** | The room ID. |  |
 
 ### Return type
 
@@ -1762,7 +1762,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID of the request.
+            var id = 9846;  // int | The room ID.
 
             try
             {
@@ -2415,7 +2415,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
+| **id** | **int** | The room ID. |  |
 
 ### Return type
 
@@ -2446,7 +2446,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID of the request.
+            var id = 9846;  // int | The room ID.
 
             try
             {
@@ -2509,7 +2509,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
+| **id** | **int** | The room ID. |  |
 
 ### Return type
 
@@ -2540,7 +2540,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID of the request.
+            var id = 9846;  // int | The room ID.
 
             try
             {
@@ -2602,7 +2602,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
+| **id** | **int** | The room ID. |  |
 
 ### Return type
 
@@ -2633,7 +2633,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID of the request.
+            var id = 9846;  // int | The room ID.
 
             try
             {
@@ -3065,7 +3065,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
+| **id** | **int** | The room ID. |  |
 
 ### Return type
 
@@ -3096,7 +3096,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID of the request.
+            var id = 9846;  // int | The room ID.
 
             try
             {
@@ -3338,7 +3338,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The room ID of the request. |  |
+| **id** | **int** | The room ID. |  |
 
 ### Return type
 
@@ -3369,7 +3369,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID of the request.
+            var id = 9846;  // int | The room ID.
 
             try
             {

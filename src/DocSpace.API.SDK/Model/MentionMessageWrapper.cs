@@ -29,8 +29,8 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="MentionMessageWrapper" /> class.
         /// </summary>
         /// <param name="actionLink">actionLink.</param>
-        /// <param name="emails">A list of emails which will receive the mention message..</param>
-        /// <param name="message">The comment message..</param>
+        /// <param name="emails">A list of emails that will receive the mention message..</param>
+        /// <param name="message">The mention message..</param>
         public MentionMessageWrapper(ActionLinkConfig actionLink = default, List<string> emails = default, string message = default)
         {
             this.ActionLink = actionLink;
@@ -45,9 +45,9 @@ namespace DocSpace.API.SDK.Model
         public ActionLinkConfig ActionLink { get; set; }
 
         /// <summary>
-        /// A list of emails which will receive the mention message.
+        /// A list of emails that will receive the mention message.
         /// </summary>
-        /// <value>A list of emails which will receive the mention message.</value>
+        /// <value>A list of emails that will receive the mention message.</value>
         /*
         <example>[&quot;some text&quot;]</example>
         */
@@ -55,9 +55,9 @@ namespace DocSpace.API.SDK.Model
         public List<string> Emails { get; set; }
 
         /// <summary>
-        /// The comment message.
+        /// The mention message.
         /// </summary>
-        /// <value>The comment message.</value>
+        /// <value>The mention message.</value>
         /*
         <example>some text</example>
         */

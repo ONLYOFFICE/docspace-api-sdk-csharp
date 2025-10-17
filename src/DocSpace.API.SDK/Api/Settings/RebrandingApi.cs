@@ -132,7 +132,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check the default white label logo text
         /// </summary>
         /// <remarks>
-        /// Specifies if the white label logo text are default or not.
+        /// Specifies if the white label logo text is default or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
@@ -145,7 +145,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check the default white label logo text
         /// </summary>
         /// <remarks>
-        /// Specifies if the white label logo text are default or not.
+        /// Specifies if the white label logo text is default or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
@@ -552,7 +552,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check the default white label logo text
         /// </summary>
         /// <remarks>
-        /// Specifies if the white label logo text are default or not.
+        /// Specifies if the white label logo text is default or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
@@ -566,7 +566,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check the default white label logo text
         /// </summary>
         /// <remarks>
-        /// Specifies if the white label logo text are default or not.
+        /// Specifies if the white label logo text is default or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
@@ -1966,7 +1966,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check the default white label logo text
         /// </summary>
         /// <remarks>
-        /// Specifies if the white label logo text are default or not.
+        /// Specifies if the white label logo text is default or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
@@ -1983,7 +1983,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check the default white label logo text
         /// </summary>
         /// <remarks>
-        /// Specifies if the white label logo text are default or not.
+        /// Specifies if the white label logo text is default or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
@@ -2064,7 +2064,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check the default white label logo text
         /// </summary>
         /// <remarks>
-        /// Specifies if the white label logo text are default or not.
+        /// Specifies if the white label logo text is default or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>
@@ -2082,7 +2082,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Check the default white label logo text
         /// </summary>
         /// <remarks>
-        /// Specifies if the white label logo text are default or not.
+        /// Specifies if the white label logo text is default or not.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="isDark">Specifies if the white label logo is for the dark theme or not. (optional)</param>

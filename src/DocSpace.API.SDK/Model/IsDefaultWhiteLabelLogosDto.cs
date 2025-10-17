@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The default white label logos parameters.
+    /// The default white label logo parameters.
     /// </summary>
     [DataContract(Name = "IsDefaultWhiteLabelLogosDto")]
     public partial class IsDefaultWhiteLabelLogosDto : IValidatableObject

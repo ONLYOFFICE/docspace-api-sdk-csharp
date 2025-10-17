@@ -5,7 +5,7 @@ The response data for the API key operations.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Guid** | The unique identifier of the API key. | 
+**Id** | **Guid** | The API key unique identifier. | 
 **Name** | **string** | The API key name. | 
 **Key** | **string** | The full API key value (only returned when creating a new key). | 
 **KeyPostfix** | **string** | The API key postfix (used for identification). | [optional] 

@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The authentication key parameters.
+    /// The authorization key parameters.
     /// </summary>
     [DataContract(Name = "AuthKey")]
     public partial class AuthKey : IValidatableObject
@@ -33,9 +33,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthKey" /> class.
         /// </summary>
-        /// <param name="name">The authentication key name. (required).</param>
-        /// <param name="value">The authentication key value. (required).</param>
-        /// <param name="title">The authentication key title. (required).</param>
+        /// <param name="name">The authorization key name. (required).</param>
+        /// <param name="value">The authorization key value. (required).</param>
+        /// <param name="title">The authorization key title..</param>
         public AuthKey(string name = default, string value = default, string title = default)
         {
             // to ensure "name" is required (not null)
@@ -50,18 +50,13 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("value is a required property for AuthKey and cannot be null");
             }
             this.Value = value;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for AuthKey and cannot be null");
-            }
             this.Title = title;
         }
 
         /// <summary>
-        /// The authentication key name.
+        /// The authorization key name.
         /// </summary>
-        /// <value>The authentication key name.</value>
+        /// <value>The authorization key name.</value>
         /*
         <example>Winfield Upton</example>
         */
@@ -69,9 +64,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The authentication key value.
+        /// The authorization key value.
         /// </summary>
-        /// <value>The authentication key value.</value>
+        /// <value>The authorization key value.</value>
         /*
         <example>some text</example>
         */
@@ -79,13 +74,13 @@ namespace DocSpace.API.SDK.Model
         public string Value { get; set; }
 
         /// <summary>
-        /// The authentication key title.
+        /// The authorization key title.
         /// </summary>
-        /// <value>The authentication key title.</value>
+        /// <value>The authorization key title.</value>
         /*
         <example>legacy_1080p_small_wooden_mouse</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>

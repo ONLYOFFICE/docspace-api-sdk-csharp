@@ -205,7 +205,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>WebhooksLogArrayWrapper</returns>
         WebhooksLogArrayWrapper RetryWebhooks(WebhookRetryRequestsDto? webhookRetryRequestsDto = default);
@@ -217,7 +217,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
         ApiResponse<WebhooksLogArrayWrapper> RetryWebhooksWithHttpInfo(WebhookRetryRequestsDto? webhookRetryRequestsDto = default);
@@ -449,7 +449,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
@@ -462,7 +462,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
@@ -2106,7 +2106,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>WebhooksLogArrayWrapper</returns>
         public WebhooksLogArrayWrapper RetryWebhooks(WebhookRetryRequestsDto? webhookRetryRequestsDto = default)
@@ -2122,7 +2122,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
         public ApiResponse<WebhooksLogArrayWrapper> RetryWebhooksWithHttpInfo(WebhookRetryRequestsDto? webhookRetryRequestsDto = default)
@@ -2195,7 +2195,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
@@ -2212,7 +2212,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>

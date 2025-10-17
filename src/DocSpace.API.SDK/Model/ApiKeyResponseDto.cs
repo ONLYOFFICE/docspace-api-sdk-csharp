@@ -33,7 +33,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiKeyResponseDto" /> class.
         /// </summary>
-        /// <param name="id">The unique identifier of the API key. (required).</param>
+        /// <param name="id">The API key unique identifier. (required).</param>
         /// <param name="name">The API key name. (required).</param>
         /// <param name="key">The full API key value (only returned when creating a new key). (required).</param>
         /// <param name="keyPostfix">The API key postfix (used for identification)..</param>
@@ -73,9 +73,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The unique identifier of the API key.
+        /// The API key unique identifier.
         /// </summary>
-        /// <value>The unique identifier of the API key.</value>
+        /// <value>The API key unique identifier.</value>
         /*
         <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
         */

@@ -4,13 +4,13 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**SetTenantBannerSettings**](#settenantbannersettings) | **POST** /api/2.0/settings/banner | Set the promotional banners visibility settings |
+| [**SetTenantBannerSettings**](#settenantbannersettings) | **POST** /api/2.0/settings/banner | Set the banners visibility |
 
 <a id="settenantbannersettings"></a>
 # **SetTenantBannerSettings**
 > TenantBannerSettingsWrapper SetTenantBannerSettings (TenantBannerSettingsDto? tenantBannerSettingsDto = null)
 
-Sets the promotional banners visibility settings settings for the portal.
+Sets the visibility settings of the promotional banners in the portal.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/).
 
@@ -18,7 +18,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **tenantBannerSettingsDto** | [**TenantBannerSettingsDto?**](TenantBannerSettingsDto.md) | The request parameters for managing the promotional banners visibility settings for the current tenant. | [optional]  |
+| **tenantBannerSettingsDto** | [**TenantBannerSettingsDto?**](TenantBannerSettingsDto.md) | The request parameters for managing the visibility settings of the promotional banners for the current tenant. | [optional]  |
 
 ### Return type
 
@@ -65,11 +65,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BannersVisibilityApi(httpClient, config, httpClientHandler);
-            var tenantBannerSettingsDto = new TenantBannerSettingsDto?(); // TenantBannerSettingsDto? | The request parameters for managing the promotional banners visibility settings for the current tenant. (optional) 
+            var tenantBannerSettingsDto = new TenantBannerSettingsDto?(); // TenantBannerSettingsDto? | The request parameters for managing the visibility settings of the promotional banners for the current tenant. (optional) 
 
             try
             {
-                // Set the promotional banners visibility settings
+                // Set the banners visibility
                 TenantBannerSettingsWrapper result = apiInstance.SetTenantBannerSettings(tenantBannerSettingsDto);
                 Debug.WriteLine(result);
             }
@@ -90,7 +90,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Set the promotional banners visibility settings
+    // Set the banners visibility
     ApiResponse<TenantBannerSettingsWrapper> response = apiInstance.SetTenantBannerSettingsWithHttpInfo(tenantBannerSettingsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

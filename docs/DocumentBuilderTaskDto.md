@@ -1,13 +1,13 @@
 # DocSpace.API.SDK.Model.DocumentBuilderTaskDto
-The document builder task parameters.
+The Document Builder task parameters.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | The document builder ID. | 
-**Error** | **string** | The error message occured while the document building process. | 
-**Percentage** | **int** | The percentage of the progress of the document building process. | 
+**Id** | **string** | The Document Builder task ID. | 
+**Error** | **string** | The error message occurred during the document building process. | 
+**Percentage** | **int** | The progress percentage of the document building process. | 
 **IsCompleted** | **bool** | Specifies whether the document building process is completed or not. | 
 **Status** | **DistributedTaskStatus** |  | 
 **ResultFileId** | **Object** | The result file ID. | 

@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.TenantBannerSettingsDto
-The request parameters for managing the promotional banners visibility settings for the current tenant.
+The request parameters for managing the visibility settings of the promotional banners for the current tenant.
 
 ## Properties
 

@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.GroupMemberSecurityRequestDto
-The security request parameters of the group member.
+The group member security information.
 
 ## Properties
 

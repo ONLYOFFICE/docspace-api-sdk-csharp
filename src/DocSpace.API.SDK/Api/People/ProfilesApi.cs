@@ -126,7 +126,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
         ApiResponse<EmployeeFullArrayWrapper> GetAllProfilesWithHttpInfo(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
-        /// Returns the user claims.
+        /// Get user claims
         /// </summary>
         /// <remarks>
         /// Returns the user claims.
@@ -137,7 +137,7 @@ namespace DocSpace.API.SDK.Api.People
         ObjectWrapper GetClaims();
 
         /// <summary>
-        /// Returns the user claims.
+        /// Get user claims
         /// </summary>
         /// <remarks>
         /// Returns the user claims.
@@ -172,10 +172,10 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
         ApiResponse<EmployeeFullWrapper> GetProfileByEmailWithHttpInfo(string? email = default, string? culture = default);
         /// <summary>
-        /// Get a profile by user name
+        /// Get a profile by user ID
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about a profile of the user with the name specified in the request.
+        /// Returns the detailed information about a profile of the user with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
@@ -184,10 +184,10 @@ namespace DocSpace.API.SDK.Api.People
         EmployeeFullWrapper GetProfileByUserId(string userid);
 
         /// <summary>
-        /// Get a profile by user name
+        /// Get a profile by user ID
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about a profile of the user with the name specified in the request.
+        /// Returns the detailed information about a profile of the user with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
@@ -477,7 +477,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
         Task<ApiResponse<EmployeeFullArrayWrapper>> GetAllProfilesWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterBy = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Returns the user claims.
+        /// Get user claims
         /// </summary>
         /// <remarks>
         /// Returns the user claims.
@@ -489,7 +489,7 @@ namespace DocSpace.API.SDK.Api.People
         Task<ObjectWrapper> GetClaimsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Returns the user claims.
+        /// Get user claims
         /// </summary>
         /// <remarks>
         /// Returns the user claims.
@@ -527,10 +527,10 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
         Task<ApiResponse<EmployeeFullWrapper>> GetProfileByEmailWithHttpInfoAsync(string? email = default, string? culture = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get a profile by user name
+        /// Get a profile by user ID
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about a profile of the user with the name specified in the request.
+        /// Returns the detailed information about a profile of the user with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
@@ -540,10 +540,10 @@ namespace DocSpace.API.SDK.Api.People
         Task<EmployeeFullWrapper> GetProfileByUserIdAsync(string userid, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get a profile by user name
+        /// Get a profile by user ID
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about a profile of the user with the name specified in the request.
+        /// Returns the detailed information about a profile of the user with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
@@ -1768,7 +1768,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Returns the user claims.
+        /// Get user claims
         /// </summary>
         /// <remarks>
         /// Returns the user claims.
@@ -1783,7 +1783,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Returns the user claims.
+        /// Get user claims
         /// </summary>
         /// <remarks>
         /// Returns the user claims.
@@ -1854,7 +1854,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Returns the user claims.
+        /// Get user claims
         /// </summary>
         /// <remarks>
         /// Returns the user claims.
@@ -1870,7 +1870,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Returns the user claims.
+        /// Get user claims
         /// </summary>
         /// <remarks>
         /// Returns the user claims.
@@ -2144,10 +2144,10 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Get a profile by user name
+        /// Get a profile by user ID
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about a profile of the user with the name specified in the request.
+        /// Returns the detailed information about a profile of the user with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
@@ -2160,10 +2160,10 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Get a profile by user name
+        /// Get a profile by user ID
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about a profile of the user with the name specified in the request.
+        /// Returns the detailed information about a profile of the user with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
@@ -2237,10 +2237,10 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Get a profile by user name
+        /// Get a profile by user ID
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about a profile of the user with the name specified in the request.
+        /// Returns the detailed information about a profile of the user with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
@@ -2254,10 +2254,10 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Get a profile by user name
+        /// Get a profile by user ID
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about a profile of the user with the name specified in the request.
+        /// Returns the detailed information about a profile of the user with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>

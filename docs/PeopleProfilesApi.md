@@ -8,9 +8,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**DeleteMember**](#deletemember) | **DELETE** /api/2.0/people/{userid} | Delete a user |
 | [**DeleteProfile**](#deleteprofile) | **DELETE** /api/2.0/people/@self | Delete my profile |
 | [**GetAllProfiles**](#getallprofiles) | **GET** /api/2.0/people | Get profiles |
-| [**GetClaims**](#getclaims) | **GET** /api/2.0/people/tokendiagnostics | Returns the user claims. |
+| [**GetClaims**](#getclaims) | **GET** /api/2.0/people/tokendiagnostics | Get user claims |
 | [**GetProfileByEmail**](#getprofilebyemail) | **GET** /api/2.0/people/email | Get a profile by user email |
-| [**GetProfileByUserId**](#getprofilebyuserid) | **GET** /api/2.0/people/{userid} | Get a profile by user name |
+| [**GetProfileByUserId**](#getprofilebyuserid) | **GET** /api/2.0/people/{userid} | Get a profile by user ID |
 | [**GetSelfProfile**](#getselfprofile) | **GET** /api/2.0/people/@self | Get my profile |
 | [**InviteUsers**](#inviteusers) | **POST** /api/2.0/people/invite | Invite users |
 | [**RemoveUsers**](#removeusers) | **PUT** /api/2.0/people/delete | Delete users |
@@ -538,7 +538,7 @@ namespace Example
 
             try
             {
-                // Returns the user claims.
+                // Get user claims
                 ObjectWrapper result = apiInstance.GetClaims();
                 Debug.WriteLine(result);
             }
@@ -559,7 +559,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Returns the user claims.
+    // Get user claims
     ApiResponse<ObjectWrapper> response = apiInstance.GetClaimsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -706,7 +706,7 @@ catch (ApiException e)
 # **GetProfileByUserId**
 > EmployeeFullWrapper GetProfileByUserId (string userid)
 
-Returns the detailed information about a profile of the user with the name specified in the request.
+Returns the detailed information about a profile of the user with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/).
 
@@ -765,7 +765,7 @@ namespace Example
 
             try
             {
-                // Get a profile by user name
+                // Get a profile by user ID
                 EmployeeFullWrapper result = apiInstance.GetProfileByUserId(userid);
                 Debug.WriteLine(result);
             }
@@ -786,7 +786,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get a profile by user name
+    // Get a profile by user ID
     ApiResponse<EmployeeFullWrapper> response = apiInstance.GetProfileByUserIdWithHttpInfo(userid);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

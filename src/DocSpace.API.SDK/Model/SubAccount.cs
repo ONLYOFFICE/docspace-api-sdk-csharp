@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Represents a sub-account with a specific currency and amount.
+    /// Represents a sub-account with a specific currency and balance.
     /// </summary>
     [DataContract(Name = "SubAccount")]
     public partial class SubAccount : IValidatableObject
@@ -29,7 +29,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="SubAccount" /> class.
         /// </summary>
         /// <param name="currency">The three-character ISO 4217 currency symbol of the sub-account..</param>
-        /// <param name="amount">The amount of the sub-account..</param>
+        /// <param name="amount">The balance of the sub-account in the specified currency..</param>
         public SubAccount(string currency = default, double amount = default)
         {
             this.Currency = currency;
@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// The amount of the sub-account.
+        /// The balance of the sub-account in the specified currency.
         /// </summary>
-        /// <value>The amount of the sub-account.</value>
+        /// <value>The balance of the sub-account in the specified currency.</value>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
         public double Amount { get; set; }
 

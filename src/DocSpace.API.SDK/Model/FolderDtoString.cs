@@ -274,6 +274,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "expired", EmitDefaultValue = true)]
+        [Obsolete]
         public bool? Expired { get; set; }
 
         /// <summary>

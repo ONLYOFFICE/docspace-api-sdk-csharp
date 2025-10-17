@@ -4,7 +4,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetNotificationChannels**](#getnotificationchannels) | **GET** /api/2.0/settings/notification/channels | Gets notification channel settings |
+| [**GetNotificationChannels**](#getnotificationchannels) | **GET** /api/2.0/settings/notification/channels | Get notification channels |
 | [**GetNotificationSettings**](#getnotificationsettings) | **GET** /api/2.0/settings/notification/{type} | Check notification availability |
 | [**GetRoomsNotificationSettings**](#getroomsnotificationsettings) | **GET** /api/2.0/settings/notification/rooms | Get room notification settings |
 | [**SetNotificationSettings**](#setnotificationsettings) | **POST** /api/2.0/settings/notification | Enable notifications |
@@ -14,7 +14,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **GetNotificationChannels**
 > NotificationChannelStatusWrapper GetNotificationChannels ()
 
-Returns a list of notification channels
+Returns a list of notification channels.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-notification-channels/).
 
@@ -68,7 +68,7 @@ namespace Example
 
             try
             {
-                // Gets notification channel settings
+                // Get notification channels
                 NotificationChannelStatusWrapper result = apiInstance.GetNotificationChannels();
                 Debug.WriteLine(result);
             }
@@ -89,7 +89,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Gets notification channel settings
+    // Get notification channels
     ApiResponse<NotificationChannelStatusWrapper> response = apiInstance.GetNotificationChannelsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

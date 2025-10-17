@@ -18,6 +18,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**GetFolderLinks**](#getfolderlinks) | **GET** /api/2.0/files/folder/{id}/links |  |
 | [**GetFolderPath**](#getfolderpath) | **GET** /api/2.0/files/folder/{folderId}/path |  |
 | [**GetFolderPrimaryExternalLink**](#getfolderprimaryexternallink) | **GET** /api/2.0/files/folder/{id}/link |  |
+| [**GetFolderRecent**](#getfolderrecent) | **GET** /api/2.0/files/recent |  |
 | [**GetFolders**](#getfolders) | **GET** /api/2.0/files/{folderId}/subfolders |  |
 | [**GetMyFolder**](#getmyfolder) | **GET** /api/2.0/files/@my |  |
 | [**GetNewFolderItems**](#getnewfolderitems) | **GET** /api/2.0/files/{folderId}/news |  |
@@ -716,7 +717,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | The request folder ID. |  |
+| **folderId** | **int** | The folder unique identifier. |  |
 
 ### Return type
 
@@ -747,7 +748,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The request folder ID.
+            var folderId = 9846;  // int | The folder unique identifier.
 
             try
             {
@@ -809,22 +810,22 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | The folder ID of the request. |  |
+| **folderId** | **int** | The folder ID. |  |
 | **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
 | **filterType** | [**FilterType?**](FilterType.md) | The filter type. | [optional]  |
 | **roomId** | **int?** | The room ID. | [optional]  |
 | **excludeSubject** | **bool?** | Specifies whether to exclude search by user or group ID. | [optional]  |
-| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption.md) | Specifies whether to return only files, only folders or all elements from the specified folder. | [optional]  |
+| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption.md) | Specifies whether to return only files, only folders, or all elements from the specified folder. | [optional]  |
 | **extension** | **string?** | Specifies whether to search for the specific file extension. | [optional]  |
 | **searchArea** | [**SearchArea?**](SearchArea.md) | The search area. | [optional]  |
 | **formsItemKey** | **string?** | The forms item key. | [optional]  |
 | **formsItemType** | **string?** | The forms item type. | [optional]  |
 | **count** | **int?** | The maximum number of items to retrieve in the request. | [optional]  |
 | **startIndex** | **int?** | The zero-based index of the first item to retrieve in a paginated request. | [optional]  |
-| **sortBy** | **string?** | Specifies the property used for sorting the folder request results. | [optional]  |
+| **sortBy** | **string?** | The property used for sorting the folder request results. | [optional]  |
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterValue** | **string?** | The text value used as a filter parameter for folder content queries. | [optional]  |
-| **location** | [**Location?**](Location.md) | Represents the location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. | [optional]  |
+| **location** | [**Location?**](Location.md) | The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. | [optional]  |
 
 ### Return type
 
@@ -855,22 +856,22 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID of the request.
+            var folderId = 9846;  // int | The folder ID.
             var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
             var roomId = 9846;  // int? | The room ID. (optional) 
             var excludeSubject = true;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
-            var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements from the specified folder. (optional) 
+            var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders, or all elements from the specified folder. (optional) 
             var extension = .txt;  // string? | Specifies whether to search for the specific file extension. (optional) 
             var searchArea = new SearchArea?(); // SearchArea? | The search area. (optional) 
             var formsItemKey = some text;  // string? | The forms item key. (optional) 
             var formsItemType = some text;  // string? | The forms item type. (optional) 
             var count = 1234;  // int? | The maximum number of items to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The zero-based index of the first item to retrieve in a paginated request. (optional) 
-            var sortBy = some text;  // string? | Specifies the property used for sorting the folder request results. (optional) 
+            var sortBy = some text;  // string? | The property used for sorting the folder request results. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterValue = some text;  // string? | The text value used as a filter parameter for folder content queries. (optional) 
-            var location = new Location?(); // Location? | Represents the location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional) 
+            var location = new Location?(); // Location? | The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional) 
 
             try
             {
@@ -1037,7 +1038,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | The request folder ID. |  |
+| **folderId** | **int** | The folder unique identifier. |  |
 
 ### Return type
 
@@ -1068,7 +1069,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The request folder ID.
+            var folderId = 9846;  // int | The folder unique identifier.
 
             try
             {
@@ -1223,7 +1224,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | The request folder ID. |  |
+| **folderId** | **int** | The folder unique identifier. |  |
 
 ### Return type
 
@@ -1254,7 +1255,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The request folder ID.
+            var folderId = 9846;  // int | The folder unique identifier.
 
             try
             {
@@ -1317,7 +1318,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int** | The request folder ID. |  |
+| **id** | **int** | The folder unique identifier. |  |
 | **count** | **int?** | The number of items to retrieve in the request. | [optional]  |
 | **startIndex** | **int?** | The starting index for the query results. | [optional]  |
 
@@ -1350,7 +1351,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The request folder ID.
+            var id = 9846;  // int | The folder unique identifier.
             var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
 
@@ -1403,6 +1404,121 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="getfolderrecent"></a>
+# **GetFolderRecent**
+> FolderContentIntegerWrapper GetFolderRecent (Guid? userIdOrGroupId = null, FilterType? filterType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, SearchArea? searchArea = null, List<string>? extension = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+
+
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
+| **filterType** | [**FilterType?**](FilterType.md) | The filter type. | [optional]  |
+| **excludeSubject** | **bool?** | Specifies whether to exclude search by user or group ID. | [optional]  |
+| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption.md) | Specifies whether to return only files, only folders or all elements. | [optional]  |
+| **searchArea** | [**SearchArea?**](SearchArea.md) | The search area. | [optional]  |
+| **extension** | [**List&lt;string&gt;?**](string.md) | Specifies whether to search for a specific file extension in the Recent folder. | [optional]  |
+| **count** | **int?** | The maximum number of items to return. | [optional]  |
+| **startIndex** | **int?** | The starting position of the results to be returned in the query response. | [optional]  |
+| **sortBy** | **string?** | Specifies the sorting criteria for the folder request. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text used for filtering or searching folder contents. | [optional]  |
+
+### Return type
+
+[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
+
+### Authorization
+
+No authorization required
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetFolderRecentExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
+            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
+            var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
+            var excludeSubject = true;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
+            var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements. (optional) 
+            var searchArea = new SearchArea?(); // SearchArea? | The search area. (optional) 
+            var extension = new List<string>?(); // List<string>? | Specifies whether to search for a specific file extension in the Recent folder. (optional) 
+            var count = 1234;  // int? | The maximum number of items to return. (optional) 
+            var startIndex = 1234;  // int? | The starting position of the results to be returned in the query response. (optional) 
+            var sortBy = some text;  // string? | Specifies the sorting criteria for the folder request. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
+            var filterValue = some text;  // string? | The text used for filtering or searching folder contents. (optional) 
+
+            try
+            {
+                FolderContentIntegerWrapper result = apiInstance.GetFolderRecent(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FoldersApi.GetFolderRecent: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetFolderRecentWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetFolderRecentWithHttpInfo(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FoldersApi.GetFolderRecentWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The Recent section contents |  -  |
+| **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **404** | The required folder was not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="getfolders"></a>
 # **GetFolders**
 > FileEntryBaseArrayWrapper GetFolders (int folderId)
@@ -1415,7 +1531,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | The request folder ID. |  |
+| **folderId** | **int** | The folder unique identifier. |  |
 
 ### Return type
 
@@ -1446,7 +1562,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The request folder ID.
+            var folderId = 9846;  // int | The folder unique identifier.
 
             try
             {
@@ -1618,7 +1734,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | The request folder ID. |  |
+| **folderId** | **int** | The folder unique identifier. |  |
 
 ### Return type
 
@@ -1649,7 +1765,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The request folder ID.
+            var folderId = 9846;  // int | The folder unique identifier.
 
             try
             {

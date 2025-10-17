@@ -56,8 +56,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="canEditInternal">Indicates whether internal editing permissions are granted. (required).</param>
         /// <param name="canEditDenyDownload">Determines whether the user has permission to modify the deny download setting for the file share. (required).</param>
         /// <param name="canEditExpirationDate">Indicates whether the expiration date of access permissions can be edited. (required).</param>
+        /// <param name="canRevoke">Specifies whether the file sharing access can be revoked by the current user. (required).</param>
         /// <param name="subjectType">subjectType (required).</param>
-        public FileShareDto(FileShare? access = default, Object sharedTo = default, EmployeeFullDto sharedToUser = default, GroupSummaryDto sharedToGroup = default, FileShareLink sharedLink = default, bool isLocked = default, bool isOwner = default, bool canEditAccess = default, bool canEditInternal = default, bool canEditDenyDownload = default, bool canEditExpirationDate = default, SubjectType subjectType = default)
+        public FileShareDto(FileShare? access = default, Object sharedTo = default, EmployeeFullDto sharedToUser = default, GroupSummaryDto sharedToGroup = default, FileShareLink sharedLink = default, bool isLocked = default, bool isOwner = default, bool canEditAccess = default, bool canEditInternal = default, bool canEditDenyDownload = default, bool canEditExpirationDate = default, bool canRevoke = default, SubjectType subjectType = default)
         {
             this.IsLocked = isLocked;
             this.IsOwner = isOwner;
@@ -65,6 +66,7 @@ namespace DocSpace.API.SDK.Model
             this.CanEditInternal = canEditInternal;
             this.CanEditDenyDownload = canEditDenyDownload;
             this.CanEditExpirationDate = canEditExpirationDate;
+            this.CanRevoke = canRevoke;
             this.SubjectType = subjectType;
             this.Access = access;
             this.SharedTo = sharedTo;
@@ -163,6 +165,16 @@ namespace DocSpace.API.SDK.Model
         public bool CanEditExpirationDate { get; set; }
 
         /// <summary>
+        /// Specifies whether the file sharing access can be revoked by the current user.
+        /// </summary>
+        /// <value>Specifies whether the file sharing access can be revoked by the current user.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "canRevoke", IsRequired = true, EmitDefaultValue = true)]
+        public bool CanRevoke { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -181,6 +193,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  CanEditInternal: ").Append(CanEditInternal).Append("\n");
             sb.Append("  CanEditDenyDownload: ").Append(CanEditDenyDownload).Append("\n");
             sb.Append("  CanEditExpirationDate: ").Append(CanEditExpirationDate).Append("\n");
+            sb.Append("  CanRevoke: ").Append(CanRevoke).Append("\n");
             sb.Append("  SubjectType: ").Append(SubjectType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

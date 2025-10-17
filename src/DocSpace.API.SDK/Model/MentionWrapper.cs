@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The mention message parameters.
+    /// The parameters of a user mentioned in a message.
     /// </summary>
     [DataContract(Name = "MentionWrapper")]
     public partial class MentionWrapper : IValidatableObject
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         public UserInfo User { get; set; }
 
         /// <summary>
-        /// The email address of the user.
+        /// The user email address.
         /// </summary>
-        /// <value>The email address of the user.</value>
+        /// <value>The user email address.</value>
         /*
         <example>Sydney_Roberts4@hotmail.com</example>
         */
@@ -59,9 +59,9 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The identification of the user.
+        /// The user unique identification.
         /// </summary>
-        /// <value>The identification of the user.</value>
+        /// <value>The user unique identification.</value>
         /*
         <example>9846</example>
         */
@@ -95,9 +95,9 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// Specifies if the user has the access to the file or not.
+        /// Specifies whether the user has the access to the file where they are mentioned.
         /// </summary>
-        /// <value>Specifies if the user has the access to the file or not.</value>
+        /// <value>Specifies whether the user has the access to the file where they are mentioned.</value>
         /*
         <example>true</example>
         */
@@ -113,9 +113,9 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The full name of the user.
+        /// The user full name.
         /// </summary>
-        /// <value>The full name of the user.</value>
+        /// <value>The user full name.</value>
         /*
         <example>Winfield Upton</example>
         */

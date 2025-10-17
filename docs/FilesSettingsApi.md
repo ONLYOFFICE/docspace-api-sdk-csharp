@@ -134,7 +134,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **autoCleanupRequestDto** | [**AutoCleanupRequestDto?**](AutoCleanupRequestDto.md) | The auto-clearing request parameters. | [optional]  |
+| **autoCleanupRequestDto** | [**AutoCleanupRequestDto?**](AutoCleanupRequestDto.md) | The request parameters for updating the trash bin auto-clearing setting. | [optional]  |
 
 ### Return type
 
@@ -165,7 +165,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
-            var autoCleanupRequestDto = new AutoCleanupRequestDto?(); // AutoCleanupRequestDto? | The auto-clearing request parameters. (optional) 
+            var autoCleanupRequestDto = new AutoCleanupRequestDto?(); // AutoCleanupRequestDto? | The request parameters for updating the trash bin auto-clearing setting. (optional) 
 
             try
             {

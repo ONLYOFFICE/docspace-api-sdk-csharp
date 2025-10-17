@@ -19,8 +19,9 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Defines Location
+    /// The location context of the request.
     /// </summary>
+    /// <value>The location context of the request.</value>
     public enum Location
     {
         /// <summary>

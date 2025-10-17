@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// NotificationChannelStatusDto
+    /// The notification channel settings.
     /// </summary>
     [DataContract(Name = "NotificationChannelStatusDto")]
     public partial class NotificationChannelStatusDto : IValidatableObject
@@ -28,15 +28,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationChannelStatusDto" /> class.
         /// </summary>
-        /// <param name="channels">channels.</param>
+        /// <param name="channels">The list of notification channels..</param>
         public NotificationChannelStatusDto(List<NotificationChannelDto> channels = default)
         {
             this.Channels = channels;
         }
 
         /// <summary>
-        /// Gets or Sets Channels
+        /// The list of notification channels.
         /// </summary>
+        /// <value>The list of notification channels.</value>
         [DataMember(Name = "channels", EmitDefaultValue = true)]
         public List<NotificationChannelDto> Channels { get; set; }
 

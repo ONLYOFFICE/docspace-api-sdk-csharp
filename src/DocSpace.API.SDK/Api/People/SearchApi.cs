@@ -394,7 +394,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
         ApiResponse<EmployeeFullArrayWrapper> GetUsersWithRoomSharedWithHttpInfo(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default);
         /// <summary>
-        /// Search users with detaailed information by extended filter
+        /// Search users with detailed information by extended filter
         /// </summary>
         /// <remarks>
         /// Returns a list of users with full information about them matching the parameters specified in the request.
@@ -425,7 +425,7 @@ namespace DocSpace.API.SDK.Api.People
         EmployeeFullArrayWrapper SearchUsersByExtendedFilter(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default);
 
         /// <summary>
-        /// Search users with detaailed information by extended filter
+        /// Search users with detailed information by extended filter
         /// </summary>
         /// <remarks>
         /// Returns a list of users with full information about them matching the parameters specified in the request.
@@ -902,7 +902,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
         Task<ApiResponse<EmployeeFullArrayWrapper>> GetUsersWithRoomSharedWithHttpInfoAsync(int id, EmployeeStatus? employeeStatus = default, EmployeeActivationStatus? activationStatus = default, bool? excludeShared = default, bool? includeShared = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, List<EmployeeType>? employeeTypes = default, int? count = default, int? startIndex = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Search users with detaailed information by extended filter
+        /// Search users with detailed information by extended filter
         /// </summary>
         /// <remarks>
         /// Returns a list of users with full information about them matching the parameters specified in the request.
@@ -934,7 +934,7 @@ namespace DocSpace.API.SDK.Api.People
         Task<EmployeeFullArrayWrapper> SearchUsersByExtendedFilterAsync(EmployeeStatus? employeeStatus = default, Guid? groupId = default, EmployeeActivationStatus? activationStatus = default, EmployeeType? employeeType = default, List<int>? employeeTypes = default, bool? isAdministrator = default, Payments? payments = default, AccountLoginType? accountLoginType = default, QuotaFilter? quotaFilter = default, bool? withoutGroup = default, bool? excludeGroup = default, bool? invitedByMe = default, Guid? inviterId = default, Area? area = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterSeparator = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Search users with detaailed information by extended filter
+        /// Search users with detailed information by extended filter
         /// </summary>
         /// <remarks>
         /// Returns a list of users with full information about them matching the parameters specified in the request.
@@ -3831,7 +3831,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Search users with detaailed information by extended filter
+        /// Search users with detailed information by extended filter
         /// </summary>
         /// <remarks>
         /// Returns a list of users with full information about them matching the parameters specified in the request.
@@ -3866,7 +3866,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Search users with detaailed information by extended filter
+        /// Search users with detailed information by extended filter
         /// </summary>
         /// <remarks>
         /// Returns a list of users with full information about them matching the parameters specified in the request.
@@ -4040,7 +4040,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Search users with detaailed information by extended filter
+        /// Search users with detailed information by extended filter
         /// </summary>
         /// <remarks>
         /// Returns a list of users with full information about them matching the parameters specified in the request.
@@ -4076,7 +4076,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Search users with detaailed information by extended filter
+        /// Search users with detailed information by extended filter
         /// </summary>
         /// <remarks>
         /// Returns a list of users with full information about them matching the parameters specified in the request.

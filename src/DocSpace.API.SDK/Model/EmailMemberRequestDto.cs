@@ -24,6 +24,12 @@ namespace DocSpace.API.SDK.Model
     [DataContract(Name = "EmailMemberRequestDto")]
     public partial class EmailMemberRequestDto : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets RecaptchaType
+        /// </summary>
+        [DataMember(Name = "recaptchaType", EmitDefaultValue = false)]
+        public RecaptchaType? RecaptchaType { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailMemberRequestDto" /> class.
@@ -34,7 +40,9 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="EmailMemberRequestDto" /> class.
         /// </summary>
         /// <param name="email">The user email address. (required).</param>
-        public EmailMemberRequestDto(string email = default)
+        /// <param name="recaptchaType">recaptchaType.</param>
+        /// <param name="recaptchaResponse">The user&#39;s response to the CAPTCHA challenge..</param>
+        public EmailMemberRequestDto(string email = default, RecaptchaType? recaptchaType = default, string recaptchaResponse = default)
         {
             // to ensure "email" is required (not null)
             if (email == null)
@@ -42,6 +50,8 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("email is a required property for EmailMemberRequestDto and cannot be null");
             }
             this.Email = email;
+            this.RecaptchaType = recaptchaType;
+            this.RecaptchaResponse = recaptchaResponse;
         }
 
         /// <summary>
@@ -55,6 +65,16 @@ namespace DocSpace.API.SDK.Model
         public string Email { get; set; }
 
         /// <summary>
+        /// The user&#39;s response to the CAPTCHA challenge.
+        /// </summary>
+        /// <value>The user&#39;s response to the CAPTCHA challenge.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "recaptchaResponse", EmitDefaultValue = true)]
+        public string RecaptchaResponse { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +83,8 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class EmailMemberRequestDto {\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  RecaptchaType: ").Append(RecaptchaType).Append("\n");
+            sb.Append("  RecaptchaResponse: ").Append(RecaptchaResponse).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

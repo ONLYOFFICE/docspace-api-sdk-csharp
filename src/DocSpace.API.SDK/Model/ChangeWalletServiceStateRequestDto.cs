@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Tenant wallet service state request parameters
+    /// The request parameters for changing the tenant wallet service state.
     /// </summary>
     [DataContract(Name = "ChangeWalletServiceStateRequestDto")]
     public partial class ChangeWalletServiceStateRequestDto : IValidatableObject
@@ -35,7 +35,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ChangeWalletServiceStateRequestDto" /> class.
         /// </summary>
         /// <param name="service">service.</param>
-        /// <param name="enabled">Service state.</param>
+        /// <param name="enabled">Specifies whether the wallet service is enabled..</param>
         public ChangeWalletServiceStateRequestDto(TenantWalletService? service = default, bool enabled = default)
         {
             this.Service = service;
@@ -43,9 +43,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Service state
+        /// Specifies whether the wallet service is enabled.
         /// </summary>
-        /// <value>Service state</value>
+        /// <value>Specifies whether the wallet service is enabled.</value>
         /*
         <example>true</example>
         */

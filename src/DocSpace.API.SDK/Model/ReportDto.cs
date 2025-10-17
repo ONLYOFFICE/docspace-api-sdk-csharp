@@ -28,12 +28,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportDto" /> class.
         /// </summary>
-        /// <param name="collection">Collection of operations..</param>
-        /// <param name="offset">Offset of the report data..</param>
-        /// <param name="limit">Limit of the report data..</param>
-        /// <param name="totalQuantity">Total quantity of operations in the report..</param>
-        /// <param name="totalPage">Total number of pages in the report..</param>
-        /// <param name="currentPage">Current page number of the report..</param>
+        /// <param name="collection">A collection of operations..</param>
+        /// <param name="offset">The report data offset..</param>
+        /// <param name="limit">The report data limit..</param>
+        /// <param name="totalQuantity">The total quantity of operations in the report..</param>
+        /// <param name="totalPage">The total number of pages in the report..</param>
+        /// <param name="currentPage">The current page number of the report..</param>
         public ReportDto(List<OperationDto> collection = default, int offset = default, int limit = default, int totalQuantity = default, int totalPage = default, int currentPage = default)
         {
             this.Collection = collection;
@@ -45,16 +45,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Collection of operations.
+        /// A collection of operations.
         /// </summary>
-        /// <value>Collection of operations.</value>
+        /// <value>A collection of operations.</value>
         [DataMember(Name = "collection", EmitDefaultValue = true)]
         public List<OperationDto> Collection { get; set; }
 
         /// <summary>
-        /// Offset of the report data.
+        /// The report data offset.
         /// </summary>
-        /// <value>Offset of the report data.</value>
+        /// <value>The report data offset.</value>
         /*
         <example>1234</example>
         */
@@ -62,9 +62,9 @@ namespace DocSpace.API.SDK.Model
         public int Offset { get; set; }
 
         /// <summary>
-        /// Limit of the report data.
+        /// The report data limit.
         /// </summary>
-        /// <value>Limit of the report data.</value>
+        /// <value>The report data limit.</value>
         /*
         <example>1234</example>
         */
@@ -72,9 +72,9 @@ namespace DocSpace.API.SDK.Model
         public int Limit { get; set; }
 
         /// <summary>
-        /// Total quantity of operations in the report.
+        /// The total quantity of operations in the report.
         /// </summary>
-        /// <value>Total quantity of operations in the report.</value>
+        /// <value>The total quantity of operations in the report.</value>
         /*
         <example>1234</example>
         */
@@ -82,9 +82,9 @@ namespace DocSpace.API.SDK.Model
         public int TotalQuantity { get; set; }
 
         /// <summary>
-        /// Total number of pages in the report.
+        /// The total number of pages in the report.
         /// </summary>
-        /// <value>Total number of pages in the report.</value>
+        /// <value>The total number of pages in the report.</value>
         /*
         <example>1234</example>
         */
@@ -92,9 +92,9 @@ namespace DocSpace.API.SDK.Model
         public int TotalPage { get; set; }
 
         /// <summary>
-        /// Current page number of the report.
+        /// The current page number of the report.
         /// </summary>
-        /// <value>Current page number of the report.</value>
+        /// <value>The current page number of the report.</value>
         /*
         <example>1234</example>
         */

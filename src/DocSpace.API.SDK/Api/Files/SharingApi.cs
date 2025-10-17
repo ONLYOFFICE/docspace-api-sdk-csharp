@@ -93,7 +93,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/">REST API Reference for GetFileSecurityInfo Operation</seealso>
@@ -107,7 +107,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/">REST API Reference for GetFileSecurityInfo Operation</seealso>
@@ -117,7 +117,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
@@ -131,7 +131,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
@@ -217,7 +217,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>MentionWrapperArrayWrapper</returns>
         MentionWrapperArrayWrapper GetSharedUsers(int fileId);
@@ -229,7 +229,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
         ApiResponse<MentionWrapperArrayWrapper> GetSharedUsersWithHttpInfo(int fileId);
@@ -257,7 +257,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
         /// <returns>AceShortWrapperArrayWrapper</returns>
@@ -270,7 +270,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
         /// <returns>ApiResponse of AceShortWrapperArrayWrapper</returns>
@@ -436,7 +436,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -451,7 +451,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -465,7 +465,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -480,7 +480,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -585,7 +585,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>Task of MentionWrapperArrayWrapper</returns>
@@ -598,7 +598,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
@@ -635,7 +635,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
@@ -649,7 +649,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
@@ -1336,7 +1336,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/">REST API Reference for GetFileSecurityInfo Operation</seealso>
@@ -1351,7 +1351,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/">REST API Reference for GetFileSecurityInfo Operation</seealso>
@@ -1401,7 +1401,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1417,7 +1417,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1470,7 +1470,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
@@ -1485,7 +1485,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
@@ -1535,7 +1535,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1551,7 +1551,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2018,7 +2018,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>MentionWrapperArrayWrapper</returns>
         public MentionWrapperArrayWrapper GetSharedUsers(int fileId)
@@ -2031,7 +2031,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
         public ApiResponse<MentionWrapperArrayWrapper> GetSharedUsersWithHttpInfo(int fileId)
@@ -2071,7 +2071,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>Task of MentionWrapperArrayWrapper</returns>
@@ -2085,7 +2085,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
@@ -2238,7 +2238,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
         /// <returns>AceShortWrapperArrayWrapper</returns>
@@ -2252,7 +2252,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
         /// <returns>ApiResponse of AceShortWrapperArrayWrapper</returns>
@@ -2294,7 +2294,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
@@ -2309,7 +2309,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>

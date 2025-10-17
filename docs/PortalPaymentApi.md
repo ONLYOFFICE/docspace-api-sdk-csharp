@@ -4,14 +4,14 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CalculateWalletPayment**](#calculatewalletpayment) | **PUT** /api/2.0/portal/payment/calculatewallet | Calculate amount of the wallet payment |
+| [**CalculateWalletPayment**](#calculatewalletpayment) | **PUT** /api/2.0/portal/payment/calculatewallet | Calculate the wallet payment amount |
 | [**ChangeTenantWalletServiceState**](#changetenantwalletservicestate) | **POST** /api/2.0/portal/payment/servicestate | Change wallet service state |
-| [**CreateCustomerOperationsReport**](#createcustomeroperationsreport) | **POST** /api/2.0/portal/payment/customer/operationsreport | Start generating the customer operations report |
+| [**CreateCustomerOperationsReport**](#createcustomeroperationsreport) | **POST** /api/2.0/portal/payment/customer/operationsreport | Start the customer operations report generation |
 | [**GetCheckoutSetupUrl**](#getcheckoutsetupurl) | **GET** /api/2.0/portal/payment/chechoutsetupurl | Get the checkout setup page URL |
 | [**GetCustomerBalance**](#getcustomerbalance) | **GET** /api/2.0/portal/payment/customer/balance | Get the customer balance |
-| [**GetCustomerInfo**](#getcustomerinfo) | **GET** /api/2.0/portal/payment/customerinfo | Get the customer info |
+| [**GetCustomerInfo**](#getcustomerinfo) | **GET** /api/2.0/portal/payment/customerinfo | Get the customer information |
 | [**GetCustomerOperations**](#getcustomeroperations) | **GET** /api/2.0/portal/payment/customer/operations | Get the customer operations |
-| [**GetCustomerOperationsReport**](#getcustomeroperationsreport) | **GET** /api/2.0/portal/payment/customer/operationsreport | Get the status of generating a customer operations report |
+| [**GetCustomerOperationsReport**](#getcustomeroperationsreport) | **GET** /api/2.0/portal/payment/customer/operationsreport | Get the status of the customer operations report generation |
 | [**GetPaymentAccount**](#getpaymentaccount) | **GET** /api/2.0/portal/payment/account | Get the payment account |
 | [**GetPaymentCurrencies**](#getpaymentcurrencies) | **GET** /api/2.0/portal/payment/currencies | Get currencies |
 | [**GetPaymentQuotas**](#getpaymentquotas) | **GET** /api/2.0/portal/payment/quotas | Get quotas |
@@ -19,12 +19,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**GetPortalPrices**](#getportalprices) | **GET** /api/2.0/portal/payment/prices | Get prices |
 | [**GetQuotaPaymentInformation**](#getquotapaymentinformation) | **GET** /api/2.0/portal/payment/quota | Get quota payment information |
 | [**GetTenantWalletServiceSettings**](#gettenantwalletservicesettings) | **GET** /api/2.0/portal/payment/servicessettings | Get wallet services settings |
-| [**GetTenantWalletSettings**](#gettenantwalletsettings) | **GET** /api/2.0/portal/payment/topupsettings | Get wallet auto top up settings |
+| [**GetTenantWalletSettings**](#gettenantwalletsettings) | **GET** /api/2.0/portal/payment/topupsettings | Get wallet auto top-up settings |
 | [**GetWalletService**](#getwalletservice) | **GET** /api/2.0/portal/payment/walletservice | Get wallet service |
 | [**GetWalletServices**](#getwalletservices) | **GET** /api/2.0/portal/payment/walletservices | Get wallet services |
 | [**SendPaymentRequest**](#sendpaymentrequest) | **POST** /api/2.0/portal/payment/request | Send a payment request |
-| [**SetTenantWalletSettings**](#settenantwalletsettings) | **POST** /api/2.0/portal/payment/topupsettings | Set wallet auto top up settings |
-| [**TerminateCustomerOperationsReport**](#terminatecustomeroperationsreport) | **DELETE** /api/2.0/portal/payment/customer/operationsreport | Terminate the generating a customer operations report |
+| [**SetTenantWalletSettings**](#settenantwalletsettings) | **POST** /api/2.0/portal/payment/topupsettings | Set wallet auto top-up settings |
+| [**TerminateCustomerOperationsReport**](#terminatecustomeroperationsreport) | **DELETE** /api/2.0/portal/payment/customer/operationsreport | Terminate the customer operations report generation |
 | [**TopUpDeposit**](#topupdeposit) | **POST** /api/2.0/portal/payment/deposit | Put money on deposit |
 | [**UpdatePayment**](#updatepayment) | **PUT** /api/2.0/portal/payment/update | Update the payment quantity |
 | [**UpdateWalletPayment**](#updatewalletpayment) | **PUT** /api/2.0/portal/payment/updatewallet | Update the wallet payment quantity |
@@ -33,7 +33,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **CalculateWalletPayment**
 > PaymentCalculationWrapper CalculateWalletPayment (WalletQuantityRequestDto? walletQuantityRequestDto = null)
 
-Calculate amount of the wallet payment with the parameters specified in the request.
+Calculates an amount of the wallet payment with the parameters specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/calculate-wallet-payment/).
 
@@ -41,7 +41,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **walletQuantityRequestDto** | [**WalletQuantityRequestDto?**](WalletQuantityRequestDto.md) | The request parameters for the wallet payment quantity specifications. | [optional]  |
+| **walletQuantityRequestDto** | [**WalletQuantityRequestDto?**](WalletQuantityRequestDto.md) | The request parameters for specifying wallet payment quantity. | [optional]  |
 
 ### Return type
 
@@ -88,11 +88,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var walletQuantityRequestDto = new WalletQuantityRequestDto?(); // WalletQuantityRequestDto? | The request parameters for the wallet payment quantity specifications. (optional) 
+            var walletQuantityRequestDto = new WalletQuantityRequestDto?(); // WalletQuantityRequestDto? | The request parameters for specifying wallet payment quantity. (optional) 
 
             try
             {
-                // Calculate amount of the wallet payment
+                // Calculate the wallet payment amount
                 PaymentCalculationWrapper result = apiInstance.CalculateWalletPayment(walletQuantityRequestDto);
                 Debug.WriteLine(result);
             }
@@ -113,7 +113,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Calculate amount of the wallet payment
+    // Calculate the wallet payment amount
     ApiResponse<PaymentCalculationWrapper> response = apiInstance.CalculateWalletPaymentWithHttpInfo(walletQuantityRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -146,7 +146,7 @@ catch (ApiException e)
 # **ChangeTenantWalletServiceState**
 > TenantWalletServiceSettingsWrapper ChangeTenantWalletServiceState (ChangeWalletServiceStateRequestDto? changeWalletServiceStateRequestDto = null)
 
-Change wallet service state.
+Changes the wallet service state.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/change-tenant-wallet-service-state/).
 
@@ -154,7 +154,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **changeWalletServiceStateRequestDto** | [**ChangeWalletServiceStateRequestDto?**](ChangeWalletServiceStateRequestDto.md) | Tenant wallet service state request parameters | [optional]  |
+| **changeWalletServiceStateRequestDto** | [**ChangeWalletServiceStateRequestDto?**](ChangeWalletServiceStateRequestDto.md) | The request parameters for changing the tenant wallet service state. | [optional]  |
 
 ### Return type
 
@@ -201,7 +201,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var changeWalletServiceStateRequestDto = new ChangeWalletServiceStateRequestDto?(); // ChangeWalletServiceStateRequestDto? | Tenant wallet service state request parameters (optional) 
+            var changeWalletServiceStateRequestDto = new ChangeWalletServiceStateRequestDto?(); // ChangeWalletServiceStateRequestDto? | The request parameters for changing the tenant wallet service state. (optional) 
 
             try
             {
@@ -259,7 +259,7 @@ catch (ApiException e)
 # **CreateCustomerOperationsReport**
 > DocumentBuilderTaskWrapper CreateCustomerOperationsReport (CustomerOperationsReportRequestDto? customerOperationsReportRequestDto = null)
 
-Start generating the customer operations report as xlsx file and save in Documents.
+Starts generating a customer operations report as an xlsx file and saves it in Documents.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-operations-report/).
 
@@ -267,7 +267,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **customerOperationsReportRequestDto** | [**CustomerOperationsReportRequestDto?**](CustomerOperationsReportRequestDto.md) | Parameters of the request for generating the report on client operations | [optional]  |
+| **customerOperationsReportRequestDto** | [**CustomerOperationsReportRequestDto?**](CustomerOperationsReportRequestDto.md) | The request parameters for generating a report on client operations. | [optional]  |
 
 ### Return type
 
@@ -314,11 +314,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var customerOperationsReportRequestDto = new CustomerOperationsReportRequestDto?(); // CustomerOperationsReportRequestDto? | Parameters of the request for generating the report on client operations (optional) 
+            var customerOperationsReportRequestDto = new CustomerOperationsReportRequestDto?(); // CustomerOperationsReportRequestDto? | The request parameters for generating a report on client operations. (optional) 
 
             try
             {
-                // Start generating the customer operations report
+                // Start the customer operations report generation
                 DocumentBuilderTaskWrapper result = apiInstance.CreateCustomerOperationsReport(customerOperationsReportRequestDto);
                 Debug.WriteLine(result);
             }
@@ -339,7 +339,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Start generating the customer operations report
+    // Start the customer operations report generation
     ApiResponse<DocumentBuilderTaskWrapper> response = apiInstance.CreateCustomerOperationsReportWithHttpInfo(customerOperationsReportRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -379,7 +379,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **backUrl** | **string?** | Back URL | [optional]  |
+| **backUrl** | **string?** | The URL where the user will be redirected after completing the setup. | [optional]  |
 
 ### Return type
 
@@ -426,7 +426,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var backUrl = some text;  // string? | Back URL (optional) 
+            var backUrl = some text;  // string? | The URL where the user will be redirected after completing the setup. (optional) 
 
             try
             {
@@ -597,7 +597,7 @@ catch (ApiException e)
 # **GetCustomerInfo**
 > CustomerInfoWrapper GetCustomerInfo (bool? refresh = null)
 
-Returns the customer info.
+Returns the customer information.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-info/).
 
@@ -656,7 +656,7 @@ namespace Example
 
             try
             {
-                // Get the customer info
+                // Get the customer information
                 CustomerInfoWrapper result = apiInstance.GetCustomerInfo(refresh);
                 Debug.WriteLine(result);
             }
@@ -677,7 +677,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get the customer info
+    // Get the customer information
     ApiResponse<CustomerInfoWrapper> response = apiInstance.GetCustomerInfoWithHttpInfo(refresh);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -718,13 +718,13 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **startDate** | **DateTime?** | Start date | [optional]  |
-| **endDate** | **DateTime?** | End date | [optional]  |
-| **participantName** | **string?** | Participant name | [optional]  |
-| **credit** | **bool?** | Include credit operations (true by default) | [optional]  |
-| **debit** | **bool?** | Include debit operations (true by default) | [optional]  |
-| **offset** | **int?** | Offset (0 by default) | [optional]  |
-| **limit** | **int?** | Limit (25 by default) | [optional]  |
+| **startDate** | **DateTime?** | The report start date. | [optional]  |
+| **endDate** | **DateTime?** | The report end date. | [optional]  |
+| **participantName** | **string?** | The participant name. | [optional]  |
+| **credit** | **bool?** | Specifies whether to include credit operations in the report. The default value is true. | [optional]  |
+| **debit** | **bool?** | Specifies whether to include debit operations in the report. The default value is true. | [optional]  |
+| **offset** | **int?** | The number of items to skip for pagination. The default value is 0. | [optional]  |
+| **limit** | **int?** | The maximum number of items to return for pagination. The default value is 25. | [optional]  |
 
 ### Return type
 
@@ -771,13 +771,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var startDate = 2008-04-10T06:30+04:00;  // DateTime? | Start date (optional) 
-            var endDate = 2008-04-10T06:30+04:00;  // DateTime? | End date (optional) 
-            var participantName = some text;  // string? | Participant name (optional) 
-            var credit = true;  // bool? | Include credit operations (true by default) (optional) 
-            var debit = true;  // bool? | Include debit operations (true by default) (optional) 
-            var offset = 1234;  // int? | Offset (0 by default) (optional) 
-            var limit = 1234;  // int? | Limit (25 by default) (optional) 
+            var startDate = 2008-04-10T06:30+04:00;  // DateTime? | The report start date. (optional) 
+            var endDate = 2008-04-10T06:30+04:00;  // DateTime? | The report end date. (optional) 
+            var participantName = some text;  // string? | The participant name. (optional) 
+            var credit = true;  // bool? | Specifies whether to include credit operations in the report. The default value is true. (optional) 
+            var debit = true;  // bool? | Specifies whether to include debit operations in the report. The default value is true. (optional) 
+            var offset = 1234;  // int? | The number of items to skip for pagination. The default value is 0. (optional) 
+            var limit = 1234;  // int? | The maximum number of items to return for pagination. The default value is 25. (optional) 
 
             try
             {
@@ -835,7 +835,7 @@ catch (ApiException e)
 # **GetCustomerOperationsReport**
 > DocumentBuilderTaskWrapper GetCustomerOperationsReport ()
 
-Get the status of generating a customer operations report.
+Returns the status of generating a customer operations report.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations-report/).
 
@@ -889,7 +889,7 @@ namespace Example
 
             try
             {
-                // Get the status of generating a customer operations report
+                // Get the status of the customer operations report generation
                 DocumentBuilderTaskWrapper result = apiInstance.GetCustomerOperationsReport();
                 Debug.WriteLine(result);
             }
@@ -910,7 +910,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get the status of generating a customer operations report
+    // Get the status of the customer operations report generation
     ApiResponse<DocumentBuilderTaskWrapper> response = apiInstance.GetCustomerOperationsReportWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1170,7 +1170,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **wallet** | **bool?** | Get wallet quotas only | [optional]  |
+| **wallet** | **bool?** | Specifies whether to return the wallet quotas only. | [optional]  |
 
 ### Return type
 
@@ -1217,7 +1217,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var wallet = true;  // bool? | Get wallet quotas only (optional) 
+            var wallet = true;  // bool? | Specifies whether to return the wallet quotas only. (optional) 
 
             try
             {
@@ -1607,7 +1607,7 @@ catch (ApiException e)
 # **GetTenantWalletServiceSettings**
 > TenantWalletServiceSettingsWrapper GetTenantWalletServiceSettings ()
 
-Get the wallet services settings.
+Returns the wallet services settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-service-settings/).
 
@@ -1715,7 +1715,7 @@ catch (ApiException e)
 # **GetTenantWalletSettings**
 > TenantWalletSettingsWrapper GetTenantWalletSettings ()
 
-Returns the wallet auto top up settings.
+Returns the wallet auto top-up settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-wallet-settings/).
 
@@ -1769,7 +1769,7 @@ namespace Example
 
             try
             {
-                // Get wallet auto top up settings
+                // Get wallet auto top-up settings
                 TenantWalletSettingsWrapper result = apiInstance.GetTenantWalletSettings();
                 Debug.WriteLine(result);
             }
@@ -1790,7 +1790,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get wallet auto top up settings
+    // Get wallet auto top-up settings
     ApiResponse<TenantWalletSettingsWrapper> response = apiInstance.GetTenantWalletSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1823,7 +1823,7 @@ catch (ApiException e)
 # **GetWalletService**
 > QuotaWrapper GetWalletService (TenantWalletService service)
 
-Returns the wallet services.
+Returns the specified wallet service.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-service/).
 
@@ -1831,7 +1831,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **service** | **TenantWalletService** | Wallet service |  |
+| **service** | **TenantWalletService** | The wallet service type. |  |
 
 ### Return type
 
@@ -1878,7 +1878,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var service = (TenantWalletService) "-12";  // TenantWalletService | Wallet service
+            var service = (TenantWalletService) "-12";  // TenantWalletService | The wallet service type.
 
             try
             {
@@ -2152,7 +2152,7 @@ catch (ApiException e)
 # **SetTenantWalletSettings**
 > TenantWalletSettingsWrapper SetTenantWalletSettings (TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = null)
 
-Set the wallet auto top up settings.
+Sets the wallet auto top-up settings.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-wallet-settings/).
 
@@ -2160,7 +2160,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **tenantWalletSettingsWrapper** | [**TenantWalletSettingsWrapper?**](TenantWalletSettingsWrapper.md) | Tenant wallet settings | [optional]  |
+| **tenantWalletSettingsWrapper** | [**TenantWalletSettingsWrapper?**](TenantWalletSettingsWrapper.md) | The wrapper for the tenant wallet settings. | [optional]  |
 
 ### Return type
 
@@ -2207,11 +2207,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var tenantWalletSettingsWrapper = new TenantWalletSettingsWrapper?(); // TenantWalletSettingsWrapper? | Tenant wallet settings (optional) 
+            var tenantWalletSettingsWrapper = new TenantWalletSettingsWrapper?(); // TenantWalletSettingsWrapper? | The wrapper for the tenant wallet settings. (optional) 
 
             try
             {
-                // Set wallet auto top up settings
+                // Set wallet auto top-up settings
                 TenantWalletSettingsWrapper result = apiInstance.SetTenantWalletSettings(tenantWalletSettingsWrapper);
                 Debug.WriteLine(result);
             }
@@ -2232,7 +2232,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Set wallet auto top up settings
+    // Set wallet auto top-up settings
     ApiResponse<TenantWalletSettingsWrapper> response = apiInstance.SetTenantWalletSettingsWithHttpInfo(tenantWalletSettingsWrapper);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -2265,7 +2265,7 @@ catch (ApiException e)
 # **TerminateCustomerOperationsReport**
 > void TerminateCustomerOperationsReport ()
 
-Terminates the generating a customer operations report.
+Terminates generating a customer operations report.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-operations-report/).
 
@@ -2319,7 +2319,7 @@ namespace Example
 
             try
             {
-                // Terminate the generating a customer operations report
+                // Terminate the customer operations report generation
                 apiInstance.TerminateCustomerOperationsReport();
             }
             catch (ApiException  e)
@@ -2339,7 +2339,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Terminate the generating a customer operations report
+    // Terminate the customer operations report generation
     apiInstance.TerminateCustomerOperationsReportWithHttpInfo();
 }
 catch (ApiException e)
@@ -2368,7 +2368,7 @@ catch (ApiException e)
 # **TopUpDeposit**
 > BooleanWrapper TopUpDeposit (TopUpDepositRequestDto? topUpDepositRequestDto = null)
 
-Returns result of putting money on deposit.
+Returns the result of putting money on deposit.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/top-up-deposit/).
 
@@ -2376,7 +2376,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **topUpDepositRequestDto** | [**TopUpDepositRequestDto?**](TopUpDepositRequestDto.md) | Put money on deposit request parameters | [optional]  |
+| **topUpDepositRequestDto** | [**TopUpDepositRequestDto?**](TopUpDepositRequestDto.md) | The request parameters for putting money on deposit. | [optional]  |
 
 ### Return type
 
@@ -2423,7 +2423,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var topUpDepositRequestDto = new TopUpDepositRequestDto?(); // TopUpDepositRequestDto? | Put money on deposit request parameters (optional) 
+            var topUpDepositRequestDto = new TopUpDepositRequestDto?(); // TopUpDepositRequestDto? | The request parameters for putting money on deposit. (optional) 
 
             try
             {
@@ -2489,7 +2489,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **quantityRequestDto** | [**QuantityRequestDto?**](QuantityRequestDto.md) | The request parameters for the payment quantity specifications. | [optional]  |
+| **quantityRequestDto** | [**QuantityRequestDto?**](QuantityRequestDto.md) | The request parameters for specifying payment quantity. | [optional]  |
 
 ### Return type
 
@@ -2536,7 +2536,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var quantityRequestDto = new QuantityRequestDto?(); // QuantityRequestDto? | The request parameters for the payment quantity specifications. (optional) 
+            var quantityRequestDto = new QuantityRequestDto?(); // QuantityRequestDto? | The request parameters for specifying payment quantity. (optional) 
 
             try
             {
@@ -2602,7 +2602,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **walletQuantityRequestDto** | [**WalletQuantityRequestDto?**](WalletQuantityRequestDto.md) | The request parameters for the wallet payment quantity specifications. | [optional]  |
+| **walletQuantityRequestDto** | [**WalletQuantityRequestDto?**](WalletQuantityRequestDto.md) | The request parameters for specifying wallet payment quantity. | [optional]  |
 
 ### Return type
 
@@ -2649,7 +2649,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var walletQuantityRequestDto = new WalletQuantityRequestDto?(); // WalletQuantityRequestDto? | The request parameters for the wallet payment quantity specifications. (optional) 
+            var walletQuantityRequestDto = new WalletQuantityRequestDto?(); // WalletQuantityRequestDto? | The request parameters for specifying wallet payment quantity. (optional) 
 
             try
             {

@@ -601,7 +601,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** | The folder ID of the session. |  |
+| **folderId** | **int** | The session folder ID. |  |
 | **sessionRequest** | [**SessionRequest**](SessionRequest.md) | The session parameters. |  |
 
 ### Return type
@@ -633,7 +633,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID of the session.
+            var folderId = 9846;  // int | The session folder ID.
             var sessionRequest = new SessionRequest(); // SessionRequest | The session parameters.
 
             try
@@ -977,7 +977,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **duplicateRequestDto** | [**DuplicateRequestDto?**](DuplicateRequestDto.md) | The duplicate request parameters. | [optional]  |
+| **duplicateRequestDto** | [**DuplicateRequestDto?**](DuplicateRequestDto.md) | The request parameters for duplicating files and fodlers. | [optional]  |
 
 ### Return type
 
@@ -1008,7 +1008,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
-            var duplicateRequestDto = new DuplicateRequestDto?(); // DuplicateRequestDto? | The duplicate request parameters. (optional) 
+            var duplicateRequestDto = new DuplicateRequestDto?(); // DuplicateRequestDto? | The request parameters for duplicating files and fodlers. (optional) 
 
             try
             {
@@ -1634,7 +1634,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **string** | The operation ID of the request. |  |
+| **id** | **string** | The operation unique identifier. |  |
 
 ### Return type
 
@@ -1665,7 +1665,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // string | The operation ID of the request.
+            var id = 9846;  // string | The operation unique identifier.
 
             try
             {
