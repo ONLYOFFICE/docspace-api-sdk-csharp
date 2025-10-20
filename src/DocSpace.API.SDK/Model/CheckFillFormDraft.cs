@@ -28,7 +28,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckFillFormDraft" /> class.
         /// </summary>
-        /// <param name="version">The file version of the form draft..</param>
+        [JsonConstructorAttribute]
+        protected CheckFillFormDraft() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CheckFillFormDraft" /> class.
+        /// </summary>
+        /// <param name="version">The file version of the form draft. (required).</param>
         /// <param name="action">The action with the form draft..</param>
         public CheckFillFormDraft(int version = default, string action = default)
         {
@@ -43,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "version", EmitDefaultValue = false)]
+        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public int @Version { get; set; }
 
         /// <summary>

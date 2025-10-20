@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Edit** | **bool** | Defines if the document can be edited or only viewed. | [optional] 
 **FillForms** | **bool** | Defines if the forms can be filled. | [optional] 
 **ModifyFilter** | **bool** | Defines if the filter can be applied globally (true) affecting all the other users,  or locally (false), i.e. for the current user only. | [optional] 
-**Protect** | **bool** | Defines if the \&quot;Protection\&quot; tab on the toolbar and the \&quot;Protect\&quot; button in the left menu are displayedor hidden. | [optional] 
+**Protect** | **bool** | Defines if the Protection tab on the toolbar and the Protect button in the left menu are displayedor hidden. | [optional] 
 **Print** | **bool** | Defines if the document can be printed or not. | [optional] 
 **Review** | **bool** | Defines if the document can be reviewed or not. | [optional] 
 **Copy** | **bool** | Defines if the content can be copied to the clipboard or not. | [optional] 

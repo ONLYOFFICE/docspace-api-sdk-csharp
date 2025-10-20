@@ -28,21 +28,31 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Operation
         /// </summary>
-        [DataMember(Name = "Operation", EmitDefaultValue = false)]
-        public FileOperationType? Operation { get; set; }
+        [DataMember(Name = "Operation", IsRequired = true, EmitDefaultValue = true)]
+        public FileOperationType Operation { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="ConversationResultDto" /> class.
         /// </summary>
-        /// <param name="id">The conversion operation ID..</param>
-        /// <param name="operation">operation.</param>
-        /// <param name="progress">The conversion operation progress..</param>
+        [JsonConstructorAttribute]
+        protected ConversationResultDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConversationResultDto" /> class.
+        /// </summary>
+        /// <param name="id">The conversion operation ID. (required).</param>
+        /// <param name="operation">operation (required).</param>
+        /// <param name="progress">The conversion operation progress. (required).</param>
         /// <param name="source">The source file for the conversion..</param>
         /// <param name="result">The resulting file after the conversion..</param>
         /// <param name="error">The conversion operation error message..</param>
         /// <param name="processed">Specifies if the conversion operation is processed or not..</param>
-        public ConversationResultDto(string id = default, FileOperationType? operation = default, int progress = default, string source = default, Object result = default, string error = default, string processed = default)
+        public ConversationResultDto(string id = default, FileOperationType operation = default, int progress = default, string source = default, Object result = default, string error = default, string processed = default)
         {
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for ConversationResultDto and cannot be null");
+            }
             this.Id = id;
             this.Operation = operation;
             this.Progress = progress;
@@ -59,7 +69,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -69,7 +79,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "progress", EmitDefaultValue = false)]
+        [DataMember(Name = "progress", IsRequired = true, EmitDefaultValue = true)]
         public int Progress { get; set; }
 
         /// <summary>

@@ -34,23 +34,33 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Tariff" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected Tariff() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Tariff" /> class.
+        /// </summary>
         /// <param name="id">The tariff ID..</param>
         /// <param name="state">state.</param>
-        /// <param name="dueDate">The tariff due date..</param>
+        /// <param name="dueDate">The tariff due date. (required).</param>
         /// <param name="delayDueDate">The tariff delay due date..</param>
         /// <param name="licenseDate">The tariff license date..</param>
         /// <param name="customerId">The tariff customer ID..</param>
-        /// <param name="quotas">The list of tariff quotas..</param>
+        /// <param name="quotas">The list of tariff quotas. (required).</param>
         /// <param name="overdueQuotas">The list of overdue tariff quotas..</param>
         public Tariff(int id = default, TariffState? state = default, DateTime dueDate = default, DateTime delayDueDate = default, DateTime licenseDate = default, string customerId = default, List<Quota> quotas = default, List<Quota> overdueQuotas = default)
         {
+            this.DueDate = dueDate;
+            // to ensure "quotas" is required (not null)
+            if (quotas == null)
+            {
+                throw new ArgumentNullException("quotas is a required property for Tariff and cannot be null");
+            }
+            this.Quotas = quotas;
             this.Id = id;
             this.State = state;
-            this.DueDate = dueDate;
             this.DelayDueDate = delayDueDate;
             this.LicenseDate = licenseDate;
             this.CustomerId = customerId;
-            this.Quotas = quotas;
             this.OverdueQuotas = overdueQuotas;
         }
 
@@ -71,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "dueDate", EmitDefaultValue = false)]
+        [DataMember(Name = "dueDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTime DueDate { get; set; }
 
         /// <summary>
@@ -108,7 +118,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of tariff quotas.
         /// </summary>
         /// <value>The list of tariff quotas.</value>
-        [DataMember(Name = "quotas", EmitDefaultValue = true)]
+        [DataMember(Name = "quotas", IsRequired = true, EmitDefaultValue = true)]
         public List<Quota> Quotas { get; set; }
 
         /// <summary>

@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Put money on deposit request parameters
+    /// The request parameters for putting money on deposit.
     /// </summary>
     [DataContract(Name = "TopUpDepositRequestDto")]
     public partial class TopUpDepositRequestDto : IValidatableObject
@@ -28,8 +28,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TopUpDepositRequestDto" /> class.
         /// </summary>
-        /// <param name="amount">Amount.</param>
-        /// <param name="currency">The three-character ISO 4217 currency symbol.</param>
+        /// <param name="amount">The amount of money for the operation..</param>
+        /// <param name="currency">The three-character ISO 4217 currency symbol..</param>
         public TopUpDepositRequestDto(int amount = default, string currency = default)
         {
             this.Amount = amount;
@@ -37,9 +37,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Amount
+        /// The amount of money for the operation.
         /// </summary>
-        /// <value>Amount</value>
+        /// <value>The amount of money for the operation.</value>
         /*
         <example>1234</example>
         */
@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         public int Amount { get; set; }
 
         /// <summary>
-        /// The three-character ISO 4217 currency symbol
+        /// The three-character ISO 4217 currency symbol.
         /// </summary>
-        /// <value>The three-character ISO 4217 currency symbol</value>
+        /// <value>The three-character ISO 4217 currency symbol.</value>
         /*
         <example>some text</example>
         */

@@ -28,10 +28,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
-        /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
+        /// <param name="checkUploadRequest">The request parameters for checking file uploads.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
         /// <returns>STRINGArrayWrapper</returns>
-        STRINGArrayWrapper CheckUpload(int folderId, CheckUploadRequest? checkUploadRequest = default);
+        STRINGArrayWrapper CheckUpload(int folderId, CheckUploadRequest checkUploadRequest);
 
         /// <summary>
         /// 
@@ -41,19 +41,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
-        /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
+        /// <param name="checkUploadRequest">The request parameters for checking file uploads.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
         /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        ApiResponse<STRINGArrayWrapper> CheckUploadWithHttpInfo(int folderId, CheckUploadRequest? checkUploadRequest = default);
+        ApiResponse<STRINGArrayWrapper> CheckUploadWithHttpInfo(int folderId, CheckUploadRequest checkUploadRequest);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
-        FolderIntegerWrapper CreateFolder(int folderId, CreateFolder? createFolder = default);
+        FolderIntegerWrapper CreateFolder(int folderId, CreateFolder createFolder);
 
         /// <summary>
         /// 
@@ -63,19 +63,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        ApiResponse<FolderIntegerWrapper> CreateFolderWithHttpInfo(int folderId, CreateFolder? createFolder = default);
+        ApiResponse<FolderIntegerWrapper> CreateFolderWithHttpInfo(int folderId, CreateFolder createFolder);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder-primary-external-link/">REST API Reference for CreateFolderPrimaryExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        FileShareWrapper CreateFolderPrimaryExternalLink(int id, FolderLinkRequest? folderLinkRequest = default);
+        FileShareWrapper CreateFolderPrimaryExternalLink(int id, FolderLinkRequest folderLinkRequest);
 
         /// <summary>
         /// 
@@ -85,10 +85,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder-primary-external-link/">REST API Reference for CreateFolderPrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        ApiResponse<FileShareWrapper> CreateFolderPrimaryExternalLinkWithHttpInfo(int id, FolderLinkRequest? folderLinkRequest = default);
+        ApiResponse<FileShareWrapper> CreateFolderPrimaryExternalLinkWithHttpInfo(int id, FolderLinkRequest folderLinkRequest);
         /// <summary>
         /// 
         /// </summary>
@@ -114,10 +114,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
-        /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
+        /// <param name="deleteFolder">The parameters for deleting a folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
-        FileOperationArrayWrapper DeleteFolder(int folderId, DeleteFolder? deleteFolder = default);
+        FileOperationArrayWrapper DeleteFolder(int folderId, DeleteFolder deleteFolder);
 
         /// <summary>
         /// 
@@ -127,10 +127,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
-        /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
+        /// <param name="deleteFolder">The parameters for deleting a folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        ApiResponse<FileOperationArrayWrapper> DeleteFolderWithHttpInfo(int folderId, DeleteFolder? deleteFolder = default);
+        ApiResponse<FileOperationArrayWrapper> DeleteFolderWithHttpInfo(int folderId, DeleteFolder deleteFolder);
         /// <summary>
         /// 
         /// </summary>
@@ -142,10 +142,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetFavoritesFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        FolderContentIntegerWrapper GetFavoritesFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
 
         /// <summary>
         /// 
@@ -161,10 +160,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetFavoritesFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        ApiResponse<FolderContentIntegerWrapper> GetFavoritesFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
         /// <summary>
         /// 
         /// </summary>
@@ -187,7 +185,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>FormsItemArrayWrapper</returns>
         FormsItemArrayWrapper GetFolder(int folderId);
@@ -199,7 +197,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>ApiResponse of FormsItemArrayWrapper</returns>
         ApiResponse<FormsItemArrayWrapper> GetFolderWithHttpInfo(int folderId);
@@ -207,22 +205,22 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the request.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements from the specified folder. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
-        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortBy">The property used for sorting the folder request results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
-        /// <param name="location">Represents the location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
+        /// <param name="location">The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
         FolderContentIntegerWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default);
@@ -234,22 +232,22 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the request.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements from the specified folder. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
-        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortBy">The property used for sorting the folder request results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
-        /// <param name="location">Represents the location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
+        /// <param name="location">The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
         ApiResponse<FolderContentIntegerWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default);
@@ -285,7 +283,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         FolderIntegerWrapper GetFolderInfo(int folderId);
@@ -297,7 +295,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> GetFolderInfoWithHttpInfo(int folderId);
@@ -325,7 +323,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>FileEntryBaseArrayWrapper</returns>
         FileEntryBaseArrayWrapper GetFolderPath(int folderId);
@@ -337,7 +335,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
         ApiResponse<FileEntryBaseArrayWrapper> GetFolderPathWithHttpInfo(int folderId);
@@ -345,10 +343,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        FileShareWrapper GetFolderPrimaryExternalLink(int id);
+        FileShareWrapper GetFolderPrimaryExternalLink(int id, int? count = default, int? startIndex = default);
 
         /// <summary>
         /// 
@@ -357,21 +357,30 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        ApiResponse<FileShareWrapper> GetFolderPrimaryExternalLinkWithHttpInfo(int id);
+        ApiResponse<FileShareWrapper> GetFolderPrimaryExternalLinkWithHttpInfo(int id, int? count = default, int? startIndex = default);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The folder ID.</param>
-        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
-        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
-        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
-        /// <returns>FileShareArrayWrapper</returns>
-        FileShareArrayWrapper GetFolderSecurityInfo(int id, int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="searchArea">The search area. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
+        /// <param name="count">The maximum number of items to return. (optional)</param>
+        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
+        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
+        /// <returns>FolderContentIntegerWrapper</returns>
+        FolderContentIntegerWrapper GetFolderRecent(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
 
         /// <summary>
         /// 
@@ -380,18 +389,25 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The folder ID.</param>
-        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
-        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
-        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
-        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        ApiResponse<FileShareArrayWrapper> GetFolderSecurityInfoWithHttpInfo(int id, int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="searchArea">The search area. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
+        /// <param name="count">The maximum number of items to return. (optional)</param>
+        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
+        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
+        /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
+        ApiResponse<FolderContentIntegerWrapper> GetFolderRecentWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
         /// <returns>FileEntryBaseArrayWrapper</returns>
         FileEntryBaseArrayWrapper GetFolders(int folderId);
@@ -403,7 +419,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
         /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
         ApiResponse<FileEntryBaseArrayWrapper> GetFoldersWithHttpInfo(int folderId);
@@ -419,10 +435,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetMyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        FolderContentIntegerWrapper GetMyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
 
         /// <summary>
         /// 
@@ -439,15 +454,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetMyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        ApiResponse<FolderContentIntegerWrapper> GetMyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
         /// <returns>FileEntryBaseArrayWrapper</returns>
         FileEntryBaseArrayWrapper GetNewFolderItems(int folderId);
@@ -459,7 +473,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
         /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
         ApiResponse<FileEntryBaseArrayWrapper> GetNewFolderItemsWithHttpInfo(int folderId);
@@ -474,10 +488,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetPrivacyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        FolderContentIntegerWrapper GetPrivacyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
 
         /// <summary>
         /// 
@@ -493,10 +506,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetPrivacyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        ApiResponse<FolderContentIntegerWrapper> GetPrivacyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
         /// <summary>
         /// 
         /// </summary>
@@ -506,16 +518,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the \&quot;Recent\&quot; folder. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
         /// <param name="count">The maximum number of items to return. (optional)</param>
         /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
         /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetRecentFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        FolderContentIntegerWrapper GetRecentFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
 
         /// <summary>
         /// 
@@ -529,32 +540,30 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the \&quot;Recent\&quot; folder. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
         /// <param name="count">The maximum number of items to return. (optional)</param>
         /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
         /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetRecentFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        ApiResponse<FolderContentIntegerWrapper> GetRecentFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="withoutTrash">Specifies whether to return the Trash section or not. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
         /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>FolderContentIntegerArrayWrapper</returns>
-        FolderContentIntegerArrayWrapper GetRootFolders(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        FolderContentIntegerArrayWrapper GetRootFolders(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
 
         /// <summary>
         /// 
@@ -565,16 +574,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="withoutTrash">Specifies whether to return the Trash section or not. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
         /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerArrayWrapper</returns>
-        ApiResponse<FolderContentIntegerArrayWrapper> GetRootFoldersWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        ApiResponse<FolderContentIntegerArrayWrapper> GetRootFoldersWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
         /// <summary>
         /// 
         /// </summary>
@@ -587,10 +595,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetTrashFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        FolderContentIntegerWrapper GetTrashFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
 
         /// <summary>
         /// 
@@ -607,10 +614,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetTrashFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        ApiResponse<FolderContentIntegerWrapper> GetTrashFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
         /// <summary>
         /// 
         /// </summary>
@@ -702,10 +708,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
-        FolderIntegerWrapper RenameFolder(int folderId, CreateFolder? createFolder = default);
+        FolderIntegerWrapper RenameFolder(int folderId, CreateFolder createFolder);
 
         /// <summary>
         /// 
@@ -715,10 +721,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        ApiResponse<FolderIntegerWrapper> RenameFolderWithHttpInfo(int folderId, CreateFolder? createFolder = default);
+        ApiResponse<FolderIntegerWrapper> RenameFolderWithHttpInfo(int folderId, CreateFolder createFolder);
         /// <summary>
         /// 
         /// </summary>
@@ -746,10 +752,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-primary-external-link/">REST API Reference for SetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        FileShareWrapper SetFolderPrimaryExternalLink(int id, FolderLinkRequest? folderLinkRequest = default);
+        FileShareWrapper SetFolderPrimaryExternalLink(int id, FolderLinkRequest folderLinkRequest);
 
         /// <summary>
         /// 
@@ -759,10 +765,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-primary-external-link/">REST API Reference for SetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        ApiResponse<FileShareWrapper> SetFolderPrimaryExternalLinkWithHttpInfo(int id, FolderLinkRequest? folderLinkRequest = default);
+        ApiResponse<FileShareWrapper> SetFolderPrimaryExternalLinkWithHttpInfo(int id, FolderLinkRequest folderLinkRequest);
         /// <summary>
         /// 
         /// </summary>
@@ -822,11 +828,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
-        /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
+        /// <param name="checkUploadRequest">The request parameters for checking file uploads.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
         /// <returns>Task of STRINGArrayWrapper</returns>
-        Task<STRINGArrayWrapper> CheckUploadAsync(int folderId, CheckUploadRequest? checkUploadRequest = default, CancellationToken cancellationToken = default);
+        Task<STRINGArrayWrapper> CheckUploadAsync(int folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -836,11 +842,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
-        /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
+        /// <param name="checkUploadRequest">The request parameters for checking file uploads.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        Task<ApiResponse<STRINGArrayWrapper>> CheckUploadWithHttpInfoAsync(int folderId, CheckUploadRequest? checkUploadRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<STRINGArrayWrapper>> CheckUploadWithHttpInfoAsync(int folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -849,11 +855,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        Task<FolderIntegerWrapper> CreateFolderAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default);
+        Task<FolderIntegerWrapper> CreateFolderAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -863,11 +869,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        Task<ApiResponse<FolderIntegerWrapper>> CreateFolderWithHttpInfoAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderIntegerWrapper>> CreateFolderWithHttpInfoAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -876,11 +882,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder-primary-external-link/">REST API Reference for CreateFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        Task<FileShareWrapper> CreateFolderPrimaryExternalLinkAsync(int id, FolderLinkRequest? folderLinkRequest = default, CancellationToken cancellationToken = default);
+        Task<FileShareWrapper> CreateFolderPrimaryExternalLinkAsync(int id, FolderLinkRequest folderLinkRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -890,11 +896,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder-primary-external-link/">REST API Reference for CreateFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        Task<ApiResponse<FileShareWrapper>> CreateFolderPrimaryExternalLinkWithHttpInfoAsync(int id, FolderLinkRequest? folderLinkRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileShareWrapper>> CreateFolderPrimaryExternalLinkWithHttpInfoAsync(int id, FolderLinkRequest folderLinkRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -928,11 +934,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
-        /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
+        /// <param name="deleteFolder">The parameters for deleting a folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        Task<FileOperationArrayWrapper> DeleteFolderAsync(int folderId, DeleteFolder? deleteFolder = default, CancellationToken cancellationToken = default);
+        Task<FileOperationArrayWrapper> DeleteFolderAsync(int folderId, DeleteFolder deleteFolder, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -942,11 +948,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
-        /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
+        /// <param name="deleteFolder">The parameters for deleting a folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(int folderId, DeleteFolder? deleteFolder = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(int folderId, DeleteFolder deleteFolder, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -961,11 +967,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        Task<FolderContentIntegerWrapper> GetFavoritesFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetFavoritesFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -981,11 +986,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        Task<ApiResponse<FolderContentIntegerWrapper>> GetFavoritesFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetFavoritesFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1016,7 +1020,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>Task of FormsItemArrayWrapper</returns>
@@ -1029,7 +1033,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FormsItemArrayWrapper)</returns>
@@ -1041,22 +1045,22 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the request.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements from the specified folder. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
-        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortBy">The property used for sorting the folder request results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
-        /// <param name="location">Represents the location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
+        /// <param name="location">The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
@@ -1069,22 +1073,22 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the request.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements from the specified folder. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
-        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortBy">The property used for sorting the folder request results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
-        /// <param name="location">Represents the location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
+        /// <param name="location">The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
@@ -1129,7 +1133,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -1142,7 +1146,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -1179,7 +1183,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>Task of FileEntryBaseArrayWrapper</returns>
@@ -1192,7 +1196,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
@@ -1204,11 +1208,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        Task<FileShareWrapper> GetFolderPrimaryExternalLinkAsync(int id, CancellationToken cancellationToken = default);
+        Task<FileShareWrapper> GetFolderPrimaryExternalLinkAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1217,11 +1223,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        Task<ApiResponse<FileShareWrapper>> GetFolderPrimaryExternalLinkWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileShareWrapper>> GetFolderPrimaryExternalLinkWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1229,14 +1237,21 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The folder ID.</param>
-        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
-        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
-        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="searchArea">The search area. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
+        /// <param name="count">The maximum number of items to return. (optional)</param>
+        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
+        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
-        /// <returns>Task of FileShareArrayWrapper</returns>
-        Task<FileShareArrayWrapper> GetFolderSecurityInfoAsync(int id, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
+        /// <returns>Task of FolderContentIntegerWrapper</returns>
+        Task<FolderContentIntegerWrapper> GetFolderRecentAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1245,14 +1260,21 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The folder ID.</param>
-        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
-        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
-        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="searchArea">The search area. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
+        /// <param name="count">The maximum number of items to return. (optional)</param>
+        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
+        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
-        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        Task<ApiResponse<FileShareArrayWrapper>> GetFolderSecurityInfoWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
+        /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderRecentWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1260,7 +1282,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
         /// <returns>Task of FileEntryBaseArrayWrapper</returns>
@@ -1273,7 +1295,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
@@ -1293,11 +1315,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        Task<FolderContentIntegerWrapper> GetMyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetMyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1314,11 +1335,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        Task<ApiResponse<FolderContentIntegerWrapper>> GetMyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetMyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1326,7 +1346,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
         /// <returns>Task of FileEntryBaseArrayWrapper</returns>
@@ -1339,7 +1359,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
@@ -1358,11 +1378,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        Task<FolderContentIntegerWrapper> GetPrivacyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetPrivacyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1378,11 +1397,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        Task<ApiResponse<FolderContentIntegerWrapper>> GetPrivacyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetPrivacyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1395,17 +1413,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the \&quot;Recent\&quot; folder. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
         /// <param name="count">The maximum number of items to return. (optional)</param>
         /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
         /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        Task<FolderContentIntegerWrapper> GetRecentFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetRecentFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1419,17 +1436,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the \&quot;Recent\&quot; folder. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
         /// <param name="count">The maximum number of items to return. (optional)</param>
         /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
         /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        Task<ApiResponse<FolderContentIntegerWrapper>> GetRecentFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetRecentFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1439,17 +1455,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="withoutTrash">Specifies whether to return the Trash section or not. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
         /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>Task of FolderContentIntegerArrayWrapper</returns>
-        Task<FolderContentIntegerArrayWrapper> GetRootFoldersAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerArrayWrapper> GetRootFoldersAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1460,17 +1475,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="withoutTrash">Specifies whether to return the Trash section or not. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
         /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerArrayWrapper)</returns>
-        Task<ApiResponse<FolderContentIntegerArrayWrapper>> GetRootFoldersWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerArrayWrapper>> GetRootFoldersWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1486,11 +1500,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        Task<FolderContentIntegerWrapper> GetTrashFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetTrashFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1507,11 +1520,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        Task<ApiResponse<FolderContentIntegerWrapper>> GetTrashFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetTrashFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1616,11 +1628,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        Task<FolderIntegerWrapper> RenameFolderAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default);
+        Task<FolderIntegerWrapper> RenameFolderAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1630,11 +1642,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        Task<ApiResponse<FolderIntegerWrapper>> RenameFolderWithHttpInfoAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderIntegerWrapper>> RenameFolderWithHttpInfoAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1670,11 +1682,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-primary-external-link/">REST API Reference for SetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        Task<FileShareWrapper> SetFolderPrimaryExternalLinkAsync(int id, FolderLinkRequest? folderLinkRequest = default, CancellationToken cancellationToken = default);
+        Task<FileShareWrapper> SetFolderPrimaryExternalLinkAsync(int id, FolderLinkRequest folderLinkRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1684,11 +1696,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-primary-external-link/">REST API Reference for SetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        Task<ApiResponse<FileShareWrapper>> SetFolderPrimaryExternalLinkWithHttpInfoAsync(int id, FolderLinkRequest? folderLinkRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileShareWrapper>> SetFolderPrimaryExternalLinkWithHttpInfoAsync(int id, FolderLinkRequest folderLinkRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1954,15 +1966,29 @@ namespace DocSpace.API.SDK.Api.Files
             set => _exceptionFactory = value; 
         }
 
+        private string? _fields;
+
+        /// <summary>
+        /// Specifies which fields should be included in the API response.
+        /// </summary>
+        /// <param name="fields">A comma-separated list of field paths to include in the response</param>
+        /// <returns></returns>
+
+        public FoldersApi WithFields(string fields)
+        {
+            _fields = fields;
+            return this;
+        }
+
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
-        /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
+        /// <param name="checkUploadRequest">The request parameters for checking file uploads.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
         /// <returns>STRINGArrayWrapper</returns>
-        public STRINGArrayWrapper CheckUpload(int folderId, CheckUploadRequest? checkUploadRequest = default)
+        public STRINGArrayWrapper CheckUpload(int folderId, CheckUploadRequest checkUploadRequest)
         {
             var localVarResponse = CheckUploadWithHttpInfo(folderId, checkUploadRequest);
             return localVarResponse.Data;
@@ -1973,11 +1999,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
-        /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
+        /// <param name="checkUploadRequest">The request parameters for checking file uploads.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
         /// <returns>ApiResponse of STRINGArrayWrapper</returns>
-        public ApiResponse<STRINGArrayWrapper> CheckUploadWithHttpInfo(int folderId, CheckUploadRequest? checkUploadRequest = default)
+        public ApiResponse<STRINGArrayWrapper> CheckUploadWithHttpInfo(int folderId, CheckUploadRequest checkUploadRequest)
         {
+            // verify the required parameter 'checkUploadRequest' is set
+            if (checkUploadRequest == null)
+                throw new ApiException(400, "Missing required parameter 'checkUploadRequest' when calling FoldersApi->CheckUpload");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2015,11 +2045,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
-        /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
+        /// <param name="checkUploadRequest">The request parameters for checking file uploads.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
         /// <returns>Task of STRINGArrayWrapper</returns>
-        public async Task<STRINGArrayWrapper> CheckUploadAsync(int folderId, CheckUploadRequest? checkUploadRequest = default, CancellationToken cancellationToken = default)
+        public async Task<STRINGArrayWrapper> CheckUploadAsync(int folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CheckUploadWithHttpInfoAsync(folderId, checkUploadRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2030,12 +2060,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
-        /// <param name="checkUploadRequest">The request parameters for checking file uploads. (optional)</param>
+        /// <param name="checkUploadRequest">The request parameters for checking file uploads.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-upload/">REST API Reference for CheckUpload Operation</seealso>
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
-        public async Task<ApiResponse<STRINGArrayWrapper>> CheckUploadWithHttpInfoAsync(int folderId, CheckUploadRequest? checkUploadRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<STRINGArrayWrapper>> CheckUploadWithHttpInfoAsync(int folderId, CheckUploadRequest checkUploadRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'checkUploadRequest' is set
+            if (checkUploadRequest == null)
+                throw new ApiException(400, "Missing required parameter 'checkUploadRequest' when calling FoldersApi->CheckUpload");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2075,10 +2109,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
-        public FolderIntegerWrapper CreateFolder(int folderId, CreateFolder? createFolder = default)
+        public FolderIntegerWrapper CreateFolder(int folderId, CreateFolder createFolder)
         {
             var localVarResponse = CreateFolderWithHttpInfo(folderId, createFolder);
             return localVarResponse.Data;
@@ -2089,11 +2123,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public ApiResponse<FolderIntegerWrapper> CreateFolderWithHttpInfo(int folderId, CreateFolder? createFolder = default)
+        public ApiResponse<FolderIntegerWrapper> CreateFolderWithHttpInfo(int folderId, CreateFolder createFolder)
         {
+            // verify the required parameter 'createFolder' is set
+            if (createFolder == null)
+                throw new ApiException(400, "Missing required parameter 'createFolder' when calling FoldersApi->CreateFolder");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2131,11 +2169,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        public async Task<FolderIntegerWrapper> CreateFolderAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default)
+        public async Task<FolderIntegerWrapper> CreateFolderAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateFolderWithHttpInfoAsync(folderId, createFolder, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2146,12 +2184,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder/">REST API Reference for CreateFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderIntegerWrapper>> CreateFolderWithHttpInfoAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderIntegerWrapper>> CreateFolderWithHttpInfoAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'createFolder' is set
+            if (createFolder == null)
+                throw new ApiException(400, "Missing required parameter 'createFolder' when calling FoldersApi->CreateFolder");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2191,10 +2233,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder-primary-external-link/">REST API Reference for CreateFolderPrimaryExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        public FileShareWrapper CreateFolderPrimaryExternalLink(int id, FolderLinkRequest? folderLinkRequest = default)
+        public FileShareWrapper CreateFolderPrimaryExternalLink(int id, FolderLinkRequest folderLinkRequest)
         {
             var localVarResponse = CreateFolderPrimaryExternalLinkWithHttpInfo(id, folderLinkRequest);
             return localVarResponse.Data;
@@ -2205,11 +2247,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder-primary-external-link/">REST API Reference for CreateFolderPrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        public ApiResponse<FileShareWrapper> CreateFolderPrimaryExternalLinkWithHttpInfo(int id, FolderLinkRequest? folderLinkRequest = default)
+        public ApiResponse<FileShareWrapper> CreateFolderPrimaryExternalLinkWithHttpInfo(int id, FolderLinkRequest folderLinkRequest)
         {
+            // verify the required parameter 'folderLinkRequest' is set
+            if (folderLinkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'folderLinkRequest' when calling FoldersApi->CreateFolderPrimaryExternalLink");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2247,11 +2293,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder-primary-external-link/">REST API Reference for CreateFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        public async Task<FileShareWrapper> CreateFolderPrimaryExternalLinkAsync(int id, FolderLinkRequest? folderLinkRequest = default, CancellationToken cancellationToken = default)
+        public async Task<FileShareWrapper> CreateFolderPrimaryExternalLinkAsync(int id, FolderLinkRequest folderLinkRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateFolderPrimaryExternalLinkWithHttpInfoAsync(id, folderLinkRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2262,12 +2308,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-folder-primary-external-link/">REST API Reference for CreateFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        public async Task<ApiResponse<FileShareWrapper>> CreateFolderPrimaryExternalLinkWithHttpInfoAsync(int id, FolderLinkRequest? folderLinkRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileShareWrapper>> CreateFolderPrimaryExternalLinkWithHttpInfoAsync(int id, FolderLinkRequest folderLinkRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'folderLinkRequest' is set
+            if (folderLinkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'folderLinkRequest' when calling FoldersApi->CreateFolderPrimaryExternalLink");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2417,10 +2467,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
-        /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
+        /// <param name="deleteFolder">The parameters for deleting a folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
-        public FileOperationArrayWrapper DeleteFolder(int folderId, DeleteFolder? deleteFolder = default)
+        public FileOperationArrayWrapper DeleteFolder(int folderId, DeleteFolder deleteFolder)
         {
             var localVarResponse = DeleteFolderWithHttpInfo(folderId, deleteFolder);
             return localVarResponse.Data;
@@ -2431,11 +2481,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
-        /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
+        /// <param name="deleteFolder">The parameters for deleting a folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        public ApiResponse<FileOperationArrayWrapper> DeleteFolderWithHttpInfo(int folderId, DeleteFolder? deleteFolder = default)
+        public ApiResponse<FileOperationArrayWrapper> DeleteFolderWithHttpInfo(int folderId, DeleteFolder deleteFolder)
         {
+            // verify the required parameter 'deleteFolder' is set
+            if (deleteFolder == null)
+                throw new ApiException(400, "Missing required parameter 'deleteFolder' when calling FoldersApi->DeleteFolder");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2473,11 +2527,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
-        /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
+        /// <param name="deleteFolder">The parameters for deleting a folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        public async Task<FileOperationArrayWrapper> DeleteFolderAsync(int folderId, DeleteFolder? deleteFolder = default, CancellationToken cancellationToken = default)
+        public async Task<FileOperationArrayWrapper> DeleteFolderAsync(int folderId, DeleteFolder deleteFolder, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await DeleteFolderWithHttpInfoAsync(folderId, deleteFolder, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2488,12 +2542,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to delete.</param>
-        /// <param name="deleteFolder">The parameters for deleting a folder. (optional)</param>
+        /// <param name="deleteFolder">The parameters for deleting a folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-folder/">REST API Reference for DeleteFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        public async Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(int folderId, DeleteFolder? deleteFolder = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(int folderId, DeleteFolder deleteFolder, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'deleteFolder' is set
+            if (deleteFolder == null)
+                throw new ApiException(400, "Missing required parameter 'deleteFolder' when calling FoldersApi->DeleteFolder");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2539,12 +2597,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetFavoritesFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
+        public FolderContentIntegerWrapper GetFavoritesFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
-            var localVarResponse = GetFavoritesFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, fields);
+            var localVarResponse = GetFavoritesFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -2559,10 +2616,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetFavoritesFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
+        public ApiResponse<FolderContentIntegerWrapper> GetFavoritesFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2605,9 +2661,9 @@ namespace DocSpace.API.SDK.Api.Files
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
-            if (fields != null)
+            if (_fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
 
@@ -2637,13 +2693,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async Task<FolderContentIntegerWrapper> GetFavoritesFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerWrapper> GetFavoritesFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetFavoritesFolderWithHttpInfoAsync(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, fields, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFavoritesFolderWithHttpInfoAsync(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2658,11 +2713,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-favorites-folder/">REST API Reference for GetFavoritesFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetFavoritesFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetFavoritesFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2705,10 +2759,6 @@ namespace DocSpace.API.SDK.Api.Files
             if (filterValue != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
             }
 
 
@@ -2836,7 +2886,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>FormsItemArrayWrapper</returns>
         public FormsItemArrayWrapper GetFolder(int folderId)
@@ -2849,7 +2899,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>ApiResponse of FormsItemArrayWrapper</returns>
         public ApiResponse<FormsItemArrayWrapper> GetFolderWithHttpInfo(int folderId)
@@ -2889,7 +2939,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>Task of FormsItemArrayWrapper</returns>
@@ -2903,7 +2953,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder/">REST API Reference for GetFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FormsItemArrayWrapper)</returns>
@@ -2946,22 +2996,22 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the request.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements from the specified folder. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
-        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortBy">The property used for sorting the folder request results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
-        /// <param name="location">Represents the location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
+        /// <param name="location">The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
         public FolderContentIntegerWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default)
@@ -2974,22 +3024,22 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the request.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements from the specified folder. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
-        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortBy">The property used for sorting the folder request results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
-        /// <param name="location">Represents the location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
+        /// <param name="location">The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
         public ApiResponse<FolderContentIntegerWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default)
@@ -3089,22 +3139,22 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the request.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements from the specified folder. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
-        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortBy">The property used for sorting the folder request results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
-        /// <param name="location">Represents the location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
+        /// <param name="location">The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
@@ -3118,22 +3168,22 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the request.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements from the specified folder. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
         /// <param name="formsItemType">The forms item type. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
         /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated request. (optional)</param>
-        /// <param name="sortBy">Specifies the property used for sorting the folder request results. (optional)</param>
+        /// <param name="sortBy">The property used for sorting the folder request results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text value used as a filter parameter for folder content queries. (optional)</param>
-        /// <param name="location">Represents the location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
+        /// <param name="location">The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
@@ -3394,7 +3444,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper GetFolderInfo(int folderId)
@@ -3407,7 +3457,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         public ApiResponse<FolderIntegerWrapper> GetFolderInfoWithHttpInfo(int folderId)
@@ -3447,7 +3497,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -3461,7 +3511,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-info/">REST API Reference for GetFolderInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -3614,7 +3664,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>FileEntryBaseArrayWrapper</returns>
         public FileEntryBaseArrayWrapper GetFolderPath(int folderId)
@@ -3627,7 +3677,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
         public ApiResponse<FileEntryBaseArrayWrapper> GetFolderPathWithHttpInfo(int folderId)
@@ -3667,7 +3717,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>Task of FileEntryBaseArrayWrapper</returns>
@@ -3681,7 +3731,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
+        /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-path/">REST API Reference for GetFolderPath Operation</seealso>
         /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
@@ -3724,12 +3774,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        public FileShareWrapper GetFolderPrimaryExternalLink(int id)
+        public FileShareWrapper GetFolderPrimaryExternalLink(int id, int? count = default, int? startIndex = default)
         {
-            var localVarResponse = GetFolderPrimaryExternalLinkWithHttpInfo(id);
+            var localVarResponse = GetFolderPrimaryExternalLinkWithHttpInfo(id, count, startIndex);
             return localVarResponse.Data;
         }
 
@@ -3737,10 +3789,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        public ApiResponse<FileShareWrapper> GetFolderPrimaryExternalLinkWithHttpInfo(int id)
+        public ApiResponse<FileShareWrapper> GetFolderPrimaryExternalLinkWithHttpInfo(int id, int? count = default, int? startIndex = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3756,6 +3810,14 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
 
 
             // make the HTTP request
@@ -3777,13 +3839,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        public async Task<FileShareWrapper> GetFolderPrimaryExternalLinkAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<FileShareWrapper> GetFolderPrimaryExternalLinkAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetFolderPrimaryExternalLinkWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFolderPrimaryExternalLinkWithHttpInfoAsync(id, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3791,11 +3855,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The request folder ID.</param>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-primary-external-link/">REST API Reference for GetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        public async Task<ApiResponse<FileShareWrapper>> GetFolderPrimaryExternalLinkWithHttpInfoAsync(int id, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileShareWrapper>> GetFolderPrimaryExternalLinkWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3812,6 +3878,14 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
 
 
             // make the HTTP request
@@ -3834,801 +3908,22 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The folder ID.</param>
-        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
-        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
-        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
-        /// <returns>FileShareArrayWrapper</returns>
-        public FileShareArrayWrapper GetFolderSecurityInfo(int id, int? count = default, int? startIndex = default, string? filterValue = default)
-        {
-            var localVarResponse = GetFolderSecurityInfoWithHttpInfo(id, count, startIndex, filterValue);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The folder ID.</param>
-        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
-        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
-        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
-        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
-        public ApiResponse<FileShareArrayWrapper> GetFolderSecurityInfoWithHttpInfo(int id, int? count = default, int? startIndex = default, string? filterValue = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = ["application/json"];
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
-            if (count != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            }
-            if (startIndex != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
-            }
-            if (filterValue != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-
-
-            // make the HTTP request
-            var localVarResponse = Client.Get<FileShareArrayWrapper>("/api/2.0/files/folder/{id}/share", localVarRequestOptions, Configuration);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetFolderSecurityInfo", localVarResponse);
-                if (exception != null)
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The folder ID.</param>
-        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
-        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
-        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
-        /// <returns>Task of FileShareArrayWrapper</returns>
-        public async Task<FileShareArrayWrapper> GetFolderSecurityInfoAsync(int id, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
-        {
-            var localVarResponse = await GetFolderSecurityInfoWithHttpInfoAsync(id, count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The folder ID.</param>
-        /// <param name="count">The number of items to be retrieved or processed. (optional)</param>
-        /// <param name="startIndex">The starting index of the items to retrieve in a paginated request. (optional)</param>
-        /// <param name="filterValue">The text filter value used for filtering room security information. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
-        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
-        public async Task<ApiResponse<FileShareArrayWrapper>> GetFolderSecurityInfoWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = [ "application/json"];
-
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
-            if (count != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            }
-            if (startIndex != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
-            }
-            if (filterValue != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-
-
-            // make the HTTP request
-
-            var localVarResponse = await AsynchronousClient.GetAsync<FileShareArrayWrapper>("/api/2.0/files/folder/{id}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetFolderSecurityInfo", localVarResponse);
-                if (exception != null) 
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
-        /// <returns>FileEntryBaseArrayWrapper</returns>
-        public FileEntryBaseArrayWrapper GetFolders(int folderId)
-        {
-            var localVarResponse = GetFoldersWithHttpInfo(folderId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
-        /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
-        public ApiResponse<FileEntryBaseArrayWrapper> GetFoldersWithHttpInfo(int folderId)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = ["application/json"];
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-
-
-            // make the HTTP request
-            var localVarResponse = Client.Get<FileEntryBaseArrayWrapper>("/api/2.0/files/{folderId}/subfolders", localVarRequestOptions, Configuration);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetFolders", localVarResponse);
-                if (exception != null)
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
-        /// <returns>Task of FileEntryBaseArrayWrapper</returns>
-        public async Task<FileEntryBaseArrayWrapper> GetFoldersAsync(int folderId, CancellationToken cancellationToken = default)
-        {
-            var localVarResponse = await GetFoldersWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
-        /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
-        public async Task<ApiResponse<FileEntryBaseArrayWrapper>> GetFoldersWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = [ "application/json"];
-
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-
-
-            // make the HTTP request
-
-            var localVarResponse = await AsynchronousClient.GetAsync<FileEntryBaseArrayWrapper>("/api/2.0/files/{folderId}/subfolders", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetFolders", localVarResponse);
-                if (exception != null) 
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
-        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
-        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
-        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
-        /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetMyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
-        {
-            var localVarResponse = GetMyFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, fields);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
-        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
-        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
-        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
-        /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetMyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = ["application/json"];
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (userIdOrGroupId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
-            }
-            if (filterType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
-            }
-            if (applyFilterOption != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
-            }
-            if (count != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            }
-            if (startIndex != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
-            }
-            if (sortBy != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
-            }
-            if (sortOrder != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
-            }
-            if (filterValue != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
-            }
-
-
-            // make the HTTP request
-            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/@my", localVarRequestOptions, Configuration);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetMyFolder", localVarResponse);
-                if (exception != null)
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
-        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
-        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
-        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
-        /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async Task<FolderContentIntegerWrapper> GetMyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
-        {
-            var localVarResponse = await GetMyFolderWithHttpInfoAsync(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, fields, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
-        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
-        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
-        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetMyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = [ "application/json"];
-
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (userIdOrGroupId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
-            }
-            if (filterType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
-            }
-            if (applyFilterOption != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
-            }
-            if (count != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            }
-            if (startIndex != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
-            }
-            if (sortBy != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
-            }
-            if (sortOrder != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
-            }
-            if (filterValue != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
-            }
-
-
-            // make the HTTP request
-
-            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/@my", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetMyFolder", localVarResponse);
-                if (exception != null) 
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
-        /// <returns>FileEntryBaseArrayWrapper</returns>
-        public FileEntryBaseArrayWrapper GetNewFolderItems(int folderId)
-        {
-            var localVarResponse = GetNewFolderItemsWithHttpInfo(folderId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
-        /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
-        public ApiResponse<FileEntryBaseArrayWrapper> GetNewFolderItemsWithHttpInfo(int folderId)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = ["application/json"];
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-
-
-            // make the HTTP request
-            var localVarResponse = Client.Get<FileEntryBaseArrayWrapper>("/api/2.0/files/{folderId}/news", localVarRequestOptions, Configuration);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetNewFolderItems", localVarResponse);
-                if (exception != null)
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
-        /// <returns>Task of FileEntryBaseArrayWrapper</returns>
-        public async Task<FileEntryBaseArrayWrapper> GetNewFolderItemsAsync(int folderId, CancellationToken cancellationToken = default)
-        {
-            var localVarResponse = await GetNewFolderItemsWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The request folder ID.</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
-        /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
-        public async Task<ApiResponse<FileEntryBaseArrayWrapper>> GetNewFolderItemsWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = [ "application/json"];
-
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-
-
-            // make the HTTP request
-
-            var localVarResponse = await AsynchronousClient.GetAsync<FileEntryBaseArrayWrapper>("/api/2.0/files/{folderId}/news", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetNewFolderItems", localVarResponse);
-                if (exception != null) 
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
-        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
-        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
-        /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetPrivacyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
-        {
-            var localVarResponse = GetPrivacyFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, fields);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
-        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
-        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
-        /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetPrivacyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = ["application/json"];
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (userIdOrGroupId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
-            }
-            if (filterType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
-            }
-            if (count != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            }
-            if (startIndex != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
-            }
-            if (sortBy != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
-            }
-            if (sortOrder != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
-            }
-            if (filterValue != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
-            }
-
-
-            // make the HTTP request
-            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/@privacy", localVarRequestOptions, Configuration);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetPrivacyFolder", localVarResponse);
-                if (exception != null)
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
-        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
-        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
-        /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async Task<FolderContentIntegerWrapper> GetPrivacyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
-        {
-            var localVarResponse = await GetPrivacyFolderWithHttpInfoAsync(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, fields, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
-        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
-        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetPrivacyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = [ "application/json"];
-
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (userIdOrGroupId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
-            }
-            if (filterType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
-            }
-            if (count != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            }
-            if (startIndex != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
-            }
-            if (sortBy != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
-            }
-            if (sortOrder != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
-            }
-            if (filterValue != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
-            }
-
-
-            // make the HTTP request
-
-            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/@privacy", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetPrivacyFolder", localVarResponse);
-                if (exception != null) 
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the \&quot;Recent\&quot; folder. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
         /// <param name="count">The maximum number of items to return. (optional)</param>
         /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
         /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetRecentFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
+        public FolderContentIntegerWrapper GetFolderRecent(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
-            var localVarResponse = GetRecentFolderWithHttpInfo(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, fields);
+            var localVarResponse = GetFolderRecentWithHttpInfo(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -4641,16 +3936,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the \&quot;Recent\&quot; folder. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
         /// <param name="count">The maximum number of items to return. (optional)</param>
         /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
         /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetRecentFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
+        public ApiResponse<FolderContentIntegerWrapper> GetFolderRecentWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4708,18 +4002,18 @@ namespace DocSpace.API.SDK.Api.Files
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
-            if (fields != null)
+            if (_fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
 
             // make the HTTP request
-            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/@recent", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/recent", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("GetRecentFolder", localVarResponse);
+                var exception = ExceptionFactory("GetFolderRecent", localVarResponse);
                 if (exception != null)
                 {
                     throw exception;
@@ -4738,19 +4032,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the \&quot;Recent\&quot; folder. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
         /// <param name="count">The maximum number of items to return. (optional)</param>
         /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
         /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async Task<FolderContentIntegerWrapper> GetRecentFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerWrapper> GetFolderRecentAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetRecentFolderWithHttpInfoAsync(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, fields, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFolderRecentWithHttpInfoAsync(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4763,17 +4056,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the \&quot;Recent\&quot; folder. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
         /// <param name="count">The maximum number of items to return. (optional)</param>
         /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
         /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetRecentFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderRecentWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4833,9 +4125,860 @@ namespace DocSpace.API.SDK.Api.Files
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
-            if (fields != null)
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/recent", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+                var exception = ExceptionFactory("GetFolderRecent", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
+        /// <returns>FileEntryBaseArrayWrapper</returns>
+        public FileEntryBaseArrayWrapper GetFolders(int folderId)
+        {
+            var localVarResponse = GetFoldersWithHttpInfo(folderId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
+        /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
+        public ApiResponse<FileEntryBaseArrayWrapper> GetFoldersWithHttpInfo(int folderId)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<FileEntryBaseArrayWrapper>("/api/2.0/files/{folderId}/subfolders", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetFolders", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
+        /// <returns>Task of FileEntryBaseArrayWrapper</returns>
+        public async Task<FileEntryBaseArrayWrapper> GetFoldersAsync(int folderId, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetFoldersWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folders/">REST API Reference for GetFolders Operation</seealso>
+        /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
+        public async Task<ApiResponse<FileEntryBaseArrayWrapper>> GetFoldersWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<FileEntryBaseArrayWrapper>("/api/2.0/files/{folderId}/subfolders", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetFolders", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
+        /// <returns>FolderContentIntegerWrapper</returns>
+        public FolderContentIntegerWrapper GetMyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        {
+            var localVarResponse = GetMyFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
+        /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
+        public ApiResponse<FolderContentIntegerWrapper> GetMyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (userIdOrGroupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
+            }
+            if (filterType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (applyFilterOption != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+            if (_fields != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/@my", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetMyFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
+        /// <returns>Task of FolderContentIntegerWrapper</returns>
+        public async Task<FolderContentIntegerWrapper> GetMyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetMyFolderWithHttpInfoAsync(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
+        /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
+        /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-my-folder/">REST API Reference for GetMyFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetMyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (userIdOrGroupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
+            }
+            if (filterType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (applyFilterOption != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/@my", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetMyFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
+        /// <returns>FileEntryBaseArrayWrapper</returns>
+        public FileEntryBaseArrayWrapper GetNewFolderItems(int folderId)
+        {
+            var localVarResponse = GetNewFolderItemsWithHttpInfo(folderId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
+        /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
+        public ApiResponse<FileEntryBaseArrayWrapper> GetNewFolderItemsWithHttpInfo(int folderId)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<FileEntryBaseArrayWrapper>("/api/2.0/files/{folderId}/news", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetNewFolderItems", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
+        /// <returns>Task of FileEntryBaseArrayWrapper</returns>
+        public async Task<FileEntryBaseArrayWrapper> GetNewFolderItemsAsync(int folderId, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetNewFolderItemsWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-folder-items/">REST API Reference for GetNewFolderItems Operation</seealso>
+        /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
+        public async Task<ApiResponse<FileEntryBaseArrayWrapper>> GetNewFolderItemsWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<FileEntryBaseArrayWrapper>("/api/2.0/files/{folderId}/news", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetNewFolderItems", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
+        /// <returns>FolderContentIntegerWrapper</returns>
+        public FolderContentIntegerWrapper GetPrivacyFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        {
+            var localVarResponse = GetPrivacyFolderWithHttpInfo(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
+        /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
+        public ApiResponse<FolderContentIntegerWrapper> GetPrivacyFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (userIdOrGroupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
+            }
+            if (filterType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+            if (_fields != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/@privacy", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetPrivacyFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
+        /// <returns>Task of FolderContentIntegerWrapper</returns>
+        public async Task<FolderContentIntegerWrapper> GetPrivacyFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetPrivacyFolderWithHttpInfoAsync(userIdOrGroupId, filterType, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="count">The maximum number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The zero-based index of the first item to retrieve in a paginated list. (optional)</param>
+        /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used as a filter or search criterion for folder content queries. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-folder/">REST API Reference for GetPrivacyFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetPrivacyFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (userIdOrGroupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
+            }
+            if (filterType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/@privacy", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetPrivacyFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="searchArea">The search area. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
+        /// <param name="count">The maximum number of items to return. (optional)</param>
+        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
+        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
+        /// <returns>FolderContentIntegerWrapper</returns>
+        public FolderContentIntegerWrapper GetRecentFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        {
+            var localVarResponse = GetRecentFolderWithHttpInfo(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="searchArea">The search area. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
+        /// <param name="count">The maximum number of items to return. (optional)</param>
+        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
+        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
+        /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
+        public ApiResponse<FolderContentIntegerWrapper> GetRecentFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (userIdOrGroupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
+            }
+            if (filterType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (excludeSubject != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeSubject", excludeSubject));
+            }
+            if (applyFilterOption != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
+            }
+            if (searchArea != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "searchArea", searchArea));
+            }
+            if (extension != null)
+            {
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+            if (_fields != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/@recent", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetRecentFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="searchArea">The search area. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
+        /// <param name="count">The maximum number of items to return. (optional)</param>
+        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
+        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
+        /// <returns>Task of FolderContentIntegerWrapper</returns>
+        public async Task<FolderContentIntegerWrapper> GetRecentFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetRecentFolderWithHttpInfoAsync(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
+        /// <param name="filterType">The filter type. (optional)</param>
+        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
+        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
+        /// <param name="searchArea">The search area. (optional)</param>
+        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
+        /// <param name="count">The maximum number of items to return. (optional)</param>
+        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
+        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
+        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
+        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-recent-folder/">REST API Reference for GetRecentFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetRecentFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (userIdOrGroupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
+            }
+            if (filterType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
+            }
+            if (excludeSubject != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeSubject", excludeSubject));
+            }
+            if (applyFilterOption != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
+            }
+            if (searchArea != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "searchArea", searchArea));
+            }
+            if (extension != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "extension", extension));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (sortBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
+            }
+            if (sortOrder != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
 
@@ -4861,18 +5004,17 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="withoutTrash">Specifies whether to return the Trash section or not. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
         /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>FolderContentIntegerArrayWrapper</returns>
-        public FolderContentIntegerArrayWrapper GetRootFolders(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
+        public FolderContentIntegerArrayWrapper GetRootFolders(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
-            var localVarResponse = GetRootFoldersWithHttpInfo(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue, fields);
+            var localVarResponse = GetRootFoldersWithHttpInfo(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -4882,16 +5024,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="withoutTrash">Specifies whether to return the Trash section or not. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
         /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerArrayWrapper</returns>
-        public ApiResponse<FolderContentIntegerArrayWrapper> GetRootFoldersWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
+        public ApiResponse<FolderContentIntegerArrayWrapper> GetRootFoldersWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4938,9 +5079,9 @@ namespace DocSpace.API.SDK.Api.Files
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
-            if (fields != null)
+            if (_fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
 
@@ -4965,19 +5106,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="withoutTrash">Specifies whether to return the Trash section or not. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
         /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>Task of FolderContentIntegerArrayWrapper</returns>
-        public async Task<FolderContentIntegerArrayWrapper> GetRootFoldersAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerArrayWrapper> GetRootFoldersAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetRootFoldersWithHttpInfoAsync(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue, fields, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRootFoldersWithHttpInfoAsync(userIdOrGroupId, filterType, withoutTrash, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4987,17 +5127,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
         /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="withoutTrash">Specifies whether to return the \&quot;Trash\&quot; section or not. (optional)</param>
+        /// <param name="withoutTrash">Specifies whether to return the Trash section or not. (optional)</param>
         /// <param name="count">The maximum number of items to retrieve in the response. (optional)</param>
         /// <param name="startIndex">The starting position of the items to be retrieved. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the folder content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used as a filter for searching or retrieving folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-root-folders/">REST API Reference for GetRootFolders Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerArrayWrapper)</returns>
-        public async Task<ApiResponse<FolderContentIntegerArrayWrapper>> GetRootFoldersWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerArrayWrapper>> GetRootFoldersWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? withoutTrash = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5044,10 +5183,6 @@ namespace DocSpace.API.SDK.Api.Files
             if (filterValue != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
             }
 
 
@@ -5079,12 +5214,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetTrashFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
+        public FolderContentIntegerWrapper GetTrashFolder(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
-            var localVarResponse = GetTrashFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, fields);
+            var localVarResponse = GetTrashFolderWithHttpInfo(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -5100,10 +5234,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetTrashFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
+        public ApiResponse<FolderContentIntegerWrapper> GetTrashFolderWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5150,9 +5283,9 @@ namespace DocSpace.API.SDK.Api.Files
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
-            if (fields != null)
+            if (_fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
 
@@ -5183,13 +5316,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async Task<FolderContentIntegerWrapper> GetTrashFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerWrapper> GetTrashFolderAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetTrashFolderWithHttpInfoAsync(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, fields, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetTrashFolderWithHttpInfoAsync(userIdOrGroupId, filterType, applyFilterOption, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5205,11 +5337,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sortBy">The property used to specify the sorting criteria for folder contents. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-trash-folder/">REST API Reference for GetTrashFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetTrashFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetTrashFolderWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, ApplyFilterOption? applyFilterOption = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5256,10 +5387,6 @@ namespace DocSpace.API.SDK.Api.Files
             if (filterValue != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
             }
 
 
@@ -5786,10 +5913,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
-        public FolderIntegerWrapper RenameFolder(int folderId, CreateFolder? createFolder = default)
+        public FolderIntegerWrapper RenameFolder(int folderId, CreateFolder createFolder)
         {
             var localVarResponse = RenameFolderWithHttpInfo(folderId, createFolder);
             return localVarResponse.Data;
@@ -5800,11 +5927,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public ApiResponse<FolderIntegerWrapper> RenameFolderWithHttpInfo(int folderId, CreateFolder? createFolder = default)
+        public ApiResponse<FolderIntegerWrapper> RenameFolderWithHttpInfo(int folderId, CreateFolder createFolder)
         {
+            // verify the required parameter 'createFolder' is set
+            if (createFolder == null)
+                throw new ApiException(400, "Missing required parameter 'createFolder' when calling FoldersApi->RenameFolder");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -5842,11 +5973,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        public async Task<FolderIntegerWrapper> RenameFolderAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default)
+        public async Task<FolderIntegerWrapper> RenameFolderAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await RenameFolderWithHttpInfoAsync(folderId, createFolder, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5857,12 +5988,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the folder creation.</param>
-        /// <param name="createFolder">The parameters for creating a folder. (optional)</param>
+        /// <param name="createFolder">The parameters for creating a folder.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-folder/">REST API Reference for RenameFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderIntegerWrapper>> RenameFolderWithHttpInfoAsync(int folderId, CreateFolder? createFolder = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderIntegerWrapper>> RenameFolderWithHttpInfoAsync(int folderId, CreateFolder createFolder, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'createFolder' is set
+            if (createFolder == null)
+                throw new ApiException(400, "Missing required parameter 'createFolder' when calling FoldersApi->RenameFolder");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -6018,10 +6153,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-primary-external-link/">REST API Reference for SetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        public FileShareWrapper SetFolderPrimaryExternalLink(int id, FolderLinkRequest? folderLinkRequest = default)
+        public FileShareWrapper SetFolderPrimaryExternalLink(int id, FolderLinkRequest folderLinkRequest)
         {
             var localVarResponse = SetFolderPrimaryExternalLinkWithHttpInfo(id, folderLinkRequest);
             return localVarResponse.Data;
@@ -6032,11 +6167,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-primary-external-link/">REST API Reference for SetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        public ApiResponse<FileShareWrapper> SetFolderPrimaryExternalLinkWithHttpInfo(int id, FolderLinkRequest? folderLinkRequest = default)
+        public ApiResponse<FileShareWrapper> SetFolderPrimaryExternalLinkWithHttpInfo(int id, FolderLinkRequest folderLinkRequest)
         {
+            // verify the required parameter 'folderLinkRequest' is set
+            if (folderLinkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'folderLinkRequest' when calling FoldersApi->SetFolderPrimaryExternalLink");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -6074,11 +6213,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-primary-external-link/">REST API Reference for SetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        public async Task<FileShareWrapper> SetFolderPrimaryExternalLinkAsync(int id, FolderLinkRequest? folderLinkRequest = default, CancellationToken cancellationToken = default)
+        public async Task<FileShareWrapper> SetFolderPrimaryExternalLinkAsync(int id, FolderLinkRequest folderLinkRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SetFolderPrimaryExternalLinkWithHttpInfoAsync(id, folderLinkRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6089,12 +6228,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder ID.</param>
-        /// <param name="folderLinkRequest">The folder link parameters. (optional)</param>
+        /// <param name="folderLinkRequest">The folder link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-primary-external-link/">REST API Reference for SetFolderPrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        public async Task<ApiResponse<FileShareWrapper>> SetFolderPrimaryExternalLinkWithHttpInfoAsync(int id, FolderLinkRequest? folderLinkRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileShareWrapper>> SetFolderPrimaryExternalLinkWithHttpInfoAsync(int id, FolderLinkRequest folderLinkRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'folderLinkRequest' is set
+            if (folderLinkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'folderLinkRequest' when calling FoldersApi->SetFolderPrimaryExternalLink");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];

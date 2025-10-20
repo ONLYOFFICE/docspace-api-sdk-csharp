@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for saving the file as PDF.
+    /// The parameters for saving a file as PDF.
     /// </summary>
     [DataContract(Name = "SaveAsPdfInteger")]
     public partial class SaveAsPdfInteger : IValidatableObject

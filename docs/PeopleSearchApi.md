@@ -4,21 +4,25 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetAccountsEntriesWithShared**](#getaccountsentrieswithshared) | **GET** /api/2.0/accounts/room/{id}/search | Get account entries |
+| [**GetAccountsEntriesWithFilesShared**](#getaccountsentrieswithfilesshared) | **GET** /api/2.0/accounts/file/{id}/search | Get account entries with file sharing settings |
+| [**GetAccountsEntriesWithFoldersShared**](#getaccountsentrieswithfoldersshared) | **GET** /api/2.0/accounts/folder/{id}/search | Get account entries with folder sharing settings |
+| [**GetAccountsEntriesWithRoomsShared**](#getaccountsentrieswithroomsshared) | **GET** /api/2.0/accounts/room/{id}/search | Get account entries |
 | [**GetSearch**](#getsearch) | **GET** /api/2.0/people/@search/{query} | Search users |
 | [**GetSimpleByFilter**](#getsimplebyfilter) | **GET** /api/2.0/people/simple/filter | Search users by extended filter |
+| [**GetUsersWithFilesShared**](#getuserswithfilesshared) | **GET** /api/2.0/people/file/{id} | Get users with file sharing settings |
+| [**GetUsersWithFoldersShared**](#getuserswithfoldersshared) | **GET** /api/2.0/people/folder/{id} | Get users with folder sharing settings |
 | [**GetUsersWithRoomShared**](#getuserswithroomshared) | **GET** /api/2.0/people/room/{id} | Get users with room sharing settings |
-| [**SearchUsersByExtendedFilter**](#searchusersbyextendedfilter) | **GET** /api/2.0/people/filter | Search users with detaailed information by extended filter |
+| [**SearchUsersByExtendedFilter**](#searchusersbyextendedfilter) | **GET** /api/2.0/people/filter | Search users with detailed information by extended filter |
 | [**SearchUsersByQuery**](#searchusersbyquery) | **GET** /api/2.0/people/search | Search users (using query parameters) |
 | [**SearchUsersByStatus**](#searchusersbystatus) | **GET** /api/2.0/people/status/{status}/search | Search users by status filter |
 
-<a id="getaccountsentrieswithshared"></a>
-# **GetAccountsEntriesWithShared**
-> ObjectArrayWrapper GetAccountsEntriesWithShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+<a id="getaccountsentrieswithfilesshared"></a>
+# **GetAccountsEntriesWithFilesShared**
+> ObjectArrayWrapper GetAccountsEntriesWithFilesShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
 
-Returns the account entries with their sharing settings.
+Returns the account entries with their sharing settings for a file with the ID specified in request.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-shared/).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-files-shared/).
 
 ### Parameters
 
@@ -57,7 +61,281 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class GetAccountsEntriesWithSharedExample
+    public class GetAccountsEntriesWithFilesSharedExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
+            var id = 9846;  // int | The user ID.
+            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
+            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
+            var excludeShared = true;  // bool? | Specifies whether to exclude the account sharing settings from the response. (optional) 
+            var includeShared = true;  // bool? | Specifies whether to include the account sharing settings in the response. (optional) 
+            var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
+            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var area = new Area?(); // Area? | The area of the account entries. (optional) 
+            var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of the user types. (optional) 
+            var count = 1234;  // int? | The number of items to retrieve in a request. (optional) 
+            var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
+            var filterSeparator = some text;  // string? | Specifies the separator used in filter expressions. (optional) 
+            var filterValue = some text;  // string? | The text filter applied to the accounts search query. (optional) 
+
+            try
+            {
+                // Get account entries with file sharing settings
+                ObjectArrayWrapper result = apiInstance.GetAccountsEntriesWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SearchApi.GetAccountsEntriesWithFilesShared: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetAccountsEntriesWithFilesSharedWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get account entries with file sharing settings
+    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetAccountsEntriesWithFilesSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SearchApi.GetAccountsEntriesWithFilesSharedWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | No permissions to perform this action |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getaccountsentrieswithfoldersshared"></a>
+# **GetAccountsEntriesWithFoldersShared**
+> ObjectArrayWrapper GetAccountsEntriesWithFoldersShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+
+Returns the account entries with their sharing settings in a folder with the ID specified in request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-folders-shared/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The user ID. |  |
+| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus.md) | The user status. | [optional]  |
+| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus.md) | The user activation status. | [optional]  |
+| **excludeShared** | **bool?** | Specifies whether to exclude the account sharing settings from the response. | [optional]  |
+| **includeShared** | **bool?** | Specifies whether to include the account sharing settings in the response. | [optional]  |
+| **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
+| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
+| **area** | [**Area?**](Area.md) | The area of the account entries. | [optional]  |
+| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | The list of the user types. | [optional]  |
+| **count** | **int?** | The number of items to retrieve in a request. | [optional]  |
+| **startIndex** | **int?** | The starting index for the query results. | [optional]  |
+| **filterSeparator** | **string?** | Specifies the separator used in filter expressions. | [optional]  |
+| **filterValue** | **string?** | The text filter applied to the accounts search query. | [optional]  |
+
+### Return type
+
+[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetAccountsEntriesWithFoldersSharedExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
+            var id = 9846;  // int | The user ID.
+            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
+            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
+            var excludeShared = true;  // bool? | Specifies whether to exclude the account sharing settings from the response. (optional) 
+            var includeShared = true;  // bool? | Specifies whether to include the account sharing settings in the response. (optional) 
+            var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
+            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var area = new Area?(); // Area? | The area of the account entries. (optional) 
+            var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of the user types. (optional) 
+            var count = 1234;  // int? | The number of items to retrieve in a request. (optional) 
+            var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
+            var filterSeparator = some text;  // string? | Specifies the separator used in filter expressions. (optional) 
+            var filterValue = some text;  // string? | The text filter applied to the accounts search query. (optional) 
+
+            try
+            {
+                // Get account entries with folder sharing settings
+                ObjectArrayWrapper result = apiInstance.GetAccountsEntriesWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SearchApi.GetAccountsEntriesWithFoldersShared: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetAccountsEntriesWithFoldersSharedWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get account entries with folder sharing settings
+    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetAccountsEntriesWithFoldersSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SearchApi.GetAccountsEntriesWithFoldersSharedWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | No permissions to perform this action |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getaccountsentrieswithroomsshared"></a>
+# **GetAccountsEntriesWithRoomsShared**
+> ObjectArrayWrapper GetAccountsEntriesWithRoomsShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+
+Returns the account entries with their sharing settings in a room with the ID specified in request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-accounts-entries-with-rooms-shared/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The user ID. |  |
+| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus.md) | The user status. | [optional]  |
+| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus.md) | The user activation status. | [optional]  |
+| **excludeShared** | **bool?** | Specifies whether to exclude the account sharing settings from the response. | [optional]  |
+| **includeShared** | **bool?** | Specifies whether to include the account sharing settings in the response. | [optional]  |
+| **invitedByMe** | **bool?** | Specifies whether the user is invited by the current user or not. | [optional]  |
+| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
+| **area** | [**Area?**](Area.md) | The area of the account entries. | [optional]  |
+| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | The list of the user types. | [optional]  |
+| **count** | **int?** | The number of items to retrieve in a request. | [optional]  |
+| **startIndex** | **int?** | The starting index for the query results. | [optional]  |
+| **filterSeparator** | **string?** | Specifies the separator used in filter expressions. | [optional]  |
+| **filterValue** | **string?** | The text filter applied to the accounts search query. | [optional]  |
+
+### Return type
+
+[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetAccountsEntriesWithRoomsSharedExample
     {
         public static void Main()
         {
@@ -100,12 +378,12 @@ namespace Example
             try
             {
                 // Get account entries
-                ObjectArrayWrapper result = apiInstance.GetAccountsEntriesWithShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+                ObjectArrayWrapper result = apiInstance.GetAccountsEntriesWithRoomsShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SearchApi.GetAccountsEntriesWithShared: " + e.Message);
+                Debug.Print("Exception when calling SearchApi.GetAccountsEntriesWithRoomsShared: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -114,21 +392,21 @@ namespace Example
 }
 ```
 
-#### Using the GetAccountsEntriesWithSharedWithHttpInfo variant
+#### Using the GetAccountsEntriesWithRoomsSharedWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Get account entries
-    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetAccountsEntriesWithSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetAccountsEntriesWithRoomsSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SearchApi.GetAccountsEntriesWithSharedWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling SearchApi.GetAccountsEntriesWithRoomsSharedWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -268,7 +546,7 @@ catch (ApiException e)
 
 <a id="getsimplebyfilter"></a>
 # **GetSimpleByFilter**
-> EmployeeArrayWrapper GetSimpleByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null, string fields = null)
+> EmployeeArrayWrapper GetSimpleByFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
 Returns a list of users matching the parameters specified in the request.
 
@@ -298,7 +576,6 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterSeparator** | **string?** | Represents the separator used to split filter criteria in query parameters. | [optional]  |
 | **filterValue** | **string?** | The search text used to filter results based on user input. | [optional]  |
-| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -365,12 +642,11 @@ namespace Example
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterSeparator = some text;  // string? | Represents the separator used to split filter criteria in query parameters. (optional) 
             var filterValue = some text;  // string? | The search text used to filter results based on user input. (optional) 
-            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Search users by extended filter
-                EmployeeArrayWrapper result = apiInstance.GetSimpleByFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, fields);
+                EmployeeArrayWrapper result = apiInstance.GetSimpleByFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -391,7 +667,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search users by extended filter
-    ApiResponse<EmployeeArrayWrapper> response = apiInstance.GetSimpleByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, fields);
+    ApiResponse<EmployeeArrayWrapper> response = apiInstance.GetSimpleByFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -414,6 +690,280 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of users |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | No permissions to perform this action |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getuserswithfilesshared"></a>
+# **GetUsersWithFilesShared**
+> EmployeeFullArrayWrapper GetUsersWithFilesShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+
+Returns the users with the sharing settings in a file with the ID specified in request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-files-shared/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The user ID. |  |
+| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus.md) | The user status. | [optional]  |
+| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus.md) | The user activation status. | [optional]  |
+| **excludeShared** | **bool?** | Specifies whether to exclude the user sharing settings or not. | [optional]  |
+| **includeShared** | **bool?** | Specifies whether to include the user sharing settings or not. | [optional]  |
+| **invitedByMe** | **bool?** | Specifies whether the user was invited by the current user or not. | [optional]  |
+| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
+| **area** | [**Area?**](Area.md) | The user area. | [optional]  |
+| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | The list of user types. | [optional]  |
+| **count** | **int?** | The maximum number of users to be retrieved in the request. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first record to retrieve in a paged query. | [optional]  |
+| **filterSeparator** | **string?** | The character or string used to separate multiple filter values in a filtering query. | [optional]  |
+| **filterValue** | **string?** | The filter text value used for searching or filtering user results. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetUsersWithFilesSharedExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
+            var id = 9846;  // int | The user ID.
+            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
+            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
+            var excludeShared = true;  // bool? | Specifies whether to exclude the user sharing settings or not. (optional) 
+            var includeShared = true;  // bool? | Specifies whether to include the user sharing settings or not. (optional) 
+            var invitedByMe = true;  // bool? | Specifies whether the user was invited by the current user or not. (optional) 
+            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var area = new Area?(); // Area? | The user area. (optional) 
+            var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of user types. (optional) 
+            var count = 1234;  // int? | The maximum number of users to be retrieved in the request. (optional) 
+            var startIndex = 1234;  // int? | The zero-based index of the first record to retrieve in a paged query. (optional) 
+            var filterSeparator = some text;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
+            var filterValue = some text;  // string? | The filter text value used for searching or filtering user results. (optional) 
+
+            try
+            {
+                // Get users with file sharing settings
+                EmployeeFullArrayWrapper result = apiInstance.GetUsersWithFilesShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SearchApi.GetUsersWithFilesShared: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetUsersWithFilesSharedWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get users with file sharing settings
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetUsersWithFilesSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SearchApi.GetUsersWithFilesSharedWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | No permissions to perform this action |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getuserswithfoldersshared"></a>
+# **GetUsersWithFoldersShared**
+> EmployeeFullArrayWrapper GetUsersWithFoldersShared (int id, EmployeeStatus? employeeStatus = null, EmployeeActivationStatus? activationStatus = null, bool? excludeShared = null, bool? includeShared = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, List<EmployeeType>? employeeTypes = null, int? count = null, int? startIndex = null, string? filterSeparator = null, string? filterValue = null)
+
+Returns the users with the sharing settings in a folder with the ID specified in request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-users-with-folders-shared/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **int** | The user ID. |  |
+| **employeeStatus** | [**EmployeeStatus?**](EmployeeStatus.md) | The user status. | [optional]  |
+| **activationStatus** | [**EmployeeActivationStatus?**](EmployeeActivationStatus.md) | The user activation status. | [optional]  |
+| **excludeShared** | **bool?** | Specifies whether to exclude the user sharing settings or not. | [optional]  |
+| **includeShared** | **bool?** | Specifies whether to include the user sharing settings or not. | [optional]  |
+| **invitedByMe** | **bool?** | Specifies whether the user was invited by the current user or not. | [optional]  |
+| **inviterId** | **Guid?** | The inviter ID. | [optional]  |
+| **area** | [**Area?**](Area.md) | The user area. | [optional]  |
+| **employeeTypes** | [**List&lt;EmployeeType&gt;?**](EmployeeType.md) | The list of user types. | [optional]  |
+| **count** | **int?** | The maximum number of users to be retrieved in the request. | [optional]  |
+| **startIndex** | **int?** | The zero-based index of the first record to retrieve in a paged query. | [optional]  |
+| **filterSeparator** | **string?** | The character or string used to separate multiple filter values in a filtering query. | [optional]  |
+| **filterValue** | **string?** | The filter text value used for searching or filtering user results. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetUsersWithFoldersSharedExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
+            var id = 9846;  // int | The user ID.
+            var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
+            var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
+            var excludeShared = true;  // bool? | Specifies whether to exclude the user sharing settings or not. (optional) 
+            var includeShared = true;  // bool? | Specifies whether to include the user sharing settings or not. (optional) 
+            var invitedByMe = true;  // bool? | Specifies whether the user was invited by the current user or not. (optional) 
+            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var area = new Area?(); // Area? | The user area. (optional) 
+            var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of user types. (optional) 
+            var count = 1234;  // int? | The maximum number of users to be retrieved in the request. (optional) 
+            var startIndex = 1234;  // int? | The zero-based index of the first record to retrieve in a paged query. (optional) 
+            var filterSeparator = some text;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
+            var filterValue = some text;  // string? | The filter text value used for searching or filtering user results. (optional) 
+
+            try
+            {
+                // Get users with folder sharing settings
+                EmployeeFullArrayWrapper result = apiInstance.GetUsersWithFoldersShared(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SearchApi.GetUsersWithFoldersShared: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetUsersWithFoldersSharedWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get users with folder sharing settings
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetUsersWithFoldersSharedWithHttpInfo(id, employeeStatus, activationStatus, excludeShared, includeShared, invitedByMe, inviterId, area, employeeTypes, count, startIndex, filterSeparator, filterValue);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SearchApi.GetUsersWithFoldersSharedWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 
@@ -558,7 +1108,7 @@ catch (ApiException e)
 
 <a id="searchusersbyextendedfilter"></a>
 # **SearchUsersByExtendedFilter**
-> EmployeeFullArrayWrapper SearchUsersByExtendedFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null, string fields = null)
+> EmployeeFullArrayWrapper SearchUsersByExtendedFilter (EmployeeStatus? employeeStatus = null, Guid? groupId = null, EmployeeActivationStatus? activationStatus = null, EmployeeType? employeeType = null, List<int>? employeeTypes = null, bool? isAdministrator = null, Payments? payments = null, AccountLoginType? accountLoginType = null, QuotaFilter? quotaFilter = null, bool? withoutGroup = null, bool? excludeGroup = null, bool? invitedByMe = null, Guid? inviterId = null, Area? area = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
 Returns a list of users with full information about them matching the parameters specified in the request.
 
@@ -588,7 +1138,6 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterSeparator** | **string?** | Represents the separator used to split filter criteria in query parameters. | [optional]  |
 | **filterValue** | **string?** | The search text used to filter results based on user input. | [optional]  |
-| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -655,12 +1204,11 @@ namespace Example
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterSeparator = some text;  // string? | Represents the separator used to split filter criteria in query parameters. (optional) 
             var filterValue = some text;  // string? | The search text used to filter results based on user input. (optional) 
-            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
-                // Search users with detaailed information by extended filter
-                EmployeeFullArrayWrapper result = apiInstance.SearchUsersByExtendedFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, fields);
+                // Search users with detailed information by extended filter
+                EmployeeFullArrayWrapper result = apiInstance.SearchUsersByExtendedFilter(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -680,8 +1228,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Search users with detaailed information by extended filter
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue, fields);
+    // Search users with detailed information by extended filter
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.SearchUsersByExtendedFilterWithHttpInfo(employeeStatus, groupId, activationStatus, employeeType, employeeTypes, isAdministrator, payments, accountLoginType, quotaFilter, withoutGroup, excludeGroup, invitedByMe, inviterId, area, count, startIndex, sortBy, sortOrder, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

@@ -136,7 +136,7 @@ catch (ApiException e)
 
 <a id="updateuseractivationstatus"></a>
 # **UpdateUserActivationStatus**
-> EmployeeFullArrayWrapper UpdateUserActivationStatus (EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = null)
+> EmployeeFullArrayWrapper UpdateUserActivationStatus (EmployeeActivationStatus activationstatus, UpdateMembersRequestDto updateMembersRequestDto)
 
 Sets the required activation status to the list of users with the IDs specified in the request.
 
@@ -147,7 +147,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **activationstatus** | **EmployeeActivationStatus** | The new user activation status. |  |
-| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. | [optional]  |
+| **updateMembersRequestDto** | [**UpdateMembersRequestDto**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. |  |
 
 ### Return type
 
@@ -195,7 +195,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UserStatusApi(httpClient, config, httpClientHandler);
             var activationstatus = (EmployeeActivationStatus) "0";  // EmployeeActivationStatus | The new user activation status.
-            var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? | The request parameters for updating the user information. (optional) 
+            var updateMembersRequestDto = new UpdateMembersRequestDto(); // UpdateMembersRequestDto | The request parameters for updating the user information.
 
             try
             {
@@ -250,7 +250,7 @@ catch (ApiException e)
 
 <a id="updateuserstatus"></a>
 # **UpdateUserStatus**
-> EmployeeFullArrayWrapper UpdateUserStatus (EmployeeStatus status, UpdateMembersRequestDto? updateMembersRequestDto = null)
+> EmployeeFullArrayWrapper UpdateUserStatus (EmployeeStatus status, UpdateMembersRequestDto updateMembersRequestDto)
 
 Changes a status of the users with the IDs specified in the request.
 
@@ -261,7 +261,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **status** | **EmployeeStatus** | The new user status. |  |
-| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. | [optional]  |
+| **updateMembersRequestDto** | [**UpdateMembersRequestDto**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. |  |
 
 ### Return type
 
@@ -309,7 +309,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UserStatusApi(httpClient, config, httpClientHandler);
             var status = (EmployeeStatus) "1";  // EmployeeStatus | The new user status.
-            var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? | The request parameters for updating the user information. (optional) 
+            var updateMembersRequestDto = new UpdateMembersRequestDto(); // UpdateMembersRequestDto | The request parameters for updating the user information.
 
             try
             {

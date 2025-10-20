@@ -91,10 +91,10 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
         ApiResponse<TaskProgressResponseWrapper> GetRemoveProgressWithHttpInfo(Guid userid);
         /// <summary>
-        /// Check the data reassignment need
+        /// Check data for reassignment need
         /// </summary>
         /// <remarks>
-        /// Checks if the reassignment of rooms and shared files is necessary or not.
+        /// Checks whether the reassignment of rooms and shared files is required.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -104,10 +104,10 @@ namespace DocSpace.API.SDK.Api.People
         BooleanWrapper NecessaryReassign(Guid? userId = default, EmployeeType? type = default);
 
         /// <summary>
-        /// Check the data reassignment need
+        /// Check data for reassignment need
         /// </summary>
         /// <remarks>
-        /// Checks if the reassignment of rooms and shared files is necessary or not.
+        /// Checks whether the reassignment of rooms and shared files is required.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -332,10 +332,10 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
         Task<ApiResponse<TaskProgressResponseWrapper>> GetRemoveProgressWithHttpInfoAsync(Guid userid, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Check the data reassignment need
+        /// Check data for reassignment need
         /// </summary>
         /// <remarks>
-        /// Checks if the reassignment of rooms and shared files is necessary or not.
+        /// Checks whether the reassignment of rooms and shared files is required.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -346,10 +346,10 @@ namespace DocSpace.API.SDK.Api.People
         Task<BooleanWrapper> NecessaryReassignAsync(Guid? userId = default, EmployeeType? type = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Check the data reassignment need
+        /// Check data for reassignment need
         /// </summary>
         /// <remarks>
-        /// Checks if the reassignment of rooms and shared files is necessary or not.
+        /// Checks whether the reassignment of rooms and shared files is required.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -716,6 +716,7 @@ namespace DocSpace.API.SDK.Api.People
             }
             set => _exceptionFactory = value; 
         }
+
 
         /// <summary>
         /// Get the progress of deleting the personal folder
@@ -1258,10 +1259,10 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Check the data reassignment need
+        /// Check data for reassignment need
         /// </summary>
         /// <remarks>
-        /// Checks if the reassignment of rooms and shared files is necessary or not.
+        /// Checks whether the reassignment of rooms and shared files is required.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -1275,10 +1276,10 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Check the data reassignment need
+        /// Check data for reassignment need
         /// </summary>
         /// <remarks>
-        /// Checks if the reassignment of rooms and shared files is necessary or not.
+        /// Checks whether the reassignment of rooms and shared files is required.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -1356,10 +1357,10 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Check the data reassignment need
+        /// Check data for reassignment need
         /// </summary>
         /// <remarks>
-        /// Checks if the reassignment of rooms and shared files is necessary or not.
+        /// Checks whether the reassignment of rooms and shared files is required.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -1374,10 +1375,10 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Check the data reassignment need
+        /// Check data for reassignment need
         /// </summary>
         /// <remarks>
-        /// Checks if the reassignment of rooms and shared files is necessary or not.
+        /// Checks whether the reassignment of rooms and shared files is required.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>

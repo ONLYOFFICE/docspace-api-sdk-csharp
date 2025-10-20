@@ -28,8 +28,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentLicenseInfo" /> class.
         /// </summary>
-        /// <param name="trial">Specifies whether the license is trial or not..</param>
-        /// <param name="dueDate">The date when the license expires..</param>
+        [JsonConstructorAttribute]
+        protected CurrentLicenseInfo() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CurrentLicenseInfo" /> class.
+        /// </summary>
+        /// <param name="trial">Specifies whether the license is trial or not. (required).</param>
+        /// <param name="dueDate">The date when the license expires. (required).</param>
         public CurrentLicenseInfo(bool trial = default, DateTime dueDate = default)
         {
             this.Trial = trial;
@@ -43,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "trial", EmitDefaultValue = true)]
+        [DataMember(Name = "trial", IsRequired = true, EmitDefaultValue = true)]
         public bool Trial { get; set; }
 
         /// <summary>
@@ -53,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "dueDate", EmitDefaultValue = false)]
+        [DataMember(Name = "dueDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTime DueDate { get; set; }
 
         /// <summary>

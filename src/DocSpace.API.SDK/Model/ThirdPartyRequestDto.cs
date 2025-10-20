@@ -28,21 +28,36 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ThirdPartyRequestDto" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected ThirdPartyRequestDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ThirdPartyRequestDto" /> class.
+        /// </summary>
         /// <param name="url">The connection URL for the sharepoint..</param>
         /// <param name="login">The third-party request login..</param>
         /// <param name="password">The third-party request password..</param>
         /// <param name="token">The authentication token..</param>
-        /// <param name="customerTitle">The customer title..</param>
-        /// <param name="providerKey">The provider key..</param>
+        /// <param name="customerTitle">The customer title. (required).</param>
+        /// <param name="providerKey">The provider key. (required).</param>
         /// <param name="providerId">The provider ID..</param>
         public ThirdPartyRequestDto(string url = default, string login = default, string password = default, string token = default, string customerTitle = default, string providerKey = default, int? providerId = default)
         {
+            // to ensure "customerTitle" is required (not null)
+            if (customerTitle == null)
+            {
+                throw new ArgumentNullException("customerTitle is a required property for ThirdPartyRequestDto and cannot be null");
+            }
+            this.CustomerTitle = customerTitle;
+            // to ensure "providerKey" is required (not null)
+            if (providerKey == null)
+            {
+                throw new ArgumentNullException("providerKey is a required property for ThirdPartyRequestDto and cannot be null");
+            }
+            this.ProviderKey = providerKey;
             this.Url = url;
             this.Login = login;
             this.Password = password;
             this.Token = token;
-            this.CustomerTitle = customerTitle;
-            this.ProviderKey = providerKey;
             this.ProviderId = providerId;
         }
 
@@ -93,7 +108,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "customerTitle", EmitDefaultValue = true)]
+        [DataMember(Name = "customerTitle", IsRequired = true, EmitDefaultValue = true)]
         public string CustomerTitle { get; set; }
 
         /// <summary>
@@ -103,7 +118,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "providerKey", EmitDefaultValue = true)]
+        [DataMember(Name = "providerKey", IsRequired = true, EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
 
         /// <summary>

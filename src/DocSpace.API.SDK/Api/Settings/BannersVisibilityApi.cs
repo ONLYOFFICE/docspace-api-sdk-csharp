@@ -24,10 +24,10 @@ namespace DocSpace.API.SDK.Api.Settings
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get the promotional banners visibility settings
+        /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the promotional banners visibility settings settings for the portal.
+        /// Returns the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-banner-settings/">REST API Reference for GetTenantBannerSettings Operation</seealso>
@@ -35,10 +35,10 @@ namespace DocSpace.API.SDK.Api.Settings
         TenantBannerSettingsWrapper GetTenantBannerSettings();
 
         /// <summary>
-        /// Get the promotional banners visibility settings
+        /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the promotional banners visibility settings settings for the portal.
+        /// Returns the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-banner-settings/">REST API Reference for GetTenantBannerSettings Operation</seealso>
@@ -54,10 +54,10 @@ namespace DocSpace.API.SDK.Api.Settings
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get the promotional banners visibility settings
+        /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the promotional banners visibility settings settings for the portal.
+        /// Returns the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -66,10 +66,10 @@ namespace DocSpace.API.SDK.Api.Settings
         Task<TenantBannerSettingsWrapper> GetTenantBannerSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get the promotional banners visibility settings
+        /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the promotional banners visibility settings settings for the portal.
+        /// Returns the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -289,11 +289,12 @@ namespace DocSpace.API.SDK.Api.Settings
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
-        /// Get the promotional banners visibility settings
+        /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the promotional banners visibility settings settings for the portal.
+        /// Returns the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-banner-settings/">REST API Reference for GetTenantBannerSettings Operation</seealso>
@@ -305,10 +306,10 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
         /// <summary>
-        /// Get the promotional banners visibility settings
+        /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the promotional banners visibility settings settings for the portal.
+        /// Returns the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-banner-settings/">REST API Reference for GetTenantBannerSettings Operation</seealso>
@@ -376,10 +377,10 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
         /// <summary>
-        /// Get the promotional banners visibility settings
+        /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the promotional banners visibility settings settings for the portal.
+        /// Returns the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -392,10 +393,10 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
         /// <summary>
-        /// Get the promotional banners visibility settings
+        /// Get the banners visibility
         /// </summary>
         /// <remarks>
-        /// Returns the promotional banners visibility settings settings for the portal.
+        /// Returns the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

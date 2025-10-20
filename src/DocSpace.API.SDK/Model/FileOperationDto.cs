@@ -28,27 +28,47 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Operation
         /// </summary>
-        [DataMember(Name = "Operation", EmitDefaultValue = false)]
-        public FileOperationType? Operation { get; set; }
+        [DataMember(Name = "Operation", IsRequired = true, EmitDefaultValue = true)]
+        public FileOperationType Operation { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="FileOperationDto" /> class.
         /// </summary>
-        /// <param name="id">The file operation ID..</param>
-        /// <param name="operation">operation.</param>
-        /// <param name="progress">The file operation progress in percentage..</param>
-        /// <param name="error">The file operation error message..</param>
-        /// <param name="processed">The file operation processing status..</param>
-        /// <param name="finished">Specifies if the file operation is finished or not..</param>
+        [JsonConstructorAttribute]
+        protected FileOperationDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FileOperationDto" /> class.
+        /// </summary>
+        /// <param name="id">The file operation ID. (required).</param>
+        /// <param name="operation">operation (required).</param>
+        /// <param name="progress">The file operation progress in percentage. (required).</param>
+        /// <param name="error">The file operation error message. (required).</param>
+        /// <param name="processed">The file operation processing status. (required).</param>
+        /// <param name="finished">Specifies if the file operation is finished or not. (required).</param>
         /// <param name="url">The file operation URL..</param>
         /// <param name="files">The list of files of the file operation..</param>
         /// <param name="folders">The list of folders of the file operation..</param>
-        public FileOperationDto(string id = default, FileOperationType? operation = default, int progress = default, string error = default, string processed = default, bool finished = default, string url = default, List<FileEntryBaseDto> files = default, List<FileEntryBaseDto> folders = default)
+        public FileOperationDto(string id = default, FileOperationType operation = default, int progress = default, string error = default, string processed = default, bool finished = default, string url = default, List<FileEntryBaseDto> files = default, List<FileEntryBaseDto> folders = default)
         {
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for FileOperationDto and cannot be null");
+            }
             this.Id = id;
             this.Operation = operation;
             this.Progress = progress;
+            // to ensure "error" is required (not null)
+            if (error == null)
+            {
+                throw new ArgumentNullException("error is a required property for FileOperationDto and cannot be null");
+            }
             this.Error = error;
+            // to ensure "processed" is required (not null)
+            if (processed == null)
+            {
+                throw new ArgumentNullException("processed is a required property for FileOperationDto and cannot be null");
+            }
             this.Processed = processed;
             this.Finished = finished;
             this.Url = url;
@@ -63,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -73,14 +93,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>100</example>
         */
-        [DataMember(Name = "progress", EmitDefaultValue = false)]
+        [DataMember(Name = "progress", IsRequired = true, EmitDefaultValue = true)]
         public int Progress { get; set; }
 
         /// <summary>
         /// The file operation error message.
         /// </summary>
         /// <value>The file operation error message.</value>
-        [DataMember(Name = "error", EmitDefaultValue = true)]
+        [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
@@ -90,7 +110,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "processed", EmitDefaultValue = true)]
+        [DataMember(Name = "processed", IsRequired = true, EmitDefaultValue = true)]
         public string Processed { get; set; }
 
         /// <summary>
@@ -100,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "finished", EmitDefaultValue = true)]
+        [DataMember(Name = "finished", IsRequired = true, EmitDefaultValue = true)]
         public bool Finished { get; set; }
 
         /// <summary>

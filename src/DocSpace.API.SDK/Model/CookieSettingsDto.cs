@@ -28,8 +28,13 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CookieSettingsDto" /> class.
         /// </summary>
-        /// <param name="lifeTime">The cookie lifetime value in minutes..</param>
-        /// <param name="enabled">Specifies if the cookie settings are enabled or not..</param>
+        [JsonConstructorAttribute]
+        protected CookieSettingsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CookieSettingsDto" /> class.
+        /// </summary>
+        /// <param name="lifeTime">The cookie lifetime value in minutes. (required).</param>
+        /// <param name="enabled">Specifies if the cookie settings are enabled or not. (required).</param>
         public CookieSettingsDto(int lifeTime = default, bool enabled = default)
         {
             this.LifeTime = lifeTime;
@@ -43,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "lifeTime", EmitDefaultValue = false)]
+        [DataMember(Name = "lifeTime", IsRequired = true, EmitDefaultValue = true)]
         public int LifeTime { get; set; }
 
         /// <summary>
@@ -53,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "enabled", EmitDefaultValue = true)]
+        [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>

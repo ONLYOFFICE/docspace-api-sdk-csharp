@@ -34,8 +34,8 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="GroupRequestDto" /> class.
         /// </summary>
         /// <param name="members">The list of group member IDs..</param>
-        /// <param name="groupManager">Group manager ID (required).</param>
-        /// <param name="groupName">Group name.</param>
+        /// <param name="groupManager">The group manager ID. (required).</param>
+        /// <param name="groupName">The group name..</param>
         public GroupRequestDto(List<Guid> members = default, Guid groupManager = default, string groupName = default)
         {
             this.GroupManager = groupManager;
@@ -54,9 +54,9 @@ namespace DocSpace.API.SDK.Model
         public List<Guid> Members { get; set; }
 
         /// <summary>
-        /// Group manager ID
+        /// The group manager ID.
         /// </summary>
-        /// <value>Group manager ID</value>
+        /// <value>The group manager ID.</value>
         /*
         <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
         */
@@ -64,9 +64,9 @@ namespace DocSpace.API.SDK.Model
         public Guid GroupManager { get; set; }
 
         /// <summary>
-        /// Group name
+        /// The group name.
         /// </summary>
-        /// <value>Group name</value>
+        /// <value>The group name.</value>
         /*
         <example>some text</example>
         */

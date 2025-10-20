@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for the payment quantity specifications.
+    /// The request parameters for specifying payment quantity.
     /// </summary>
     [DataContract(Name = "QuantityRequestDto")]
     public partial class QuantityRequestDto : IValidatableObject
@@ -28,16 +28,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantityRequestDto" /> class.
         /// </summary>
-        /// <param name="quantity">The mapping of item identifiers with their respective quantities in the payment..</param>
+        /// <param name="quantity">The mapping of item identifiers to their respective quantities in the payment..</param>
         public QuantityRequestDto(Dictionary<string, int> quantity = default)
         {
             this.Quantity = quantity;
         }
 
         /// <summary>
-        /// The mapping of item identifiers with their respective quantities in the payment.
+        /// The mapping of item identifiers to their respective quantities in the payment.
         /// </summary>
-        /// <value>The mapping of item identifiers with their respective quantities in the payment.</value>
+        /// <value>The mapping of item identifiers to their respective quantities in the payment.</value>
         /*
         <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:1234}]</example>
         */

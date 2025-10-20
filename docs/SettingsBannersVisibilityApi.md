@@ -4,13 +4,13 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetTenantBannerSettings**](#gettenantbannersettings) | **GET** /api/2.0/settings/banner | Get the promotional banners visibility settings |
+| [**GetTenantBannerSettings**](#gettenantbannersettings) | **GET** /api/2.0/settings/banner | Get the banners visibility |
 
 <a id="gettenantbannersettings"></a>
 # **GetTenantBannerSettings**
 > TenantBannerSettingsWrapper GetTenantBannerSettings ()
 
-Returns the promotional banners visibility settings settings for the portal.
+Returns the visibility settings of the promotional banners in the portal.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-banner-settings/).
 
@@ -64,7 +64,7 @@ namespace Example
 
             try
             {
-                // Get the promotional banners visibility settings
+                // Get the banners visibility
                 TenantBannerSettingsWrapper result = apiInstance.GetTenantBannerSettings();
                 Debug.WriteLine(result);
             }
@@ -85,7 +85,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get the promotional banners visibility settings
+    // Get the banners visibility
     ApiResponse<TenantBannerSettingsWrapper> response = apiInstance.GetTenantBannerSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

@@ -37,9 +37,12 @@ namespace DocSpace.API.SDK.Model
         /// <param name="canShare">Specifies if the file entry can be shared or not..</param>
         /// <param name="shareSettings">shareSettings.</param>
         /// <param name="security">security.</param>
-        /// <param name="availableExternalRights">The available external rights of the file entry..</param>
+        /// <param name="availableShareRights">availableShareRights.</param>
         /// <param name="requestToken">The request token of the file entry..</param>
-        public FileEntryDtoString(string id = default, string rootFolderId = default, string originId = default, string originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileEntryDtoIntegerAllOfShareSettings shareSettings = default, FileEntryDtoIntegerAllOfSecurity security = default, Dictionary<string, bool> availableExternalRights = default, string requestToken = default)
+        /// <param name="external">Specifies if the folder can be accessed via an external link or not..</param>
+        /// <param name="expirationDate">expirationDate.</param>
+        /// <param name="isLinkExpired">Indicates whether the shareable link associated with the file or folder has expired..</param>
+        public FileEntryDtoString(string id = default, string rootFolderId = default, string originId = default, string originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileEntryDtoIntegerAllOfShareSettings shareSettings = default, FileEntryDtoIntegerAllOfSecurity security = default, FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights = default, string requestToken = default, bool? external = default, ApiDateTime expirationDate = default, bool? isLinkExpired = default)
         {
             this.Id = id;
             this.RootFolderId = rootFolderId;
@@ -50,8 +53,11 @@ namespace DocSpace.API.SDK.Model
             this.CanShare = canShare;
             this.ShareSettings = shareSettings;
             this.Security = security;
-            this.AvailableExternalRights = availableExternalRights;
+            this.AvailableShareRights = availableShareRights;
             this.RequestToken = requestToken;
+            this.External = external;
+            this.ExpirationDate = expirationDate;
+            this.IsLinkExpired = isLinkExpired;
         }
 
         /// <summary>
@@ -137,14 +143,10 @@ namespace DocSpace.API.SDK.Model
         public FileEntryDtoIntegerAllOfSecurity Security { get; set; }
 
         /// <summary>
-        /// The available external rights of the file entry.
+        /// Gets or Sets AvailableShareRights
         /// </summary>
-        /// <value>The available external rights of the file entry.</value>
-        /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:true}]</example>
-        */
-        [DataMember(Name = "availableExternalRights", EmitDefaultValue = true)]
-        public Dictionary<string, bool> AvailableExternalRights { get; set; }
+        [DataMember(Name = "availableShareRights", EmitDefaultValue = true)]
+        public FileEntryDtoIntegerAllOfAvailableShareRights AvailableShareRights { get; set; }
 
         /// <summary>
         /// The request token of the file entry.
@@ -155,6 +157,32 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "requestToken", EmitDefaultValue = true)]
         public string RequestToken { get; set; }
+
+        /// <summary>
+        /// Specifies if the folder can be accessed via an external link or not.
+        /// </summary>
+        /// <value>Specifies if the folder can be accessed via an external link or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "external", EmitDefaultValue = true)]
+        public bool? External { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExpirationDate
+        /// </summary>
+        [DataMember(Name = "expirationDate", EmitDefaultValue = false)]
+        public ApiDateTime ExpirationDate { get; set; }
+
+        /// <summary>
+        /// Indicates whether the shareable link associated with the file or folder has expired.
+        /// </summary>
+        /// <value>Indicates whether the shareable link associated with the file or folder has expired.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "isLinkExpired", EmitDefaultValue = true)]
+        public bool? IsLinkExpired { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -173,8 +201,11 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  CanShare: ").Append(CanShare).Append("\n");
             sb.Append("  ShareSettings: ").Append(ShareSettings).Append("\n");
             sb.Append("  Security: ").Append(Security).Append("\n");
-            sb.Append("  AvailableExternalRights: ").Append(AvailableExternalRights).Append("\n");
+            sb.Append("  AvailableShareRights: ").Append(AvailableShareRights).Append("\n");
             sb.Append("  RequestToken: ").Append(RequestToken).Append("\n");
+            sb.Append("  External: ").Append(External).Append("\n");
+            sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
+            sb.Append("  IsLinkExpired: ").Append(IsLinkExpired).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

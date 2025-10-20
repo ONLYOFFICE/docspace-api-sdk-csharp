@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Delete a user API key
         /// </summary>
         /// <remarks>
-        /// Delete a user API key by its ID.
+        /// Deletes a user API key by its ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Delete a user API key
         /// </summary>
         /// <remarks>
-        /// Delete a user API key by its ID.
+        /// Deletes a user API key by its ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
@@ -91,10 +91,10 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// <returns>ApiResponse of STRINGArrayWrapper</returns>
         ApiResponse<STRINGArrayWrapper> GetAllPermissionsWithHttpInfo();
         /// <summary>
-        /// Get user API key info
+        /// Get current user&#39;s API key
         /// </summary>
         /// <remarks>
-        /// Returns current user API key info.
+        /// Returns information about the current user&#39;s API key.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/">REST API Reference for GetApiKey Operation</seealso>
@@ -102,17 +102,17 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         ApiKeyResponseWrapper GetApiKey();
 
         /// <summary>
-        /// Get user API key info
+        /// Get current user&#39;s API key
         /// </summary>
         /// <remarks>
-        /// Returns current user API key info.
+        /// Returns information about the current user&#39;s API key.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/">REST API Reference for GetApiKey Operation</seealso>
         /// <returns>ApiResponse of ApiKeyResponseWrapper</returns>
         ApiResponse<ApiKeyResponseWrapper> GetApiKeyWithHttpInfo();
         /// <summary>
-        /// Get user API keys
+        /// Get current user&#39;s API keys
         /// </summary>
         /// <remarks>
         /// Returns a list of all API keys for the current user.
@@ -123,7 +123,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         ApiKeyResponseArrayWrapper GetApiKeys();
 
         /// <summary>
-        /// Get user API keys
+        /// Get current user&#39;s API keys
         /// </summary>
         /// <remarks>
         /// Returns a list of all API keys for the current user.
@@ -136,27 +136,27 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Update an API key
         /// </summary>
         /// <remarks>
-        /// Updates an existing API key changing its name, permissions and status.
+        /// Updates an existing API key changing its name, permissions, and status.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
-        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
+        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/">REST API Reference for UpdateApiKey Operation</seealso>
         /// <returns>BooleanWrapper</returns>
-        BooleanWrapper UpdateApiKey(Guid keyId, UpdateApiKeyRequest? updateApiKeyRequest = default);
+        BooleanWrapper UpdateApiKey(Guid keyId, UpdateApiKeyRequest updateApiKeyRequest);
 
         /// <summary>
         /// Update an API key
         /// </summary>
         /// <remarks>
-        /// Updates an existing API key changing its name, permissions and status.
+        /// Updates an existing API key changing its name, permissions, and status.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
-        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
+        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/">REST API Reference for UpdateApiKey Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        ApiResponse<BooleanWrapper> UpdateApiKeyWithHttpInfo(Guid keyId, UpdateApiKeyRequest? updateApiKeyRequest = default);
+        ApiResponse<BooleanWrapper> UpdateApiKeyWithHttpInfo(Guid keyId, UpdateApiKeyRequest updateApiKeyRequest);
         #endregion Synchronous Operations
     }
 
@@ -195,7 +195,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Delete a user API key
         /// </summary>
         /// <remarks>
-        /// Delete a user API key by its ID.
+        /// Deletes a user API key by its ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
@@ -208,7 +208,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Delete a user API key
         /// </summary>
         /// <remarks>
-        /// Delete a user API key by its ID.
+        /// Deletes a user API key by its ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
@@ -240,10 +240,10 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
         Task<ApiResponse<STRINGArrayWrapper>> GetAllPermissionsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get user API key info
+        /// Get current user&#39;s API key
         /// </summary>
         /// <remarks>
-        /// Returns current user API key info.
+        /// Returns information about the current user&#39;s API key.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -252,10 +252,10 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         Task<ApiKeyResponseWrapper> GetApiKeyAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get user API key info
+        /// Get current user&#39;s API key
         /// </summary>
         /// <remarks>
-        /// Returns current user API key info.
+        /// Returns information about the current user&#39;s API key.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -263,7 +263,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// <returns>Task of ApiResponse (ApiKeyResponseWrapper)</returns>
         Task<ApiResponse<ApiKeyResponseWrapper>> GetApiKeyWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get user API keys
+        /// Get current user&#39;s API keys
         /// </summary>
         /// <remarks>
         /// Returns a list of all API keys for the current user.
@@ -275,7 +275,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         Task<ApiKeyResponseArrayWrapper> GetApiKeysAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get user API keys
+        /// Get current user&#39;s API keys
         /// </summary>
         /// <remarks>
         /// Returns a list of all API keys for the current user.
@@ -289,29 +289,29 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Update an API key
         /// </summary>
         /// <remarks>
-        /// Updates an existing API key changing its name, permissions and status.
+        /// Updates an existing API key changing its name, permissions, and status.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
-        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
+        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/">REST API Reference for UpdateApiKey Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
-        Task<BooleanWrapper> UpdateApiKeyAsync(Guid keyId, UpdateApiKeyRequest? updateApiKeyRequest = default, CancellationToken cancellationToken = default);
+        Task<BooleanWrapper> UpdateApiKeyAsync(Guid keyId, UpdateApiKeyRequest updateApiKeyRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update an API key
         /// </summary>
         /// <remarks>
-        /// Updates an existing API key changing its name, permissions and status.
+        /// Updates an existing API key changing its name, permissions, and status.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
-        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
+        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/">REST API Reference for UpdateApiKey Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        Task<ApiResponse<BooleanWrapper>> UpdateApiKeyWithHttpInfoAsync(Guid keyId, UpdateApiKeyRequest? updateApiKeyRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<BooleanWrapper>> UpdateApiKeyWithHttpInfoAsync(Guid keyId, UpdateApiKeyRequest updateApiKeyRequest, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -525,6 +525,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Create a user API key
         /// </summary>
@@ -711,7 +712,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Delete a user API key
         /// </summary>
         /// <remarks>
-        /// Delete a user API key by its ID.
+        /// Deletes a user API key by its ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
@@ -727,7 +728,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Delete a user API key
         /// </summary>
         /// <remarks>
-        /// Delete a user API key by its ID.
+        /// Deletes a user API key by its ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
@@ -800,7 +801,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Delete a user API key
         /// </summary>
         /// <remarks>
-        /// Delete a user API key by its ID.
+        /// Deletes a user API key by its ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
@@ -817,7 +818,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Delete a user API key
         /// </summary>
         /// <remarks>
-        /// Delete a user API key by its ID.
+        /// Deletes a user API key by its ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The API key ID.</param>
@@ -1066,10 +1067,10 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         }
 
         /// <summary>
-        /// Get user API key info
+        /// Get current user&#39;s API key
         /// </summary>
         /// <remarks>
-        /// Returns current user API key info.
+        /// Returns information about the current user&#39;s API key.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/">REST API Reference for GetApiKey Operation</seealso>
@@ -1081,10 +1082,10 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         }
 
         /// <summary>
-        /// Get user API key info
+        /// Get current user&#39;s API key
         /// </summary>
         /// <remarks>
-        /// Returns current user API key info.
+        /// Returns information about the current user&#39;s API key.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/">REST API Reference for GetApiKey Operation</seealso>
@@ -1152,10 +1153,10 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         }
 
         /// <summary>
-        /// Get user API key info
+        /// Get current user&#39;s API key
         /// </summary>
         /// <remarks>
-        /// Returns current user API key info.
+        /// Returns information about the current user&#39;s API key.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1168,10 +1169,10 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         }
 
         /// <summary>
-        /// Get user API key info
+        /// Get current user&#39;s API key
         /// </summary>
         /// <remarks>
-        /// Returns current user API key info.
+        /// Returns information about the current user&#39;s API key.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1242,7 +1243,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         }
 
         /// <summary>
-        /// Get user API keys
+        /// Get current user&#39;s API keys
         /// </summary>
         /// <remarks>
         /// Returns a list of all API keys for the current user.
@@ -1257,7 +1258,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         }
 
         /// <summary>
-        /// Get user API keys
+        /// Get current user&#39;s API keys
         /// </summary>
         /// <remarks>
         /// Returns a list of all API keys for the current user.
@@ -1328,7 +1329,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         }
 
         /// <summary>
-        /// Get user API keys
+        /// Get current user&#39;s API keys
         /// </summary>
         /// <remarks>
         /// Returns a list of all API keys for the current user.
@@ -1344,7 +1345,7 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         }
 
         /// <summary>
-        /// Get user API keys
+        /// Get current user&#39;s API keys
         /// </summary>
         /// <remarks>
         /// Returns a list of all API keys for the current user.
@@ -1421,14 +1422,14 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Update an API key
         /// </summary>
         /// <remarks>
-        /// Updates an existing API key changing its name, permissions and status.
+        /// Updates an existing API key changing its name, permissions, and status.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
-        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
+        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/">REST API Reference for UpdateApiKey Operation</seealso>
         /// <returns>BooleanWrapper</returns>
-        public BooleanWrapper UpdateApiKey(Guid keyId, UpdateApiKeyRequest? updateApiKeyRequest = default)
+        public BooleanWrapper UpdateApiKey(Guid keyId, UpdateApiKeyRequest updateApiKeyRequest)
         {
             var localVarResponse = UpdateApiKeyWithHttpInfo(keyId, updateApiKeyRequest);
             return localVarResponse.Data;
@@ -1438,15 +1439,19 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Update an API key
         /// </summary>
         /// <remarks>
-        /// Updates an existing API key changing its name, permissions and status.
+        /// Updates an existing API key changing its name, permissions, and status.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
-        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
+        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/">REST API Reference for UpdateApiKey Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public ApiResponse<BooleanWrapper> UpdateApiKeyWithHttpInfo(Guid keyId, UpdateApiKeyRequest? updateApiKeyRequest = default)
+        public ApiResponse<BooleanWrapper> UpdateApiKeyWithHttpInfo(Guid keyId, UpdateApiKeyRequest updateApiKeyRequest)
         {
+            // verify the required parameter 'updateApiKeyRequest' is set
+            if (updateApiKeyRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updateApiKeyRequest' when calling ApiKeysApi->UpdateApiKey");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -1513,15 +1518,15 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Update an API key
         /// </summary>
         /// <remarks>
-        /// Updates an existing API key changing its name, permissions and status.
+        /// Updates an existing API key changing its name, permissions, and status.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
-        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
+        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/">REST API Reference for UpdateApiKey Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
-        public async Task<BooleanWrapper> UpdateApiKeyAsync(Guid keyId, UpdateApiKeyRequest? updateApiKeyRequest = default, CancellationToken cancellationToken = default)
+        public async Task<BooleanWrapper> UpdateApiKeyAsync(Guid keyId, UpdateApiKeyRequest updateApiKeyRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await UpdateApiKeyWithHttpInfoAsync(keyId, updateApiKeyRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1531,16 +1536,20 @@ namespace DocSpace.API.SDK.Api.ApiKeys
         /// Update an API key
         /// </summary>
         /// <remarks>
-        /// Updates an existing API key changing its name, permissions and status.
+        /// Updates an existing API key changing its name, permissions, and status.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId">The unique identifier of the API key to update.</param>
-        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key. (optional)</param>
+        /// <param name="updateApiKeyRequest">The request parameters for updating an existing API key.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/">REST API Reference for UpdateApiKey Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async Task<ApiResponse<BooleanWrapper>> UpdateApiKeyWithHttpInfoAsync(Guid keyId, UpdateApiKeyRequest? updateApiKeyRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<BooleanWrapper>> UpdateApiKeyWithHttpInfoAsync(Guid keyId, UpdateApiKeyRequest updateApiKeyRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'updateApiKeyRequest' is set
+            if (updateApiKeyRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updateApiKeyRequest' when calling ApiKeysApi->UpdateApiKey");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];

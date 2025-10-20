@@ -28,9 +28,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ActiveConnectionsItemDto" /> class.
         /// </summary>
-        /// <param name="id">The active connection ID..</param>
-        /// <param name="tenantId">The tenant ID..</param>
-        /// <param name="userId">The user ID..</param>
+        [JsonConstructorAttribute]
+        protected ActiveConnectionsItemDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActiveConnectionsItemDto" /> class.
+        /// </summary>
+        /// <param name="id">The active connection ID. (required).</param>
+        /// <param name="tenantId">The tenant ID. (required).</param>
+        /// <param name="userId">The user ID. (required).</param>
         /// <param name="mobile">Specifies if the active connection has a mobile phone or not..</param>
         /// <param name="ip">The IP address of the active connection..</param>
         /// <param name="country">The active connection country..</param>
@@ -61,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>
@@ -71,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "tenantId", EmitDefaultValue = false)]
+        [DataMember(Name = "tenantId", IsRequired = true, EmitDefaultValue = true)]
         public int TenantId { get; set; }
 
         /// <summary>
@@ -81,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
         */
-        [DataMember(Name = "userId", EmitDefaultValue = false)]
+        [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
         public Guid UserId { get; set; }
 
         /// <summary>

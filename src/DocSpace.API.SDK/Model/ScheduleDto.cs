@@ -28,26 +28,41 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets StorageType
         /// </summary>
-        [DataMember(Name = "storageType", EmitDefaultValue = false)]
-        public BackupStorageType? StorageType { get; set; }
+        [DataMember(Name = "storageType", IsRequired = true, EmitDefaultValue = true)]
+        public BackupStorageType StorageType { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="ScheduleDto" /> class.
         /// </summary>
-        /// <param name="storageType">storageType.</param>
-        /// <param name="storageParams">storageParams.</param>
-        /// <param name="cronParams">cronParams.</param>
+        [JsonConstructorAttribute]
+        protected ScheduleDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScheduleDto" /> class.
+        /// </summary>
+        /// <param name="storageType">storageType (required).</param>
+        /// <param name="storageParams">storageParams (required).</param>
+        /// <param name="cronParams">cronParams (required).</param>
         /// <param name="backupsStored">backupsStored.</param>
-        /// <param name="lastBackupTime">lastBackupTime.</param>
-        /// <param name="dump">dump.</param>
-        public ScheduleDto(BackupStorageType? storageType = default, Dictionary<string, string> storageParams = default, CronParams cronParams = default, int? backupsStored = default, DateTime lastBackupTime = default, bool dump = default)
+        /// <param name="lastBackupTime">lastBackupTime (required).</param>
+        /// <param name="dump">dump (required).</param>
+        public ScheduleDto(BackupStorageType storageType = default, Dictionary<string, string> storageParams = default, CronParams cronParams = default, int? backupsStored = default, DateTime lastBackupTime = default, bool dump = default)
         {
             this.StorageType = storageType;
+            // to ensure "storageParams" is required (not null)
+            if (storageParams == null)
+            {
+                throw new ArgumentNullException("storageParams is a required property for ScheduleDto and cannot be null");
+            }
             this.StorageParams = storageParams;
+            // to ensure "cronParams" is required (not null)
+            if (cronParams == null)
+            {
+                throw new ArgumentNullException("cronParams is a required property for ScheduleDto and cannot be null");
+            }
             this.CronParams = cronParams;
-            this.BackupsStored = backupsStored;
             this.LastBackupTime = lastBackupTime;
             this.Dump = dump;
+            this.BackupsStored = backupsStored;
         }
 
         /// <summary>
@@ -56,13 +71,13 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
         */
-        [DataMember(Name = "storageParams", EmitDefaultValue = true)]
+        [DataMember(Name = "storageParams", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, string> StorageParams { get; set; }
 
         /// <summary>
         /// Gets or Sets CronParams
         /// </summary>
-        [DataMember(Name = "cronParams", EmitDefaultValue = false)]
+        [DataMember(Name = "cronParams", IsRequired = true, EmitDefaultValue = true)]
         public CronParams CronParams { get; set; }
 
         /// <summary>
@@ -80,7 +95,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "lastBackupTime", EmitDefaultValue = false)]
+        [DataMember(Name = "lastBackupTime", IsRequired = true, EmitDefaultValue = true)]
         public DateTime LastBackupTime { get; set; }
 
         /// <summary>
@@ -89,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>false</example>
         */
-        [DataMember(Name = "dump", EmitDefaultValue = true)]
+        [DataMember(Name = "dump", IsRequired = true, EmitDefaultValue = true)]
         public bool Dump { get; set; }
 
         /// <summary>

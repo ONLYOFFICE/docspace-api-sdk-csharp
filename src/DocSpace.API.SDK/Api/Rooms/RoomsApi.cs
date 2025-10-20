@@ -28,7 +28,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-tags/">REST API Reference for AddRoomTags Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         FolderIntegerWrapper AddRoomTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default);
@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-tags/">REST API Reference for AddRoomTags Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> AddRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default);
@@ -72,10 +72,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="coverRequestDto">The request parameters to change the room cover. (optional)</param>
+        /// <param name="coverRequestDto">The request parameters to change the room cover.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-cover/">REST API Reference for ChangeRoomCover Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
-        FolderIntegerWrapper ChangeRoomCover(int id, CoverRequestDto? coverRequestDto = default);
+        FolderIntegerWrapper ChangeRoomCover(int id, CoverRequestDto coverRequestDto);
 
         /// <summary>
         /// 
@@ -85,10 +85,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="coverRequestDto">The request parameters to change the room cover. (optional)</param>
+        /// <param name="coverRequestDto">The request parameters to change the room cover.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-cover/">REST API Reference for ChangeRoomCover Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        ApiResponse<FolderIntegerWrapper> ChangeRoomCoverWithHttpInfo(int id, CoverRequestDto? coverRequestDto = default);
+        ApiResponse<FolderIntegerWrapper> ChangeRoomCoverWithHttpInfo(int id, CoverRequestDto coverRequestDto);
         /// <summary>
         /// 
         /// </summary>
@@ -134,10 +134,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="logoRequest">The logo request parameters. (optional)</param>
+        /// <param name="logoRequest">The logo request parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-logo/">REST API Reference for CreateRoomLogo Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
-        FolderIntegerWrapper CreateRoomLogo(int id, LogoRequest? logoRequest = default);
+        FolderIntegerWrapper CreateRoomLogo(int id, LogoRequest logoRequest);
 
         /// <summary>
         /// 
@@ -147,10 +147,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="logoRequest">The logo request parameters. (optional)</param>
+        /// <param name="logoRequest">The logo request parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-logo/">REST API Reference for CreateRoomLogo Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        ApiResponse<FolderIntegerWrapper> CreateRoomLogoWithHttpInfo(int id, LogoRequest? logoRequest = default);
+        ApiResponse<FolderIntegerWrapper> CreateRoomLogoWithHttpInfo(int id, LogoRequest logoRequest);
         /// <summary>
         /// 
         /// </summary>
@@ -196,10 +196,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
-        /// <param name="createThirdPartyRoom">The third-party room information. (optional)</param>
+        /// <param name="createThirdPartyRoom">The third-party room information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>FolderStringWrapper</returns>
-        FolderStringWrapper CreateRoomThirdParty(string id, CreateThirdPartyRoom? createThirdPartyRoom = default);
+        FolderStringWrapper CreateRoomThirdParty(string id, CreateThirdPartyRoom createThirdPartyRoom);
 
         /// <summary>
         /// 
@@ -209,15 +209,15 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
-        /// <param name="createThirdPartyRoom">The third-party room information. (optional)</param>
+        /// <param name="createThirdPartyRoom">The third-party room information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>ApiResponse of FolderStringWrapper</returns>
-        ApiResponse<FolderStringWrapper> CreateRoomThirdPartyWithHttpInfo(string id, CreateThirdPartyRoom? createThirdPartyRoom = default);
+        ApiResponse<FolderStringWrapper> CreateRoomThirdPartyWithHttpInfo(string id, CreateThirdPartyRoom createThirdPartyRoom);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/">REST API Reference for DeleteCustomTags Operation</seealso>
         /// <returns></returns>
         void DeleteCustomTags(BatchTagsRequestDto? batchTagsRequestDto = default);
@@ -229,7 +229,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/">REST API Reference for DeleteCustomTags Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCustomTagsWithHttpInfo(BatchTagsRequestDto? batchTagsRequestDto = default);
@@ -238,10 +238,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="deleteRoomRequest">The parameters for deleting a room. (optional)</param>
+        /// <param name="deleteRoomRequest">The parameters for deleting a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room/">REST API Reference for DeleteRoom Operation</seealso>
         /// <returns>FileOperationWrapper</returns>
-        FileOperationWrapper DeleteRoom(int id, DeleteRoomRequest? deleteRoomRequest = default);
+        FileOperationWrapper DeleteRoom(int id, DeleteRoomRequest deleteRoomRequest);
 
         /// <summary>
         /// 
@@ -251,15 +251,15 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="deleteRoomRequest">The parameters for deleting a room. (optional)</param>
+        /// <param name="deleteRoomRequest">The parameters for deleting a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room/">REST API Reference for DeleteRoom Operation</seealso>
         /// <returns>ApiResponse of FileOperationWrapper</returns>
-        ApiResponse<FileOperationWrapper> DeleteRoomWithHttpInfo(int id, DeleteRoomRequest? deleteRoomRequest = default);
+        ApiResponse<FileOperationWrapper> DeleteRoomWithHttpInfo(int id, DeleteRoomRequest deleteRoomRequest);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/">REST API Reference for DeleteRoomLogo Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         FolderIntegerWrapper DeleteRoomLogo(int id);
@@ -271,7 +271,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/">REST API Reference for DeleteRoomLogo Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> DeleteRoomLogoWithHttpInfo(int id);
@@ -280,7 +280,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/">REST API Reference for DeleteRoomTags Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         FolderIntegerWrapper DeleteRoomTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default);
@@ -293,7 +293,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/">REST API Reference for DeleteRoomTags Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> DeleteRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default);
@@ -301,7 +301,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/">REST API Reference for GetNewRoomItems Operation</seealso>
         /// <returns>NewItemsFileEntryBaseArrayWrapper</returns>
         NewItemsFileEntryBaseArrayWrapper GetNewRoomItems(int id);
@@ -313,7 +313,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/">REST API Reference for GetNewRoomItems Operation</seealso>
         /// <returns>ApiResponse of NewItemsFileEntryBaseArrayWrapper</returns>
         ApiResponse<NewItemsFileEntryBaseArrayWrapper> GetNewRoomItemsWithHttpInfo(int id);
@@ -395,7 +395,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/">REST API Reference for GetRoomInfo Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         FolderIntegerWrapper GetRoomInfo(int id);
@@ -407,7 +407,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/">REST API Reference for GetRoomInfo Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> GetRoomInfoWithHttpInfo(int id);
@@ -468,10 +468,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
         /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
         /// <returns>ObjectArrayWrapper</returns>
-        ObjectArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default, string fields = default);
+        ObjectArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default);
 
         /// <summary>
         /// 
@@ -483,10 +482,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
         /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default, string fields = default);
+        ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default);
         /// <summary>
         /// 
         /// </summary>
@@ -524,10 +522,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
 
         /// <summary>
         /// 
@@ -551,10 +548,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
         /// <summary>
         /// 
         /// </summary>
@@ -577,7 +573,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
         FileShareWrapper GetRoomsPrimaryExternalLink(int id);
@@ -589,7 +585,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
         ApiResponse<FileShareWrapper> GetRoomsPrimaryExternalLinkWithHttpInfo(int id);
@@ -597,7 +593,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/">REST API Reference for PinRoom Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         FolderIntegerWrapper PinRoom(int id);
@@ -609,7 +605,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/">REST API Reference for PinRoom Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> PinRoomWithHttpInfo(int id);
@@ -617,7 +613,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/">REST API Reference for ReorderRoom Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         FolderIntegerWrapper ReorderRoom(int id);
@@ -629,7 +625,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/">REST API Reference for ReorderRoom Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> ReorderRoomWithHttpInfo(int id);
@@ -638,10 +634,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="userInvitation">The user invitation parameters. (optional)</param>
+        /// <param name="userInvitation">The user invitation parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/">REST API Reference for ResendEmailInvitations Operation</seealso>
         /// <returns></returns>
-        void ResendEmailInvitations(int id, UserInvitation? userInvitation = default);
+        void ResendEmailInvitations(int id, UserInvitation userInvitation);
 
         /// <summary>
         /// 
@@ -651,10 +647,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="userInvitation">The user invitation parameters. (optional)</param>
+        /// <param name="userInvitation">The user invitation parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/">REST API Reference for ResendEmailInvitations Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ResendEmailInvitationsWithHttpInfo(int id, UserInvitation? userInvitation = default);
+        ApiResponse<Object> ResendEmailInvitationsWithHttpInfo(int id, UserInvitation userInvitation);
         /// <summary>
         /// 
         /// </summary>
@@ -680,10 +676,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
+        /// <param name="roomLinkRequest">The room link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-link/">REST API Reference for SetRoomLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        FileShareWrapper SetRoomLink(int id, RoomLinkRequest? roomLinkRequest = default);
+        FileShareWrapper SetRoomLink(int id, RoomLinkRequest roomLinkRequest);
 
         /// <summary>
         /// 
@@ -693,19 +689,19 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
+        /// <param name="roomLinkRequest">The room link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-link/">REST API Reference for SetRoomLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        ApiResponse<FileShareWrapper> SetRoomLinkWithHttpInfo(int id, RoomLinkRequest? roomLinkRequest = default);
+        ApiResponse<FileShareWrapper> SetRoomLinkWithHttpInfo(int id, RoomLinkRequest roomLinkRequest);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomInvitationRequest">The room invitation request. (optional)</param>
+        /// <param name="roomInvitationRequest">The room invitation request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/">REST API Reference for SetRoomSecurity Operation</seealso>
         /// <returns>RoomSecurityWrapper</returns>
-        RoomSecurityWrapper SetRoomSecurity(int id, RoomInvitationRequest? roomInvitationRequest = default);
+        RoomSecurityWrapper SetRoomSecurity(int id, RoomInvitationRequest roomInvitationRequest);
 
         /// <summary>
         /// 
@@ -715,15 +711,15 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomInvitationRequest">The room invitation request. (optional)</param>
+        /// <param name="roomInvitationRequest">The room invitation request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/">REST API Reference for SetRoomSecurity Operation</seealso>
         /// <returns>ApiResponse of RoomSecurityWrapper</returns>
-        ApiResponse<RoomSecurityWrapper> SetRoomSecurityWithHttpInfo(int id, RoomInvitationRequest? roomInvitationRequest = default);
+        ApiResponse<RoomSecurityWrapper> SetRoomSecurityWithHttpInfo(int id, RoomInvitationRequest roomInvitationRequest);
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/">REST API Reference for StartRoomIndexExport Operation</seealso>
         /// <returns>DocumentBuilderTaskWrapper</returns>
         DocumentBuilderTaskWrapper StartRoomIndexExport(int id);
@@ -735,7 +731,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/">REST API Reference for StartRoomIndexExport Operation</seealso>
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
         ApiResponse<DocumentBuilderTaskWrapper> StartRoomIndexExportWithHttpInfo(int id);
@@ -783,7 +779,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/">REST API Reference for UnpinRoom Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         FolderIntegerWrapper UnpinRoom(int id);
@@ -795,7 +791,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/">REST API Reference for UnpinRoom Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> UnpinRoomWithHttpInfo(int id);
@@ -804,10 +800,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="updateRoomRequest">The request parameters for updating a room. (optional)</param>
+        /// <param name="updateRoomRequest">The request parameters for updating a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/">REST API Reference for UpdateRoom Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
-        FolderIntegerWrapper UpdateRoom(int id, UpdateRoomRequest? updateRoomRequest = default);
+        FolderIntegerWrapper UpdateRoom(int id, UpdateRoomRequest updateRoomRequest);
 
         /// <summary>
         /// 
@@ -817,10 +813,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="updateRoomRequest">The request parameters for updating a room. (optional)</param>
+        /// <param name="updateRoomRequest">The request parameters for updating a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/">REST API Reference for UpdateRoom Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        ApiResponse<FolderIntegerWrapper> UpdateRoomWithHttpInfo(int id, UpdateRoomRequest? updateRoomRequest = default);
+        ApiResponse<FolderIntegerWrapper> UpdateRoomWithHttpInfo(int id, UpdateRoomRequest updateRoomRequest);
         /// <summary>
         /// 
         /// </summary>
@@ -858,7 +854,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-tags/">REST API Reference for AddRoomTags Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -872,7 +868,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-tags/">REST API Reference for AddRoomTags Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -912,11 +908,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="coverRequestDto">The request parameters to change the room cover. (optional)</param>
+        /// <param name="coverRequestDto">The request parameters to change the room cover.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-cover/">REST API Reference for ChangeRoomCover Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        Task<FolderIntegerWrapper> ChangeRoomCoverAsync(int id, CoverRequestDto? coverRequestDto = default, CancellationToken cancellationToken = default);
+        Task<FolderIntegerWrapper> ChangeRoomCoverAsync(int id, CoverRequestDto coverRequestDto, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -926,11 +922,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="coverRequestDto">The request parameters to change the room cover. (optional)</param>
+        /// <param name="coverRequestDto">The request parameters to change the room cover.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-cover/">REST API Reference for ChangeRoomCover Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        Task<ApiResponse<FolderIntegerWrapper>> ChangeRoomCoverWithHttpInfoAsync(int id, CoverRequestDto? coverRequestDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderIntegerWrapper>> ChangeRoomCoverWithHttpInfoAsync(int id, CoverRequestDto coverRequestDto, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -989,11 +985,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="logoRequest">The logo request parameters. (optional)</param>
+        /// <param name="logoRequest">The logo request parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-logo/">REST API Reference for CreateRoomLogo Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        Task<FolderIntegerWrapper> CreateRoomLogoAsync(int id, LogoRequest? logoRequest = default, CancellationToken cancellationToken = default);
+        Task<FolderIntegerWrapper> CreateRoomLogoAsync(int id, LogoRequest logoRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1003,11 +999,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="logoRequest">The logo request parameters. (optional)</param>
+        /// <param name="logoRequest">The logo request parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-logo/">REST API Reference for CreateRoomLogo Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        Task<ApiResponse<FolderIntegerWrapper>> CreateRoomLogoWithHttpInfoAsync(int id, LogoRequest? logoRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderIntegerWrapper>> CreateRoomLogoWithHttpInfoAsync(int id, LogoRequest logoRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1066,11 +1062,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
-        /// <param name="createThirdPartyRoom">The third-party room information. (optional)</param>
+        /// <param name="createThirdPartyRoom">The third-party room information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>Task of FolderStringWrapper</returns>
-        Task<FolderStringWrapper> CreateRoomThirdPartyAsync(string id, CreateThirdPartyRoom? createThirdPartyRoom = default, CancellationToken cancellationToken = default);
+        Task<FolderStringWrapper> CreateRoomThirdPartyAsync(string id, CreateThirdPartyRoom createThirdPartyRoom, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1080,11 +1076,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
-        /// <param name="createThirdPartyRoom">The third-party room information. (optional)</param>
+        /// <param name="createThirdPartyRoom">The third-party room information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
-        Task<ApiResponse<FolderStringWrapper>> CreateRoomThirdPartyWithHttpInfoAsync(string id, CreateThirdPartyRoom? createThirdPartyRoom = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderStringWrapper>> CreateRoomThirdPartyWithHttpInfoAsync(string id, CreateThirdPartyRoom createThirdPartyRoom, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1092,7 +1088,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/">REST API Reference for DeleteCustomTags Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1105,7 +1101,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/">REST API Reference for DeleteCustomTags Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1118,11 +1114,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="deleteRoomRequest">The parameters for deleting a room. (optional)</param>
+        /// <param name="deleteRoomRequest">The parameters for deleting a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room/">REST API Reference for DeleteRoom Operation</seealso>
         /// <returns>Task of FileOperationWrapper</returns>
-        Task<FileOperationWrapper> DeleteRoomAsync(int id, DeleteRoomRequest? deleteRoomRequest = default, CancellationToken cancellationToken = default);
+        Task<FileOperationWrapper> DeleteRoomAsync(int id, DeleteRoomRequest deleteRoomRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1132,11 +1128,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="deleteRoomRequest">The parameters for deleting a room. (optional)</param>
+        /// <param name="deleteRoomRequest">The parameters for deleting a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room/">REST API Reference for DeleteRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationWrapper)</returns>
-        Task<ApiResponse<FileOperationWrapper>> DeleteRoomWithHttpInfoAsync(int id, DeleteRoomRequest? deleteRoomRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileOperationWrapper>> DeleteRoomWithHttpInfoAsync(int id, DeleteRoomRequest deleteRoomRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1144,7 +1140,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/">REST API Reference for DeleteRoomLogo Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -1157,7 +1153,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/">REST API Reference for DeleteRoomLogo Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -1170,7 +1166,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/">REST API Reference for DeleteRoomTags Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -1184,7 +1180,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/">REST API Reference for DeleteRoomTags Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -1196,7 +1192,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/">REST API Reference for GetNewRoomItems Operation</seealso>
         /// <returns>Task of NewItemsFileEntryBaseArrayWrapper</returns>
@@ -1209,7 +1205,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/">REST API Reference for GetNewRoomItems Operation</seealso>
         /// <returns>Task of ApiResponse (NewItemsFileEntryBaseArrayWrapper)</returns>
@@ -1315,7 +1311,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/">REST API Reference for GetRoomInfo Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -1328,7 +1324,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/">REST API Reference for GetRoomInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -1403,11 +1399,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
         /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
         /// <returns>Task of ObjectArrayWrapper</returns>
-        Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1419,11 +1414,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
         /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        Task<ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1469,11 +1463,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1497,11 +1490,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1532,7 +1524,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
@@ -1545,7 +1537,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
@@ -1557,7 +1549,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/">REST API Reference for PinRoom Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -1570,7 +1562,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/">REST API Reference for PinRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -1582,7 +1574,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/">REST API Reference for ReorderRoom Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -1595,7 +1587,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/">REST API Reference for ReorderRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -1608,11 +1600,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="userInvitation">The user invitation parameters. (optional)</param>
+        /// <param name="userInvitation">The user invitation parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/">REST API Reference for ResendEmailInvitations Operation</seealso>
         /// <returns>Task of void</returns>
-        Task ResendEmailInvitationsAsync(int id, UserInvitation? userInvitation = default, CancellationToken cancellationToken = default);
+        Task ResendEmailInvitationsAsync(int id, UserInvitation userInvitation, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1622,11 +1614,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="userInvitation">The user invitation parameters. (optional)</param>
+        /// <param name="userInvitation">The user invitation parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/">REST API Reference for ResendEmailInvitations Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> ResendEmailInvitationsWithHttpInfoAsync(int id, UserInvitation? userInvitation = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<Object>> ResendEmailInvitationsWithHttpInfoAsync(int id, UserInvitation userInvitation, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1660,11 +1652,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
+        /// <param name="roomLinkRequest">The room link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-link/">REST API Reference for SetRoomLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        Task<FileShareWrapper> SetRoomLinkAsync(int id, RoomLinkRequest? roomLinkRequest = default, CancellationToken cancellationToken = default);
+        Task<FileShareWrapper> SetRoomLinkAsync(int id, RoomLinkRequest roomLinkRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1674,11 +1666,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
+        /// <param name="roomLinkRequest">The room link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-link/">REST API Reference for SetRoomLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        Task<ApiResponse<FileShareWrapper>> SetRoomLinkWithHttpInfoAsync(int id, RoomLinkRequest? roomLinkRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileShareWrapper>> SetRoomLinkWithHttpInfoAsync(int id, RoomLinkRequest roomLinkRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1687,11 +1679,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomInvitationRequest">The room invitation request. (optional)</param>
+        /// <param name="roomInvitationRequest">The room invitation request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/">REST API Reference for SetRoomSecurity Operation</seealso>
         /// <returns>Task of RoomSecurityWrapper</returns>
-        Task<RoomSecurityWrapper> SetRoomSecurityAsync(int id, RoomInvitationRequest? roomInvitationRequest = default, CancellationToken cancellationToken = default);
+        Task<RoomSecurityWrapper> SetRoomSecurityAsync(int id, RoomInvitationRequest roomInvitationRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1701,11 +1693,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomInvitationRequest">The room invitation request. (optional)</param>
+        /// <param name="roomInvitationRequest">The room invitation request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/">REST API Reference for SetRoomSecurity Operation</seealso>
         /// <returns>Task of ApiResponse (RoomSecurityWrapper)</returns>
-        Task<ApiResponse<RoomSecurityWrapper>> SetRoomSecurityWithHttpInfoAsync(int id, RoomInvitationRequest? roomInvitationRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<RoomSecurityWrapper>> SetRoomSecurityWithHttpInfoAsync(int id, RoomInvitationRequest roomInvitationRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -1713,7 +1705,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/">REST API Reference for StartRoomIndexExport Operation</seealso>
         /// <returns>Task of DocumentBuilderTaskWrapper</returns>
@@ -1726,7 +1718,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/">REST API Reference for StartRoomIndexExport Operation</seealso>
         /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
@@ -1788,7 +1780,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/">REST API Reference for UnpinRoom Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -1801,7 +1793,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/">REST API Reference for UnpinRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -1814,11 +1806,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="updateRoomRequest">The request parameters for updating a room. (optional)</param>
+        /// <param name="updateRoomRequest">The request parameters for updating a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/">REST API Reference for UpdateRoom Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        Task<FolderIntegerWrapper> UpdateRoomAsync(int id, UpdateRoomRequest? updateRoomRequest = default, CancellationToken cancellationToken = default);
+        Task<FolderIntegerWrapper> UpdateRoomAsync(int id, UpdateRoomRequest updateRoomRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -1828,11 +1820,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="updateRoomRequest">The request parameters for updating a room. (optional)</param>
+        /// <param name="updateRoomRequest">The request parameters for updating a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/">REST API Reference for UpdateRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        Task<ApiResponse<FolderIntegerWrapper>> UpdateRoomWithHttpInfoAsync(int id, UpdateRoomRequest? updateRoomRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderIntegerWrapper>> UpdateRoomWithHttpInfoAsync(int id, UpdateRoomRequest updateRoomRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -2071,12 +2063,26 @@ namespace DocSpace.API.SDK.Api.Rooms
             set => _exceptionFactory = value; 
         }
 
+        private string? _fields;
+
+        /// <summary>
+        /// Specifies which fields should be included in the API response.
+        /// </summary>
+        /// <param name="fields">A comma-separated list of field paths to include in the response</param>
+        /// <returns></returns>
+
+        public RoomsApi WithFields(string fields)
+        {
+            _fields = fields;
+            return this;
+        }
+
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-tags/">REST API Reference for AddRoomTags Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper AddRoomTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default)
@@ -2090,7 +2096,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-tags/">REST API Reference for AddRoomTags Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         public ApiResponse<FolderIntegerWrapper> AddRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default)
@@ -2132,7 +2138,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-tags/">REST API Reference for AddRoomTags Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -2147,7 +2153,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-tags/">REST API Reference for AddRoomTags Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -2308,10 +2314,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="coverRequestDto">The request parameters to change the room cover. (optional)</param>
+        /// <param name="coverRequestDto">The request parameters to change the room cover.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-cover/">REST API Reference for ChangeRoomCover Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
-        public FolderIntegerWrapper ChangeRoomCover(int id, CoverRequestDto? coverRequestDto = default)
+        public FolderIntegerWrapper ChangeRoomCover(int id, CoverRequestDto coverRequestDto)
         {
             var localVarResponse = ChangeRoomCoverWithHttpInfo(id, coverRequestDto);
             return localVarResponse.Data;
@@ -2322,11 +2328,15 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="coverRequestDto">The request parameters to change the room cover. (optional)</param>
+        /// <param name="coverRequestDto">The request parameters to change the room cover.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-cover/">REST API Reference for ChangeRoomCover Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public ApiResponse<FolderIntegerWrapper> ChangeRoomCoverWithHttpInfo(int id, CoverRequestDto? coverRequestDto = default)
+        public ApiResponse<FolderIntegerWrapper> ChangeRoomCoverWithHttpInfo(int id, CoverRequestDto coverRequestDto)
         {
+            // verify the required parameter 'coverRequestDto' is set
+            if (coverRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'coverRequestDto' when calling RoomsApi->ChangeRoomCover");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2364,11 +2374,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="coverRequestDto">The request parameters to change the room cover. (optional)</param>
+        /// <param name="coverRequestDto">The request parameters to change the room cover.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-cover/">REST API Reference for ChangeRoomCover Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        public async Task<FolderIntegerWrapper> ChangeRoomCoverAsync(int id, CoverRequestDto? coverRequestDto = default, CancellationToken cancellationToken = default)
+        public async Task<FolderIntegerWrapper> ChangeRoomCoverAsync(int id, CoverRequestDto coverRequestDto, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await ChangeRoomCoverWithHttpInfoAsync(id, coverRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2379,12 +2389,16 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="coverRequestDto">The request parameters to change the room cover. (optional)</param>
+        /// <param name="coverRequestDto">The request parameters to change the room cover.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-room-cover/">REST API Reference for ChangeRoomCover Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderIntegerWrapper>> ChangeRoomCoverWithHttpInfoAsync(int id, CoverRequestDto? coverRequestDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderIntegerWrapper>> ChangeRoomCoverWithHttpInfoAsync(int id, CoverRequestDto coverRequestDto, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'coverRequestDto' is set
+            if (coverRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'coverRequestDto' when calling RoomsApi->ChangeRoomCover");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2644,10 +2658,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="logoRequest">The logo request parameters. (optional)</param>
+        /// <param name="logoRequest">The logo request parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-logo/">REST API Reference for CreateRoomLogo Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
-        public FolderIntegerWrapper CreateRoomLogo(int id, LogoRequest? logoRequest = default)
+        public FolderIntegerWrapper CreateRoomLogo(int id, LogoRequest logoRequest)
         {
             var localVarResponse = CreateRoomLogoWithHttpInfo(id, logoRequest);
             return localVarResponse.Data;
@@ -2658,11 +2672,15 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="logoRequest">The logo request parameters. (optional)</param>
+        /// <param name="logoRequest">The logo request parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-logo/">REST API Reference for CreateRoomLogo Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public ApiResponse<FolderIntegerWrapper> CreateRoomLogoWithHttpInfo(int id, LogoRequest? logoRequest = default)
+        public ApiResponse<FolderIntegerWrapper> CreateRoomLogoWithHttpInfo(int id, LogoRequest logoRequest)
         {
+            // verify the required parameter 'logoRequest' is set
+            if (logoRequest == null)
+                throw new ApiException(400, "Missing required parameter 'logoRequest' when calling RoomsApi->CreateRoomLogo");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2700,11 +2718,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="logoRequest">The logo request parameters. (optional)</param>
+        /// <param name="logoRequest">The logo request parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-logo/">REST API Reference for CreateRoomLogo Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        public async Task<FolderIntegerWrapper> CreateRoomLogoAsync(int id, LogoRequest? logoRequest = default, CancellationToken cancellationToken = default)
+        public async Task<FolderIntegerWrapper> CreateRoomLogoAsync(int id, LogoRequest logoRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateRoomLogoWithHttpInfoAsync(id, logoRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2715,12 +2733,16 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="logoRequest">The logo request parameters. (optional)</param>
+        /// <param name="logoRequest">The logo request parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-logo/">REST API Reference for CreateRoomLogo Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderIntegerWrapper>> CreateRoomLogoWithHttpInfoAsync(int id, LogoRequest? logoRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderIntegerWrapper>> CreateRoomLogoWithHttpInfoAsync(int id, LogoRequest logoRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'logoRequest' is set
+            if (logoRequest == null)
+                throw new ApiException(400, "Missing required parameter 'logoRequest' when calling RoomsApi->CreateRoomLogo");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2980,10 +3002,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
-        /// <param name="createThirdPartyRoom">The third-party room information. (optional)</param>
+        /// <param name="createThirdPartyRoom">The third-party room information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>FolderStringWrapper</returns>
-        public FolderStringWrapper CreateRoomThirdParty(string id, CreateThirdPartyRoom? createThirdPartyRoom = default)
+        public FolderStringWrapper CreateRoomThirdParty(string id, CreateThirdPartyRoom createThirdPartyRoom)
         {
             var localVarResponse = CreateRoomThirdPartyWithHttpInfo(id, createThirdPartyRoom);
             return localVarResponse.Data;
@@ -2994,14 +3016,18 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
-        /// <param name="createThirdPartyRoom">The third-party room information. (optional)</param>
+        /// <param name="createThirdPartyRoom">The third-party room information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>ApiResponse of FolderStringWrapper</returns>
-        public ApiResponse<FolderStringWrapper> CreateRoomThirdPartyWithHttpInfo(string id, CreateThirdPartyRoom? createThirdPartyRoom = default)
+        public ApiResponse<FolderStringWrapper> CreateRoomThirdPartyWithHttpInfo(string id, CreateThirdPartyRoom createThirdPartyRoom)
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling RoomsApi->CreateRoomThirdParty");
+
+            // verify the required parameter 'createThirdPartyRoom' is set
+            if (createThirdPartyRoom == null)
+                throw new ApiException(400, "Missing required parameter 'createThirdPartyRoom' when calling RoomsApi->CreateRoomThirdParty");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -3040,11 +3066,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
-        /// <param name="createThirdPartyRoom">The third-party room information. (optional)</param>
+        /// <param name="createThirdPartyRoom">The third-party room information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>Task of FolderStringWrapper</returns>
-        public async Task<FolderStringWrapper> CreateRoomThirdPartyAsync(string id, CreateThirdPartyRoom? createThirdPartyRoom = default, CancellationToken cancellationToken = default)
+        public async Task<FolderStringWrapper> CreateRoomThirdPartyAsync(string id, CreateThirdPartyRoom createThirdPartyRoom, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateRoomThirdPartyWithHttpInfoAsync(id, createThirdPartyRoom, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3055,15 +3081,19 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
-        /// <param name="createThirdPartyRoom">The third-party room information. (optional)</param>
+        /// <param name="createThirdPartyRoom">The third-party room information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-third-party/">REST API Reference for CreateRoomThirdParty Operation</seealso>
         /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
-        public async Task<ApiResponse<FolderStringWrapper>> CreateRoomThirdPartyWithHttpInfoAsync(string id, CreateThirdPartyRoom? createThirdPartyRoom = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderStringWrapper>> CreateRoomThirdPartyWithHttpInfoAsync(string id, CreateThirdPartyRoom createThirdPartyRoom, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'id' is set
             if (id == null)
                 throw new ApiException(400, "Missing required parameter 'id' when calling RoomsApi->CreateRoomThirdParty");
+
+            // verify the required parameter 'createThirdPartyRoom' is set
+            if (createThirdPartyRoom == null)
+                throw new ApiException(400, "Missing required parameter 'createThirdPartyRoom' when calling RoomsApi->CreateRoomThirdParty");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -3103,7 +3133,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/">REST API Reference for DeleteCustomTags Operation</seealso>
         /// <returns></returns>
         public void DeleteCustomTags(BatchTagsRequestDto? batchTagsRequestDto = default)
@@ -3115,7 +3145,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/">REST API Reference for DeleteCustomTags Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteCustomTagsWithHttpInfo(BatchTagsRequestDto? batchTagsRequestDto = default)
@@ -3155,7 +3185,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/">REST API Reference for DeleteCustomTags Operation</seealso>
         /// <returns>Task of void</returns>
@@ -3168,7 +3198,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/">REST API Reference for DeleteCustomTags Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -3212,10 +3242,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="deleteRoomRequest">The parameters for deleting a room. (optional)</param>
+        /// <param name="deleteRoomRequest">The parameters for deleting a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room/">REST API Reference for DeleteRoom Operation</seealso>
         /// <returns>FileOperationWrapper</returns>
-        public FileOperationWrapper DeleteRoom(int id, DeleteRoomRequest? deleteRoomRequest = default)
+        public FileOperationWrapper DeleteRoom(int id, DeleteRoomRequest deleteRoomRequest)
         {
             var localVarResponse = DeleteRoomWithHttpInfo(id, deleteRoomRequest);
             return localVarResponse.Data;
@@ -3226,11 +3256,15 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="deleteRoomRequest">The parameters for deleting a room. (optional)</param>
+        /// <param name="deleteRoomRequest">The parameters for deleting a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room/">REST API Reference for DeleteRoom Operation</seealso>
         /// <returns>ApiResponse of FileOperationWrapper</returns>
-        public ApiResponse<FileOperationWrapper> DeleteRoomWithHttpInfo(int id, DeleteRoomRequest? deleteRoomRequest = default)
+        public ApiResponse<FileOperationWrapper> DeleteRoomWithHttpInfo(int id, DeleteRoomRequest deleteRoomRequest)
         {
+            // verify the required parameter 'deleteRoomRequest' is set
+            if (deleteRoomRequest == null)
+                throw new ApiException(400, "Missing required parameter 'deleteRoomRequest' when calling RoomsApi->DeleteRoom");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -3268,11 +3302,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="deleteRoomRequest">The parameters for deleting a room. (optional)</param>
+        /// <param name="deleteRoomRequest">The parameters for deleting a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room/">REST API Reference for DeleteRoom Operation</seealso>
         /// <returns>Task of FileOperationWrapper</returns>
-        public async Task<FileOperationWrapper> DeleteRoomAsync(int id, DeleteRoomRequest? deleteRoomRequest = default, CancellationToken cancellationToken = default)
+        public async Task<FileOperationWrapper> DeleteRoomAsync(int id, DeleteRoomRequest deleteRoomRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await DeleteRoomWithHttpInfoAsync(id, deleteRoomRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3283,12 +3317,16 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="deleteRoomRequest">The parameters for deleting a room. (optional)</param>
+        /// <param name="deleteRoomRequest">The parameters for deleting a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room/">REST API Reference for DeleteRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationWrapper)</returns>
-        public async Task<ApiResponse<FileOperationWrapper>> DeleteRoomWithHttpInfoAsync(int id, DeleteRoomRequest? deleteRoomRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileOperationWrapper>> DeleteRoomWithHttpInfoAsync(int id, DeleteRoomRequest deleteRoomRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'deleteRoomRequest' is set
+            if (deleteRoomRequest == null)
+                throw new ApiException(400, "Missing required parameter 'deleteRoomRequest' when calling RoomsApi->DeleteRoom");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -3327,7 +3365,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/">REST API Reference for DeleteRoomLogo Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper DeleteRoomLogo(int id)
@@ -3340,7 +3378,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/">REST API Reference for DeleteRoomLogo Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         public ApiResponse<FolderIntegerWrapper> DeleteRoomLogoWithHttpInfo(int id)
@@ -3380,7 +3418,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/">REST API Reference for DeleteRoomLogo Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -3394,7 +3432,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/">REST API Reference for DeleteRoomLogo Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -3438,7 +3476,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/">REST API Reference for DeleteRoomTags Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper DeleteRoomTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default)
@@ -3452,7 +3490,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/">REST API Reference for DeleteRoomTags Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         public ApiResponse<FolderIntegerWrapper> DeleteRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default)
@@ -3494,7 +3532,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/">REST API Reference for DeleteRoomTags Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -3509,7 +3547,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
-        /// <param name="batchTagsRequestDto">The parameters for adding tags. (optional)</param>
+        /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/">REST API Reference for DeleteRoomTags Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -3553,7 +3591,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/">REST API Reference for GetNewRoomItems Operation</seealso>
         /// <returns>NewItemsFileEntryBaseArrayWrapper</returns>
         public NewItemsFileEntryBaseArrayWrapper GetNewRoomItems(int id)
@@ -3566,7 +3604,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/">REST API Reference for GetNewRoomItems Operation</seealso>
         /// <returns>ApiResponse of NewItemsFileEntryBaseArrayWrapper</returns>
         public ApiResponse<NewItemsFileEntryBaseArrayWrapper> GetNewRoomItemsWithHttpInfo(int id)
@@ -3606,7 +3644,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/">REST API Reference for GetNewRoomItems Operation</seealso>
         /// <returns>Task of NewItemsFileEntryBaseArrayWrapper</returns>
@@ -3620,7 +3658,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/">REST API Reference for GetNewRoomItems Operation</seealso>
         /// <returns>Task of ApiResponse (NewItemsFileEntryBaseArrayWrapper)</returns>
@@ -4085,7 +4123,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/">REST API Reference for GetRoomInfo Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper GetRoomInfo(int id)
@@ -4098,7 +4136,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/">REST API Reference for GetRoomInfo Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         public ApiResponse<FolderIntegerWrapper> GetRoomInfoWithHttpInfo(int id)
@@ -4138,7 +4176,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/">REST API Reference for GetRoomInfo Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -4152,7 +4190,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/">REST API Reference for GetRoomInfo Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -4478,12 +4516,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
         /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
         /// <returns>ObjectArrayWrapper</returns>
-        public ObjectArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default, string fields = default)
+        public ObjectArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default)
         {
-            var localVarResponse = GetRoomTagsInfoWithHttpInfo(count, startIndex, filterValue, fields);
+            var localVarResponse = GetRoomTagsInfoWithHttpInfo(count, startIndex, filterValue);
             return localVarResponse.Data;
         }
 
@@ -4494,10 +4531,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
         /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        public ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default, string fields = default)
+        public ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4524,9 +4560,9 @@ namespace DocSpace.API.SDK.Api.Rooms
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
-            if (fields != null)
+            if (_fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
 
@@ -4552,13 +4588,12 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
         /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
         /// <returns>Task of ObjectArrayWrapper</returns>
-        public async Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetRoomTagsInfoWithHttpInfoAsync(count, startIndex, filterValue, fields, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRoomTagsInfoWithHttpInfoAsync(count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4569,11 +4604,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
         /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
         /// <param name="filterValue">Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-tags-info/">REST API Reference for GetRoomTagsInfo Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        public async Task<ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4600,10 +4634,6 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (filterValue != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
             }
 
 
@@ -4746,12 +4776,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
+        public FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
-            var localVarResponse = GetRoomsFolderWithHttpInfo(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, fields);
+            var localVarResponse = GetRoomsFolderWithHttpInfo(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -4774,10 +4803,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
+        public ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4851,9 +4879,9 @@ namespace DocSpace.API.SDK.Api.Rooms
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
-            if (fields != null)
+            if (_fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
 
@@ -4891,13 +4919,12 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetRoomsFolderWithHttpInfoAsync(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, fields, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRoomsFolderWithHttpInfoAsync(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4920,11 +4947,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4999,10 +5025,6 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (filterValue != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
             }
 
 
@@ -5130,7 +5152,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
         public FileShareWrapper GetRoomsPrimaryExternalLink(int id)
@@ -5143,7 +5165,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
         public ApiResponse<FileShareWrapper> GetRoomsPrimaryExternalLinkWithHttpInfo(int id)
@@ -5183,7 +5205,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
@@ -5197,7 +5219,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
@@ -5240,7 +5262,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/">REST API Reference for PinRoom Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper PinRoom(int id)
@@ -5253,7 +5275,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/">REST API Reference for PinRoom Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         public ApiResponse<FolderIntegerWrapper> PinRoomWithHttpInfo(int id)
@@ -5293,7 +5315,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/">REST API Reference for PinRoom Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -5307,7 +5329,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/">REST API Reference for PinRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -5350,7 +5372,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/">REST API Reference for ReorderRoom Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper ReorderRoom(int id)
@@ -5363,7 +5385,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/">REST API Reference for ReorderRoom Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         public ApiResponse<FolderIntegerWrapper> ReorderRoomWithHttpInfo(int id)
@@ -5403,7 +5425,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/">REST API Reference for ReorderRoom Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -5417,7 +5439,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/">REST API Reference for ReorderRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -5461,10 +5483,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="userInvitation">The user invitation parameters. (optional)</param>
+        /// <param name="userInvitation">The user invitation parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/">REST API Reference for ResendEmailInvitations Operation</seealso>
         /// <returns></returns>
-        public void ResendEmailInvitations(int id, UserInvitation? userInvitation = default)
+        public void ResendEmailInvitations(int id, UserInvitation userInvitation)
         {
             ResendEmailInvitationsWithHttpInfo(id, userInvitation);
         }
@@ -5474,11 +5496,15 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="userInvitation">The user invitation parameters. (optional)</param>
+        /// <param name="userInvitation">The user invitation parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/">REST API Reference for ResendEmailInvitations Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> ResendEmailInvitationsWithHttpInfo(int id, UserInvitation? userInvitation = default)
+        public ApiResponse<Object> ResendEmailInvitationsWithHttpInfo(int id, UserInvitation userInvitation)
         {
+            // verify the required parameter 'userInvitation' is set
+            if (userInvitation == null)
+                throw new ApiException(400, "Missing required parameter 'userInvitation' when calling RoomsApi->ResendEmailInvitations");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -5516,11 +5542,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="userInvitation">The user invitation parameters. (optional)</param>
+        /// <param name="userInvitation">The user invitation parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/">REST API Reference for ResendEmailInvitations Operation</seealso>
         /// <returns>Task of void</returns>
-        public async Task ResendEmailInvitationsAsync(int id, UserInvitation? userInvitation = default, CancellationToken cancellationToken = default)
+        public async Task ResendEmailInvitationsAsync(int id, UserInvitation userInvitation, CancellationToken cancellationToken = default)
         {
             await ResendEmailInvitationsWithHttpInfoAsync(id, userInvitation, cancellationToken).ConfigureAwait(false);
         }
@@ -5530,12 +5556,16 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="userInvitation">The user invitation parameters. (optional)</param>
+        /// <param name="userInvitation">The user invitation parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resend-email-invitations/">REST API Reference for ResendEmailInvitations Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> ResendEmailInvitationsWithHttpInfoAsync(int id, UserInvitation? userInvitation = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Object>> ResendEmailInvitationsWithHttpInfoAsync(int id, UserInvitation userInvitation, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'userInvitation' is set
+            if (userInvitation == null)
+                throw new ApiException(400, "Missing required parameter 'userInvitation' when calling RoomsApi->ResendEmailInvitations");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -5683,10 +5713,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
+        /// <param name="roomLinkRequest">The room link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-link/">REST API Reference for SetRoomLink Operation</seealso>
         /// <returns>FileShareWrapper</returns>
-        public FileShareWrapper SetRoomLink(int id, RoomLinkRequest? roomLinkRequest = default)
+        public FileShareWrapper SetRoomLink(int id, RoomLinkRequest roomLinkRequest)
         {
             var localVarResponse = SetRoomLinkWithHttpInfo(id, roomLinkRequest);
             return localVarResponse.Data;
@@ -5697,11 +5727,15 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
+        /// <param name="roomLinkRequest">The room link parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-link/">REST API Reference for SetRoomLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
-        public ApiResponse<FileShareWrapper> SetRoomLinkWithHttpInfo(int id, RoomLinkRequest? roomLinkRequest = default)
+        public ApiResponse<FileShareWrapper> SetRoomLinkWithHttpInfo(int id, RoomLinkRequest roomLinkRequest)
         {
+            // verify the required parameter 'roomLinkRequest' is set
+            if (roomLinkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'roomLinkRequest' when calling RoomsApi->SetRoomLink");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -5739,11 +5773,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
+        /// <param name="roomLinkRequest">The room link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-link/">REST API Reference for SetRoomLink Operation</seealso>
         /// <returns>Task of FileShareWrapper</returns>
-        public async Task<FileShareWrapper> SetRoomLinkAsync(int id, RoomLinkRequest? roomLinkRequest = default, CancellationToken cancellationToken = default)
+        public async Task<FileShareWrapper> SetRoomLinkAsync(int id, RoomLinkRequest roomLinkRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SetRoomLinkWithHttpInfoAsync(id, roomLinkRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5754,12 +5788,16 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomLinkRequest">The room link parameters. (optional)</param>
+        /// <param name="roomLinkRequest">The room link parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-link/">REST API Reference for SetRoomLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
-        public async Task<ApiResponse<FileShareWrapper>> SetRoomLinkWithHttpInfoAsync(int id, RoomLinkRequest? roomLinkRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileShareWrapper>> SetRoomLinkWithHttpInfoAsync(int id, RoomLinkRequest roomLinkRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'roomLinkRequest' is set
+            if (roomLinkRequest == null)
+                throw new ApiException(400, "Missing required parameter 'roomLinkRequest' when calling RoomsApi->SetRoomLink");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -5799,10 +5837,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomInvitationRequest">The room invitation request. (optional)</param>
+        /// <param name="roomInvitationRequest">The room invitation request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/">REST API Reference for SetRoomSecurity Operation</seealso>
         /// <returns>RoomSecurityWrapper</returns>
-        public RoomSecurityWrapper SetRoomSecurity(int id, RoomInvitationRequest? roomInvitationRequest = default)
+        public RoomSecurityWrapper SetRoomSecurity(int id, RoomInvitationRequest roomInvitationRequest)
         {
             var localVarResponse = SetRoomSecurityWithHttpInfo(id, roomInvitationRequest);
             return localVarResponse.Data;
@@ -5813,11 +5851,15 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomInvitationRequest">The room invitation request. (optional)</param>
+        /// <param name="roomInvitationRequest">The room invitation request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/">REST API Reference for SetRoomSecurity Operation</seealso>
         /// <returns>ApiResponse of RoomSecurityWrapper</returns>
-        public ApiResponse<RoomSecurityWrapper> SetRoomSecurityWithHttpInfo(int id, RoomInvitationRequest? roomInvitationRequest = default)
+        public ApiResponse<RoomSecurityWrapper> SetRoomSecurityWithHttpInfo(int id, RoomInvitationRequest roomInvitationRequest)
         {
+            // verify the required parameter 'roomInvitationRequest' is set
+            if (roomInvitationRequest == null)
+                throw new ApiException(400, "Missing required parameter 'roomInvitationRequest' when calling RoomsApi->SetRoomSecurity");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -5855,11 +5897,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomInvitationRequest">The room invitation request. (optional)</param>
+        /// <param name="roomInvitationRequest">The room invitation request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/">REST API Reference for SetRoomSecurity Operation</seealso>
         /// <returns>Task of RoomSecurityWrapper</returns>
-        public async Task<RoomSecurityWrapper> SetRoomSecurityAsync(int id, RoomInvitationRequest? roomInvitationRequest = default, CancellationToken cancellationToken = default)
+        public async Task<RoomSecurityWrapper> SetRoomSecurityAsync(int id, RoomInvitationRequest roomInvitationRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SetRoomSecurityWithHttpInfoAsync(id, roomInvitationRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5870,12 +5912,16 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="roomInvitationRequest">The room invitation request. (optional)</param>
+        /// <param name="roomInvitationRequest">The room invitation request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/">REST API Reference for SetRoomSecurity Operation</seealso>
         /// <returns>Task of ApiResponse (RoomSecurityWrapper)</returns>
-        public async Task<ApiResponse<RoomSecurityWrapper>> SetRoomSecurityWithHttpInfoAsync(int id, RoomInvitationRequest? roomInvitationRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<RoomSecurityWrapper>> SetRoomSecurityWithHttpInfoAsync(int id, RoomInvitationRequest roomInvitationRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'roomInvitationRequest' is set
+            if (roomInvitationRequest == null)
+                throw new ApiException(400, "Missing required parameter 'roomInvitationRequest' when calling RoomsApi->SetRoomSecurity");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -5914,7 +5960,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/">REST API Reference for StartRoomIndexExport Operation</seealso>
         /// <returns>DocumentBuilderTaskWrapper</returns>
         public DocumentBuilderTaskWrapper StartRoomIndexExport(int id)
@@ -5927,7 +5973,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/">REST API Reference for StartRoomIndexExport Operation</seealso>
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
         public ApiResponse<DocumentBuilderTaskWrapper> StartRoomIndexExportWithHttpInfo(int id)
@@ -5967,7 +6013,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/">REST API Reference for StartRoomIndexExport Operation</seealso>
         /// <returns>Task of DocumentBuilderTaskWrapper</returns>
@@ -5981,7 +6027,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/">REST API Reference for StartRoomIndexExport Operation</seealso>
         /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
@@ -6242,7 +6288,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/">REST API Reference for UnpinRoom Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper UnpinRoom(int id)
@@ -6255,7 +6301,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/">REST API Reference for UnpinRoom Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         public ApiResponse<FolderIntegerWrapper> UnpinRoomWithHttpInfo(int id)
@@ -6295,7 +6341,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/">REST API Reference for UnpinRoom Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -6309,7 +6355,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The room ID of the request.</param>
+        /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/">REST API Reference for UnpinRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -6353,10 +6399,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="updateRoomRequest">The request parameters for updating a room. (optional)</param>
+        /// <param name="updateRoomRequest">The request parameters for updating a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/">REST API Reference for UpdateRoom Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
-        public FolderIntegerWrapper UpdateRoom(int id, UpdateRoomRequest? updateRoomRequest = default)
+        public FolderIntegerWrapper UpdateRoom(int id, UpdateRoomRequest updateRoomRequest)
         {
             var localVarResponse = UpdateRoomWithHttpInfo(id, updateRoomRequest);
             return localVarResponse.Data;
@@ -6367,11 +6413,15 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="updateRoomRequest">The request parameters for updating a room. (optional)</param>
+        /// <param name="updateRoomRequest">The request parameters for updating a room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/">REST API Reference for UpdateRoom Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
-        public ApiResponse<FolderIntegerWrapper> UpdateRoomWithHttpInfo(int id, UpdateRoomRequest? updateRoomRequest = default)
+        public ApiResponse<FolderIntegerWrapper> UpdateRoomWithHttpInfo(int id, UpdateRoomRequest updateRoomRequest)
         {
+            // verify the required parameter 'updateRoomRequest' is set
+            if (updateRoomRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updateRoomRequest' when calling RoomsApi->UpdateRoom");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -6409,11 +6459,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="updateRoomRequest">The request parameters for updating a room. (optional)</param>
+        /// <param name="updateRoomRequest">The request parameters for updating a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/">REST API Reference for UpdateRoom Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
-        public async Task<FolderIntegerWrapper> UpdateRoomAsync(int id, UpdateRoomRequest? updateRoomRequest = default, CancellationToken cancellationToken = default)
+        public async Task<FolderIntegerWrapper> UpdateRoomAsync(int id, UpdateRoomRequest updateRoomRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await UpdateRoomWithHttpInfoAsync(id, updateRoomRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -6424,12 +6474,16 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
-        /// <param name="updateRoomRequest">The request parameters for updating a room. (optional)</param>
+        /// <param name="updateRoomRequest">The request parameters for updating a room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/">REST API Reference for UpdateRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderIntegerWrapper>> UpdateRoomWithHttpInfoAsync(int id, UpdateRoomRequest? updateRoomRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderIntegerWrapper>> UpdateRoomWithHttpInfoAsync(int id, UpdateRoomRequest updateRoomRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'updateRoomRequest' is set
+            if (updateRoomRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updateRoomRequest' when calling RoomsApi->UpdateRoom");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];

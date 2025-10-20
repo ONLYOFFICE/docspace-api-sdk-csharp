@@ -28,10 +28,20 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IpRestrictionBase" /> class.
         /// </summary>
-        /// <param name="ip">ip.</param>
+        [JsonConstructorAttribute]
+        protected IpRestrictionBase() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IpRestrictionBase" /> class.
+        /// </summary>
+        /// <param name="ip">ip (required).</param>
         /// <param name="forAdmin">forAdmin.</param>
         public IpRestrictionBase(string ip = default, bool forAdmin = default)
         {
+            // to ensure "ip" is required (not null)
+            if (ip == null)
+            {
+                throw new ArgumentNullException("ip is a required property for IpRestrictionBase and cannot be null");
+            }
             this.Ip = ip;
             this.ForAdmin = forAdmin;
         }
@@ -42,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "ip", EmitDefaultValue = true)]
+        [DataMember(Name = "ip", IsRequired = true, EmitDefaultValue = true)]
         public string Ip { get; set; }
 
         /// <summary>

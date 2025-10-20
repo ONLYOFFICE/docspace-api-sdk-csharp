@@ -29,7 +29,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="PaymentUrlRequestsDto" /> class.
         /// </summary>
         /// <param name="backUrl">The URL where the user will be redirected after payment processing..</param>
-        /// <param name="quantity">The quantity of payment.</param>
+        /// <param name="quantity">The payment quantity..</param>
         public PaymentUrlRequestsDto(string backUrl = default, Dictionary<string, int> quantity = default)
         {
             this.BackUrl = backUrl;
@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         public string BackUrl { get; set; }
 
         /// <summary>
-        /// The quantity of payment
+        /// The payment quantity.
         /// </summary>
-        /// <value>The quantity of payment</value>
+        /// <value>The payment quantity.</value>
         /*
         <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:1234}]</example>
         */

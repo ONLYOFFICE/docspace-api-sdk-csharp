@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.FileEntryDtoIntegerAllOfSecurity
-The actions that can be perforrmed with the file entry.
+The actions that can be performed with the file entry.
 
 ## Properties
 
@@ -43,6 +43,8 @@ Name | Type | Description | Notes
 **ResetFilling** | **bool** |  | [optional] 
 **StopFilling** | **bool** |  | [optional] 
 **OpenForm** | **bool** |  | [optional] 
+**EditInternal** | **bool** |  | [optional] 
+**EditExpiration** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

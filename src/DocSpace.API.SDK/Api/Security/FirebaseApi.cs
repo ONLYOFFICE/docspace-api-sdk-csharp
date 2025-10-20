@@ -341,6 +341,7 @@ namespace DocSpace.API.SDK.Api.Security
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Save the Documents Firebase device token
         /// </summary>

@@ -28,14 +28,29 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FileLink" /> class.
         /// </summary>
-        /// <param name="filetype">The type of the file for the source viewed or edited document..</param>
+        [JsonConstructorAttribute]
+        protected FileLink() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FileLink" /> class.
+        /// </summary>
+        /// <param name="filetype">The type of the file for the source viewed or edited document. (required).</param>
         /// <param name="token">The encrypted signature added to the config in the form of a token..</param>
-        /// <param name="url">The absolute URL where the source viewed or edited document is stored..</param>
+        /// <param name="url">The absolute URL where the source viewed or edited document is stored. (required).</param>
         public FileLink(string filetype = default, string token = default, string url = default)
         {
+            // to ensure "filetype" is required (not null)
+            if (filetype == null)
+            {
+                throw new ArgumentNullException("filetype is a required property for FileLink and cannot be null");
+            }
             this.Filetype = filetype;
-            this.Token = token;
+            // to ensure "url" is required (not null)
+            if (url == null)
+            {
+                throw new ArgumentNullException("url is a required property for FileLink and cannot be null");
+            }
             this.Url = url;
+            this.Token = token;
         }
 
         /// <summary>
@@ -45,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "filetype", EmitDefaultValue = true)]
+        [DataMember(Name = "filetype", IsRequired = true, EmitDefaultValue = true)]
         public string Filetype { get; set; }
 
         /// <summary>
@@ -65,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "url", EmitDefaultValue = true)]
+        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>

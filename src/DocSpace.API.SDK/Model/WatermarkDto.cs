@@ -28,28 +28,33 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Additions
         /// </summary>
-        [DataMember(Name = "additions", EmitDefaultValue = false)]
-        public WatermarkAdditions? Additions { get; set; }
+        [DataMember(Name = "additions", IsRequired = true, EmitDefaultValue = true)]
+        public WatermarkAdditions Additions { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="WatermarkDto" /> class.
         /// </summary>
-        /// <param name="additions">additions.</param>
+        [JsonConstructorAttribute]
+        protected WatermarkDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WatermarkDto" /> class.
+        /// </summary>
+        /// <param name="additions">additions (required).</param>
         /// <param name="text">The watermark text..</param>
-        /// <param name="rotate">The watermark text and image rotate..</param>
-        /// <param name="imageScale">The watermark image scale..</param>
+        /// <param name="rotate">The watermark text and image rotate. (required).</param>
+        /// <param name="imageScale">The watermark image scale. (required).</param>
         /// <param name="imageUrl">The watermark image url..</param>
-        /// <param name="imageHeight">The watermark image height..</param>
-        /// <param name="imageWidth">The watermark image width..</param>
-        public WatermarkDto(WatermarkAdditions? additions = default, string text = default, int rotate = default, int imageScale = default, string imageUrl = default, double imageHeight = default, double imageWidth = default)
+        /// <param name="imageHeight">The watermark image height. (required).</param>
+        /// <param name="imageWidth">The watermark image width. (required).</param>
+        public WatermarkDto(WatermarkAdditions additions = default, string text = default, int rotate = default, int imageScale = default, string imageUrl = default, double imageHeight = default, double imageWidth = default)
         {
             this.Additions = additions;
-            this.Text = text;
             this.Rotate = rotate;
             this.ImageScale = imageScale;
-            this.ImageUrl = imageUrl;
             this.ImageHeight = imageHeight;
             this.ImageWidth = imageWidth;
+            this.Text = text;
+            this.ImageUrl = imageUrl;
         }
 
         /// <summary>
@@ -69,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "rotate", EmitDefaultValue = false)]
+        [DataMember(Name = "rotate", IsRequired = true, EmitDefaultValue = true)]
         public int Rotate { get; set; }
 
         /// <summary>
@@ -79,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "imageScale", EmitDefaultValue = false)]
+        [DataMember(Name = "imageScale", IsRequired = true, EmitDefaultValue = true)]
         public int ImageScale { get; set; }
 
         /// <summary>
@@ -99,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>-8.5</example>
         */
-        [DataMember(Name = "imageHeight", EmitDefaultValue = false)]
+        [DataMember(Name = "imageHeight", IsRequired = true, EmitDefaultValue = true)]
         public double ImageHeight { get; set; }
 
         /// <summary>
@@ -109,7 +114,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>-8.5</example>
         */
-        [DataMember(Name = "imageWidth", EmitDefaultValue = false)]
+        [DataMember(Name = "imageWidth", IsRequired = true, EmitDefaultValue = true)]
         public double ImageWidth { get; set; }
 
         /// <summary>

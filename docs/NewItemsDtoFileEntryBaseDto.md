@@ -5,8 +5,8 @@ The new item parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Date** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
-**Items** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of items. | [optional] 
+**Date** | [**ApiDateTime**](ApiDateTime.md) |  | 
+**Items** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of items. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

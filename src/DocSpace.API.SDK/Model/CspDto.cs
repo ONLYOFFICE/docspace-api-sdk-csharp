@@ -28,11 +28,26 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CspDto" /> class.
         /// </summary>
-        /// <param name="domains">The list of CSP domains..</param>
-        /// <param name="header">The CSP header..</param>
+        [JsonConstructorAttribute]
+        protected CspDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CspDto" /> class.
+        /// </summary>
+        /// <param name="domains">The list of CSP domains. (required).</param>
+        /// <param name="header">The CSP header. (required).</param>
         public CspDto(List<string> domains = default, string header = default)
         {
+            // to ensure "domains" is required (not null)
+            if (domains == null)
+            {
+                throw new ArgumentNullException("domains is a required property for CspDto and cannot be null");
+            }
             this.Domains = domains;
+            // to ensure "header" is required (not null)
+            if (header == null)
+            {
+                throw new ArgumentNullException("header is a required property for CspDto and cannot be null");
+            }
             this.Header = header;
         }
 
@@ -43,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "domains", EmitDefaultValue = true)]
+        [DataMember(Name = "domains", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Domains { get; set; }
 
         /// <summary>
@@ -53,7 +68,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "header", EmitDefaultValue = true)]
+        [DataMember(Name = "header", IsRequired = true, EmitDefaultValue = true)]
         public string Header { get; set; }
 
         /// <summary>

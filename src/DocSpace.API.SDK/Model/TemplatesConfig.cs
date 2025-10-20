@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The presence or absence of the templates in the \&quot;Create New...\&quot; menu option.
+    /// The presence or absence of the templates in the Create New... menu option.
     /// </summary>
     [DataContract(Name = "TemplatesConfig")]
     public partial class TemplatesConfig : IValidatableObject
@@ -29,7 +29,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="TemplatesConfig" /> class.
         /// </summary>
         /// <param name="image">The absolute URL to the image for template..</param>
-        /// <param name="title">The template title that will be displayed in the \&quot;Create New...\&quot; menu option..</param>
+        /// <param name="title">The template title that will be displayed in the Create New... menu option..</param>
         /// <param name="url">The absolute URL to the document where it will be created and available after creation..</param>
         public TemplatesConfig(string image = default, string title = default, string url = default)
         {
@@ -49,9 +49,9 @@ namespace DocSpace.API.SDK.Model
         public string Image { get; set; }
 
         /// <summary>
-        /// The template title that will be displayed in the \&quot;Create New...\&quot; menu option.
+        /// The template title that will be displayed in the Create New... menu option.
         /// </summary>
-        /// <value>The template title that will be displayed in the \&quot;Create New...\&quot; menu option.</value>
+        /// <value>The template title that will be displayed in the Create New... menu option.</value>
         /*
         <example>legacy_1080p_small_wooden_mouse</example>
         */

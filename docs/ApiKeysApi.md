@@ -7,8 +7,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**CreateApiKey**](#createapikey) | **POST** /api/2.0/keys | Create a user API key |
 | [**DeleteApiKey**](#deleteapikey) | **DELETE** /api/2.0/keys/{keyId} | Delete a user API key |
 | [**GetAllPermissions**](#getallpermissions) | **GET** /api/2.0/keys/permissions | Get API key permissions |
-| [**GetApiKey**](#getapikey) | **GET** /api/2.0/keys/@self | Get user API key info |
-| [**GetApiKeys**](#getapikeys) | **GET** /api/2.0/keys | Get user API keys |
+| [**GetApiKey**](#getapikey) | **GET** /api/2.0/keys/@self | Get current user&#39;s API key |
+| [**GetApiKeys**](#getapikeys) | **GET** /api/2.0/keys | Get current user&#39;s API keys |
 | [**UpdateApiKey**](#updateapikey) | **PUT** /api/2.0/keys/{keyId} | Update an API key |
 
 <a id="createapikey"></a>
@@ -127,7 +127,7 @@ catch (ApiException e)
 # **DeleteApiKey**
 > BooleanWrapper DeleteApiKey (Guid keyId)
 
-Delete a user API key by its ID.
+Deletes a user API key by its ID.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-api-key/).
 
@@ -346,7 +346,7 @@ catch (ApiException e)
 # **GetApiKey**
 > ApiKeyResponseWrapper GetApiKey ()
 
-Returns current user API key info.
+Returns information about the current user's API key.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-api-key/).
 
@@ -400,7 +400,7 @@ namespace Example
 
             try
             {
-                // Get user API key info
+                // Get current user's API key
                 ApiKeyResponseWrapper result = apiInstance.GetApiKey();
                 Debug.WriteLine(result);
             }
@@ -421,7 +421,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get user API key info
+    // Get current user's API key
     ApiResponse<ApiKeyResponseWrapper> response = apiInstance.GetApiKeyWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -507,7 +507,7 @@ namespace Example
 
             try
             {
-                // Get user API keys
+                // Get current user's API keys
                 ApiKeyResponseArrayWrapper result = apiInstance.GetApiKeys();
                 Debug.WriteLine(result);
             }
@@ -528,7 +528,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get user API keys
+    // Get current user's API keys
     ApiResponse<ApiKeyResponseArrayWrapper> response = apiInstance.GetApiKeysWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -558,9 +558,9 @@ catch (ApiException e)
 
 <a id="updateapikey"></a>
 # **UpdateApiKey**
-> BooleanWrapper UpdateApiKey (Guid keyId, UpdateApiKeyRequest? updateApiKeyRequest = null)
+> BooleanWrapper UpdateApiKey (Guid keyId, UpdateApiKeyRequest updateApiKeyRequest)
 
-Updates an existing API key changing its name, permissions and status.
+Updates an existing API key changing its name, permissions, and status.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-api-key/).
 
@@ -569,7 +569,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **keyId** | **Guid** | The unique identifier of the API key to update. |  |
-| **updateApiKeyRequest** | [**UpdateApiKeyRequest?**](UpdateApiKeyRequest.md) | The request parameters for updating an existing API key. | [optional]  |
+| **updateApiKeyRequest** | [**UpdateApiKeyRequest**](UpdateApiKeyRequest.md) | The request parameters for updating an existing API key. |  |
 
 ### Return type
 
@@ -617,7 +617,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ApiKeysApi(httpClient, config, httpClientHandler);
             var keyId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The unique identifier of the API key to update.
-            var updateApiKeyRequest = new UpdateApiKeyRequest?(); // UpdateApiKeyRequest? | The request parameters for updating an existing API key. (optional) 
+            var updateApiKeyRequest = new UpdateApiKeyRequest(); // UpdateApiKeyRequest | The request parameters for updating an existing API key.
 
             try
             {

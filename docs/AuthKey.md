@@ -1,13 +1,13 @@
 # DocSpace.API.SDK.Model.AuthKey
-The authentication key parameters.
+The authorization key parameters.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | The authentication key name. | [optional] 
-**Value** | **string** | The authentication key value. | [optional] 
-**Title** | **string** | The authentication key title. | [optional] 
+**Name** | **string** | The authorization key name. | 
+**Value** | **string** | The authorization key value. | 
+**Title** | **string** | The authorization key title. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

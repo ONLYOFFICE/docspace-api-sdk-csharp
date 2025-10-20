@@ -28,11 +28,26 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TimezonesRequestsDto" /> class.
         /// </summary>
-        /// <param name="id">The IANA time zone identifier..</param>
-        /// <param name="displayName">The user-friendly name for the time zone..</param>
+        [JsonConstructorAttribute]
+        protected TimezonesRequestsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TimezonesRequestsDto" /> class.
+        /// </summary>
+        /// <param name="id">The IANA time zone identifier. (required).</param>
+        /// <param name="displayName">The user-friendly name for the time zone. (required).</param>
         public TimezonesRequestsDto(string id = default, string displayName = default)
         {
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for TimezonesRequestsDto and cannot be null");
+            }
             this.Id = id;
+            // to ensure "displayName" is required (not null)
+            if (displayName == null)
+            {
+                throw new ArgumentNullException("displayName is a required property for TimezonesRequestsDto and cannot be null");
+            }
             this.DisplayName = displayName;
         }
 
@@ -43,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -53,7 +68,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "displayName", EmitDefaultValue = true)]
+        [DataMember(Name = "displayName", IsRequired = true, EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>

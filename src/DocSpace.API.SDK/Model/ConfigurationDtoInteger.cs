@@ -28,8 +28,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets EditorType
         /// </summary>
-        [DataMember(Name = "editorType", EmitDefaultValue = false)]
-        public EditorType? EditorType { get; set; }
+        [DataMember(Name = "editorType", IsRequired = true, EmitDefaultValue = true)]
+        public EditorType EditorType { get; set; }
 
         /// <summary>
         /// Gets or Sets StartFillingMode
@@ -40,29 +40,59 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigurationDtoInteger" /> class.
         /// </summary>
-        /// <param name="document">document.</param>
-        /// <param name="documentType">The document type..</param>
-        /// <param name="editorConfig">editorConfig.</param>
-        /// <param name="editorType">editorType.</param>
-        /// <param name="editorUrl">The editor URL..</param>
+        [JsonConstructorAttribute]
+        protected ConfigurationDtoInteger() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConfigurationDtoInteger" /> class.
+        /// </summary>
+        /// <param name="document">document (required).</param>
+        /// <param name="documentType">The document type. (required).</param>
+        /// <param name="editorConfig">editorConfig (required).</param>
+        /// <param name="editorType">editorType (required).</param>
+        /// <param name="editorUrl">The editor URL. (required).</param>
         /// <param name="token">The token of the file configuration..</param>
         /// <param name="type">The platform type..</param>
-        /// <param name="file">file.</param>
+        /// <param name="file">file (required).</param>
         /// <param name="errorMessage">The error message..</param>
         /// <param name="startFilling">Specifies if the file filling has started or not..</param>
         /// <param name="fillingStatus">The file filling status..</param>
         /// <param name="startFillingMode">startFillingMode.</param>
         /// <param name="fillingSessionId">The file filling session ID..</param>
-        public ConfigurationDtoInteger(DocumentConfigDto document = default, string documentType = default, EditorConfigurationDto editorConfig = default, EditorType? editorType = default, string editorUrl = default, string token = default, string type = default, FileDtoInteger file = default, string errorMessage = default, bool? startFilling = default, bool? fillingStatus = default, StartFillingMode? startFillingMode = default, string fillingSessionId = default)
+        public ConfigurationDtoInteger(DocumentConfigDto document = default, string documentType = default, EditorConfigurationDto editorConfig = default, EditorType editorType = default, string editorUrl = default, string token = default, string type = default, FileDtoInteger file = default, string errorMessage = default, bool? startFilling = default, bool? fillingStatus = default, StartFillingMode? startFillingMode = default, string fillingSessionId = default)
         {
+            // to ensure "document" is required (not null)
+            if (document == null)
+            {
+                throw new ArgumentNullException("document is a required property for ConfigurationDtoInteger and cannot be null");
+            }
             this.Document = document;
+            // to ensure "documentType" is required (not null)
+            if (documentType == null)
+            {
+                throw new ArgumentNullException("documentType is a required property for ConfigurationDtoInteger and cannot be null");
+            }
             this.DocumentType = documentType;
+            // to ensure "editorConfig" is required (not null)
+            if (editorConfig == null)
+            {
+                throw new ArgumentNullException("editorConfig is a required property for ConfigurationDtoInteger and cannot be null");
+            }
             this.EditorConfig = editorConfig;
             this.EditorType = editorType;
+            // to ensure "editorUrl" is required (not null)
+            if (editorUrl == null)
+            {
+                throw new ArgumentNullException("editorUrl is a required property for ConfigurationDtoInteger and cannot be null");
+            }
             this.EditorUrl = editorUrl;
+            // to ensure "file" is required (not null)
+            if (file == null)
+            {
+                throw new ArgumentNullException("file is a required property for ConfigurationDtoInteger and cannot be null");
+            }
+            this.File = file;
             this.Token = token;
             this.Type = type;
-            this.File = file;
             this.ErrorMessage = errorMessage;
             this.StartFilling = startFilling;
             this.FillingStatus = fillingStatus;
@@ -73,7 +103,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Document
         /// </summary>
-        [DataMember(Name = "document", EmitDefaultValue = false)]
+        [DataMember(Name = "document", IsRequired = true, EmitDefaultValue = true)]
         public DocumentConfigDto Document { get; set; }
 
         /// <summary>
@@ -83,13 +113,13 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "documentType", EmitDefaultValue = true)]
+        [DataMember(Name = "documentType", IsRequired = true, EmitDefaultValue = true)]
         public string DocumentType { get; set; }
 
         /// <summary>
         /// Gets or Sets EditorConfig
         /// </summary>
-        [DataMember(Name = "editorConfig", EmitDefaultValue = false)]
+        [DataMember(Name = "editorConfig", IsRequired = true, EmitDefaultValue = true)]
         public EditorConfigurationDto EditorConfig { get; set; }
 
         /// <summary>
@@ -99,7 +129,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "editorUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "editorUrl", IsRequired = true, EmitDefaultValue = true)]
         public string EditorUrl { get; set; }
 
         /// <summary>
@@ -125,7 +155,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets File
         /// </summary>
-        [DataMember(Name = "file", EmitDefaultValue = false)]
+        [DataMember(Name = "file", IsRequired = true, EmitDefaultValue = true)]
         public FileDtoInteger File { get; set; }
 
         /// <summary>

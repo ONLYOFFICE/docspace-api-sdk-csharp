@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **LastName** | **string** | The user last name. | [optional] 
 **Email** | **string** | The user email address. | [optional] 
 **PasswordHash** | **string** | The user password hash. | [optional] 
-**Key** | **string** | The user link key. | [optional] 
+**Key** | **string** | The user link key. | 
 **Culture** | **string** | The user culture code. | [optional] 
-**SerializedProfile** | **string** | Third-party profile in the serialized format | [optional] 
+**SerializedProfile** | **string** | The third-party profile in the serialized format | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -39,8 +39,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="docServicePreloadUrl">The URL used to preload the document service scripts. (required).</param>
         /// <param name="docServiceUrlInternal">The internal document service URL. (required).</param>
         /// <param name="docServicePortalUrl">The document service portal URL. (required).</param>
-        /// <param name="docServiceSignatureHeader">The document service signature header..</param>
-        /// <param name="docServiceSslVerification">Specifies if the document service SSL verification is enabled..</param>
+        /// <param name="docServiceSignatureHeader">The document service signature header. (required).</param>
+        /// <param name="docServiceSslVerification">Specifies if the document service SSL verification is enabled. (required).</param>
         /// <param name="isDefault">Specifies if the document service is default. (required).</param>
         public DocServiceUrlDto(string version = default, string docServiceUrlApi = default, string docServiceUrl = default, string docServicePreloadUrl = default, string docServiceUrlInternal = default, string docServicePortalUrl = default, string docServiceSignatureHeader = default, bool docServiceSslVerification = default, bool isDefault = default)
         {
@@ -80,9 +80,14 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("docServicePortalUrl is a required property for DocServiceUrlDto and cannot be null");
             }
             this.DocServicePortalUrl = docServicePortalUrl;
-            this.IsDefault = isDefault;
+            // to ensure "docServiceSignatureHeader" is required (not null)
+            if (docServiceSignatureHeader == null)
+            {
+                throw new ArgumentNullException("docServiceSignatureHeader is a required property for DocServiceUrlDto and cannot be null");
+            }
             this.DocServiceSignatureHeader = docServiceSignatureHeader;
             this.DocServiceSslVerification = docServiceSslVerification;
+            this.IsDefault = isDefault;
         }
 
         /// <summary>
@@ -152,7 +157,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "docServiceSignatureHeader", EmitDefaultValue = true)]
+        [DataMember(Name = "docServiceSignatureHeader", IsRequired = true, EmitDefaultValue = true)]
         public string DocServiceSignatureHeader { get; set; }
 
         /// <summary>
@@ -162,7 +167,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "docServiceSslVerification", EmitDefaultValue = true)]
+        [DataMember(Name = "docServiceSslVerification", IsRequired = true, EmitDefaultValue = true)]
         public bool DocServiceSslVerification { get; set; }
 
         /// <summary>

@@ -54,10 +54,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
         /// <returns>GroupWrapper</returns>
-        GroupWrapper AddMembersTo(Guid id, MembersRequest? membersRequest = default);
+        GroupWrapper AddMembersTo(Guid id, MembersRequest membersRequest);
 
         /// <summary>
         /// Add group members
@@ -67,10 +67,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        ApiResponse<GroupWrapper> AddMembersToWithHttpInfo(Guid id, MembersRequest? membersRequest = default);
+        ApiResponse<GroupWrapper> AddMembersToWithHttpInfo(Guid id, MembersRequest membersRequest);
         /// <summary>
         /// Delete a group
         /// </summary>
@@ -156,10 +156,9 @@ namespace DocSpace.API.SDK.Api.Group
         /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/">REST API Reference for GetGroups Operation</seealso>
         /// <returns>GroupArrayWrapper</returns>
-        GroupArrayWrapper GetGroups(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        GroupArrayWrapper GetGroups(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
 
         /// <summary>
         /// Get groups
@@ -175,10 +174,9 @@ namespace DocSpace.API.SDK.Api.Group
         /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/">REST API Reference for GetGroups Operation</seealso>
         /// <returns>ApiResponse of GroupArrayWrapper</returns>
-        ApiResponse<GroupArrayWrapper> GetGroupsWithHttpInfo(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default);
+        ApiResponse<GroupArrayWrapper> GetGroupsWithHttpInfo(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
         /// <summary>
         /// Move group members
         /// </summary>
@@ -212,10 +210,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
         /// <returns>GroupWrapper</returns>
-        GroupWrapper RemoveMembersFrom(Guid id, MembersRequest? membersRequest = default);
+        GroupWrapper RemoveMembersFrom(Guid id, MembersRequest membersRequest);
 
         /// <summary>
         /// Remove group members
@@ -225,10 +223,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        ApiResponse<GroupWrapper> RemoveMembersFromWithHttpInfo(Guid id, MembersRequest? membersRequest = default);
+        ApiResponse<GroupWrapper> RemoveMembersFromWithHttpInfo(Guid id, MembersRequest membersRequest);
         /// <summary>
         /// Set a group manager
         /// </summary>
@@ -237,10 +235,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
+        /// <param name="setManagerRequest">The request for setting a group manager.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
         /// <returns>GroupWrapper</returns>
-        GroupWrapper SetGroupManager(Guid id, SetManagerRequest? setManagerRequest = default);
+        GroupWrapper SetGroupManager(Guid id, SetManagerRequest setManagerRequest);
 
         /// <summary>
         /// Set a group manager
@@ -250,10 +248,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
+        /// <param name="setManagerRequest">The request for setting a group manager.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        ApiResponse<GroupWrapper> SetGroupManagerWithHttpInfo(Guid id, SetManagerRequest? setManagerRequest = default);
+        ApiResponse<GroupWrapper> SetGroupManagerWithHttpInfo(Guid id, SetManagerRequest setManagerRequest);
         /// <summary>
         /// Replace group members
         /// </summary>
@@ -262,10 +260,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
         /// <returns>GroupWrapper</returns>
-        GroupWrapper SetMembersTo(Guid id, MembersRequest? membersRequest = default);
+        GroupWrapper SetMembersTo(Guid id, MembersRequest membersRequest);
 
         /// <summary>
         /// Replace group members
@@ -275,10 +273,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        ApiResponse<GroupWrapper> SetMembersToWithHttpInfo(Guid id, MembersRequest? membersRequest = default);
+        ApiResponse<GroupWrapper> SetMembersToWithHttpInfo(Guid id, MembersRequest membersRequest);
         /// <summary>
         /// Update a group
         /// </summary>
@@ -287,10 +285,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
+        /// <param name="updateGroupRequest">The request for updating a group.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
         /// <returns>GroupWrapper</returns>
-        GroupWrapper UpdateGroup(Guid id, UpdateGroupRequest? updateGroupRequest = default);
+        GroupWrapper UpdateGroup(Guid id, UpdateGroupRequest updateGroupRequest);
 
         /// <summary>
         /// Update a group
@@ -300,10 +298,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
+        /// <param name="updateGroupRequest">The request for updating a group.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        ApiResponse<GroupWrapper> UpdateGroupWithHttpInfo(Guid id, UpdateGroupRequest? updateGroupRequest = default);
+        ApiResponse<GroupWrapper> UpdateGroupWithHttpInfo(Guid id, UpdateGroupRequest updateGroupRequest);
         #endregion Synchronous Operations
     }
 
@@ -346,11 +344,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
         /// <returns>Task of GroupWrapper</returns>
-        Task<GroupWrapper> AddMembersToAsync(Guid id, MembersRequest? membersRequest = default, CancellationToken cancellationToken = default);
+        Task<GroupWrapper> AddMembersToAsync(Guid id, MembersRequest membersRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Add group members
@@ -360,11 +358,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        Task<ApiResponse<GroupWrapper>> AddMembersToWithHttpInfoAsync(Guid id, MembersRequest? membersRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<GroupWrapper>> AddMembersToWithHttpInfoAsync(Guid id, MembersRequest membersRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a group
         /// </summary>
@@ -456,11 +454,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/">REST API Reference for GetGroups Operation</seealso>
         /// <returns>Task of GroupArrayWrapper</returns>
-        Task<GroupArrayWrapper> GetGroupsAsync(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<GroupArrayWrapper> GetGroupsAsync(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get groups
@@ -476,11 +473,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/">REST API Reference for GetGroups Operation</seealso>
         /// <returns>Task of ApiResponse (GroupArrayWrapper)</returns>
-        Task<ApiResponse<GroupArrayWrapper>> GetGroupsWithHttpInfoAsync(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<GroupArrayWrapper>> GetGroupsWithHttpInfoAsync(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Move group members
         /// </summary>
@@ -516,11 +512,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
         /// <returns>Task of GroupWrapper</returns>
-        Task<GroupWrapper> RemoveMembersFromAsync(Guid id, MembersRequest? membersRequest = default, CancellationToken cancellationToken = default);
+        Task<GroupWrapper> RemoveMembersFromAsync(Guid id, MembersRequest membersRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Remove group members
@@ -530,11 +526,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        Task<ApiResponse<GroupWrapper>> RemoveMembersFromWithHttpInfoAsync(Guid id, MembersRequest? membersRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<GroupWrapper>> RemoveMembersFromWithHttpInfoAsync(Guid id, MembersRequest membersRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set a group manager
         /// </summary>
@@ -543,11 +539,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
+        /// <param name="setManagerRequest">The request for setting a group manager.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
         /// <returns>Task of GroupWrapper</returns>
-        Task<GroupWrapper> SetGroupManagerAsync(Guid id, SetManagerRequest? setManagerRequest = default, CancellationToken cancellationToken = default);
+        Task<GroupWrapper> SetGroupManagerAsync(Guid id, SetManagerRequest setManagerRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set a group manager
@@ -557,11 +553,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
+        /// <param name="setManagerRequest">The request for setting a group manager.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        Task<ApiResponse<GroupWrapper>> SetGroupManagerWithHttpInfoAsync(Guid id, SetManagerRequest? setManagerRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<GroupWrapper>> SetGroupManagerWithHttpInfoAsync(Guid id, SetManagerRequest setManagerRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Replace group members
         /// </summary>
@@ -570,11 +566,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
         /// <returns>Task of GroupWrapper</returns>
-        Task<GroupWrapper> SetMembersToAsync(Guid id, MembersRequest? membersRequest = default, CancellationToken cancellationToken = default);
+        Task<GroupWrapper> SetMembersToAsync(Guid id, MembersRequest membersRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Replace group members
@@ -584,11 +580,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        Task<ApiResponse<GroupWrapper>> SetMembersToWithHttpInfoAsync(Guid id, MembersRequest? membersRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<GroupWrapper>> SetMembersToWithHttpInfoAsync(Guid id, MembersRequest membersRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a group
         /// </summary>
@@ -597,11 +593,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
+        /// <param name="updateGroupRequest">The request for updating a group.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
         /// <returns>Task of GroupWrapper</returns>
-        Task<GroupWrapper> UpdateGroupAsync(Guid id, UpdateGroupRequest? updateGroupRequest = default, CancellationToken cancellationToken = default);
+        Task<GroupWrapper> UpdateGroupAsync(Guid id, UpdateGroupRequest updateGroupRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a group
@@ -611,11 +607,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
+        /// <param name="updateGroupRequest">The request for updating a group.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        Task<ApiResponse<GroupWrapper>> UpdateGroupWithHttpInfoAsync(Guid id, UpdateGroupRequest? updateGroupRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<GroupWrapper>> UpdateGroupWithHttpInfoAsync(Guid id, UpdateGroupRequest updateGroupRequest, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -829,6 +825,20 @@ namespace DocSpace.API.SDK.Api.Group
             set => _exceptionFactory = value; 
         }
 
+        private string? _fields;
+
+        /// <summary>
+        /// Specifies which fields should be included in the API response.
+        /// </summary>
+        /// <param name="fields">A comma-separated list of field paths to include in the response</param>
+        /// <returns></returns>
+
+        public GroupApi WithFields(string fields)
+        {
+            _fields = fields;
+            return this;
+        }
+
         /// <summary>
         /// Add a new group
         /// </summary>
@@ -1019,10 +1029,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
         /// <returns>GroupWrapper</returns>
-        public GroupWrapper AddMembersTo(Guid id, MembersRequest? membersRequest = default)
+        public GroupWrapper AddMembersTo(Guid id, MembersRequest membersRequest)
         {
             var localVarResponse = AddMembersToWithHttpInfo(id, membersRequest);
             return localVarResponse.Data;
@@ -1036,11 +1046,15 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public ApiResponse<GroupWrapper> AddMembersToWithHttpInfo(Guid id, MembersRequest? membersRequest = default)
+        public ApiResponse<GroupWrapper> AddMembersToWithHttpInfo(Guid id, MembersRequest membersRequest)
         {
+            // verify the required parameter 'membersRequest' is set
+            if (membersRequest == null)
+                throw new ApiException(400, "Missing required parameter 'membersRequest' when calling GroupApi->AddMembersTo");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -1111,11 +1125,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
         /// <returns>Task of GroupWrapper</returns>
-        public async Task<GroupWrapper> AddMembersToAsync(Guid id, MembersRequest? membersRequest = default, CancellationToken cancellationToken = default)
+        public async Task<GroupWrapper> AddMembersToAsync(Guid id, MembersRequest membersRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await AddMembersToWithHttpInfoAsync(id, membersRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1129,12 +1143,16 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/">REST API Reference for AddMembersTo Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async Task<ApiResponse<GroupWrapper>> AddMembersToWithHttpInfoAsync(Guid id, MembersRequest? membersRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<GroupWrapper>> AddMembersToWithHttpInfoAsync(Guid id, MembersRequest membersRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'membersRequest' is set
+            if (membersRequest == null)
+                throw new ApiException(400, "Missing required parameter 'membersRequest' when calling GroupApi->AddMembersTo");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -1771,12 +1789,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/">REST API Reference for GetGroups Operation</seealso>
         /// <returns>GroupArrayWrapper</returns>
-        public GroupArrayWrapper GetGroups(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
+        public GroupArrayWrapper GetGroups(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
-            var localVarResponse = GetGroupsWithHttpInfo(userId, manager, count, startIndex, sortBy, sortOrder, filterValue, fields);
+            var localVarResponse = GetGroupsWithHttpInfo(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1794,10 +1811,9 @@ namespace DocSpace.API.SDK.Api.Group
         /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/">REST API Reference for GetGroups Operation</seealso>
         /// <returns>ApiResponse of GroupArrayWrapper</returns>
-        public ApiResponse<GroupArrayWrapper> GetGroupsWithHttpInfo(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default)
+        public ApiResponse<GroupArrayWrapper> GetGroupsWithHttpInfo(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1840,9 +1856,9 @@ namespace DocSpace.API.SDK.Api.Group
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
-            if (fields != null)
+            if (_fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
             // authentication (Basic) required
@@ -1905,13 +1921,12 @@ namespace DocSpace.API.SDK.Api.Group
         /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/">REST API Reference for GetGroups Operation</seealso>
         /// <returns>Task of GroupArrayWrapper</returns>
-        public async Task<GroupArrayWrapper> GetGroupsAsync(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<GroupArrayWrapper> GetGroupsAsync(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetGroupsWithHttpInfoAsync(userId, manager, count, startIndex, sortBy, sortOrder, filterValue, fields, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetGroupsWithHttpInfoAsync(userId, manager, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1929,11 +1944,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// <param name="sortBy">Specifies the property used to sort the query results. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text used for filtering or searching group data. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/">REST API Reference for GetGroups Operation</seealso>
         /// <returns>Task of ApiResponse (GroupArrayWrapper)</returns>
-        public async Task<ApiResponse<GroupArrayWrapper>> GetGroupsWithHttpInfoAsync(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<GroupArrayWrapper>> GetGroupsWithHttpInfoAsync(Guid? userId = default, bool? manager = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1976,10 +1990,6 @@ namespace DocSpace.API.SDK.Api.Group
             if (filterValue != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
             }
 
             // authentication (Basic) required
@@ -2225,10 +2235,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
         /// <returns>GroupWrapper</returns>
-        public GroupWrapper RemoveMembersFrom(Guid id, MembersRequest? membersRequest = default)
+        public GroupWrapper RemoveMembersFrom(Guid id, MembersRequest membersRequest)
         {
             var localVarResponse = RemoveMembersFromWithHttpInfo(id, membersRequest);
             return localVarResponse.Data;
@@ -2242,11 +2252,15 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public ApiResponse<GroupWrapper> RemoveMembersFromWithHttpInfo(Guid id, MembersRequest? membersRequest = default)
+        public ApiResponse<GroupWrapper> RemoveMembersFromWithHttpInfo(Guid id, MembersRequest membersRequest)
         {
+            // verify the required parameter 'membersRequest' is set
+            if (membersRequest == null)
+                throw new ApiException(400, "Missing required parameter 'membersRequest' when calling GroupApi->RemoveMembersFrom");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2317,11 +2331,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
         /// <returns>Task of GroupWrapper</returns>
-        public async Task<GroupWrapper> RemoveMembersFromAsync(Guid id, MembersRequest? membersRequest = default, CancellationToken cancellationToken = default)
+        public async Task<GroupWrapper> RemoveMembersFromAsync(Guid id, MembersRequest membersRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await RemoveMembersFromWithHttpInfoAsync(id, membersRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2335,12 +2349,16 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/">REST API Reference for RemoveMembersFrom Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async Task<ApiResponse<GroupWrapper>> RemoveMembersFromWithHttpInfoAsync(Guid id, MembersRequest? membersRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<GroupWrapper>> RemoveMembersFromWithHttpInfoAsync(Guid id, MembersRequest membersRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'membersRequest' is set
+            if (membersRequest == null)
+                throw new ApiException(400, "Missing required parameter 'membersRequest' when calling GroupApi->RemoveMembersFrom");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2413,10 +2431,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
+        /// <param name="setManagerRequest">The request for setting a group manager.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
         /// <returns>GroupWrapper</returns>
-        public GroupWrapper SetGroupManager(Guid id, SetManagerRequest? setManagerRequest = default)
+        public GroupWrapper SetGroupManager(Guid id, SetManagerRequest setManagerRequest)
         {
             var localVarResponse = SetGroupManagerWithHttpInfo(id, setManagerRequest);
             return localVarResponse.Data;
@@ -2430,11 +2448,15 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
+        /// <param name="setManagerRequest">The request for setting a group manager.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public ApiResponse<GroupWrapper> SetGroupManagerWithHttpInfo(Guid id, SetManagerRequest? setManagerRequest = default)
+        public ApiResponse<GroupWrapper> SetGroupManagerWithHttpInfo(Guid id, SetManagerRequest setManagerRequest)
         {
+            // verify the required parameter 'setManagerRequest' is set
+            if (setManagerRequest == null)
+                throw new ApiException(400, "Missing required parameter 'setManagerRequest' when calling GroupApi->SetGroupManager");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2505,11 +2527,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
+        /// <param name="setManagerRequest">The request for setting a group manager.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
         /// <returns>Task of GroupWrapper</returns>
-        public async Task<GroupWrapper> SetGroupManagerAsync(Guid id, SetManagerRequest? setManagerRequest = default, CancellationToken cancellationToken = default)
+        public async Task<GroupWrapper> SetGroupManagerAsync(Guid id, SetManagerRequest setManagerRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SetGroupManagerWithHttpInfoAsync(id, setManagerRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2523,12 +2545,16 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="setManagerRequest">The request for setting a group manager. (optional)</param>
+        /// <param name="setManagerRequest">The request for setting a group manager.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/">REST API Reference for SetGroupManager Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async Task<ApiResponse<GroupWrapper>> SetGroupManagerWithHttpInfoAsync(Guid id, SetManagerRequest? setManagerRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<GroupWrapper>> SetGroupManagerWithHttpInfoAsync(Guid id, SetManagerRequest setManagerRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'setManagerRequest' is set
+            if (setManagerRequest == null)
+                throw new ApiException(400, "Missing required parameter 'setManagerRequest' when calling GroupApi->SetGroupManager");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2601,10 +2627,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
         /// <returns>GroupWrapper</returns>
-        public GroupWrapper SetMembersTo(Guid id, MembersRequest? membersRequest = default)
+        public GroupWrapper SetMembersTo(Guid id, MembersRequest membersRequest)
         {
             var localVarResponse = SetMembersToWithHttpInfo(id, membersRequest);
             return localVarResponse.Data;
@@ -2618,11 +2644,15 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public ApiResponse<GroupWrapper> SetMembersToWithHttpInfo(Guid id, MembersRequest? membersRequest = default)
+        public ApiResponse<GroupWrapper> SetMembersToWithHttpInfo(Guid id, MembersRequest membersRequest)
         {
+            // verify the required parameter 'membersRequest' is set
+            if (membersRequest == null)
+                throw new ApiException(400, "Missing required parameter 'membersRequest' when calling GroupApi->SetMembersTo");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2693,11 +2723,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
         /// <returns>Task of GroupWrapper</returns>
-        public async Task<GroupWrapper> SetMembersToAsync(Guid id, MembersRequest? membersRequest = default, CancellationToken cancellationToken = default)
+        public async Task<GroupWrapper> SetMembersToAsync(Guid id, MembersRequest membersRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await SetMembersToWithHttpInfoAsync(id, membersRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2711,12 +2741,16 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="membersRequest">The member request. (optional)</param>
+        /// <param name="membersRequest">The member request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/">REST API Reference for SetMembersTo Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async Task<ApiResponse<GroupWrapper>> SetMembersToWithHttpInfoAsync(Guid id, MembersRequest? membersRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<GroupWrapper>> SetMembersToWithHttpInfoAsync(Guid id, MembersRequest membersRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'membersRequest' is set
+            if (membersRequest == null)
+                throw new ApiException(400, "Missing required parameter 'membersRequest' when calling GroupApi->SetMembersTo");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2789,10 +2823,10 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
+        /// <param name="updateGroupRequest">The request for updating a group.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
         /// <returns>GroupWrapper</returns>
-        public GroupWrapper UpdateGroup(Guid id, UpdateGroupRequest? updateGroupRequest = default)
+        public GroupWrapper UpdateGroup(Guid id, UpdateGroupRequest updateGroupRequest)
         {
             var localVarResponse = UpdateGroupWithHttpInfo(id, updateGroupRequest);
             return localVarResponse.Data;
@@ -2806,11 +2840,15 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
+        /// <param name="updateGroupRequest">The request for updating a group.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
         /// <returns>ApiResponse of GroupWrapper</returns>
-        public ApiResponse<GroupWrapper> UpdateGroupWithHttpInfo(Guid id, UpdateGroupRequest? updateGroupRequest = default)
+        public ApiResponse<GroupWrapper> UpdateGroupWithHttpInfo(Guid id, UpdateGroupRequest updateGroupRequest)
         {
+            // verify the required parameter 'updateGroupRequest' is set
+            if (updateGroupRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updateGroupRequest' when calling GroupApi->UpdateGroup");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2881,11 +2919,11 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
+        /// <param name="updateGroupRequest">The request for updating a group.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
         /// <returns>Task of GroupWrapper</returns>
-        public async Task<GroupWrapper> UpdateGroupAsync(Guid id, UpdateGroupRequest? updateGroupRequest = default, CancellationToken cancellationToken = default)
+        public async Task<GroupWrapper> UpdateGroupAsync(Guid id, UpdateGroupRequest updateGroupRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await UpdateGroupWithHttpInfoAsync(id, updateGroupRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2899,12 +2937,16 @@ namespace DocSpace.API.SDK.Api.Group
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
-        /// <param name="updateGroupRequest">The request for updating a group. (optional)</param>
+        /// <param name="updateGroupRequest">The request for updating a group.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/">REST API Reference for UpdateGroup Operation</seealso>
         /// <returns>Task of ApiResponse (GroupWrapper)</returns>
-        public async Task<ApiResponse<GroupWrapper>> UpdateGroupWithHttpInfoAsync(Guid id, UpdateGroupRequest? updateGroupRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<GroupWrapper>> UpdateGroupWithHttpInfoAsync(Guid id, UpdateGroupRequest updateGroupRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'updateGroupRequest' is set
+            if (updateGroupRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updateGroupRequest' when calling GroupApi->UpdateGroup");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];

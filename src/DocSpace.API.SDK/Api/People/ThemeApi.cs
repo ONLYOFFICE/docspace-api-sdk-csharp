@@ -337,6 +337,7 @@ namespace DocSpace.API.SDK.Api.People
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Change the portal theme
         /// </summary>

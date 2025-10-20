@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The authentication key parameters.
+    /// The authorization key parameters.
     /// </summary>
     [DataContract(Name = "AuthKey")]
     public partial class AuthKey : IValidatableObject
@@ -28,40 +28,55 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthKey" /> class.
         /// </summary>
-        /// <param name="name">The authentication key name..</param>
-        /// <param name="value">The authentication key value..</param>
-        /// <param name="title">The authentication key title..</param>
+        [JsonConstructorAttribute]
+        protected AuthKey() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AuthKey" /> class.
+        /// </summary>
+        /// <param name="name">The authorization key name. (required).</param>
+        /// <param name="value">The authorization key value. (required).</param>
+        /// <param name="title">The authorization key title..</param>
         public AuthKey(string name = default, string value = default, string title = default)
         {
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for AuthKey and cannot be null");
+            }
             this.Name = name;
+            // to ensure "value" is required (not null)
+            if (value == null)
+            {
+                throw new ArgumentNullException("value is a required property for AuthKey and cannot be null");
+            }
             this.Value = value;
             this.Title = title;
         }
 
         /// <summary>
-        /// The authentication key name.
+        /// The authorization key name.
         /// </summary>
-        /// <value>The authentication key name.</value>
+        /// <value>The authorization key name.</value>
         /*
         <example>Winfield Upton</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The authentication key value.
+        /// The authorization key value.
         /// </summary>
-        /// <value>The authentication key value.</value>
+        /// <value>The authorization key value.</value>
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "value", EmitDefaultValue = true)]
+        [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>
-        /// The authentication key title.
+        /// The authorization key title.
         /// </summary>
-        /// <value>The authentication key title.</value>
+        /// <value>The authorization key title.</value>
         /*
         <example>legacy_1080p_small_wooden_mouse</example>
         */

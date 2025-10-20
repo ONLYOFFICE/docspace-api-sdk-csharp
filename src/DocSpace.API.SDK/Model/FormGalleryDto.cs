@@ -28,21 +28,61 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FormGalleryDto" /> class.
         /// </summary>
-        /// <param name="path">The form gallery path..</param>
-        /// <param name="domain">The form gallery domain..</param>
-        /// <param name="ext">The form gallery extension..</param>
-        /// <param name="uploadPath">The form gallery upload path..</param>
-        /// <param name="uploadDomain">The form gallery upload domain..</param>
-        /// <param name="uploadExt">The form gallery upload extension..</param>
-        /// <param name="uploadDashboard">The form gallery upload dashboard..</param>
+        [JsonConstructorAttribute]
+        protected FormGalleryDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FormGalleryDto" /> class.
+        /// </summary>
+        /// <param name="path">The form gallery path. (required).</param>
+        /// <param name="domain">The form gallery domain. (required).</param>
+        /// <param name="ext">The form gallery extension. (required).</param>
+        /// <param name="uploadPath">The form gallery upload path. (required).</param>
+        /// <param name="uploadDomain">The form gallery upload domain. (required).</param>
+        /// <param name="uploadExt">The form gallery upload extension. (required).</param>
+        /// <param name="uploadDashboard">The form gallery upload dashboard. (required).</param>
         public FormGalleryDto(string path = default, string domain = default, string ext = default, string uploadPath = default, string uploadDomain = default, string uploadExt = default, string uploadDashboard = default)
         {
+            // to ensure "path" is required (not null)
+            if (path == null)
+            {
+                throw new ArgumentNullException("path is a required property for FormGalleryDto and cannot be null");
+            }
             this.Path = path;
+            // to ensure "domain" is required (not null)
+            if (domain == null)
+            {
+                throw new ArgumentNullException("domain is a required property for FormGalleryDto and cannot be null");
+            }
             this.Domain = domain;
+            // to ensure "ext" is required (not null)
+            if (ext == null)
+            {
+                throw new ArgumentNullException("ext is a required property for FormGalleryDto and cannot be null");
+            }
             this.Ext = ext;
+            // to ensure "uploadPath" is required (not null)
+            if (uploadPath == null)
+            {
+                throw new ArgumentNullException("uploadPath is a required property for FormGalleryDto and cannot be null");
+            }
             this.UploadPath = uploadPath;
+            // to ensure "uploadDomain" is required (not null)
+            if (uploadDomain == null)
+            {
+                throw new ArgumentNullException("uploadDomain is a required property for FormGalleryDto and cannot be null");
+            }
             this.UploadDomain = uploadDomain;
+            // to ensure "uploadExt" is required (not null)
+            if (uploadExt == null)
+            {
+                throw new ArgumentNullException("uploadExt is a required property for FormGalleryDto and cannot be null");
+            }
             this.UploadExt = uploadExt;
+            // to ensure "uploadDashboard" is required (not null)
+            if (uploadDashboard == null)
+            {
+                throw new ArgumentNullException("uploadDashboard is a required property for FormGalleryDto and cannot be null");
+            }
             this.UploadDashboard = uploadDashboard;
         }
 
@@ -53,7 +93,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "path", EmitDefaultValue = true)]
+        [DataMember(Name = "path", IsRequired = true, EmitDefaultValue = true)]
         public string Path { get; set; }
 
         /// <summary>
@@ -63,7 +103,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "domain", EmitDefaultValue = true)]
+        [DataMember(Name = "domain", IsRequired = true, EmitDefaultValue = true)]
         public string Domain { get; set; }
 
         /// <summary>
@@ -73,7 +113,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>.txt</example>
         */
-        [DataMember(Name = "ext", EmitDefaultValue = true)]
+        [DataMember(Name = "ext", IsRequired = true, EmitDefaultValue = true)]
         public string Ext { get; set; }
 
         /// <summary>
@@ -83,7 +123,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "uploadPath", EmitDefaultValue = true)]
+        [DataMember(Name = "uploadPath", IsRequired = true, EmitDefaultValue = true)]
         public string UploadPath { get; set; }
 
         /// <summary>
@@ -93,7 +133,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "uploadDomain", EmitDefaultValue = true)]
+        [DataMember(Name = "uploadDomain", IsRequired = true, EmitDefaultValue = true)]
         public string UploadDomain { get; set; }
 
         /// <summary>
@@ -103,7 +143,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "uploadExt", EmitDefaultValue = true)]
+        [DataMember(Name = "uploadExt", IsRequired = true, EmitDefaultValue = true)]
         public string UploadExt { get; set; }
 
         /// <summary>
@@ -113,7 +153,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "uploadDashboard", EmitDefaultValue = true)]
+        [DataMember(Name = "uploadDashboard", IsRequired = true, EmitDefaultValue = true)]
         public string UploadDashboard { get; set; }
 
         /// <summary>

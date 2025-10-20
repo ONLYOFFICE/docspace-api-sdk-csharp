@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="type">type (required).</param>
         /// <param name="domains">The list of authorized email domains that are considered trusted. (required).</param>
-        /// <param name="inviteUsersAsVisitors">Specifies the default permission level for the invited users (visitors or not)..</param>
+        /// <param name="inviteUsersAsVisitors">Specifies the default permission level for the invited users (visitors or not). (required).</param>
         public MailDomainSettingsRequestsDto(TenantTrustedDomainsType type = default, List<string> domains = default, bool inviteUsersAsVisitors = default)
         {
             this.Type = type;
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "inviteUsersAsVisitors", EmitDefaultValue = true)]
+        [DataMember(Name = "inviteUsersAsVisitors", IsRequired = true, EmitDefaultValue = true)]
         public bool InviteUsersAsVisitors { get; set; }
 
         /// <summary>

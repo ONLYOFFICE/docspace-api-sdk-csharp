@@ -28,12 +28,22 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebPluginRequests" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected WebPluginRequests() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WebPluginRequests" /> class.
+        /// </summary>
         /// <param name="enabled">Controls whether the web plugin is active and operational..</param>
-        /// <param name="settings">The JSON-formatted configuration settings for the web plugin..</param>
+        /// <param name="settings">The JSON-formatted configuration settings for the web plugin. (required).</param>
         public WebPluginRequests(bool enabled = default, string settings = default)
         {
-            this.Enabled = enabled;
+            // to ensure "settings" is required (not null)
+            if (settings == null)
+            {
+                throw new ArgumentNullException("settings is a required property for WebPluginRequests and cannot be null");
+            }
             this.Settings = settings;
+            this.Enabled = enabled;
         }
 
         /// <summary>
@@ -53,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "settings", EmitDefaultValue = true)]
+        [DataMember(Name = "settings", IsRequired = true, EmitDefaultValue = true)]
         public string Settings { get; set; }
 
         /// <summary>

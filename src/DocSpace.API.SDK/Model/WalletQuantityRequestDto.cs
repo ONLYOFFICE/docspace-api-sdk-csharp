@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for the wallet payment quantity specifications.
+    /// The request parameters for specifying wallet payment quantity.
     /// </summary>
     [DataContract(Name = "WalletQuantityRequestDto")]
     public partial class WalletQuantityRequestDto : IValidatableObject
@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WalletQuantityRequestDto" /> class.
         /// </summary>
-        /// <param name="quantity">The mapping of item identifiers with their respective quantities in the payment..</param>
+        /// <param name="quantity">The mapping of item identifiers to their respective quantities in the payment..</param>
         /// <param name="productQuantityType">productQuantityType.</param>
         public WalletQuantityRequestDto(Dictionary<string, int?> quantity = default, ProductQuantityType? productQuantityType = default)
         {
@@ -43,9 +43,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The mapping of item identifiers with their respective quantities in the payment.
+        /// The mapping of item identifiers to their respective quantities in the payment.
         /// </summary>
-        /// <value>The mapping of item identifiers with their respective quantities in the payment.</value>
+        /// <value>The mapping of item identifiers to their respective quantities in the payment.</value>
         /*
         <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:1234}]</example>
         */

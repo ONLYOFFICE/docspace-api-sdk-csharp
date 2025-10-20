@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The auto-clearing request parameters.
+    /// The request parameters for updating the trash bin auto-clearing setting.
     /// </summary>
     [DataContract(Name = "AutoCleanupRequestDto")]
     public partial class AutoCleanupRequestDto : IValidatableObject

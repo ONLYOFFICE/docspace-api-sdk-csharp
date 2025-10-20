@@ -5,7 +5,7 @@ The active connections parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LoginEvent** | **int** | The login event. | [optional] 
+**LoginEvent** | **int** | The login event. | 
 **Items** | [**List&lt;ActiveConnectionsItemDto&gt;**](ActiveConnectionsItemDto.md) | The list of active connection items. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

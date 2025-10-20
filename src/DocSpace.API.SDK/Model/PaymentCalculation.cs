@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The payment calculation.
+    /// The parameters of the calculated payment amount.
     /// </summary>
     [DataContract(Name = "PaymentCalculation")]
     public partial class PaymentCalculation : IValidatableObject
@@ -28,9 +28,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentCalculation" /> class.
         /// </summary>
-        /// <param name="operationId">Unique identifier of the operation..</param>
-        /// <param name="amount">The amount of the payment calculation..</param>
-        /// <param name="currency">The three-character ISO 4217 currency symbol of the payment calculation..</param>
+        /// <param name="operationId">The operation unique identifier..</param>
+        /// <param name="amount">The calculated payment amount..</param>
+        /// <param name="currency">The three-character ISO 4217 currency symbol used for the payment calculation..</param>
         /// <param name="quantity">The quantity associated with the payment calculation..</param>
         public PaymentCalculation(long operationId = default, double amount = default, string currency = default, int quantity = default)
         {
@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Unique identifier of the operation.
+        /// The operation unique identifier.
         /// </summary>
-        /// <value>Unique identifier of the operation.</value>
+        /// <value>The operation unique identifier.</value>
         /*
         <example>1234</example>
         */
@@ -51,16 +51,16 @@ namespace DocSpace.API.SDK.Model
         public long OperationId { get; set; }
 
         /// <summary>
-        /// The amount of the payment calculation.
+        /// The calculated payment amount.
         /// </summary>
-        /// <value>The amount of the payment calculation.</value>
+        /// <value>The calculated payment amount.</value>
         [DataMember(Name = "amount", EmitDefaultValue = false)]
         public double Amount { get; set; }
 
         /// <summary>
-        /// The three-character ISO 4217 currency symbol of the payment calculation.
+        /// The three-character ISO 4217 currency symbol used for the payment calculation.
         /// </summary>
-        /// <value>The three-character ISO 4217 currency symbol of the payment calculation.</value>
+        /// <value>The three-character ISO 4217 currency symbol used for the payment calculation.</value>
         /*
         <example>some text</example>
         */

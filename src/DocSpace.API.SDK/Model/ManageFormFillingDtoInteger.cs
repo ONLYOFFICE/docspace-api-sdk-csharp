@@ -34,7 +34,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ManageFormFillingDtoInteger" /> class.
         /// </summary>
-        /// <param name="formId">The ID of the form to manage..</param>
+        [JsonConstructorAttribute]
+        protected ManageFormFillingDtoInteger() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ManageFormFillingDtoInteger" /> class.
+        /// </summary>
+        /// <param name="formId">The ID of the form to manage. (required).</param>
         /// <param name="action">action.</param>
         public ManageFormFillingDtoInteger(int formId = default, FormFillingManageAction? action = default)
         {
@@ -49,7 +54,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "formId", EmitDefaultValue = false)]
+        [DataMember(Name = "formId", IsRequired = true, EmitDefaultValue = true)]
         public int FormId { get; set; }
 
         /// <summary>

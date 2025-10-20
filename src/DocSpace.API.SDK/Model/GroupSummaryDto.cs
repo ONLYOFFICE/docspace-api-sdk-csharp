@@ -28,13 +28,23 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupSummaryDto" /> class.
         /// </summary>
-        /// <param name="id">The group ID..</param>
-        /// <param name="name">The group name..</param>
+        [JsonConstructorAttribute]
+        protected GroupSummaryDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GroupSummaryDto" /> class.
+        /// </summary>
+        /// <param name="id">The group ID. (required).</param>
+        /// <param name="name">The group name. (required).</param>
         /// <param name="manager">The group manager..</param>
         /// <param name="isSystem">Indicates whether the group is a system group..</param>
         public GroupSummaryDto(Guid id = default, string name = default, string manager = default, bool? isSystem = default)
         {
             this.Id = id;
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for GroupSummaryDto and cannot be null");
+            }
             this.Name = name;
             this.Manager = manager;
             this.IsSystem = isSystem;
@@ -44,7 +54,7 @@ namespace DocSpace.API.SDK.Model
         /// The group ID.
         /// </summary>
         /// <value>The group ID.</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
 
         /// <summary>
@@ -54,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Group Name</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>

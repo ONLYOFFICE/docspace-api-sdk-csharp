@@ -5,14 +5,14 @@ The configuration parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Document** | [**DocumentConfigDto**](DocumentConfigDto.md) |  | [optional] 
-**DocumentType** | **string** | The document type. | [optional] 
-**EditorConfig** | [**EditorConfigurationDto**](EditorConfigurationDto.md) |  | [optional] 
-**EditorType** | **EditorType** |  | [optional] 
-**EditorUrl** | **string** | The editor URL. | [optional] 
+**Document** | [**DocumentConfigDto**](DocumentConfigDto.md) |  | 
+**DocumentType** | **string** | The document type. | 
+**EditorConfig** | [**EditorConfigurationDto**](EditorConfigurationDto.md) |  | 
+**EditorType** | **EditorType** |  | 
+**EditorUrl** | **string** | The editor URL. | 
 **Token** | **string** | The token of the file configuration. | [optional] 
 **Type** | **string** | The platform type. | [optional] 
-**File** | [**FileDtoInteger**](FileDtoInteger.md) |  | [optional] 
+**File** | [**FileDtoInteger**](FileDtoInteger.md) |  | 
 **ErrorMessage** | **string** | The error message. | [optional] 
 **StartFilling** | **bool?** | Specifies if the file filling has started or not. | [optional] 
 **FillingStatus** | **bool?** | The file filling status. | [optional] 

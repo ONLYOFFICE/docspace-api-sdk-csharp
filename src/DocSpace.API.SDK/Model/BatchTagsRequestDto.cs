@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The parameters for adding tags.
+    /// The parameters for managing room tags.
     /// </summary>
     [DataContract(Name = "BatchTagsRequestDto")]
     public partial class BatchTagsRequestDto : IValidatableObject

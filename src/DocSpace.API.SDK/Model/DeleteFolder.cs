@@ -29,7 +29,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="DeleteFolder" /> class.
         /// </summary>
         /// <param name="deleteAfter">Specifies whether to delete a folder after the editing session is finished or not..</param>
-        /// <param name="immediately">Specifies whether to move a folder to the \\\&quot;Trash\\\&quot; folder or delete it immediately..</param>
+        /// <param name="immediately">Specifies whether to move a folder to the \\Trash\\ folder or delete it immediately..</param>
         public DeleteFolder(bool deleteAfter = default, bool immediately = default)
         {
             this.DeleteAfter = deleteAfter;
@@ -47,9 +47,9 @@ namespace DocSpace.API.SDK.Model
         public bool DeleteAfter { get; set; }
 
         /// <summary>
-        /// Specifies whether to move a folder to the \\\&quot;Trash\\\&quot; folder or delete it immediately.
+        /// Specifies whether to move a folder to the \\Trash\\ folder or delete it immediately.
         /// </summary>
-        /// <value>Specifies whether to move a folder to the \\\&quot;Trash\\\&quot; folder or delete it immediately.</value>
+        /// <value>Specifies whether to move a folder to the \\Trash\\ folder or delete it immediately.</value>
         /*
         <example>true</example>
         */

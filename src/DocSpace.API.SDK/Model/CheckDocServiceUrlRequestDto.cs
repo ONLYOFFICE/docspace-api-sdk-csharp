@@ -28,7 +28,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckDocServiceUrlRequestDto" /> class.
         /// </summary>
-        /// <param name="docServiceUrl">The ONLYOFFICE Docs URL address..</param>
+        [JsonConstructorAttribute]
+        protected CheckDocServiceUrlRequestDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CheckDocServiceUrlRequestDto" /> class.
+        /// </summary>
+        /// <param name="docServiceUrl">The ONLYOFFICE Docs URL address. (required).</param>
         /// <param name="docServiceUrlInternal">The ONLYOFFICE Docs URL address in the local private network..</param>
         /// <param name="docServiceUrlPortal">The ONLYOFFICE Docs URL address..</param>
         /// <param name="docServiceSignatureSecret">The signature secret of the ONLYOFFICE Docs..</param>
@@ -36,6 +41,11 @@ namespace DocSpace.API.SDK.Model
         /// <param name="docServiceSslVerification">Specifies if the SSL verification of the ONLYOFFICE Docs is enabled or not..</param>
         public CheckDocServiceUrlRequestDto(string docServiceUrl = default, string docServiceUrlInternal = default, string docServiceUrlPortal = default, string docServiceSignatureSecret = default, string docServiceSignatureHeader = default, bool? docServiceSslVerification = default)
         {
+            // to ensure "docServiceUrl" is required (not null)
+            if (docServiceUrl == null)
+            {
+                throw new ArgumentNullException("docServiceUrl is a required property for CheckDocServiceUrlRequestDto and cannot be null");
+            }
             this.DocServiceUrl = docServiceUrl;
             this.DocServiceUrlInternal = docServiceUrlInternal;
             this.DocServiceUrlPortal = docServiceUrlPortal;
@@ -51,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "docServiceUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "docServiceUrl", IsRequired = true, EmitDefaultValue = true)]
         public string DocServiceUrl { get; set; }
 
         /// <summary>

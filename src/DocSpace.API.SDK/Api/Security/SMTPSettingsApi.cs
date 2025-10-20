@@ -469,6 +469,7 @@ namespace DocSpace.API.SDK.Api.Security
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Get the SMTP testing process status
         /// </summary>

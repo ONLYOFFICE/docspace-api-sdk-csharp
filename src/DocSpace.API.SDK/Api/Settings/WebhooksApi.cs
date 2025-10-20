@@ -128,10 +128,9 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
         /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
         /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhooks-logs/">REST API Reference for GetWebhooksLogs Operation</seealso>
         /// <returns>WebhooksLogArrayWrapper</returns>
-        WebhooksLogArrayWrapper GetWebhooksLogs(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, string fields = default);
+        WebhooksLogArrayWrapper GetWebhooksLogs(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default);
 
         /// <summary>
         /// Get webhook logs
@@ -150,10 +149,9 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
         /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
         /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhooks-logs/">REST API Reference for GetWebhooksLogs Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
-        ApiResponse<WebhooksLogArrayWrapper> GetWebhooksLogsWithHttpInfo(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, string fields = default);
+        ApiResponse<WebhooksLogArrayWrapper> GetWebhooksLogsWithHttpInfo(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default);
         /// <summary>
         /// Remove a webhook
         /// </summary>
@@ -207,7 +205,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>WebhooksLogArrayWrapper</returns>
         WebhooksLogArrayWrapper RetryWebhooks(WebhookRetryRequestsDto? webhookRetryRequestsDto = default);
@@ -219,7 +217,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
         ApiResponse<WebhooksLogArrayWrapper> RetryWebhooksWithHttpInfo(WebhookRetryRequestsDto? webhookRetryRequestsDto = default);
@@ -368,11 +366,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
         /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
         /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhooks-logs/">REST API Reference for GetWebhooksLogs Operation</seealso>
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
-        Task<WebhooksLogArrayWrapper> GetWebhooksLogsAsync(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<WebhooksLogArrayWrapper> GetWebhooksLogsAsync(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get webhook logs
@@ -391,11 +388,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
         /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
         /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhooks-logs/">REST API Reference for GetWebhooksLogs Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
-        Task<ApiResponse<WebhooksLogArrayWrapper>> GetWebhooksLogsWithHttpInfoAsync(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<WebhooksLogArrayWrapper>> GetWebhooksLogsWithHttpInfoAsync(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Remove a webhook
         /// </summary>
@@ -453,7 +449,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
@@ -466,7 +462,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
@@ -707,6 +703,20 @@ namespace DocSpace.API.SDK.Api.Settings
                 return _exceptionFactory;
             }
             set => _exceptionFactory = value; 
+        }
+
+        private string? _fields;
+
+        /// <summary>
+        /// Specifies which fields should be included in the API response.
+        /// </summary>
+        /// <param name="fields">A comma-separated list of field paths to include in the response</param>
+        /// <returns></returns>
+
+        public WebhooksApi WithFields(string fields)
+        {
+            _fields = fields;
+            return this;
         }
 
         /// <summary>
@@ -1442,12 +1452,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
         /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
         /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhooks-logs/">REST API Reference for GetWebhooksLogs Operation</seealso>
         /// <returns>WebhooksLogArrayWrapper</returns>
-        public WebhooksLogArrayWrapper GetWebhooksLogs(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, string fields = default)
+        public WebhooksLogArrayWrapper GetWebhooksLogs(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default)
         {
-            var localVarResponse = GetWebhooksLogsWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex, fields);
+            var localVarResponse = GetWebhooksLogsWithHttpInfo(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex);
             return localVarResponse.Data;
         }
 
@@ -1468,10 +1477,9 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
         /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
         /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhooks-logs/">REST API Reference for GetWebhooksLogs Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
-        public ApiResponse<WebhooksLogArrayWrapper> GetWebhooksLogsWithHttpInfo(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, string fields = default)
+        public ApiResponse<WebhooksLogArrayWrapper> GetWebhooksLogsWithHttpInfo(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1526,9 +1534,9 @@ namespace DocSpace.API.SDK.Api.Settings
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
-            if (fields != null)
+            if (_fields != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
+                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
             // authentication (Basic) required
@@ -1594,13 +1602,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
         /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
         /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhooks-logs/">REST API Reference for GetWebhooksLogs Operation</seealso>
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
-        public async Task<WebhooksLogArrayWrapper> GetWebhooksLogsAsync(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<WebhooksLogArrayWrapper> GetWebhooksLogsAsync(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetWebhooksLogsWithHttpInfoAsync(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex, fields, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetWebhooksLogsWithHttpInfoAsync(deliveryFrom, deliveryTo, hookUri, configId, eventId, groupStatus, userId, trigger, count, startIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1621,11 +1628,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <param name="trigger">The type of event that triggered the webhook. (optional)</param>
         /// <param name="count">The maximum number of webhook log records to return in the query response. (optional)</param>
         /// <param name="startIndex">Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional)</param>
-        /// <param name="fields">Comma-separated list of fields to include in the response (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhooks-logs/">REST API Reference for GetWebhooksLogs Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>
-        public async Task<ApiResponse<WebhooksLogArrayWrapper>> GetWebhooksLogsWithHttpInfoAsync(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, string fields = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<WebhooksLogArrayWrapper>> GetWebhooksLogsWithHttpInfoAsync(DateTime? deliveryFrom = default, DateTime? deliveryTo = default, string? hookUri = default, int? configId = default, int? eventId = default, WebhookGroupStatus? groupStatus = default, Guid? userId = default, WebhookTrigger? trigger = default, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1680,10 +1686,6 @@ namespace DocSpace.API.SDK.Api.Settings
             if (startIndex != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
-            }
-            if (fields != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "fields", fields));
             }
 
             // authentication (Basic) required
@@ -2104,7 +2106,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>WebhooksLogArrayWrapper</returns>
         public WebhooksLogArrayWrapper RetryWebhooks(WebhookRetryRequestsDto? webhookRetryRequestsDto = default)
@@ -2120,7 +2122,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>ApiResponse of WebhooksLogArrayWrapper</returns>
         public ApiResponse<WebhooksLogArrayWrapper> RetryWebhooksWithHttpInfo(WebhookRetryRequestsDto? webhookRetryRequestsDto = default)
@@ -2193,7 +2195,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of WebhooksLogArrayWrapper</returns>
@@ -2210,7 +2212,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Retries all the webhooks with the IDs specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="webhookRetryRequestsDto">The request parameters for requesting the webhook delivery retries. (optional)</param>
+        /// <param name="webhookRetryRequestsDto">The parameters for requesting the webhook delivery retries. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/retry-webhooks/">REST API Reference for RetryWebhooks Operation</seealso>
         /// <returns>Task of ApiResponse (WebhooksLogArrayWrapper)</returns>

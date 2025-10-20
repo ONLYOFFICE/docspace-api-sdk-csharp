@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The actions that can be perforrmed with the file entry.
+    /// The actions that can be performed with the file entry.
     /// </summary>
     [DataContract(Name = "FileEntryDtoInteger_allOf_security")]
     public partial class FileEntryDtoIntegerAllOfSecurity : IValidatableObject

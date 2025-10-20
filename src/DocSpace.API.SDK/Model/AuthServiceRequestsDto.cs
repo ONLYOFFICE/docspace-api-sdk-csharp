@@ -28,12 +28,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthServiceRequestsDto" /> class.
         /// </summary>
-        /// <param name="name">The name of the authentication service..</param>
-        /// <param name="title">The user-friendly display title of the authentication service..</param>
-        /// <param name="description">The brief description of the authentication service..</param>
-        /// <param name="instruction">The detailed instructions for configuring or using the authentication service..</param>
-        /// <param name="canSet">Specifies whether the authentication service can be configured by the user..</param>
-        /// <param name="props">The collection of authorization keys associated with the authentication service..</param>
+        /// <param name="name">The name of the authorization service..</param>
+        /// <param name="title">The user-friendly display title of the authorization service..</param>
+        /// <param name="description">The brief description of the authorization service..</param>
+        /// <param name="instruction">The detailed instructions for configuring or using the authorization service..</param>
+        /// <param name="canSet">Specifies whether the authorization service can be configured by the user..</param>
+        /// <param name="props">The collection of authorization keys associated with the authorization service..</param>
         public AuthServiceRequestsDto(string name = default, string title = default, string description = default, string instruction = default, bool canSet = default, List<AuthKey> props = default)
         {
             this.Name = name;
@@ -45,9 +45,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The name of the authentication service.
+        /// The name of the authorization service.
         /// </summary>
-        /// <value>The name of the authentication service.</value>
+        /// <value>The name of the authorization service.</value>
         /*
         <example>Winfield Upton</example>
         */
@@ -55,9 +55,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The user-friendly display title of the authentication service.
+        /// The user-friendly display title of the authorization service.
         /// </summary>
-        /// <value>The user-friendly display title of the authentication service.</value>
+        /// <value>The user-friendly display title of the authorization service.</value>
         /*
         <example>legacy_1080p_small_wooden_mouse</example>
         */
@@ -65,9 +65,9 @@ namespace DocSpace.API.SDK.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// The brief description of the authentication service.
+        /// The brief description of the authorization service.
         /// </summary>
-        /// <value>The brief description of the authentication service.</value>
+        /// <value>The brief description of the authorization service.</value>
         /*
         <example>some text</example>
         */
@@ -75,9 +75,9 @@ namespace DocSpace.API.SDK.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The detailed instructions for configuring or using the authentication service.
+        /// The detailed instructions for configuring or using the authorization service.
         /// </summary>
-        /// <value>The detailed instructions for configuring or using the authentication service.</value>
+        /// <value>The detailed instructions for configuring or using the authorization service.</value>
         /*
         <example>some text</example>
         */
@@ -85,9 +85,9 @@ namespace DocSpace.API.SDK.Model
         public string Instruction { get; set; }
 
         /// <summary>
-        /// Specifies whether the authentication service can be configured by the user.
+        /// Specifies whether the authorization service can be configured by the user.
         /// </summary>
-        /// <value>Specifies whether the authentication service can be configured by the user.</value>
+        /// <value>Specifies whether the authorization service can be configured by the user.</value>
         /*
         <example>true</example>
         */
@@ -95,9 +95,9 @@ namespace DocSpace.API.SDK.Model
         public bool CanSet { get; set; }
 
         /// <summary>
-        /// The collection of authorization keys associated with the authentication service.
+        /// The collection of authorization keys associated with the authorization service.
         /// </summary>
-        /// <value>The collection of authorization keys associated with the authentication service.</value>
+        /// <value>The collection of authorization keys associated with the authorization service.</value>
         [DataMember(Name = "props", EmitDefaultValue = true)]
         public List<AuthKey> Props { get; set; }
 

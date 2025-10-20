@@ -28,13 +28,33 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeepLinkDto" /> class.
         /// </summary>
-        /// <param name="androidPackageName">The Android package name..</param>
-        /// <param name="url">The deep link URL..</param>
-        /// <param name="iosPackageId">The deep link IOS package ID..</param>
+        [JsonConstructorAttribute]
+        protected DeepLinkDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DeepLinkDto" /> class.
+        /// </summary>
+        /// <param name="androidPackageName">The Android package name. (required).</param>
+        /// <param name="url">The deep link URL. (required).</param>
+        /// <param name="iosPackageId">The deep link IOS package ID. (required).</param>
         public DeepLinkDto(string androidPackageName = default, string url = default, string iosPackageId = default)
         {
+            // to ensure "androidPackageName" is required (not null)
+            if (androidPackageName == null)
+            {
+                throw new ArgumentNullException("androidPackageName is a required property for DeepLinkDto and cannot be null");
+            }
             this.AndroidPackageName = androidPackageName;
+            // to ensure "url" is required (not null)
+            if (url == null)
+            {
+                throw new ArgumentNullException("url is a required property for DeepLinkDto and cannot be null");
+            }
             this.Url = url;
+            // to ensure "iosPackageId" is required (not null)
+            if (iosPackageId == null)
+            {
+                throw new ArgumentNullException("iosPackageId is a required property for DeepLinkDto and cannot be null");
+            }
             this.IosPackageId = iosPackageId;
         }
 
@@ -45,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "androidPackageName", EmitDefaultValue = true)]
+        [DataMember(Name = "androidPackageName", IsRequired = true, EmitDefaultValue = true)]
         public string AndroidPackageName { get; set; }
 
         /// <summary>
@@ -55,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "url", EmitDefaultValue = true)]
+        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
@@ -65,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "iosPackageId", EmitDefaultValue = true)]
+        [DataMember(Name = "iosPackageId", IsRequired = true, EmitDefaultValue = true)]
         public string IosPackageId { get; set; }
 
         /// <summary>

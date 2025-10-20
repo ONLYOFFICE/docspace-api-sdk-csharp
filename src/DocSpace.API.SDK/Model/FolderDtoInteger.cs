@@ -60,10 +60,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="quotaLimit">The folder quota limit..</param>
         /// <param name="isCustomQuota">Specifies if the folder room has a custom quota or not..</param>
         /// <param name="usedSpace">How much folder space is used (counter)..</param>
-        /// <param name="external">Specifies if the folder can be accessed via an external link or not..</param>
         /// <param name="passwordProtected">Specifies if the folder is password protected or not..</param>
         /// <param name="expired">Specifies if an external link to the folder is expired or not..</param>
-        public FolderDtoInteger(int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? external = default, bool? passwordProtected = default, bool? expired = default)
+        public FolderDtoInteger(int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? passwordProtected = default, bool? expired = default)
         {
             this.ParentId = parentId;
             this.FilesCount = filesCount;
@@ -85,7 +84,6 @@ namespace DocSpace.API.SDK.Model
             this.QuotaLimit = quotaLimit;
             this.IsCustomQuota = isCustomQuota;
             this.UsedSpace = usedSpace;
-            this.External = external;
             this.PasswordProtected = passwordProtected;
             this.Expired = expired;
         }
@@ -259,16 +257,6 @@ namespace DocSpace.API.SDK.Model
         public long? UsedSpace { get; set; }
 
         /// <summary>
-        /// Specifies if the folder can be accessed via an external link or not.
-        /// </summary>
-        /// <value>Specifies if the folder can be accessed via an external link or not.</value>
-        /*
-        <example>true</example>
-        */
-        [DataMember(Name = "external", EmitDefaultValue = true)]
-        public bool? External { get; set; }
-
-        /// <summary>
         /// Specifies if the folder is password protected or not.
         /// </summary>
         /// <value>Specifies if the folder is password protected or not.</value>
@@ -286,6 +274,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "expired", EmitDefaultValue = true)]
+        [Obsolete]
         public bool? Expired { get; set; }
 
         /// <summary>
@@ -316,7 +305,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  QuotaLimit: ").Append(QuotaLimit).Append("\n");
             sb.Append("  IsCustomQuota: ").Append(IsCustomQuota).Append("\n");
             sb.Append("  UsedSpace: ").Append(UsedSpace).Append("\n");
-            sb.Append("  External: ").Append(External).Append("\n");
             sb.Append("  PasswordProtected: ").Append(PasswordProtected).Append("\n");
             sb.Append("  Expired: ").Append(Expired).Append("\n");
             sb.Append("}\n");

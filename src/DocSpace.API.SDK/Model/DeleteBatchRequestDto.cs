@@ -31,7 +31,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="folderIds">The list of folder IDs to be deleted..</param>
         /// <param name="fileIds">The list of file IDs to be deleted..</param>
         /// <param name="deleteAfter">Specifies whether to delete a file after the editing session is finished or not.</param>
-        /// <param name="immediately">Specifies whether to move a file to the \\\&quot;Trash\\\&quot; folder or delete it immediately..</param>
+        /// <param name="immediately">Specifies whether to move a file to the \\Trash\\ folder or delete it immediately..</param>
         public DeleteBatchRequestDto(List<DeleteBatchRequestDtoAllOfFolderIds> folderIds = default, List<DeleteBatchRequestDtoAllOfFileIds> fileIds = default, bool deleteAfter = default, bool immediately = default)
         {
             this.FolderIds = folderIds;
@@ -65,9 +65,9 @@ namespace DocSpace.API.SDK.Model
         public bool DeleteAfter { get; set; }
 
         /// <summary>
-        /// Specifies whether to move a file to the \\\&quot;Trash\\\&quot; folder or delete it immediately.
+        /// Specifies whether to move a file to the \\Trash\\ folder or delete it immediately.
         /// </summary>
-        /// <value>Specifies whether to move a file to the \\\&quot;Trash\\\&quot; folder or delete it immediately.</value>
+        /// <value>Specifies whether to move a file to the \\Trash\\ folder or delete it immediately.</value>
         /*
         <example>true</example>
         */

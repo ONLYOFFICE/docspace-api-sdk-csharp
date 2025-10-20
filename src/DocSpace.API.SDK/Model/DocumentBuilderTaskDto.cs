@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The document builder task parameters.
+    /// The Document Builder task parameters.
     /// </summary>
     [DataContract(Name = "DocumentBuilderTaskDto")]
     public partial class DocumentBuilderTaskDto : IValidatableObject
@@ -28,60 +28,90 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name = "status", EmitDefaultValue = false)]
-        public DistributedTaskStatus? Status { get; set; }
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        public DistributedTaskStatus Status { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentBuilderTaskDto" /> class.
         /// </summary>
-        /// <param name="id">The document builder ID..</param>
-        /// <param name="error">The error message occured while the document building process..</param>
-        /// <param name="percentage">The percentage of the progress of the document building process..</param>
-        /// <param name="isCompleted">Specifies whether the document building process is completed or not..</param>
-        /// <param name="status">status.</param>
-        /// <param name="resultFileId">The result file ID..</param>
-        /// <param name="resultFileName">The result file name..</param>
-        /// <param name="resultFileUrl">The result file URL..</param>
-        public DocumentBuilderTaskDto(string id = default, string error = default, int percentage = default, bool isCompleted = default, DistributedTaskStatus? status = default, Object resultFileId = default, string resultFileName = default, string resultFileUrl = default)
+        [JsonConstructorAttribute]
+        protected DocumentBuilderTaskDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DocumentBuilderTaskDto" /> class.
+        /// </summary>
+        /// <param name="id">The Document Builder task ID. (required).</param>
+        /// <param name="error">The error message occurred during the document building process. (required).</param>
+        /// <param name="percentage">The progress percentage of the document building process. (required).</param>
+        /// <param name="isCompleted">Specifies whether the document building process is completed or not. (required).</param>
+        /// <param name="status">status (required).</param>
+        /// <param name="resultFileId">The result file ID. (required).</param>
+        /// <param name="resultFileName">The result file name. (required).</param>
+        /// <param name="resultFileUrl">The result file URL. (required).</param>
+        public DocumentBuilderTaskDto(string id = default, string error = default, int percentage = default, bool isCompleted = default, DistributedTaskStatus status = default, Object resultFileId = default, string resultFileName = default, string resultFileUrl = default)
         {
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for DocumentBuilderTaskDto and cannot be null");
+            }
             this.Id = id;
+            // to ensure "error" is required (not null)
+            if (error == null)
+            {
+                throw new ArgumentNullException("error is a required property for DocumentBuilderTaskDto and cannot be null");
+            }
             this.Error = error;
             this.Percentage = percentage;
             this.IsCompleted = isCompleted;
             this.Status = status;
+            // to ensure "resultFileId" is required (not null)
+            if (resultFileId == null)
+            {
+                throw new ArgumentNullException("resultFileId is a required property for DocumentBuilderTaskDto and cannot be null");
+            }
             this.ResultFileId = resultFileId;
+            // to ensure "resultFileName" is required (not null)
+            if (resultFileName == null)
+            {
+                throw new ArgumentNullException("resultFileName is a required property for DocumentBuilderTaskDto and cannot be null");
+            }
             this.ResultFileName = resultFileName;
+            // to ensure "resultFileUrl" is required (not null)
+            if (resultFileUrl == null)
+            {
+                throw new ArgumentNullException("resultFileUrl is a required property for DocumentBuilderTaskDto and cannot be null");
+            }
             this.ResultFileUrl = resultFileUrl;
         }
 
         /// <summary>
-        /// The document builder ID.
+        /// The Document Builder task ID.
         /// </summary>
-        /// <value>The document builder ID.</value>
+        /// <value>The Document Builder task ID.</value>
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The error message occured while the document building process.
+        /// The error message occurred during the document building process.
         /// </summary>
-        /// <value>The error message occured while the document building process.</value>
+        /// <value>The error message occurred during the document building process.</value>
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "error", EmitDefaultValue = true)]
+        [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
-        /// The percentage of the progress of the document building process.
+        /// The progress percentage of the document building process.
         /// </summary>
-        /// <value>The percentage of the progress of the document building process.</value>
+        /// <value>The progress percentage of the document building process.</value>
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "percentage", EmitDefaultValue = false)]
+        [DataMember(Name = "percentage", IsRequired = true, EmitDefaultValue = true)]
         public int Percentage { get; set; }
 
         /// <summary>
@@ -91,7 +121,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isCompleted", EmitDefaultValue = true)]
+        [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]
         public bool IsCompleted { get; set; }
 
         /// <summary>
@@ -101,7 +131,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>{&quot;int&quot;:1234,&quot;string&quot;:&quot;some text&quot;,&quot;boolean&quot;:true}</example>
         */
-        [DataMember(Name = "resultFileId", EmitDefaultValue = true)]
+        [DataMember(Name = "resultFileId", IsRequired = true, EmitDefaultValue = true)]
         public Object ResultFileId { get; set; }
 
         /// <summary>
@@ -111,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "resultFileName", EmitDefaultValue = true)]
+        [DataMember(Name = "resultFileName", IsRequired = true, EmitDefaultValue = true)]
         public string ResultFileName { get; set; }
 
         /// <summary>
@@ -121,7 +151,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "resultFileUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "resultFileUrl", IsRequired = true, EmitDefaultValue = true)]
         public string ResultFileUrl { get; set; }
 
         /// <summary>

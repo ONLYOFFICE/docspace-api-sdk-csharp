@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Key** | **string** | The email validation key. | [optional] 
 **EmplType** | **EmployeeType** |  | [optional] 
 **Email** | **string** | The email address. | [optional] 
+**EncEmail** | **string** | The encrypted email address. | [optional] 
 **UiD** | **Guid?** | The user ID. | [optional] 
 **Type** | **ConfirmType** |  | [optional] 
 **First** | **string** | Specifies whether it is the first time account access or not. | [optional] 

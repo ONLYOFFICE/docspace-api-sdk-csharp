@@ -12,7 +12,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="creatememberphotothumbnails"></a>
 # **CreateMemberPhotoThumbnails**
-> ThumbnailsDataWrapper CreateMemberPhotoThumbnails (string userid, ThumbnailsRequest? thumbnailsRequest = null)
+> ThumbnailsDataWrapper CreateMemberPhotoThumbnails (string userid, ThumbnailsRequest thumbnailsRequest)
 
 Creates the user photo thumbnails by coordinates of the original image specified in the request.
 
@@ -23,7 +23,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userid** | **string** | The user ID. |  |
-| **thumbnailsRequest** | [**ThumbnailsRequest?**](ThumbnailsRequest.md) | The thumbnail request. | [optional]  |
+| **thumbnailsRequest** | [**ThumbnailsRequest**](ThumbnailsRequest.md) | The thumbnail request. |  |
 
 ### Return type
 
@@ -71,7 +71,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
-            var thumbnailsRequest = new ThumbnailsRequest?(); // ThumbnailsRequest? | The thumbnail request. (optional) 
+            var thumbnailsRequest = new ThumbnailsRequest(); // ThumbnailsRequest | The thumbnail request.
 
             try
             {
@@ -356,7 +356,7 @@ catch (ApiException e)
 
 <a id="updatememberphoto"></a>
 # **UpdateMemberPhoto**
-> ThumbnailsDataWrapper UpdateMemberPhoto (string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = null)
+> ThumbnailsDataWrapper UpdateMemberPhoto (string userid, UpdatePhotoMemberRequest updatePhotoMemberRequest)
 
 Updates a photo of the user with the ID specified in the request.
 
@@ -367,7 +367,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userid** | **string** | The user ID. |  |
-| **updatePhotoMemberRequest** | [**UpdatePhotoMemberRequest?**](UpdatePhotoMemberRequest.md) | The request parameters for updating a photo. | [optional]  |
+| **updatePhotoMemberRequest** | [**UpdatePhotoMemberRequest**](UpdatePhotoMemberRequest.md) | The request parameters for updating a photo. |  |
 
 ### Return type
 
@@ -415,7 +415,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
-            var updatePhotoMemberRequest = new UpdatePhotoMemberRequest?(); // UpdatePhotoMemberRequest? | The request parameters for updating a photo. (optional) 
+            var updatePhotoMemberRequest = new UpdatePhotoMemberRequest(); // UpdatePhotoMemberRequest | The request parameters for updating a photo.
 
             try
             {

@@ -28,16 +28,31 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TfaSettingsDto" /> class.
         /// </summary>
-        /// <param name="id">The ID of the TFA configuration..</param>
-        /// <param name="title">The display name or description of the TFA configuration..</param>
-        /// <param name="enabled">Indicates whether the TFA configuration is currently active..</param>
-        /// <param name="avaliable">Indicates whether the TFA configuration can be used..</param>
+        [JsonConstructorAttribute]
+        protected TfaSettingsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TfaSettingsDto" /> class.
+        /// </summary>
+        /// <param name="id">The ID of the TFA configuration. (required).</param>
+        /// <param name="title">The display name or description of the TFA configuration. (required).</param>
+        /// <param name="enabled">Indicates whether the TFA configuration is currently active. (required).</param>
+        /// <param name="avaliable">Indicates whether the TFA configuration can be used. (required).</param>
         /// <param name="trustedIps">The list of IP addresses that are exempt from TFA requirements..</param>
         /// <param name="mandatoryUsers">The list of user IDs that are required to use TFA..</param>
         /// <param name="mandatoryGroups">The list of group IDs whose members are required to use TFA..</param>
         public TfaSettingsDto(string id = default, string title = default, bool enabled = default, bool avaliable = default, List<string> trustedIps = default, List<Guid> mandatoryUsers = default, List<Guid> mandatoryGroups = default)
         {
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for TfaSettingsDto and cannot be null");
+            }
             this.Id = id;
+            // to ensure "title" is required (not null)
+            if (title == null)
+            {
+                throw new ArgumentNullException("title is a required property for TfaSettingsDto and cannot be null");
+            }
             this.Title = title;
             this.Enabled = enabled;
             this.Avaliable = avaliable;
@@ -53,7 +68,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -63,7 +78,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>legacy_1080p_small_wooden_mouse</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
@@ -73,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "enabled", EmitDefaultValue = true)]
+        [DataMember(Name = "enabled", IsRequired = true, EmitDefaultValue = true)]
         public bool Enabled { get; set; }
 
         /// <summary>
@@ -83,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "avaliable", EmitDefaultValue = true)]
+        [DataMember(Name = "avaliable", IsRequired = true, EmitDefaultValue = true)]
         public bool Avaliable { get; set; }
 
         /// <summary>

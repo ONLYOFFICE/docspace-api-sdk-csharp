@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The settings for the \&quot;Open file location\&quot; menu button and upper right corner button.
+    /// The settings for the Open file location menu button and upper right corner button.
     /// </summary>
     [DataContract(Name = "GobackConfig")]
     public partial class GobackConfig : IValidatableObject
@@ -28,16 +28,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GobackConfig" /> class.
         /// </summary>
-        /// <param name="url">The absolute URL to the website address which will be opened when clicking the \&quot;Open file location\&quot; menu button..</param>
+        /// <param name="url">The absolute URL to the website address which will be opened when clicking the Open file location menu button..</param>
         public GobackConfig(string url = default)
         {
             this.Url = url;
         }
 
         /// <summary>
-        /// The absolute URL to the website address which will be opened when clicking the \&quot;Open file location\&quot; menu button.
+        /// The absolute URL to the website address which will be opened when clicking the Open file location menu button.
         /// </summary>
-        /// <value>The absolute URL to the website address which will be opened when clicking the \&quot;Open file location\&quot; menu button.</value>
+        /// <value>The absolute URL to the website address which will be opened when clicking the Open file location menu button.</value>
         /*
         <example>some text</example>
         */

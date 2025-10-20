@@ -28,17 +28,42 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Logo" /> class.
         /// </summary>
-        /// <param name="original">The original logo..</param>
-        /// <param name="large">The large logo..</param>
-        /// <param name="medium">The medium logo..</param>
-        /// <param name="small">The small logo..</param>
+        [JsonConstructorAttribute]
+        protected Logo() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Logo" /> class.
+        /// </summary>
+        /// <param name="original">The original logo. (required).</param>
+        /// <param name="large">The large logo. (required).</param>
+        /// <param name="medium">The medium logo. (required).</param>
+        /// <param name="small">The small logo. (required).</param>
         /// <param name="color">The logo color..</param>
         /// <param name="cover">cover.</param>
         public Logo(string original = default, string large = default, string medium = default, string small = default, string color = default, LogoCover cover = default)
         {
+            // to ensure "original" is required (not null)
+            if (original == null)
+            {
+                throw new ArgumentNullException("original is a required property for Logo and cannot be null");
+            }
             this.Original = original;
+            // to ensure "large" is required (not null)
+            if (large == null)
+            {
+                throw new ArgumentNullException("large is a required property for Logo and cannot be null");
+            }
             this.Large = large;
+            // to ensure "medium" is required (not null)
+            if (medium == null)
+            {
+                throw new ArgumentNullException("medium is a required property for Logo and cannot be null");
+            }
             this.Medium = medium;
+            // to ensure "small" is required (not null)
+            if (small == null)
+            {
+                throw new ArgumentNullException("small is a required property for Logo and cannot be null");
+            }
             this.Small = small;
             this.Color = color;
             this.Cover = cover;
@@ -51,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "original", EmitDefaultValue = true)]
+        [DataMember(Name = "original", IsRequired = true, EmitDefaultValue = true)]
         public string Original { get; set; }
 
         /// <summary>
@@ -61,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "large", EmitDefaultValue = true)]
+        [DataMember(Name = "large", IsRequired = true, EmitDefaultValue = true)]
         public string Large { get; set; }
 
         /// <summary>
@@ -71,7 +96,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "medium", EmitDefaultValue = true)]
+        [DataMember(Name = "medium", IsRequired = true, EmitDefaultValue = true)]
         public string Medium { get; set; }
 
         /// <summary>
@@ -81,7 +106,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "small", EmitDefaultValue = true)]
+        [DataMember(Name = "small", IsRequired = true, EmitDefaultValue = true)]
         public string Small { get; set; }
 
         /// <summary>

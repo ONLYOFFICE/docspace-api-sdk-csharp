@@ -28,23 +28,33 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FolderContentDtoInteger" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected FolderContentDtoInteger() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FolderContentDtoInteger" /> class.
+        /// </summary>
         /// <param name="files">The list of files in the folder..</param>
         /// <param name="folders">The list of folders in the folder..</param>
         /// <param name="current">current.</param>
-        /// <param name="pathParts">The folder path..</param>
+        /// <param name="pathParts">The folder path. (required).</param>
         /// <param name="startIndex">The folder start index..</param>
         /// <param name="count">The number of folder elements..</param>
-        /// <param name="total">The total number of elements in the folder..</param>
+        /// <param name="total">The total number of elements in the folder. (required).</param>
         /// <param name="@new">The new element index in the folder..</param>
         public FolderContentDtoInteger(List<FileEntryBaseDto> files = default, List<FileEntryBaseDto> folders = default, FolderDtoInteger current = default, Object pathParts = default, int startIndex = default, int count = default, int total = default, int @new = default)
         {
+            // to ensure "pathParts" is required (not null)
+            if (pathParts == null)
+            {
+                throw new ArgumentNullException("pathParts is a required property for FolderContentDtoInteger and cannot be null");
+            }
+            this.PathParts = pathParts;
+            this.Total = total;
             this.Files = files;
             this.Folders = folders;
             this.Current = current;
-            this.PathParts = pathParts;
             this.StartIndex = startIndex;
             this.Count = count;
-            this.Total = total;
             this.New = @new;
         }
 
@@ -75,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>{key &#x3D; &quot;Key&quot;, path &#x3D; &quot;//path//to//folder&quot;}</example>
         */
-        [DataMember(Name = "pathParts", EmitDefaultValue = true)]
+        [DataMember(Name = "pathParts", IsRequired = true, EmitDefaultValue = true)]
         public Object PathParts { get; set; }
 
         /// <summary>
@@ -105,7 +115,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>4</example>
         */
-        [DataMember(Name = "total", EmitDefaultValue = false)]
+        [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
         public int Total { get; set; }
 
         /// <summary>

@@ -26,7 +26,7 @@ namespace DocSpace.API.SDK.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "3.5.0-preview.1";
+        public const string Version = "3.5.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -110,7 +110,7 @@ namespace DocSpace.API.SDK.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/3.5.0-preview.1/csharp");
+            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/3.5.0/csharp");
             BasePath = "http://localhost:8092";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -542,8 +542,7 @@ namespace DocSpace.API.SDK.Client
             string report = "C# SDK (DocSpace.API.SDK) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
-            report += "    Version of the API: 3.5.0\n";
-            report += "    SDK Package Version: 3.5.0-preview.1\n";
+            report += "    SDK Package Version: 3.5.0\n";
 
             return report;
         }

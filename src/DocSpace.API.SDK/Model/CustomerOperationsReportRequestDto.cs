@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Parameters of the request for generating the report on client operations
+    /// The request parameters for generating a report on client operations.
     /// </summary>
     [DataContract(Name = "CustomerOperationsReportRequestDto")]
     public partial class CustomerOperationsReportRequestDto : IValidatableObject
@@ -28,11 +28,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerOperationsReportRequestDto" /> class.
         /// </summary>
-        /// <param name="startDate">Start date.</param>
-        /// <param name="endDate">End date.</param>
-        /// <param name="participantName">Participant name.</param>
-        /// <param name="credit">Include credit operations.</param>
-        /// <param name="debit">Include debit operations.</param>
+        /// <param name="startDate">The report start date..</param>
+        /// <param name="endDate">The report end date..</param>
+        /// <param name="participantName">The participant name..</param>
+        /// <param name="credit">Specifies whether to include credit operations in the report..</param>
+        /// <param name="debit">Specifies whether to include debit operations in the report..</param>
         public CustomerOperationsReportRequestDto(DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default)
         {
             this.StartDate = startDate;
@@ -43,9 +43,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Start date
+        /// The report start date.
         /// </summary>
-        /// <value>Start date</value>
+        /// <value>The report start date.</value>
         /*
         <example>2008-04-10T06:30+04:00</example>
         */
@@ -53,9 +53,9 @@ namespace DocSpace.API.SDK.Model
         public DateTime? StartDate { get; set; }
 
         /// <summary>
-        /// End date
+        /// The report end date.
         /// </summary>
-        /// <value>End date</value>
+        /// <value>The report end date.</value>
         /*
         <example>2008-04-10T06:30+04:00</example>
         */
@@ -63,9 +63,9 @@ namespace DocSpace.API.SDK.Model
         public DateTime? EndDate { get; set; }
 
         /// <summary>
-        /// Participant name
+        /// The participant name.
         /// </summary>
-        /// <value>Participant name</value>
+        /// <value>The participant name.</value>
         /*
         <example>some text</example>
         */
@@ -73,9 +73,9 @@ namespace DocSpace.API.SDK.Model
         public string ParticipantName { get; set; }
 
         /// <summary>
-        /// Include credit operations
+        /// Specifies whether to include credit operations in the report.
         /// </summary>
-        /// <value>Include credit operations</value>
+        /// <value>Specifies whether to include credit operations in the report.</value>
         /*
         <example>true</example>
         */
@@ -83,9 +83,9 @@ namespace DocSpace.API.SDK.Model
         public bool? Credit { get; set; }
 
         /// <summary>
-        /// Include debit operations
+        /// Specifies whether to include debit operations in the report.
         /// </summary>
-        /// <value>Include debit operations</value>
+        /// <value>Specifies whether to include debit operations in the report.</value>
         /*
         <example>true</example>
         */

@@ -28,17 +28,22 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Period
         /// </summary>
-        [DataMember(Name = "period", EmitDefaultValue = false)]
-        public RoomDataLifetimePeriod? Period { get; set; }
+        [DataMember(Name = "period", IsRequired = true, EmitDefaultValue = true)]
+        public RoomDataLifetimePeriod Period { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomDataLifetimeDto" /> class.
         /// </summary>
-        /// <param name="deletePermanently">Specifies whether to permanently delete the room data or not..</param>
-        /// <param name="period">period.</param>
+        [JsonConstructorAttribute]
+        protected RoomDataLifetimeDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RoomDataLifetimeDto" /> class.
+        /// </summary>
+        /// <param name="deletePermanently">Specifies whether to permanently delete the room data or not. (required).</param>
+        /// <param name="period">period (required).</param>
         /// <param name="value">Specifies the time period value of the room data lifetime..</param>
         /// <param name="enabled">Specifies whether the room data lifetime setting is enabled or not..</param>
-        public RoomDataLifetimeDto(bool deletePermanently = default, RoomDataLifetimePeriod? period = default, int? value = default, bool? enabled = default)
+        public RoomDataLifetimeDto(bool deletePermanently = default, RoomDataLifetimePeriod period = default, int? value = default, bool? enabled = default)
         {
             this.DeletePermanently = deletePermanently;
             this.Period = period;
@@ -53,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "deletePermanently", EmitDefaultValue = true)]
+        [DataMember(Name = "deletePermanently", IsRequired = true, EmitDefaultValue = true)]
         public bool DeletePermanently { get; set; }
 
         /// <summary>

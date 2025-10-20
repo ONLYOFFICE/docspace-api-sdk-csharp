@@ -68,10 +68,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-activation-status/">REST API Reference for UpdateUserActivationStatus Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper UpdateUserActivationStatus(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default);
+        EmployeeFullArrayWrapper UpdateUserActivationStatus(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto updateMembersRequestDto);
 
         /// <summary>
         /// Set an activation status to the users
@@ -81,10 +81,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-activation-status/">REST API Reference for UpdateUserActivationStatus Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> UpdateUserActivationStatusWithHttpInfo(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default);
+        ApiResponse<EmployeeFullArrayWrapper> UpdateUserActivationStatusWithHttpInfo(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto updateMembersRequestDto);
         /// <summary>
         /// Change a user status
         /// </summary>
@@ -93,10 +93,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-status/">REST API Reference for UpdateUserStatus Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        EmployeeFullArrayWrapper UpdateUserStatus(EmployeeStatus status, UpdateMembersRequestDto? updateMembersRequestDto = default);
+        EmployeeFullArrayWrapper UpdateUserStatus(EmployeeStatus status, UpdateMembersRequestDto updateMembersRequestDto);
 
         /// <summary>
         /// Change a user status
@@ -106,10 +106,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-status/">REST API Reference for UpdateUserStatus Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        ApiResponse<EmployeeFullArrayWrapper> UpdateUserStatusWithHttpInfo(EmployeeStatus status, UpdateMembersRequestDto? updateMembersRequestDto = default);
+        ApiResponse<EmployeeFullArrayWrapper> UpdateUserStatusWithHttpInfo(EmployeeStatus status, UpdateMembersRequestDto updateMembersRequestDto);
         #endregion Synchronous Operations
     }
 
@@ -166,11 +166,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-activation-status/">REST API Reference for UpdateUserActivationStatus Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        Task<EmployeeFullArrayWrapper> UpdateUserActivationStatusAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullArrayWrapper> UpdateUserActivationStatusAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto updateMembersRequestDto, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Set an activation status to the users
@@ -180,11 +180,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-activation-status/">REST API Reference for UpdateUserActivationStatus Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateUserActivationStatusWithHttpInfoAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateUserActivationStatusWithHttpInfoAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto updateMembersRequestDto, CancellationToken cancellationToken = default);
         /// <summary>
         /// Change a user status
         /// </summary>
@@ -193,11 +193,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-status/">REST API Reference for UpdateUserStatus Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        Task<EmployeeFullArrayWrapper> UpdateUserStatusAsync(EmployeeStatus status, UpdateMembersRequestDto? updateMembersRequestDto = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullArrayWrapper> UpdateUserStatusAsync(EmployeeStatus status, UpdateMembersRequestDto updateMembersRequestDto, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Change a user status
@@ -207,11 +207,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-status/">REST API Reference for UpdateUserStatus Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateUserStatusWithHttpInfoAsync(EmployeeStatus status, UpdateMembersRequestDto? updateMembersRequestDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateUserStatusWithHttpInfoAsync(EmployeeStatus status, UpdateMembersRequestDto updateMembersRequestDto, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -424,6 +424,7 @@ namespace DocSpace.API.SDK.Api.People
             }
             set => _exceptionFactory = value; 
         }
+
 
         /// <summary>
         /// Get profiles by status
@@ -699,10 +700,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-activation-status/">REST API Reference for UpdateUserActivationStatus Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper UpdateUserActivationStatus(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default)
+        public EmployeeFullArrayWrapper UpdateUserActivationStatus(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto updateMembersRequestDto)
         {
             var localVarResponse = UpdateUserActivationStatusWithHttpInfo(activationstatus, updateMembersRequestDto);
             return localVarResponse.Data;
@@ -716,11 +717,15 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-activation-status/">REST API Reference for UpdateUserActivationStatus Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public ApiResponse<EmployeeFullArrayWrapper> UpdateUserActivationStatusWithHttpInfo(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default)
+        public ApiResponse<EmployeeFullArrayWrapper> UpdateUserActivationStatusWithHttpInfo(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto updateMembersRequestDto)
         {
+            // verify the required parameter 'updateMembersRequestDto' is set
+            if (updateMembersRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'updateMembersRequestDto' when calling UserStatusApi->UpdateUserActivationStatus");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -791,11 +796,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-activation-status/">REST API Reference for UpdateUserActivationStatus Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async Task<EmployeeFullArrayWrapper> UpdateUserActivationStatusAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullArrayWrapper> UpdateUserActivationStatusAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto updateMembersRequestDto, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await UpdateUserActivationStatusWithHttpInfoAsync(activationstatus, updateMembersRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -809,12 +814,16 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="activationstatus">The new user activation status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-activation-status/">REST API Reference for UpdateUserActivationStatus Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateUserActivationStatusWithHttpInfoAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto? updateMembersRequestDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateUserActivationStatusWithHttpInfoAsync(EmployeeActivationStatus activationstatus, UpdateMembersRequestDto updateMembersRequestDto, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'updateMembersRequestDto' is set
+            if (updateMembersRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'updateMembersRequestDto' when calling UserStatusApi->UpdateUserActivationStatus");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -887,10 +896,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-status/">REST API Reference for UpdateUserStatus Operation</seealso>
         /// <returns>EmployeeFullArrayWrapper</returns>
-        public EmployeeFullArrayWrapper UpdateUserStatus(EmployeeStatus status, UpdateMembersRequestDto? updateMembersRequestDto = default)
+        public EmployeeFullArrayWrapper UpdateUserStatus(EmployeeStatus status, UpdateMembersRequestDto updateMembersRequestDto)
         {
             var localVarResponse = UpdateUserStatusWithHttpInfo(status, updateMembersRequestDto);
             return localVarResponse.Data;
@@ -904,11 +913,15 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-status/">REST API Reference for UpdateUserStatus Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
-        public ApiResponse<EmployeeFullArrayWrapper> UpdateUserStatusWithHttpInfo(EmployeeStatus status, UpdateMembersRequestDto? updateMembersRequestDto = default)
+        public ApiResponse<EmployeeFullArrayWrapper> UpdateUserStatusWithHttpInfo(EmployeeStatus status, UpdateMembersRequestDto updateMembersRequestDto)
         {
+            // verify the required parameter 'updateMembersRequestDto' is set
+            if (updateMembersRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'updateMembersRequestDto' when calling UserStatusApi->UpdateUserStatus");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -979,11 +992,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-status/">REST API Reference for UpdateUserStatus Operation</seealso>
         /// <returns>Task of EmployeeFullArrayWrapper</returns>
-        public async Task<EmployeeFullArrayWrapper> UpdateUserStatusAsync(EmployeeStatus status, UpdateMembersRequestDto? updateMembersRequestDto = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullArrayWrapper> UpdateUserStatusAsync(EmployeeStatus status, UpdateMembersRequestDto updateMembersRequestDto, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await UpdateUserStatusWithHttpInfoAsync(status, updateMembersRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -997,12 +1010,16 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="status">The new user status.</param>
-        /// <param name="updateMembersRequestDto">The request parameters for updating the user information. (optional)</param>
+        /// <param name="updateMembersRequestDto">The request parameters for updating the user information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-status/">REST API Reference for UpdateUserStatus Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateUserStatusWithHttpInfoAsync(EmployeeStatus status, UpdateMembersRequestDto? updateMembersRequestDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullArrayWrapper>> UpdateUserStatusWithHttpInfoAsync(EmployeeStatus status, UpdateMembersRequestDto updateMembersRequestDto, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'updateMembersRequestDto' is set
+            if (updateMembersRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'updateMembersRequestDto' when calling UserStatusApi->UpdateUserStatus");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];

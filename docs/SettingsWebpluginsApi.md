@@ -461,7 +461,7 @@ catch (ApiException e)
 
 <a id="updatewebplugin"></a>
 # **UpdateWebPlugin**
-> void UpdateWebPlugin (string name, WebPluginRequests? webPluginRequests = null)
+> void UpdateWebPlugin (string name, WebPluginRequests webPluginRequests)
 
 Updates a web plugin with the parameters specified in the request.
 
@@ -472,7 +472,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **name** | **string** | The web plugin name. |  |
-| **webPluginRequests** | [**WebPluginRequests?**](WebPluginRequests.md) | The configuration settings for the web plugin instance. | [optional]  |
+| **webPluginRequests** | [**WebPluginRequests**](WebPluginRequests.md) | The configuration settings for the web plugin instance. |  |
 
 ### Return type
 
@@ -520,7 +520,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
             var name = Winfield Upton;  // string | The web plugin name.
-            var webPluginRequests = new WebPluginRequests?(); // WebPluginRequests? | The configuration settings for the web plugin instance. (optional) 
+            var webPluginRequests = new WebPluginRequests(); // WebPluginRequests | The configuration settings for the web plugin instance.
 
             try
             {

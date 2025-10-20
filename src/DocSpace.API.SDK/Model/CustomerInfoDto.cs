@@ -61,9 +61,9 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The email address of the customer.
+        /// The customer email address.
         /// </summary>
-        /// <value>The email address of the customer.</value>
+        /// <value>The customer email address.</value>
         /*
         <example>Sydney_Roberts4@hotmail.com</example>
         */

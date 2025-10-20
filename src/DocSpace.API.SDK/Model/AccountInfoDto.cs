@@ -28,12 +28,27 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountInfoDto" /> class.
         /// </summary>
-        /// <param name="provider">The account provider..</param>
-        /// <param name="url">The account URL..</param>
-        /// <param name="linked">Specifies if an account is linked with other profiles or not..</param>
+        [JsonConstructorAttribute]
+        protected AccountInfoDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccountInfoDto" /> class.
+        /// </summary>
+        /// <param name="provider">The account provider. (required).</param>
+        /// <param name="url">The account URL. (required).</param>
+        /// <param name="linked">Specifies if an account is linked with other profiles or not. (required).</param>
         public AccountInfoDto(string provider = default, string url = default, bool linked = default)
         {
+            // to ensure "provider" is required (not null)
+            if (provider == null)
+            {
+                throw new ArgumentNullException("provider is a required property for AccountInfoDto and cannot be null");
+            }
             this.Provider = provider;
+            // to ensure "url" is required (not null)
+            if (url == null)
+            {
+                throw new ArgumentNullException("url is a required property for AccountInfoDto and cannot be null");
+            }
             this.Url = url;
             this.Linked = linked;
         }
@@ -45,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "provider", EmitDefaultValue = true)]
+        [DataMember(Name = "provider", IsRequired = true, EmitDefaultValue = true)]
         public string Provider { get; set; }
 
         /// <summary>
@@ -55,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "url", EmitDefaultValue = true)]
+        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
@@ -65,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "linked", EmitDefaultValue = true)]
+        [DataMember(Name = "linked", IsRequired = true, EmitDefaultValue = true)]
         public bool Linked { get; set; }
 
         /// <summary>

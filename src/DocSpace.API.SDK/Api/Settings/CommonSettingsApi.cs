@@ -97,10 +97,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Deletes the portal color theme with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the portal theme to delete. (optional)</param>
+        /// <param name="id">The ID of the portal theme to delete.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>CustomColorThemesSettingsWrapper</returns>
-        CustomColorThemesSettingsWrapper DeletePortalColorTheme(int? id = default);
+        CustomColorThemesSettingsWrapper DeletePortalColorTheme(int id);
 
         /// <summary>
         /// Delete a color theme
@@ -109,10 +109,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Deletes the portal color theme with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the portal theme to delete. (optional)</param>
+        /// <param name="id">The ID of the portal theme to delete.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>ApiResponse of CustomColorThemesSettingsWrapper</returns>
-        ApiResponse<CustomColorThemesSettingsWrapper> DeletePortalColorThemeWithHttpInfo(int? id = default);
+        ApiResponse<CustomColorThemesSettingsWrapper> DeletePortalColorThemeWithHttpInfo(int id);
         /// <summary>
         /// Get the deep link settings
         /// </summary>
@@ -266,7 +266,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get supported languages
         /// </summary>
         /// <remarks>
-        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. de, en-US, etc.).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
@@ -277,7 +277,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get supported languages
         /// </summary>
         /// <remarks>
-        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. de, en-US, etc.).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
@@ -424,7 +424,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the portal user invitation settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
+        /// <param name="tenantUserInvitationSettingsRequestDto">The request parameters for updating the user invitation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>TenantUserInvitationSettingsWrapper</returns>
         TenantUserInvitationSettingsWrapper UpdateInvitationSettings(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default);
@@ -436,7 +436,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the portal user invitation settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
+        /// <param name="tenantUserInvitationSettingsRequestDto">The request parameters for updating the user invitation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>ApiResponse of TenantUserInvitationSettingsWrapper</returns>
         ApiResponse<TenantUserInvitationSettingsWrapper> UpdateInvitationSettingsWithHttpInfo(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default);
@@ -529,11 +529,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Deletes the portal color theme with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the portal theme to delete. (optional)</param>
+        /// <param name="id">The ID of the portal theme to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
-        Task<CustomColorThemesSettingsWrapper> DeletePortalColorThemeAsync(int? id = default, CancellationToken cancellationToken = default);
+        Task<CustomColorThemesSettingsWrapper> DeletePortalColorThemeAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a color theme
@@ -542,11 +542,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Deletes the portal color theme with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the portal theme to delete. (optional)</param>
+        /// <param name="id">The ID of the portal theme to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
-        Task<ApiResponse<CustomColorThemesSettingsWrapper>> DeletePortalColorThemeWithHttpInfoAsync(int? id = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<CustomColorThemesSettingsWrapper>> DeletePortalColorThemeWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the deep link settings
         /// </summary>
@@ -714,7 +714,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get supported languages
         /// </summary>
         /// <remarks>
-        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. de, en-US, etc.).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -726,7 +726,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get supported languages
         /// </summary>
         /// <remarks>
-        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. de, en-US, etc.).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -886,7 +886,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the portal user invitation settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
+        /// <param name="tenantUserInvitationSettingsRequestDto">The request parameters for updating the user invitation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>Task of TenantUserInvitationSettingsWrapper</returns>
@@ -899,7 +899,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the portal user invitation settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
+        /// <param name="tenantUserInvitationSettingsRequestDto">The request parameters for updating the user invitation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantUserInvitationSettingsWrapper)</returns>
@@ -1116,6 +1116,7 @@ namespace DocSpace.API.SDK.Api.Settings
             }
             set => _exceptionFactory = value; 
         }
+
 
         /// <summary>
         /// Close the admin helper
@@ -1662,10 +1663,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Deletes the portal color theme with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the portal theme to delete. (optional)</param>
+        /// <param name="id">The ID of the portal theme to delete.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>CustomColorThemesSettingsWrapper</returns>
-        public CustomColorThemesSettingsWrapper DeletePortalColorTheme(int? id = default)
+        public CustomColorThemesSettingsWrapper DeletePortalColorTheme(int id)
         {
             var localVarResponse = DeletePortalColorThemeWithHttpInfo(id);
             return localVarResponse.Data;
@@ -1678,10 +1679,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Deletes the portal color theme with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the portal theme to delete. (optional)</param>
+        /// <param name="id">The ID of the portal theme to delete.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>ApiResponse of CustomColorThemesSettingsWrapper</returns>
-        public ApiResponse<CustomColorThemesSettingsWrapper> DeletePortalColorThemeWithHttpInfo(int? id = default)
+        public ApiResponse<CustomColorThemesSettingsWrapper> DeletePortalColorThemeWithHttpInfo(int id)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1696,10 +1697,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (id != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
-            }
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1754,11 +1752,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Deletes the portal color theme with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the portal theme to delete. (optional)</param>
+        /// <param name="id">The ID of the portal theme to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>Task of CustomColorThemesSettingsWrapper</returns>
-        public async Task<CustomColorThemesSettingsWrapper> DeletePortalColorThemeAsync(int? id = default, CancellationToken cancellationToken = default)
+        public async Task<CustomColorThemesSettingsWrapper> DeletePortalColorThemeAsync(int id, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await DeletePortalColorThemeWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1771,11 +1769,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Deletes the portal color theme with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the portal theme to delete. (optional)</param>
+        /// <param name="id">The ID of the portal theme to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/">REST API Reference for DeletePortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
-        public async Task<ApiResponse<CustomColorThemesSettingsWrapper>> DeletePortalColorThemeWithHttpInfoAsync(int? id = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<CustomColorThemesSettingsWrapper>> DeletePortalColorThemeWithHttpInfoAsync(int id, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1791,10 +1789,7 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (id != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
-            }
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "id", id));
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1883,36 +1878,6 @@ namespace DocSpace.API.SDK.Api.Settings
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<TenantDeepLinkSettingsWrapper>("/api/2.0/settings/deeplink", localVarRequestOptions, Configuration);
@@ -1972,36 +1937,6 @@ namespace DocSpace.API.SDK.Api.Settings
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2971,7 +2906,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get supported languages
         /// </summary>
         /// <remarks>
-        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. de, en-US, etc.).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
@@ -2986,7 +2921,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get supported languages
         /// </summary>
         /// <remarks>
-        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. de, en-US, etc.).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/">REST API Reference for GetSupportedCultures Operation</seealso>
@@ -3027,7 +2962,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get supported languages
         /// </summary>
         /// <remarks>
-        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. de, en-US, etc.).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3043,7 +2978,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get supported languages
         /// </summary>
         /// <remarks>
-        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \&quot;de\&quot;, \&quot;en-US\&quot;, etc.).
+        /// Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. de, en-US, etc.).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4110,7 +4045,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the portal user invitation settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
+        /// <param name="tenantUserInvitationSettingsRequestDto">The request parameters for updating the user invitation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>TenantUserInvitationSettingsWrapper</returns>
         public TenantUserInvitationSettingsWrapper UpdateInvitationSettings(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default)
@@ -4126,7 +4061,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the portal user invitation settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
+        /// <param name="tenantUserInvitationSettingsRequestDto">The request parameters for updating the user invitation settings. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>ApiResponse of TenantUserInvitationSettingsWrapper</returns>
         public ApiResponse<TenantUserInvitationSettingsWrapper> UpdateInvitationSettingsWithHttpInfo(TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = default)
@@ -4199,7 +4134,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the portal user invitation settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
+        /// <param name="tenantUserInvitationSettingsRequestDto">The request parameters for updating the user invitation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>Task of TenantUserInvitationSettingsWrapper</returns>
@@ -4216,7 +4151,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Updates the portal user invitation settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantUserInvitationSettingsRequestDto">User invitation settings (optional)</param>
+        /// <param name="tenantUserInvitationSettingsRequestDto">The request parameters for updating the user invitation settings. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/">REST API Reference for UpdateInvitationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantUserInvitationSettingsWrapper)</returns>

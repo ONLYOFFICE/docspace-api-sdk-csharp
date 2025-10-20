@@ -28,7 +28,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EmailActivationSettings" /> class.
         /// </summary>
-        /// <param name="show">Specifies whether the email activation settings is shown or hidden..</param>
+        /// <param name="show">Specifies whether the email activation settings are shown or hidden..</param>
         /// <param name="lastModified">lastModified.</param>
         public EmailActivationSettings(bool show = default, DateTime lastModified = default)
         {
@@ -37,9 +37,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether the email activation settings is shown or hidden.
+        /// Specifies whether the email activation settings are shown or hidden.
         /// </summary>
-        /// <value>Specifies whether the email activation settings is shown or hidden.</value>
+        /// <value>Specifies whether the email activation settings are shown or hidden.</value>
         /*
         <example>true</example>
         */

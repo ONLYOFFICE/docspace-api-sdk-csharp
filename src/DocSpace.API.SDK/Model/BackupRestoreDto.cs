@@ -34,13 +34,23 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupRestoreDto" /> class.
         /// </summary>
-        /// <param name="backupId">The backup ID..</param>
+        [JsonConstructorAttribute]
+        protected BackupRestoreDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BackupRestoreDto" /> class.
+        /// </summary>
+        /// <param name="backupId">The backup ID. (required).</param>
         /// <param name="storageType">storageType.</param>
         /// <param name="storageParams">The backup storage parameters..</param>
         /// <param name="notify">Notifies users about the portal restoring process or not..</param>
         /// <param name="dump">Specifies if a dump will be created or not..</param>
         public BackupRestoreDto(string backupId = default, BackupStorageType? storageType = default, List<ItemKeyValuePairObjectObject> storageParams = default, bool notify = default, bool dump = default)
         {
+            // to ensure "backupId" is required (not null)
+            if (backupId == null)
+            {
+                throw new ArgumentNullException("backupId is a required property for BackupRestoreDto and cannot be null");
+            }
             this.BackupId = backupId;
             this.StorageType = storageType;
             this.StorageParams = storageParams;
@@ -55,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "backupId", EmitDefaultValue = true)]
+        [DataMember(Name = "backupId", IsRequired = true, EmitDefaultValue = true)]
         public string BackupId { get; set; }
 
         /// <summary>

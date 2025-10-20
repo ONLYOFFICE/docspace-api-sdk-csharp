@@ -149,11 +149,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the session.</param>
-        /// <param name="sessionRequest">The session parameters. (optional)</param>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
         /// <returns>ObjectWrapper</returns>
-        ObjectWrapper CreateUploadSession(int folderId, SessionRequest? sessionRequest = default);
+        ObjectWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest);
 
         /// <summary>
         /// 
@@ -162,11 +162,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the session.</param>
-        /// <param name="sessionRequest">The session parameters. (optional)</param>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest? sessionRequest = default);
+        ApiResponse<ObjectWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest);
         /// <summary>
         /// 
         /// </summary>
@@ -231,7 +231,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
+        /// <param name="duplicateRequestDto">The request parameters for duplicating files and fodlers. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         FileOperationArrayWrapper DuplicateBatchItems(DuplicateRequestDto? duplicateRequestDto = default);
@@ -243,7 +243,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
+        /// <param name="duplicateRequestDto">The request parameters for duplicating files and fodlers. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         ApiResponse<FileOperationArrayWrapper> DuplicateBatchItemsWithHttpInfo(DuplicateRequestDto? duplicateRequestDto = default);
@@ -375,7 +375,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The operation ID of the request.</param>
+        /// <param name="id">The operation unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         FileOperationArrayWrapper TerminateTasks(string id);
@@ -387,7 +387,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The operation ID of the request.</param>
+        /// <param name="id">The operation unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         ApiResponse<FileOperationArrayWrapper> TerminateTasksWithHttpInfo(string id);
@@ -396,10 +396,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
-        /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
+        /// <param name="updateComment">The parameters for updating a comment.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>StringWrapper</returns>
-        StringWrapper UpdateFileComment(int fileId, UpdateComment? updateComment = default);
+        StringWrapper UpdateFileComment(int fileId, UpdateComment updateComment);
 
         /// <summary>
         /// 
@@ -409,10 +409,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
-        /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
+        /// <param name="updateComment">The parameters for updating a comment.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(int fileId, UpdateComment? updateComment = default);
+        ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(int fileId, UpdateComment updateComment);
         #endregion Synchronous Operations
     }
 
@@ -581,12 +581,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the session.</param>
-        /// <param name="sessionRequest">The session parameters. (optional)</param>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> CreateUploadSessionAsync(int folderId, SessionRequest? sessionRequest = default, CancellationToken cancellationToken = default);
+        Task<ObjectWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -595,12 +595,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the session.</param>
-        /// <param name="sessionRequest">The session parameters. (optional)</param>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest? sessionRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ObjectWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -683,7 +683,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
+        /// <param name="duplicateRequestDto">The request parameters for duplicating files and fodlers. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -696,7 +696,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
+        /// <param name="duplicateRequestDto">The request parameters for duplicating files and fodlers. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -862,7 +862,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The operation ID of the request.</param>
+        /// <param name="id">The operation unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -875,7 +875,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The operation ID of the request.</param>
+        /// <param name="id">The operation unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -888,11 +888,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
-        /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
+        /// <param name="updateComment">The parameters for updating a comment.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> UpdateFileCommentAsync(int fileId, UpdateComment? updateComment = default, CancellationToken cancellationToken = default);
+        Task<StringWrapper> UpdateFileCommentAsync(int fileId, UpdateComment updateComment, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -902,11 +902,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
-        /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
+        /// <param name="updateComment">The parameters for updating a comment.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(int fileId, UpdateComment? updateComment = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(int fileId, UpdateComment updateComment, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -1119,6 +1119,7 @@ namespace DocSpace.API.SDK.Api.Files
             }
             set => _exceptionFactory = value; 
         }
+
 
         /// <summary>
         /// 
@@ -1808,11 +1809,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the session.</param>
-        /// <param name="sessionRequest">The session parameters. (optional)</param>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
         /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper CreateUploadSession(int folderId, SessionRequest? sessionRequest = default)
+        public ObjectWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest)
         {
             var localVarResponse = CreateUploadSessionWithHttpInfo(folderId, sessionRequest);
             return localVarResponse.Data;
@@ -1822,12 +1823,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the session.</param>
-        /// <param name="sessionRequest">The session parameters. (optional)</param>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
         /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest? sessionRequest = default)
+        public ApiResponse<ObjectWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest)
         {
+            // verify the required parameter 'sessionRequest' is set
+            if (sessionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'sessionRequest' when calling OperationsApi->CreateUploadSession");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -1864,12 +1869,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the session.</param>
-        /// <param name="sessionRequest">The session parameters. (optional)</param>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
         /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> CreateUploadSessionAsync(int folderId, SessionRequest? sessionRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ObjectWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateUploadSessionWithHttpInfoAsync(folderId, sessionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1879,13 +1884,17 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId">The folder ID of the session.</param>
-        /// <param name="sessionRequest">The session parameters. (optional)</param>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest? sessionRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ObjectWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'sessionRequest' is set
+            if (sessionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'sessionRequest' when calling OperationsApi->CreateUploadSession");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -2254,7 +2263,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
+        /// <param name="duplicateRequestDto">The request parameters for duplicating files and fodlers. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         public FileOperationArrayWrapper DuplicateBatchItems(DuplicateRequestDto? duplicateRequestDto = default)
@@ -2267,7 +2276,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
+        /// <param name="duplicateRequestDto">The request parameters for duplicating files and fodlers. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         public ApiResponse<FileOperationArrayWrapper> DuplicateBatchItemsWithHttpInfo(DuplicateRequestDto? duplicateRequestDto = default)
@@ -2307,7 +2316,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
+        /// <param name="duplicateRequestDto">The request parameters for duplicating files and fodlers. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -2321,7 +2330,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="duplicateRequestDto">The duplicate request parameters. (optional)</param>
+        /// <param name="duplicateRequestDto">The request parameters for duplicating files and fodlers. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/duplicate-batch-items/">REST API Reference for DuplicateBatchItems Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -3054,7 +3063,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The operation ID of the request.</param>
+        /// <param name="id">The operation unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
         public FileOperationArrayWrapper TerminateTasks(string id)
@@ -3067,7 +3076,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The operation ID of the request.</param>
+        /// <param name="id">The operation unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         public ApiResponse<FileOperationArrayWrapper> TerminateTasksWithHttpInfo(string id)
@@ -3111,7 +3120,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The operation ID of the request.</param>
+        /// <param name="id">The operation unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
@@ -3125,7 +3134,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The operation ID of the request.</param>
+        /// <param name="id">The operation unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-tasks/">REST API Reference for TerminateTasks Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
@@ -3173,10 +3182,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
-        /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
+        /// <param name="updateComment">The parameters for updating a comment.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>StringWrapper</returns>
-        public StringWrapper UpdateFileComment(int fileId, UpdateComment? updateComment = default)
+        public StringWrapper UpdateFileComment(int fileId, UpdateComment updateComment)
         {
             var localVarResponse = UpdateFileCommentWithHttpInfo(fileId, updateComment);
             return localVarResponse.Data;
@@ -3187,11 +3196,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
-        /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
+        /// <param name="updateComment">The parameters for updating a comment.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(int fileId, UpdateComment? updateComment = default)
+        public ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(int fileId, UpdateComment updateComment)
         {
+            // verify the required parameter 'updateComment' is set
+            if (updateComment == null)
+                throw new ApiException(400, "Missing required parameter 'updateComment' when calling OperationsApi->UpdateFileComment");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -3229,11 +3242,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
-        /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
+        /// <param name="updateComment">The parameters for updating a comment.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> UpdateFileCommentAsync(int fileId, UpdateComment? updateComment = default, CancellationToken cancellationToken = default)
+        public async Task<StringWrapper> UpdateFileCommentAsync(int fileId, UpdateComment updateComment, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await UpdateFileCommentWithHttpInfoAsync(fileId, updateComment, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3244,12 +3257,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID where the comment is located.</param>
-        /// <param name="updateComment">The parameters for updating a comment. (optional)</param>
+        /// <param name="updateComment">The parameters for updating a comment.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(int fileId, UpdateComment? updateComment = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(int fileId, UpdateComment updateComment, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'updateComment' is set
+            if (updateComment == null)
+                throw new ApiException(400, "Missing required parameter 'updateComment' when calling OperationsApi->UpdateFileComment");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];

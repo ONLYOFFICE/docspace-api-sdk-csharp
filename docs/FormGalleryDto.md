@@ -5,13 +5,13 @@ The form gallery parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Path** | **string** | The form gallery path. | [optional] 
-**Domain** | **string** | The form gallery domain. | [optional] 
-**Ext** | **string** | The form gallery extension. | [optional] 
-**UploadPath** | **string** | The form gallery upload path. | [optional] 
-**UploadDomain** | **string** | The form gallery upload domain. | [optional] 
-**UploadExt** | **string** | The form gallery upload extension. | [optional] 
-**UploadDashboard** | **string** | The form gallery upload dashboard. | [optional] 
+**Path** | **string** | The form gallery path. | 
+**Domain** | **string** | The form gallery domain. | 
+**Ext** | **string** | The form gallery extension. | 
+**UploadPath** | **string** | The form gallery upload path. | 
+**UploadDomain** | **string** | The form gallery upload domain. | 
+**UploadExt** | **string** | The form gallery upload extension. | 
+**UploadDashboard** | **string** | The form gallery upload dashboard. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

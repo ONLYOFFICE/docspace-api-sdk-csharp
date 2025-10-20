@@ -5,21 +5,22 @@ The web plugin information.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | The web plugin name. | [optional] 
-**@Version** | **string** | The web plugin version. | [optional] 
-**Description** | **string** | The web plugin description. | [optional] 
-**License** | **string** | The web plugin license. | [optional] 
-**Author** | **string** | The web plugin author. | [optional] 
-**HomePage** | **string** | The web plugin home page URL. | [optional] 
-**PluginName** | **string** | The name by which the web plugin is registered in the window object. | [optional] 
-**Scopes** | **string** | The web plugin scopes. | [optional] 
-**Image** | **string** | The web plugin image. | [optional] 
-**CreateBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
-**CreateOn** | **DateTime** | The date and time when the web plugin was created. | [optional] 
-**Enabled** | **bool** | Specifies if the web plugin is enabled or not. | [optional] 
-**System** | **bool** | Specifies if the web plugin is system or not. | [optional] 
-**Url** | **string** | The web plugin URL. | [optional] 
-**Settings** | **string** | The web plugin settings. | [optional] 
+**Name** | **string** | The web plugin name. | 
+**@Version** | **string** | The web plugin version. | 
+**MinDocSpaceVersion** | **string** | The minimum version of DocSpace with which the plugin is guaranteed to work. | [optional] 
+**Description** | **string** | The web plugin description. | 
+**License** | **string** | The web plugin license. | 
+**Author** | **string** | The web plugin author. | 
+**HomePage** | **string** | The web plugin home page URL. | 
+**PluginName** | **string** | The name by which the web plugin is registered in the window object. | 
+**Scopes** | **string** | The web plugin scopes. | 
+**Image** | **string** | The web plugin image. | 
+**CreateBy** | [**EmployeeDto**](EmployeeDto.md) |  | 
+**CreateOn** | **DateTime** | The date and time when the web plugin was created. | 
+**Enabled** | **bool** | Specifies if the web plugin is enabled or not. | 
+**System** | **bool** | Specifies if the web plugin is system or not. | 
+**Url** | **string** | The web plugin URL. | 
+**Settings** | **string** | The web plugin settings. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

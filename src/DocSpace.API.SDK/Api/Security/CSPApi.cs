@@ -337,6 +337,7 @@ namespace DocSpace.API.SDK.Api.Security
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Configure CSP settings
         /// </summary>

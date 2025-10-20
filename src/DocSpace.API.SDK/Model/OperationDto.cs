@@ -29,16 +29,16 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="OperationDto" /> class.
         /// </summary>
         /// <param name="date">date.</param>
-        /// <param name="service">Service related to the operation..</param>
-        /// <param name="description">Brief description of the operation..</param>
-        /// <param name="details">Brief details of the operation..</param>
-        /// <param name="serviceUnit">Unit of the service..</param>
-        /// <param name="quantity">Quantity of the service used..</param>
+        /// <param name="service">The service related to the operation..</param>
+        /// <param name="description">The brief operation description..</param>
+        /// <param name="details">The detailed information about the operation..</param>
+        /// <param name="serviceUnit">The service unit..</param>
+        /// <param name="quantity">The quantity of the service used..</param>
         /// <param name="currency">The three-character ISO 4217 currency symbol of the operation..</param>
-        /// <param name="credit">Credit amount of the operation..</param>
-        /// <param name="debit">Debit amount of the operation..</param>
-        /// <param name="participantName">Original name of the participant..</param>
-        /// <param name="participantDisplayName">Display name of the participant..</param>
+        /// <param name="credit">The credit amount of the operation..</param>
+        /// <param name="debit">The debit amount of the operation..</param>
+        /// <param name="participantName">The participant original name..</param>
+        /// <param name="participantDisplayName">The participant display name..</param>
         public OperationDto(ApiDateTime date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, string participantName = default, string participantDisplayName = default)
         {
             this.Date = date;
@@ -61,9 +61,9 @@ namespace DocSpace.API.SDK.Model
         public ApiDateTime Date { get; set; }
 
         /// <summary>
-        /// Service related to the operation.
+        /// The service related to the operation.
         /// </summary>
-        /// <value>Service related to the operation.</value>
+        /// <value>The service related to the operation.</value>
         /*
         <example>some text</example>
         */
@@ -71,9 +71,9 @@ namespace DocSpace.API.SDK.Model
         public string Service { get; set; }
 
         /// <summary>
-        /// Brief description of the operation.
+        /// The brief operation description.
         /// </summary>
-        /// <value>Brief description of the operation.</value>
+        /// <value>The brief operation description.</value>
         /*
         <example>some text</example>
         */
@@ -81,9 +81,9 @@ namespace DocSpace.API.SDK.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Brief details of the operation.
+        /// The detailed information about the operation.
         /// </summary>
-        /// <value>Brief details of the operation.</value>
+        /// <value>The detailed information about the operation.</value>
         /*
         <example>some text</example>
         */
@@ -91,9 +91,9 @@ namespace DocSpace.API.SDK.Model
         public string Details { get; set; }
 
         /// <summary>
-        /// Unit of the service.
+        /// The service unit.
         /// </summary>
-        /// <value>Unit of the service.</value>
+        /// <value>The service unit.</value>
         /*
         <example>some text</example>
         */
@@ -101,9 +101,9 @@ namespace DocSpace.API.SDK.Model
         public string ServiceUnit { get; set; }
 
         /// <summary>
-        /// Quantity of the service used.
+        /// The quantity of the service used.
         /// </summary>
-        /// <value>Quantity of the service used.</value>
+        /// <value>The quantity of the service used.</value>
         /*
         <example>1234</example>
         */
@@ -121,23 +121,23 @@ namespace DocSpace.API.SDK.Model
         public string Currency { get; set; }
 
         /// <summary>
-        /// Credit amount of the operation.
+        /// The credit amount of the operation.
         /// </summary>
-        /// <value>Credit amount of the operation.</value>
+        /// <value>The credit amount of the operation.</value>
         [DataMember(Name = "credit", EmitDefaultValue = false)]
         public double Credit { get; set; }
 
         /// <summary>
-        /// Debit amount of the operation.
+        /// The debit amount of the operation.
         /// </summary>
-        /// <value>Debit amount of the operation.</value>
+        /// <value>The debit amount of the operation.</value>
         [DataMember(Name = "debit", EmitDefaultValue = false)]
         public double Debit { get; set; }
 
         /// <summary>
-        /// Original name of the participant.
+        /// The participant original name.
         /// </summary>
-        /// <value>Original name of the participant.</value>
+        /// <value>The participant original name.</value>
         /*
         <example>some text</example>
         */
@@ -145,9 +145,9 @@ namespace DocSpace.API.SDK.Model
         public string ParticipantName { get; set; }
 
         /// <summary>
-        /// Display name of the participant.
+        /// The participant display name.
         /// </summary>
-        /// <value>Display name of the participant.</value>
+        /// <value>The participant display name.</value>
         /*
         <example>some text</example>
         */

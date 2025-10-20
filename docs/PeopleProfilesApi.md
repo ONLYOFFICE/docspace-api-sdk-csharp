@@ -8,9 +8,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**DeleteMember**](#deletemember) | **DELETE** /api/2.0/people/{userid} | Delete a user |
 | [**DeleteProfile**](#deleteprofile) | **DELETE** /api/2.0/people/@self | Delete my profile |
 | [**GetAllProfiles**](#getallprofiles) | **GET** /api/2.0/people | Get profiles |
-| [**GetClaims**](#getclaims) | **GET** /api/2.0/people/tokendiagnostics | Returns the user claims. |
+| [**GetClaims**](#getclaims) | **GET** /api/2.0/people/tokendiagnostics | Get user claims |
 | [**GetProfileByEmail**](#getprofilebyemail) | **GET** /api/2.0/people/email | Get a profile by user email |
-| [**GetProfileByUserId**](#getprofilebyuserid) | **GET** /api/2.0/people/{userid} | Get a profile by user name |
+| [**GetProfileByUserId**](#getprofilebyuserid) | **GET** /api/2.0/people/{userid} | Get a profile by user ID |
 | [**GetSelfProfile**](#getselfprofile) | **GET** /api/2.0/people/@self | Get my profile |
 | [**InviteUsers**](#inviteusers) | **POST** /api/2.0/people/invite | Invite users |
 | [**RemoveUsers**](#removeusers) | **PUT** /api/2.0/people/delete | Delete users |
@@ -358,7 +358,7 @@ catch (ApiException e)
 
 <a id="getallprofiles"></a>
 # **GetAllProfiles**
-> EmployeeFullArrayWrapper GetAllProfiles (int? count = null, int? startIndex = null, string? filterBy = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null, string fields = null)
+> EmployeeFullArrayWrapper GetAllProfiles (int? count = null, int? startIndex = null, string? filterBy = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterSeparator = null, string? filterValue = null)
 
 Returns a list of profiles for all the portal users.
 
@@ -375,7 +375,6 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
 | **filterSeparator** | **string?** | The character or string used to separate multiple filter values in a filtering query. | [optional]  |
 | **filterValue** | **string?** | The text value used as an additional filter criterion for profiles retrieval. | [optional]  |
-| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -429,12 +428,11 @@ namespace Example
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
             var filterSeparator = some text;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
             var filterValue = some text;  // string? | The text value used as an additional filter criterion for profiles retrieval. (optional) 
-            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get profiles
-                EmployeeFullArrayWrapper result = apiInstance.GetAllProfiles(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue, fields);
+                EmployeeFullArrayWrapper result = apiInstance.GetAllProfiles(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -455,7 +453,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get profiles
-    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetAllProfilesWithHttpInfo(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue, fields);
+    ApiResponse<EmployeeFullArrayWrapper> response = apiInstance.GetAllProfilesWithHttpInfo(count, startIndex, filterBy, sortBy, sortOrder, filterSeparator, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -540,7 +538,7 @@ namespace Example
 
             try
             {
-                // Returns the user claims.
+                // Get user claims
                 ObjectWrapper result = apiInstance.GetClaims();
                 Debug.WriteLine(result);
             }
@@ -561,7 +559,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Returns the user claims.
+    // Get user claims
     ApiResponse<ObjectWrapper> response = apiInstance.GetClaimsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -708,7 +706,7 @@ catch (ApiException e)
 # **GetProfileByUserId**
 > EmployeeFullWrapper GetProfileByUserId (string userid)
 
-Returns the detailed information about a profile of the user with the name specified in the request.
+Returns the detailed information about a profile of the user with the ID specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-user-id/).
 
@@ -767,7 +765,7 @@ namespace Example
 
             try
             {
-                // Get a profile by user name
+                // Get a profile by user ID
                 EmployeeFullWrapper result = apiInstance.GetProfileByUserId(userid);
                 Debug.WriteLine(result);
             }
@@ -788,7 +786,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get a profile by user name
+    // Get a profile by user ID
     ApiResponse<EmployeeFullWrapper> response = apiInstance.GetProfileByUserIdWithHttpInfo(userid);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1381,7 +1379,7 @@ catch (ApiException e)
 
 <a id="updatemember"></a>
 # **UpdateMember**
-> EmployeeFullWrapper UpdateMember (string userid, UpdateMemberRequestDto? updateMemberRequestDto = null)
+> EmployeeFullWrapper UpdateMember (string userid, UpdateMemberRequestDto updateMemberRequestDto)
 
 Updates the data for the selected portal user with the first name, last name, email address, and/or optional parameters specified in the request.
 
@@ -1392,7 +1390,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userid** | **string** | The user ID. |  |
-| **updateMemberRequestDto** | [**UpdateMemberRequestDto?**](UpdateMemberRequestDto.md) | The request parameters for updating the user information. | [optional]  |
+| **updateMemberRequestDto** | [**UpdateMemberRequestDto**](UpdateMemberRequestDto.md) | The request parameters for updating the user information. |  |
 
 ### Return type
 
@@ -1440,7 +1438,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
-            var updateMemberRequestDto = new UpdateMemberRequestDto?(); // UpdateMemberRequestDto? | The request parameters for updating the user information. (optional) 
+            var updateMemberRequestDto = new UpdateMemberRequestDto(); // UpdateMemberRequestDto | The request parameters for updating the user information.
 
             try
             {

@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The duplicate request parameters.
+    /// The request parameters for duplicating files and fodlers.
     /// </summary>
     [DataContract(Name = "DuplicateRequestDto")]
     public partial class DuplicateRequestDto : FileOperationRequestBaseDto, IValidatableObject

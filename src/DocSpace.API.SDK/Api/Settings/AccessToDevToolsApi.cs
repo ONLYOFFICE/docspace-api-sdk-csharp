@@ -289,6 +289,7 @@ namespace DocSpace.API.SDK.Api.Settings
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Get the Developer Tools access settings
         /// </summary>

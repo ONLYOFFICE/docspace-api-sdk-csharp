@@ -563,7 +563,7 @@ catch (ApiException e)
 # **GetIsDefaultWhiteLabelLogoText**
 > IsDefaultWhiteLabelLogosWrapper GetIsDefaultWhiteLabelLogoText (bool? isDark = null, bool? isDefault = null)
 
-Specifies if the white label logo text are default or not.
+Specifies if the white label logo text is default or not.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logo-text/).
 

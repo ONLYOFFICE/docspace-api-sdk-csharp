@@ -553,6 +553,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Get client details
         /// </summary>

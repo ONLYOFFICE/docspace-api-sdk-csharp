@@ -7,7 +7,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**GetDeletePersonalFolderProgress**](#getdeletepersonalfolderprogress) | **GET** /api/2.0/people/delete/personal/progress | Get the progress of deleting the personal folder |
 | [**GetReassignProgress**](#getreassignprogress) | **GET** /api/2.0/people/reassign/progress/{userid} | Get the reassignment progress |
 | [**GetRemoveProgress**](#getremoveprogress) | **GET** /api/2.0/people/remove/progress/{userid} | Get the deletion progress |
-| [**NecessaryReassign**](#necessaryreassign) | **GET** /api/2.0/people/reassign/necessary | Check the data reassignment need |
+| [**NecessaryReassign**](#necessaryreassign) | **GET** /api/2.0/people/reassign/necessary | Check data for reassignment need |
 | [**SendInstructionsToDelete**](#sendinstructionstodelete) | **PUT** /api/2.0/people/self/delete | Send the deletion instructions |
 | [**StartDeletePersonalFolder**](#startdeletepersonalfolder) | **POST** /api/2.0/people/delete/personal/start | Delete the personal folder |
 | [**StartReassign**](#startreassign) | **POST** /api/2.0/people/reassign/start | Start the data reassignment |
@@ -350,7 +350,7 @@ catch (ApiException e)
 # **NecessaryReassign**
 > BooleanWrapper NecessaryReassign (Guid? userId = null, EmployeeType? type = null)
 
-Checks if the reassignment of rooms and shared files is necessary or not.
+Checks whether the reassignment of rooms and shared files is required.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/necessary-reassign/).
 
@@ -411,7 +411,7 @@ namespace Example
 
             try
             {
-                // Check the data reassignment need
+                // Check data for reassignment need
                 BooleanWrapper result = apiInstance.NecessaryReassign(userId, type);
                 Debug.WriteLine(result);
             }
@@ -432,7 +432,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Check the data reassignment need
+    // Check data for reassignment need
     ApiResponse<BooleanWrapper> response = apiInstance.NecessaryReassignWithHttpInfo(userId, type);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

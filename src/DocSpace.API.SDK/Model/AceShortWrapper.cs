@@ -29,7 +29,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AceShortWrapper" /> class.
         /// </summary>
         /// <param name="user">The name of the user the document will be shared with..</param>
-        /// <param name="permissions">The access rights for the user with the name above.  Can be \&quot;Full Access\&quot;, \&quot;Read Only\&quot;, or \&quot;Deny Access\&quot;..</param>
+        /// <param name="permissions">The access rights for the user with the name above.  Can be Full Access, Read Only, or Deny Access..</param>
         /// <param name="isLink">Specifies whether to change the user icon to the link icon..</param>
         public AceShortWrapper(string user = default, string permissions = default, bool isLink = default)
         {
@@ -49,9 +49,9 @@ namespace DocSpace.API.SDK.Model
         public string User { get; set; }
 
         /// <summary>
-        /// The access rights for the user with the name above.  Can be \&quot;Full Access\&quot;, \&quot;Read Only\&quot;, or \&quot;Deny Access\&quot;.
+        /// The access rights for the user with the name above.  Can be Full Access, Read Only, or Deny Access.
         /// </summary>
-        /// <value>The access rights for the user with the name above.  Can be \&quot;Full Access\&quot;, \&quot;Read Only\&quot;, or \&quot;Deny Access\&quot;.</value>
+        /// <value>The access rights for the user with the name above.  Can be Full Access, Read Only, or Deny Access.</value>
         /*
         <example>some text</example>
         */

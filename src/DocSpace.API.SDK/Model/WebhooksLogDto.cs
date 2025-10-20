@@ -34,7 +34,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebhooksLogDto" /> class.
         /// </summary>
-        /// <param name="id">The webhook log ID..</param>
+        [JsonConstructorAttribute]
+        protected WebhooksLogDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WebhooksLogDto" /> class.
+        /// </summary>
+        /// <param name="id">The webhook log ID. (required).</param>
         /// <param name="configName">The webhook configuration name..</param>
         /// <param name="trigger">trigger.</param>
         /// <param name="creationTime">The webhook creation time..</param>
@@ -69,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
 
         /// <summary>

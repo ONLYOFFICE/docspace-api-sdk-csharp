@@ -28,10 +28,15 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoginSettingsDto" /> class.
         /// </summary>
-        /// <param name="attemptCount">The maximum number of consecutive failed login attempts allowed before triggering account suspension..</param>
-        /// <param name="blockTime">The duration (in minutes) for which an account remains suspended after exceeding maximum login attempts..</param>
-        /// <param name="checkPeriod">The maximum time (in seconds) allowed for server to process and respond to login requests..</param>
-        /// <param name="isDefault">Specifies if these settings are default or not.</param>
+        [JsonConstructorAttribute]
+        protected LoginSettingsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LoginSettingsDto" /> class.
+        /// </summary>
+        /// <param name="attemptCount">The maximum number of consecutive failed login attempts allowed before triggering account suspension. (required).</param>
+        /// <param name="blockTime">The duration (in minutes) for which an account remains suspended after exceeding maximum login attempts. (required).</param>
+        /// <param name="checkPeriod">The maximum time (in seconds) allowed for server to process and respond to login requests. (required).</param>
+        /// <param name="isDefault">Specifies if these settings are default or not (required).</param>
         public LoginSettingsDto(int attemptCount = default, int blockTime = default, int checkPeriod = default, bool isDefault = default)
         {
             this.AttemptCount = attemptCount;
@@ -47,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "attemptCount", EmitDefaultValue = false)]
+        [DataMember(Name = "attemptCount", IsRequired = true, EmitDefaultValue = true)]
         public int AttemptCount { get; set; }
 
         /// <summary>
@@ -57,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "blockTime", EmitDefaultValue = false)]
+        [DataMember(Name = "blockTime", IsRequired = true, EmitDefaultValue = true)]
         public int BlockTime { get; set; }
 
         /// <summary>
@@ -67,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "checkPeriod", EmitDefaultValue = false)]
+        [DataMember(Name = "checkPeriod", IsRequired = true, EmitDefaultValue = true)]
         public int CheckPeriod { get; set; }
 
         /// <summary>
@@ -77,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isDefault", EmitDefaultValue = true)]
+        [DataMember(Name = "isDefault", IsRequired = true, EmitDefaultValue = true)]
         public bool IsDefault { get; set; }
 
         /// <summary>

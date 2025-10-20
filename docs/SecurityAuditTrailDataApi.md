@@ -123,7 +123,7 @@ catch (ApiException e)
 
 <a id="getauditeventsbyfilter"></a>
 # **GetAuditEventsByFilter**
-> AuditEventArrayWrapper GetAuditEventsByFilter (Guid? userId = null, ProductType? productType = null, ModuleType? moduleType = null, ActionType? actionType = null, MessageAction? action = null, EntryType? entryType = null, string? target = null, ApiDateTime? from = null, ApiDateTime? to = null, int? count = null, int? startIndex = null, string fields = null)
+> AuditEventArrayWrapper GetAuditEventsByFilter (Guid? userId = null, LocationType? moduleType = null, ActionType? actionType = null, MessageAction? action = null, EntryType? entryType = null, string? target = null, ApiDateTime? from = null, ApiDateTime? to = null, int? count = null, int? startIndex = null)
 
 Returns a list of the audit events by the parameters specified in the request.
 
@@ -134,8 +134,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userId** | **Guid?** | The ID of the user who triggered the audit event. | [optional]  |
-| **productType** | [**ProductType?**](ProductType.md) | The type of product related to the audit event. | [optional]  |
-| **moduleType** | [**ModuleType?**](ModuleType.md) | The module within the product where the audit event occurred. | [optional]  |
+| **moduleType** | [**LocationType?**](LocationType.md) | The location where the audit event occurred. | [optional]  |
 | **actionType** | [**ActionType?**](ActionType.md) | The type of action performed in the audit event (e.g., Create, Update, Delete). | [optional]  |
 | **action** | [**MessageAction?**](MessageAction.md) | The specific action that occurred within the audit event. | [optional]  |
 | **entryType** | [**EntryType?**](EntryType.md) | The type of audit entry (e.g., Folder, User, File). | [optional]  |
@@ -144,7 +143,6 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **to** | [**ApiDateTime?**](ApiDateTime.md) | The ending date and time for filtering audit events. | [optional]  |
 | **count** | **int?** | The maximum number of audit event records to retrieve. | [optional]  |
 | **startIndex** | **int?** | The index of the first audit event record to retrieve in a paged query. | [optional]  |
-| **fields** | **string** | Comma-separated list of fields to include in the response | [optional]  |
 
 ### Return type
 
@@ -192,8 +190,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuditTrailDataApi(httpClient, config, httpClientHandler);
             var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The ID of the user who triggered the audit event. (optional) 
-            var productType = new ProductType?(); // ProductType? | The type of product related to the audit event. (optional) 
-            var moduleType = new ModuleType?(); // ModuleType? | The module within the product where the audit event occurred. (optional) 
+            var moduleType = new LocationType?(); // LocationType? | The location where the audit event occurred. (optional) 
             var actionType = new ActionType?(); // ActionType? | The type of action performed in the audit event (e.g., Create, Update, Delete). (optional) 
             var action = new MessageAction?(); // MessageAction? | The specific action that occurred within the audit event. (optional) 
             var entryType = new EntryType?(); // EntryType? | The type of audit entry (e.g., Folder, User, File). (optional) 
@@ -202,12 +199,11 @@ namespace Example
             var to = new ApiDateTime?(); // ApiDateTime? | The ending date and time for filtering audit events. (optional) 
             var count = 1234;  // int? | The maximum number of audit event records to retrieve. (optional) 
             var startIndex = 1234;  // int? | The index of the first audit event record to retrieve in a paged query. (optional) 
-            var fields = ;  // string | Comma-separated list of fields to include in the response (optional) 
 
             try
             {
                 // Get filtered audit trail data
-                AuditEventArrayWrapper result = apiInstance.GetAuditEventsByFilter(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex, fields);
+                AuditEventArrayWrapper result = apiInstance.GetAuditEventsByFilter(userId, moduleType, actionType, action, entryType, target, from, to, count, startIndex);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -228,7 +224,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get filtered audit trail data
-    ApiResponse<AuditEventArrayWrapper> response = apiInstance.GetAuditEventsByFilterWithHttpInfo(userId, productType, moduleType, actionType, action, entryType, target, from, to, count, startIndex, fields);
+    ApiResponse<AuditEventArrayWrapper> response = apiInstance.GetAuditEventsByFilterWithHttpInfo(userId, moduleType, actionType, action, entryType, target, from, to, count, startIndex);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -366,7 +362,7 @@ catch (ApiException e)
 
 <a id="getaudittrailmappers"></a>
 # **GetAuditTrailMappers**
-> ObjectWrapper GetAuditTrailMappers (ProductType? productType = null, ModuleType? moduleType = null)
+> ObjectWrapper GetAuditTrailMappers (ProductType? productType = null, LocationType? moduleType = null)
 
 Returns the mappers for the audit trail types.
 
@@ -377,7 +373,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **productType** | [**ProductType?**](ProductType.md) | The type of product related to the audit trail. | [optional]  |
-| **moduleType** | [**ModuleType?**](ModuleType.md) | The module within the product associated with the audit trail. | [optional]  |
+| **moduleType** | [**LocationType?**](LocationType.md) | The location associated with the audit trail. | [optional]  |
 
 ### Return type
 
@@ -409,7 +405,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuditTrailDataApi(httpClient, config, httpClientHandler);
             var productType = new ProductType?(); // ProductType? | The type of product related to the audit trail. (optional) 
-            var moduleType = new ModuleType?(); // ModuleType? | The module within the product associated with the audit trail. (optional) 
+            var moduleType = new LocationType?(); // LocationType? | The location associated with the audit trail. (optional) 
 
             try
             {

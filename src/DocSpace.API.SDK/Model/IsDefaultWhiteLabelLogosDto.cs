@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The default white label logos parameters.
+    /// The default white label logo parameters.
     /// </summary>
     [DataContract(Name = "IsDefaultWhiteLabelLogosDto")]
     public partial class IsDefaultWhiteLabelLogosDto : IValidatableObject
@@ -28,10 +28,20 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IsDefaultWhiteLabelLogosDto" /> class.
         /// </summary>
-        /// <param name="name">The white label logo name..</param>
-        /// <param name="@default">Specifies if the white label logo is default or not..</param>
+        [JsonConstructorAttribute]
+        protected IsDefaultWhiteLabelLogosDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IsDefaultWhiteLabelLogosDto" /> class.
+        /// </summary>
+        /// <param name="name">The white label logo name. (required).</param>
+        /// <param name="@default">Specifies if the white label logo is default or not. (required).</param>
         public IsDefaultWhiteLabelLogosDto(string name = default, bool @default = default)
         {
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new ArgumentNullException("name is a required property for IsDefaultWhiteLabelLogosDto and cannot be null");
+            }
             this.Name = name;
             this.Default = @default;
         }
@@ -43,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Winfield Upton</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -53,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "default", EmitDefaultValue = true)]
+        [DataMember(Name = "default", IsRequired = true, EmitDefaultValue = true)]
         public bool Default { get; set; }
 
         /// <summary>

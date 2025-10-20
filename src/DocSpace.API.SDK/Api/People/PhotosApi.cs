@@ -31,10 +31,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
+        /// <param name="thumbnailsRequest">The thumbnail request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
         /// <returns>ThumbnailsDataWrapper</returns>
-        ThumbnailsDataWrapper CreateMemberPhotoThumbnails(string userid, ThumbnailsRequest? thumbnailsRequest = default);
+        ThumbnailsDataWrapper CreateMemberPhotoThumbnails(string userid, ThumbnailsRequest thumbnailsRequest);
 
         /// <summary>
         /// Create photo thumbnails
@@ -44,10 +44,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
+        /// <param name="thumbnailsRequest">The thumbnail request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
         /// <returns>ApiResponse of ThumbnailsDataWrapper</returns>
-        ApiResponse<ThumbnailsDataWrapper> CreateMemberPhotoThumbnailsWithHttpInfo(string userid, ThumbnailsRequest? thumbnailsRequest = default);
+        ApiResponse<ThumbnailsDataWrapper> CreateMemberPhotoThumbnailsWithHttpInfo(string userid, ThumbnailsRequest thumbnailsRequest);
         /// <summary>
         /// Delete a user photo
         /// </summary>
@@ -102,10 +102,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
+        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
         /// <returns>ThumbnailsDataWrapper</returns>
-        ThumbnailsDataWrapper UpdateMemberPhoto(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default);
+        ThumbnailsDataWrapper UpdateMemberPhoto(string userid, UpdatePhotoMemberRequest updatePhotoMemberRequest);
 
         /// <summary>
         /// Update a user photo
@@ -115,10 +115,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
+        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of ThumbnailsDataWrapper</returns>
-        ApiResponse<ThumbnailsDataWrapper> UpdateMemberPhotoWithHttpInfo(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default);
+        ApiResponse<ThumbnailsDataWrapper> UpdateMemberPhotoWithHttpInfo(string userid, UpdatePhotoMemberRequest updatePhotoMemberRequest);
         /// <summary>
         /// Upload a user photo
         /// </summary>
@@ -161,11 +161,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
+        /// <param name="thumbnailsRequest">The thumbnail request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
         /// <returns>Task of ThumbnailsDataWrapper</returns>
-        Task<ThumbnailsDataWrapper> CreateMemberPhotoThumbnailsAsync(string userid, ThumbnailsRequest? thumbnailsRequest = default, CancellationToken cancellationToken = default);
+        Task<ThumbnailsDataWrapper> CreateMemberPhotoThumbnailsAsync(string userid, ThumbnailsRequest thumbnailsRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create photo thumbnails
@@ -175,11 +175,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
+        /// <param name="thumbnailsRequest">The thumbnail request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
         /// <returns>Task of ApiResponse (ThumbnailsDataWrapper)</returns>
-        Task<ApiResponse<ThumbnailsDataWrapper>> CreateMemberPhotoThumbnailsWithHttpInfoAsync(string userid, ThumbnailsRequest? thumbnailsRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ThumbnailsDataWrapper>> CreateMemberPhotoThumbnailsWithHttpInfoAsync(string userid, ThumbnailsRequest thumbnailsRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a user photo
         /// </summary>
@@ -238,11 +238,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
+        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
         /// <returns>Task of ThumbnailsDataWrapper</returns>
-        Task<ThumbnailsDataWrapper> UpdateMemberPhotoAsync(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default, CancellationToken cancellationToken = default);
+        Task<ThumbnailsDataWrapper> UpdateMemberPhotoAsync(string userid, UpdatePhotoMemberRequest updatePhotoMemberRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update a user photo
@@ -252,11 +252,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
+        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
         /// <returns>Task of ApiResponse (ThumbnailsDataWrapper)</returns>
-        Task<ApiResponse<ThumbnailsDataWrapper>> UpdateMemberPhotoWithHttpInfoAsync(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ThumbnailsDataWrapper>> UpdateMemberPhotoWithHttpInfoAsync(string userid, UpdatePhotoMemberRequest updatePhotoMemberRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload a user photo
         /// </summary>
@@ -497,6 +497,7 @@ namespace DocSpace.API.SDK.Api.People
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Create photo thumbnails
         /// </summary>
@@ -505,10 +506,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
+        /// <param name="thumbnailsRequest">The thumbnail request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
         /// <returns>ThumbnailsDataWrapper</returns>
-        public ThumbnailsDataWrapper CreateMemberPhotoThumbnails(string userid, ThumbnailsRequest? thumbnailsRequest = default)
+        public ThumbnailsDataWrapper CreateMemberPhotoThumbnails(string userid, ThumbnailsRequest thumbnailsRequest)
         {
             var localVarResponse = CreateMemberPhotoThumbnailsWithHttpInfo(userid, thumbnailsRequest);
             return localVarResponse.Data;
@@ -522,14 +523,18 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
+        /// <param name="thumbnailsRequest">The thumbnail request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
         /// <returns>ApiResponse of ThumbnailsDataWrapper</returns>
-        public ApiResponse<ThumbnailsDataWrapper> CreateMemberPhotoThumbnailsWithHttpInfo(string userid, ThumbnailsRequest? thumbnailsRequest = default)
+        public ApiResponse<ThumbnailsDataWrapper> CreateMemberPhotoThumbnailsWithHttpInfo(string userid, ThumbnailsRequest thumbnailsRequest)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
                 throw new ApiException(400, "Missing required parameter 'userid' when calling PhotosApi->CreateMemberPhotoThumbnails");
+
+            // verify the required parameter 'thumbnailsRequest' is set
+            if (thumbnailsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'thumbnailsRequest' when calling PhotosApi->CreateMemberPhotoThumbnails");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -601,11 +606,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
+        /// <param name="thumbnailsRequest">The thumbnail request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
         /// <returns>Task of ThumbnailsDataWrapper</returns>
-        public async Task<ThumbnailsDataWrapper> CreateMemberPhotoThumbnailsAsync(string userid, ThumbnailsRequest? thumbnailsRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ThumbnailsDataWrapper> CreateMemberPhotoThumbnailsAsync(string userid, ThumbnailsRequest thumbnailsRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateMemberPhotoThumbnailsWithHttpInfoAsync(userid, thumbnailsRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -619,15 +624,19 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="thumbnailsRequest">The thumbnail request. (optional)</param>
+        /// <param name="thumbnailsRequest">The thumbnail request.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/">REST API Reference for CreateMemberPhotoThumbnails Operation</seealso>
         /// <returns>Task of ApiResponse (ThumbnailsDataWrapper)</returns>
-        public async Task<ApiResponse<ThumbnailsDataWrapper>> CreateMemberPhotoThumbnailsWithHttpInfoAsync(string userid, ThumbnailsRequest? thumbnailsRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ThumbnailsDataWrapper>> CreateMemberPhotoThumbnailsWithHttpInfoAsync(string userid, ThumbnailsRequest thumbnailsRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
                 throw new ApiException(400, "Missing required parameter 'userid' when calling PhotosApi->CreateMemberPhotoThumbnails");
+
+            // verify the required parameter 'thumbnailsRequest' is set
+            if (thumbnailsRequest == null)
+                throw new ApiException(400, "Missing required parameter 'thumbnailsRequest' when calling PhotosApi->CreateMemberPhotoThumbnails");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1081,10 +1090,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
+        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
         /// <returns>ThumbnailsDataWrapper</returns>
-        public ThumbnailsDataWrapper UpdateMemberPhoto(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default)
+        public ThumbnailsDataWrapper UpdateMemberPhoto(string userid, UpdatePhotoMemberRequest updatePhotoMemberRequest)
         {
             var localVarResponse = UpdateMemberPhotoWithHttpInfo(userid, updatePhotoMemberRequest);
             return localVarResponse.Data;
@@ -1098,14 +1107,18 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
+        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of ThumbnailsDataWrapper</returns>
-        public ApiResponse<ThumbnailsDataWrapper> UpdateMemberPhotoWithHttpInfo(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default)
+        public ApiResponse<ThumbnailsDataWrapper> UpdateMemberPhotoWithHttpInfo(string userid, UpdatePhotoMemberRequest updatePhotoMemberRequest)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
                 throw new ApiException(400, "Missing required parameter 'userid' when calling PhotosApi->UpdateMemberPhoto");
+
+            // verify the required parameter 'updatePhotoMemberRequest' is set
+            if (updatePhotoMemberRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updatePhotoMemberRequest' when calling PhotosApi->UpdateMemberPhoto");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1177,11 +1190,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
+        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
         /// <returns>Task of ThumbnailsDataWrapper</returns>
-        public async Task<ThumbnailsDataWrapper> UpdateMemberPhotoAsync(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ThumbnailsDataWrapper> UpdateMemberPhotoAsync(string userid, UpdatePhotoMemberRequest updatePhotoMemberRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await UpdateMemberPhotoWithHttpInfoAsync(userid, updatePhotoMemberRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1195,15 +1208,19 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo. (optional)</param>
+        /// <param name="updatePhotoMemberRequest">The request parameters for updating a photo.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/">REST API Reference for UpdateMemberPhoto Operation</seealso>
         /// <returns>Task of ApiResponse (ThumbnailsDataWrapper)</returns>
-        public async Task<ApiResponse<ThumbnailsDataWrapper>> UpdateMemberPhotoWithHttpInfoAsync(string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ThumbnailsDataWrapper>> UpdateMemberPhotoWithHttpInfoAsync(string userid, UpdatePhotoMemberRequest updatePhotoMemberRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
                 throw new ApiException(400, "Missing required parameter 'userid' when calling PhotosApi->UpdateMemberPhoto");
+
+            // verify the required parameter 'updatePhotoMemberRequest' is set
+            if (updatePhotoMemberRequest == null)
+                throw new ApiException(400, "Missing required parameter 'updatePhotoMemberRequest' when calling PhotosApi->UpdateMemberPhoto");
 
             var localVarRequestOptions = new RequestOptions();
 

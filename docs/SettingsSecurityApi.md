@@ -124,7 +124,7 @@ catch (ApiException e)
 
 <a id="getisproductadministrator"></a>
 # **GetIsProductAdministrator**
-> ProductAdministratorWrapper GetIsProductAdministrator (Guid? productid = null, Guid? userid = null)
+> ProductAdministratorWrapper GetIsProductAdministrator (Guid productid, Guid userid)
 
 Checks if the selected user is an administrator of a product with the ID specified in the request.
 
@@ -134,8 +134,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **productid** | **Guid?** | The ID of the product extracted from the query parameters. | [optional]  |
-| **userid** | **Guid?** | The user ID extracted from the query parameters. | [optional]  |
+| **productid** | **Guid** | The ID of the product extracted from the query parameters. |  |
+| **userid** | **Guid** | The user ID extracted from the query parameters. |  |
 
 ### Return type
 
@@ -182,8 +182,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
-            var productid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The ID of the product extracted from the query parameters. (optional) 
-            var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The user ID extracted from the query parameters. (optional) 
+            var productid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The ID of the product extracted from the query parameters.
+            var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID extracted from the query parameters.
 
             try
             {

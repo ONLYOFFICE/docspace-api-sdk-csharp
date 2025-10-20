@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="GetReferenceDataDtoInteger" /> class.
         /// </summary>
         /// <param name="fileKey">The unique document identifier used by the service to get a link to the file. (required).</param>
-        /// <param name="instanceId">The unique system identifier..</param>
+        /// <param name="instanceId">The unique system identifier. (required).</param>
         /// <param name="sourceFileId">The source file ID..</param>
         /// <param name="path">The file name or relative path for the formula editor..</param>
         /// <param name="link">The file link..</param>
@@ -46,6 +46,11 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("fileKey is a required property for GetReferenceDataDtoInteger and cannot be null");
             }
             this.FileKey = fileKey;
+            // to ensure "instanceId" is required (not null)
+            if (instanceId == null)
+            {
+                throw new ArgumentNullException("instanceId is a required property for GetReferenceDataDtoInteger and cannot be null");
+            }
             this.InstanceId = instanceId;
             this.SourceFileId = sourceFileId;
             this.Path = path;
@@ -69,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>9846</example>
         */
-        [DataMember(Name = "instanceId", EmitDefaultValue = true)]
+        [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
         public string InstanceId { get; set; }
 
         /// <summary>

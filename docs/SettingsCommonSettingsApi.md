@@ -357,7 +357,7 @@ catch (ApiException e)
 
 <a id="deleteportalcolortheme"></a>
 # **DeletePortalColorTheme**
-> CustomColorThemesSettingsWrapper DeletePortalColorTheme (int? id = null)
+> CustomColorThemesSettingsWrapper DeletePortalColorTheme (int id)
 
 Deletes the portal color theme with the ID specified in the request.
 
@@ -367,7 +367,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int?** | The ID of the portal theme to delete. | [optional]  |
+| **id** | **int** | The ID of the portal theme to delete. |  |
 
 ### Return type
 
@@ -414,7 +414,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int? | The ID of the portal theme to delete. (optional) 
+            var id = 9846;  // int | The ID of the portal theme to delete.
 
             try
             {
@@ -483,7 +483,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+No authorization required
 
 ### Example
 ```csharp
@@ -502,22 +502,6 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -570,7 +554,6 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1191,7 +1174,7 @@ catch (ApiException e)
 # **GetSupportedCultures**
 > STRINGArrayWrapper GetSupportedCultures ()
 
-Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \"de\", \"en-US\", etc.).
+Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. de, en-US, etc.).
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/).
 
@@ -1937,7 +1920,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **tenantUserInvitationSettingsRequestDto** | [**TenantUserInvitationSettingsRequestDto?**](TenantUserInvitationSettingsRequestDto.md) | User invitation settings | [optional]  |
+| **tenantUserInvitationSettingsRequestDto** | [**TenantUserInvitationSettingsRequestDto?**](TenantUserInvitationSettingsRequestDto.md) | The request parameters for updating the user invitation settings. | [optional]  |
 
 ### Return type
 
@@ -1984,7 +1967,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
-            var tenantUserInvitationSettingsRequestDto = new TenantUserInvitationSettingsRequestDto?(); // TenantUserInvitationSettingsRequestDto? | User invitation settings (optional) 
+            var tenantUserInvitationSettingsRequestDto = new TenantUserInvitationSettingsRequestDto?(); // TenantUserInvitationSettingsRequestDto? | The request parameters for updating the user invitation settings. (optional) 
 
             try
             {

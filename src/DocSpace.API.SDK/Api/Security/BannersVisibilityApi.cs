@@ -24,25 +24,25 @@ namespace DocSpace.API.SDK.Api.Security
     {
         #region Synchronous Operations
         /// <summary>
-        /// Set the promotional banners visibility settings
+        /// Set the banners visibility
         /// </summary>
         /// <remarks>
-        /// Sets the promotional banners visibility settings settings for the portal.
+        /// Sets the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">The request parameters for managing the promotional banners visibility settings for the current tenant. (optional)</param>
+        /// <param name="tenantBannerSettingsDto">The request parameters for managing the visibility settings of the promotional banners for the current tenant. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>TenantBannerSettingsWrapper</returns>
         TenantBannerSettingsWrapper SetTenantBannerSettings(TenantBannerSettingsDto? tenantBannerSettingsDto = default);
 
         /// <summary>
-        /// Set the promotional banners visibility settings
+        /// Set the banners visibility
         /// </summary>
         /// <remarks>
-        /// Sets the promotional banners visibility settings settings for the portal.
+        /// Sets the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">The request parameters for managing the promotional banners visibility settings for the current tenant. (optional)</param>
+        /// <param name="tenantBannerSettingsDto">The request parameters for managing the visibility settings of the promotional banners for the current tenant. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>ApiResponse of TenantBannerSettingsWrapper</returns>
         ApiResponse<TenantBannerSettingsWrapper> SetTenantBannerSettingsWithHttpInfo(TenantBannerSettingsDto? tenantBannerSettingsDto = default);
@@ -56,26 +56,26 @@ namespace DocSpace.API.SDK.Api.Security
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Set the promotional banners visibility settings
+        /// Set the banners visibility
         /// </summary>
         /// <remarks>
-        /// Sets the promotional banners visibility settings settings for the portal.
+        /// Sets the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">The request parameters for managing the promotional banners visibility settings for the current tenant. (optional)</param>
+        /// <param name="tenantBannerSettingsDto">The request parameters for managing the visibility settings of the promotional banners for the current tenant. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>Task of TenantBannerSettingsWrapper</returns>
         Task<TenantBannerSettingsWrapper> SetTenantBannerSettingsAsync(TenantBannerSettingsDto? tenantBannerSettingsDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Set the promotional banners visibility settings
+        /// Set the banners visibility
         /// </summary>
         /// <remarks>
-        /// Sets the promotional banners visibility settings settings for the portal.
+        /// Sets the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">The request parameters for managing the promotional banners visibility settings for the current tenant. (optional)</param>
+        /// <param name="tenantBannerSettingsDto">The request parameters for managing the visibility settings of the promotional banners for the current tenant. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantBannerSettingsWrapper)</returns>
@@ -293,14 +293,15 @@ namespace DocSpace.API.SDK.Api.Security
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
-        /// Set the promotional banners visibility settings
+        /// Set the banners visibility
         /// </summary>
         /// <remarks>
-        /// Sets the promotional banners visibility settings settings for the portal.
+        /// Sets the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">The request parameters for managing the promotional banners visibility settings for the current tenant. (optional)</param>
+        /// <param name="tenantBannerSettingsDto">The request parameters for managing the visibility settings of the promotional banners for the current tenant. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>TenantBannerSettingsWrapper</returns>
         public TenantBannerSettingsWrapper SetTenantBannerSettings(TenantBannerSettingsDto? tenantBannerSettingsDto = default)
@@ -310,13 +311,13 @@ namespace DocSpace.API.SDK.Api.Security
         }
 
         /// <summary>
-        /// Set the promotional banners visibility settings
+        /// Set the banners visibility
         /// </summary>
         /// <remarks>
-        /// Sets the promotional banners visibility settings settings for the portal.
+        /// Sets the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">The request parameters for managing the promotional banners visibility settings for the current tenant. (optional)</param>
+        /// <param name="tenantBannerSettingsDto">The request parameters for managing the visibility settings of the promotional banners for the current tenant. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>ApiResponse of TenantBannerSettingsWrapper</returns>
         public ApiResponse<TenantBannerSettingsWrapper> SetTenantBannerSettingsWithHttpInfo(TenantBannerSettingsDto? tenantBannerSettingsDto = default)
@@ -383,13 +384,13 @@ namespace DocSpace.API.SDK.Api.Security
         }
 
         /// <summary>
-        /// Set the promotional banners visibility settings
+        /// Set the banners visibility
         /// </summary>
         /// <remarks>
-        /// Sets the promotional banners visibility settings settings for the portal.
+        /// Sets the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">The request parameters for managing the promotional banners visibility settings for the current tenant. (optional)</param>
+        /// <param name="tenantBannerSettingsDto">The request parameters for managing the visibility settings of the promotional banners for the current tenant. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>Task of TenantBannerSettingsWrapper</returns>
@@ -400,13 +401,13 @@ namespace DocSpace.API.SDK.Api.Security
         }
 
         /// <summary>
-        /// Set the promotional banners visibility settings
+        /// Set the banners visibility
         /// </summary>
         /// <remarks>
-        /// Sets the promotional banners visibility settings settings for the portal.
+        /// Sets the visibility settings of the promotional banners in the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tenantBannerSettingsDto">The request parameters for managing the promotional banners visibility settings for the current tenant. (optional)</param>
+        /// <param name="tenantBannerSettingsDto">The request parameters for managing the visibility settings of the promotional banners for the current tenant. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-banner-settings/">REST API Reference for SetTenantBannerSettings Operation</seealso>
         /// <returns>Task of ApiResponse (TenantBannerSettingsWrapper)</returns>

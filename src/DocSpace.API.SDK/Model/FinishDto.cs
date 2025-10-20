@@ -28,7 +28,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FinishDto" /> class.
         /// </summary>
-        /// <param name="isSendWelcomeEmail">Specifies whether to send a welcome email or not..</param>
+        [JsonConstructorAttribute]
+        protected FinishDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FinishDto" /> class.
+        /// </summary>
+        /// <param name="isSendWelcomeEmail">Specifies whether to send a welcome email or not. (required).</param>
         public FinishDto(bool isSendWelcomeEmail = default)
         {
             this.IsSendWelcomeEmail = isSendWelcomeEmail;
@@ -41,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isSendWelcomeEmail", EmitDefaultValue = true)]
+        [DataMember(Name = "isSendWelcomeEmail", IsRequired = true, EmitDefaultValue = true)]
         public bool IsSendWelcomeEmail { get; set; }
 
         /// <summary>

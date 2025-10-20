@@ -31,10 +31,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
+        /// <param name="memberBaseRequestDto">The request parameters for the user generic information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
-        EmployeeFullWrapper ChangeUserPassword(Guid userid, MemberBaseRequestDto? memberBaseRequestDto = default);
+        EmployeeFullWrapper ChangeUserPassword(Guid userid, MemberBaseRequestDto memberBaseRequestDto);
 
         /// <summary>
         /// Change a user password
@@ -44,10 +44,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
+        /// <param name="memberBaseRequestDto">The request parameters for the user generic information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        ApiResponse<EmployeeFullWrapper> ChangeUserPasswordWithHttpInfo(Guid userid, MemberBaseRequestDto? memberBaseRequestDto = default);
+        ApiResponse<EmployeeFullWrapper> ChangeUserPasswordWithHttpInfo(Guid userid, MemberBaseRequestDto memberBaseRequestDto);
         /// <summary>
         /// Remind a user password
         /// </summary>
@@ -88,11 +88,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
+        /// <param name="memberBaseRequestDto">The request parameters for the user generic information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
-        Task<EmployeeFullWrapper> ChangeUserPasswordAsync(Guid userid, MemberBaseRequestDto? memberBaseRequestDto = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullWrapper> ChangeUserPasswordAsync(Guid userid, MemberBaseRequestDto memberBaseRequestDto, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Change a user password
@@ -102,11 +102,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
+        /// <param name="memberBaseRequestDto">The request parameters for the user generic information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        Task<ApiResponse<EmployeeFullWrapper>> ChangeUserPasswordWithHttpInfoAsync(Guid userid, MemberBaseRequestDto? memberBaseRequestDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullWrapper>> ChangeUserPasswordWithHttpInfoAsync(Guid userid, MemberBaseRequestDto memberBaseRequestDto, CancellationToken cancellationToken = default);
         /// <summary>
         /// Remind a user password
         /// </summary>
@@ -345,6 +345,7 @@ namespace DocSpace.API.SDK.Api.People
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Change a user password
         /// </summary>
@@ -353,10 +354,10 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
+        /// <param name="memberBaseRequestDto">The request parameters for the user generic information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
-        public EmployeeFullWrapper ChangeUserPassword(Guid userid, MemberBaseRequestDto? memberBaseRequestDto = default)
+        public EmployeeFullWrapper ChangeUserPassword(Guid userid, MemberBaseRequestDto memberBaseRequestDto)
         {
             var localVarResponse = ChangeUserPasswordWithHttpInfo(userid, memberBaseRequestDto);
             return localVarResponse.Data;
@@ -370,11 +371,15 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
+        /// <param name="memberBaseRequestDto">The request parameters for the user generic information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        public ApiResponse<EmployeeFullWrapper> ChangeUserPasswordWithHttpInfo(Guid userid, MemberBaseRequestDto? memberBaseRequestDto = default)
+        public ApiResponse<EmployeeFullWrapper> ChangeUserPasswordWithHttpInfo(Guid userid, MemberBaseRequestDto memberBaseRequestDto)
         {
+            // verify the required parameter 'memberBaseRequestDto' is set
+            if (memberBaseRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'memberBaseRequestDto' when calling PasswordApi->ChangeUserPassword");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];
@@ -445,11 +450,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
+        /// <param name="memberBaseRequestDto">The request parameters for the user generic information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
-        public async Task<EmployeeFullWrapper> ChangeUserPasswordAsync(Guid userid, MemberBaseRequestDto? memberBaseRequestDto = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullWrapper> ChangeUserPasswordAsync(Guid userid, MemberBaseRequestDto memberBaseRequestDto, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await ChangeUserPasswordWithHttpInfoAsync(userid, memberBaseRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -463,12 +468,16 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="memberBaseRequestDto">The request parameters for the user generic information. (optional)</param>
+        /// <param name="memberBaseRequestDto">The request parameters for the user generic information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-user-password/">REST API Reference for ChangeUserPassword Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullWrapper>> ChangeUserPasswordWithHttpInfoAsync(Guid userid, MemberBaseRequestDto? memberBaseRequestDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullWrapper>> ChangeUserPasswordWithHttpInfoAsync(Guid userid, MemberBaseRequestDto memberBaseRequestDto, CancellationToken cancellationToken = default)
         {
+            // verify the required parameter 'memberBaseRequestDto' is set
+            if (memberBaseRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'memberBaseRequestDto' when calling PasswordApi->ChangeUserPassword");
+
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [ "application/json"];

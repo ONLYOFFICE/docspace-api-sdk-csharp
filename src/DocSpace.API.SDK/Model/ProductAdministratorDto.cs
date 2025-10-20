@@ -28,9 +28,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductAdministratorDto" /> class.
         /// </summary>
-        /// <param name="productId">The product ID..</param>
-        /// <param name="userId">The user unique identifier..</param>
-        /// <param name="administrator">Indicates whether the user has administrator privileges for the product..</param>
+        [JsonConstructorAttribute]
+        protected ProductAdministratorDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProductAdministratorDto" /> class.
+        /// </summary>
+        /// <param name="productId">The product ID. (required).</param>
+        /// <param name="userId">The user unique identifier. (required).</param>
+        /// <param name="administrator">Indicates whether the user has administrator privileges for the product. (required).</param>
         public ProductAdministratorDto(Guid productId = default, Guid userId = default, bool administrator = default)
         {
             this.ProductId = productId;
@@ -45,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
         */
-        [DataMember(Name = "productId", EmitDefaultValue = false)]
+        [DataMember(Name = "productId", IsRequired = true, EmitDefaultValue = true)]
         public Guid ProductId { get; set; }
 
         /// <summary>
@@ -55,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
         */
-        [DataMember(Name = "userId", EmitDefaultValue = false)]
+        [DataMember(Name = "userId", IsRequired = true, EmitDefaultValue = true)]
         public Guid UserId { get; set; }
 
         /// <summary>
@@ -65,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "administrator", EmitDefaultValue = true)]
+        [DataMember(Name = "administrator", IsRequired = true, EmitDefaultValue = true)]
         public bool Administrator { get; set; }
 
         /// <summary>

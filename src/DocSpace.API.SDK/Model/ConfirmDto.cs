@@ -28,17 +28,22 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Result
         /// </summary>
-        [DataMember(Name = "result", EmitDefaultValue = false)]
-        public ValidationResult? Result { get; set; }
+        [DataMember(Name = "result", IsRequired = true, EmitDefaultValue = true)]
+        public ValidationResult Result { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfirmDto" /> class.
         /// </summary>
-        /// <param name="result">result.</param>
+        [JsonConstructorAttribute]
+        protected ConfirmDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConfirmDto" /> class.
+        /// </summary>
+        /// <param name="result">result (required).</param>
         /// <param name="roomId">The confirmation room ID..</param>
         /// <param name="title">The confirmation title..</param>
         /// <param name="email">The confirmation email..</param>
-        public ConfirmDto(ValidationResult? result = default, string roomId = default, string title = default, string email = default)
+        public ConfirmDto(ValidationResult result = default, string roomId = default, string title = default, string email = default)
         {
             this.Result = result;
             this.RoomId = roomId;

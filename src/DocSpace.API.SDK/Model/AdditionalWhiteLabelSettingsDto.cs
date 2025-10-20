@@ -28,13 +28,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AdditionalWhiteLabelSettingsDto" /> class.
         /// </summary>
-        /// <param name="startDocsEnabled">Specifies if the sample documents are displayed or hidden..</param>
-        /// <param name="helpCenterEnabled">Specifies if the Help Center link is available or not..</param>
-        /// <param name="feedbackAndSupportEnabled">Specifies if the \&quot;Feedback &amp; Support\&quot; link is available or not..</param>
-        /// <param name="userForumEnabled">Specifies if the user forum is available or not..</param>
-        /// <param name="videoGuidesEnabled">Specifies if the Video Guides link is available or not..</param>
-        /// <param name="licenseAgreementsEnabled">Specifies if the License Agreements link is available or not..</param>
-        /// <param name="isDefault">Specifies if the additional white label settings are default or not..</param>
+        [JsonConstructorAttribute]
+        protected AdditionalWhiteLabelSettingsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AdditionalWhiteLabelSettingsDto" /> class.
+        /// </summary>
+        /// <param name="startDocsEnabled">Specifies if the sample documents are displayed or hidden. (required).</param>
+        /// <param name="helpCenterEnabled">Specifies if the Help Center link is available or not. (required).</param>
+        /// <param name="feedbackAndSupportEnabled">Specifies if the Feedback &amp; Support link is available or not. (required).</param>
+        /// <param name="userForumEnabled">Specifies if the user forum is available or not. (required).</param>
+        /// <param name="videoGuidesEnabled">Specifies if the Video Guides link is available or not. (required).</param>
+        /// <param name="licenseAgreementsEnabled">Specifies if the License Agreements link is available or not. (required).</param>
+        /// <param name="isDefault">Specifies if the additional white label settings are default or not. (required).</param>
         public AdditionalWhiteLabelSettingsDto(bool startDocsEnabled = default, bool helpCenterEnabled = default, bool feedbackAndSupportEnabled = default, bool userForumEnabled = default, bool videoGuidesEnabled = default, bool licenseAgreementsEnabled = default, bool isDefault = default)
         {
             this.StartDocsEnabled = startDocsEnabled;
@@ -53,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "startDocsEnabled", EmitDefaultValue = true)]
+        [DataMember(Name = "startDocsEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool StartDocsEnabled { get; set; }
 
         /// <summary>
@@ -63,17 +68,17 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "helpCenterEnabled", EmitDefaultValue = true)]
+        [DataMember(Name = "helpCenterEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool HelpCenterEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the \&quot;Feedback &amp; Support\&quot; link is available or not.
+        /// Specifies if the Feedback &amp; Support link is available or not.
         /// </summary>
-        /// <value>Specifies if the \&quot;Feedback &amp; Support\&quot; link is available or not.</value>
+        /// <value>Specifies if the Feedback &amp; Support link is available or not.</value>
         /*
         <example>true</example>
         */
-        [DataMember(Name = "feedbackAndSupportEnabled", EmitDefaultValue = true)]
+        [DataMember(Name = "feedbackAndSupportEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool FeedbackAndSupportEnabled { get; set; }
 
         /// <summary>
@@ -83,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "userForumEnabled", EmitDefaultValue = true)]
+        [DataMember(Name = "userForumEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool UserForumEnabled { get; set; }
 
         /// <summary>
@@ -93,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "videoGuidesEnabled", EmitDefaultValue = true)]
+        [DataMember(Name = "videoGuidesEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool VideoGuidesEnabled { get; set; }
 
         /// <summary>
@@ -103,7 +108,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "licenseAgreementsEnabled", EmitDefaultValue = true)]
+        [DataMember(Name = "licenseAgreementsEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool LicenseAgreementsEnabled { get; set; }
 
         /// <summary>
@@ -113,7 +118,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "isDefault", EmitDefaultValue = true)]
+        [DataMember(Name = "isDefault", IsRequired = true, EmitDefaultValue = true)]
         public bool IsDefault { get; set; }
 
         /// <summary>

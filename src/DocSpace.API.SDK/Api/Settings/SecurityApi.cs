@@ -51,11 +51,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <param name="productid">The ID of the product extracted from the query parameters.</param>
+        /// <param name="userid">The user ID extracted from the query parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>ProductAdministratorWrapper</returns>
-        ProductAdministratorWrapper GetIsProductAdministrator(Guid? productid = default, Guid? userid = default);
+        ProductAdministratorWrapper GetIsProductAdministrator(Guid productid, Guid userid);
 
         /// <summary>
         /// Check a product administrator
@@ -64,11 +64,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <param name="productid">The ID of the product extracted from the query parameters.</param>
+        /// <param name="userid">The user ID extracted from the query parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>ApiResponse of ProductAdministratorWrapper</returns>
-        ApiResponse<ProductAdministratorWrapper> GetIsProductAdministratorWithHttpInfo(Guid? productid = default, Guid? userid = default);
+        ApiResponse<ProductAdministratorWrapper> GetIsProductAdministratorWithHttpInfo(Guid productid, Guid userid);
         /// <summary>
         /// Get the password settings
         /// </summary>
@@ -290,12 +290,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <param name="productid">The ID of the product extracted from the query parameters.</param>
+        /// <param name="userid">The user ID extracted from the query parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>Task of ProductAdministratorWrapper</returns>
-        Task<ProductAdministratorWrapper> GetIsProductAdministratorAsync(Guid? productid = default, Guid? userid = default, CancellationToken cancellationToken = default);
+        Task<ProductAdministratorWrapper> GetIsProductAdministratorAsync(Guid productid, Guid userid, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check a product administrator
@@ -304,12 +304,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <param name="productid">The ID of the product extracted from the query parameters.</param>
+        /// <param name="userid">The user ID extracted from the query parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>Task of ApiResponse (ProductAdministratorWrapper)</returns>
-        Task<ApiResponse<ProductAdministratorWrapper>> GetIsProductAdministratorWithHttpInfoAsync(Guid? productid = default, Guid? userid = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ProductAdministratorWrapper>> GetIsProductAdministratorWithHttpInfoAsync(Guid productid, Guid userid, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the password settings
         /// </summary>
@@ -721,6 +721,7 @@ namespace DocSpace.API.SDK.Api.Settings
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// Get the enabled modules
         /// </summary>
@@ -904,11 +905,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <param name="productid">The ID of the product extracted from the query parameters.</param>
+        /// <param name="userid">The user ID extracted from the query parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>ProductAdministratorWrapper</returns>
-        public ProductAdministratorWrapper GetIsProductAdministrator(Guid? productid = default, Guid? userid = default)
+        public ProductAdministratorWrapper GetIsProductAdministrator(Guid productid, Guid userid)
         {
             var localVarResponse = GetIsProductAdministratorWithHttpInfo(productid, userid);
             return localVarResponse.Data;
@@ -921,11 +922,11 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <param name="productid">The ID of the product extracted from the query parameters.</param>
+        /// <param name="userid">The user ID extracted from the query parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>ApiResponse of ProductAdministratorWrapper</returns>
-        public ApiResponse<ProductAdministratorWrapper> GetIsProductAdministratorWithHttpInfo(Guid? productid = default, Guid? userid = default)
+        public ApiResponse<ProductAdministratorWrapper> GetIsProductAdministratorWithHttpInfo(Guid productid, Guid userid)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -940,14 +941,8 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (productid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productid", productid));
-            }
-            if (userid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userid", userid));
-            }
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productid", productid));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userid", userid));
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1002,12 +997,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <param name="productid">The ID of the product extracted from the query parameters.</param>
+        /// <param name="userid">The user ID extracted from the query parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>Task of ProductAdministratorWrapper</returns>
-        public async Task<ProductAdministratorWrapper> GetIsProductAdministratorAsync(Guid? productid = default, Guid? userid = default, CancellationToken cancellationToken = default)
+        public async Task<ProductAdministratorWrapper> GetIsProductAdministratorAsync(Guid productid, Guid userid, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetIsProductAdministratorWithHttpInfoAsync(productid, userid, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1020,12 +1015,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Checks if the selected user is an administrator of a product with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="productid">The ID of the product extracted from the query parameters. (optional)</param>
-        /// <param name="userid">The user ID extracted from the query parameters. (optional)</param>
+        /// <param name="productid">The ID of the product extracted from the query parameters.</param>
+        /// <param name="userid">The user ID extracted from the query parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-product-administrator/">REST API Reference for GetIsProductAdministrator Operation</seealso>
         /// <returns>Task of ApiResponse (ProductAdministratorWrapper)</returns>
-        public async Task<ApiResponse<ProductAdministratorWrapper>> GetIsProductAdministratorWithHttpInfoAsync(Guid? productid = default, Guid? userid = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ProductAdministratorWrapper>> GetIsProductAdministratorWithHttpInfoAsync(Guid productid, Guid userid, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1041,14 +1036,8 @@ namespace DocSpace.API.SDK.Api.Settings
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (productid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productid", productid));
-            }
-            if (userid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userid", userid));
-            }
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "productid", productid));
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userid", userid));
 
             // authentication (Basic) required
             // http basic authentication required

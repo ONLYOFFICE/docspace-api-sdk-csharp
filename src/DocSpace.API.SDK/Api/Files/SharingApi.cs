@@ -28,10 +28,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
-        /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
+        /// <param name="externalShareRequestParam">The external data share request parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
         /// <returns>ExternalShareWrapper</returns>
-        ExternalShareWrapper ApplyExternalSharePassword(string key, ExternalShareRequestParam? externalShareRequestParam = default);
+        ExternalShareWrapper ApplyExternalSharePassword(string key, ExternalShareRequestParam externalShareRequestParam);
 
         /// <summary>
         /// 
@@ -41,10 +41,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
-        /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
+        /// <param name="externalShareRequestParam">The external data share request parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
         /// <returns>ApiResponse of ExternalShareWrapper</returns>
-        ApiResponse<ExternalShareWrapper> ApplyExternalSharePasswordWithHttpInfo(string key, ExternalShareRequestParam? externalShareRequestParam = default);
+        ApiResponse<ExternalShareWrapper> ApplyExternalSharePasswordWithHttpInfo(string key, ExternalShareRequestParam externalShareRequestParam);
         /// <summary>
         /// 
         /// </summary>
@@ -93,7 +93,131 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/">REST API Reference for GetFileSecurityInfo Operation</seealso>
+        /// <returns>FileShareArrayWrapper</returns>
+        FileShareArrayWrapper GetFileSecurityInfo(int id, int? count = default, int? startIndex = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/">REST API Reference for GetFileSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        ApiResponse<FileShareArrayWrapper> GetFileSecurityInfoWithHttpInfo(int id, int? count = default, int? startIndex = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
+        /// <returns>FileShareArrayWrapper</returns>
+        FileShareArrayWrapper GetFolderSecurityInfo(int id, int? count = default, int? startIndex = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        ApiResponse<FileShareArrayWrapper> GetFolderSecurityInfoWithHttpInfo(int id, int? count = default, int? startIndex = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
+        /// <returns>GroupMemberSecurityRequestArrayWrapper</returns>
+        GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFileSecurity(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
+        /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
+        ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityWithHttpInfo(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
+        /// <returns>GroupMemberSecurityRequestArrayWrapper</returns>
+        GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFolderSecurity(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
+        /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
+        ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityWithHttpInfo(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/">REST API Reference for GetSecurityInfo Operation</seealso>
+        /// <returns>FileShareArrayWrapper</returns>
+        FileShareArrayWrapper GetSecurityInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/">REST API Reference for GetSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        ApiResponse<FileShareArrayWrapper> GetSecurityInfoWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>MentionWrapperArrayWrapper</returns>
         MentionWrapperArrayWrapper GetSharedUsers(int fileId);
@@ -105,7 +229,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
         ApiResponse<MentionWrapperArrayWrapper> GetSharedUsersWithHttpInfo(int fileId);
@@ -113,7 +237,27 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/">REST API Reference for RemoveSecurityInfo Operation</seealso>
+        /// <returns>BooleanWrapper</returns>
+        BooleanWrapper RemoveSecurityInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/">REST API Reference for RemoveSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        ApiResponse<BooleanWrapper> RemoveSecurityInfoWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
         /// <returns>AceShortWrapperArrayWrapper</returns>
@@ -126,11 +270,75 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
         /// <returns>ApiResponse of AceShortWrapperArrayWrapper</returns>
         ApiResponse<AceShortWrapperArrayWrapper> SendEditorNotifyWithHttpInfo(int fileId, MentionMessageWrapper? mentionMessageWrapper = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
+        /// <returns>FileShareArrayWrapper</returns>
+        FileShareArrayWrapper SetFileSecurityInfo(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        ApiResponse<FileShareArrayWrapper> SetFileSecurityInfoWithHttpInfo(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
+        /// <returns>FileShareArrayWrapper</returns>
+        FileShareArrayWrapper SetFolderSecurityInfo(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        ApiResponse<FileShareArrayWrapper> SetFolderSecurityInfoWithHttpInfo(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/">REST API Reference for SetSecurityInfo Operation</seealso>
+        /// <returns>FileShareArrayWrapper</returns>
+        FileShareArrayWrapper SetSecurityInfo(SecurityInfoRequestDto? securityInfoRequestDto = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/">REST API Reference for SetSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        ApiResponse<FileShareArrayWrapper> SetSecurityInfoWithHttpInfo(SecurityInfoRequestDto? securityInfoRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -148,11 +356,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
-        /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
+        /// <param name="externalShareRequestParam">The external data share request parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
         /// <returns>Task of ExternalShareWrapper</returns>
-        Task<ExternalShareWrapper> ApplyExternalSharePasswordAsync(string key, ExternalShareRequestParam? externalShareRequestParam = default, CancellationToken cancellationToken = default);
+        Task<ExternalShareWrapper> ApplyExternalSharePasswordAsync(string key, ExternalShareRequestParam externalShareRequestParam, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -162,11 +370,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
-        /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
+        /// <param name="externalShareRequestParam">The external data share request parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
         /// <returns>Task of ApiResponse (ExternalShareWrapper)</returns>
-        Task<ApiResponse<ExternalShareWrapper>> ApplyExternalSharePasswordWithHttpInfoAsync(string key, ExternalShareRequestParam? externalShareRequestParam = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ExternalShareWrapper>> ApplyExternalSharePasswordWithHttpInfoAsync(string key, ExternalShareRequestParam externalShareRequestParam, CancellationToken cancellationToken = default);
         /// <summary>
         /// 
         /// </summary>
@@ -228,7 +436,156 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/">REST API Reference for GetFileSecurityInfo Operation</seealso>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        Task<FileShareArrayWrapper> GetFileSecurityInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/">REST API Reference for GetFileSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        Task<ApiResponse<FileShareArrayWrapper>> GetFileSecurityInfoWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        Task<FileShareArrayWrapper> GetFolderSecurityInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        Task<ApiResponse<FileShareArrayWrapper>> GetFolderSecurityInfoWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
+        /// <returns>Task of GroupMemberSecurityRequestArrayWrapper</returns>
+        Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
+        /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
+        Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFileSecurityWithHttpInfoAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
+        /// <returns>Task of GroupMemberSecurityRequestArrayWrapper</returns>
+        Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
+        /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
+        Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/">REST API Reference for GetSecurityInfo Operation</seealso>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        Task<FileShareArrayWrapper> GetSecurityInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/">REST API Reference for GetSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        Task<ApiResponse<FileShareArrayWrapper>> GetSecurityInfoWithHttpInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>Task of MentionWrapperArrayWrapper</returns>
@@ -241,7 +598,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
@@ -253,7 +610,32 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/">REST API Reference for RemoveSecurityInfo Operation</seealso>
+        /// <returns>Task of BooleanWrapper</returns>
+        Task<BooleanWrapper> RemoveSecurityInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/">REST API Reference for RemoveSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        Task<ApiResponse<BooleanWrapper>> RemoveSecurityInfoWithHttpInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
@@ -267,12 +649,91 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
         /// <returns>Task of ApiResponse (AceShortWrapperArrayWrapper)</returns>
         Task<ApiResponse<AceShortWrapperArrayWrapper>> SendEditorNotifyWithHttpInfoAsync(int fileId, MentionMessageWrapper? mentionMessageWrapper = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        Task<FileShareArrayWrapper> SetFileSecurityInfoAsync(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        Task<ApiResponse<FileShareArrayWrapper>> SetFileSecurityInfoWithHttpInfoAsync(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        Task<FileShareArrayWrapper> SetFolderSecurityInfoAsync(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        Task<ApiResponse<FileShareArrayWrapper>> SetFolderSecurityInfoWithHttpInfoAsync(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/">REST API Reference for SetSecurityInfo Operation</seealso>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        Task<FileShareArrayWrapper> SetSecurityInfoAsync(SecurityInfoRequestDto? securityInfoRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/">REST API Reference for SetSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        Task<ApiResponse<FileShareArrayWrapper>> SetSecurityInfoWithHttpInfoAsync(SecurityInfoRequestDto? securityInfoRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -486,15 +947,16 @@ namespace DocSpace.API.SDK.Api.Files
             set => _exceptionFactory = value; 
         }
 
+
         /// <summary>
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
-        /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
+        /// <param name="externalShareRequestParam">The external data share request parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
         /// <returns>ExternalShareWrapper</returns>
-        public ExternalShareWrapper ApplyExternalSharePassword(string key, ExternalShareRequestParam? externalShareRequestParam = default)
+        public ExternalShareWrapper ApplyExternalSharePassword(string key, ExternalShareRequestParam externalShareRequestParam)
         {
             var localVarResponse = ApplyExternalSharePasswordWithHttpInfo(key, externalShareRequestParam);
             return localVarResponse.Data;
@@ -505,14 +967,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
-        /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
+        /// <param name="externalShareRequestParam">The external data share request parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
         /// <returns>ApiResponse of ExternalShareWrapper</returns>
-        public ApiResponse<ExternalShareWrapper> ApplyExternalSharePasswordWithHttpInfo(string key, ExternalShareRequestParam? externalShareRequestParam = default)
+        public ApiResponse<ExternalShareWrapper> ApplyExternalSharePasswordWithHttpInfo(string key, ExternalShareRequestParam externalShareRequestParam)
         {
             // verify the required parameter 'key' is set
             if (key == null)
                 throw new ApiException(400, "Missing required parameter 'key' when calling SharingApi->ApplyExternalSharePassword");
+
+            // verify the required parameter 'externalShareRequestParam' is set
+            if (externalShareRequestParam == null)
+                throw new ApiException(400, "Missing required parameter 'externalShareRequestParam' when calling SharingApi->ApplyExternalSharePassword");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -551,11 +1017,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
-        /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
+        /// <param name="externalShareRequestParam">The external data share request parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
         /// <returns>Task of ExternalShareWrapper</returns>
-        public async Task<ExternalShareWrapper> ApplyExternalSharePasswordAsync(string key, ExternalShareRequestParam? externalShareRequestParam = default, CancellationToken cancellationToken = default)
+        public async Task<ExternalShareWrapper> ApplyExternalSharePasswordAsync(string key, ExternalShareRequestParam externalShareRequestParam, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await ApplyExternalSharePasswordWithHttpInfoAsync(key, externalShareRequestParam, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -566,15 +1032,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
-        /// <param name="externalShareRequestParam">The external data share request parameters. (optional)</param>
+        /// <param name="externalShareRequestParam">The external data share request parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/apply-external-share-password/">REST API Reference for ApplyExternalSharePassword Operation</seealso>
         /// <returns>Task of ApiResponse (ExternalShareWrapper)</returns>
-        public async Task<ApiResponse<ExternalShareWrapper>> ApplyExternalSharePasswordWithHttpInfoAsync(string key, ExternalShareRequestParam? externalShareRequestParam = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ExternalShareWrapper>> ApplyExternalSharePasswordWithHttpInfoAsync(string key, ExternalShareRequestParam externalShareRequestParam, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'key' is set
             if (key == null)
                 throw new ApiException(400, "Missing required parameter 'key' when calling SharingApi->ApplyExternalSharePassword");
+
+            // verify the required parameter 'externalShareRequestParam' is set
+            if (externalShareRequestParam == null)
+                throw new ApiException(400, "Missing required parameter 'externalShareRequestParam' when calling SharingApi->ApplyExternalSharePassword");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -866,7 +1336,689 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="id">The file unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/">REST API Reference for GetFileSecurityInfo Operation</seealso>
+        /// <returns>FileShareArrayWrapper</returns>
+        public FileShareArrayWrapper GetFileSecurityInfo(int id, int? count = default, int? startIndex = default)
+        {
+            var localVarResponse = GetFileSecurityInfoWithHttpInfo(id, count, startIndex);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/">REST API Reference for GetFileSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        public ApiResponse<FileShareArrayWrapper> GetFileSecurityInfoWithHttpInfo(int id, int? count = default, int? startIndex = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<FileShareArrayWrapper>("/api/2.0/files/file/{id}/share", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetFileSecurityInfo", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/">REST API Reference for GetFileSecurityInfo Operation</seealso>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        public async Task<FileShareArrayWrapper> GetFileSecurityInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetFileSecurityInfoWithHttpInfoAsync(id, count, startIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The file unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-file-security-info/">REST API Reference for GetFileSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        public async Task<ApiResponse<FileShareArrayWrapper>> GetFileSecurityInfoWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<FileShareArrayWrapper>("/api/2.0/files/file/{id}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetFileSecurityInfo", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
+        /// <returns>FileShareArrayWrapper</returns>
+        public FileShareArrayWrapper GetFolderSecurityInfo(int id, int? count = default, int? startIndex = default)
+        {
+            var localVarResponse = GetFolderSecurityInfoWithHttpInfo(id, count, startIndex);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        public ApiResponse<FileShareArrayWrapper> GetFolderSecurityInfoWithHttpInfo(int id, int? count = default, int? startIndex = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<FileShareArrayWrapper>("/api/2.0/files/folder/{id}/share", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetFolderSecurityInfo", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        public async Task<FileShareArrayWrapper> GetFolderSecurityInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetFolderSecurityInfoWithHttpInfoAsync(id, count, startIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The folder unique identifier.</param>
+        /// <param name="count">The number of items to retrieve in the request. (optional)</param>
+        /// <param name="startIndex">The starting index for the query results. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-security-info/">REST API Reference for GetFolderSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        public async Task<ApiResponse<FileShareArrayWrapper>> GetFolderSecurityInfoWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<FileShareArrayWrapper>("/api/2.0/files/folder/{id}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetFolderSecurityInfo", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
+        /// <returns>GroupMemberSecurityRequestArrayWrapper</returns>
+        public GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFileSecurity(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
+        {
+            var localVarResponse = GetGroupsMembersWithFileSecurityWithHttpInfo(fileId, groupId, count, startIndex, filterValue);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
+        /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
+        public ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityWithHttpInfo(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("groupId", ClientUtils.ParameterToString(groupId)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/file/{fileId}/group/{groupId}/share", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetGroupsMembersWithFileSecurity", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
+        /// <returns>Task of GroupMemberSecurityRequestArrayWrapper</returns>
+        public async Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetGroupsMembersWithFileSecurityWithHttpInfoAsync(fileId, groupId, count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-file-security/">REST API Reference for GetGroupsMembersWithFileSecurity Operation</seealso>
+        /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
+        public async Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFileSecurityWithHttpInfoAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("groupId", ClientUtils.ParameterToString(groupId)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/file/{fileId}/group/{groupId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetGroupsMembersWithFileSecurity", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
+        /// <returns>GroupMemberSecurityRequestArrayWrapper</returns>
+        public GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFolderSecurity(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
+        {
+            var localVarResponse = GetGroupsMembersWithFolderSecurityWithHttpInfo(folderId, groupId, count, startIndex, filterValue);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
+        /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
+        public ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityWithHttpInfo(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("groupId", ClientUtils.ParameterToString(groupId)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/folder/{folderId}/group/{groupId}/share", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetGroupsMembersWithFolderSecurity", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
+        /// <returns>Task of GroupMemberSecurityRequestArrayWrapper</returns>
+        public async Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(folderId, groupId, count, startIndex, filterValue, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="groupId">The group ID.</param>
+        /// <param name="count">The number of items to be retrieved in the current query. (optional)</param>
+        /// <param name="startIndex">The starting index for the query result set. (optional)</param>
+        /// <param name="filterValue">The filter value used for searching or querying group members based on text input. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups-members-with-folder-security/">REST API Reference for GetGroupsMembersWithFolderSecurity Operation</seealso>
+        /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
+        public async Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("groupId", ClientUtils.ParameterToString(groupId)); // path parameter
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (startIndex != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
+            }
+            if (filterValue != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/folder/{folderId}/group/{groupId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetGroupsMembersWithFolderSecurity", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/">REST API Reference for GetSecurityInfo Operation</seealso>
+        /// <returns>FileShareArrayWrapper</returns>
+        public FileShareArrayWrapper GetSecurityInfo(BaseBatchRequestDto? baseBatchRequestDto = default)
+        {
+            var localVarResponse = GetSecurityInfoWithHttpInfo(baseBatchRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/">REST API Reference for GetSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        public ApiResponse<FileShareArrayWrapper> GetSecurityInfoWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (baseBatchRequestDto != null) localVarRequestOptions.Data = baseBatchRequestDto;
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<FileShareArrayWrapper>("/api/2.0/files/share", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetSecurityInfo", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/">REST API Reference for GetSecurityInfo Operation</seealso>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        public async Task<FileShareArrayWrapper> GetSecurityInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetSecurityInfoWithHttpInfoAsync(baseBatchRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/">REST API Reference for GetSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        public async Task<ApiResponse<FileShareArrayWrapper>> GetSecurityInfoWithHttpInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (baseBatchRequestDto != null) localVarRequestOptions.Data = baseBatchRequestDto;
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<FileShareArrayWrapper>("/api/2.0/files/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetSecurityInfo", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>MentionWrapperArrayWrapper</returns>
         public MentionWrapperArrayWrapper GetSharedUsers(int fileId)
@@ -879,7 +2031,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
         public ApiResponse<MentionWrapperArrayWrapper> GetSharedUsersWithHttpInfo(int fileId)
@@ -919,7 +2071,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>Task of MentionWrapperArrayWrapper</returns>
@@ -933,7 +2085,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the request.</param>
+        /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
         /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
@@ -976,7 +2128,117 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/">REST API Reference for RemoveSecurityInfo Operation</seealso>
+        /// <returns>BooleanWrapper</returns>
+        public BooleanWrapper RemoveSecurityInfo(BaseBatchRequestDto? baseBatchRequestDto = default)
+        {
+            var localVarResponse = RemoveSecurityInfoWithHttpInfo(baseBatchRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/">REST API Reference for RemoveSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        public ApiResponse<BooleanWrapper> RemoveSecurityInfoWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (baseBatchRequestDto != null) localVarRequestOptions.Data = baseBatchRequestDto;
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Delete<BooleanWrapper>("/api/2.0/files/share", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("RemoveSecurityInfo", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/">REST API Reference for RemoveSecurityInfo Operation</seealso>
+        /// <returns>Task of BooleanWrapper</returns>
+        public async Task<BooleanWrapper> RemoveSecurityInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await RemoveSecurityInfoWithHttpInfoAsync(baseBatchRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/">REST API Reference for RemoveSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        public async Task<ApiResponse<BooleanWrapper>> RemoveSecurityInfoWithHttpInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (baseBatchRequestDto != null) localVarRequestOptions.Data = baseBatchRequestDto;
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.DeleteAsync<BooleanWrapper>("/api/2.0/files/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("RemoveSecurityInfo", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
         /// <returns>AceShortWrapperArrayWrapper</returns>
@@ -990,7 +2252,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
         /// <returns>ApiResponse of AceShortWrapperArrayWrapper</returns>
@@ -1032,7 +2294,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
@@ -1047,7 +2309,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// 
         /// </summary>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="fileId">The file ID of the mention message.</param>
+        /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-editor-notify/">REST API Reference for SendEditorNotify Operation</seealso>
@@ -1079,6 +2341,364 @@ namespace DocSpace.API.SDK.Api.Files
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("SendEditorNotify", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
+        /// <returns>FileShareArrayWrapper</returns>
+        public FileShareArrayWrapper SetFileSecurityInfo(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto)
+        {
+            var localVarResponse = SetFileSecurityInfoWithHttpInfo(fileId, securityInfoSimpleRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        public ApiResponse<FileShareArrayWrapper> SetFileSecurityInfoWithHttpInfo(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto)
+        {
+            // verify the required parameter 'securityInfoSimpleRequestDto' is set
+            if (securityInfoSimpleRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'securityInfoSimpleRequestDto' when calling SharingApi->SetFileSecurityInfo");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (securityInfoSimpleRequestDto != null) localVarRequestOptions.Data = securityInfoSimpleRequestDto;
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<FileShareArrayWrapper>("/api/2.0/files/file/{fileId}/share", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SetFileSecurityInfo", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        public async Task<FileShareArrayWrapper> SetFileSecurityInfoAsync(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await SetFileSecurityInfoWithHttpInfoAsync(fileId, securityInfoSimpleRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-file-security-info/">REST API Reference for SetFileSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        public async Task<ApiResponse<FileShareArrayWrapper>> SetFileSecurityInfoWithHttpInfoAsync(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'securityInfoSimpleRequestDto' is set
+            if (securityInfoSimpleRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'securityInfoSimpleRequestDto' when calling SharingApi->SetFileSecurityInfo");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (securityInfoSimpleRequestDto != null) localVarRequestOptions.Data = securityInfoSimpleRequestDto;
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<FileShareArrayWrapper>("/api/2.0/files/file/{fileId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SetFileSecurityInfo", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
+        /// <returns>FileShareArrayWrapper</returns>
+        public FileShareArrayWrapper SetFolderSecurityInfo(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto)
+        {
+            var localVarResponse = SetFolderSecurityInfoWithHttpInfo(folderId, securityInfoSimpleRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        public ApiResponse<FileShareArrayWrapper> SetFolderSecurityInfoWithHttpInfo(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto)
+        {
+            // verify the required parameter 'securityInfoSimpleRequestDto' is set
+            if (securityInfoSimpleRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'securityInfoSimpleRequestDto' when calling SharingApi->SetFolderSecurityInfo");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            if (securityInfoSimpleRequestDto != null) localVarRequestOptions.Data = securityInfoSimpleRequestDto;
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<FileShareArrayWrapper>("/api/2.0/files/folder/{folderId}/share", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SetFolderSecurityInfo", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        public async Task<FileShareArrayWrapper> SetFolderSecurityInfoAsync(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await SetFolderSecurityInfoWithHttpInfoAsync(folderId, securityInfoSimpleRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-folder-security-info/">REST API Reference for SetFolderSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        public async Task<ApiResponse<FileShareArrayWrapper>> SetFolderSecurityInfoWithHttpInfoAsync(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'securityInfoSimpleRequestDto' is set
+            if (securityInfoSimpleRequestDto == null)
+                throw new ApiException(400, "Missing required parameter 'securityInfoSimpleRequestDto' when calling SharingApi->SetFolderSecurityInfo");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            if (securityInfoSimpleRequestDto != null) localVarRequestOptions.Data = securityInfoSimpleRequestDto;
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<FileShareArrayWrapper>("/api/2.0/files/folder/{folderId}/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SetFolderSecurityInfo", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/">REST API Reference for SetSecurityInfo Operation</seealso>
+        /// <returns>FileShareArrayWrapper</returns>
+        public FileShareArrayWrapper SetSecurityInfo(SecurityInfoRequestDto? securityInfoRequestDto = default)
+        {
+            var localVarResponse = SetSecurityInfoWithHttpInfo(securityInfoRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/">REST API Reference for SetSecurityInfo Operation</seealso>
+        /// <returns>ApiResponse of FileShareArrayWrapper</returns>
+        public ApiResponse<FileShareArrayWrapper> SetSecurityInfoWithHttpInfo(SecurityInfoRequestDto? securityInfoRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (securityInfoRequestDto != null) localVarRequestOptions.Data = securityInfoRequestDto;
+
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<FileShareArrayWrapper>("/api/2.0/files/share", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SetSecurityInfo", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/">REST API Reference for SetSecurityInfo Operation</seealso>
+        /// <returns>Task of FileShareArrayWrapper</returns>
+        public async Task<FileShareArrayWrapper> SetSecurityInfoAsync(SecurityInfoRequestDto? securityInfoRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await SetSecurityInfoWithHttpInfoAsync(securityInfoRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/">REST API Reference for SetSecurityInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
+        public async Task<ApiResponse<FileShareArrayWrapper>> SetSecurityInfoWithHttpInfoAsync(SecurityInfoRequestDto? securityInfoRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (securityInfoRequestDto != null) localVarRequestOptions.Data = securityInfoRequestDto;
+
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<FileShareArrayWrapper>("/api/2.0/files/share", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SetSecurityInfo", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

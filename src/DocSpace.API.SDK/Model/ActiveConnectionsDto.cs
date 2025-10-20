@@ -28,7 +28,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ActiveConnectionsDto" /> class.
         /// </summary>
-        /// <param name="loginEvent">The login event..</param>
+        [JsonConstructorAttribute]
+        protected ActiveConnectionsDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ActiveConnectionsDto" /> class.
+        /// </summary>
+        /// <param name="loginEvent">The login event. (required).</param>
         /// <param name="items">The list of active connection items..</param>
         public ActiveConnectionsDto(int loginEvent = default, List<ActiveConnectionsItemDto> items = default)
         {
@@ -43,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "loginEvent", EmitDefaultValue = false)]
+        [DataMember(Name = "loginEvent", IsRequired = true, EmitDefaultValue = true)]
         public int LoginEvent { get; set; }
 
         /// <summary>

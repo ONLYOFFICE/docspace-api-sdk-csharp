@@ -28,34 +28,54 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="EditorConfigurationDto" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected EditorConfigurationDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EditorConfigurationDto" /> class.
+        /// </summary>
         /// <param name="callbackUrl">The callback URL of the editor..</param>
         /// <param name="coEditing">coEditing.</param>
         /// <param name="createUrl">The creation URL of the editor..</param>
         /// <param name="customization">customization.</param>
         /// <param name="embedded">embedded.</param>
         /// <param name="encryptionKeys">encryptionKeys.</param>
-        /// <param name="lang">The language of the editor configuration..</param>
-        /// <param name="mode">The mode of the editor configuration..</param>
+        /// <param name="lang">The language of the editor configuration. (required).</param>
+        /// <param name="mode">The mode of the editor configuration. (required).</param>
         /// <param name="modeWrite">Specifies if the mode is write of the editor configuration..</param>
         /// <param name="plugins">plugins.</param>
         /// <param name="recent">The recent configuration of the editor..</param>
         /// <param name="templates">The templates of the editor configuration..</param>
-        /// <param name="user">user.</param>
+        /// <param name="user">user (required).</param>
         public EditorConfigurationDto(string callbackUrl = default, CoEditingConfig coEditing = default, string createUrl = default, CustomizationConfigDto customization = default, EmbeddedConfig embedded = default, EncryptionKeysConfig encryptionKeys = default, string lang = default, string mode = default, bool modeWrite = default, PluginsConfig plugins = default, List<RecentConfig> recent = default, List<TemplatesConfig> templates = default, UserConfig user = default)
         {
+            // to ensure "lang" is required (not null)
+            if (lang == null)
+            {
+                throw new ArgumentNullException("lang is a required property for EditorConfigurationDto and cannot be null");
+            }
+            this.Lang = lang;
+            // to ensure "mode" is required (not null)
+            if (mode == null)
+            {
+                throw new ArgumentNullException("mode is a required property for EditorConfigurationDto and cannot be null");
+            }
+            this.Mode = mode;
+            // to ensure "user" is required (not null)
+            if (user == null)
+            {
+                throw new ArgumentNullException("user is a required property for EditorConfigurationDto and cannot be null");
+            }
+            this.User = user;
             this.CallbackUrl = callbackUrl;
             this.CoEditing = coEditing;
             this.CreateUrl = createUrl;
             this.Customization = customization;
             this.Embedded = embedded;
             this.EncryptionKeys = encryptionKeys;
-            this.Lang = lang;
-            this.Mode = mode;
             this.ModeWrite = modeWrite;
             this.Plugins = plugins;
             this.Recent = recent;
             this.Templates = templates;
-            this.User = user;
         }
 
         /// <summary>
@@ -109,7 +129,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "lang", EmitDefaultValue = true)]
+        [DataMember(Name = "lang", IsRequired = true, EmitDefaultValue = true)]
         public string Lang { get; set; }
 
         /// <summary>
@@ -119,7 +139,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "mode", EmitDefaultValue = true)]
+        [DataMember(Name = "mode", IsRequired = true, EmitDefaultValue = true)]
         public string Mode { get; set; }
 
         /// <summary>
@@ -155,7 +175,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets User
         /// </summary>
-        [DataMember(Name = "user", EmitDefaultValue = false)]
+        [DataMember(Name = "user", IsRequired = true, EmitDefaultValue = true)]
         public UserConfig User { get; set; }
 
         /// <summary>

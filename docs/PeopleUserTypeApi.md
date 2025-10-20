@@ -5,8 +5,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**GetUserTypeUpdateProgress**](#getusertypeupdateprogress) | **GET** /api/2.0/people/type/progress/{userid} | Get the progress of updating user type |
-| [**StarUserTypetUpdate**](#starusertypetupdate) | **POST** /api/2.0/people/type | Update user type |
-| [**TerminateUserTypeUpdate**](#terminateusertypeupdate) | **PUT** /api/2.0/people/type/terminate | Terminate update user type |
+| [**StarUserTypetUpdate**](#starusertypetupdate) | **POST** /api/2.0/people/type | Start updating user type |
+| [**TerminateUserTypeUpdate**](#terminateusertypeupdate) | **PUT** /api/2.0/people/type/terminate | Terminate updating user type |
 | [**UpdateUserType**](#updateusertype) | **PUT** /api/2.0/people/type/{type} | Change a user type |
 
 <a id="getusertypeupdateprogress"></a>
@@ -184,7 +184,7 @@ namespace Example
 
             try
             {
-                // Update user type
+                // Start updating user type
                 TaskProgressResponseWrapper result = apiInstance.StarUserTypetUpdate(startUpdateUserTypeDto);
                 Debug.WriteLine(result);
             }
@@ -205,7 +205,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Update user type
+    // Start updating user type
     ApiResponse<TaskProgressResponseWrapper> response = apiInstance.StarUserTypetUpdateWithHttpInfo(startUpdateUserTypeDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -297,7 +297,7 @@ namespace Example
 
             try
             {
-                // Terminate update user type
+                // Terminate updating user type
                 TaskProgressResponseWrapper result = apiInstance.TerminateUserTypeUpdate(terminateRequestDto);
                 Debug.WriteLine(result);
             }
@@ -318,7 +318,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Terminate update user type
+    // Terminate updating user type
     ApiResponse<TaskProgressResponseWrapper> response = apiInstance.TerminateUserTypeUpdateWithHttpInfo(terminateRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -348,7 +348,7 @@ catch (ApiException e)
 
 <a id="updateusertype"></a>
 # **UpdateUserType**
-> EmployeeFullArrayWrapper UpdateUserType (EmployeeType type, UpdateMembersRequestDto? updateMembersRequestDto = null)
+> EmployeeFullArrayWrapper UpdateUserType (EmployeeType type, UpdateMembersRequestDto updateMembersRequestDto)
 
 Changes a type of the users with the IDs specified in the request.
 
@@ -359,7 +359,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **type** | **EmployeeType** | The new user type. |  |
-| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. | [optional]  |
+| **updateMembersRequestDto** | [**UpdateMembersRequestDto**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. |  |
 
 ### Return type
 
@@ -407,7 +407,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UserTypeApi(httpClient, config, httpClientHandler);
             var type = (EmployeeType) "0";  // EmployeeType | The new user type.
-            var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? | The request parameters for updating the user information. (optional) 
+            var updateMembersRequestDto = new UpdateMembersRequestDto(); // UpdateMembersRequestDto | The request parameters for updating the user information.
 
             try
             {
