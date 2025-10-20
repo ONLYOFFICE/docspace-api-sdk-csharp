@@ -1,27 +1,41 @@
-# Docspace.Api.SecurityAccessToDevToolsApi
+# DocSpace.API.SDK.Api.AccessToDevToolsApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**SetTenantDevToolsAccessSettings**](SecurityAccessToDevToolsApi.md#settenantdevtoolsaccesssettings) | **POST** /api/2.0/settings/devtoolsaccess | Set the Developer Tools access settings |
+| [**SetTenantDevToolsAccessSettings**](#settenantdevtoolsaccesssettings) | **POST** /api/2.0/settings/devtoolsaccess | Set the Developer Tools access settings |
 
 <a id="settenantdevtoolsaccesssettings"></a>
 # **SetTenantDevToolsAccessSettings**
 > TenantDevToolsAccessSettingsWrapper SetTenantDevToolsAccessSettings (TenantDevToolsAccessSettingsDto? tenantDevToolsAccessSettingsDto = null)
 
-Set the Developer Tools access settings
-
 Sets the Developer Tools access settings for the portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-dev-tools-access-settings/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **tenantDevToolsAccessSettingsDto** | [**TenantDevToolsAccessSettingsDto?**](TenantDevToolsAccessSettingsDto.md) | The request parameters for managing the Developer Tools access settings for the current tenant. | [optional]  |
+
+### Return type
+
+[**TenantDevToolsAccessSettingsWrapper**](TenantDevToolsAccessSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -30,14 +44,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -48,8 +64,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityAccessToDevToolsApi(httpClient, config, httpClientHandler);
-            var tenantDevToolsAccessSettingsDto = new TenantDevToolsAccessSettingsDto?(); // TenantDevToolsAccessSettingsDto? |  (optional) 
+            var apiInstance = new AccessToDevToolsApi(httpClient, config, httpClientHandler);
+            var tenantDevToolsAccessSettingsDto = new TenantDevToolsAccessSettingsDto?(); // TenantDevToolsAccessSettingsDto? | The request parameters for managing the Developer Tools access settings for the current tenant. (optional) 
 
             try
             {
@@ -59,7 +75,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityAccessToDevToolsApi.SetTenantDevToolsAccessSettings: " + e.Message);
+                Debug.Print("Exception when calling AccessToDevToolsApi.SetTenantDevToolsAccessSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -82,25 +98,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityAccessToDevToolsApi.SetTenantDevToolsAccessSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling AccessToDevToolsApi.SetTenantDevToolsAccessSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **tenantDevToolsAccessSettingsDto** | [**TenantDevToolsAccessSettingsDto?**](TenantDevToolsAccessSettingsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**TenantDevToolsAccessSettingsWrapper**](TenantDevToolsAccessSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

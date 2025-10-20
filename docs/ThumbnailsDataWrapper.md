@@ -1,4 +1,4 @@
-# Docspace.Model.ThumbnailsDataWrapper
+# DocSpace.API.SDK.Model.ThumbnailsDataWrapper
 
 ## Properties
 

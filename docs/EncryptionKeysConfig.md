@@ -1,4 +1,4 @@
-# Docspace.Model.EncryptionKeysConfig
+# DocSpace.API.SDK.Model.EncryptionKeysConfig
 The encryption keys of the editor configuration.
 
 ## Properties

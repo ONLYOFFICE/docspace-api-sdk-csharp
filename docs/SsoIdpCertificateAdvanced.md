@@ -1,4 +1,4 @@
-# Docspace.Model.SsoIdpCertificateAdvanced
+# DocSpace.API.SDK.Model.SsoIdpCertificateAdvanced
 The IdP advanced certificate parameters.
 
 ## Properties

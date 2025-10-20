@@ -1,0 +1,428 @@
+// (c) Copyright Ascensio System SIA 2025
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+ 
+ using DocSpace.API.SDK.Client;
+ 
+
+namespace DocSpace.API.SDK.Model
+{
+    /// <summary>
+    /// The actions that can be performed with the file entry.
+    /// </summary>
+    [DataContract(Name = "FileEntryDtoInteger_allOf_security")]
+    public partial class FileEntryDtoIntegerAllOfSecurity : IValidatableObject
+    {
+    
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FileEntryDtoIntegerAllOfSecurity" /> class.
+        /// </summary>
+        /// <param name="read">read.</param>
+        /// <param name="comment">comment.</param>
+        /// <param name="fillForms">fillForms.</param>
+        /// <param name="review">review.</param>
+        /// <param name="create">create.</param>
+        /// <param name="createFrom">createFrom.</param>
+        /// <param name="edit">edit.</param>
+        /// <param name="delete">delete.</param>
+        /// <param name="customFilter">customFilter.</param>
+        /// <param name="editRoom">editRoom.</param>
+        /// <param name="rename">rename.</param>
+        /// <param name="readHistory">readHistory.</param>
+        /// <param name="@lock">@lock.</param>
+        /// <param name="editHistory">editHistory.</param>
+        /// <param name="copyTo">copyTo.</param>
+        /// <param name="copy">copy.</param>
+        /// <param name="moveTo">moveTo.</param>
+        /// <param name="move">move.</param>
+        /// <param name="pin">pin.</param>
+        /// <param name="mute">mute.</param>
+        /// <param name="editAccess">editAccess.</param>
+        /// <param name="duplicate">duplicate.</param>
+        /// <param name="submitToFormGallery">submitToFormGallery.</param>
+        /// <param name="download">download.</param>
+        /// <param name="convert">convert.</param>
+        /// <param name="copySharedLink">copySharedLink.</param>
+        /// <param name="readLinks">readLinks.</param>
+        /// <param name="reconnect">reconnect.</param>
+        /// <param name="createRoomFrom">createRoomFrom.</param>
+        /// <param name="copyLink">copyLink.</param>
+        /// <param name="embed">embed.</param>
+        /// <param name="changeOwner">changeOwner.</param>
+        /// <param name="indexExport">indexExport.</param>
+        /// <param name="startFilling">startFilling.</param>
+        /// <param name="fillingStatus">fillingStatus.</param>
+        /// <param name="resetFilling">resetFilling.</param>
+        /// <param name="stopFilling">stopFilling.</param>
+        /// <param name="openForm">openForm.</param>
+        /// <param name="editInternal">editInternal.</param>
+        /// <param name="editExpiration">editExpiration.</param>
+        public FileEntryDtoIntegerAllOfSecurity(bool read = default, bool comment = default, bool fillForms = default, bool review = default, bool create = default, bool createFrom = default, bool edit = default, bool delete = default, bool customFilter = default, bool editRoom = default, bool rename = default, bool readHistory = default, bool @lock = default, bool editHistory = default, bool copyTo = default, bool copy = default, bool moveTo = default, bool move = default, bool pin = default, bool mute = default, bool editAccess = default, bool duplicate = default, bool submitToFormGallery = default, bool download = default, bool convert = default, bool copySharedLink = default, bool readLinks = default, bool reconnect = default, bool createRoomFrom = default, bool copyLink = default, bool embed = default, bool changeOwner = default, bool indexExport = default, bool startFilling = default, bool fillingStatus = default, bool resetFilling = default, bool stopFilling = default, bool openForm = default, bool editInternal = default, bool editExpiration = default)
+        {
+            this.Read = read;
+            this.Comment = comment;
+            this.FillForms = fillForms;
+            this.Review = review;
+            this.Create = create;
+            this.CreateFrom = createFrom;
+            this.Edit = edit;
+            this.Delete = delete;
+            this.CustomFilter = customFilter;
+            this.EditRoom = editRoom;
+            this.Rename = rename;
+            this.ReadHistory = readHistory;
+            this.Lock = @lock;
+            this.EditHistory = editHistory;
+            this.CopyTo = copyTo;
+            this.Copy = copy;
+            this.MoveTo = moveTo;
+            this.Move = move;
+            this.Pin = pin;
+            this.Mute = mute;
+            this.EditAccess = editAccess;
+            this.Duplicate = duplicate;
+            this.SubmitToFormGallery = submitToFormGallery;
+            this.Download = download;
+            this.Convert = convert;
+            this.CopySharedLink = copySharedLink;
+            this.ReadLinks = readLinks;
+            this.Reconnect = reconnect;
+            this.CreateRoomFrom = createRoomFrom;
+            this.CopyLink = copyLink;
+            this.Embed = embed;
+            this.ChangeOwner = changeOwner;
+            this.IndexExport = indexExport;
+            this.StartFilling = startFilling;
+            this.FillingStatus = fillingStatus;
+            this.ResetFilling = resetFilling;
+            this.StopFilling = stopFilling;
+            this.OpenForm = openForm;
+            this.EditInternal = editInternal;
+            this.EditExpiration = editExpiration;
+        }
+
+        /// <summary>
+        /// Gets or Sets Read
+        /// </summary>
+        [DataMember(Name = "Read", EmitDefaultValue = true)]
+        public bool Read { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Comment
+        /// </summary>
+        [DataMember(Name = "Comment", EmitDefaultValue = true)]
+        public bool Comment { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FillForms
+        /// </summary>
+        [DataMember(Name = "FillForms", EmitDefaultValue = true)]
+        public bool FillForms { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Review
+        /// </summary>
+        [DataMember(Name = "Review", EmitDefaultValue = true)]
+        public bool Review { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Create
+        /// </summary>
+        [DataMember(Name = "Create", EmitDefaultValue = true)]
+        public bool Create { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CreateFrom
+        /// </summary>
+        [DataMember(Name = "CreateFrom", EmitDefaultValue = true)]
+        public bool CreateFrom { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Edit
+        /// </summary>
+        [DataMember(Name = "Edit", EmitDefaultValue = true)]
+        public bool Edit { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Delete
+        /// </summary>
+        [DataMember(Name = "Delete", EmitDefaultValue = true)]
+        public bool Delete { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CustomFilter
+        /// </summary>
+        [DataMember(Name = "CustomFilter", EmitDefaultValue = true)]
+        public bool CustomFilter { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EditRoom
+        /// </summary>
+        [DataMember(Name = "EditRoom", EmitDefaultValue = true)]
+        public bool EditRoom { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Rename
+        /// </summary>
+        [DataMember(Name = "Rename", EmitDefaultValue = true)]
+        public bool Rename { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReadHistory
+        /// </summary>
+        [DataMember(Name = "ReadHistory", EmitDefaultValue = true)]
+        public bool ReadHistory { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Lock
+        /// </summary>
+        [DataMember(Name = "Lock", EmitDefaultValue = true)]
+        public bool Lock { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EditHistory
+        /// </summary>
+        [DataMember(Name = "EditHistory", EmitDefaultValue = true)]
+        public bool EditHistory { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CopyTo
+        /// </summary>
+        [DataMember(Name = "CopyTo", EmitDefaultValue = true)]
+        public bool CopyTo { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Copy
+        /// </summary>
+        [DataMember(Name = "Copy", EmitDefaultValue = true)]
+        public bool Copy { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MoveTo
+        /// </summary>
+        [DataMember(Name = "MoveTo", EmitDefaultValue = true)]
+        public bool MoveTo { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Move
+        /// </summary>
+        [DataMember(Name = "Move", EmitDefaultValue = true)]
+        public bool Move { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Pin
+        /// </summary>
+        [DataMember(Name = "Pin", EmitDefaultValue = true)]
+        public bool Pin { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Mute
+        /// </summary>
+        [DataMember(Name = "Mute", EmitDefaultValue = true)]
+        public bool Mute { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EditAccess
+        /// </summary>
+        [DataMember(Name = "EditAccess", EmitDefaultValue = true)]
+        public bool EditAccess { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Duplicate
+        /// </summary>
+        [DataMember(Name = "Duplicate", EmitDefaultValue = true)]
+        public bool Duplicate { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SubmitToFormGallery
+        /// </summary>
+        [DataMember(Name = "SubmitToFormGallery", EmitDefaultValue = true)]
+        public bool SubmitToFormGallery { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Download
+        /// </summary>
+        [DataMember(Name = "Download", EmitDefaultValue = true)]
+        public bool Download { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Convert
+        /// </summary>
+        [DataMember(Name = "Convert", EmitDefaultValue = true)]
+        public bool Convert { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CopySharedLink
+        /// </summary>
+        [DataMember(Name = "CopySharedLink", EmitDefaultValue = true)]
+        public bool CopySharedLink { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ReadLinks
+        /// </summary>
+        [DataMember(Name = "ReadLinks", EmitDefaultValue = true)]
+        public bool ReadLinks { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Reconnect
+        /// </summary>
+        [DataMember(Name = "Reconnect", EmitDefaultValue = true)]
+        public bool Reconnect { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CreateRoomFrom
+        /// </summary>
+        [DataMember(Name = "CreateRoomFrom", EmitDefaultValue = true)]
+        public bool CreateRoomFrom { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CopyLink
+        /// </summary>
+        [DataMember(Name = "CopyLink", EmitDefaultValue = true)]
+        public bool CopyLink { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Embed
+        /// </summary>
+        [DataMember(Name = "Embed", EmitDefaultValue = true)]
+        public bool Embed { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ChangeOwner
+        /// </summary>
+        [DataMember(Name = "ChangeOwner", EmitDefaultValue = true)]
+        public bool ChangeOwner { get; set; }
+
+        /// <summary>
+        /// Gets or Sets IndexExport
+        /// </summary>
+        [DataMember(Name = "IndexExport", EmitDefaultValue = true)]
+        public bool IndexExport { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StartFilling
+        /// </summary>
+        [DataMember(Name = "StartFilling", EmitDefaultValue = true)]
+        public bool StartFilling { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FillingStatus
+        /// </summary>
+        [DataMember(Name = "FillingStatus", EmitDefaultValue = true)]
+        public bool FillingStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ResetFilling
+        /// </summary>
+        [DataMember(Name = "ResetFilling", EmitDefaultValue = true)]
+        public bool ResetFilling { get; set; }
+
+        /// <summary>
+        /// Gets or Sets StopFilling
+        /// </summary>
+        [DataMember(Name = "StopFilling", EmitDefaultValue = true)]
+        public bool StopFilling { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OpenForm
+        /// </summary>
+        [DataMember(Name = "OpenForm", EmitDefaultValue = true)]
+        public bool OpenForm { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EditInternal
+        /// </summary>
+        [DataMember(Name = "EditInternal", EmitDefaultValue = true)]
+        public bool EditInternal { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EditExpiration
+        /// </summary>
+        [DataMember(Name = "EditExpiration", EmitDefaultValue = true)]
+        public bool EditExpiration { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class FileEntryDtoIntegerAllOfSecurity {\n");
+            sb.Append("  Read: ").Append(Read).Append("\n");
+            sb.Append("  Comment: ").Append(Comment).Append("\n");
+            sb.Append("  FillForms: ").Append(FillForms).Append("\n");
+            sb.Append("  Review: ").Append(Review).Append("\n");
+            sb.Append("  Create: ").Append(Create).Append("\n");
+            sb.Append("  CreateFrom: ").Append(CreateFrom).Append("\n");
+            sb.Append("  Edit: ").Append(Edit).Append("\n");
+            sb.Append("  Delete: ").Append(Delete).Append("\n");
+            sb.Append("  CustomFilter: ").Append(CustomFilter).Append("\n");
+            sb.Append("  EditRoom: ").Append(EditRoom).Append("\n");
+            sb.Append("  Rename: ").Append(Rename).Append("\n");
+            sb.Append("  ReadHistory: ").Append(ReadHistory).Append("\n");
+            sb.Append("  Lock: ").Append(Lock).Append("\n");
+            sb.Append("  EditHistory: ").Append(EditHistory).Append("\n");
+            sb.Append("  CopyTo: ").Append(CopyTo).Append("\n");
+            sb.Append("  Copy: ").Append(Copy).Append("\n");
+            sb.Append("  MoveTo: ").Append(MoveTo).Append("\n");
+            sb.Append("  Move: ").Append(Move).Append("\n");
+            sb.Append("  Pin: ").Append(Pin).Append("\n");
+            sb.Append("  Mute: ").Append(Mute).Append("\n");
+            sb.Append("  EditAccess: ").Append(EditAccess).Append("\n");
+            sb.Append("  Duplicate: ").Append(Duplicate).Append("\n");
+            sb.Append("  SubmitToFormGallery: ").Append(SubmitToFormGallery).Append("\n");
+            sb.Append("  Download: ").Append(Download).Append("\n");
+            sb.Append("  Convert: ").Append(Convert).Append("\n");
+            sb.Append("  CopySharedLink: ").Append(CopySharedLink).Append("\n");
+            sb.Append("  ReadLinks: ").Append(ReadLinks).Append("\n");
+            sb.Append("  Reconnect: ").Append(Reconnect).Append("\n");
+            sb.Append("  CreateRoomFrom: ").Append(CreateRoomFrom).Append("\n");
+            sb.Append("  CopyLink: ").Append(CopyLink).Append("\n");
+            sb.Append("  Embed: ").Append(Embed).Append("\n");
+            sb.Append("  ChangeOwner: ").Append(ChangeOwner).Append("\n");
+            sb.Append("  IndexExport: ").Append(IndexExport).Append("\n");
+            sb.Append("  StartFilling: ").Append(StartFilling).Append("\n");
+            sb.Append("  FillingStatus: ").Append(FillingStatus).Append("\n");
+            sb.Append("  ResetFilling: ").Append(ResetFilling).Append("\n");
+            sb.Append("  StopFilling: ").Append(StopFilling).Append("\n");
+            sb.Append("  OpenForm: ").Append(OpenForm).Append("\n");
+            sb.Append("  EditInternal: ").Append(EditInternal).Append("\n");
+            sb.Append("  EditExpiration: ").Append(EditExpiration).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public virtual string ToJson()
+        {
+            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+    }
+
+
+}

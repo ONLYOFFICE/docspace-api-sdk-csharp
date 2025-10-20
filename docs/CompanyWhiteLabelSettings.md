@@ -1,4 +1,4 @@
-# Docspace.Model.CompanyWhiteLabelSettings
+# DocSpace.API.SDK.Model.CompanyWhiteLabelSettings
 The company white label settings.
 
 ## Properties
@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Address** | **string** | The company address. | [optional] 
 **Phone** | **string** | The company phone number. | [optional] 
 **IsLicensor** | **bool** | Specifies if a company is a licensor or not. | [optional] 
+**HideAbout** | **bool** | Specifies if the About page is visible or not | [optional] 
 **LastModified** | **DateTime** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

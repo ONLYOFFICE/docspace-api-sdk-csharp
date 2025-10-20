@@ -1,4 +1,4 @@
-# Docspace.Model.TariffWrapper
+# DocSpace.API.SDK.Model.TariffWrapper
 
 ## Properties
 

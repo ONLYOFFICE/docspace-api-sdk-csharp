@@ -1,4 +1,4 @@
-# Docspace.Model.UserConfig
+# DocSpace.API.SDK.Model.UserConfig
 The configuration parameters of the user currently viewing or editing the document.
 
 ## Properties

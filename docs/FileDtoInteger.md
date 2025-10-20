@@ -1,4 +1,4 @@
-# Docspace.Model.FileDtoInteger
+# DocSpace.API.SDK.Model.FileDtoInteger
 The file parameters.
 
 ## Properties
@@ -7,7 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **string** | The file entry title. | [optional] 
 **Access** | **FileShare** |  | [optional] 
-**Shared** | **bool** | Specifies if the file entry is shared or not. | [optional] 
+**Shared** | **bool** | Specifies if the file entry is shared via link or not. | [optional] 
+**SharedForUser** | **bool** | Specifies if the file entry is shared for user or not. | [optional] 
+**ParentShared** | **bool** | Indicates whether the parent entity is shared. | [optional] 
+**ShortWebUrl** | **string** | The short Web URL. | [optional] 
 **Created** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **CreatedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
 **Updated** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
@@ -19,6 +22,8 @@ Name | Type | Description | Notes
 **ProviderKey** | **string** | The provider key of the file entry. | [optional] 
 **ProviderId** | **int?** | The provider ID of the file entry. | [optional] 
 **Order** | **string** | The order of the file entry. | [optional] 
+**IsFavorite** | **bool?** | Specifies if the file is a favorite or not. | [optional] 
+**FileEntryType** | **FileEntryType** |  | [optional] 
 **Id** | **int** | The file entry ID. | [optional] 
 **RootFolderId** | **int** | The root folder ID of the file entry. | [optional] 
 **OriginId** | **int** | The origin ID of the file entry. | [optional] 
@@ -26,10 +31,15 @@ Name | Type | Description | Notes
 **OriginTitle** | **string** | The origin title of the file entry. | [optional] 
 **OriginRoomTitle** | **string** | The origin room title of the file entry. | [optional] 
 **CanShare** | **bool** | Specifies if the file entry can be shared or not. | [optional] 
-**Security** | [**FileDtoIntegerSecurity**](FileDtoIntegerSecurity.md) |  | [optional] 
+**ShareSettings** | [**FileEntryDtoIntegerAllOfShareSettings**](FileEntryDtoIntegerAllOfShareSettings.md) |  | [optional] 
+**Security** | [**FileEntryDtoIntegerAllOfSecurity**](FileEntryDtoIntegerAllOfSecurity.md) |  | [optional] 
+**AvailableShareRights** | [**FileEntryDtoIntegerAllOfAvailableShareRights**](FileEntryDtoIntegerAllOfAvailableShareRights.md) |  | [optional] 
 **RequestToken** | **string** | The request token of the file entry. | [optional] 
+**External** | **bool?** | Specifies if the folder can be accessed via an external link or not. | [optional] 
+**ExpirationDate** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
+**IsLinkExpired** | **bool?** | Indicates whether the shareable link associated with the file or folder has expired. | [optional] 
 **FolderId** | **int** | The folder ID where the file is located. | [optional] 
-**VarVersion** | **int** | The file version. | [optional] 
+**@Version** | **int** | The file version. | [optional] 
 **VersionGroup** | **int** | The version group of the file. | [optional] 
 **ContentLength** | **string** | The content length of the file. | [optional] 
 **PureContentLength** | **long?** | The pure content length of the file. | [optional] 
@@ -37,7 +47,6 @@ Name | Type | Description | Notes
 **Mute** | **bool** | Specifies if the file is muted or not. | [optional] 
 **ViewUrl** | **string** | The URL link to view the file. | [optional] 
 **WebUrl** | **string** | The Web URL link to the file. | [optional] 
-**ShortWebUrl** | **string** | The short Web URL. | [optional] 
 **FileType** | **FileType** |  | [optional] 
 **FileExst** | **string** | The file extension. | [optional] 
 **Comment** | **string** | The comment to the file. | [optional] 
@@ -55,11 +64,9 @@ Name | Type | Description | Notes
 **InProcessFolderId** | **int?** | The InProcess folder ID of the file. | [optional] 
 **InProcessFolderTitle** | **string** | The InProcess folder title of the file. | [optional] 
 **DraftLocation** | [**DraftLocationInteger**](DraftLocationInteger.md) |  | [optional] 
-**ViewAccessibility** | [**FileDtoIntegerViewAccessibility**](FileDtoIntegerViewAccessibility.md) |  | [optional] 
-**AvailableExternalRights** | **Dictionary&lt;string, bool&gt;** | The available external rights of the file. | [optional] 
+**ViewAccessibility** | [**FileDtoIntegerAllOfViewAccessibility**](FileDtoIntegerAllOfViewAccessibility.md) |  | [optional] 
 **LastOpened** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **Expired** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
-**FileEntryType** | **FileEntryType** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

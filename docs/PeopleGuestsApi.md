@@ -1,28 +1,42 @@
-# Docspace.Api.PeopleGuestsApi
+# DocSpace.API.SDK.Api.GuestsApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ApproveGuestShareLink**](PeopleGuestsApi.md#approveguestsharelink) | **POST** /api/2.0/people/guests/share/approve | Approve a guest sharing link |
-| [**DeleteGuests**](PeopleGuestsApi.md#deleteguests) | **DELETE** /api/2.0/people/guests | Delete guests |
+| [**ApproveGuestShareLink**](#approveguestsharelink) | **POST** /api/2.0/people/guests/share/approve | Approve a guest sharing link |
+| [**DeleteGuests**](#deleteguests) | **DELETE** /api/2.0/people/guests | Delete guests |
 
 <a id="approveguestsharelink"></a>
 # **ApproveGuestShareLink**
 > EmployeeFullWrapper ApproveGuestShareLink (EmailMemberRequestDto? emailMemberRequestDto = null)
 
-Approve a guest sharing link
-
 Approves a guest sharing link and returns the detailed information about a guest.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/approve-guest-share-link/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **emailMemberRequestDto** | [**EmailMemberRequestDto?**](EmailMemberRequestDto.md) | The request parameters for the user email. | [optional]  |
+
+### Return type
+
+[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -31,14 +45,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -49,8 +65,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleGuestsApi(httpClient, config, httpClientHandler);
-            var emailMemberRequestDto = new EmailMemberRequestDto?(); // EmailMemberRequestDto? |  (optional) 
+            var apiInstance = new GuestsApi(httpClient, config, httpClientHandler);
+            var emailMemberRequestDto = new EmailMemberRequestDto?(); // EmailMemberRequestDto? | The request parameters for the user email. (optional) 
 
             try
             {
@@ -60,7 +76,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleGuestsApi.ApproveGuestShareLink: " + e.Message);
+                Debug.Print("Exception when calling GuestsApi.ApproveGuestShareLink: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -83,25 +99,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleGuestsApi.ApproveGuestShareLinkWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling GuestsApi.ApproveGuestShareLinkWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **emailMemberRequestDto** | [**EmailMemberRequestDto?**](EmailMemberRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**EmployeeFullWrapper**](EmployeeFullWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -123,18 +125,32 @@ catch (ApiException e)
 # **DeleteGuests**
 > void DeleteGuests (UpdateMembersRequestDto? updateMembersRequestDto = null)
 
-Delete guests
-
 Deletes guests from the list and excludes them from rooms to which they were invited.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-guests/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto.md) | The request parameters for updating the user information. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -143,14 +159,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -161,8 +179,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleGuestsApi(httpClient, config, httpClientHandler);
-            var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? |  (optional) 
+            var apiInstance = new GuestsApi(httpClient, config, httpClientHandler);
+            var updateMembersRequestDto = new UpdateMembersRequestDto?(); // UpdateMembersRequestDto? | The request parameters for updating the user information. (optional) 
 
             try
             {
@@ -171,7 +189,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleGuestsApi.DeleteGuests: " + e.Message);
+                Debug.Print("Exception when calling GuestsApi.DeleteGuests: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -191,25 +209,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleGuestsApi.DeleteGuestsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling GuestsApi.DeleteGuestsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **updateMembersRequestDto** | [**UpdateMembersRequestDto?**](UpdateMembersRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

@@ -1,4 +1,4 @@
-# Docspace.Model.Options
+# DocSpace.API.SDK.Model.Options
 The document options.
 
 ## Properties

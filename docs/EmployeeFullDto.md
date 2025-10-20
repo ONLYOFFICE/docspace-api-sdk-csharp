@@ -1,4 +1,4 @@
-# Docspace.Model.EmployeeFullDto
+# DocSpace.API.SDK.Model.EmployeeFullDto
 The full list of user parameters.
 
 ## Properties
@@ -51,6 +51,7 @@ Name | Type | Description | Notes
 **CreatedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
 **RegistrationDate** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **HasPersonalFolder** | **bool** | Specifies if the user has a personal folder or not. | [optional] 
+**TfaAppEnabled** | **bool?** | Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

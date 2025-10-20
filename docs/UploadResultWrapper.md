@@ -1,4 +1,4 @@
-# Docspace.Model.UploadResultWrapper
+# DocSpace.API.SDK.Model.UploadResultWrapper
 
 ## Properties
 

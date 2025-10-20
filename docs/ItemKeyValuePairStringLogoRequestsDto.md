@@ -1,4 +1,4 @@
-# Docspace.Model.ItemKeyValuePairStringLogoRequestsDto
+# DocSpace.API.SDK.Model.ItemKeyValuePairStringLogoRequestsDto
 
 ## Properties
 

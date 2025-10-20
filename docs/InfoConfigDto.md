@@ -1,4 +1,4 @@
-# Docspace.Model.InfoConfigDto
+# DocSpace.API.SDK.Model.InfoConfigDto
 The information config parameters.
 
 ## Properties

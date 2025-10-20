@@ -1,4 +1,4 @@
-# Docspace.Model.WebPluginArrayWrapper
+# DocSpace.API.SDK.Model.WebPluginArrayWrapper
 
 ## Properties
 

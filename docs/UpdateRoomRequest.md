@@ -1,4 +1,4 @@
-# Docspace.Model.UpdateRoomRequest
+# DocSpace.API.SDK.Model.UpdateRoomRequest
 The request parameters for updating a room.
 
 ## Properties

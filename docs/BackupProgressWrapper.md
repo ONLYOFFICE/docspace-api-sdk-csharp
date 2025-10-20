@@ -1,4 +1,4 @@
-# Docspace.Model.BackupProgressWrapper
+# DocSpace.API.SDK.Model.BackupProgressWrapper
 
 ## Properties
 

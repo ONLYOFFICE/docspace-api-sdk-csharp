@@ -1,4 +1,4 @@
-# Docspace.Model.MemberRequestDto
+# DocSpace.API.SDK.Model.MemberRequestDto
 The user request parameters.
 
 ## Properties

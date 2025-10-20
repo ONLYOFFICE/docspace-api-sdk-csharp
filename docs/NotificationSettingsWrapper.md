@@ -1,4 +1,4 @@
-# Docspace.Model.NotificationSettingsWrapper
+# DocSpace.API.SDK.Model.NotificationSettingsWrapper
 
 ## Properties
 

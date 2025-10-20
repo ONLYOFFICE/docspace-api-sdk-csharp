@@ -1,4 +1,4 @@
-# Docspace.Model.DocServiceUrlWrapper
+# DocSpace.API.SDK.Model.DocServiceUrlWrapper
 
 ## Properties
 

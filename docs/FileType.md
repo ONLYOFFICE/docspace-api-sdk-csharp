@@ -1,5 +1,5 @@
-# Docspace.Model.FileType
-The file type.
+# DocSpace.API.SDK.Model.FileType
+[0 - Unknown, 1 - Archive, 2 - Video, 3 - Audio, 4 - Image, 5 - Spreadsheet, 6 - Presentation, 7 - Document, 10 - Pdf, 11 - Diagram]
 
 ## Properties
 

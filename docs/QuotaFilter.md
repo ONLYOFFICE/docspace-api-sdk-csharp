@@ -1,5 +1,5 @@
-# Docspace.Model.QuotaFilter
-The quota filter (All - 0, Default - 1, Custom - 2).
+# DocSpace.API.SDK.Model.QuotaFilter
+[0 - All, 1 - Default, 2 - Custom]
 
 ## Properties
 

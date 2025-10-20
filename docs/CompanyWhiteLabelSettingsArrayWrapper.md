@@ -1,4 +1,4 @@
-# Docspace.Model.CompanyWhiteLabelSettingsArrayWrapper
+# DocSpace.API.SDK.Model.CompanyWhiteLabelSettingsArrayWrapper
 
 ## Properties
 

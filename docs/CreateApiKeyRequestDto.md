@@ -1,4 +1,4 @@
-# Docspace.Model.CreateApiKeyRequestDto
+# DocSpace.API.SDK.Model.CreateApiKeyRequestDto
 The request parameters for creating a new API key.
 
 ## Properties

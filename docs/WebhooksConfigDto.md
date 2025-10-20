@@ -1,11 +1,11 @@
-# Docspace.Model.WebhooksConfigDto
+# DocSpace.API.SDK.Model.WebhooksConfigDto
 The webhook configuration parameters.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | The webhook ID. | [optional] 
+**Id** | **int** | The webhook ID. | 
 **Name** | **string** | The webhook name. | [optional] 
 **Uri** | **string** | The webhook URI. | [optional] 
 **Enabled** | **bool** | Specifies if the webhooks are enabled or not. | [optional] 

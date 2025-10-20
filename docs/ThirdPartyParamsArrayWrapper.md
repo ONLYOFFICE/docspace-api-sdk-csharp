@@ -1,4 +1,4 @@
-# Docspace.Model.ThirdPartyParamsArrayWrapper
+# DocSpace.API.SDK.Model.ThirdPartyParamsArrayWrapper
 
 ## Properties
 

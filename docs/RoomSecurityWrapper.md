@@ -1,4 +1,4 @@
-# Docspace.Model.RoomSecurityWrapper
+# DocSpace.API.SDK.Model.RoomSecurityWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Docspace.Model.StorageRequestsDto
+# DocSpace.API.SDK.Model.StorageRequestsDto
 The request parameters for configuring the storage module settings.
 
 ## Properties

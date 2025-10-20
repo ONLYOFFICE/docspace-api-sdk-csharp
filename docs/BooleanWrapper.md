@@ -1,4 +1,4 @@
-# Docspace.Model.BooleanWrapper
+# DocSpace.API.SDK.Model.BooleanWrapper
 
 ## Properties
 

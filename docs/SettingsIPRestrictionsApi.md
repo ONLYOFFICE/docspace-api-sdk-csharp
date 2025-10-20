@@ -1,30 +1,40 @@
-# Docspace.Api.SettingsIPRestrictionsApi
+# DocSpace.API.SDK.Api.IPRestrictionsApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetIpRestrictions**](SettingsIPRestrictionsApi.md#getiprestrictions) | **GET** /api/2.0/settings/iprestrictions | Get the IP portal restrictions |
-| [**ReadIpRestrictionsSettings**](SettingsIPRestrictionsApi.md#readiprestrictionssettings) | **GET** /api/2.0/settings/iprestrictions/settings | Get the IP restriction settings |
-| [**SaveIpRestrictions**](SettingsIPRestrictionsApi.md#saveiprestrictions) | **PUT** /api/2.0/settings/iprestrictions | Update the IP restrictions |
-| [**UpdateIpRestrictionsSettings**](SettingsIPRestrictionsApi.md#updateiprestrictionssettings) | **PUT** /api/2.0/settings/iprestrictions/settings | Update the IP restriction settings |
+| [**GetIpRestrictions**](#getiprestrictions) | **GET** /api/2.0/settings/iprestrictions | Get the IP portal restrictions |
+| [**ReadIpRestrictionsSettings**](#readiprestrictionssettings) | **GET** /api/2.0/settings/iprestrictions/settings | Get the IP restriction settings |
+| [**SaveIpRestrictions**](#saveiprestrictions) | **PUT** /api/2.0/settings/iprestrictions | Update the IP restrictions |
+| [**UpdateIpRestrictionsSettings**](#updateiprestrictionssettings) | **PUT** /api/2.0/settings/iprestrictions/settings | Update the IP restriction settings |
 
 <a id="getiprestrictions"></a>
 # **GetIpRestrictions**
 > IPRestrictionArrayWrapper GetIpRestrictions ()
 
-Get the IP portal restrictions
-
 Returns the IP portal restrictions.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ip-restrictions/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**IPRestrictionArrayWrapper**](IPRestrictionArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -33,14 +43,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -51,7 +63,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsIPRestrictionsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new IPRestrictionsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -61,7 +73,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsIPRestrictionsApi.GetIpRestrictions: " + e.Message);
+                Debug.Print("Exception when calling IPRestrictionsApi.GetIpRestrictions: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -84,21 +96,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsIPRestrictionsApi.GetIpRestrictionsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling IPRestrictionsApi.GetIpRestrictionsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**IPRestrictionArrayWrapper**](IPRestrictionArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -118,18 +120,28 @@ This endpoint does not need any parameter.
 # **ReadIpRestrictionsSettings**
 > IPRestrictionsSettingsWrapper ReadIpRestrictionsSettings ()
 
-Get the IP restriction settings
-
 Returns the IP restriction settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/read-ip-restrictions-settings/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**IPRestrictionsSettingsWrapper**](IPRestrictionsSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -138,14 +150,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -156,7 +170,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsIPRestrictionsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new IPRestrictionsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -166,7 +180,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsIPRestrictionsApi.ReadIpRestrictionsSettings: " + e.Message);
+                Debug.Print("Exception when calling IPRestrictionsApi.ReadIpRestrictionsSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -189,21 +203,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsIPRestrictionsApi.ReadIpRestrictionsSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling IPRestrictionsApi.ReadIpRestrictionsSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**IPRestrictionsSettingsWrapper**](IPRestrictionsSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -223,18 +227,32 @@ This endpoint does not need any parameter.
 # **SaveIpRestrictions**
 > IpRestrictionsWrapper SaveIpRestrictions (IpRestrictionsDto? ipRestrictionsDto = null)
 
-Update the IP restrictions
-
 Updates the IP restrictions with the parameters specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-ip-restrictions/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **ipRestrictionsDto** | [**IpRestrictionsDto?**](IpRestrictionsDto.md) | The parameters for configuring new IP restriction settings. | [optional]  |
+
+### Return type
+
+[**IpRestrictionsWrapper**](IpRestrictionsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -243,14 +261,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -261,8 +281,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsIPRestrictionsApi(httpClient, config, httpClientHandler);
-            var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? |  (optional) 
+            var apiInstance = new IPRestrictionsApi(httpClient, config, httpClientHandler);
+            var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? | The parameters for configuring new IP restriction settings. (optional) 
 
             try
             {
@@ -272,7 +292,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsIPRestrictionsApi.SaveIpRestrictions: " + e.Message);
+                Debug.Print("Exception when calling IPRestrictionsApi.SaveIpRestrictions: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -295,25 +315,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsIPRestrictionsApi.SaveIpRestrictionsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling IPRestrictionsApi.SaveIpRestrictionsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **ipRestrictionsDto** | [**IpRestrictionsDto?**](IpRestrictionsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**IpRestrictionsWrapper**](IpRestrictionsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -333,18 +339,32 @@ catch (ApiException e)
 # **UpdateIpRestrictionsSettings**
 > IpRestrictionsWrapper UpdateIpRestrictionsSettings (IpRestrictionsDto? ipRestrictionsDto = null)
 
-Update the IP restriction settings
-
 Updates the IP restriction settings with the parameters specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-ip-restrictions-settings/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **ipRestrictionsDto** | [**IpRestrictionsDto?**](IpRestrictionsDto.md) | The parameters for configuring new IP restriction settings. | [optional]  |
+
+### Return type
+
+[**IpRestrictionsWrapper**](IpRestrictionsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -353,14 +373,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -371,8 +393,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsIPRestrictionsApi(httpClient, config, httpClientHandler);
-            var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? |  (optional) 
+            var apiInstance = new IPRestrictionsApi(httpClient, config, httpClientHandler);
+            var ipRestrictionsDto = new IpRestrictionsDto?(); // IpRestrictionsDto? | The parameters for configuring new IP restriction settings. (optional) 
 
             try
             {
@@ -382,7 +404,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsIPRestrictionsApi.UpdateIpRestrictionsSettings: " + e.Message);
+                Debug.Print("Exception when calling IPRestrictionsApi.UpdateIpRestrictionsSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -405,25 +427,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsIPRestrictionsApi.UpdateIpRestrictionsSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling IPRestrictionsApi.UpdateIpRestrictionsSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **ipRestrictionsDto** | [**IpRestrictionsDto?**](IpRestrictionsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**IpRestrictionsWrapper**](IpRestrictionsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

@@ -1,4 +1,4 @@
-# Docspace.Model.TenantQuotaSettingsWrapper
+# DocSpace.API.SDK.Model.TenantQuotaSettingsWrapper
 
 ## Properties
 

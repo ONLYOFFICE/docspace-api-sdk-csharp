@@ -1,4 +1,4 @@
-# Docspace.Model.BackupScheduleDto
+# DocSpace.API.SDK.Model.BackupScheduleDto
 The backup schedule parameters.
 
 ## Properties

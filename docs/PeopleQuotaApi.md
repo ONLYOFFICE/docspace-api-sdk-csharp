@@ -1,28 +1,42 @@
-# Docspace.Api.PeopleQuotaApi
+# DocSpace.API.SDK.Api.QuotaApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ResetUsersQuota**](PeopleQuotaApi.md#resetusersquota) | **PUT** /api/2.0/people/resetquota | Reset a user quota limit |
-| [**UpdateUserQuota**](PeopleQuotaApi.md#updateuserquota) | **PUT** /api/2.0/people/userquota | Change a user quota limit |
+| [**ResetUsersQuota**](#resetusersquota) | **PUT** /api/2.0/people/resetquota | Reset a user quota limit |
+| [**UpdateUserQuota**](#updateuserquota) | **PUT** /api/2.0/people/userquota | Change a user quota limit |
 
 <a id="resetusersquota"></a>
 # **ResetUsersQuota**
 > EmployeeFullArrayWrapper ResetUsersQuota (UpdateMembersQuotaRequestDto? updateMembersQuotaRequestDto = null)
 
-Reset a user quota limit
-
 Resets a quota limit of users with the IDs specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-users-quota/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **updateMembersQuotaRequestDto** | [**UpdateMembersQuotaRequestDto?**](UpdateMembersQuotaRequestDto.md) | The request parameters for updating a user quota. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -31,14 +45,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -49,8 +65,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleQuotaApi(httpClient, config, httpClientHandler);
-            var updateMembersQuotaRequestDto = new UpdateMembersQuotaRequestDto?(); // UpdateMembersQuotaRequestDto? |  (optional) 
+            var apiInstance = new QuotaApi(httpClient, config, httpClientHandler);
+            var updateMembersQuotaRequestDto = new UpdateMembersQuotaRequestDto?(); // UpdateMembersQuotaRequestDto? | The request parameters for updating a user quota. (optional) 
 
             try
             {
@@ -60,7 +76,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleQuotaApi.ResetUsersQuota: " + e.Message);
+                Debug.Print("Exception when calling QuotaApi.ResetUsersQuota: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -83,25 +99,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleQuotaApi.ResetUsersQuotaWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling QuotaApi.ResetUsersQuotaWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **updateMembersQuotaRequestDto** | [**UpdateMembersQuotaRequestDto?**](UpdateMembersQuotaRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -124,18 +126,32 @@ catch (ApiException e)
 # **UpdateUserQuota**
 > EmployeeFullArrayWrapper UpdateUserQuota (UpdateMembersQuotaRequestDto? updateMembersQuotaRequestDto = null)
 
-Change a user quota limit
-
 Changes a quota limit for the users with the IDs specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-user-quota/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **updateMembersQuotaRequestDto** | [**UpdateMembersQuotaRequestDto?**](UpdateMembersQuotaRequestDto.md) | The request parameters for updating a user quota. | [optional]  |
+
+### Return type
+
+[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -144,14 +160,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -162,8 +180,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeopleQuotaApi(httpClient, config, httpClientHandler);
-            var updateMembersQuotaRequestDto = new UpdateMembersQuotaRequestDto?(); // UpdateMembersQuotaRequestDto? |  (optional) 
+            var apiInstance = new QuotaApi(httpClient, config, httpClientHandler);
+            var updateMembersQuotaRequestDto = new UpdateMembersQuotaRequestDto?(); // UpdateMembersQuotaRequestDto? | The request parameters for updating a user quota. (optional) 
 
             try
             {
@@ -173,7 +191,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeopleQuotaApi.UpdateUserQuota: " + e.Message);
+                Debug.Print("Exception when calling QuotaApi.UpdateUserQuota: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -196,25 +214,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeopleQuotaApi.UpdateUserQuotaWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling QuotaApi.UpdateUserQuotaWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **updateMembersQuotaRequestDto** | [**UpdateMembersQuotaRequestDto?**](UpdateMembersQuotaRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**EmployeeFullArrayWrapper**](EmployeeFullArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

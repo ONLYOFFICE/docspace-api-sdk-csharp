@@ -1,4 +1,4 @@
-# Docspace.Model.CspRequestsDto
+# DocSpace.API.SDK.Model.CspRequestsDto
 The request parameters for configuring the Content Security Policy (CSP) settings.
 
 ## Properties

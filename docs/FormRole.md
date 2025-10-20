@@ -1,4 +1,4 @@
-# Docspace.Model.FormRole
+# DocSpace.API.SDK.Model.FormRole
 The form role.
 
 ## Properties

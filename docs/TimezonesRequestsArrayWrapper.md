@@ -1,4 +1,4 @@
-# Docspace.Model.TimezonesRequestsArrayWrapper
+# DocSpace.API.SDK.Model.TimezonesRequestsArrayWrapper
 
 ## Properties
 

@@ -1,10 +1,10 @@
-# Docspace.Model.IPRestriction
+# DocSpace.API.SDK.Model.IPRestriction
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Ip** | **string** |  | [optional] 
+**Ip** | **string** |  | 
 **ForAdmin** | **bool** |  | [optional] 
 **Id** | **int** |  | [optional] 
 **TenantId** | **int** |  | [optional] 

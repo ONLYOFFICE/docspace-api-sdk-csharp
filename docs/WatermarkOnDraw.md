@@ -1,4 +1,4 @@
-# Docspace.Model.WatermarkOnDraw
+# DocSpace.API.SDK.Model.WatermarkOnDraw
 The document watermark parameters.
 
 ## Properties

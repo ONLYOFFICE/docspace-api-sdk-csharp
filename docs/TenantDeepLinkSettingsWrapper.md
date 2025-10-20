@@ -1,4 +1,4 @@
-# Docspace.Model.TenantDeepLinkSettingsWrapper
+# DocSpace.API.SDK.Model.TenantDeepLinkSettingsWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Docspace.Model.WebhooksLogWrapper
+# DocSpace.API.SDK.Model.WebhooksLogWrapper
 
 ## Properties
 

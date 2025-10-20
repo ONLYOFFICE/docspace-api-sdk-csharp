@@ -1,4 +1,4 @@
-# Docspace.Model.CreateRoomRequestDto
+# DocSpace.API.SDK.Model.CreateRoomRequestDto
 The request parameters for creating a room.
 
 ## Properties

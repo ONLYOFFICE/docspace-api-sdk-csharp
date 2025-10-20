@@ -1,4 +1,4 @@
-# Docspace.Model.CreateFileJsonElement
+# DocSpace.API.SDK.Model.CreateFileJsonElement
 The parameters for creating a file.
 
 ## Properties

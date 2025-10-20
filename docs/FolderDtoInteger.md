@@ -1,4 +1,4 @@
-# Docspace.Model.FolderDtoInteger
+# DocSpace.API.SDK.Model.FolderDtoInteger
 The folder parameters.
 
 ## Properties
@@ -7,7 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **string** | The file entry title. | [optional] 
 **Access** | **FileShare** |  | [optional] 
-**Shared** | **bool** | Specifies if the file entry is shared or not. | [optional] 
+**Shared** | **bool** | Specifies if the file entry is shared via link or not. | [optional] 
+**SharedForUser** | **bool** | Specifies if the file entry is shared for user or not. | [optional] 
+**ParentShared** | **bool** | Indicates whether the parent entity is shared. | [optional] 
+**ShortWebUrl** | **string** | The short Web URL. | [optional] 
 **Created** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **CreatedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
 **Updated** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
@@ -19,6 +22,8 @@ Name | Type | Description | Notes
 **ProviderKey** | **string** | The provider key of the file entry. | [optional] 
 **ProviderId** | **int?** | The provider ID of the file entry. | [optional] 
 **Order** | **string** | The order of the file entry. | [optional] 
+**IsFavorite** | **bool?** | Specifies if the file is a favorite or not. | [optional] 
+**FileEntryType** | **FileEntryType** |  | [optional] 
 **Id** | **int** | The file entry ID. | [optional] 
 **RootFolderId** | **int** | The root folder ID of the file entry. | [optional] 
 **OriginId** | **int** | The origin ID of the file entry. | [optional] 
@@ -26,13 +31,17 @@ Name | Type | Description | Notes
 **OriginTitle** | **string** | The origin title of the file entry. | [optional] 
 **OriginRoomTitle** | **string** | The origin room title of the file entry. | [optional] 
 **CanShare** | **bool** | Specifies if the file entry can be shared or not. | [optional] 
-**Security** | [**FileDtoIntegerSecurity**](FileDtoIntegerSecurity.md) |  | [optional] 
+**ShareSettings** | [**FileEntryDtoIntegerAllOfShareSettings**](FileEntryDtoIntegerAllOfShareSettings.md) |  | [optional] 
+**Security** | [**FileEntryDtoIntegerAllOfSecurity**](FileEntryDtoIntegerAllOfSecurity.md) |  | [optional] 
+**AvailableShareRights** | [**FileEntryDtoIntegerAllOfAvailableShareRights**](FileEntryDtoIntegerAllOfAvailableShareRights.md) |  | [optional] 
 **RequestToken** | **string** | The request token of the file entry. | [optional] 
+**External** | **bool?** | Specifies if the folder can be accessed via an external link or not. | [optional] 
+**ExpirationDate** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
+**IsLinkExpired** | **bool?** | Indicates whether the shareable link associated with the file or folder has expired. | [optional] 
 **ParentId** | **int** | The parent folder ID of the folder. | [optional] 
 **FilesCount** | **int** | The number of files that the folder contains. | [optional] 
 **FoldersCount** | **int** | The number of folders that the folder contains. | [optional] 
 **IsShareable** | **bool?** | Specifies if the folder can be shared or not. | [optional] 
-**IsFavorite** | **bool?** | Specifies if the folder is favorite or not. | [optional] 
 **New** | **int** | The new element index in the folder. | [optional] 
 **Mute** | **bool** | Specifies if the folder notifications are enabled or not. | [optional] 
 **Tags** | **List&lt;string&gt;** | The list of tags of the folder. | [optional] 
@@ -49,10 +58,8 @@ Name | Type | Description | Notes
 **QuotaLimit** | **long?** | The folder quota limit. | [optional] 
 **IsCustomQuota** | **bool?** | Specifies if the folder room has a custom quota or not. | [optional] 
 **UsedSpace** | **long?** | How much folder space is used (counter). | [optional] 
-**External** | **bool?** | Specifies if the folder can be accessed via an external link or not. | [optional] 
 **PasswordProtected** | **bool?** | Specifies if the folder is password protected or not. | [optional] 
 **Expired** | **bool?** | Specifies if an external link to the folder is expired or not. | [optional] 
-**FileEntryType** | **FileEntryType** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

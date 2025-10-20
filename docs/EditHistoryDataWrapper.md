@@ -1,4 +1,4 @@
-# Docspace.Model.EditHistoryDataWrapper
+# DocSpace.API.SDK.Model.EditHistoryDataWrapper
 
 ## Properties
 

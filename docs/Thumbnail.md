@@ -1,5 +1,5 @@
-# Docspace.Model.Thumbnail
-The file thumbnail status.
+# DocSpace.API.SDK.Model.Thumbnail
+[0 - Waiting, 1 - Created, 2 - Error, 3 - Not required, 4 - Creating]
 
 ## Properties
 

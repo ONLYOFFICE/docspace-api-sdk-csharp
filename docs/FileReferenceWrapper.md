@@ -1,4 +1,4 @@
-# Docspace.Model.FileReferenceWrapper
+# DocSpace.API.SDK.Model.FileReferenceWrapper
 
 ## Properties
 

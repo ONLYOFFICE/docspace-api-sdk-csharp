@@ -1,4 +1,4 @@
-# Docspace.Model.TaskProgressResponseWrapper
+# DocSpace.API.SDK.Model.TaskProgressResponseWrapper
 
 ## Properties
 

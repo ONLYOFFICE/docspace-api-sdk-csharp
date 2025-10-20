@@ -1,4 +1,4 @@
-# Docspace.Model.ConfirmWrapper
+# DocSpace.API.SDK.Model.ConfirmWrapper
 
 ## Properties
 

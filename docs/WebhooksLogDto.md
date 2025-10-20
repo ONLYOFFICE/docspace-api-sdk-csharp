@@ -1,11 +1,11 @@
-# Docspace.Model.WebhooksLogDto
+# DocSpace.API.SDK.Model.WebhooksLogDto
 The webhook log parameters.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | The webhook log ID. | [optional] 
+**Id** | **int** | The webhook log ID. | 
 **ConfigName** | **string** | The webhook configuration name. | [optional] 
 **Trigger** | **WebhookTrigger** |  | [optional] 
 **CreationTime** | **DateTime** | The webhook creation time. | [optional] 

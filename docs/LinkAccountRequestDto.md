@@ -1,4 +1,4 @@
-# Docspace.Model.LinkAccountRequestDto
+# DocSpace.API.SDK.Model.LinkAccountRequestDto
 The request parameters for linking accounts.
 
 ## Properties

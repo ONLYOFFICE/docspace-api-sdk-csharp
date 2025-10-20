@@ -1,4 +1,4 @@
-# Docspace.Model.FileReference
+# DocSpace.API.SDK.Model.FileReference
 The file reference parameters.
 
 ## Properties

@@ -1,4 +1,4 @@
-# Docspace.Model.RoomInvitationRequest
+# DocSpace.API.SDK.Model.RoomInvitationRequest
 The request parameters for inviting users to the room.
 
 ## Properties

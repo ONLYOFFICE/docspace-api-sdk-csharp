@@ -1,4 +1,4 @@
-# Docspace.Model.PasswordSettingsWrapper
+# DocSpace.API.SDK.Model.PasswordSettingsWrapper
 
 ## Properties
 

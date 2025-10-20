@@ -1,4 +1,4 @@
-# Docspace.Model.PluginsDto
+# DocSpace.API.SDK.Model.PluginsDto
 The plugins parameters.
 
 ## Properties

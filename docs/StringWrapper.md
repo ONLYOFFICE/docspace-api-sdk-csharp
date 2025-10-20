@@ -1,4 +1,4 @@
-# Docspace.Model.StringWrapper
+# DocSpace.API.SDK.Model.StringWrapper
 
 ## Properties
 

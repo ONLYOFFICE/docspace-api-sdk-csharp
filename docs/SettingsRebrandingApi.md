@@ -1,43 +1,53 @@
-# Docspace.Api.SettingsRebrandingApi
+# DocSpace.API.SDK.Api.RebrandingApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DeleteAdditionalWhiteLabelSettings**](SettingsRebrandingApi.md#deleteadditionalwhitelabelsettings) | **DELETE** /api/2.0/settings/rebranding/additional | Delete the additional white label settings |
-| [**DeleteCompanyWhiteLabelSettings**](SettingsRebrandingApi.md#deletecompanywhitelabelsettings) | **DELETE** /api/2.0/settings/rebranding/company | Delete the company white label settings |
-| [**GetAdditionalWhiteLabelSettings**](SettingsRebrandingApi.md#getadditionalwhitelabelsettings) | **GET** /api/2.0/settings/rebranding/additional | Get the additional white label settings |
-| [**GetCompanyWhiteLabelSettings**](SettingsRebrandingApi.md#getcompanywhitelabelsettings) | **GET** /api/2.0/settings/rebranding/company | Get the company white label settings |
-| [**GetEnableWhitelabel**](SettingsRebrandingApi.md#getenablewhitelabel) | **GET** /api/2.0/settings/enablewhitelabel | Check the white label availability |
-| [**GetIsDefaultWhiteLabelLogoText**](SettingsRebrandingApi.md#getisdefaultwhitelabellogotext) | **GET** /api/2.0/settings/whitelabel/logotext/isdefault | Check the default white label logo text |
-| [**GetIsDefaultWhiteLabelLogos**](SettingsRebrandingApi.md#getisdefaultwhitelabellogos) | **GET** /api/2.0/settings/whitelabel/logos/isdefault | Check the default white label logos |
-| [**GetLicensorData**](SettingsRebrandingApi.md#getlicensordata) | **GET** /api/2.0/settings/companywhitelabel | Get the licensor data |
-| [**GetWhiteLabelLogoText**](SettingsRebrandingApi.md#getwhitelabellogotext) | **GET** /api/2.0/settings/whitelabel/logotext | Get the white label logo text |
-| [**GetWhiteLabelLogos**](SettingsRebrandingApi.md#getwhitelabellogos) | **GET** /api/2.0/settings/whitelabel/logos | Get the white label logos |
-| [**RestoreWhiteLabelLogoText**](SettingsRebrandingApi.md#restorewhitelabellogotext) | **PUT** /api/2.0/settings/whitelabel/logotext/restore | Restore the white label logo text |
-| [**RestoreWhiteLabelLogos**](SettingsRebrandingApi.md#restorewhitelabellogos) | **PUT** /api/2.0/settings/whitelabel/logos/restore | Restore the white label logos |
-| [**SaveAdditionalWhiteLabelSettings**](SettingsRebrandingApi.md#saveadditionalwhitelabelsettings) | **POST** /api/2.0/settings/rebranding/additional | Save the additional white label settings |
-| [**SaveCompanyWhiteLabelSettings**](SettingsRebrandingApi.md#savecompanywhitelabelsettings) | **POST** /api/2.0/settings/rebranding/company | Save the company white label settings |
-| [**SaveWhiteLabelLogoText**](SettingsRebrandingApi.md#savewhitelabellogotext) | **POST** /api/2.0/settings/whitelabel/logotext/save | Save the white label logo text settings |
-| [**SaveWhiteLabelSettings**](SettingsRebrandingApi.md#savewhitelabelsettings) | **POST** /api/2.0/settings/whitelabel/logos/save | Save the white label logos |
-| [**SaveWhiteLabelSettingsFromFiles**](SettingsRebrandingApi.md#savewhitelabelsettingsfromfiles) | **POST** /api/2.0/settings/whitelabel/logos/savefromfiles | Save the white label logos from files |
+| [**DeleteAdditionalWhiteLabelSettings**](#deleteadditionalwhitelabelsettings) | **DELETE** /api/2.0/settings/rebranding/additional | Delete the additional white label settings |
+| [**DeleteCompanyWhiteLabelSettings**](#deletecompanywhitelabelsettings) | **DELETE** /api/2.0/settings/rebranding/company | Delete the company white label settings |
+| [**GetAdditionalWhiteLabelSettings**](#getadditionalwhitelabelsettings) | **GET** /api/2.0/settings/rebranding/additional | Get the additional white label settings |
+| [**GetCompanyWhiteLabelSettings**](#getcompanywhitelabelsettings) | **GET** /api/2.0/settings/rebranding/company | Get the company white label settings |
+| [**GetEnableWhitelabel**](#getenablewhitelabel) | **GET** /api/2.0/settings/enablewhitelabel | Check the white label availability |
+| [**GetIsDefaultWhiteLabelLogoText**](#getisdefaultwhitelabellogotext) | **GET** /api/2.0/settings/whitelabel/logotext/isdefault | Check the default white label logo text |
+| [**GetIsDefaultWhiteLabelLogos**](#getisdefaultwhitelabellogos) | **GET** /api/2.0/settings/whitelabel/logos/isdefault | Check the default white label logos |
+| [**GetLicensorData**](#getlicensordata) | **GET** /api/2.0/settings/companywhitelabel | Get the licensor data |
+| [**GetWhiteLabelLogoText**](#getwhitelabellogotext) | **GET** /api/2.0/settings/whitelabel/logotext | Get the white label logo text |
+| [**GetWhiteLabelLogos**](#getwhitelabellogos) | **GET** /api/2.0/settings/whitelabel/logos | Get the white label logos |
+| [**RestoreWhiteLabelLogoText**](#restorewhitelabellogotext) | **PUT** /api/2.0/settings/whitelabel/logotext/restore | Restore the white label logo text |
+| [**RestoreWhiteLabelLogos**](#restorewhitelabellogos) | **PUT** /api/2.0/settings/whitelabel/logos/restore | Restore the white label logos |
+| [**SaveAdditionalWhiteLabelSettings**](#saveadditionalwhitelabelsettings) | **POST** /api/2.0/settings/rebranding/additional | Save the additional white label settings |
+| [**SaveCompanyWhiteLabelSettings**](#savecompanywhitelabelsettings) | **POST** /api/2.0/settings/rebranding/company | Save the company white label settings |
+| [**SaveWhiteLabelLogoText**](#savewhitelabellogotext) | **POST** /api/2.0/settings/whitelabel/logotext/save | Save the white label logo text settings |
+| [**SaveWhiteLabelSettings**](#savewhitelabelsettings) | **POST** /api/2.0/settings/whitelabel/logos/save | Save the white label logos |
+| [**SaveWhiteLabelSettingsFromFiles**](#savewhitelabelsettingsfromfiles) | **POST** /api/2.0/settings/whitelabel/logos/savefromfiles | Save the white label logos from files |
 
 <a id="deleteadditionalwhitelabelsettings"></a>
 # **DeleteAdditionalWhiteLabelSettings**
 > AdditionalWhiteLabelSettingsWrapper DeleteAdditionalWhiteLabelSettings ()
 
-Delete the additional white label settings
-
 Deletes the additional white label settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-additional-white-label-settings/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**AdditionalWhiteLabelSettingsWrapper**](AdditionalWhiteLabelSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -46,14 +56,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -64,7 +76,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -74,7 +86,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.DeleteAdditionalWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.DeleteAdditionalWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -97,21 +109,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.DeleteAdditionalWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.DeleteAdditionalWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**AdditionalWhiteLabelSettingsWrapper**](AdditionalWhiteLabelSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -132,18 +134,28 @@ This endpoint does not need any parameter.
 # **DeleteCompanyWhiteLabelSettings**
 > CompanyWhiteLabelSettingsWrapper DeleteCompanyWhiteLabelSettings ()
 
-Delete the company white label settings
-
 Deletes the company white label settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-company-white-label-settings/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CompanyWhiteLabelSettingsWrapper**](CompanyWhiteLabelSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -152,14 +164,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -170,7 +184,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -180,7 +194,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.DeleteCompanyWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.DeleteCompanyWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -203,21 +217,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.DeleteCompanyWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.DeleteCompanyWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CompanyWhiteLabelSettingsWrapper**](CompanyWhiteLabelSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -238,18 +242,28 @@ This endpoint does not need any parameter.
 # **GetAdditionalWhiteLabelSettings**
 > AdditionalWhiteLabelSettingsWrapper GetAdditionalWhiteLabelSettings ()
 
-Get the additional white label settings
-
 Returns the additional white label settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-additional-white-label-settings/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**AdditionalWhiteLabelSettingsWrapper**](AdditionalWhiteLabelSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -258,14 +272,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -276,7 +292,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -286,7 +302,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetAdditionalWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetAdditionalWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -309,21 +325,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetAdditionalWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetAdditionalWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**AdditionalWhiteLabelSettingsWrapper**](AdditionalWhiteLabelSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -343,18 +349,28 @@ This endpoint does not need any parameter.
 # **GetCompanyWhiteLabelSettings**
 > CompanyWhiteLabelSettingsWrapper GetCompanyWhiteLabelSettings ()
 
-Get the company white label settings
-
 Returns the company white label settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-company-white-label-settings/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CompanyWhiteLabelSettingsWrapper**](CompanyWhiteLabelSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -363,14 +379,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -381,7 +399,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -391,7 +409,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetCompanyWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetCompanyWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -414,21 +432,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetCompanyWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetCompanyWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CompanyWhiteLabelSettingsWrapper**](CompanyWhiteLabelSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -448,18 +456,28 @@ This endpoint does not need any parameter.
 # **GetEnableWhitelabel**
 > BooleanWrapper GetEnableWhitelabel ()
 
-Check the white label availability
-
 Checks if the white label is enabled or not.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-enable-whitelabel/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -468,14 +486,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -486,7 +506,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -496,7 +516,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetEnableWhitelabel: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetEnableWhitelabel: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -519,21 +539,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetEnableWhitelabelWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetEnableWhitelabelWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -553,18 +563,33 @@ This endpoint does not need any parameter.
 # **GetIsDefaultWhiteLabelLogoText**
 > IsDefaultWhiteLabelLogosWrapper GetIsDefaultWhiteLabelLogoText (bool? isDark = null, bool? isDefault = null)
 
-Check the default white label logo text
+Specifies if the white label logo text is default or not.
 
-Specifies if the white label logo text are default or not.
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logo-text/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**IsDefaultWhiteLabelLogosWrapper**](IsDefaultWhiteLabelLogosWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -573,14 +598,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -591,7 +618,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -603,7 +630,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetIsDefaultWhiteLabelLogoText: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetIsDefaultWhiteLabelLogoText: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -626,26 +653,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetIsDefaultWhiteLabelLogoTextWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetIsDefaultWhiteLabelLogoTextWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**IsDefaultWhiteLabelLogosWrapper**](IsDefaultWhiteLabelLogosWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -665,18 +677,33 @@ catch (ApiException e)
 # **GetIsDefaultWhiteLabelLogos**
 > IsDefaultWhiteLabelLogosArrayWrapper GetIsDefaultWhiteLabelLogos (bool? isDark = null, bool? isDefault = null)
 
-Check the default white label logos
-
 Specifies if the white label logos are default or not.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-default-white-label-logos/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**IsDefaultWhiteLabelLogosArrayWrapper**](IsDefaultWhiteLabelLogosArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -685,14 +712,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -703,7 +732,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -715,7 +744,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetIsDefaultWhiteLabelLogos: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetIsDefaultWhiteLabelLogos: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -738,26 +767,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetIsDefaultWhiteLabelLogosWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetIsDefaultWhiteLabelLogosWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**IsDefaultWhiteLabelLogosArrayWrapper**](IsDefaultWhiteLabelLogosArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -777,18 +791,28 @@ catch (ApiException e)
 # **GetLicensorData**
 > CompanyWhiteLabelSettingsArrayWrapper GetLicensorData ()
 
-Get the licensor data
-
 Returns the licensor data.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-licensor-data/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CompanyWhiteLabelSettingsArrayWrapper**](CompanyWhiteLabelSettingsArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -797,14 +821,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -815,7 +841,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -825,7 +851,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetLicensorData: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetLicensorData: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -848,21 +874,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetLicensorDataWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetLicensorDataWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CompanyWhiteLabelSettingsArrayWrapper**](CompanyWhiteLabelSettingsArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -882,18 +898,33 @@ This endpoint does not need any parameter.
 # **GetWhiteLabelLogoText**
 > StringWrapper GetWhiteLabelLogoText (bool? isDark = null, bool? isDefault = null)
 
-Get the white label logo text
-
 Returns the white label logo text.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logo-text/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -902,14 +933,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -920,7 +953,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -932,7 +965,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetWhiteLabelLogoText: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetWhiteLabelLogoText: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -955,26 +988,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetWhiteLabelLogoTextWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetWhiteLabelLogoTextWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -994,18 +1012,33 @@ catch (ApiException e)
 # **GetWhiteLabelLogos**
 > WhiteLabelItemArrayWrapper GetWhiteLabelLogos (bool? isDark = null, bool? isDefault = null)
 
-Get the white label logos
-
 Returns the white label logos.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-white-label-logos/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**WhiteLabelItemArrayWrapper**](WhiteLabelItemArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -1014,11 +1047,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -1030,7 +1063,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.GetWhiteLabelLogos: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.GetWhiteLabelLogos: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1053,26 +1086,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.GetWhiteLabelLogosWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.GetWhiteLabelLogosWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**WhiteLabelItemArrayWrapper**](WhiteLabelItemArrayWrapper.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 
@@ -1091,18 +1109,33 @@ No authorization required
 # **RestoreWhiteLabelLogoText**
 > BooleanWrapper RestoreWhiteLabelLogoText (bool? isDark = null, bool? isDefault = null)
 
-Restore the white label logo text
-
 Restores the white label logo text.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logo-text/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -1111,14 +1144,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1129,7 +1164,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -1141,7 +1176,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.RestoreWhiteLabelLogoText: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.RestoreWhiteLabelLogoText: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1164,26 +1199,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.RestoreWhiteLabelLogoTextWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.RestoreWhiteLabelLogoTextWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1204,18 +1224,33 @@ catch (ApiException e)
 # **RestoreWhiteLabelLogos**
 > BooleanWrapper RestoreWhiteLabelLogos (bool? isDark = null, bool? isDefault = null)
 
-Restore the white label logos
-
 Restores the white label logos.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/restore-white-label-logos/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -1224,14 +1259,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1242,7 +1279,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -1254,7 +1291,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.RestoreWhiteLabelLogos: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.RestoreWhiteLabelLogos: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1277,26 +1314,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.RestoreWhiteLabelLogosWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.RestoreWhiteLabelLogosWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1317,18 +1339,32 @@ catch (ApiException e)
 # **SaveAdditionalWhiteLabelSettings**
 > BooleanWrapper SaveAdditionalWhiteLabelSettings (AdditionalWhiteLabelSettingsWrapper? additionalWhiteLabelSettingsWrapper = null)
 
-Save the additional white label settings
-
 Saves the additional white label settings specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-additional-white-label-settings/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **additionalWhiteLabelSettingsWrapper** | [**AdditionalWhiteLabelSettingsWrapper?**](AdditionalWhiteLabelSettingsWrapper.md) | The additional white label settings wrapper. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -1337,14 +1373,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1355,8 +1393,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
-            var additionalWhiteLabelSettingsWrapper = new AdditionalWhiteLabelSettingsWrapper?(); // AdditionalWhiteLabelSettingsWrapper? |  (optional) 
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
+            var additionalWhiteLabelSettingsWrapper = new AdditionalWhiteLabelSettingsWrapper?(); // AdditionalWhiteLabelSettingsWrapper? | The additional white label settings wrapper. (optional) 
 
             try
             {
@@ -1366,7 +1404,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.SaveAdditionalWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.SaveAdditionalWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1389,25 +1427,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.SaveAdditionalWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.SaveAdditionalWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **additionalWhiteLabelSettingsWrapper** | [**AdditionalWhiteLabelSettingsWrapper?**](AdditionalWhiteLabelSettingsWrapper?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1429,18 +1453,32 @@ catch (ApiException e)
 # **SaveCompanyWhiteLabelSettings**
 > BooleanWrapper SaveCompanyWhiteLabelSettings (CompanyWhiteLabelSettingsWrapper? companyWhiteLabelSettingsWrapper = null)
 
-Save the company white label settings
-
 Saves the company white label settings specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-company-white-label-settings/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **companyWhiteLabelSettingsWrapper** | [**CompanyWhiteLabelSettingsWrapper?**](CompanyWhiteLabelSettingsWrapper.md) | The company white label settings wrapper. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -1449,14 +1487,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1467,8 +1507,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
-            var companyWhiteLabelSettingsWrapper = new CompanyWhiteLabelSettingsWrapper?(); // CompanyWhiteLabelSettingsWrapper? |  (optional) 
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
+            var companyWhiteLabelSettingsWrapper = new CompanyWhiteLabelSettingsWrapper?(); // CompanyWhiteLabelSettingsWrapper? | The company white label settings wrapper. (optional) 
 
             try
             {
@@ -1478,7 +1518,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.SaveCompanyWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.SaveCompanyWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1501,25 +1541,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.SaveCompanyWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.SaveCompanyWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **companyWhiteLabelSettingsWrapper** | [**CompanyWhiteLabelSettingsWrapper?**](CompanyWhiteLabelSettingsWrapper?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1541,18 +1567,34 @@ catch (ApiException e)
 # **SaveWhiteLabelLogoText**
 > BooleanWrapper SaveWhiteLabelLogoText (bool? isDark = null, bool? isDefault = null, WhiteLabelRequestsDto? whiteLabelRequestsDto = null)
 
-Save the white label logo text settings
-
 Saves the white label logo text specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-logo-text/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+| **whiteLabelRequestsDto** | [**WhiteLabelRequestsDto?**](WhiteLabelRequestsDto.md) | The request parameters for configuring the white label branding settings. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -1561,14 +1603,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1579,10 +1623,10 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
-            var whiteLabelRequestsDto = new WhiteLabelRequestsDto?(); // WhiteLabelRequestsDto? |  (optional) 
+            var whiteLabelRequestsDto = new WhiteLabelRequestsDto?(); // WhiteLabelRequestsDto? | The request parameters for configuring the white label branding settings. (optional) 
 
             try
             {
@@ -1592,7 +1636,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.SaveWhiteLabelLogoText: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.SaveWhiteLabelLogoText: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1615,27 +1659,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.SaveWhiteLabelLogoTextWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.SaveWhiteLabelLogoTextWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-| **whiteLabelRequestsDto** | [**WhiteLabelRequestsDto?**](WhiteLabelRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1656,18 +1684,34 @@ catch (ApiException e)
 # **SaveWhiteLabelSettings**
 > BooleanWrapper SaveWhiteLabelSettings (bool? isDark = null, bool? isDefault = null, WhiteLabelRequestsDto? whiteLabelRequestsDto = null)
 
-Save the white label logos
-
 Saves the white label logos specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+| **whiteLabelRequestsDto** | [**WhiteLabelRequestsDto?**](WhiteLabelRequestsDto.md) | The request parameters for configuring the white label branding settings. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -1676,14 +1720,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1694,10 +1740,10 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
-            var whiteLabelRequestsDto = new WhiteLabelRequestsDto?(); // WhiteLabelRequestsDto? |  (optional) 
+            var whiteLabelRequestsDto = new WhiteLabelRequestsDto?(); // WhiteLabelRequestsDto? | The request parameters for configuring the white label branding settings. (optional) 
 
             try
             {
@@ -1707,7 +1753,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.SaveWhiteLabelSettings: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.SaveWhiteLabelSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1730,27 +1776,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.SaveWhiteLabelSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.SaveWhiteLabelSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-| **whiteLabelRequestsDto** | [**WhiteLabelRequestsDto?**](WhiteLabelRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1771,18 +1801,33 @@ catch (ApiException e)
 # **SaveWhiteLabelSettingsFromFiles**
 > BooleanWrapper SaveWhiteLabelSettingsFromFiles (bool? isDark = null, bool? isDefault = null)
 
-Save the white label logos from files
-
 Saves the white label logos from files.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-white-label-settings-from-files/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
+| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -1791,14 +1836,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1809,7 +1856,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsRebrandingApi(httpClient, config, httpClientHandler);
+            var apiInstance = new RebrandingApi(httpClient, config, httpClientHandler);
             var isDark = true;  // bool? | Specifies if the white label logo is for the dark theme or not. (optional) 
             var isDefault = true;  // bool? | Specifies if the logo is for a default tenant or not. (optional) 
 
@@ -1821,7 +1868,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsRebrandingApi.SaveWhiteLabelSettingsFromFiles: " + e.Message);
+                Debug.Print("Exception when calling RebrandingApi.SaveWhiteLabelSettingsFromFiles: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1844,26 +1891,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsRebrandingApi.SaveWhiteLabelSettingsFromFilesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling RebrandingApi.SaveWhiteLabelSettingsFromFilesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **isDark** | **bool?** | Specifies if the white label logo is for the dark theme or not. | [optional]  |
-| **isDefault** | **bool?** | Specifies if the logo is for a default tenant or not. | [optional]  |
-
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

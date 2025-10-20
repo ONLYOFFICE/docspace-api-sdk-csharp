@@ -1,4 +1,4 @@
-# Docspace.Model.FileIntegerWrapper
+# DocSpace.API.SDK.Model.FileIntegerWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Docspace.Model.QuotaSettingsRequestsDto
+# DocSpace.API.SDK.Model.QuotaSettingsRequestsDto
 The request parameters for managing the user storage quota configurations.
 
 ## Properties

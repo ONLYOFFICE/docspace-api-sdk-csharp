@@ -1,4 +1,4 @@
-# Docspace.Model.DocumentBuilderTaskWrapper
+# DocSpace.API.SDK.Model.DocumentBuilderTaskWrapper
 
 ## Properties
 

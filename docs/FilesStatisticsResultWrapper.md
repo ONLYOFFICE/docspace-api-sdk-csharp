@@ -1,4 +1,4 @@
-# Docspace.Model.FilesStatisticsResultWrapper
+# DocSpace.API.SDK.Model.FilesStatisticsResultWrapper
 
 ## Properties
 

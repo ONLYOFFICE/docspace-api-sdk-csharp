@@ -1,11 +1,11 @@
-# Docspace.Model.BackupRestoreDto
+# DocSpace.API.SDK.Model.BackupRestoreDto
 The backup restoring parameters.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**BackupId** | **string** | The backup ID. | [optional] 
+**BackupId** | **string** | The backup ID. | 
 **StorageType** | **BackupStorageType** |  | [optional] 
 **StorageParams** | [**List&lt;ItemKeyValuePairObjectObject&gt;**](ItemKeyValuePairObjectObject.md) | The backup storage parameters. | [optional] 
 **Notify** | **bool** | Notifies users about the portal restoring process or not. | [optional] 

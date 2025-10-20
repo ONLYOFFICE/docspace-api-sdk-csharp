@@ -1,4 +1,4 @@
-# Docspace.Model.CoversResultArrayWrapper
+# DocSpace.API.SDK.Model.CoversResultArrayWrapper
 
 ## Properties
 

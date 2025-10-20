@@ -1,31 +1,46 @@
-# Docspace.Api.PeoplePhotosApi
+# DocSpace.API.SDK.Api.PhotosApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateMemberPhotoThumbnails**](PeoplePhotosApi.md#creatememberphotothumbnails) | **POST** /api/2.0/people/{userid}/photo/thumbnails | Create photo thumbnails |
-| [**DeleteMemberPhoto**](PeoplePhotosApi.md#deletememberphoto) | **DELETE** /api/2.0/people/{userid}/photo | Delete a user photo |
-| [**GetMemberPhoto**](PeoplePhotosApi.md#getmemberphoto) | **GET** /api/2.0/people/{userid}/photo | Get a user photo |
-| [**UpdateMemberPhoto**](PeoplePhotosApi.md#updatememberphoto) | **PUT** /api/2.0/people/{userid}/photo | Update a user photo |
-| [**UploadMemberPhoto**](PeoplePhotosApi.md#uploadmemberphoto) | **POST** /api/2.0/people/{userid}/photo | Upload a user photo |
+| [**CreateMemberPhotoThumbnails**](#creatememberphotothumbnails) | **POST** /api/2.0/people/{userid}/photo/thumbnails | Create photo thumbnails |
+| [**DeleteMemberPhoto**](#deletememberphoto) | **DELETE** /api/2.0/people/{userid}/photo | Delete a user photo |
+| [**GetMemberPhoto**](#getmemberphoto) | **GET** /api/2.0/people/{userid}/photo | Get a user photo |
+| [**UpdateMemberPhoto**](#updatememberphoto) | **PUT** /api/2.0/people/{userid}/photo | Update a user photo |
+| [**UploadMemberPhoto**](#uploadmemberphoto) | **POST** /api/2.0/people/{userid}/photo | Upload a user photo |
 
 <a id="creatememberphotothumbnails"></a>
 # **CreateMemberPhotoThumbnails**
-> ThumbnailsDataWrapper CreateMemberPhotoThumbnails (string userid, ThumbnailsRequest? thumbnailsRequest = null)
-
-Create photo thumbnails
+> ThumbnailsDataWrapper CreateMemberPhotoThumbnails (string userid, ThumbnailsRequest thumbnailsRequest)
 
 Creates the user photo thumbnails by coordinates of the original image specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-member-photo-thumbnails/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+| **thumbnailsRequest** | [**ThumbnailsRequest**](ThumbnailsRequest.md) | The thumbnail request. |  |
+
+### Return type
+
+[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -34,14 +49,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -52,9 +69,9 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
-            var thumbnailsRequest = new ThumbnailsRequest?(); // ThumbnailsRequest? | The thumbnail request. (optional) 
+            var thumbnailsRequest = new ThumbnailsRequest(); // ThumbnailsRequest | The thumbnail request.
 
             try
             {
@@ -64,7 +81,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeoplePhotosApi.CreateMemberPhotoThumbnails: " + e.Message);
+                Debug.Print("Exception when calling PhotosApi.CreateMemberPhotoThumbnails: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -87,26 +104,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeoplePhotosApi.CreateMemberPhotoThumbnailsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PhotosApi.CreateMemberPhotoThumbnailsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-| **thumbnailsRequest** | [**ThumbnailsRequest?**](ThumbnailsRequest?.md) | The thumbnail request. | [optional]  |
-
-### Return type
-
-[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -128,18 +130,32 @@ catch (ApiException e)
 # **DeleteMemberPhoto**
 > ThumbnailsDataWrapper DeleteMemberPhoto (string userid)
 
-Delete a user photo
-
 Deletes a photo of the user with the ID specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-member-photo/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+
+### Return type
+
+[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -148,14 +164,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -166,7 +184,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
 
             try
@@ -177,7 +195,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeoplePhotosApi.DeleteMemberPhoto: " + e.Message);
+                Debug.Print("Exception when calling PhotosApi.DeleteMemberPhoto: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -200,25 +218,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeoplePhotosApi.DeleteMemberPhotoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PhotosApi.DeleteMemberPhotoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-
-### Return type
-
-[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -240,18 +244,32 @@ catch (ApiException e)
 # **GetMemberPhoto**
 > ThumbnailsDataWrapper GetMemberPhoto (string userid)
 
-Get a user photo
-
 Returns a photo of the user with the ID specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-member-photo/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+
+### Return type
+
+[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -260,14 +278,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -278,7 +298,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
 
             try
@@ -289,7 +309,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeoplePhotosApi.GetMemberPhoto: " + e.Message);
+                Debug.Print("Exception when calling PhotosApi.GetMemberPhoto: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -312,25 +332,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeoplePhotosApi.GetMemberPhotoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PhotosApi.GetMemberPhotoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-
-### Return type
-
-[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -350,20 +356,35 @@ catch (ApiException e)
 
 <a id="updatememberphoto"></a>
 # **UpdateMemberPhoto**
-> ThumbnailsDataWrapper UpdateMemberPhoto (string userid, UpdatePhotoMemberRequest? updatePhotoMemberRequest = null)
-
-Update a user photo
+> ThumbnailsDataWrapper UpdateMemberPhoto (string userid, UpdatePhotoMemberRequest updatePhotoMemberRequest)
 
 Updates a photo of the user with the ID specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-photo/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+| **updatePhotoMemberRequest** | [**UpdatePhotoMemberRequest**](UpdatePhotoMemberRequest.md) | The request parameters for updating a photo. |  |
+
+### Return type
+
+[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -372,14 +393,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -390,9 +413,9 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
-            var updatePhotoMemberRequest = new UpdatePhotoMemberRequest?(); // UpdatePhotoMemberRequest? | The request parameters for updating a photo. (optional) 
+            var updatePhotoMemberRequest = new UpdatePhotoMemberRequest(); // UpdatePhotoMemberRequest | The request parameters for updating a photo.
 
             try
             {
@@ -402,7 +425,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeoplePhotosApi.UpdateMemberPhoto: " + e.Message);
+                Debug.Print("Exception when calling PhotosApi.UpdateMemberPhoto: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -425,26 +448,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeoplePhotosApi.UpdateMemberPhotoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PhotosApi.UpdateMemberPhotoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-| **updatePhotoMemberRequest** | [**UpdatePhotoMemberRequest?**](UpdatePhotoMemberRequest?.md) | The request parameters for updating a photo. | [optional]  |
-
-### Return type
-
-[**ThumbnailsDataWrapper**](ThumbnailsDataWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -466,18 +474,33 @@ catch (ApiException e)
 # **UploadMemberPhoto**
 > FileUploadResultWrapper UploadMemberPhoto (string userid, List<KeyValuePairStringStringValues> formCollection)
 
-Upload a user photo
-
 Uploads a photo of the user with the ID specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **string** | The user ID. |  |
+| **formCollection** | [**List&lt;KeyValuePairStringStringValues&gt;**](KeyValuePairStringStringValues.md) | The image data. |  |
+
+### Return type
+
+[**FileUploadResultWrapper**](FileUploadResultWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -486,14 +509,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -504,7 +529,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new PeoplePhotosApi(httpClient, config, httpClientHandler);
+            var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 9846;  // string | The user ID.
             var formCollection = new List<KeyValuePairStringStringValues>(); // List<KeyValuePairStringStringValues> | The image data.
 
@@ -516,7 +541,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling PeoplePhotosApi.UploadMemberPhoto: " + e.Message);
+                Debug.Print("Exception when calling PhotosApi.UploadMemberPhoto: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -539,26 +564,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling PeoplePhotosApi.UploadMemberPhotoWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling PhotosApi.UploadMemberPhotoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userid** | **string** | The user ID. |  |
-| **formCollection** | [**List&lt;KeyValuePairStringStringValues&gt;**](KeyValuePairStringStringValues.md) | The image data. |  |
-
-### Return type
-
-[**FileUploadResultWrapper**](FileUploadResultWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

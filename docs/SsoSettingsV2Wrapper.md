@@ -1,4 +1,4 @@
-# Docspace.Model.SsoSettingsV2Wrapper
+# DocSpace.API.SDK.Model.SsoSettingsV2Wrapper
 
 ## Properties
 

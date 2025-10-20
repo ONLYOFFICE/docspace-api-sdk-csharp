@@ -1,0 +1,10 @@
+# DocSpace.API.SDK.Model.ReviewConfig
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**ReviewDisplay** | **string** |  | [optional] [readonly] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

@@ -1,4 +1,4 @@
-# Docspace.Model.WizardSettingsWrapper
+# DocSpace.API.SDK.Model.WizardSettingsWrapper
 
 ## Properties
 

@@ -1,5 +1,5 @@
-# Docspace.Model.NotificationType
-The notification type.
+# DocSpace.API.SDK.Model.NotificationType
+[0 - Badges, 1 - Rooms activity, 2 - Daily feed, 3 - Usefull tips]
 
 ## Properties
 

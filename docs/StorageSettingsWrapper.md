@@ -1,4 +1,4 @@
-# Docspace.Model.StorageSettingsWrapper
+# DocSpace.API.SDK.Model.StorageSettingsWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Docspace.Model.STRINGArrayWrapper
+# DocSpace.API.SDK.Model.STRINGArrayWrapper
 
 ## Properties
 

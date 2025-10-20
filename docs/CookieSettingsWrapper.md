@@ -1,4 +1,4 @@
-# Docspace.Model.CookieSettingsWrapper
+# DocSpace.API.SDK.Model.CookieSettingsWrapper
 
 ## Properties
 

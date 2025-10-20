@@ -1,4 +1,4 @@
-# Docspace.Model.EmailActivationSettingsWrapper
+# DocSpace.API.SDK.Model.EmailActivationSettingsWrapper
 
 ## Properties
 

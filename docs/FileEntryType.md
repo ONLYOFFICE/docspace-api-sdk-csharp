@@ -1,5 +1,5 @@
-# Docspace.Model.FileEntryType
-The file entry type.
+# DocSpace.API.SDK.Model.FileEntryType
+[1 - Folder, 2 - File]
 
 ## Properties
 

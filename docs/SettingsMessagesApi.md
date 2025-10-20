@@ -1,29 +1,43 @@
-# Docspace.Api.SettingsMessagesApi
+# DocSpace.API.SDK.Api.MessagesApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**EnableAdminMessageSettings**](SettingsMessagesApi.md#enableadminmessagesettings) | **POST** /api/2.0/settings/messagesettings | Enable the administrator message settings |
-| [**SendAdmMail**](SettingsMessagesApi.md#sendadmmail) | **POST** /api/2.0/settings/sendadmmail | Send a message to the administrator |
-| [**SendJoinInviteMail**](SettingsMessagesApi.md#sendjoininvitemail) | **POST** /api/2.0/settings/sendjoininvite | Sends an invitation email |
+| [**EnableAdminMessageSettings**](#enableadminmessagesettings) | **POST** /api/2.0/settings/messagesettings | Enable the administrator message settings |
+| [**SendAdminMail**](#sendadminmail) | **POST** /api/2.0/settings/sendadmmail | Send a message to the administrator |
+| [**SendJoinInviteMail**](#sendjoininvitemail) | **POST** /api/2.0/settings/sendjoininvite | Sends an invitation email |
 
 <a id="enableadminmessagesettings"></a>
 # **EnableAdminMessageSettings**
 > StringWrapper EnableAdminMessageSettings (TurnOnAdminMessageSettingsRequestDto? turnOnAdminMessageSettingsRequestDto = null)
 
-Enable the administrator message settings
+Displays the contact form on the Sign In page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
 
-Displays the contact form on the \"Sign In\" page, allowing users to send a message to the DocSpace administrator in case they encounter any issues while accessing DocSpace.
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/enable-admin-message-settings/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **turnOnAdminMessageSettingsRequestDto** | [**TurnOnAdminMessageSettingsRequestDto?**](TurnOnAdminMessageSettingsRequestDto.md) | The request parameters for enabling or disabling administrator messaging system. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -32,14 +46,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -50,8 +66,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsMessagesApi(httpClient, config, httpClientHandler);
-            var turnOnAdminMessageSettingsRequestDto = new TurnOnAdminMessageSettingsRequestDto?(); // TurnOnAdminMessageSettingsRequestDto? |  (optional) 
+            var apiInstance = new MessagesApi(httpClient, config, httpClientHandler);
+            var turnOnAdminMessageSettingsRequestDto = new TurnOnAdminMessageSettingsRequestDto?(); // TurnOnAdminMessageSettingsRequestDto? | The request parameters for enabling or disabling administrator messaging system. (optional) 
 
             try
             {
@@ -61,7 +77,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsMessagesApi.EnableAdminMessageSettings: " + e.Message);
+                Debug.Print("Exception when calling MessagesApi.EnableAdminMessageSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -84,25 +100,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsMessagesApi.EnableAdminMessageSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MessagesApi.EnableAdminMessageSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **turnOnAdminMessageSettingsRequestDto** | [**TurnOnAdminMessageSettingsRequestDto?**](TurnOnAdminMessageSettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -118,79 +120,19 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="sendadmmail"></a>
-# **SendAdmMail**
-> StringWrapper SendAdmMail (AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = null)
-
-Send a message to the administrator
+<a id="sendadminmail"></a>
+# **SendAdminMail**
+> StringWrapper SendAdminMail (AdminMessageSettingsRequestsDto? adminMessageSettingsRequestsDto = null)
 
 Sends a message to the administrator email when unauthorized users encounter issues accessing DocSpace.
 
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class SendAdmMailExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsMessagesApi(httpClient, config, httpClientHandler);
-            var adminMessageSettingsRequestsDto = new AdminMessageSettingsRequestsDto?(); // AdminMessageSettingsRequestsDto? |  (optional) 
-
-            try
-            {
-                // Send a message to the administrator
-                StringWrapper result = apiInstance.SendAdmMail(adminMessageSettingsRequestsDto);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SettingsMessagesApi.SendAdmMail: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the SendAdmMailWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Send a message to the administrator
-    ApiResponse<StringWrapper> response = apiInstance.SendAdmMailWithHttpInfo(adminMessageSettingsRequestsDto);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SettingsMessagesApi.SendAdmMailWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-admin-mail/).
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **adminMessageSettingsRequestsDto** | [**AdminMessageSettingsRequestsDto?**](AdminMessageSettingsRequestsDto?.md) |  | [optional]  |
+| **adminMessageSettingsRequestsDto** | [**AdminMessageSettingsRequestsDto?**](AdminMessageSettingsRequestsDto.md) | The request parameters for configuring the administrator message content. | [optional]  |
 
 ### Return type
 
@@ -199,6 +141,66 @@ catch (ApiException e)
 ### Authorization
 
 No authorization required
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class SendAdminMailExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new MessagesApi(httpClient, config, httpClientHandler);
+            var adminMessageSettingsRequestsDto = new AdminMessageSettingsRequestsDto?(); // AdminMessageSettingsRequestsDto? | The request parameters for configuring the administrator message content. (optional) 
+
+            try
+            {
+                // Send a message to the administrator
+                StringWrapper result = apiInstance.SendAdminMail(adminMessageSettingsRequestsDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling MessagesApi.SendAdminMail: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SendAdminMailWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Send a message to the administrator
+    ApiResponse<StringWrapper> response = apiInstance.SendAdminMailWithHttpInfo(adminMessageSettingsRequestsDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling MessagesApi.SendAdminMailWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
 
 ### HTTP request headers
 
@@ -219,18 +221,32 @@ No authorization required
 # **SendJoinInviteMail**
 > StringWrapper SendJoinInviteMail (AdminMessageBaseSettingsRequestsDto? adminMessageBaseSettingsRequestsDto = null)
 
-Sends an invitation email
-
 Sends an invitation email with a link to the DocSpace.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-join-invite-mail/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **adminMessageBaseSettingsRequestsDto** | [**AdminMessageBaseSettingsRequestsDto?**](AdminMessageBaseSettingsRequestsDto.md) | The request parameters for the administrator message configuration. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -239,12 +255,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsMessagesApi(httpClient, config, httpClientHandler);
-            var adminMessageBaseSettingsRequestsDto = new AdminMessageBaseSettingsRequestsDto?(); // AdminMessageBaseSettingsRequestsDto? |  (optional) 
+            var apiInstance = new MessagesApi(httpClient, config, httpClientHandler);
+            var adminMessageBaseSettingsRequestsDto = new AdminMessageBaseSettingsRequestsDto?(); // AdminMessageBaseSettingsRequestsDto? | The request parameters for the administrator message configuration. (optional) 
 
             try
             {
@@ -254,7 +270,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsMessagesApi.SendJoinInviteMail: " + e.Message);
+                Debug.Print("Exception when calling MessagesApi.SendJoinInviteMail: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -277,25 +293,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsMessagesApi.SendJoinInviteMailWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling MessagesApi.SendJoinInviteMailWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **adminMessageBaseSettingsRequestsDto** | [**AdminMessageBaseSettingsRequestsDto?**](AdminMessageBaseSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 

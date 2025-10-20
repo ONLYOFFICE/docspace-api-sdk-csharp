@@ -1,4 +1,4 @@
-# Docspace.Model.AuthData
+# DocSpace.API.SDK.Model.AuthData
 The authentication data.
 
 ## Properties

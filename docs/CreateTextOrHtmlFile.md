@@ -1,4 +1,4 @@
-# Docspace.Model.CreateTextOrHtmlFile
+# DocSpace.API.SDK.Model.CreateTextOrHtmlFile
 The parameters for creating an HTML or text file.
 
 ## Properties

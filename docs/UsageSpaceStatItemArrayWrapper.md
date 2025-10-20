@@ -1,4 +1,4 @@
-# Docspace.Model.UsageSpaceStatItemArrayWrapper
+# DocSpace.API.SDK.Model.UsageSpaceStatItemArrayWrapper
 
 ## Properties
 

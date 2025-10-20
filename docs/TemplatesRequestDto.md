@@ -1,4 +1,4 @@
-# Docspace.Model.TemplatesRequestDto
+# DocSpace.API.SDK.Model.TemplatesRequestDto
 The request parameters for adding files to the template list.
 
 ## Properties

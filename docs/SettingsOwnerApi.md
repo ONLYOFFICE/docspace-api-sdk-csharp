@@ -1,136 +1,42 @@
-# Docspace.Api.SettingsOwnerApi
+# DocSpace.API.SDK.Api.OwnerApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**Owner**](SettingsOwnerApi.md#owner) | **PUT** /api/2.0/settings/owner | Update the portal owner |
-| [**SendOwnerChangeInstructions**](SettingsOwnerApi.md#sendownerchangeinstructions) | **POST** /api/2.0/settings/owner | Send the owner change instructions |
-
-<a id="owner"></a>
-# **Owner**
-> void Owner (OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = null)
-
-Update the portal owner
-
-Updates the current portal owner with a new one specified in the request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class OwnerExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsOwnerApi(httpClient, config, httpClientHandler);
-            var ownerIdSettingsRequestDto = new OwnerIdSettingsRequestDto?(); // OwnerIdSettingsRequestDto? |  (optional) 
-
-            try
-            {
-                // Update the portal owner
-                apiInstance.Owner(ownerIdSettingsRequestDto);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SettingsOwnerApi.Owner: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the OwnerWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Update the portal owner
-    apiInstance.OwnerWithHttpInfo(ownerIdSettingsRequestDto);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SettingsOwnerApi.OwnerWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **ownerIdSettingsRequestDto** | [**OwnerIdSettingsRequestDto?**](OwnerIdSettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Ok |  -  |
-| **400** | The user could not be found |  -  |
-| **401** | Unauthorized |  -  |
-| **409** |  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+| [**SendOwnerChangeInstructions**](#sendownerchangeinstructions) | **POST** /api/2.0/settings/owner | Send the owner change instructions |
+| [**UpdatePortalOwner**](#updateportalowner) | **PUT** /api/2.0/settings/owner | Update the portal owner |
 
 <a id="sendownerchangeinstructions"></a>
 # **SendOwnerChangeInstructions**
 > OwnerChangeInstructionsWrapper SendOwnerChangeInstructions (OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = null)
 
-Send the owner change instructions
-
 Sends the instructions to change the DocSpace owner.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-owner-change-instructions/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **ownerIdSettingsRequestDto** | [**OwnerIdSettingsRequestDto?**](OwnerIdSettingsRequestDto.md) | The request parameters for managing the owner-specific settings. | [optional]  |
+
+### Return type
+
+[**OwnerChangeInstructionsWrapper**](OwnerChangeInstructionsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -139,14 +45,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -157,8 +65,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsOwnerApi(httpClient, config, httpClientHandler);
-            var ownerIdSettingsRequestDto = new OwnerIdSettingsRequestDto?(); // OwnerIdSettingsRequestDto? |  (optional) 
+            var apiInstance = new OwnerApi(httpClient, config, httpClientHandler);
+            var ownerIdSettingsRequestDto = new OwnerIdSettingsRequestDto?(); // OwnerIdSettingsRequestDto? | The request parameters for managing the owner-specific settings. (optional) 
 
             try
             {
@@ -168,7 +76,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsOwnerApi.SendOwnerChangeInstructions: " + e.Message);
+                Debug.Print("Exception when calling OwnerApi.SendOwnerChangeInstructions: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -191,25 +99,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsOwnerApi.SendOwnerChangeInstructionsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling OwnerApi.SendOwnerChangeInstructionsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **ownerIdSettingsRequestDto** | [**OwnerIdSettingsRequestDto?**](OwnerIdSettingsRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**OwnerChangeInstructionsWrapper**](OwnerChangeInstructionsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -221,8 +115,119 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Message about changing the portal owner |  -  |
+| **400** | Owner&#39;s email is not activated |  -  |
 | **401** | Unauthorized |  -  |
 | **403** | Collaborator can not be an owner |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="updateportalowner"></a>
+# **UpdatePortalOwner**
+> void UpdatePortalOwner (OwnerIdSettingsRequestDto? ownerIdSettingsRequestDto = null)
+
+Updates the current portal owner with a new one specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-portal-owner/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **ownerIdSettingsRequestDto** | [**OwnerIdSettingsRequestDto?**](OwnerIdSettingsRequestDto.md) | The request parameters for managing the owner-specific settings. | [optional]  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class UpdatePortalOwnerExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new OwnerApi(httpClient, config, httpClientHandler);
+            var ownerIdSettingsRequestDto = new OwnerIdSettingsRequestDto?(); // OwnerIdSettingsRequestDto? | The request parameters for managing the owner-specific settings. (optional) 
+
+            try
+            {
+                // Update the portal owner
+                apiInstance.UpdatePortalOwner(ownerIdSettingsRequestDto);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling OwnerApi.UpdatePortalOwner: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpdatePortalOwnerWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update the portal owner
+    apiInstance.UpdatePortalOwnerWithHttpInfo(ownerIdSettingsRequestDto);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling OwnerApi.UpdatePortalOwnerWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+| **400** | The user could not be found |  -  |
+| **401** | Unauthorized |  -  |
+| **409** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

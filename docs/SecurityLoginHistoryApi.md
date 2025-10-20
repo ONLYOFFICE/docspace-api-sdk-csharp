@@ -1,29 +1,39 @@
-# Docspace.Api.SecurityLoginHistoryApi
+# DocSpace.API.SDK.Api.LoginHistoryApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateLoginHistoryReport**](SecurityLoginHistoryApi.md#createloginhistoryreport) | **POST** /api/2.0/security/audit/login/report | Generate the login history report |
-| [**GetLastLoginEvents**](SecurityLoginHistoryApi.md#getlastloginevents) | **GET** /api/2.0/security/audit/login/last | Get login history |
-| [**GetLoginEventsByFilter**](SecurityLoginHistoryApi.md#getlogineventsbyfilter) | **GET** /api/2.0/security/audit/login/filter | Get filtered login events |
+| [**CreateLoginHistoryReport**](#createloginhistoryreport) | **POST** /api/2.0/security/audit/login/report | Generate the login history report |
+| [**GetLastLoginEvents**](#getlastloginevents) | **GET** /api/2.0/security/audit/login/last | Get login history |
+| [**GetLoginEventsByFilter**](#getlogineventsbyfilter) | **GET** /api/2.0/security/audit/login/filter | Get filtered login events |
 
 <a id="createloginhistoryreport"></a>
 # **CreateLoginHistoryReport**
 > StringWrapper CreateLoginHistoryReport ()
 
-Generate the login history report
-
 Generates the login history report.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-login-history-report/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -32,14 +42,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -50,7 +62,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityLoginHistoryApi(httpClient, config, httpClientHandler);
+            var apiInstance = new LoginHistoryApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -60,7 +72,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityLoginHistoryApi.CreateLoginHistoryReport: " + e.Message);
+                Debug.Print("Exception when calling LoginHistoryApi.CreateLoginHistoryReport: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -83,21 +95,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityLoginHistoryApi.CreateLoginHistoryReportWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling LoginHistoryApi.CreateLoginHistoryReportWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -118,18 +120,28 @@ This endpoint does not need any parameter.
 # **GetLastLoginEvents**
 > LoginEventArrayWrapper GetLastLoginEvents ()
 
-Get login history
-
 Returns all the latest user login activity, including successful logins and error logs.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-last-login-events/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**LoginEventArrayWrapper**](LoginEventArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -138,14 +150,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -156,7 +170,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityLoginHistoryApi(httpClient, config, httpClientHandler);
+            var apiInstance = new LoginHistoryApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -166,7 +180,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityLoginHistoryApi.GetLastLoginEvents: " + e.Message);
+                Debug.Print("Exception when calling LoginHistoryApi.GetLastLoginEvents: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -189,21 +203,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityLoginHistoryApi.GetLastLoginEventsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling LoginHistoryApi.GetLastLoginEventsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**LoginEventArrayWrapper**](LoginEventArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -222,20 +226,39 @@ This endpoint does not need any parameter.
 
 <a id="getlogineventsbyfilter"></a>
 # **GetLoginEventsByFilter**
-> LoginEventArrayWrapper GetLoginEventsByFilter (Guid? userId = null, MessageAction? action = null, ApiDateTime? from = null, ApiDateTime? to = null)
-
-Get filtered login events
+> LoginEventArrayWrapper GetLoginEventsByFilter (Guid? userId = null, MessageAction? action = null, ApiDateTime? from = null, ApiDateTime? to = null, int? count = null, int? startIndex = null)
 
 Returns a list of the login events by the parameters specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-login-events-by-filter/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **Guid?** | The ID of the user whose login events are being queried. | [optional]  |
+| **action** | [**MessageAction?**](MessageAction.md) | The login-related action to filter events by. | [optional]  |
+| **from** | [**ApiDateTime?**](ApiDateTime.md) | The starting date and time for filtering login events. | [optional]  |
+| **to** | [**ApiDateTime?**](ApiDateTime.md) | The ending date and time for filtering login events. | [optional]  |
+| **count** | **int?** | The number of login events to retrieve in the query. | [optional]  |
+| **startIndex** | **int?** | The starting index for fetching a subset of login events from the query results. | [optional]  |
+
+### Return type
+
+[**LoginEventArrayWrapper**](LoginEventArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -244,14 +267,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -262,21 +287,23 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityLoginHistoryApi(httpClient, config, httpClientHandler);
+            var apiInstance = new LoginHistoryApi(httpClient, config, httpClientHandler);
             var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The ID of the user whose login events are being queried. (optional) 
             var action = new MessageAction?(); // MessageAction? | The login-related action to filter events by. (optional) 
             var from = new ApiDateTime?(); // ApiDateTime? | The starting date and time for filtering login events. (optional) 
             var to = new ApiDateTime?(); // ApiDateTime? | The ending date and time for filtering login events. (optional) 
+            var count = 1234;  // int? | The number of login events to retrieve in the query. (optional) 
+            var startIndex = 1234;  // int? | The starting index for fetching a subset of login events from the query results. (optional) 
 
             try
             {
                 // Get filtered login events
-                LoginEventArrayWrapper result = apiInstance.GetLoginEventsByFilter(userId, action, from, to);
+                LoginEventArrayWrapper result = apiInstance.GetLoginEventsByFilter(userId, action, from, to, count, startIndex);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityLoginHistoryApi.GetLoginEventsByFilter: " + e.Message);
+                Debug.Print("Exception when calling LoginHistoryApi.GetLoginEventsByFilter: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -292,35 +319,18 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get filtered login events
-    ApiResponse<LoginEventArrayWrapper> response = apiInstance.GetLoginEventsByFilterWithHttpInfo(userId, action, from, to);
+    ApiResponse<LoginEventArrayWrapper> response = apiInstance.GetLoginEventsByFilterWithHttpInfo(userId, action, from, to, count, startIndex);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityLoginHistoryApi.GetLoginEventsByFilterWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling LoginHistoryApi.GetLoginEventsByFilterWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **Guid?** | The ID of the user whose login events are being queried. | [optional]  |
-| **action** | [**MessageAction?**](MessageAction?.md) | The login-related action to filter events by. | [optional]  |
-| **from** | [**ApiDateTime?**](ApiDateTime?.md) | The starting date and time for filtering login events. | [optional]  |
-| **to** | [**ApiDateTime?**](ApiDateTime?.md) | The ending date and time for filtering login events. | [optional]  |
-
-### Return type
-
-[**LoginEventArrayWrapper**](LoginEventArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

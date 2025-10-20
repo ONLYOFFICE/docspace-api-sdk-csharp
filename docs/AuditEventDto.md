@@ -1,4 +1,4 @@
-# Docspace.Model.AuditEventDto
+# DocSpace.API.SDK.Model.AuditEventDto
 The audit event parameters.
 
 ## Properties
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Page** | **string** | The audit event page. | [optional] 
 **ActionType** | **ActionType** |  | [optional] 
 **Product** | **ProductType** |  | [optional] 
-**Module** | **ModuleType** |  | [optional] 
+**Location** | **LocationType** |  | [optional] 
 **Target** | **List&lt;string&gt;** | The list of target objects affected by the audit event (e.g., document ID, user account). | [optional] 
 **Entries** | [**List&lt;EntryType&gt;**](EntryType.md) | The list of audit entry types (e.g., Folder, User, File). | [optional] 
 **Context** | **string** | The audit event context. | [optional] 

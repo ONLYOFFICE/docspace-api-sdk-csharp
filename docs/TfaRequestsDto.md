@@ -1,4 +1,4 @@
-# Docspace.Model.TfaRequestsDto
+# DocSpace.API.SDK.Model.TfaRequestsDto
 The request parameters for configuring the Two-Factor Authentication (TFA) settings.
 
 ## Properties

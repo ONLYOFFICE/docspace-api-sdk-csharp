@@ -1,4 +1,4 @@
-# Docspace.Model.RoomSecurityDto
+# DocSpace.API.SDK.Model.RoomSecurityDto
 The room security parameters.
 
 ## Properties

@@ -1,4 +1,4 @@
-# Docspace.Model.CspWrapper
+# DocSpace.API.SDK.Model.CspWrapper
 
 ## Properties
 

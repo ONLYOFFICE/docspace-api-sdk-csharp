@@ -1,4 +1,4 @@
-# Docspace.Model.SetupCodeWrapper
+# DocSpace.API.SDK.Model.SetupCodeWrapper
 
 ## Properties
 

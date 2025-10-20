@@ -1,4 +1,4 @@
-# Docspace.Model.ICompressWrapper
+# DocSpace.API.SDK.Model.ICompressWrapper
 
 ## Properties
 

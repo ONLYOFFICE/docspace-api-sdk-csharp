@@ -1,4 +1,4 @@
-# Docspace.Model.WhiteLabelItemArrayWrapper
+# DocSpace.API.SDK.Model.WhiteLabelItemArrayWrapper
 
 ## Properties
 

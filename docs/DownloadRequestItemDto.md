@@ -1,4 +1,4 @@
-# Docspace.Model.DownloadRequestItemDto
+# DocSpace.API.SDK.Model.DownloadRequestItemDto
 The download request item with conversion parameters and security settings.
 
 ## Properties

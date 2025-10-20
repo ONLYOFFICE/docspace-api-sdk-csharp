@@ -1,4 +1,4 @@
-# Docspace.Model.AuthenticationTokenDto
+# DocSpace.API.SDK.Model.AuthenticationTokenDto
 The authentication token parameters.
 
 ## Properties

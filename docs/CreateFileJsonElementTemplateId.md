@@ -1,4 +1,4 @@
-# Docspace.Model.CreateFileJsonElementTemplateId
+# DocSpace.API.SDK.Model.CreateFileJsonElementTemplateId
 The template file ID for creation.
 
 ## Properties

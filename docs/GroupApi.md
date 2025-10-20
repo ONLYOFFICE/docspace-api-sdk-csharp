@@ -1,37 +1,51 @@
-# Docspace.Api.GroupApi
+# DocSpace.API.SDK.Api.GroupApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AddGroup**](GroupApi.md#addgroup) | **POST** /api/2.0/group | Add a new group |
-| [**AddMembersTo**](GroupApi.md#addmembersto) | **PUT** /api/2.0/group/{id}/members | Add group members |
-| [**DeleteGroup**](GroupApi.md#deletegroup) | **DELETE** /api/2.0/group/{id} | Delete a group |
-| [**GetByUserId**](GroupApi.md#getbyuserid) | **GET** /api/2.0/group/user/{userid} | Get user groups |
-| [**GetGroup**](GroupApi.md#getgroup) | **GET** /api/2.0/group/{id} | Get a group |
-| [**GetGroups**](GroupApi.md#getgroups) | **GET** /api/2.0/group | Get groups |
-| [**RemoveMembersFrom**](GroupApi.md#removemembersfrom) | **DELETE** /api/2.0/group/{id}/members | Remove group members |
-| [**SetManager**](GroupApi.md#setmanager) | **PUT** /api/2.0/group/{id}/manager | Set a group manager |
-| [**SetMembersTo**](GroupApi.md#setmembersto) | **POST** /api/2.0/group/{id}/members | Replace group members |
-| [**TransferMembersTo**](GroupApi.md#transfermembersto) | **PUT** /api/2.0/group/{fromId}/members/{toId} | Move group members |
-| [**UpdateGroup**](GroupApi.md#updategroup) | **PUT** /api/2.0/group/{id} | Update a group |
+| [**AddGroup**](#addgroup) | **POST** /api/2.0/group | Add a new group |
+| [**AddMembersTo**](#addmembersto) | **PUT** /api/2.0/group/{id}/members | Add group members |
+| [**DeleteGroup**](#deletegroup) | **DELETE** /api/2.0/group/{id} | Delete a group |
+| [**GetGroup**](#getgroup) | **GET** /api/2.0/group/{id} | Get a group |
+| [**GetGroupByUserId**](#getgroupbyuserid) | **GET** /api/2.0/group/user/{userid} | Get user groups |
+| [**GetGroups**](#getgroups) | **GET** /api/2.0/group | Get groups |
+| [**MoveMembersTo**](#movemembersto) | **PUT** /api/2.0/group/{fromId}/members/{toId} | Move group members |
+| [**RemoveMembersFrom**](#removemembersfrom) | **DELETE** /api/2.0/group/{id}/members | Remove group members |
+| [**SetGroupManager**](#setgroupmanager) | **PUT** /api/2.0/group/{id}/manager | Set a group manager |
+| [**SetMembersTo**](#setmembersto) | **POST** /api/2.0/group/{id}/members | Replace group members |
+| [**UpdateGroup**](#updategroup) | **PUT** /api/2.0/group/{id} | Update a group |
 
 <a id="addgroup"></a>
 # **AddGroup**
 > GroupWrapper AddGroup (GroupRequestDto? groupRequestDto = null)
 
-Add a new group
-
 Adds a new group with the group manager, name, and members specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-group/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **groupRequestDto** | [**GroupRequestDto?**](GroupRequestDto.md) | The group request parameters. | [optional]  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -40,14 +54,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -59,7 +75,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var groupRequestDto = new GroupRequestDto?(); // GroupRequestDto? |  (optional) 
+            var groupRequestDto = new GroupRequestDto?(); // GroupRequestDto? | The group request parameters. (optional) 
 
             try
             {
@@ -98,20 +114,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **groupRequestDto** | [**GroupRequestDto?**](GroupRequestDto?.md) |  | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -128,20 +130,35 @@ catch (ApiException e)
 
 <a id="addmembersto"></a>
 # **AddMembersTo**
-> GroupWrapper AddMembersTo (Guid id, MembersRequest? membersRequest = null)
-
-Add group members
+> GroupWrapper AddMembersTo (Guid id, MembersRequest membersRequest)
 
 Adds new group members to the group with the ID specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-members-to/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The group ID. |  |
+| **membersRequest** | [**MembersRequest**](MembersRequest.md) | The member request. |  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -150,14 +167,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -170,7 +189,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
             var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
-            var membersRequest = new MembersRequest?(); // MembersRequest? | The member request. (optional) 
+            var membersRequest = new MembersRequest(); // MembersRequest | The member request.
 
             try
             {
@@ -209,21 +228,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-| **membersRequest** | [**MembersRequest?**](MembersRequest?.md) | The member request. | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -243,18 +247,32 @@ catch (ApiException e)
 # **DeleteGroup**
 > NoContentResultWrapper DeleteGroup (Guid id)
 
-Delete a group
-
 Deletes a group with the ID specified in the request from the list of groups on the portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-group/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The group ID. |  |
+
+### Return type
+
+[**NoContentResultWrapper**](NoContentResultWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -263,14 +281,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -321,20 +341,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-
-### Return type
-
-[**NoContentResultWrapper**](NoContentResultWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -350,132 +356,37 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getbyuserid"></a>
-# **GetByUserId**
-> GroupSummaryArrayWrapper GetByUserId (Guid userid)
+<a id="getgroup"></a>
+# **GetGroup**
+> GroupWrapper GetGroup (Guid id, bool? includeMembers = null)
 
-Get user groups
+Returns the detailed information about the selected group.   **Note**: This method returns full group information.
 
-Returns a list of groups for the user with the ID specified in the request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetByUserIdExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID.
-
-            try
-            {
-                // Get user groups
-                GroupSummaryArrayWrapper result = apiInstance.GetByUserId(userid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling GroupApi.GetByUserId: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetByUserIdWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get user groups
-    ApiResponse<GroupSummaryArrayWrapper> response = apiInstance.GetByUserIdWithHttpInfo(userid);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling GroupApi.GetByUserIdWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group/).
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **userid** | **Guid** | The user ID. |  |
+| **id** | **Guid** | The group ID. |  |
+| **includeMembers** | **bool?** | Specifies whether to include the group members or not. | [optional]  |
 
 ### Return type
 
-[**GroupSummaryArrayWrapper**](GroupSummaryArrayWrapper.md)
+[**GroupWrapper**](GroupWrapper.md)
 
 ### Authorization
 
 [Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | List of groups |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="getgroup"></a>
-# **GetGroup**
-> GroupWrapper GetGroup (Guid id, bool? includeMembers = null)
-
-Get a group
-
-Returns the detailed information about the selected group.   **Note**: This method returns full group information.
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -484,14 +395,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -543,21 +456,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-| **includeMembers** | **bool?** | Specifies whether to include the group members or not. | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -573,22 +471,154 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getgroups"></a>
-# **GetGroups**
-> GroupArrayWrapper GetGroups (Guid? userId = null, bool? manager = null)
+<a id="getgroupbyuserid"></a>
+# **GetGroupByUserId**
+> GroupSummaryArrayWrapper GetGroupByUserId (Guid userid)
 
-Get groups
+Returns a list of groups for the user with the ID specified in the request.
 
-Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group-by-user-id/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userid** | **Guid** | The user ID. |  |
+
+### Return type
+
+[**GroupSummaryArrayWrapper**](GroupSummaryArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetGroupByUserIdExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
+            var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID.
+
+            try
+            {
+                // Get user groups
+                GroupSummaryArrayWrapper result = apiInstance.GetGroupByUserId(userid);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GroupApi.GetGroupByUserId: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetGroupByUserIdWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get user groups
+    ApiResponse<GroupSummaryArrayWrapper> response = apiInstance.GetGroupByUserIdWithHttpInfo(userid);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupApi.GetGroupByUserIdWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | List of groups |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getgroups"></a>
+# **GetGroups**
+> GroupArrayWrapper GetGroups (Guid? userId = null, bool? manager = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+
+Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **userId** | **Guid?** | The user ID. | [optional]  |
+| **manager** | **bool?** | Specifies if the user is a manager or not. | [optional]  |
+| **count** | **int?** | The number of records to retrieve. | [optional]  |
+| **startIndex** | **int?** | The starting index for paginated results. | [optional]  |
+| **sortBy** | **string?** | Specifies the property used to sort the query results. | [optional]  |
+| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
+| **filterValue** | **string?** | The text used for filtering or searching group data. | [optional]  |
+
+### Return type
+
+[**GroupArrayWrapper**](GroupArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -597,14 +627,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -618,11 +650,16 @@ namespace Example
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
             var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The user ID. (optional) 
             var manager = true;  // bool? | Specifies if the user is a manager or not. (optional) 
+            var count = 1234;  // int? | The number of records to retrieve. (optional) 
+            var startIndex = 1234;  // int? | The starting index for paginated results. (optional) 
+            var sortBy = some text;  // string? | Specifies the property used to sort the query results. (optional) 
+            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
+            var filterValue = some text;  // string? | The text used for filtering or searching group data. (optional) 
 
             try
             {
                 // Get groups
-                GroupArrayWrapper result = apiInstance.GetGroups(userId, manager);
+                GroupArrayWrapper result = apiInstance.GetGroups(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -643,7 +680,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get groups
-    ApiResponse<GroupArrayWrapper> response = apiInstance.GetGroupsWithHttpInfo(userId, manager);
+    ApiResponse<GroupArrayWrapper> response = apiInstance.GetGroupsWithHttpInfo(userId, manager, count, startIndex, sortBy, sortOrder, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -655,21 +692,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userId** | **Guid?** | The user ID. | [optional]  |
-| **manager** | **bool?** | Specifies if the user is a manager or not. | [optional]  |
-
-### Return type
-
-[**GroupArrayWrapper**](GroupArrayWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -685,22 +707,152 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="removemembersfrom"></a>
-# **RemoveMembersFrom**
-> GroupWrapper RemoveMembersFrom (Guid id, MembersRequest? membersRequest = null)
+<a id="movemembersto"></a>
+# **MoveMembersTo**
+> GroupWrapper MoveMembersTo (Guid fromId, Guid toId)
 
-Remove group members
+Moves all the members from the selected group to another one specified in the request.
 
-Removes the group members specified in the request from the selected group.
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/move-members-to/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fromId** | **Guid** | The group ID to move from. |  |
+| **toId** | **Guid** | The group ID to move to. |  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class MoveMembersToExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
+            var fromId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID to move from.
+            var toId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID to move to.
+
+            try
+            {
+                // Move group members
+                GroupWrapper result = apiInstance.MoveMembersTo(fromId, toId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GroupApi.MoveMembersTo: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the MoveMembersToWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Move group members
+    ApiResponse<GroupWrapper> response = apiInstance.MoveMembersToWithHttpInfo(fromId, toId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GroupApi.MoveMembersToWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Group with the detailed information |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Group not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="removemembersfrom"></a>
+# **RemoveMembersFrom**
+> GroupWrapper RemoveMembersFrom (Guid id, MembersRequest membersRequest)
+
+Removes the group members specified in the request from the selected group.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-members-from/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The group ID. |  |
+| **membersRequest** | [**MembersRequest**](MembersRequest.md) | The member request. |  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -709,14 +861,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -729,7 +883,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
             var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
-            var membersRequest = new MembersRequest?(); // MembersRequest? | The member request. (optional) 
+            var membersRequest = new MembersRequest(); // MembersRequest | The member request.
 
             try
             {
@@ -768,21 +922,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-| **membersRequest** | [**MembersRequest?**](MembersRequest?.md) | The member request. | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -798,38 +937,55 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="setmanager"></a>
-# **SetManager**
-> GroupWrapper SetManager (Guid id, SetManagerRequest? setManagerRequest = null)
-
-Set a group manager
+<a id="setgroupmanager"></a>
+# **SetGroupManager**
+> GroupWrapper SetGroupManager (Guid id, SetManagerRequest setManagerRequest)
 
 Sets a user with the ID specified in the request as a group manager.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-group-manager/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The group ID. |  |
+| **setManagerRequest** | [**SetManagerRequest**](SetManagerRequest.md) | The request for setting a group manager. |  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class SetManagerExample
+    public class SetGroupManagerExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -842,17 +998,17 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
             var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
-            var setManagerRequest = new SetManagerRequest?(); // SetManagerRequest? | The request for setting a group manager. (optional) 
+            var setManagerRequest = new SetManagerRequest(); // SetManagerRequest | The request for setting a group manager.
 
             try
             {
                 // Set a group manager
-                GroupWrapper result = apiInstance.SetManager(id, setManagerRequest);
+                GroupWrapper result = apiInstance.SetGroupManager(id, setManagerRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling GroupApi.SetManager: " + e.Message);
+                Debug.Print("Exception when calling GroupApi.SetGroupManager: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -861,40 +1017,25 @@ namespace Example
 }
 ```
 
-#### Using the SetManagerWithHttpInfo variant
+#### Using the SetGroupManagerWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Set a group manager
-    ApiResponse<GroupWrapper> response = apiInstance.SetManagerWithHttpInfo(id, setManagerRequest);
+    ApiResponse<GroupWrapper> response = apiInstance.SetGroupManagerWithHttpInfo(id, setManagerRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling GroupApi.SetManagerWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling GroupApi.SetGroupManagerWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-| **setManagerRequest** | [**SetManagerRequest?**](SetManagerRequest?.md) | The request for setting a group manager. | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -913,20 +1054,35 @@ catch (ApiException e)
 
 <a id="setmembersto"></a>
 # **SetMembersTo**
-> GroupWrapper SetMembersTo (Guid id, MembersRequest? membersRequest = null)
-
-Replace group members
+> GroupWrapper SetMembersTo (Guid id, MembersRequest membersRequest)
 
 Replaces the group members with those specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-members-to/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **id** | **Guid** | The group ID. |  |
+| **membersRequest** | [**MembersRequest**](MembersRequest.md) | The member request. |  |
+
+### Return type
+
+[**GroupWrapper**](GroupWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -935,14 +1091,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -955,7 +1113,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
             var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
-            var membersRequest = new MembersRequest?(); // MembersRequest? | The member request. (optional) 
+            var membersRequest = new MembersRequest(); // MembersRequest | The member request.
 
             try
             {
@@ -994,21 +1152,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-| **membersRequest** | [**MembersRequest?**](MembersRequest?.md) | The member request. | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -1023,95 +1166,20 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="transfermembersto"></a>
-# **TransferMembersTo**
-> GroupWrapper TransferMembersTo (Guid fromId, Guid toId)
+<a id="updategroup"></a>
+# **UpdateGroup**
+> GroupWrapper UpdateGroup (Guid id, UpdateGroupRequest updateGroupRequest)
 
-Move group members
+Updates the existing group changing the group manager, name, and/or members.
 
-Moves all the members from the selected group to another one specified in the request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class TransferMembersToExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var fromId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID to move from.
-            var toId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID to move to.
-
-            try
-            {
-                // Move group members
-                GroupWrapper result = apiInstance.TransferMembersTo(fromId, toId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling GroupApi.TransferMembersTo: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the TransferMembersToWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Move group members
-    ApiResponse<GroupWrapper> response = apiInstance.TransferMembersToWithHttpInfo(fromId, toId);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling GroupApi.TransferMembersToWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-group/).
 
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **fromId** | **Guid** | The group ID to move from. |  |
-| **toId** | **Guid** | The group ID to move to. |  |
+| **id** | **Guid** | The group ID. |  |
+| **updateGroupRequest** | [**UpdateGroupRequest**](UpdateGroupRequest.md) | The request for updating a group. |  |
 
 ### Return type
 
@@ -1121,37 +1189,14 @@ catch (ApiException e)
 
 [Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Group with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Group not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="updategroup"></a>
-# **UpdateGroup**
-> GroupWrapper UpdateGroup (Guid id, UpdateGroupRequest? updateGroupRequest = null)
-
-Update a group
-
-Updates the existing group changing the group manager, name, and/or members.
-
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -1160,14 +1205,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1180,7 +1227,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
             var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
-            var updateGroupRequest = new UpdateGroupRequest?(); // UpdateGroupRequest? | The request for updating a group. (optional) 
+            var updateGroupRequest = new UpdateGroupRequest(); // UpdateGroupRequest | The request for updating a group.
 
             try
             {
@@ -1218,21 +1265,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **id** | **Guid** | The group ID. |  |
-| **updateGroupRequest** | [**UpdateGroupRequest?**](UpdateGroupRequest?.md) | The request for updating a group. | [optional]  |
-
-### Return type
-
-[**GroupWrapper**](GroupWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

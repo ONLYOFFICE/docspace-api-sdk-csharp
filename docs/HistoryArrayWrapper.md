@@ -1,4 +1,4 @@
-# Docspace.Model.HistoryArrayWrapper
+# DocSpace.API.SDK.Model.HistoryArrayWrapper
 
 ## Properties
 

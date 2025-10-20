@@ -1,5 +1,5 @@
-# Docspace.Model.SubjectType
-The subject type of the access right.
+# DocSpace.API.SDK.Model.SubjectType
+[0 - User, 1 - External link, 2 - Group, 3 - Invitation link, 4 - Primary external link]
 
 ## Properties
 

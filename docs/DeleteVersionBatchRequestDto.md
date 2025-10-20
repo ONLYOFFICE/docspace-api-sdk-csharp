@@ -1,10 +1,11 @@
-# Docspace.Model.DeleteVersionBatchRequestDto
+# DocSpace.API.SDK.Model.DeleteVersionBatchRequestDto
 The request parameters for deleting file versions.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ReturnSingleOperation** | **bool** | Specifies whether to return only the current operation | [optional] 
 **DeleteAfter** | **bool** | Specifies whether to delete a file after the editing session is finished or not. | [optional] 
 **FileId** | **int** | The file ID to delete. | 
 **Versions** | **List&lt;int&gt;** | The collection of file versions to be deleted. | 

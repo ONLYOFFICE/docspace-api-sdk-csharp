@@ -1,4 +1,4 @@
-# Docspace.Model.AuthenticationTokenWrapper
+# DocSpace.API.SDK.Model.AuthenticationTokenWrapper
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Docspace.Model.CompanyWhiteLabelSettingsWrapper
+# DocSpace.API.SDK.Model.CompanyWhiteLabelSettingsWrapper
 The company white label settings wrapper.
 
 ## Properties

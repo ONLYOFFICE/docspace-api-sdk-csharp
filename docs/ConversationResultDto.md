@@ -1,13 +1,13 @@
-# Docspace.Model.ConversationResultDto
+# DocSpace.API.SDK.Model.ConversationResultDto
 The result of file convertion operation.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | The conversion operation ID. | [optional] 
-**Operation** | **FileOperationType** |  | [optional] 
-**Progress** | **int** | The conversion operation progress. | [optional] 
+**Id** | **string** | The conversion operation ID. | 
+**Operation** | **FileOperationType** |  | 
+**Progress** | **int** | The conversion operation progress. | 
 **Source** | **string** | The source file for the conversion. | [optional] 
 **Result** | **Object** | The resulting file after the conversion. | [optional] 
 **Error** | **string** | The conversion operation error message. | [optional] 

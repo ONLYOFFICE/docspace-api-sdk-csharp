@@ -1,4 +1,4 @@
-# Docspace.Model.DoubleWrapper
+# DocSpace.API.SDK.Model.DoubleWrapper
 
 ## Properties
 

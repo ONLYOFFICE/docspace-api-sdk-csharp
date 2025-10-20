@@ -1,28 +1,42 @@
-# Docspace.Api.SecurityFirebaseApi
+# DocSpace.API.SDK.Api.FirebaseApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DocRegisterPusnNotificationDevice**](SecurityFirebaseApi.md#docregisterpusnnotificationdevice) | **POST** /api/2.0/settings/push/docregisterdevice | Save the Documents Firebase device token |
-| [**SubscribeDocumentsPushNotification**](SecurityFirebaseApi.md#subscribedocumentspushnotification) | **PUT** /api/2.0/settings/push/docsubscribe | Subscribe to Documents push notification |
+| [**DocRegisterPusnNotificationDevice**](#docregisterpusnnotificationdevice) | **POST** /api/2.0/settings/push/docregisterdevice | Save the Documents Firebase device token |
+| [**SubscribeDocumentsPushNotification**](#subscribedocumentspushnotification) | **PUT** /api/2.0/settings/push/docsubscribe | Subscribe to Documents push notification |
 
 <a id="docregisterpusnnotificationdevice"></a>
 # **DocRegisterPusnNotificationDevice**
 > FireBaseUserWrapper DocRegisterPusnNotificationDevice (FirebaseRequestsDto? firebaseRequestsDto = null)
 
-Save the Documents Firebase device token
-
 Saves the Firebase device token specified in the request for the Documents application.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/doc-register-pusn-notification-device/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **firebaseRequestsDto** | [**FirebaseRequestsDto?**](FirebaseRequestsDto.md) | The Firebase-related request parameters. | [optional]  |
+
+### Return type
+
+[**FireBaseUserWrapper**](FireBaseUserWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -31,14 +45,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -49,8 +65,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityFirebaseApi(httpClient, config, httpClientHandler);
-            var firebaseRequestsDto = new FirebaseRequestsDto?(); // FirebaseRequestsDto? |  (optional) 
+            var apiInstance = new FirebaseApi(httpClient, config, httpClientHandler);
+            var firebaseRequestsDto = new FirebaseRequestsDto?(); // FirebaseRequestsDto? | The Firebase-related request parameters. (optional) 
 
             try
             {
@@ -60,7 +76,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityFirebaseApi.DocRegisterPusnNotificationDevice: " + e.Message);
+                Debug.Print("Exception when calling FirebaseApi.DocRegisterPusnNotificationDevice: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -83,25 +99,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityFirebaseApi.DocRegisterPusnNotificationDeviceWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FirebaseApi.DocRegisterPusnNotificationDeviceWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **firebaseRequestsDto** | [**FirebaseRequestsDto?**](FirebaseRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**FireBaseUserWrapper**](FireBaseUserWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -121,18 +123,32 @@ catch (ApiException e)
 # **SubscribeDocumentsPushNotification**
 > FireBaseUserWrapper SubscribeDocumentsPushNotification (FirebaseRequestsDto? firebaseRequestsDto = null)
 
-Subscribe to Documents push notification
-
 Subscribes to the Documents push notification.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/subscribe-documents-push-notification/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **firebaseRequestsDto** | [**FirebaseRequestsDto?**](FirebaseRequestsDto.md) | The Firebase-related request parameters. | [optional]  |
+
+### Return type
+
+[**FireBaseUserWrapper**](FireBaseUserWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -141,14 +157,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -159,8 +177,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SecurityFirebaseApi(httpClient, config, httpClientHandler);
-            var firebaseRequestsDto = new FirebaseRequestsDto?(); // FirebaseRequestsDto? |  (optional) 
+            var apiInstance = new FirebaseApi(httpClient, config, httpClientHandler);
+            var firebaseRequestsDto = new FirebaseRequestsDto?(); // FirebaseRequestsDto? | The Firebase-related request parameters. (optional) 
 
             try
             {
@@ -170,7 +188,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SecurityFirebaseApi.SubscribeDocumentsPushNotification: " + e.Message);
+                Debug.Print("Exception when calling FirebaseApi.SubscribeDocumentsPushNotification: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -193,25 +211,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SecurityFirebaseApi.SubscribeDocumentsPushNotificationWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling FirebaseApi.SubscribeDocumentsPushNotificationWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **firebaseRequestsDto** | [**FirebaseRequestsDto?**](FirebaseRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**FireBaseUserWrapper**](FireBaseUserWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 

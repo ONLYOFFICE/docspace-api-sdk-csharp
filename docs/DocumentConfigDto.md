@@ -1,4 +1,4 @@
-# Docspace.Model.DocumentConfigDto
+# DocSpace.API.SDK.Model.DocumentConfigDto
 The document config parameters.
 
 ## Properties

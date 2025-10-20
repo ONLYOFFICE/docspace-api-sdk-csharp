@@ -1,4 +1,4 @@
-# Docspace.Model.CopyAsJsonElement
+# DocSpace.API.SDK.Model.CopyAsJsonElement
 The parameters for copying a file.
 
 ## Properties

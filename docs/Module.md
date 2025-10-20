@@ -1,4 +1,4 @@
-# Docspace.Model.Module
+# DocSpace.API.SDK.Model.Module
 The module information.
 
 ## Properties

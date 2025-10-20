@@ -1,4 +1,4 @@
-# Docspace.Model.FileLinkWrapper
+# DocSpace.API.SDK.Model.FileLinkWrapper
 
 ## Properties
 

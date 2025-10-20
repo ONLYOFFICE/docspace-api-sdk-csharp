@@ -1,4 +1,4 @@
-# Docspace.Model.ApiKeyResponseArrayWrapper
+# DocSpace.API.SDK.Model.ApiKeyResponseArrayWrapper
 
 ## Properties
 

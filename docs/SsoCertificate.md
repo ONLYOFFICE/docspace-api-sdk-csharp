@@ -1,4 +1,4 @@
-# Docspace.Model.SsoCertificate
+# DocSpace.API.SDK.Model.SsoCertificate
 The SSO certificate parameters.
 
 ## Properties

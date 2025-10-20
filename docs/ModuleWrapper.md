@@ -1,4 +1,4 @@
-# Docspace.Model.ModuleWrapper
+# DocSpace.API.SDK.Model.ModuleWrapper
 
 ## Properties
 

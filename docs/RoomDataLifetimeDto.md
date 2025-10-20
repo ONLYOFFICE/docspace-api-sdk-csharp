@@ -1,12 +1,12 @@
-# Docspace.Model.RoomDataLifetimeDto
+# DocSpace.API.SDK.Model.RoomDataLifetimeDto
 The room data lifetime information.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DeletePermanently** | **bool** | Specifies whether to permanently delete the room data or not. | [optional] 
-**Period** | **RoomDataLifetimePeriod** |  | [optional] 
+**DeletePermanently** | **bool** | Specifies whether to permanently delete the room data or not. | 
+**Period** | **RoomDataLifetimePeriod** |  | 
 **Value** | **int?** | Specifies the time period value of the room data lifetime. | [optional] 
 **Enabled** | **bool?** | Specifies whether the room data lifetime setting is enabled or not. | [optional] 
 

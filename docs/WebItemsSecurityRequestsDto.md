@@ -1,4 +1,4 @@
-# Docspace.Model.WebItemsSecurityRequestsDto
+# DocSpace.API.SDK.Model.WebItemsSecurityRequestsDto
 The request parameters for configuring security settings across multiple web modules.
 
 ## Properties

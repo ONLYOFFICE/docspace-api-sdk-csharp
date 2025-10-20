@@ -1,33 +1,47 @@
-# Docspace.Api.AuthenticationApi
+# DocSpace.API.SDK.Api.AuthenticationApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AuthenticateMe**](AuthenticationApi.md#authenticateme) | **POST** /api/2.0/authentication | Authenticate a user |
-| [**AuthenticateMeFromBodyWithCode**](AuthenticationApi.md#authenticatemefrombodywithcode) | **POST** /api/2.0/authentication/{code} | Authenticate a user by code |
-| [**CheckConfirm**](AuthenticationApi.md#checkconfirm) | **POST** /api/2.0/authentication/confirm | Open confirmation email URL |
-| [**GetIsAuthentificated**](AuthenticationApi.md#getisauthentificated) | **GET** /api/2.0/authentication | Check authentication |
-| [**Logout**](AuthenticationApi.md#logout) | **POST** /api/2.0/authentication/logout | Log out |
-| [**SaveMobilePhone**](AuthenticationApi.md#savemobilephone) | **POST** /api/2.0/authentication/setphone | Set a mobile phone |
-| [**SendSmsCode**](AuthenticationApi.md#sendsmscode) | **POST** /api/2.0/authentication/sendsms | Send SMS code |
+| [**AuthenticateMe**](#authenticateme) | **POST** /api/2.0/authentication | Authenticate a user |
+| [**AuthenticateMeFromBodyWithCode**](#authenticatemefrombodywithcode) | **POST** /api/2.0/authentication/{code} | Authenticate a user by code |
+| [**CheckConfirm**](#checkconfirm) | **POST** /api/2.0/authentication/confirm | Open confirmation email URL |
+| [**GetIsAuthentificated**](#getisauthentificated) | **GET** /api/2.0/authentication | Check authentication |
+| [**Logout**](#logout) | **POST** /api/2.0/authentication/logout | Log out |
+| [**SaveMobilePhone**](#savemobilephone) | **POST** /api/2.0/authentication/setphone | Set a mobile phone |
+| [**SendSmsCode**](#sendsmscode) | **POST** /api/2.0/authentication/sendsms | Send SMS code |
 
 <a id="authenticateme"></a>
 # **AuthenticateMe**
 > AuthenticationTokenWrapper AuthenticateMe (AuthRequestsDto? authRequestsDto = null)
 
-Authenticate a user
-
 Authenticates the current user by SMS, authenticator app, or without two-factor authentication.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **authRequestsDto** | [**AuthRequestsDto?**](AuthRequestsDto.md) | The parameters required for the user authentication requests. | [optional]  |
+
+### Return type
+
+[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -36,12 +50,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
-            var authRequestsDto = new AuthRequestsDto?(); // AuthRequestsDto? |  (optional) 
+            var authRequestsDto = new AuthRequestsDto?(); // AuthRequestsDto? | The parameters required for the user authentication requests. (optional) 
 
             try
             {
@@ -80,20 +94,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **authRequestsDto** | [**AuthRequestsDto?**](AuthRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -115,18 +115,33 @@ No authorization required
 # **AuthenticateMeFromBodyWithCode**
 > AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode (string code, AuthRequestsDto? authRequestsDto = null)
 
-Authenticate a user by code
-
 Authenticates the current user by SMS or two-factor authentication code.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **code** | **string** |  |  |
+| **authRequestsDto** | [**AuthRequestsDto?**](AuthRequestsDto.md) | The parameters required for the user authentication requests. | [optional]  |
+
+### Return type
+
+[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -135,13 +150,13 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
             var code = "code_example";  // string | 
-            var authRequestsDto = new AuthRequestsDto?(); // AuthRequestsDto? |  (optional) 
+            var authRequestsDto = new AuthRequestsDto?(); // AuthRequestsDto? | The parameters required for the user authentication requests. (optional) 
 
             try
             {
@@ -180,21 +195,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **code** | **string** |  |  |
-| **authRequestsDto** | [**AuthRequestsDto?**](AuthRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -216,18 +216,32 @@ No authorization required
 # **CheckConfirm**
 > ConfirmWrapper CheckConfirm (EmailValidationKeyModel? emailValidationKeyModel = null)
 
-Open confirmation email URL
-
 Opens a confirmation email URL to validate a certain action (employee invitation, portal removal, phone activation, etc.).
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-confirm/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **emailValidationKeyModel** | [**EmailValidationKeyModel?**](EmailValidationKeyModel.md) | The confirmation email parameters. | [optional]  |
+
+### Return type
+
+[**ConfirmWrapper**](ConfirmWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -236,12 +250,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
-            var emailValidationKeyModel = new EmailValidationKeyModel?(); // EmailValidationKeyModel? |  (optional) 
+            var emailValidationKeyModel = new EmailValidationKeyModel?(); // EmailValidationKeyModel? | The confirmation email parameters. (optional) 
 
             try
             {
@@ -280,20 +294,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **emailValidationKeyModel** | [**EmailValidationKeyModel?**](EmailValidationKeyModel?.md) |  | [optional]  |
-
-### Return type
-
-[**ConfirmWrapper**](ConfirmWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -311,18 +311,28 @@ No authorization required
 # **GetIsAuthentificated**
 > BooleanWrapper GetIsAuthentificated ()
 
-Check authentication
-
 Checks if the current user is authenticated or not.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-is-authentificated/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -331,7 +341,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -374,16 +384,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**BooleanWrapper**](BooleanWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -401,18 +401,28 @@ No authorization required
 # **Logout**
 > StringWrapper Logout ()
 
-Log out
-
 Logs out of the current user account.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/logout/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -421,7 +431,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -464,16 +474,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-No authorization required
-
 ### HTTP request headers
 
  - **Content-Type**: Not defined
@@ -491,18 +491,32 @@ No authorization required
 # **SaveMobilePhone**
 > AuthenticationTokenWrapper SaveMobilePhone (MobileRequestsDto? mobileRequestsDto = null)
 
-Set a mobile phone
-
 Sets a mobile phone for the current user.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mobile-phone/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **mobileRequestsDto** | [**MobileRequestsDto?**](MobileRequestsDto.md) | The parameters required for the mobile phone verification. | [optional]  |
+
+### Return type
+
+[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -511,14 +525,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -530,7 +546,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
-            var mobileRequestsDto = new MobileRequestsDto?(); // MobileRequestsDto? |  (optional) 
+            var mobileRequestsDto = new MobileRequestsDto?(); // MobileRequestsDto? | The parameters required for the mobile phone verification. (optional) 
 
             try
             {
@@ -569,20 +585,6 @@ catch (ApiException e)
 }
 ```
 
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **mobileRequestsDto** | [**MobileRequestsDto?**](MobileRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json
@@ -601,18 +603,32 @@ catch (ApiException e)
 # **SendSmsCode**
 > AuthenticationTokenWrapper SendSmsCode (AuthRequestsDto? authRequestsDto = null)
 
-Send SMS code
-
 Sends SMS with an authentication code.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-sms-code/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **authRequestsDto** | [**AuthRequestsDto?**](AuthRequestsDto.md) | The parameters required for the user authentication requests. | [optional]  |
+
+### Return type
+
+[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -621,12 +637,12 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
-            var authRequestsDto = new AuthRequestsDto?(); // AuthRequestsDto? |  (optional) 
+            var authRequestsDto = new AuthRequestsDto?(); // AuthRequestsDto? | The parameters required for the user authentication requests. (optional) 
 
             try
             {
@@ -664,20 +680,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **authRequestsDto** | [**AuthRequestsDto?**](AuthRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**AuthenticationTokenWrapper**](AuthenticationTokenWrapper.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 

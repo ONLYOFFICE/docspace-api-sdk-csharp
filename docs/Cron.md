@@ -1,4 +1,4 @@
-# Docspace.Model.Cron
+# DocSpace.API.SDK.Model.Cron
 The backup cron parameters.
 
 ## Properties

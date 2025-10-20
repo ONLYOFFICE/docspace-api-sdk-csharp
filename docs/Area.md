@@ -1,5 +1,5 @@
-# Docspace.Model.Area
-The area of the account entries.
+# DocSpace.API.SDK.Model.Area
+[0 - All, 1 - People, 2 - Guests]
 
 ## Properties
 

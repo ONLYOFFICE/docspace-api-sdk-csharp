@@ -1,4 +1,4 @@
-# Docspace.Model.WebhooksConfigWithStatusDto
+# DocSpace.API.SDK.Model.WebhooksConfigWithStatusDto
 The webhook configuration with its status.
 
 ## Properties

@@ -1,4 +1,4 @@
-# Docspace.Model.ThirdPartyParams
+# DocSpace.API.SDK.Model.ThirdPartyParams
 The third-party account parameters.
 
 ## Properties

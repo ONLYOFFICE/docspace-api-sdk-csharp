@@ -1,5 +1,5 @@
-# Docspace.Model.SexEnum
-The user sex.
+# DocSpace.API.SDK.Model.SexEnum
+[0 - Female, 1 - Male]
 
 ## Properties
 

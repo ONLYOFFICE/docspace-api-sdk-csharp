@@ -1,4 +1,4 @@
-# Docspace.Model.CustomColorThemesSettingsWrapper
+# DocSpace.API.SDK.Model.CustomColorThemesSettingsWrapper
 
 ## Properties
 

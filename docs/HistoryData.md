@@ -1,4 +1,4 @@
-# Docspace.Model.HistoryData
+# DocSpace.API.SDK.Model.HistoryData
 The history data.
 
 ## Properties

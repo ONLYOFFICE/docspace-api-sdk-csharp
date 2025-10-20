@@ -1,27 +1,37 @@
-# Docspace.Api.CapabilitiesApi
+# DocSpace.API.SDK.Api.CapabilitiesApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetPortalCapabilities**](CapabilitiesApi.md#getportalcapabilities) | **GET** /api/2.0/capabilities | Get portal capabilities |
+| [**GetPortalCapabilities**](#getportalcapabilities) | **GET** /api/2.0/capabilities | Get portal capabilities |
 
 <a id="getportalcapabilities"></a>
 # **GetPortalCapabilities**
 > CapabilitiesWrapper GetPortalCapabilities ()
 
-Get portal capabilities
-
 Returns the information about portal capabilities.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-capabilities/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**CapabilitiesWrapper**](CapabilitiesWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -30,7 +40,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
@@ -72,16 +82,6 @@ catch (ApiException e)
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**CapabilitiesWrapper**](CapabilitiesWrapper.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 

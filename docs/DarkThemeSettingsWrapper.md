@@ -1,4 +1,4 @@
-# Docspace.Model.DarkThemeSettingsWrapper
+# DocSpace.API.SDK.Model.DarkThemeSettingsWrapper
 
 ## Properties
 

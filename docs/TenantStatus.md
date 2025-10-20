@@ -1,5 +1,5 @@
-# Docspace.Model.TenantStatus
-The tenant status.
+# DocSpace.API.SDK.Model.TenantStatus
+[0 - Active, 1 - Suspended, 2 - Remove pending, 3 - Transfering, 4 - Restoring, 5 - Migrating, 6 - Encryption]
 
 ## Properties
 

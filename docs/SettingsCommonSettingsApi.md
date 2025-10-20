@@ -1,43 +1,55 @@
-# Docspace.Api.SettingsCommonSettingsApi
+# DocSpace.API.SDK.Api.CommonSettingsApi
 
-All URIs are relative to *http://http:*
+All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CloseAdminHelper**](SettingsCommonSettingsApi.md#closeadminhelper) | **PUT** /api/2.0/settings/closeadminhelper | Close the admin helper |
-| [**CompleteWizard**](SettingsCommonSettingsApi.md#completewizard) | **PUT** /api/2.0/settings/wizard/complete | Complete the Wizard settings |
-| [**DeleteColorTheme**](SettingsCommonSettingsApi.md#deletecolortheme) | **DELETE** /api/2.0/settings/colortheme | Delete a color theme |
-| [**GetColorTheme**](SettingsCommonSettingsApi.md#getcolortheme) | **GET** /api/2.0/settings/colortheme | Get a color theme |
-| [**GetLogo**](SettingsCommonSettingsApi.md#getlogo) | **GET** /api/2.0/settings/logo | Get a portal logo |
-| [**GetMachineName**](SettingsCommonSettingsApi.md#getmachinename) | **GET** /api/2.0/settings/machine | Get hostname |
-| [**GetSettings**](SettingsCommonSettingsApi.md#getsettings) | **GET** /api/2.0/settings | Get the portal settings |
-| [**GetSocketSettings**](SettingsCommonSettingsApi.md#getsocketsettings) | **GET** /api/2.0/settings/socket | Get the socket settings |
-| [**GetSupportedCultures**](SettingsCommonSettingsApi.md#getsupportedcultures) | **GET** /api/2.0/settings/cultures | Get supported languages |
-| [**GetTimeZonesAsync**](SettingsCommonSettingsApi.md#gettimezonesasync) | **GET** /api/2.0/settings/timezones | Get time zones |
-| [**GettDeepLinkSettings**](SettingsCommonSettingsApi.md#gettdeeplinksettings) | **GET** /api/2.0/settings/deeplink | Get the deep link settings |
-| [**PaymentSettings**](SettingsCommonSettingsApi.md#paymentsettings) | **GET** /api/2.0/settings/payment | Get the payment settings |
-| [**SaveColorTheme**](SettingsCommonSettingsApi.md#savecolortheme) | **PUT** /api/2.0/settings/colortheme | Save a color theme |
-| [**SaveConfigureDeepLink**](SettingsCommonSettingsApi.md#saveconfiguredeeplink) | **POST** /api/2.0/settings/deeplink | Configure the deep link settings |
-| [**SaveDnsSettings**](SettingsCommonSettingsApi.md#savednssettings) | **PUT** /api/2.0/settings/dns | Save the DNS settings |
-| [**SaveMailDomainSettings**](SettingsCommonSettingsApi.md#savemaildomainsettings) | **POST** /api/2.0/settings/maildomainsettings | Save the mail domain settings |
-| [**UpdateEmailActivationSettings**](SettingsCommonSettingsApi.md#updateemailactivationsettings) | **PUT** /api/2.0/settings/emailactivation | Update the email activation settings |
+| [**CloseAdminHelper**](#closeadminhelper) | **PUT** /api/2.0/settings/closeadminhelper | Close the admin helper |
+| [**CompleteWizard**](#completewizard) | **PUT** /api/2.0/settings/wizard/complete | Complete the Wizard settings |
+| [**ConfigureDeepLink**](#configuredeeplink) | **POST** /api/2.0/settings/deeplink | Configure the deep link settings |
+| [**DeletePortalColorTheme**](#deleteportalcolortheme) | **DELETE** /api/2.0/settings/colortheme | Delete a color theme |
+| [**GetDeepLinkSettings**](#getdeeplinksettings) | **GET** /api/2.0/settings/deeplink | Get the deep link settings |
+| [**GetPaymentSettings**](#getpaymentsettings) | **GET** /api/2.0/settings/payment | Get the payment settings |
+| [**GetPortalColorTheme**](#getportalcolortheme) | **GET** /api/2.0/settings/colortheme | Get a color theme |
+| [**GetPortalHostname**](#getportalhostname) | **GET** /api/2.0/settings/machine | Get hostname |
+| [**GetPortalLogo**](#getportallogo) | **GET** /api/2.0/settings/logo | Get a portal logo |
+| [**GetPortalSettings**](#getportalsettings) | **GET** /api/2.0/settings | Get the portal settings |
+| [**GetSocketSettings**](#getsocketsettings) | **GET** /api/2.0/settings/socket | Get the socket settings |
+| [**GetSupportedCultures**](#getsupportedcultures) | **GET** /api/2.0/settings/cultures | Get supported languages |
+| [**GetTenantUserInvitationSettings**](#gettenantuserinvitationsettings) | **GET** /api/2.0/settings/invitationsettings | Get the user invitation settings |
+| [**GetTimeZones**](#gettimezones) | **GET** /api/2.0/settings/timezones | Get time zones |
+| [**SaveDnsSettings**](#savednssettings) | **PUT** /api/2.0/settings/dns | Save the DNS settings |
+| [**SaveMailDomainSettings**](#savemaildomainsettings) | **POST** /api/2.0/settings/maildomainsettings | Save the mail domain settings |
+| [**SavePortalColorTheme**](#saveportalcolortheme) | **PUT** /api/2.0/settings/colortheme | Save a color theme |
+| [**UpdateEmailActivationSettings**](#updateemailactivationsettings) | **PUT** /api/2.0/settings/emailactivation | Update the email activation settings |
+| [**UpdateInvitationSettings**](#updateinvitationsettings) | **PUT** /api/2.0/settings/invitationsettings | Update user invitation settings |
 
 <a id="closeadminhelper"></a>
 # **CloseAdminHelper**
 > void CloseAdminHelper ()
 
-Close the admin helper
-
 Closes the administrator helper notification.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/close-admin-helper/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -46,14 +58,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -64,7 +78,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -73,7 +87,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.CloseAdminHelper: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.CloseAdminHelper: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -93,21 +107,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.CloseAdminHelperWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.CloseAdminHelperWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -128,18 +132,32 @@ void (empty response body)
 # **CompleteWizard**
 > WizardSettingsWrapper CompleteWizard (WizardRequestsDto? wizardRequestsDto = null)
 
-Complete the Wizard settings
-
 Completes the Wizard settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/complete-wizard/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **wizardRequestsDto** | [**WizardRequestsDto?**](WizardRequestsDto.md) | The request parameters for initial configuration of the setup wizard. | [optional]  |
+
+### Return type
+
+[**WizardSettingsWrapper**](WizardSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -148,14 +166,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -166,8 +186,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var wizardRequestsDto = new WizardRequestsDto?(); // WizardRequestsDto? |  (optional) 
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
+            var wizardRequestsDto = new WizardRequestsDto?(); // WizardRequestsDto? | The request parameters for initial configuration of the setup wizard. (optional) 
 
             try
             {
@@ -177,7 +197,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.CompleteWizard: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.CompleteWizard: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -200,25 +220,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.CompleteWizardWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.CompleteWizardWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **wizardRequestsDto** | [**WizardRequestsDto?**](WizardRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**WizardSettingsWrapper**](WizardSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -236,38 +242,54 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="deletecolortheme"></a>
-# **DeleteColorTheme**
-> CustomColorThemesSettingsWrapper DeleteColorTheme (int? id = null)
+<a id="configuredeeplink"></a>
+# **ConfigureDeepLink**
+> TenantDeepLinkSettingsWrapper ConfigureDeepLink (DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = null)
 
-Delete a color theme
+Saves the deep link configuration settings for the portal.
 
-Deletes the portal color theme with the ID specified in the request.
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/configure-deep-link/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **deepLinkConfigurationRequestsDto** | [**DeepLinkConfigurationRequestsDto?**](DeepLinkConfigurationRequestsDto.md) | The request parameters for managing the deep link configuration. | [optional]  |
+
+### Return type
+
+[**TenantDeepLinkSettingsWrapper**](TenantDeepLinkSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class DeleteColorThemeExample
+    public class ConfigureDeepLinkExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -278,18 +300,18 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int? | The ID of the portal theme to delete. (optional) 
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
+            var deepLinkConfigurationRequestsDto = new DeepLinkConfigurationRequestsDto?(); // DeepLinkConfigurationRequestsDto? | The request parameters for managing the deep link configuration. (optional) 
 
             try
             {
-                // Delete a color theme
-                CustomColorThemesSettingsWrapper result = apiInstance.DeleteColorTheme(id);
+                // Configure the deep link settings
+                TenantDeepLinkSettingsWrapper result = apiInstance.ConfigureDeepLink(deepLinkConfigurationRequestsDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.DeleteColorTheme: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.ConfigureDeepLink: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -298,31 +320,54 @@ namespace Example
 }
 ```
 
-#### Using the DeleteColorThemeWithHttpInfo variant
+#### Using the ConfigureDeepLinkWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Delete a color theme
-    ApiResponse<CustomColorThemesSettingsWrapper> response = apiInstance.DeleteColorThemeWithHttpInfo(id);
+    // Configure the deep link settings
+    ApiResponse<TenantDeepLinkSettingsWrapper> response = apiInstance.ConfigureDeepLinkWithHttpInfo(deepLinkConfigurationRequestsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.DeleteColorThemeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.ConfigureDeepLinkWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
 
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Deep link configuration updated |  -  |
+| **400** | Invalid deep link configuration |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="deleteportalcolortheme"></a>
+# **DeletePortalColorTheme**
+> CustomColorThemesSettingsWrapper DeletePortalColorTheme (int id)
+
+Deletes the portal color theme with the ID specified in the request.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-portal-color-theme/).
+
 ### Parameters
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **int?** | The ID of the portal theme to delete. | [optional]  |
+| **id** | **int** | The ID of the portal theme to delete. |  |
 
 ### Return type
 
@@ -331,6 +376,82 @@ catch (ApiException e)
 ### Authorization
 
 [Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class DeletePortalColorThemeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
+            var id = 9846;  // int | The ID of the portal theme to delete.
+
+            try
+            {
+                // Delete a color theme
+                CustomColorThemesSettingsWrapper result = apiInstance.DeletePortalColorTheme(id);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CommonSettingsApi.DeletePortalColorTheme: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeletePortalColorThemeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Delete a color theme
+    ApiResponse<CustomColorThemesSettingsWrapper> response = apiInstance.DeletePortalColorThemeWithHttpInfo(id);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CommonSettingsApi.DeletePortalColorThemeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
 
 ### HTTP request headers
 
@@ -346,45 +467,55 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getcolortheme"></a>
-# **GetColorTheme**
-> CustomColorThemesSettingsWrapper GetColorTheme ()
+<a id="getdeeplinksettings"></a>
+# **GetDeepLinkSettings**
+> TenantDeepLinkSettingsWrapper GetDeepLinkSettings ()
 
-Get a color theme
+Returns the deep link settings.
 
-Returns the portal color theme.
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-deep-link-settings/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**TenantDeepLinkSettingsWrapper**](TenantDeepLinkSettingsWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class GetColorThemeExample
+    public class GetDeepLinkSettingsExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
-                // Get a color theme
-                CustomColorThemesSettingsWrapper result = apiInstance.GetColorTheme();
+                // Get the deep link settings
+                TenantDeepLinkSettingsWrapper result = apiInstance.GetDeepLinkSettings();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetColorTheme: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetDeepLinkSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -393,25 +524,153 @@ namespace Example
 }
 ```
 
-#### Using the GetColorThemeWithHttpInfo variant
+#### Using the GetDeepLinkSettingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Get a color theme
-    ApiResponse<CustomColorThemesSettingsWrapper> response = apiInstance.GetColorThemeWithHttpInfo();
+    // Get the deep link settings
+    ApiResponse<TenantDeepLinkSettingsWrapper> response = apiInstance.GetDeepLinkSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetColorThemeWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetDeepLinkSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getpaymentsettings"></a>
+# **GetPaymentSettings**
+> PaymentSettingsWrapper GetPaymentSettings ()
+
+Returns the portal payment settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-settings/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**PaymentSettingsWrapper**](PaymentSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetPaymentSettingsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                // Get the payment settings
+                PaymentSettingsWrapper result = apiInstance.GetPaymentSettings();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CommonSettingsApi.GetPaymentSettings: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPaymentSettingsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get the payment settings
+    ApiResponse<PaymentSettingsWrapper> response = apiInstance.GetPaymentSettingsWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CommonSettingsApi.GetPaymentSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Payment settings: sales email, feedback and support URL, link to pay for a portal, Standalone or not, current license, maximum quota quantity |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getportalcolortheme"></a>
+# **GetPortalColorTheme**
+> CustomColorThemesSettingsWrapper GetPortalColorTheme ()
+
+Returns the portal color theme.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-color-theme/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -422,6 +681,65 @@ This endpoint does not need any parameter.
 ### Authorization
 
 No authorization required
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetPortalColorThemeExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                // Get a color theme
+                CustomColorThemesSettingsWrapper result = apiInstance.GetPortalColorTheme();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CommonSettingsApi.GetPortalColorTheme: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPortalColorThemeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get a color theme
+    ApiResponse<CustomColorThemesSettingsWrapper> response = apiInstance.GetPortalColorThemeWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CommonSettingsApi.GetPortalColorThemeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
 
 ### HTTP request headers
 
@@ -436,191 +754,13 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getlogo"></a>
-# **GetLogo**
-> StringWrapper GetLogo ()
-
-Get a portal logo
-
-Returns the portal logo image URL.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetLogoExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-
-            try
-            {
-                // Get a portal logo
-                StringWrapper result = apiInstance.GetLogo();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetLogo: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetLogoWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get a portal logo
-    ApiResponse<StringWrapper> response = apiInstance.GetLogoWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetLogoWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Portal logo image URL |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="getmachinename"></a>
-# **GetMachineName**
-> ObjectWrapper GetMachineName ()
-
-Get hostname
+<a id="getportalhostname"></a>
+# **GetPortalHostname**
+> ObjectWrapper GetPortalHostname ()
 
 Returns the portal hostname.
 
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GetMachineNameExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-
-            try
-            {
-                // Get hostname
-                ObjectWrapper result = apiInstance.GetMachineName();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetMachineName: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetMachineNameWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get hostname
-    ApiResponse<ObjectWrapper> response = apiInstance.GetMachineNameWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetMachineNameWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-hostname/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -631,6 +771,81 @@ This endpoint does not need any parameter.
 ### Authorization
 
 [Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetPortalHostnameExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                // Get hostname
+                ObjectWrapper result = apiInstance.GetPortalHostname();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CommonSettingsApi.GetPortalHostname: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPortalHostnameWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get hostname
+    ApiResponse<ObjectWrapper> response = apiInstance.GetPortalHostnameWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CommonSettingsApi.GetPortalHostnameWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
 
 ### HTTP request headers
 
@@ -646,46 +861,71 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="getsettings"></a>
-# **GetSettings**
-> SettingsWrapper GetSettings (bool? withpassword = null)
+<a id="getportallogo"></a>
+# **GetPortalLogo**
+> StringWrapper GetPortalLogo ()
 
-Get the portal settings
+Returns the portal logo image URL.
 
-Returns a list of all the available portal settings with the current values for each parameter.
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-logo/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class GetSettingsExample
+    public class GetPortalLogoExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var withpassword = true;  // bool? | Specifies whether to include the password hashing configuration in the response. (optional) 
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
-                // Get the portal settings
-                SettingsWrapper result = apiInstance.GetSettings(withpassword);
+                // Get a portal logo
+                StringWrapper result = apiInstance.GetPortalLogo();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetPortalLogo: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -694,25 +934,47 @@ namespace Example
 }
 ```
 
-#### Using the GetSettingsWithHttpInfo variant
+#### Using the GetPortalLogoWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Get the portal settings
-    ApiResponse<SettingsWrapper> response = apiInstance.GetSettingsWithHttpInfo(withpassword);
+    // Get a portal logo
+    ApiResponse<StringWrapper> response = apiInstance.GetPortalLogoWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetPortalLogoWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Portal logo image URL |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getportalsettings"></a>
+# **GetPortalSettings**
+> SettingsWrapper GetPortalSettings (bool? withpassword = null)
+
+Returns a list of all the available portal settings with the current values for each parameter.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-portal-settings/).
 
 ### Parameters
 
@@ -727,6 +989,66 @@ catch (ApiException e)
 ### Authorization
 
 No authorization required
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetPortalSettingsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
+            var withpassword = true;  // bool? | Specifies whether to include the password hashing configuration in the response. (optional) 
+
+            try
+            {
+                // Get the portal settings
+                SettingsWrapper result = apiInstance.GetPortalSettings(withpassword);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CommonSettingsApi.GetPortalSettings: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetPortalSettingsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get the portal settings
+    ApiResponse<SettingsWrapper> response = apiInstance.GetPortalSettingsWithHttpInfo(withpassword);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CommonSettingsApi.GetPortalSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
 
 ### HTTP request headers
 
@@ -745,18 +1067,28 @@ No authorization required
 # **GetSocketSettings**
 > ObjectWrapper GetSocketSettings ()
 
-Get the socket settings
-
 Returns the socket settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-socket-settings/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**ObjectWrapper**](ObjectWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -765,14 +1097,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -783,7 +1117,7 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -793,7 +1127,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetSocketSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetSocketSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -816,21 +1150,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetSocketSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetSocketSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**ObjectWrapper**](ObjectWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -850,18 +1174,28 @@ This endpoint does not need any parameter.
 # **GetSupportedCultures**
 > STRINGArrayWrapper GetSupportedCultures ()
 
-Get supported languages
+Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. de, en-US, etc.).
 
-Returns a list of all the available portal languages in the format of a two-letter or four-letter language code (e.g. \"de\", \"en-US\", etc.).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-supported-cultures/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**STRINGArrayWrapper**](STRINGArrayWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -870,11 +1204,11 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
@@ -884,7 +1218,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetSupportedCultures: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetSupportedCultures: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -907,21 +1241,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetSupportedCulturesWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetSupportedCulturesWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**STRINGArrayWrapper**](STRINGArrayWrapper.md)
-
-### Authorization
-
-No authorization required
 
 ### HTTP request headers
 
@@ -936,59 +1260,55 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="gettimezonesasync"></a>
-# **GetTimeZonesAsync**
-> TimezonesRequestsArrayWrapper GetTimeZonesAsync ()
+<a id="gettenantuserinvitationsettings"></a>
+# **GetTenantUserInvitationSettings**
+> TenantUserInvitationSettingsWrapper GetTenantUserInvitationSettings ()
 
-Get time zones
+Returns the portal user invitation settings.
 
-Returns a list of all the available portal time zones.
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-user-invitation-settings/).
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**TenantUserInvitationSettingsWrapper**](TenantUserInvitationSettingsWrapper.md)
+
+### Authorization
+
+No authorization required
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class GetTimeZonesAsyncExample
+    public class GetTenantUserInvitationSettingsExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
 
             try
             {
-                // Get time zones
-                TimezonesRequestsArrayWrapper result = apiInstance.GetTimeZonesAsync();
+                // Get the user invitation settings
+                TenantUserInvitationSettingsWrapper result = apiInstance.GetTenantUserInvitationSettings();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GetTimeZonesAsync: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.GetTenantUserInvitationSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -997,25 +1317,46 @@ namespace Example
 }
 ```
 
-#### Using the GetTimeZonesAsyncWithHttpInfo variant
+#### Using the GetTenantUserInvitationSettingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Get time zones
-    ApiResponse<TimezonesRequestsArrayWrapper> response = apiInstance.GetTimeZonesAsyncWithHttpInfo();
+    // Get the user invitation settings
+    ApiResponse<TenantUserInvitationSettingsWrapper> response = apiInstance.GetTenantUserInvitationSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GetTimeZonesAsyncWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.GetTenantUserInvitationSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | portal user invitation settings |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="gettimezones"></a>
+# **GetTimeZones**
+> TimezonesRequestsArrayWrapper GetTimeZones ()
+
+Returns a list of all the available portal time zones.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/).
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -1026,6 +1367,81 @@ This endpoint does not need any parameter.
 ### Authorization
 
 [Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetTimeZonesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                // Get time zones
+                TimezonesRequestsArrayWrapper result = apiInstance.GetTimeZones();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CommonSettingsApi.GetTimeZones: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetTimeZonesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get time zones
+    ApiResponse<TimezonesRequestsArrayWrapper> response = apiInstance.GetTimeZonesWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CommonSettingsApi.GetTimeZonesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
 
 ### HTTP request headers
 
@@ -1041,453 +1457,36 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="gettdeeplinksettings"></a>
-# **GettDeepLinkSettings**
-> TenantDeepLinkSettingsWrapper GettDeepLinkSettings ()
-
-Get the deep link settings
-
-Returns the deep link settings.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class GettDeepLinkSettingsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-
-            try
-            {
-                // Get the deep link settings
-                TenantDeepLinkSettingsWrapper result = apiInstance.GettDeepLinkSettings();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.GettDeepLinkSettings: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GettDeepLinkSettingsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get the deep link settings
-    ApiResponse<TenantDeepLinkSettingsWrapper> response = apiInstance.GettDeepLinkSettingsWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.GettDeepLinkSettingsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**TenantDeepLinkSettingsWrapper**](TenantDeepLinkSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="paymentsettings"></a>
-# **PaymentSettings**
-> PaymentSettingsWrapper PaymentSettings ()
-
-Get the payment settings
-
-Returns the portal payment settings.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class PaymentSettingsExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-
-            try
-            {
-                // Get the payment settings
-                PaymentSettingsWrapper result = apiInstance.PaymentSettings();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.PaymentSettings: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the PaymentSettingsWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get the payment settings
-    ApiResponse<PaymentSettingsWrapper> response = apiInstance.PaymentSettingsWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.PaymentSettingsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-### Return type
-
-[**PaymentSettingsWrapper**](PaymentSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Payment settings: sales email, feedback and support URL, link to pay for a portal, Standalone or not, current license, maximum quota quantity |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="savecolortheme"></a>
-# **SaveColorTheme**
-> CustomColorThemesSettingsWrapper SaveColorTheme (CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = null)
-
-Save a color theme
-
-Saves the portal color theme specified in the request.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class SaveColorThemeExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var customColorThemesSettingsRequestsDto = new CustomColorThemesSettingsRequestsDto?(); // CustomColorThemesSettingsRequestsDto? |  (optional) 
-
-            try
-            {
-                // Save a color theme
-                CustomColorThemesSettingsWrapper result = apiInstance.SaveColorTheme(customColorThemesSettingsRequestsDto);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.SaveColorTheme: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the SaveColorThemeWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Save a color theme
-    ApiResponse<CustomColorThemesSettingsWrapper> response = apiInstance.SaveColorThemeWithHttpInfo(customColorThemesSettingsRequestsDto);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.SaveColorThemeWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **customColorThemesSettingsRequestsDto** | [**CustomColorThemesSettingsRequestsDto?**](CustomColorThemesSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**CustomColorThemesSettingsWrapper**](CustomColorThemesSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Portal theme settings |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="saveconfiguredeeplink"></a>
-# **SaveConfigureDeepLink**
-> TenantDeepLinkSettingsWrapper SaveConfigureDeepLink (DeepLinkConfigurationRequestsDto? deepLinkConfigurationRequestsDto = null)
-
-Configure the deep link settings
-
-Saves the deep link configuration settings for the portal.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
-
-namespace Example
-{
-    public class SaveConfigureDeepLinkExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://http:";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var deepLinkConfigurationRequestsDto = new DeepLinkConfigurationRequestsDto?(); // DeepLinkConfigurationRequestsDto? |  (optional) 
-
-            try
-            {
-                // Configure the deep link settings
-                TenantDeepLinkSettingsWrapper result = apiInstance.SaveConfigureDeepLink(deepLinkConfigurationRequestsDto);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.SaveConfigureDeepLink: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the SaveConfigureDeepLinkWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Configure the deep link settings
-    ApiResponse<TenantDeepLinkSettingsWrapper> response = apiInstance.SaveConfigureDeepLinkWithHttpInfo(deepLinkConfigurationRequestsDto);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.SaveConfigureDeepLinkWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **deepLinkConfigurationRequestsDto** | [**DeepLinkConfigurationRequestsDto?**](DeepLinkConfigurationRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**TenantDeepLinkSettingsWrapper**](TenantDeepLinkSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Deep link configuration updated |  -  |
-| **400** | Invalid deep link configuration |  -  |
-| **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a id="savednssettings"></a>
 # **SaveDnsSettings**
 > StringWrapper SaveDnsSettings (DnsSettingsRequestsDto? dnsSettingsRequestsDto = null)
 
-Save the DNS settings
-
 Saves the DNS settings specified in the request to the current portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-dns-settings/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **dnsSettingsRequestsDto** | [**DnsSettingsRequestsDto?**](DnsSettingsRequestsDto.md) | The request parameters for managing the DNS (Domain Name System) settings. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -1496,14 +1495,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1514,8 +1515,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var dnsSettingsRequestsDto = new DnsSettingsRequestsDto?(); // DnsSettingsRequestsDto? |  (optional) 
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
+            var dnsSettingsRequestsDto = new DnsSettingsRequestsDto?(); // DnsSettingsRequestsDto? | The request parameters for managing the DNS (Domain Name System) settings. (optional) 
 
             try
             {
@@ -1525,7 +1526,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.SaveDnsSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.SaveDnsSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1548,25 +1549,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.SaveDnsSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.SaveDnsSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **dnsSettingsRequestsDto** | [**DnsSettingsRequestsDto?**](DnsSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1589,18 +1576,32 @@ catch (ApiException e)
 # **SaveMailDomainSettings**
 > StringWrapper SaveMailDomainSettings (MailDomainSettingsRequestsDto? mailDomainSettingsRequestsDto = null)
 
-Save the mail domain settings
-
 Saves the mail domain settings specified in the request to the portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-mail-domain-settings/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **mailDomainSettingsRequestsDto** | [**MailDomainSettingsRequestsDto?**](MailDomainSettingsRequestsDto.md) | The request parameters for configuring trusted mail domains and visitor invitation settings. | [optional]  |
+
+### Return type
+
+[**StringWrapper**](StringWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
@@ -1609,14 +1610,16 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1627,8 +1630,8 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var mailDomainSettingsRequestsDto = new MailDomainSettingsRequestsDto?(); // MailDomainSettingsRequestsDto? |  (optional) 
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
+            var mailDomainSettingsRequestsDto = new MailDomainSettingsRequestsDto?(); // MailDomainSettingsRequestsDto? | The request parameters for configuring trusted mail domains and visitor invitation settings. (optional) 
 
             try
             {
@@ -1638,7 +1641,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.SaveMailDomainSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.SaveMailDomainSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1661,25 +1664,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.SaveMailDomainSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.SaveMailDomainSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **mailDomainSettingsRequestsDto** | [**MailDomainSettingsRequestsDto?**](MailDomainSettingsRequestsDto?.md) |  | [optional]  |
-
-### Return type
-
-[**StringWrapper**](StringWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1695,38 +1684,54 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="updateemailactivationsettings"></a>
-# **UpdateEmailActivationSettings**
-> EmailActivationSettingsWrapper UpdateEmailActivationSettings (EmailActivationSettings? emailActivationSettings = null)
+<a id="saveportalcolortheme"></a>
+# **SavePortalColorTheme**
+> CustomColorThemesSettingsWrapper SavePortalColorTheme (CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = null)
 
-Update the email activation settings
+Saves the portal color theme specified in the request.
 
-Updates the email activation settings.
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **customColorThemesSettingsRequestsDto** | [**CustomColorThemesSettingsRequestsDto?**](CustomColorThemesSettingsRequestsDto.md) | The request parameters for managing the portal theme settings. | [optional]  |
+
+### Return type
+
+[**CustomColorThemesSettingsWrapper**](CustomColorThemesSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### Example
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
-using Docspace.Api;
-using Docspace.Client;
-using Docspace.Model;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class UpdateEmailActivationSettingsExample
+    public class SavePortalColorThemeExample
     {
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "http://http:";
+            config.BasePath = "https://your-docspace.onlyoffice.com";
             // Configure HTTP basic authorization: Basic
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
             // Configure OAuth2 access token for authorization: OAuth2
             config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure Bearer token for authorization: ApiKeyBearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
             // Configure API key authorization: asc_auth_key
             config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
@@ -1737,8 +1742,120 @@ namespace Example
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new SettingsCommonSettingsApi(httpClient, config, httpClientHandler);
-            var emailActivationSettings = new EmailActivationSettings?(); // EmailActivationSettings? |  (optional) 
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
+            var customColorThemesSettingsRequestsDto = new CustomColorThemesSettingsRequestsDto?(); // CustomColorThemesSettingsRequestsDto? | The request parameters for managing the portal theme settings. (optional) 
+
+            try
+            {
+                // Save a color theme
+                CustomColorThemesSettingsWrapper result = apiInstance.SavePortalColorTheme(customColorThemesSettingsRequestsDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CommonSettingsApi.SavePortalColorTheme: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the SavePortalColorThemeWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Save a color theme
+    ApiResponse<CustomColorThemesSettingsWrapper> response = apiInstance.SavePortalColorThemeWithHttpInfo(customColorThemesSettingsRequestsDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CommonSettingsApi.SavePortalColorThemeWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Portal theme settings |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="updateemailactivationsettings"></a>
+# **UpdateEmailActivationSettings**
+> EmailActivationSettingsWrapper UpdateEmailActivationSettings (EmailActivationSettings? emailActivationSettings = null)
+
+Updates the email activation settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-email-activation-settings/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **emailActivationSettings** | [**EmailActivationSettings?**](EmailActivationSettings.md) | The email activation settings. | [optional]  |
+
+### Return type
+
+[**EmailActivationSettingsWrapper**](EmailActivationSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class UpdateEmailActivationSettingsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
+            var emailActivationSettings = new EmailActivationSettings?(); // EmailActivationSettings? | The email activation settings. (optional) 
 
             try
             {
@@ -1748,7 +1865,7 @@ namespace Example
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling SettingsCommonSettingsApi.UpdateEmailActivationSettings: " + e.Message);
+                Debug.Print("Exception when calling CommonSettingsApi.UpdateEmailActivationSettings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -1771,25 +1888,11 @@ try
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling SettingsCommonSettingsApi.UpdateEmailActivationSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling CommonSettingsApi.UpdateEmailActivationSettingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
 ```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **emailActivationSettings** | [**EmailActivationSettings?**](EmailActivationSettings?.md) |  | [optional]  |
-
-### Return type
-
-[**EmailActivationSettingsWrapper**](EmailActivationSettingsWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
 
 ### HTTP request headers
 
@@ -1801,6 +1904,118 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated email activation settings |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="updateinvitationsettings"></a>
+# **UpdateInvitationSettings**
+> TenantUserInvitationSettingsWrapper UpdateInvitationSettings (TenantUserInvitationSettingsRequestDto? tenantUserInvitationSettingsRequestDto = null)
+
+Updates the portal user invitation settings.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-settings/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **tenantUserInvitationSettingsRequestDto** | [**TenantUserInvitationSettingsRequestDto?**](TenantUserInvitationSettingsRequestDto.md) | The request parameters for updating the user invitation settings. | [optional]  |
+
+### Return type
+
+[**TenantUserInvitationSettingsWrapper**](TenantUserInvitationSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class UpdateInvitationSettingsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
+            var tenantUserInvitationSettingsRequestDto = new TenantUserInvitationSettingsRequestDto?(); // TenantUserInvitationSettingsRequestDto? | The request parameters for updating the user invitation settings. (optional) 
+
+            try
+            {
+                // Update user invitation settings
+                TenantUserInvitationSettingsWrapper result = apiInstance.UpdateInvitationSettings(tenantUserInvitationSettingsRequestDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CommonSettingsApi.UpdateInvitationSettings: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the UpdateInvitationSettingsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Update user invitation settings
+    ApiResponse<TenantUserInvitationSettingsWrapper> response = apiInstance.UpdateInvitationSettingsWithHttpInfo(tenantUserInvitationSettingsRequestDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling CommonSettingsApi.UpdateInvitationSettingsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Updated user invitation settings |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

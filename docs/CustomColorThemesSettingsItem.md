@@ -1,4 +1,4 @@
-# Docspace.Model.CustomColorThemesSettingsItem
+# DocSpace.API.SDK.Model.CustomColorThemesSettingsItem
 The custom color theme settings.
 
 ## Properties

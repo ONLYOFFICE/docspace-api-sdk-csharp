@@ -1,5 +1,5 @@
-# Docspace.Model.RoomSecurityError
-The error type.
+# DocSpace.API.SDK.Model.RoomSecurityError
+[0 - None, 1 - Form role blocking deletion]
 
 ## Properties
 

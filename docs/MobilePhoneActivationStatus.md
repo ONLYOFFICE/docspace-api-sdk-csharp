@@ -1,5 +1,5 @@
-# Docspace.Model.MobilePhoneActivationStatus
-The user mobile phone activation status.
+# DocSpace.API.SDK.Model.MobilePhoneActivationStatus
+[0 - Not activated, 1 - Activated]
 
 ## Properties
 

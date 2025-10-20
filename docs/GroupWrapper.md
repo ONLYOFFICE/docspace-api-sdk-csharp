@@ -1,4 +1,4 @@
-# Docspace.Model.GroupWrapper
+# DocSpace.API.SDK.Model.GroupWrapper
 
 ## Properties
 

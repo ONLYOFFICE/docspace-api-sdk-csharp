@@ -1,4 +1,4 @@
-# Docspace.Model.FilesSettingsDto
+# DocSpace.API.SDK.Model.FilesSettingsDto
 The file settings parameters.
 
 ## Properties
@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **ExtsWebRestrictedEditing** | **List&lt;string&gt;** | The list of extensions of the files that are restricted for editing. | [optional] 
 **ExtsWebCommented** | **List&lt;string&gt;** | The list of extensions of the commented files. | [optional] 
 **ExtsWebTemplate** | **List&lt;string&gt;** | The list of extensions of the template files. | [optional] 
-**ExtsCoAuthoring** | **List&lt;string&gt;** | The list of extensions of the co-authoring files. | [optional] 
 **ExtsMustConvert** | **List&lt;string&gt;** | The list of extensions of the files that must be converted. | [optional] 
 **ExtsConvertible** | **Dictionary&lt;string, List&lt;string&gt;&gt;** | The list of the convertible extensions. | [optional] 
 **ExtsUploadable** | **List&lt;string&gt;** | The list of the uploadable extensions. | [optional] 
@@ -26,6 +25,7 @@ Name | Type | Description | Notes
 **ExtsSpreadsheet** | **List&lt;string&gt;** | The list of the spreadsheet extensions. | [optional] 
 **ExtsPresentation** | **List&lt;string&gt;** | The list of the presentation extensions. | [optional] 
 **ExtsDocument** | **List&lt;string&gt;** | The list of the text document extensions. | [optional] 
+**ExtsDiagram** | **List&lt;string&gt;** | The list of the diagram extensions. | [optional] 
 **InternalFormats** | [**FilesSettingsDtoInternalFormats**](FilesSettingsDtoInternalFormats.md) |  | [optional] 
 **MasterFormExtension** | **string** | The master form extension. | [optional] 
 **ParamVersion** | **string** | The URL parameter which specifies the file version. | [optional] 
@@ -52,9 +52,9 @@ Name | Type | Description | Notes
 **DefaultOrder** | [**OrderBy**](OrderBy.md) |  | [optional] 
 **Forcesave** | **bool** | Specifies whether to forcesave the files or not. | [optional] 
 **StoreForcesave** | **bool** | Specifies whether to store the forcesaved file versions or not. | [optional] 
-**RecentSection** | **bool** | Specifies if the \&quot;Recent\&quot; section is displayed or not. | [optional] 
-**FavoritesSection** | **bool** | Specifies if the \&quot;Favorites\&quot; section is displayed or not. | [optional] 
-**TemplatesSection** | **bool** | Specifies if the \&quot;Templates\&quot; section is displayed or not. | [optional] 
+**RecentSection** | **bool** | Specifies if the Recent section is displayed or not. | [optional] 
+**FavoritesSection** | **bool** | Specifies if the Favorites section is displayed or not. | [optional] 
+**TemplatesSection** | **bool** | Specifies if the Templates section is displayed or not. | [optional] 
 **DownloadTarGz** | **bool** | Specifies whether to download the .tar.gz files or not. | [optional] 
 **AutomaticallyCleanUp** | [**AutoCleanUpData**](AutoCleanUpData.md) |  | [optional] 
 **CanSearchByContent** | **bool** | Specifies whether the file can be searched by its content or not. | [optional] 

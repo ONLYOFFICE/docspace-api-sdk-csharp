@@ -1,5 +1,5 @@
-# Docspace.Model.TariffState
-The tariff state.
+# DocSpace.API.SDK.Model.TariffState
+[0 - Trial, 1 - Paid, 2 - Delay, 3 - Not paid]
 
 ## Properties
 

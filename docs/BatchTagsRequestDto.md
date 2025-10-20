@@ -1,5 +1,5 @@
-# Docspace.Model.BatchTagsRequestDto
-The parameters for adding tags.
+# DocSpace.API.SDK.Model.BatchTagsRequestDto
+The parameters for managing room tags.
 
 ## Properties
 

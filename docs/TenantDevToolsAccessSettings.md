@@ -1,4 +1,4 @@
-# Docspace.Model.TenantDevToolsAccessSettings
+# DocSpace.API.SDK.Model.TenantDevToolsAccessSettings
 The Developer Tools access settings.
 
 ## Properties

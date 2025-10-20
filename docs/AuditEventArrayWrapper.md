@@ -1,4 +1,4 @@
-# Docspace.Model.AuditEventArrayWrapper
+# DocSpace.API.SDK.Model.AuditEventArrayWrapper
 
 ## Properties
 

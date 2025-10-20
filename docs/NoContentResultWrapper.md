@@ -1,4 +1,4 @@
-# Docspace.Model.NoContentResultWrapper
+# DocSpace.API.SDK.Model.NoContentResultWrapper
 
 ## Properties
 

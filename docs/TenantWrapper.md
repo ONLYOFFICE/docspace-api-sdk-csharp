@@ -1,4 +1,4 @@
-# Docspace.Model.TenantWrapper
+# DocSpace.API.SDK.Model.TenantWrapper
 
 ## Properties
 

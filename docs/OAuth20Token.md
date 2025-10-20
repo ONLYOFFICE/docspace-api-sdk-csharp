@@ -1,4 +1,4 @@
-# Docspace.Model.OAuth20Token
+# DocSpace.API.SDK.Model.OAuth20Token
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Docspace.Model.AuthServiceRequestsArrayWrapper
+# DocSpace.API.SDK.Model.AuthServiceRequestsArrayWrapper
 
 ## Properties
 

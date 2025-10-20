@@ -1,4 +1,4 @@
-# Docspace.Model.LoginEventDto
+# DocSpace.API.SDK.Model.LoginEventDto
 The login event parameters.
 
 ## Properties
