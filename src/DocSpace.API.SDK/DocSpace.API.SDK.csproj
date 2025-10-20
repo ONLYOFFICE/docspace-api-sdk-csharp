@@ -11,7 +11,7 @@
     <AssemblyTitle>DocSpace.API.SDK</AssemblyTitle>
     <Description>A simple C# SDK for integrating with the ONLYOFFICE DocSpace API</Description>
     <RootNamespace>DocSpace.API.SDK</RootNamespace>
-    <Version>3.5.0-preview.1</Version>
+    <Version>3.5.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\DocSpace.API.SDK.xml</DocumentationFile>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/ONLYOFFICE/docspace-api-sdk-csharp</RepositoryUrl>
