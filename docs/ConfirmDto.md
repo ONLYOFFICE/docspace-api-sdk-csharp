@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **RoomId** | **string** | The confirmation room ID. | [optional] 
 **Title** | **string** | The confirmation title. | [optional] 
 **Email** | **string** | The confirmation email. | [optional] 
+**IsAgent** | **bool** | The confirmation is agent. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

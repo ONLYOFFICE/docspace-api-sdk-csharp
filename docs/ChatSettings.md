@@ -1,10 +1,12 @@
-# DocSpace.API.SDK.Model.RoomType
-[1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - Virtual data room]
+# DocSpace.API.SDK.Model.ChatSettings
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ProviderId** | **int** |  | [optional] 
+**ModelId** | **string** |  | [optional] 
+**Prompt** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

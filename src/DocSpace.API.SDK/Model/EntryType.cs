@@ -19,9 +19,9 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - None, 1 - File, 2 - Folder, 23 - User, 24 - Group, 25 - Room, 26 - Tag]
+    /// [0 - None, 1 - File, 2 - Folder, 23 - User, 24 - Group, 25 - Room, 26 - Tag, 27 - Agent]
     /// </summary>
-    /// <value>[0 - None, 1 - File, 2 - Folder, 23 - User, 24 - Group, 25 - Room, 26 - Tag]</value>
+    /// <value>[0 - None, 1 - File, 2 - Folder, 23 - User, 24 - Group, 25 - Room, 26 - Tag, 27 - Agent]</value>
     public enum EntryType
     {
         /// <summary>
@@ -57,7 +57,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum Tag for value: 26
         /// </summary>
-        Tag = 26
+        Tag = 26,
+
+        /// <summary>
+        /// Enum Agent for value: 27
+        /// </summary>
+        Agent = 27
     }
 
 }

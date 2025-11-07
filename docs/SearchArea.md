@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.SearchArea
-[0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template]
+[0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template, 5 - Knowledge, 6 - Result storage, 7 - AiAgents]
 
 ## Properties
 

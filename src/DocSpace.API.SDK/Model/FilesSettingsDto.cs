@@ -152,7 +152,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="maxUploadThreadCount">The maximum number of upload threads..</param>
         /// <param name="chunkUploadSize">The size of a large file that is uploaded in chunks..</param>
         /// <param name="openEditorInSameTab">Specifies whether to open the editor in the same tab or not..</param>
-        public FilesSettingsDto(List<string> extsImagePreviewed = default, List<string> extsMediaPreviewed = default, List<string> extsWebPreviewed = default, List<string> extsWebEdited = default, List<string> extsWebEncrypt = default, List<string> extsWebReviewed = default, List<string> extsWebCustomFilterEditing = default, List<string> extsWebRestrictedEditing = default, List<string> extsWebCommented = default, List<string> extsWebTemplate = default, List<string> extsMustConvert = default, Dictionary<string, List<string>> extsConvertible = default, List<string> extsUploadable = default, List<string> extsArchive = default, List<string> extsVideo = default, List<string> extsAudio = default, List<string> extsImage = default, List<string> extsSpreadsheet = default, List<string> extsPresentation = default, List<string> extsDocument = default, List<string> extsDiagram = default, FilesSettingsDtoInternalFormats internalFormats = default, string masterFormExtension = default, string paramVersion = default, string paramOutType = default, string fileDownloadUrlString = default, string fileWebViewerUrlString = default, string fileWebViewerExternalUrlString = default, string fileWebEditorUrlString = default, string fileWebEditorExternalUrlString = default, string fileRedirectPreviewUrlString = default, string fileThumbnailUrlString = default, bool confirmDelete = default, bool enableThirdParty = default, bool externalShare = default, bool externalShareSocialMedia = default, bool storeOriginalFiles = default, bool keepNewFileName = default, bool displayFileExtension = default, bool convertNotify = default, bool hideConfirmCancelOperation = default, bool hideConfirmConvertSave = default, bool hideConfirmConvertOpen = default, bool hideConfirmRoomLifetime = default, OrderBy defaultOrder = default, bool forcesave = default, bool storeForcesave = default, bool recentSection = default, bool favoritesSection = default, bool templatesSection = default, bool downloadTarGz = default, AutoCleanUpData automaticallyCleanUp = default, bool canSearchByContent = default, List<FilesSettingsDto.DefaultSharingAccessRightsEnum> defaultSharingAccessRights = default, int maxUploadThreadCount = default, long chunkUploadSize = default, bool openEditorInSameTab = default)
+        /// <param name="extsFilesVectorized">List of extensions available for vectorization.</param>
+        /// <param name="maxVectorizationFileSize">The maximum file size for vectorization.</param>
+        public FilesSettingsDto(List<string> extsImagePreviewed = default, List<string> extsMediaPreviewed = default, List<string> extsWebPreviewed = default, List<string> extsWebEdited = default, List<string> extsWebEncrypt = default, List<string> extsWebReviewed = default, List<string> extsWebCustomFilterEditing = default, List<string> extsWebRestrictedEditing = default, List<string> extsWebCommented = default, List<string> extsWebTemplate = default, List<string> extsMustConvert = default, Dictionary<string, List<string>> extsConvertible = default, List<string> extsUploadable = default, List<string> extsArchive = default, List<string> extsVideo = default, List<string> extsAudio = default, List<string> extsImage = default, List<string> extsSpreadsheet = default, List<string> extsPresentation = default, List<string> extsDocument = default, List<string> extsDiagram = default, FilesSettingsDtoInternalFormats internalFormats = default, string masterFormExtension = default, string paramVersion = default, string paramOutType = default, string fileDownloadUrlString = default, string fileWebViewerUrlString = default, string fileWebViewerExternalUrlString = default, string fileWebEditorUrlString = default, string fileWebEditorExternalUrlString = default, string fileRedirectPreviewUrlString = default, string fileThumbnailUrlString = default, bool confirmDelete = default, bool enableThirdParty = default, bool externalShare = default, bool externalShareSocialMedia = default, bool storeOriginalFiles = default, bool keepNewFileName = default, bool displayFileExtension = default, bool convertNotify = default, bool hideConfirmCancelOperation = default, bool hideConfirmConvertSave = default, bool hideConfirmConvertOpen = default, bool hideConfirmRoomLifetime = default, OrderBy defaultOrder = default, bool forcesave = default, bool storeForcesave = default, bool recentSection = default, bool favoritesSection = default, bool templatesSection = default, bool downloadTarGz = default, AutoCleanUpData automaticallyCleanUp = default, bool canSearchByContent = default, List<FilesSettingsDto.DefaultSharingAccessRightsEnum> defaultSharingAccessRights = default, int maxUploadThreadCount = default, long chunkUploadSize = default, bool openEditorInSameTab = default, List<string> extsFilesVectorized = default, long maxVectorizationFileSize = default)
         {
             this.ExtsImagePreviewed = extsImagePreviewed;
             this.ExtsMediaPreviewed = extsMediaPreviewed;
@@ -211,6 +213,8 @@ namespace DocSpace.API.SDK.Model
             this.MaxUploadThreadCount = maxUploadThreadCount;
             this.ChunkUploadSize = chunkUploadSize;
             this.OpenEditorInSameTab = openEditorInSameTab;
+            this.ExtsFilesVectorized = extsFilesVectorized;
+            this.MaxVectorizationFileSize = maxVectorizationFileSize;
         }
 
         /// <summary>
@@ -769,6 +773,26 @@ namespace DocSpace.API.SDK.Model
         public bool OpenEditorInSameTab { get; set; }
 
         /// <summary>
+        /// List of extensions available for vectorization
+        /// </summary>
+        /// <value>List of extensions available for vectorization</value>
+        /*
+        <example>[&quot;some text&quot;]</example>
+        */
+        [DataMember(Name = "extsFilesVectorized", EmitDefaultValue = true)]
+        public List<string> ExtsFilesVectorized { get; set; }
+
+        /// <summary>
+        /// The maximum file size for vectorization
+        /// </summary>
+        /// <value>The maximum file size for vectorization</value>
+        /*
+        <example>1234</example>
+        */
+        [DataMember(Name = "maxVectorizationFileSize", EmitDefaultValue = false)]
+        public long MaxVectorizationFileSize { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -833,6 +857,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  MaxUploadThreadCount: ").Append(MaxUploadThreadCount).Append("\n");
             sb.Append("  ChunkUploadSize: ").Append(ChunkUploadSize).Append("\n");
             sb.Append("  OpenEditorInSameTab: ").Append(OpenEditorInSameTab).Append("\n");
+            sb.Append("  ExtsFilesVectorized: ").Append(ExtsFilesVectorized).Append("\n");
+            sb.Append("  MaxVectorizationFileSize: ").Append(MaxVectorizationFileSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

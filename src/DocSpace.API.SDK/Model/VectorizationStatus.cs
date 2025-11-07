@@ -19,30 +19,24 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [-14 - WebSearch, -13 - AITools, -12 - Backup, -11 - Storage]
+    /// Defines VectorizationStatus
     /// </summary>
-    /// <value>[-14 - WebSearch, -13 - AITools, -12 - Backup, -11 - Storage]</value>
-    public enum TenantWalletService
+    public enum VectorizationStatus
     {
         /// <summary>
-        /// Enum WebSearch for value: -14
+        /// Enum NUMBER_0 for value: 0
         /// </summary>
-        WebSearch = -14,
+        NUMBER_0 = 0,
 
         /// <summary>
-        /// Enum AITools for value: -13
+        /// Enum NUMBER_1 for value: 1
         /// </summary>
-        AITools = -13,
+        NUMBER_1 = 1,
 
         /// <summary>
-        /// Enum Backup for value: -12
+        /// Enum NUMBER_2 for value: 2
         /// </summary>
-        Backup = -12,
-
-        /// <summary>
-        /// Enum Storage for value: -11
-        /// </summary>
-        Storage = -11
+        NUMBER_2 = 2
     }
 
 }

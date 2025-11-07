@@ -84,11 +84,12 @@ namespace DocSpace.API.SDK.Model
         /// <param name="shared">Specifies if the user has access rights..</param>
         /// <param name="isCustomQuota">Specifies if the user has a custom quota or not..</param>
         /// <param name="loginEventId">The current login event ID..</param>
+        /// <param name="authCookieLifetime">The auth cookie lifetime in seconds..</param>
         /// <param name="createdBy">createdBy.</param>
         /// <param name="registrationDate">registrationDate.</param>
         /// <param name="hasPersonalFolder">Specifies if the user has a personal folder or not..</param>
         /// <param name="tfaAppEnabled">Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app..</param>
-        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, ApiDateTime birthday = default, string sex = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, ApiDateTime workFrom = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool hasPersonalFolder = default, bool? tfaAppEnabled = default)
+        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, ApiDateTime birthday = default, string sex = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, ApiDateTime workFrom = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, double? authCookieLifetime = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool hasPersonalFolder = default, bool? tfaAppEnabled = default)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -122,6 +123,7 @@ namespace DocSpace.API.SDK.Model
             this.Shared = shared;
             this.IsCustomQuota = isCustomQuota;
             this.LoginEventId = loginEventId;
+            this.AuthCookieLifetime = authCookieLifetime;
             this.CreatedBy = createdBy;
             this.RegistrationDate = registrationDate;
             this.HasPersonalFolder = hasPersonalFolder;
@@ -391,6 +393,16 @@ namespace DocSpace.API.SDK.Model
         public int? LoginEventId { get; set; }
 
         /// <summary>
+        /// The auth cookie lifetime in seconds.
+        /// </summary>
+        /// <value>The auth cookie lifetime in seconds.</value>
+        /*
+        <example>-8.5</example>
+        */
+        [DataMember(Name = "authCookieLifetime", EmitDefaultValue = true)]
+        public double? AuthCookieLifetime { get; set; }
+
+        /// <summary>
         /// Gets or Sets CreatedBy
         /// </summary>
         [DataMember(Name = "createdBy", EmitDefaultValue = false)]
@@ -462,6 +474,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Shared: ").Append(Shared).Append("\n");
             sb.Append("  IsCustomQuota: ").Append(IsCustomQuota).Append("\n");
             sb.Append("  LoginEventId: ").Append(LoginEventId).Append("\n");
+            sb.Append("  AuthCookieLifetime: ").Append(AuthCookieLifetime).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  RegistrationDate: ").Append(RegistrationDate).Append("\n");
             sb.Append("  HasPersonalFolder: ").Append(HasPersonalFolder).Append("\n");

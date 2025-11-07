@@ -19,61 +19,24 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The wallet services settings.
+    /// The ai agent quota settings.
     /// </summary>
-    [DataContract(Name = "TenantWalletServiceSettings")]
-    public partial class TenantWalletServiceSettings : IValidatableObject
+    [DataContract(Name = "TenantAiAgentQuotaSettings")]
+    public partial class TenantAiAgentQuotaSettings : TenantEntityQuotaSettings, IValidatableObject
     {
-        /// <summary>
-        /// The list of the enabled wallet services.
-        /// </summary>
-        /// <value>The list of the enabled wallet services.</value>
-        public enum EnabledServicesEnum
-        {
-            /// <summary>
-            /// Enum WebSearch for value: -14
-            /// </summary>
-            WebSearch = -14,
-
-            /// <summary>
-            /// Enum AITools for value: -13
-            /// </summary>
-            AITools = -13,
-
-            /// <summary>
-            /// Enum Backup for value: -12
-            /// </summary>
-            Backup = -12,
-
-            /// <summary>
-            /// Enum Storage for value: -11
-            /// </summary>
-            Storage = -11
-        }
-
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="TenantWalletServiceSettings" /> class.
+        /// Initializes a new instance of the <see cref="TenantAiAgentQuotaSettings" /> class.
         /// </summary>
-        /// <param name="enabledServices">The list of the enabled wallet services..</param>
-        /// <param name="lastModified">The date and time when the wallet services settings were last modified..</param>
-        public TenantWalletServiceSettings(List<TenantWalletServiceSettings.EnabledServicesEnum> enabledServices = default, DateTime lastModified = default)
+        /// <param name="lastModified">lastModified.</param>
+        public TenantAiAgentQuotaSettings(DateTime lastModified = default)
         {
-            this.EnabledServices = enabledServices;
             this.LastModified = lastModified;
         }
 
         /// <summary>
-        /// The list of the enabled wallet services.
+        /// Gets or Sets LastModified
         /// </summary>
-        /// <value>The list of the enabled wallet services.</value>
-        [DataMember(Name = "enabledServices", EmitDefaultValue = true)]
-        public List<TenantWalletServiceSettings.EnabledServicesEnum> EnabledServices { get; set; }
-
-        /// <summary>
-        /// The date and time when the wallet services settings were last modified.
-        /// </summary>
-        /// <value>The date and time when the wallet services settings were last modified.</value>
         /*
         <example>2008-04-10T06:30+04:00</example>
         */
@@ -87,8 +50,7 @@ namespace DocSpace.API.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TenantWalletServiceSettings {\n");
-            sb.Append("  EnabledServices: ").Append(EnabledServices).Append("\n");
+            sb.Append("class TenantAiAgentQuotaSettings {\n");
             sb.Append("  LastModified: ").Append(LastModified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -98,10 +60,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -113,6 +76,4 @@ namespace DocSpace.API.SDK.Model
             yield break;
         }
     }
-
-
 }

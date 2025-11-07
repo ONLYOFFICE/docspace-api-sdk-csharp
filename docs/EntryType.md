@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.EntryType
-[0 - None, 1 - File, 2 - Folder, 23 - User, 24 - Group, 25 - Room, 26 - Tag]
+[0 - None, 1 - File, 2 - Folder, 23 - User, 24 - Group, 25 - Room, 26 - Tag, 27 - Agent]
 
 ## Properties
 

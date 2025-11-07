@@ -52,7 +52,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="roomType">roomType (required).</param>
         /// <param name="@private">Specifies whether the room to be created is private or not..</param>
         /// <param name="share">The collection of sharing parameters..</param>
-        public CreateRoomRequestDto(string title = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, RoomType roomType = default, bool @private = default, List<FileShareParams> share = default)
+        /// <param name="chatSettings">chatSettings.</param>
+        public CreateRoomRequestDto(string title = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, RoomType roomType = default, bool @private = default, List<FileShareParams> share = default, ChatSettings chatSettings = default)
         {
             // to ensure "title" is required (not null)
             if (title == null)
@@ -72,6 +73,7 @@ namespace DocSpace.API.SDK.Model
             this.Cover = cover;
             this.Private = @private;
             this.Share = share;
+            this.ChatSettings = chatSettings;
         }
 
         /// <summary>
@@ -180,6 +182,12 @@ namespace DocSpace.API.SDK.Model
         public List<FileShareParams> Share { get; set; }
 
         /// <summary>
+        /// Gets or Sets ChatSettings
+        /// </summary>
+        [DataMember(Name = "chatSettings", EmitDefaultValue = false)]
+        public ChatSettings ChatSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -200,6 +208,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  RoomType: ").Append(RoomType).Append("\n");
             sb.Append("  Private: ").Append(Private).Append("\n");
             sb.Append("  Share: ").Append(Share).Append("\n");
+            sb.Append("  ChatSettings: ").Append(ChatSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

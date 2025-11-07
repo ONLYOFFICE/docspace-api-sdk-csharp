@@ -1878,7 +1878,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var service = (TenantWalletService) "-12";  // TenantWalletService | The wallet service type.
+            var service = (TenantWalletService) "-14";  // TenantWalletService | The wallet service type.
 
             try
             {

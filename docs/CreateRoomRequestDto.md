@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **RoomType** | **RoomType** |  | 
 **Private** | **bool** | Specifies whether the room to be created is private or not. | [optional] 
 **Share** | [**List&lt;FileShareParams&gt;**](FileShareParams.md) | The collection of sharing parameters. | [optional] 
+**ChatSettings** | [**ChatSettings**](ChatSettings.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

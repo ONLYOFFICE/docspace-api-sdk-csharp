@@ -38,7 +38,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="tags">The list of tags..</param>
         /// <param name="color">The room color..</param>
         /// <param name="cover">The room cover..</param>
-        public UpdateRoomRequest(string title = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default)
+        /// <param name="chatSettings">chatSettings.</param>
+        public UpdateRoomRequest(string title = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, ChatSettings chatSettings = default)
         {
             this.Title = title;
             this.Quota = quota;
@@ -50,6 +51,7 @@ namespace DocSpace.API.SDK.Model
             this.Tags = tags;
             this.Color = color;
             this.Cover = cover;
+            this.ChatSettings = chatSettings;
         }
 
         /// <summary>
@@ -141,6 +143,12 @@ namespace DocSpace.API.SDK.Model
         public string Cover { get; set; }
 
         /// <summary>
+        /// Gets or Sets ChatSettings
+        /// </summary>
+        [DataMember(Name = "chatSettings", EmitDefaultValue = false)]
+        public ChatSettings ChatSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -158,6 +166,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Color: ").Append(Color).Append("\n");
             sb.Append("  Cover: ").Append(Cover).Append("\n");
+            sb.Append("  ChatSettings: ").Append(ChatSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

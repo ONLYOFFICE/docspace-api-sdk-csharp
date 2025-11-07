@@ -4,7 +4,6 @@ The ONLYOFFICE DocSpace SDK for C# is a library that provides tools for integrat
 
 For more information, please visit [https://helpdesk.onlyoffice.com/hc/en-us](https://helpdesk.onlyoffice.com/hc/en-us)
 
-<a id="installation"></a>
 ## Installation
 
 To get started, install the package from NuGet
@@ -13,7 +12,6 @@ To get started, install the package from NuGet
 dotnet add package DocSpace.API.SDK
 ```
 
-<a id="usage"></a>
 ## Usage
 
 To use the API client with a HTTP proxy, set up a `System.Net.WebProxy` as follows:
@@ -51,7 +49,6 @@ services.AddHttpClient<RoomsApi>(httpClient =>
 ```
 
 
-<a id="getting-started"></a>
 ## Getting Started
 
 ```csharp
@@ -82,7 +79,6 @@ catch (ApiException e)
 
 ```
 
-<a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
 
@@ -134,6 +130,7 @@ Authentication schemes defined for the API:
 - **Type**: API key
 - **API key parameter name**: x-signature
 - **Location**: Cookie
+
 
 
 <a id="documentation-for-api-endpoints"></a>
@@ -2626,6 +2623,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get the user quota settings</td>
       </tr>
       <tr>
+        <td><a href="docs/SettingsQuotaApi.md#saveaiagentquotasettings"><strong>SaveAiAgentQuotaSettings</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/settings/aiagentquotasettings</td>
+        <td>Save the AI Agent quota settings</td>
+      </tr>
+      <tr>
         <td><a href="docs/SettingsQuotaApi.md#saveroomquotasettings"><strong>SaveRoomQuotaSettings</strong></a></td>
         <td><strong>POST</strong> /api/2.0/settings/roomquotasettings</td>
         <td>Save the room quota settings</td>
@@ -3104,6 +3106,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.ChangeHistory](docs/ChangeHistory.md)
  - [Model.ChangeOwnerRequestDto](docs/ChangeOwnerRequestDto.md)
  - [Model.ChangeWalletServiceStateRequestDto](docs/ChangeWalletServiceStateRequestDto.md)
+ - [Model.ChatSettings](docs/ChatSettings.md)
  - [Model.CheckConversionRequestDtoInteger](docs/CheckConversionRequestDtoInteger.md)
  - [Model.CheckDestFolderDto](docs/CheckDestFolderDto.md)
  - [Model.CheckDestFolderResult](docs/CheckDestFolderResult.md)
@@ -3496,6 +3499,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.SexEnum](docs/SexEnum.md)
  - [Model.ShareFilterType](docs/ShareFilterType.md)
  - [Model.SignupAccountRequestDto](docs/SignupAccountRequestDto.md)
+ - [Model.Size](docs/Size.md)
  - [Model.SmtpOperationStatusRequestsDto](docs/SmtpOperationStatusRequestsDto.md)
  - [Model.SmtpOperationStatusRequestsWrapper](docs/SmtpOperationStatusRequestsWrapper.md)
  - [Model.SmtpSettingsDto](docs/SmtpSettingsDto.md)
@@ -3538,6 +3542,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.TelegramStatusWrapper](docs/TelegramStatusWrapper.md)
  - [Model.TemplatesConfig](docs/TemplatesConfig.md)
  - [Model.TemplatesRequestDto](docs/TemplatesRequestDto.md)
+ - [Model.TenantAiAgentQuotaSettings](docs/TenantAiAgentQuotaSettings.md)
+ - [Model.TenantAiAgentQuotaSettingsWrapper](docs/TenantAiAgentQuotaSettingsWrapper.md)
  - [Model.TenantAuditSettings](docs/TenantAuditSettings.md)
  - [Model.TenantAuditSettingsWrapper](docs/TenantAuditSettingsWrapper.md)
  - [Model.TenantBannerSettings](docs/TenantBannerSettings.md)
@@ -3617,6 +3623,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.UserInvitation](docs/UserInvitation.md)
  - [Model.UserInvitationRequestDto](docs/UserInvitationRequestDto.md)
  - [Model.ValidationResult](docs/ValidationResult.md)
+ - [Model.VectorizationStatus](docs/VectorizationStatus.md)
  - [Model.WalletQuantityRequestDto](docs/WalletQuantityRequestDto.md)
  - [Model.WatermarkAdditions](docs/WatermarkAdditions.md)
  - [Model.WatermarkDto](docs/WatermarkDto.md)

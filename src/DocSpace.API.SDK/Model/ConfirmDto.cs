@@ -43,12 +43,14 @@ namespace DocSpace.API.SDK.Model
         /// <param name="roomId">The confirmation room ID..</param>
         /// <param name="title">The confirmation title..</param>
         /// <param name="email">The confirmation email..</param>
-        public ConfirmDto(ValidationResult result = default, string roomId = default, string title = default, string email = default)
+        /// <param name="isAgent">The confirmation is agent..</param>
+        public ConfirmDto(ValidationResult result = default, string roomId = default, string title = default, string email = default, bool isAgent = default)
         {
             this.Result = result;
             this.RoomId = roomId;
             this.Title = title;
             this.Email = email;
+            this.IsAgent = isAgent;
         }
 
         /// <summary>
@@ -82,6 +84,16 @@ namespace DocSpace.API.SDK.Model
         public string Email { get; set; }
 
         /// <summary>
+        /// The confirmation is agent.
+        /// </summary>
+        /// <value>The confirmation is agent.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "isAgent", EmitDefaultValue = true)]
+        public bool IsAgent { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +105,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  RoomId: ").Append(RoomId).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
+            sb.Append("  IsAgent: ").Append(IsAgent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

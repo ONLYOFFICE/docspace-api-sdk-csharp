@@ -32,12 +32,14 @@ namespace DocSpace.API.SDK.Model
         /// <param name="name">The full name of the user..</param>
         /// <param name="image">The path to the user&#39;s avatar..</param>
         /// <param name="roles">Roles.</param>
-        public UserConfig(string id = default, string name = default, string image = default, List<string> roles = default)
+        /// <param name="customerId">customerId.</param>
+        public UserConfig(string id = default, string name = default, string image = default, List<string> roles = default, string customerId = default)
         {
             this.Id = id;
             this.Name = name;
             this.Image = image;
             this.Roles = roles;
+            this.CustomerId = customerId;
         }
 
         /// <summary>
@@ -81,6 +83,15 @@ namespace DocSpace.API.SDK.Model
         public List<string> Roles { get; set; }
 
         /// <summary>
+        /// Gets or Sets CustomerId
+        /// </summary>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "customerId", EmitDefaultValue = true)]
+        public string CustomerId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +103,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Image: ").Append(Image).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
+            sb.Append("  CustomerId: ").Append(CustomerId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

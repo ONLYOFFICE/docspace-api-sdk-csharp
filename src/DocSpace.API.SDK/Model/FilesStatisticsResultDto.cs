@@ -32,12 +32,14 @@ namespace DocSpace.API.SDK.Model
         /// <param name="trashUsedSpace">trashUsedSpace.</param>
         /// <param name="archiveUsedSpace">archiveUsedSpace.</param>
         /// <param name="roomsUsedSpace">roomsUsedSpace.</param>
-        public FilesStatisticsResultDto(FilesStatisticsFolder myDocumentsUsedSpace = default, FilesStatisticsFolder trashUsedSpace = default, FilesStatisticsFolder archiveUsedSpace = default, FilesStatisticsFolder roomsUsedSpace = default)
+        /// <param name="aiAgentsUsedSpace">aiAgentsUsedSpace.</param>
+        public FilesStatisticsResultDto(FilesStatisticsFolder myDocumentsUsedSpace = default, FilesStatisticsFolder trashUsedSpace = default, FilesStatisticsFolder archiveUsedSpace = default, FilesStatisticsFolder roomsUsedSpace = default, FilesStatisticsFolder aiAgentsUsedSpace = default)
         {
             this.MyDocumentsUsedSpace = myDocumentsUsedSpace;
             this.TrashUsedSpace = trashUsedSpace;
             this.ArchiveUsedSpace = archiveUsedSpace;
             this.RoomsUsedSpace = roomsUsedSpace;
+            this.AiAgentsUsedSpace = aiAgentsUsedSpace;
         }
 
         /// <summary>
@@ -65,6 +67,12 @@ namespace DocSpace.API.SDK.Model
         public FilesStatisticsFolder RoomsUsedSpace { get; set; }
 
         /// <summary>
+        /// Gets or Sets AiAgentsUsedSpace
+        /// </summary>
+        [DataMember(Name = "aiAgentsUsedSpace", EmitDefaultValue = false)]
+        public FilesStatisticsFolder AiAgentsUsedSpace { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +84,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  TrashUsedSpace: ").Append(TrashUsedSpace).Append("\n");
             sb.Append("  ArchiveUsedSpace: ").Append(ArchiveUsedSpace).Append("\n");
             sb.Append("  RoomsUsedSpace: ").Append(RoomsUsedSpace).Append("\n");
+            sb.Append("  AiAgentsUsedSpace: ").Append(AiAgentsUsedSpace).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

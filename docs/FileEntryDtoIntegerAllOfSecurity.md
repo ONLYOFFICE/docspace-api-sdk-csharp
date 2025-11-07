@@ -45,6 +45,9 @@ Name | Type | Description | Notes
 **OpenForm** | **bool** |  | [optional] 
 **EditInternal** | **bool** |  | [optional] 
 **EditExpiration** | **bool** |  | [optional] 
+**Vectorization** | **bool** |  | [optional] 
+**AscAi** | **bool** |  | [optional] 
+**UseChat** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

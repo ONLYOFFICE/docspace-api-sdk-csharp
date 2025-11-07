@@ -19,9 +19,9 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template]
+    /// [0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template, 5 - Knowledge, 6 - Result storage, 7 - AiAgents]
     /// </summary>
-    /// <value>[0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template]</value>
+    /// <value>[0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template, 5 - Knowledge, 6 - Result storage, 7 - AiAgents]</value>
     public enum SearchArea
     {
         /// <summary>
@@ -47,7 +47,22 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum Templates for value: 4
         /// </summary>
-        Templates = 4
+        Templates = 4,
+
+        /// <summary>
+        /// Enum Knowledge for value: 5
+        /// </summary>
+        Knowledge = 5,
+
+        /// <summary>
+        /// Enum ResultStorage for value: 6
+        /// </summary>
+        ResultStorage = 6,
+
+        /// <summary>
+        /// Enum AiAgents for value: 7
+        /// </summary>
+        AiAgents = 7
     }
 
 }

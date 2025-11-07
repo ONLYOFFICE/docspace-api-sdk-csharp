@@ -67,6 +67,8 @@ Name | Type | Description | Notes
 **ViewAccessibility** | [**FileDtoIntegerAllOfViewAccessibility**](FileDtoIntegerAllOfViewAccessibility.md) |  | [optional] 
 **LastOpened** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **Expired** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
+**VectorizationStatus** | **VectorizationStatus** |  | [optional] 
+**Dimensions** | [**Size**](Size.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

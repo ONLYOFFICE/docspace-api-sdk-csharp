@@ -37,15 +37,17 @@ namespace DocSpace.API.SDK.Model
         /// <param name="isCompleted">isCompleted.</param>
         /// <param name="progress">progress.</param>
         /// <param name="error">error.</param>
+        /// <param name="warning">warning.</param>
         /// <param name="link">link.</param>
         /// <param name="tenantId">tenantId.</param>
         /// <param name="backupProgressEnum">backupProgressEnum.</param>
         /// <param name="taskId">taskId.</param>
-        public BackupProgress(bool isCompleted = default, int progress = default, string error = default, string link = default, int tenantId = default, BackupProgressEnum? backupProgressEnum = default, string taskId = default)
+        public BackupProgress(bool isCompleted = default, int progress = default, string error = default, string warning = default, string link = default, int tenantId = default, BackupProgressEnum? backupProgressEnum = default, string taskId = default)
         {
             this.IsCompleted = isCompleted;
             this.Progress = progress;
             this.Error = error;
+            this.Warning = warning;
             this.Link = link;
             this.TenantId = tenantId;
             this.BackupProgressEnum = backupProgressEnum;
@@ -78,6 +80,15 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Warning
+        /// </summary>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "warning", EmitDefaultValue = true)]
+        public string Warning { get; set; }
 
         /// <summary>
         /// Gets or Sets Link
@@ -117,6 +128,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  IsCompleted: ").Append(IsCompleted).Append("\n");
             sb.Append("  Progress: ").Append(Progress).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
+            sb.Append("  Warning: ").Append(Warning).Append("\n");
             sb.Append("  Link: ").Append(Link).Append("\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  BackupProgressEnum: ").Append(BackupProgressEnum).Append("\n");

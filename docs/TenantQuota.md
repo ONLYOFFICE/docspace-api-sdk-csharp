@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **PriceCurrencySymbol** | **string** | The tenant price currency symbol. | [optional] 
 **PriceISOCurrencySymbol** | **string** | The tenant price three-character ISO 4217 currency symbol. | [optional] 
 **ProductId** | **string** | The tenant product ID. | [optional] 
+**ServiceName** | **string** | The service name. | [optional] 
 **Visible** | **bool** | Specifies if the tenant quota is visible or not. | [optional] 
 **Wallet** | **bool** | Specifies if the tenant quota applies to the wallet or not | [optional] 
 **DueDate** | **DateTime?** | The quota due date. | [optional] 

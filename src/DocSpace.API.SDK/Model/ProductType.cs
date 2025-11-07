@@ -19,16 +19,11 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - None, 2 - Documents, 3 - Login, 4 - Others, 5 - People, 7 - Settings]
+    /// [2 - Documents, 3 - Login, 7 - Settings, 8 - Contacts]
     /// </summary>
-    /// <value>[0 - None, 2 - Documents, 3 - Login, 4 - Others, 5 - People, 7 - Settings]</value>
+    /// <value>[2 - Documents, 3 - Login, 7 - Settings, 8 - Contacts]</value>
     public enum ProductType
     {
-        /// <summary>
-        /// Enum None for value: 0
-        /// </summary>
-        None = 0,
-
         /// <summary>
         /// Enum Documents for value: 2
         /// </summary>
@@ -40,19 +35,14 @@ namespace DocSpace.API.SDK.Model
         Login = 3,
 
         /// <summary>
-        /// Enum Others for value: 4
-        /// </summary>
-        Others = 4,
-
-        /// <summary>
-        /// Enum People for value: 5
-        /// </summary>
-        People = 5,
-
-        /// <summary>
         /// Enum Settings for value: 7
         /// </summary>
-        Settings = 7
+        Settings = 7,
+
+        /// <summary>
+        /// Enum Contacts for value: 8
+        /// </summary>
+        Contacts = 8
     }
 
 }

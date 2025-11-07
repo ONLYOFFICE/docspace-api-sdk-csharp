@@ -36,6 +36,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public FolderType? Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RootRoomType
+        /// </summary>
+        [DataMember(Name = "rootRoomType", EmitDefaultValue = false)]
+        public RoomType? RootRoomType { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="FolderDtoInteger" /> class.
@@ -62,7 +68,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="usedSpace">How much folder space is used (counter)..</param>
         /// <param name="passwordProtected">Specifies if the folder is password protected or not..</param>
         /// <param name="expired">Specifies if an external link to the folder is expired or not..</param>
-        public FolderDtoInteger(int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? passwordProtected = default, bool? expired = default)
+        /// <param name="chatSettings">chatSettings.</param>
+        /// <param name="rootRoomType">rootRoomType.</param>
+        public FolderDtoInteger(int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? passwordProtected = default, bool? expired = default, ChatSettings chatSettings = default, RoomType? rootRoomType = default)
         {
             this.ParentId = parentId;
             this.FilesCount = filesCount;
@@ -86,6 +94,8 @@ namespace DocSpace.API.SDK.Model
             this.UsedSpace = usedSpace;
             this.PasswordProtected = passwordProtected;
             this.Expired = expired;
+            this.ChatSettings = chatSettings;
+            this.RootRoomType = rootRoomType;
         }
 
         /// <summary>
@@ -278,6 +288,12 @@ namespace DocSpace.API.SDK.Model
         public bool? Expired { get; set; }
 
         /// <summary>
+        /// Gets or Sets ChatSettings
+        /// </summary>
+        [DataMember(Name = "chatSettings", EmitDefaultValue = false)]
+        public ChatSettings ChatSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -307,6 +323,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  UsedSpace: ").Append(UsedSpace).Append("\n");
             sb.Append("  PasswordProtected: ").Append(PasswordProtected).Append("\n");
             sb.Append("  Expired: ").Append(Expired).Append("\n");
+            sb.Append("  ChatSettings: ").Append(ChatSettings).Append("\n");
+            sb.Append("  RootRoomType: ").Append(RootRoomType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

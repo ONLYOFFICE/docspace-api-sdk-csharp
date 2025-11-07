@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **IsCompleted** | **bool** |  | [optional] 
 **Progress** | **int** |  | [optional] 
 **Error** | **string** |  | [optional] 
+**Warning** | **string** |  | [optional] 
 **Link** | **string** |  | [optional] 
 **TenantId** | **int** |  | [optional] 
 **BackupProgressEnum** | **BackupProgressEnum** |  | [optional] 

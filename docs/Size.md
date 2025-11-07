@@ -1,10 +1,11 @@
-# DocSpace.API.SDK.Model.RoomType
-[1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - Virtual data room]
+# DocSpace.API.SDK.Model.Size
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Height** | **int** |  | [optional] 
+**Width** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

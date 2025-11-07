@@ -19,9 +19,9 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room]
+    /// [1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - Virtual data room]
     /// </summary>
-    /// <value>[1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room]</value>
+    /// <value>[1 - Form filling room, 2 - Collaboration room, 5 - Custom room, 6 - Public room, 8 - Virtual data room, 9 - Virtual data room]</value>
     public enum RoomType
     {
         /// <summary>
@@ -47,7 +47,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum VirtualDataRoom for value: 8
         /// </summary>
-        VirtualDataRoom = 8
+        VirtualDataRoom = 8,
+
+        /// <summary>
+        /// Enum AiRoom for value: 9
+        /// </summary>
+        AiRoom = 9
     }
 
 }

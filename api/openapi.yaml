@@ -5,7 +5,7 @@ info:
     name: API Support
     url: https://helpdesk.onlyoffice.com/hc/en-us
   title: Api
-  version: 3.5.0
+  version: 4.0.0
 servers:
 - description: Server configuration
   url: "{baseUrl}"
@@ -4729,6 +4729,43 @@ paths:
         - write
       - OpenId: []
       summary: Save the room quota settings
+      tags:
+      - Settings / Quota
+  /api/2.0/settings/aiagentquotasettings:
+    post:
+      description: Saves the AI Agent quota settings specified in the request to the
+        current portal.
+      operationId: saveAiAgentQuotaSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QuotaSettingsRequestsDto"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TenantAiAgentQuotaSettingsWrapper"
+          description: Tenant AI Agent quota settings
+        "401":
+          description: Unauthorized
+        "402":
+          description: Your pricing plan does not support this option
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Save the AI Agent quota settings
       tags:
       - Settings / Quota
   /api/2.0/settings/tenantquotasettings:
@@ -19414,7 +19451,7 @@ components:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           country: some text
-          product: 0
+          product: 2
           city: some text
           ip: some text
           userId: aae1e103-bca5-9fa1-ba8c-42058b4abf28
@@ -19437,7 +19474,7 @@ components:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           country: some text
-          product: 0
+          product: 2
           city: some text
           ip: some text
           userId: aae1e103-bca5-9fa1-ba8c-42058b4abf28
@@ -19491,7 +19528,7 @@ components:
           utcTime: 2008-04-10T06:30:00+04:00
           timeZoneOffset: 00:00:00
         country: some text
-        product: 0
+        product: 2
         city: some text
         ip: some text
         userId: aae1e103-bca5-9fa1-ba8c-42058b4abf28
@@ -20170,7 +20207,7 @@ components:
       additionalProperties: false
       description: The request parameters for changing the tenant wallet service state.
       example:
-        service: -12
+        service: -14
         enabled: true
       properties:
         service:
@@ -20389,6 +20426,7 @@ components:
       description: The confirmation parameters.
       example:
         result: 0
+        isAgent: true
         title: legacy_1080p_small_wooden_mouse
         roomId: "9846"
         email: Sydney_Roberts4@hotmail.com
@@ -20410,6 +20448,10 @@ components:
           example: Sydney_Roberts4@hotmail.com
           nullable: true
           type: string
+        isAgent:
+          description: The confirmation is agent.
+          example: true
+          type: boolean
       required:
       - result
       type: object
@@ -20485,6 +20527,7 @@ components:
       example:
         response:
           result: 0
+          isAgent: true
           title: legacy_1080p_small_wooden_mouse
           roomId: "9846"
           email: Sydney_Roberts4@hotmail.com
@@ -21905,7 +21948,7 @@ components:
       type: object
     EntryType:
       description: "[0 - None, 1 - File, 2 - Folder, 23 - User, 24 - Group, 25 - Room,\
-        \ 26 - Tag]"
+        \ 26 - Tag, 27 - Agent]"
       enum:
       - 0
       - 1
@@ -21914,6 +21957,7 @@ components:
       - 24
       - 25
       - 26
+      - 27
       example: 0
       type: integer
       x-enum-varnames:
@@ -21924,6 +21968,7 @@ components:
       - Group
       - Room
       - Tag
+      - Agent
       x-enum-descriptions:
       - None
       - File
@@ -21932,6 +21977,7 @@ components:
       - Group
       - Room
       - Tag
+      - Agent
     FeatureUsedDto:
       additionalProperties: false
       description: The used space parameters of the tenant quota feature.
@@ -22680,43 +22726,17 @@ components:
           type: string
       type: object
     LocationType:
-      description: "[0 - None, 1 - Files, 2 - Folders, 3 - Documents settings, 4 -\
-        \ Companies, 5 - Persons, 6 - Contacts, 7 - Crm tasks, 8 - Opportunities,\
-        \ 9 - Invoices, 10 - Cases, 11 - Common crm settings, 12 - Contacts settings,\
-        \ 13 - Contact types, 14 - Invoice settings, 15 - Other crm settings, 16 -\
-        \ Users, 17 - Groups, 18 - Projects, 19 - Milestones, 20 - Tasks, 21 - Discussions,\
-        \ 22 - Time tracking, 23 - Reports, 24 - Projects settings, 25 - General,\
-        \ 26 - Products, 27 - Rooms, 28 - OAuth]"
+      description: "[0 - None, 1 - Files, 2 - Folders, 3 - Documents settings, 27\
+        \ - Rooms, 29 - Settings, 30 - Contacts, 31 - Agents]"
       enum:
       - 0
       - 1
       - 2
       - 3
-      - 4
-      - 5
-      - 6
-      - 7
-      - 8
-      - 9
-      - 10
-      - 11
-      - 12
-      - 13
-      - 14
-      - 15
-      - 16
-      - 17
-      - 18
-      - 19
-      - 20
-      - 21
-      - 22
-      - 23
-      - 24
-      - 25
-      - 26
       - 27
-      - 28
+      - 29
+      - 30
+      - 31
       example: 0
       type: integer
       x-enum-varnames:
@@ -22724,61 +22744,19 @@ components:
       - Files
       - Folders
       - DocumentsSettings
-      - Companies
-      - Persons
-      - Contacts
-      - CrmTasks
-      - Opportunities
-      - Invoices
-      - Cases
-      - CommonCrmSettings
-      - ContactsSettings
-      - ContactTypes
-      - InvoiceSettings
-      - OtherCrmSettings
-      - Users
-      - Groups
-      - Projects
-      - Milestones
-      - Tasks
-      - Discussions
-      - TimeTracking
-      - Reports
-      - ProjectsSettings
-      - General
-      - Products
       - Rooms
-      - OAuth
+      - Settings
+      - Contacts
+      - Agents
       x-enum-descriptions:
       - None
       - Files
       - Folders
       - Documents settings
-      - Companies
-      - Persons
-      - Contacts
-      - Crm tasks
-      - Opportunities
-      - Invoices
-      - Cases
-      - Common crm settings
-      - Contacts settings
-      - Contact types
-      - Invoice settings
-      - Other crm settings
-      - Users
-      - Groups
-      - Projects
-      - Milestones
-      - Tasks
-      - Discussions
-      - Time tracking
-      - Reports
-      - Projects settings
-      - General
-      - Products
       - Rooms
-      - OAuth
+      - Settings
+      - Contacts
+      - Agents
     LoginEventArrayWrapper:
       example:
         response:
@@ -22922,7 +22900,7 @@ components:
     LoginProvider:
       description: "[0 - Facebook, 1 - Google, 2 - Dropbox, 3 - Docusign, 4 - Box,\
         \ 5 - OneDrive, 6 - GosUslugi, 7 - LinkedIn, 8 - MailRu, 9 - VK, 10 - Wordpress,\
-        \ 11 - Yahoo, 12 - Yandex]"
+        \ 11 - Yahoo, 12 - Yandex, 13 - Github]"
       enum:
       - 0
       - 1
@@ -22937,6 +22915,7 @@ components:
       - 10
       - 11
       - 12
+      - 13
       example: 0
       type: integer
       x-enum-varnames:
@@ -22953,6 +22932,7 @@ components:
       - Wordpress
       - Yahoo
       - Yandex
+      - Github
       x-enum-descriptions:
       - Facebook
       - Google
@@ -22967,6 +22947,7 @@ components:
       - Wordpress
       - Yahoo
       - Yandex
+      - Github
     LoginSettingsDto:
       additionalProperties: false
       description: The login settings parameters.
@@ -23199,46 +23180,50 @@ components:
         \ enabled, 5121 - File custom filter disabled, 5122 - Folder external link\
         \ created, 5123 - Folder external link updated, 5124 - Folder external link\
         \ deleted, 5150 - Form started to fill, 5151 - Form partially filled, 5152\
-        \ - Form completely filled, 5153 - Form stopped, 5501 - Ldap enabled, 5502\
-        \ - Ldap disabled, 5503 - LDAP synchronization completed, 6000 - Language\
-        \ settings updated, 6001 - Time zone settings updated, 6002 - Dns settings\
-        \ updated, 6003 - Trusted mail domain settings updated, 6004 - Password strength\
-        \ settings updated, 6005 - Two factor authentication settings updated, 6006\
-        \ - Administrator message settings updated, 6007 - Default start page settings\
-        \ updated, 6008 - Products list updated, 6009 - Administrator added, 6010\
-        \ - Administrator opened full access, 6011 - Administrator deleted, 6012 -\
-        \ Users opened product access, 6013 - Groups opened product access, 6014 -\
-        \ Product access opened, 6015 - Product access restricted, 6016 - Product\
-        \ added administrator, 6017 - Product deleted administrator, 6018 - Greeting\
-        \ settings updated, 6019 - Team template changed, 6020 - Color theme changed,\
-        \ 6021 - Owner sent change owner instructions, 6022 - Owner updated, 6023\
-        \ - Owner sent portal deactivation instructions, 6024 - Owner sent portal\
-        \ delete instructions, 6025 - Portal deactivated, 6026 - Portal deleted, 6027\
-        \ - Login history report downloaded, 6028 - Audit trail report downloaded,\
-        \ 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access settings updated,\
-        \ 6032 - Cookie settings updated, 6033 - Mail service settings updated, 6034\
-        \ - Custom navigation settings updated, 6035 - Audit settings updated, 6036\
-        \ - Two factor authentication disabled, 6037 - Two factor authentication enabled\
-        \ by sms, 6038 - Two factor authentication enabled by tfa app, 6039 - Portal\
-        \ renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled,\
-        \ 6042 - Quota per user changed, 6043 - Quota per user disabled, 6044 - Quota\
-        \ per portal changed, 6045 - Quota per portal disabled, 6046 - Form submit,\
-        \ 6047 - Form opened for filling, 6048 - Custom quota per room default, 6049\
-        \ - Custom quota per room changed, 6050 - Custom quota per room disabled,\
-        \ 6051 - Custom quota per user default, 6052 - Custom quota per user changed,\
-        \ 6053 - Custom quota per user disabled, 6054 - DevTools access settings changed,\
-        \ 6055 - Webhook created, 6056 - Webhook updated, 6057 - Webhook deleted,\
-        \ 6058 - Created api key, 6059 - Update api key, 6060 - Deleted User api key,\
-        \ 6061 - Customer wallet topped up, 6062 - Customer operation performed, 6063\
-        \ - Customer operations report downloaded, 6064 - Customer wallet top up settings\
-        \ updated, 6065 - Customer subscription updated, 6066 - Promotional banners\
-        \ visibility settings changed, 6067 - Customer wallet services settings updated,\
-        \ 7000 - Contact admin mail sent, 7001 - Room invite link used, 7002 - User\
-        \ created and added to room, 7003 - Guest created and added to room, 7004\
-        \ - Contact sales mail sent, 9901 - Create client, 9902 - Update client, 9903\
-        \ - Regenerate secret, 9904 - Delete client, 9905 - Change client activation,\
-        \ 9906 - Change client visibility, 9907 - Revoke user client, 9908 - Generate\
-        \ authorization code token, 9909 - Generate personal access token, -1 - None]"
+        \ - Form completely filled, 5153 - Form stopped, 5154 - Agent created, 5155\
+        \ - Agent renamed, 5156 - Agent deleted, 5501 - Ldap enabled, 5502 - Ldap\
+        \ disabled, 5503 - LDAP synchronization completed, 6000 - Language settings\
+        \ updated, 6001 - Time zone settings updated, 6002 - Dns settings updated,\
+        \ 6003 - Trusted mail domain settings updated, 6004 - Password strength settings\
+        \ updated, 6005 - Two factor authentication settings updated, 6006 - Administrator\
+        \ message settings updated, 6007 - Default start page settings updated, 6008\
+        \ - Products list updated, 6009 - Administrator added, 6010 - Administrator\
+        \ opened full access, 6011 - Administrator deleted, 6012 - Users opened product\
+        \ access, 6013 - Groups opened product access, 6014 - Product access opened,\
+        \ 6015 - Product access restricted, 6016 - Product added administrator, 6017\
+        \ - Product deleted administrator, 6018 - Greeting settings updated, 6019\
+        \ - Team template changed, 6020 - Color theme changed, 6021 - Owner sent change\
+        \ owner instructions, 6022 - Owner updated, 6023 - Owner sent portal deactivation\
+        \ instructions, 6024 - Owner sent portal delete instructions, 6025 - Portal\
+        \ deactivated, 6026 - Portal deleted, 6027 - Login history report downloaded,\
+        \ 6028 - Audit trail report downloaded, 6029 - SSO enabled, 6030 - SSO disabled,\
+        \ 6031 - Portal access settings updated, 6032 - Cookie settings updated, 6033\
+        \ - Mail service settings updated, 6034 - Custom navigation settings updated,\
+        \ 6035 - Audit settings updated, 6036 - Two factor authentication disabled,\
+        \ 6037 - Two factor authentication enabled by sms, 6038 - Two factor authentication\
+        \ enabled by tfa app, 6039 - Portal renamed, 6040 - Quota per room changed,\
+        \ 6041 - Quota per room disabled, 6042 - Quota per user changed, 6043 - Quota\
+        \ per user disabled, 6044 - Quota per portal changed, 6045 - Quota per portal\
+        \ disabled, 6046 - Form submit, 6047 - Form opened for filling, 6048 - Custom\
+        \ quota per room default, 6049 - Custom quota per room changed, 6050 - Custom\
+        \ quota per room disabled, 6051 - Custom quota per user default, 6052 - Custom\
+        \ quota per user changed, 6053 - Custom quota per user disabled, 6054 - DevTools\
+        \ access settings changed, 6055 - Webhook created, 6056 - Webhook updated,\
+        \ 6057 - Webhook deleted, 6058 - Created api key, 6059 - Update api key, 6060\
+        \ - Deleted User api key, 6061 - Customer wallet topped up, 6062 - Customer\
+        \ operation performed, 6063 - Customer operations report downloaded, 6064\
+        \ - Customer wallet top up settings updated, 6065 - Customer subscription\
+        \ updated, 6066 - Promotional banners visibility settings changed, 6067 -\
+        \ Customer wallet services settings updated, 6068 - Quota per AI agent changed,\
+        \ 6069 - Quota per AI agent disabled, 6070 - Custom quota per AI agent default,\
+        \ 6071 - Custom quota per AI agent changed, 6072 - Custom quota per AI agent\
+        \ disabled, 7000 - Contact admin mail sent, 7001 - Room invite link used,\
+        \ 7002 - User created and added to room, 7003 - Guest created and added to\
+        \ room, 7004 - Contact sales mail sent, 9901 - Create client, 9902 - Update\
+        \ client, 9903 - Regenerate secret, 9904 - Delete client, 9905 - Change client\
+        \ activation, 9906 - Change client visibility, 9907 - Revoke user client,\
+        \ 9908 - Generate authorization code token, 9909 - Generate personal access\
+        \ token, -1 - None]"
       enum:
       - 1000
       - 1001
@@ -23436,6 +23421,9 @@ components:
       - 5151
       - 5152
       - 5153
+      - 5154
+      - 5155
+      - 5156
       - 5501
       - 5502
       - 5503
@@ -23507,6 +23495,11 @@ components:
       - 6065
       - 6066
       - 6067
+      - 6068
+      - 6069
+      - 6070
+      - 6071
+      - 6072
       - 7000
       - 7001
       - 7002
@@ -23721,6 +23714,9 @@ components:
       - FormPartiallyFilled
       - FormCompletelyFilled
       - FormStopped
+      - AgentCreated
+      - AgentRenamed
+      - AgentDeleted
       - LdapEnabled
       - LdapDisabled
       - LdapSync
@@ -23792,6 +23788,11 @@ components:
       - CustomerSubscriptionUpdated
       - BannerSettingsChanged
       - CustomerWalletServicesSettingsUpdated
+      - QuotaPerAiAgentChanged
+      - QuotaPerAiAgentDisabled
+      - CustomQuotaPerAiAgentDefault
+      - CustomQuotaPerAiAgentChanged
+      - CustomQuotaPerAiAgentDisabled
       - ContactAdminMailSent
       - RoomInviteLinkUsed
       - UserCreatedAndAddedToRoom
@@ -24004,6 +24005,9 @@ components:
       - Form partially filled
       - Form completely filled
       - Form stopped
+      - Agent created
+      - Agent renamed
+      - Agent deleted
       - Ldap enabled
       - Ldap disabled
       - LDAP synchronization completed
@@ -24075,6 +24079,11 @@ components:
       - Customer subscription updated
       - Promotional banners visibility settings changed
       - Customer wallet services settings updated
+      - Quota per AI agent changed
+      - Quota per AI agent disabled
+      - Custom quota per AI agent default
+      - Custom quota per AI agent changed
+      - Custom quota per AI agent disabled
       - Contact admin mail sent
       - Room invite link used
       - User created and added to room
@@ -25438,31 +25447,24 @@ components:
       - Sub
       - Renew
     ProductType:
-      description: "[0 - None, 2 - Documents, 3 - Login, 4 - Others, 5 - People, 7\
-        \ - Settings]"
+      description: "[2 - Documents, 3 - Login, 7 - Settings, 8 - Contacts]"
       enum:
-      - 0
       - 2
       - 3
-      - 4
-      - 5
       - 7
-      example: 0
+      - 8
+      example: 2
       type: integer
       x-enum-varnames:
-      - None
       - Documents
       - Login
-      - Others
-      - People
       - Settings
+      - Contacts
       x-enum-descriptions:
-      - None
       - Documents
       - Login
-      - Others
-      - People
       - Settings
+      - Contacts
     QuantityRequestDto:
       additionalProperties: false
       description: The request parameters for specifying payment quantity.
@@ -25580,6 +25582,10 @@ components:
             enableQuota: true
             quota: 1234
             lastModified: 2008-04-10T06:30:00+04:00
+          aiAgentsQuota:
+            lastRecalculateDate: 2008-04-10T06:30:00+04:00
+            enableQuota: true
+            defaultQuota: 1234
         - features:
           - image: some text
             priceTitle: some text
@@ -25634,6 +25640,10 @@ components:
             enableQuota: true
             quota: 1234
             lastModified: 2008-04-10T06:30:00+04:00
+          aiAgentsQuota:
+            lastRecalculateDate: 2008-04-10T06:30:00+04:00
+            enableQuota: true
+            defaultQuota: 1234
         count: 0
         links:
         - action: action
@@ -25719,6 +25729,10 @@ components:
           enableQuota: true
           quota: 1234
           lastModified: 2008-04-10T06:30:00+04:00
+        aiAgentsQuota:
+          lastRecalculateDate: 2008-04-10T06:30:00+04:00
+          enableQuota: true
+          defaultQuota: 1234
       properties:
         id:
           description: The quota ID.
@@ -25753,6 +25767,8 @@ components:
         usersQuota:
           $ref: "#/components/schemas/TenantEntityQuotaSettings"
         roomsQuota:
+          $ref: "#/components/schemas/TenantEntityQuotaSettings"
+        aiAgentsQuota:
           $ref: "#/components/schemas/TenantEntityQuotaSettings"
         tenantCustomQuota:
           $ref: "#/components/schemas/TenantQuotaSettings"
@@ -25857,6 +25873,10 @@ components:
             enableQuota: true
             quota: 1234
             lastModified: 2008-04-10T06:30:00+04:00
+          aiAgentsQuota:
+            lastRecalculateDate: 2008-04-10T06:30:00+04:00
+            enableQuota: true
+            defaultQuota: 1234
         count: 0
         links:
         - action: action
@@ -27926,6 +27946,54 @@ components:
           format: int32
           type: integer
       type: object
+    TenantAiAgentQuotaSettings:
+      additionalProperties: false
+      allOf:
+      - $ref: "#/components/schemas/TenantEntityQuotaSettings"
+      - properties:
+          lastModified:
+            example: 2008-04-10T06:30:00+04:00
+            format: date-time
+            type: string
+        type: object
+      description: The ai agent quota settings.
+      example:
+        lastRecalculateDate: 2008-04-10T06:30:00+04:00
+        enableQuota: true
+        lastModified: 2008-04-10T06:30:00+04:00
+        defaultQuota: 1234
+    TenantAiAgentQuotaSettingsWrapper:
+      example:
+        response:
+          lastRecalculateDate: 2008-04-10T06:30:00+04:00
+          enableQuota: true
+          lastModified: 2008-04-10T06:30:00+04:00
+          defaultQuota: 1234
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/TenantAiAgentQuotaSettings"
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
+      type: object
     TenantAuditSettings:
       additionalProperties: false
       description: The tenant audit settings parameters.
@@ -28416,6 +28484,7 @@ components:
         countUser: 1234
         maxFileSize: 26214400
         priceISOCurrencySymbol: some text
+        serviceName: some text
         contentSearch: true
         usersInRoom: 1234
         tenantId: 1234
@@ -28451,6 +28520,11 @@ components:
         productId:
           description: The tenant product ID.
           example: "9846"
+          nullable: true
+          type: string
+        serviceName:
+          description: The service name.
+          example: some text
           nullable: true
           type: string
         visible:
@@ -28755,6 +28829,7 @@ components:
           countUser: 1234
           maxFileSize: 26214400
           priceISOCurrencySymbol: some text
+          serviceName: some text
           contentSearch: true
           usersInRoom: 1234
           tenantId: 1234
@@ -28997,16 +29072,22 @@ components:
           type: integer
       type: object
     TenantWalletService:
-      description: "[-12 - Backup, -11 - Storage]"
+      description: "[-14 - WebSearch, -13 - AITools, -12 - Backup, -11 - Storage]"
       enum:
+      - -14
+      - -13
       - -12
       - -11
-      example: -12
+      example: -14
       type: integer
       x-enum-varnames:
+      - WebSearch
+      - AITools
       - Backup
       - Storage
       x-enum-descriptions:
+      - WebSearch
+      - AITools
       - Backup
       - Storage
     TenantWalletServiceSettings:
@@ -29014,8 +29095,8 @@ components:
       description: The wallet services settings.
       example:
         enabledServices:
-        - -12
-        - -12
+        - -14
+        - -14
         lastModified: 2008-04-10T06:30:00+04:00
       properties:
         enabledServices:
@@ -29023,14 +29104,20 @@ components:
           items:
             description: The list of the enabled wallet services.
             enum:
+            - -14
+            - -13
             - -12
             - -11
-            example: -12
+            example: -14
             type: integer
             x-enum-varnames:
+            - WebSearch
+            - AITools
             - Backup
             - Storage
             x-enum-descriptions:
+            - WebSearch
+            - AITools
             - Backup
             - Storage
           nullable: true
@@ -29046,8 +29133,8 @@ components:
       example:
         response:
           enabledServices:
-          - -12
-          - -12
+          - -14
+          - -14
           lastModified: 2008-04-10T06:30:00+04:00
         count: 0
         links:
@@ -31631,6 +31718,7 @@ components:
           cultureName: en-EN
           loginEventId: 1234
           title: Manager
+          authCookieLifetime: -8.5
           isAnonim: true
           isOwner: true
           workFrom:
@@ -31709,6 +31797,7 @@ components:
           cultureName: en-EN
           loginEventId: 1234
           title: Manager
+          authCookieLifetime: -8.5
           isAnonim: true
           isOwner: true
           workFrom:
@@ -31947,6 +32036,12 @@ components:
             format: int32
             nullable: true
             type: integer
+          authCookieLifetime:
+            description: The auth cookie lifetime in seconds.
+            example: -8.5
+            format: double
+            nullable: true
+            type: number
           createdBy:
             $ref: "#/components/schemas/EmployeeDto"
           registrationDate:
@@ -31978,6 +32073,7 @@ components:
         cultureName: en-EN
         loginEventId: 1234
         title: Manager
+        authCookieLifetime: -8.5
         isAnonim: true
         isOwner: true
         workFrom:
@@ -32059,6 +32155,7 @@ components:
           cultureName: en-EN
           loginEventId: 1234
           title: Manager
+          authCookieLifetime: -8.5
           isAnonim: true
           isOwner: true
           workFrom:
@@ -32271,6 +32368,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -32351,6 +32449,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -32429,6 +32528,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -32515,6 +32615,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -32595,6 +32696,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -32673,6 +32775,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -32790,6 +32893,7 @@ components:
           cultureName: en-EN
           loginEventId: 1234
           title: Manager
+          authCookieLifetime: -8.5
           isAnonim: true
           isOwner: true
           workFrom:
@@ -32870,6 +32974,7 @@ components:
           cultureName: en-EN
           loginEventId: 1234
           title: Manager
+          authCookieLifetime: -8.5
           isAnonim: true
           isOwner: true
           workFrom:
@@ -32948,6 +33053,7 @@ components:
           cultureName: en-EN
           loginEventId: 1234
           title: Manager
+          authCookieLifetime: -8.5
           isAnonim: true
           isOwner: true
           workFrom:
@@ -33164,6 +33270,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -33244,6 +33351,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -33322,6 +33430,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -34751,6 +34860,26 @@ components:
       required:
       - userId
       type: object
+    ChatSettings:
+      additionalProperties: false
+      example:
+        modelId: some text
+        providerId: 1234
+        prompt: some text
+      properties:
+        providerId:
+          example: 1234
+          format: int32
+          type: integer
+        modelId:
+          example: some text
+          nullable: true
+          type: string
+        prompt:
+          example: some text
+          nullable: true
+          type: string
+      type: object
     CheckConversionRequestDtoInteger:
       additionalProperties: false
       description: The parameters for checking file conversion.
@@ -35331,6 +35460,7 @@ components:
             timeZoneOffset: 00:00:00
           thumbnailUrl: some text
           shareSettings: "[{\"value\":1234}]"
+          vectorizationStatus: 0
           parentRoomType: 0
           encrypted: false
           createdBy:
@@ -35352,6 +35482,9 @@ components:
           contentLength: "12345"
           comment: some text
           fileType: 0
+          dimensions:
+            width: 1
+            height: 6
         editorConfig:
           coEditing:
             mode: 0
@@ -35426,6 +35559,7 @@ components:
             roles:
             - some text
             name: Winfield Upton
+            customerId: some text
             id: "9846"
         startFilling: true
         editorType: 0
@@ -35648,6 +35782,7 @@ components:
               timeZoneOffset: 00:00:00
             thumbnailUrl: some text
             shareSettings: "[{\"value\":1234}]"
+            vectorizationStatus: 0
             parentRoomType: 0
             encrypted: false
             createdBy:
@@ -35669,6 +35804,9 @@ components:
             contentLength: "12345"
             comment: some text
             fileType: 0
+            dimensions:
+              width: 1
+              height: 6
           editorConfig:
             coEditing:
               mode: 0
@@ -35743,6 +35881,7 @@ components:
               roles:
               - some text
               name: Winfield Upton
+              customerId: some text
               id: "9846"
           startFilling: true
           editorType: 0
@@ -36241,6 +36380,10 @@ components:
         tags:
         - some text
         cover: some text
+        chatSettings:
+          modelId: some text
+          providerId: 1234
+          prompt: some text
         quota: 1234
         logo:
           x: 1234
@@ -36320,6 +36463,8 @@ components:
             $ref: "#/components/schemas/FileShareParams"
           nullable: true
           type: array
+        chatSettings:
+          $ref: "#/components/schemas/ChatSettings"
       required:
       - roomType
       - title
@@ -37461,6 +37606,7 @@ components:
           roles:
           - some text
           name: Winfield Upton
+          customerId: some text
           id: "9846"
       properties:
         callbackUrl:
@@ -37911,6 +38057,10 @@ components:
             $ref: "#/components/schemas/ApiDateTime"
           expired:
             $ref: "#/components/schemas/ApiDateTime"
+          vectorizationStatus:
+            $ref: "#/components/schemas/VectorizationStatus"
+          dimensions:
+            $ref: "#/components/schemas/Size"
         type: object
       description: The file parameters.
       example:
@@ -37993,6 +38143,7 @@ components:
           timeZoneOffset: 00:00:00
         thumbnailUrl: some text
         shareSettings: "[{\"value\":1234}]"
+        vectorizationStatus: 0
         parentRoomType: 0
         encrypted: false
         createdBy:
@@ -38014,6 +38165,9 @@ components:
         contentLength: "12345"
         comment: some text
         fileType: 0
+        dimensions:
+          width: 1
+          height: 6
     FileEntryBaseArrayWrapper:
       example:
         response:
@@ -38786,6 +38940,7 @@ components:
             timeZoneOffset: 00:00:00
           thumbnailUrl: some text
           shareSettings: "[{\"value\":1234}]"
+          vectorizationStatus: 0
           parentRoomType: 0
           encrypted: false
           createdBy:
@@ -38807,6 +38962,9 @@ components:
           contentLength: "12345"
           comment: some text
           fileType: 0
+          dimensions:
+            width: 1
+            height: 6
         - isLinkExpired: true
           formFillingStatus: 0
           originRoomId: 1234
@@ -38886,6 +39044,7 @@ components:
             timeZoneOffset: 00:00:00
           thumbnailUrl: some text
           shareSettings: "[{\"value\":1234}]"
+          vectorizationStatus: 0
           parentRoomType: 0
           encrypted: false
           createdBy:
@@ -38907,6 +39066,9 @@ components:
           contentLength: "12345"
           comment: some text
           fileType: 0
+          dimensions:
+            width: 1
+            height: 6
         count: 0
         links:
         - action: action
@@ -39016,6 +39178,7 @@ components:
             timeZoneOffset: 00:00:00
           thumbnailUrl: some text
           shareSettings: "[{\"value\":1234}]"
+          vectorizationStatus: 0
           parentRoomType: 0
           encrypted: false
           createdBy:
@@ -39037,14 +39200,17 @@ components:
           contentLength: "12345"
           comment: some text
           fileType: 0
-        count: 0
+          dimensions:
+            width: 1
+            height: 6
+        count: 5
         links:
         - action: action
           href: href
         - action: action
           href: href
-        status: 6
-        statusCode: 1
+        status: 5
+        statusCode: 2
       properties:
         response:
           $ref: "#/components/schemas/FileDtoInteger"
@@ -40317,6 +40483,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -40428,6 +40595,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -40570,6 +40738,7 @@ components:
           cultureName: en-EN
           loginEventId: 1234
           title: Manager
+          authCookieLifetime: -8.5
           isAnonim: true
           isOwner: true
           workFrom:
@@ -40835,6 +41004,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -41049,6 +41219,7 @@ components:
         - some text
         extsVideo:
         - some text
+        maxVectorizationFileSize: 1234
         extsDocument:
         - some text
         extsDiagram:
@@ -41075,6 +41246,8 @@ components:
         externalShare: true
         hideConfirmRoomLifetime: true
         favoritesSection: true
+        extsFilesVectorized:
+        - some text
         forcesave: true
         canSearchByContent: true
         extsSpreadsheet:
@@ -41498,6 +41671,19 @@ components:
           description: Specifies whether to open the editor in the same tab or not.
           example: true
           type: boolean
+        extsFilesVectorized:
+          description: List of extensions available for vectorization
+          example:
+          - some text
+          items:
+            type: string
+          nullable: true
+          type: array
+        maxVectorizationFileSize:
+          description: The maximum file size for vectorization
+          example: 1234
+          format: int64
+          type: integer
       type: object
     FilesSettingsWrapper:
       example:
@@ -41521,6 +41707,7 @@ components:
           - some text
           extsVideo:
           - some text
+          maxVectorizationFileSize: 1234
           extsDocument:
           - some text
           extsDiagram:
@@ -41547,6 +41734,8 @@ components:
           externalShare: true
           hideConfirmRoomLifetime: true
           favoritesSection: true
+          extsFilesVectorized:
+          - some text
           forcesave: true
           canSearchByContent: true
           extsSpreadsheet:
@@ -41645,6 +41834,9 @@ components:
         trashUsedSpace:
           usedSpace: 1234
           title: legacy_1080p_small_wooden_mouse
+        aiAgentsUsedSpace:
+          usedSpace: 1234
+          title: legacy_1080p_small_wooden_mouse
         archiveUsedSpace:
           usedSpace: 1234
           title: legacy_1080p_small_wooden_mouse
@@ -41657,6 +41849,8 @@ components:
           $ref: "#/components/schemas/FilesStatisticsFolder"
         roomsUsedSpace:
           $ref: "#/components/schemas/FilesStatisticsFolder"
+        aiAgentsUsedSpace:
+          $ref: "#/components/schemas/FilesStatisticsFolder"
       type: object
     FilesStatisticsResultWrapper:
       example:
@@ -41668,6 +41862,9 @@ components:
             usedSpace: 1234
             title: legacy_1080p_small_wooden_mouse
           trashUsedSpace:
+            usedSpace: 1234
+            title: legacy_1080p_small_wooden_mouse
+          aiAgentsUsedSpace:
             usedSpace: 1234
             title: legacy_1080p_small_wooden_mouse
           archiveUsedSpace:
@@ -41718,6 +41915,7 @@ components:
           cultureName: en-EN
           loginEventId: 1234
           title: Manager
+          authCookieLifetime: -8.5
           isAnonim: true
           isOwner: true
           workFrom:
@@ -41863,6 +42061,7 @@ components:
             timeZoneOffset: 00:00:00
           thumbnailUrl: some text
           shareSettings: "[{\"value\":1234}]"
+          vectorizationStatus: 0
           parentRoomType: 0
           encrypted: false
           createdBy:
@@ -41884,6 +42083,9 @@ components:
           contentLength: "12345"
           comment: some text
           fileType: 0
+          dimensions:
+            width: 1
+            height: 6
         originalForm:
           isLinkExpired: true
           formFillingStatus: 0
@@ -41964,6 +42166,7 @@ components:
             timeZoneOffset: 00:00:00
           thumbnailUrl: some text
           shareSettings: "[{\"value\":1234}]"
+          vectorizationStatus: 0
           parentRoomType: 0
           encrypted: false
           createdBy:
@@ -41985,6 +42188,9 @@ components:
           contentLength: "12345"
           comment: some text
           fileType: 0
+          dimensions:
+            width: 1
+            height: 6
         roomId: 9846
       properties:
         formNumber:
@@ -42031,6 +42237,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -42176,6 +42383,7 @@ components:
               timeZoneOffset: 00:00:00
             thumbnailUrl: some text
             shareSettings: "[{\"value\":1234}]"
+            vectorizationStatus: 0
             parentRoomType: 0
             encrypted: false
             createdBy:
@@ -42197,6 +42405,9 @@ components:
             contentLength: "12345"
             comment: some text
             fileType: 0
+            dimensions:
+              width: 1
+              height: 6
           originalForm:
             isLinkExpired: true
             formFillingStatus: 0
@@ -42277,6 +42488,7 @@ components:
               timeZoneOffset: 00:00:00
             thumbnailUrl: some text
             shareSettings: "[{\"value\":1234}]"
+            vectorizationStatus: 0
             parentRoomType: 0
             encrypted: false
             createdBy:
@@ -42298,6 +42510,9 @@ components:
             contentLength: "12345"
             comment: some text
             fileType: 0
+            dimensions:
+              width: 1
+              height: 6
           roomId: 9846
         count: 0
         links:
@@ -42329,7 +42544,8 @@ components:
         \ 4 - Presentations only, 5 - Spreadsheets only, 7 - Images only, 8 - By user,\
         \ 9 - By department, 10 - Archive only, 11 - By extension, 12 - Media only,\
         \ 13 - Filling forms rooms, 14 - Editing rooms, 17 - Custom rooms, 20 - Public\
-        \ rooms, 22 - Pdf, 23 - Pdf form, 24 - Virtual data rooms, 25 - Diagrams only]"
+        \ rooms, 22 - Pdf, 23 - Pdf form, 24 - Virtual data rooms, 25 - Diagrams only,\
+        \ 26 - Ai rooms]"
       enum:
       - 0
       - 1
@@ -42351,6 +42567,7 @@ components:
       - 23
       - 24
       - 25
+      - 26
       example: 0
       type: integer
       x-enum-varnames:
@@ -42374,6 +42591,7 @@ components:
       - PdfForm
       - VirtualDataRooms
       - DiagramsOnly
+      - AiRooms
       x-enum-descriptions:
       - None
       - Files  only
@@ -42395,6 +42613,7 @@ components:
       - Pdf form
       - Virtual data rooms
       - Diagrams only
+      - Ai rooms
     FolderContentDtoInteger:
       additionalProperties: false
       description: The folder content information.
@@ -42410,6 +42629,7 @@ components:
           type: 0
           originRoomId: 1234
           filesCount: 5
+          rootRoomType: 1
           logo:
             small: some text
             cover:
@@ -42478,6 +42698,10 @@ components:
           security: "[{\"value\":true}]"
           originId: 1234
           expired: true
+          chatSettings:
+            modelId: some text
+            providerId: 1234
+            prompt: some text
           providerId: 1234
           fileEntryType: 1
           isShareable: true
@@ -42757,6 +42981,7 @@ components:
             type: 0
             originRoomId: 1234
             filesCount: 5
+            rootRoomType: 1
             logo:
               small: some text
               cover:
@@ -42825,6 +43050,10 @@ components:
             security: "[{\"value\":true}]"
             originId: 1234
             expired: true
+            chatSettings:
+              modelId: some text
+              providerId: 1234
+              prompt: some text
             providerId: 1234
             fileEntryType: 1
             isShareable: true
@@ -43058,6 +43287,7 @@ components:
             type: 0
             originRoomId: 1234
             filesCount: 5
+            rootRoomType: 1
             logo:
               small: some text
               cover:
@@ -43126,6 +43356,10 @@ components:
             security: "[{\"value\":true}]"
             originId: 1234
             expired: true
+            chatSettings:
+              modelId: some text
+              providerId: 1234
+              prompt: some text
             providerId: 1234
             fileEntryType: 1
             isShareable: true
@@ -43389,6 +43623,7 @@ components:
             type: 0
             originRoomId: 1234
             filesCount: 5
+            rootRoomType: 1
             logo:
               small: some text
               cover:
@@ -43457,6 +43692,10 @@ components:
             security: "[{\"value\":true}]"
             originId: 1234
             expired: true
+            chatSettings:
+              modelId: some text
+              providerId: 1234
+              prompt: some text
             providerId: 1234
             fileEntryType: 1
             isShareable: true
@@ -43806,6 +44045,10 @@ components:
             example: true
             nullable: true
             type: boolean
+          chatSettings:
+            $ref: "#/components/schemas/ChatSettings"
+          rootRoomType:
+            $ref: "#/components/schemas/RoomType"
         type: object
       description: The folder parameters.
       example:
@@ -43818,6 +44061,7 @@ components:
         type: 0
         originRoomId: 1234
         filesCount: 5
+        rootRoomType: 1
         logo:
           small: some text
           cover:
@@ -43886,6 +44130,10 @@ components:
         security: "[{\"value\":true}]"
         originId: 1234
         expired: true
+        chatSettings:
+          modelId: some text
+          providerId: 1234
+          prompt: some text
         providerId: 1234
         fileEntryType: 1
         isShareable: true
@@ -44016,6 +44264,10 @@ components:
             example: true
             nullable: true
             type: boolean
+          chatSettings:
+            $ref: "#/components/schemas/ChatSettings"
+          rootRoomType:
+            $ref: "#/components/schemas/RoomType"
         type: object
       description: The folder parameters.
       example:
@@ -44028,6 +44280,7 @@ components:
         type: 0
         originRoomId: some text
         filesCount: 5
+        rootRoomType: 1
         logo:
           small: some text
           cover:
@@ -44096,6 +44349,10 @@ components:
         security: "[{\"value\":true}]"
         originId: some text
         expired: true
+        chatSettings:
+          modelId: some text
+          providerId: 1234
+          prompt: some text
         providerId: 1234
         fileEntryType: 1
         isShareable: true
@@ -44136,6 +44393,7 @@ components:
           type: 0
           originRoomId: 1234
           filesCount: 5
+          rootRoomType: 1
           logo:
             small: some text
             cover:
@@ -44204,6 +44462,10 @@ components:
           security: "[{\"value\":true}]"
           originId: 1234
           expired: true
+          chatSettings:
+            modelId: some text
+            providerId: 1234
+            prompt: some text
           providerId: 1234
           fileEntryType: 1
           isShareable: true
@@ -44241,6 +44503,7 @@ components:
           type: 0
           originRoomId: 1234
           filesCount: 5
+          rootRoomType: 1
           logo:
             small: some text
             cover:
@@ -44309,6 +44572,10 @@ components:
           security: "[{\"value\":true}]"
           originId: 1234
           expired: true
+          chatSettings:
+            modelId: some text
+            providerId: 1234
+            prompt: some text
           providerId: 1234
           fileEntryType: 1
           isShareable: true
@@ -44376,6 +44643,7 @@ components:
           type: 0
           originRoomId: 1234
           filesCount: 5
+          rootRoomType: 1
           logo:
             small: some text
             cover:
@@ -44444,6 +44712,10 @@ components:
           security: "[{\"value\":true}]"
           originId: 1234
           expired: true
+          chatSettings:
+            modelId: some text
+            providerId: 1234
+            prompt: some text
           providerId: 1234
           fileEntryType: 1
           isShareable: true
@@ -44561,6 +44833,7 @@ components:
           type: 0
           originRoomId: some text
           filesCount: 5
+          rootRoomType: 1
           logo:
             small: some text
             cover:
@@ -44629,6 +44902,10 @@ components:
           security: "[{\"value\":true}]"
           originId: some text
           expired: true
+          chatSettings:
+            modelId: some text
+            providerId: 1234
+            prompt: some text
           providerId: 1234
           fileEntryType: 1
           isShareable: true
@@ -44666,6 +44943,7 @@ components:
           type: 0
           originRoomId: some text
           filesCount: 5
+          rootRoomType: 1
           logo:
             small: some text
             cover:
@@ -44734,6 +45012,10 @@ components:
           security: "[{\"value\":true}]"
           originId: some text
           expired: true
+          chatSettings:
+            modelId: some text
+            providerId: 1234
+            prompt: some text
           providerId: 1234
           fileEntryType: 1
           isShareable: true
@@ -44801,6 +45083,7 @@ components:
           type: 0
           originRoomId: some text
           filesCount: 5
+          rootRoomType: 1
           logo:
             small: some text
             cover:
@@ -44869,6 +45152,10 @@ components:
           security: "[{\"value\":true}]"
           originId: some text
           expired: true
+          chatSettings:
+            modelId: some text
+            providerId: 1234
+            prompt: some text
           providerId: 1234
           fileEntryType: 1
           isShareable: true
@@ -44929,7 +45216,8 @@ components:
         \ 19 - Custom room, 20 - Archive, 21 - Thirdparty backup, 22 - Public room,\
         \ 25 - Ready form folder, 26 - In process form folder, 27 - Form filling folder\
         \ done, 28 - Form filling folder in progress, 29 - Virtual Data Room, 30 -\
-        \ Room templates folder]"
+        \ Room templates folder, 31 - AI Room, 32 - Knowledge, 33 - Result storage,\
+        \ 34 - AI Agents]"
       enum:
       - 0
       - 1
@@ -44955,6 +45243,10 @@ components:
       - 28
       - 29
       - 30
+      - 31
+      - 32
+      - 33
+      - 34
       example: 0
       type: integer
       x-enum-varnames:
@@ -44982,6 +45274,10 @@ components:
       - FormFillingFolderInProgress
       - VirtualDataRoom
       - RoomTemplates
+      - AiRoom
+      - Knowledge
+      - ResultStorage
+      - AiAgents
       x-enum-descriptions:
       - Default
       - Coomon
@@ -45007,6 +45303,10 @@ components:
       - Form filling folder in progress
       - Virtual Data Room
       - Room templates folder
+      - AI Room
+      - Knowledge
+      - Result storage
+      - AI Agents
     FormFillingManageAction:
       description: "[0 - Stop, 1 - Resume]"
       enum:
@@ -45119,6 +45419,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -45203,6 +45504,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -45285,6 +45587,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -45369,6 +45672,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -45482,6 +45786,7 @@ components:
           cultureName: en-EN
           loginEventId: 1234
           title: Manager
+          authCookieLifetime: -8.5
           isAnonim: true
           isOwner: true
           workFrom:
@@ -45566,6 +45871,7 @@ components:
           cultureName: en-EN
           loginEventId: 1234
           title: Manager
+          authCookieLifetime: -8.5
           isAnonim: true
           isOwner: true
           workFrom:
@@ -45798,6 +46104,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -45882,6 +46189,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -45997,6 +46305,7 @@ components:
           cultureName: en-EN
           loginEventId: 1234
           title: Manager
+          authCookieLifetime: -8.5
           isAnonim: true
           isOwner: true
           workFrom:
@@ -48990,6 +49299,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -49101,6 +49411,7 @@ components:
             cultureName: en-EN
             loginEventId: 1234
             title: Manager
+            authCookieLifetime: -8.5
             isAnonim: true
             isOwner: true
             workFrom:
@@ -49246,6 +49557,7 @@ components:
               cultureName: en-EN
               loginEventId: 1234
               title: Manager
+              authCookieLifetime: -8.5
               isAnonim: true
               isOwner: true
               workFrom:
@@ -49357,6 +49669,7 @@ components:
               cultureName: en-EN
               loginEventId: 1234
               title: Manager
+              authCookieLifetime: -8.5
               isAnonim: true
               isOwner: true
               workFrom:
@@ -49635,13 +49948,14 @@ components:
       type: object
     RoomType:
       description: "[1 - Form filling room, 2 - Collaboration room, 5 - Custom room,\
-        \ 6 - Public room, 8 - Virtual data room]"
+        \ 6 - Public room, 8 - Virtual data room, 9 - Virtual data room]"
       enum:
       - 1
       - 2
       - 5
       - 6
       - 8
+      - 9
       example: 1
       type: integer
       x-enum-varnames:
@@ -49650,11 +49964,13 @@ components:
       - CustomRoom
       - PublicRoom
       - VirtualDataRoom
+      - AiRoom
       x-enum-descriptions:
       - Form filling room
       - Collaboration room
       - Custom room
       - Public room
+      - Virtual data room
       - Virtual data room
     Run:
       additionalProperties: false
@@ -49745,13 +50061,17 @@ components:
       - roles
       type: object
     SearchArea:
-      description: "[0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template]"
+      description: "[0 - Active, 1 - Archive, 2 - Any, 3 - Recent by links, 4 - Template,\
+        \ 5 - Knowledge, 6 - Result storage, 7 - AiAgents]"
       enum:
       - 0
       - 1
       - 2
       - 3
       - 4
+      - 5
+      - 6
+      - 7
       example: 0
       type: integer
       x-enum-varnames:
@@ -49760,12 +50080,18 @@ components:
       - Any
       - RecentByLinks
       - Templates
+      - Knowledge
+      - ResultStorage
+      - AiAgents
       x-enum-descriptions:
       - Active
       - Archive
       - Any
       - Recent by links
       - Template
+      - Knowledge
+      - Result storage
+      - AiAgents
     SecurityInfoRequestDto:
       additionalProperties: false
       description: The security information request parameters.
@@ -49946,6 +50272,19 @@ components:
       - Primary external link
       - User
       - Group
+    Size:
+      additionalProperties: false
+      example:
+        width: 1
+        height: 6
+      properties:
+        height:
+          format: int32
+          type: integer
+        width:
+          format: int32
+          type: integer
+      type: object
     SortedByType:
       description: "[0 - Date and time, 1 - AZ, 2 - Size, 3 - Author, 4 - Type, 5\
         \ - New, 6 - Date and time creation, 7 - Room type, 8 - Tags, 9 - Room, 10\
@@ -50469,6 +50808,10 @@ components:
           imageScale: 1234
         indexing: true
         color: some text
+        chatSettings:
+          modelId: some text
+          providerId: 1234
+          prompt: some text
         quota: 1234
         lifetime:
           period: 0
@@ -50537,6 +50880,8 @@ components:
           minLength: 0
           nullable: true
           type: string
+        chatSettings:
+          $ref: "#/components/schemas/ChatSettings"
       type: object
     UpdateRoomsQuotaRequestDtoInteger:
       additionalProperties: false
@@ -50714,6 +51059,7 @@ components:
         roles:
         - some text
         name: Winfield Upton
+        customerId: some text
         id: "9846"
       properties:
         id:
@@ -50739,6 +51085,10 @@ components:
             type: string
           nullable: true
           type: array
+        customerId:
+          example: some text
+          nullable: true
+          type: string
       type: object
     UserInvitation:
       additionalProperties: false
@@ -50762,6 +51112,13 @@ components:
           example: true
           type: boolean
       type: object
+    VectorizationStatus:
+      enum:
+      - 0
+      - 1
+      - 2
+      format: int32
+      type: integer
     WatermarkAdditions:
       description: "[1 - User name, 2 - User email, 4 - User ip adress, 8 - Current\
         \ date, 16 - Room name]"
@@ -51096,6 +51453,7 @@ components:
         link: some text
         tenantId: 1234
         progress: 1234
+        warning: some text
         error: some text
         backupProgressEnum: 0
         taskId: some text
@@ -51109,6 +51467,10 @@ components:
           format: int32
           type: integer
         error:
+          example: some text
+          nullable: true
+          type: string
+        warning:
           example: some text
           nullable: true
           type: string
@@ -51149,6 +51511,7 @@ components:
           link: some text
           tenantId: 1234
           progress: 1234
+          warning: some text
           error: some text
           backupProgressEnum: 0
           taskId: some text
@@ -52434,6 +52797,12 @@ components:
         EditInternal:
           type: boolean
         EditExpiration:
+          type: boolean
+        Vectorization:
+          type: boolean
+        AscAi:
+          type: boolean
+        UseChat:
           type: boolean
       type: object
     FileEntryDtoInteger_allOf_availableShareRights:
