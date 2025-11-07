@@ -26,7 +26,7 @@ public class Program
         };
         var authSettings = new AuthRequestsDto
         {
-            UserName = "diana@mail.ru",
+            UserName = "example@onlyoffice.com",
             Password = "11111111"
         };
         var apiInstance = new DocSpace.API.SDK.Api.Authentication.AuthenticationApi(config);
