@@ -31,6 +31,16 @@ namespace DocSpace.API.SDK.Model
         public enum EnabledServicesEnum
         {
             /// <summary>
+            /// Enum WebSearch for value: -14
+            /// </summary>
+            WebSearch = -14,
+
+            /// <summary>
+            /// Enum AITools for value: -13
+            /// </summary>
+            AITools = -13,
+
+            /// <summary>
             /// Enum Backup for value: -12
             /// </summary>
             Backup = -12,

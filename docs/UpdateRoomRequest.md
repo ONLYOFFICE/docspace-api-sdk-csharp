@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Tags** | **List&lt;string&gt;** | The list of tags. | [optional] 
 **Color** | **string** | The room color. | [optional] 
 **Cover** | **string** | The room cover. | [optional] 
+**ChatSettings** | [**ChatSettings**](ChatSettings.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

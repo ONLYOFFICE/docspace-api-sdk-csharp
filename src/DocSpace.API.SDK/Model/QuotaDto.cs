@@ -42,9 +42,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="features">The list of tenant quota features. (required).</param>
         /// <param name="usersQuota">usersQuota.</param>
         /// <param name="roomsQuota">roomsQuota.</param>
+        /// <param name="aiAgentsQuota">aiAgentsQuota.</param>
         /// <param name="tenantCustomQuota">tenantCustomQuota.</param>
         /// <param name="dueDate">The due date..</param>
-        public QuotaDto(int id = default, string title = default, PriceDto price = default, bool nonProfit = default, bool free = default, bool trial = default, List<TenantQuotaFeatureDto> features = default, TenantEntityQuotaSettings usersQuota = default, TenantEntityQuotaSettings roomsQuota = default, TenantQuotaSettings tenantCustomQuota = default, DateTime? dueDate = default)
+        public QuotaDto(int id = default, string title = default, PriceDto price = default, bool nonProfit = default, bool free = default, bool trial = default, List<TenantQuotaFeatureDto> features = default, TenantEntityQuotaSettings usersQuota = default, TenantEntityQuotaSettings roomsQuota = default, TenantEntityQuotaSettings aiAgentsQuota = default, TenantQuotaSettings tenantCustomQuota = default, DateTime? dueDate = default)
         {
             this.Id = id;
             // to ensure "title" is required (not null)
@@ -70,6 +71,7 @@ namespace DocSpace.API.SDK.Model
             this.Features = features;
             this.UsersQuota = usersQuota;
             this.RoomsQuota = roomsQuota;
+            this.AiAgentsQuota = aiAgentsQuota;
             this.TenantCustomQuota = tenantCustomQuota;
             this.DueDate = dueDate;
         }
@@ -150,6 +152,12 @@ namespace DocSpace.API.SDK.Model
         public TenantEntityQuotaSettings RoomsQuota { get; set; }
 
         /// <summary>
+        /// Gets or Sets AiAgentsQuota
+        /// </summary>
+        [DataMember(Name = "aiAgentsQuota", EmitDefaultValue = false)]
+        public TenantEntityQuotaSettings AiAgentsQuota { get; set; }
+
+        /// <summary>
         /// Gets or Sets TenantCustomQuota
         /// </summary>
         [DataMember(Name = "tenantCustomQuota", EmitDefaultValue = false)]
@@ -182,6 +190,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("  UsersQuota: ").Append(UsersQuota).Append("\n");
             sb.Append("  RoomsQuota: ").Append(RoomsQuota).Append("\n");
+            sb.Append("  AiAgentsQuota: ").Append(AiAgentsQuota).Append("\n");
             sb.Append("  TenantCustomQuota: ").Append(TenantCustomQuota).Append("\n");
             sb.Append("  DueDate: ").Append(DueDate).Append("\n");
             sb.Append("}\n");

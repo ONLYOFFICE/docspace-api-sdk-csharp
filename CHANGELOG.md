@@ -1,4 +1,4 @@
 # Change Log
 
-## 3.5.0
+## 3.6.0
 - Initial release

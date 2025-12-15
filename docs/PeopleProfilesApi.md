@@ -589,7 +589,7 @@ catch (ApiException e)
 
 <a id="getprofilebyemail"></a>
 # **GetProfileByEmail**
-> EmployeeFullWrapper GetProfileByEmail (string? email = null, string? culture = null)
+> EmployeeFullWrapper GetProfileByEmail (string? email = null, string? encemail = null, string? culture = null)
 
 Returns the detailed information about a profile of the user with the email specified in the request.
 
@@ -600,6 +600,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **email** | **string?** | The user email address. | [optional]  |
+| **encemail** | **string?** | The user encrypted email address. | [optional]  |
 | **culture** | **string?** | Culture | [optional]  |
 
 ### Return type
@@ -648,12 +649,13 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
             var email = Sydney_Roberts4@hotmail.com;  // string? | The user email address. (optional) 
+            var encemail = some text;  // string? | The user encrypted email address. (optional) 
             var culture = some text;  // string? | Culture (optional) 
 
             try
             {
                 // Get a profile by user email
-                EmployeeFullWrapper result = apiInstance.GetProfileByEmail(email, culture);
+                EmployeeFullWrapper result = apiInstance.GetProfileByEmail(email, encemail, culture);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -674,7 +676,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get a profile by user email
-    ApiResponse<EmployeeFullWrapper> response = apiInstance.GetProfileByEmailWithHttpInfo(email, culture);
+    ApiResponse<EmployeeFullWrapper> response = apiInstance.GetProfileByEmailWithHttpInfo(email, encemail, culture);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1437,7 +1439,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | The user ID.
+            var userid = 9079;  // string | The user ID.
             var updateMemberRequestDto = new UpdateMemberRequestDto(); // UpdateMemberRequestDto | The request parameters for updating the user information.
 
             try

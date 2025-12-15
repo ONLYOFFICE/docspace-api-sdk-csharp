@@ -33,13 +33,15 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="HistoryDto" /> class.
         /// </summary>
+        /// <param name="id">The unique identifier for the file history entry. (required).</param>
         /// <param name="action">action (required).</param>
         /// <param name="initiator">initiator (required).</param>
         /// <param name="date">date (required).</param>
         /// <param name="data">data (required).</param>
         /// <param name="related">The list of related history..</param>
-        public HistoryDto(HistoryAction action = default, EmployeeDto initiator = default, ApiDateTime date = default, HistoryData data = default, List<HistoryDto> related = default)
+        public HistoryDto(int id = default, HistoryAction action = default, EmployeeDto initiator = default, ApiDateTime date = default, HistoryData data = default, List<HistoryDto> related = default)
         {
+            this.Id = id;
             // to ensure "action" is required (not null)
             if (action == null)
             {
@@ -66,6 +68,16 @@ namespace DocSpace.API.SDK.Model
             this.Data = data;
             this.Related = related;
         }
+
+        /// <summary>
+        /// The unique identifier for the file history entry.
+        /// </summary>
+        /// <value>The unique identifier for the file history entry.</value>
+        /*
+        <example>9846</example>
+        */
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Action
@@ -106,6 +118,7 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class HistoryDto {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
             sb.Append("  Initiator: ").Append(Initiator).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");

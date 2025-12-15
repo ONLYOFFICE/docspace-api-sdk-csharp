@@ -34,6 +34,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="priceCurrencySymbol">The tenant price currency symbol..</param>
         /// <param name="priceISOCurrencySymbol">The tenant price three-character ISO 4217 currency symbol..</param>
         /// <param name="productId">The tenant product ID..</param>
+        /// <param name="serviceName">The service name..</param>
         /// <param name="visible">Specifies if the tenant quota is visible or not..</param>
         /// <param name="wallet">Specifies if the tenant quota applies to the wallet or not.</param>
         /// <param name="dueDate">The quota due date..</param>
@@ -64,7 +65,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="year">Specifies if the tenant quota is yearly subscription or not..</param>
         /// <param name="countFreeBackup">The number of free backups within a month..</param>
         /// <param name="backup">Specifies if the backup anabled as a wallet service or not..</param>
-        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, bool visible = default, bool wallet = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default)
+        /// <param name="countAIAgent">The number of AI agents..</param>
+        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, bool visible = default, bool wallet = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default)
         {
             this.TenantId = tenantId;
             this.Name = name;
@@ -72,6 +74,7 @@ namespace DocSpace.API.SDK.Model
             this.PriceCurrencySymbol = priceCurrencySymbol;
             this.PriceISOCurrencySymbol = priceISOCurrencySymbol;
             this.ProductId = productId;
+            this.ServiceName = serviceName;
             this.Visible = visible;
             this.Wallet = wallet;
             this.DueDate = dueDate;
@@ -102,6 +105,7 @@ namespace DocSpace.API.SDK.Model
             this.Year = year;
             this.CountFreeBackup = countFreeBackup;
             this.Backup = backup;
+            this.CountAIAgent = countAIAgent;
         }
 
         /// <summary>
@@ -163,6 +167,16 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "productId", EmitDefaultValue = true)]
         public string ProductId { get; set; }
+
+        /// <summary>
+        /// The service name.
+        /// </summary>
+        /// <value>The service name.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "serviceName", EmitDefaultValue = true)]
+        public string ServiceName { get; set; }
 
         /// <summary>
         /// Specifies if the tenant quota is visible or not.
@@ -462,6 +476,16 @@ namespace DocSpace.API.SDK.Model
         public bool Backup { get; set; }
 
         /// <summary>
+        /// The number of AI agents.
+        /// </summary>
+        /// <value>The number of AI agents.</value>
+        /*
+        <example>1234</example>
+        */
+        [DataMember(Name = "countAIAgent", EmitDefaultValue = false)]
+        public int CountAIAgent { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -475,6 +499,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  PriceCurrencySymbol: ").Append(PriceCurrencySymbol).Append("\n");
             sb.Append("  PriceISOCurrencySymbol: ").Append(PriceISOCurrencySymbol).Append("\n");
             sb.Append("  ProductId: ").Append(ProductId).Append("\n");
+            sb.Append("  ServiceName: ").Append(ServiceName).Append("\n");
             sb.Append("  Visible: ").Append(Visible).Append("\n");
             sb.Append("  Wallet: ").Append(Wallet).Append("\n");
             sb.Append("  DueDate: ").Append(DueDate).Append("\n");
@@ -505,6 +530,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Year: ").Append(Year).Append("\n");
             sb.Append("  CountFreeBackup: ").Append(CountFreeBackup).Append("\n");
             sb.Append("  Backup: ").Append(Backup).Append("\n");
+            sb.Append("  CountAIAgent: ").Append(CountAIAgent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

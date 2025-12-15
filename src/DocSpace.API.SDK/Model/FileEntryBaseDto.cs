@@ -54,6 +54,8 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="title">The file entry title..</param>
         /// <param name="access">access.</param>
+        /// <param name="sharedBy">sharedBy.</param>
+        /// <param name="ownedBy">ownedBy.</param>
         /// <param name="shared">Specifies if the file entry is shared via link or not..</param>
         /// <param name="sharedForUser">Specifies if the file entry is shared for user or not..</param>
         /// <param name="parentShared">Indicates whether the parent entity is shared..</param>
@@ -71,10 +73,12 @@ namespace DocSpace.API.SDK.Model
         /// <param name="order">The order of the file entry..</param>
         /// <param name="isFavorite">Specifies if the file is a favorite or not..</param>
         /// <param name="fileEntryType">fileEntryType.</param>
-        public FileEntryBaseDto(string title = default, FileShare? access = default, bool shared = default, bool sharedForUser = default, bool parentShared = default, string shortWebUrl = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, bool? isFavorite = default, FileEntryType? fileEntryType = default)
+        public FileEntryBaseDto(string title = default, FileShare? access = default, EmployeeDto sharedBy = default, EmployeeDto ownedBy = default, bool shared = default, bool sharedForUser = default, bool parentShared = default, string shortWebUrl = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, bool? isFavorite = default, FileEntryType? fileEntryType = default)
         {
             this.Title = title;
             this.Access = access;
+            this.SharedBy = sharedBy;
+            this.OwnedBy = ownedBy;
             this.Shared = shared;
             this.SharedForUser = sharedForUser;
             this.ParentShared = parentShared;
@@ -103,6 +107,18 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
+
+        /// <summary>
+        /// Gets or Sets SharedBy
+        /// </summary>
+        [DataMember(Name = "sharedBy", EmitDefaultValue = false)]
+        public EmployeeDto SharedBy { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OwnedBy
+        /// </summary>
+        [DataMember(Name = "ownedBy", EmitDefaultValue = false)]
+        public EmployeeDto OwnedBy { get; set; }
 
         /// <summary>
         /// Specifies if the file entry is shared via link or not.
@@ -234,6 +250,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class FileEntryBaseDto {\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Access: ").Append(Access).Append("\n");
+            sb.Append("  SharedBy: ").Append(SharedBy).Append("\n");
+            sb.Append("  OwnedBy: ").Append(OwnedBy).Append("\n");
             sb.Append("  Shared: ").Append(Shared).Append("\n");
             sb.Append("  SharedForUser: ").Append(SharedForUser).Append("\n");
             sb.Append("  ParentShared: ").Append(ParentShared).Append("\n");

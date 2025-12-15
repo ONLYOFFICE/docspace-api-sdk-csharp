@@ -48,6 +48,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "formFillingStatus", EmitDefaultValue = false)]
         public FormFillingStatus? FormFillingStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VectorizationStatus
+        /// </summary>
+        [DataMember(Name = "vectorizationStatus", EmitDefaultValue = false)]
+        public VectorizationStatus? VectorizationStatus { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="FileDtoInteger" /> class.
@@ -81,7 +87,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="viewAccessibility">viewAccessibility.</param>
         /// <param name="lastOpened">lastOpened.</param>
         /// <param name="expired">expired.</param>
-        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default)
+        /// <param name="vectorizationStatus">vectorizationStatus.</param>
+        /// <param name="dimensions">dimensions.</param>
+        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, VectorizationStatus? vectorizationStatus = default, Size dimensions = default)
         {
             this.FolderId = folderId;
             this.@Version = version;
@@ -112,6 +120,8 @@ namespace DocSpace.API.SDK.Model
             this.ViewAccessibility = viewAccessibility;
             this.LastOpened = lastOpened;
             this.Expired = expired;
+            this.VectorizationStatus = vectorizationStatus;
+            this.Dimensions = dimensions;
         }
 
         /// <summary>
@@ -349,6 +359,12 @@ namespace DocSpace.API.SDK.Model
         public ApiDateTime Expired { get; set; }
 
         /// <summary>
+        /// Gets or Sets Dimensions
+        /// </summary>
+        [DataMember(Name = "dimensions", EmitDefaultValue = false)]
+        public Size Dimensions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -385,6 +401,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ViewAccessibility: ").Append(ViewAccessibility).Append("\n");
             sb.Append("  LastOpened: ").Append(LastOpened).Append("\n");
             sb.Append("  Expired: ").Append(Expired).Append("\n");
+            sb.Append("  VectorizationStatus: ").Append(VectorizationStatus).Append("\n");
+            sb.Append("  Dimensions: ").Append(Dimensions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

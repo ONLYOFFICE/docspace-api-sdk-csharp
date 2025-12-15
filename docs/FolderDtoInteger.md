@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **string** | The file entry title. | [optional] 
 **Access** | **FileShare** |  | [optional] 
+**SharedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
+**OwnedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
 **Shared** | **bool** | Specifies if the file entry is shared via link or not. | [optional] 
 **SharedForUser** | **bool** | Specifies if the file entry is shared for user or not. | [optional] 
 **ParentShared** | **bool** | Indicates whether the parent entity is shared. | [optional] 
@@ -60,6 +62,8 @@ Name | Type | Description | Notes
 **UsedSpace** | **long?** | How much folder space is used (counter). | [optional] 
 **PasswordProtected** | **bool?** | Specifies if the folder is password protected or not. | [optional] 
 **Expired** | **bool?** | Specifies if an external link to the folder is expired or not. | [optional] 
+**ChatSettings** | [**ChatSettings**](ChatSettings.md) |  | [optional] 
+**RootRoomType** | **RoomType** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
