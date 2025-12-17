@@ -224,7 +224,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The user ID.
+            var id = 9079;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
             var excludeShared = true;  // bool? | Specifies whether to exclude the account sharing settings from the response. (optional) 

@@ -101,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The password protection for accessing the shared content.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>vm2v1UjQXp</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
@@ -196,8 +196,7 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }
-    }
+        }    }
 
 
 }

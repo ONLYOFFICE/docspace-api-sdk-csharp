@@ -38,7 +38,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="enableExternalExt">Specifies whether to allow creating the copied file of an external extension or not..</param>
         /// <param name="password">The copied file password..</param>
         /// <param name="toForm">Specifies whether to convert the file to form or not..</param>
-        public CopyAsJsonElement(string destTitle = default, CopyAsJsonElementDestFolderId destFolderId = default, bool enableExternalExt = default, string password = default, bool toForm = default)
+        public CopyAsJsonElement(string destTitle = default, int destFolderId = default, bool enableExternalExt = default, string password = default, bool toForm = default)
         {
             // to ensure "destTitle" is required (not null)
             if (destTitle == null)
@@ -46,11 +46,6 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("destTitle is a required property for CopyAsJsonElement and cannot be null");
             }
             this.DestTitle = destTitle;
-            // to ensure "destFolderId" is required (not null)
-            if (destFolderId == null)
-            {
-                throw new ArgumentNullException("destFolderId is a required property for CopyAsJsonElement and cannot be null");
-            }
             this.DestFolderId = destFolderId;
             this.EnableExternalExt = enableExternalExt;
             this.Password = password;
@@ -70,8 +65,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets DestFolderId
         /// </summary>
+        /*
+        <example>1234</example>
+        */
         [DataMember(Name = "destFolderId", IsRequired = true, EmitDefaultValue = true)]
-        public CopyAsJsonElementDestFolderId DestFolderId { get; set; }
+        public int DestFolderId { get; set; }
 
         /// <summary>
         /// Specifies whether to allow creating the copied file of an external extension or not.
@@ -137,8 +135,7 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }
-    }
+        }    }
 
 
 }

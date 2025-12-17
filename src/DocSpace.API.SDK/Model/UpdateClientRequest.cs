@@ -164,16 +164,15 @@ namespace DocSpace.API.SDK.Model
 
             if (this.Logo != null) {
                 // Logo (string) pattern
-                Regex regexLogo = new Regex(@"^data:image\/(?:png|jpeg|jpg|svg\+xml);base64,.*.{1,}", RegexOptions.CultureInvariant);
-                if (!regexLogo.Match(this.Logo).Success)
-                {
-                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Logo, must match a pattern of " + regexLogo, new [] { "Logo" });
-                }
+                                Regex regexLogo = new Regex(@"^data:image\/(?:png|jpeg|jpg|svg\+xml);base64,.*.{1,}", RegexOptions.CultureInvariant);
+                                if (!regexLogo.Match(this.Logo).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Logo, must match a pattern of " + regexLogo, new [] { "Logo" });
+                                }
             }
 
             yield break;
-        }
-    }
+        }    }
 
 
 }

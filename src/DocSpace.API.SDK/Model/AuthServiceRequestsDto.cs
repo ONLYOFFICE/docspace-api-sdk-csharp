@@ -33,14 +33,16 @@ namespace DocSpace.API.SDK.Model
         /// <param name="description">The brief description of the authorization service..</param>
         /// <param name="instruction">The detailed instructions for configuring or using the authorization service..</param>
         /// <param name="canSet">Specifies whether the authorization service can be configured by the user..</param>
+        /// <param name="paid">Specifies whether the authorization service is paid or not..</param>
         /// <param name="props">The collection of authorization keys associated with the authorization service..</param>
-        public AuthServiceRequestsDto(string name = default, string title = default, string description = default, string instruction = default, bool canSet = default, List<AuthKey> props = default)
+        public AuthServiceRequestsDto(string name = default, string title = default, string description = default, string instruction = default, bool canSet = default, bool paid = default, List<AuthKey> props = default)
         {
             this.Name = name;
             this.Title = title;
             this.Description = description;
             this.Instruction = instruction;
             this.CanSet = canSet;
+            this.Paid = paid;
             this.Props = props;
         }
 
@@ -95,6 +97,16 @@ namespace DocSpace.API.SDK.Model
         public bool CanSet { get; set; }
 
         /// <summary>
+        /// Specifies whether the authorization service is paid or not.
+        /// </summary>
+        /// <value>Specifies whether the authorization service is paid or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "paid", EmitDefaultValue = true)]
+        public bool Paid { get; set; }
+
+        /// <summary>
         /// The collection of authorization keys associated with the authorization service.
         /// </summary>
         /// <value>The collection of authorization keys associated with the authorization service.</value>
@@ -114,6 +126,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Instruction: ").Append(Instruction).Append("\n");
             sb.Append("  CanSet: ").Append(CanSet).Append("\n");
+            sb.Append("  Paid: ").Append(Paid).Append("\n");
             sb.Append("  Props: ").Append(Props).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -136,8 +149,7 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }
-    }
+        }    }
 
 
 }

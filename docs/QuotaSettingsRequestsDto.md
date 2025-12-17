@@ -6,7 +6,7 @@ The request parameters for managing the user storage quota configurations.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EnableQuota** | **bool** | Specifies whether the storage quota restrictions are enabled. | [optional] 
-**DefaultQuota** | [**QuotaSettingsRequestsDtoDefaultQuota**](QuotaSettingsRequestsDtoDefaultQuota.md) |  | 
+**DefaultQuota** | **int** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

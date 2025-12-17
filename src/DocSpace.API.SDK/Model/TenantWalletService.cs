@@ -19,11 +19,21 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [-12 - Backup, -11 - Storage]
+    /// [-14 - WebSearch, -13 - AITools, -12 - Backup, -11 - Storage]
     /// </summary>
-    /// <value>[-12 - Backup, -11 - Storage]</value>
+    /// <value>[-14 - WebSearch, -13 - AITools, -12 - Backup, -11 - Storage]</value>
     public enum TenantWalletService
     {
+        /// <summary>
+        /// Enum WebSearch for value: -14
+        /// </summary>
+        WebSearch = -14,
+
+        /// <summary>
+        /// Enum AITools for value: -13
+        /// </summary>
+        AITools = -13,
+
         /// <summary>
         /// Enum Backup for value: -12
         /// </summary>

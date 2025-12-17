@@ -21,6 +21,8 @@ Name | Type | Description | Notes
 **System** | **bool** | Specifies if the web plugin is system or not. | 
 **Url** | **string** | The web plugin URL. | 
 **Settings** | **string** | The web plugin settings. | 
+**NameLocale** | **Dictionary&lt;string, string&gt;** | The web plugin localized name. | [optional] 
+**DescriptionLocale** | **Dictionary&lt;string, string&gt;** | The web plugin localized description. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

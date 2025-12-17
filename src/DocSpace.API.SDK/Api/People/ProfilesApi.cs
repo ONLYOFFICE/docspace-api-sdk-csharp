@@ -154,10 +154,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
-        EmployeeFullWrapper GetProfileByEmail(string? email = default, string? culture = default);
+        EmployeeFullWrapper GetProfileByEmail(string? email = default, string? encemail = default, string? culture = default);
 
         /// <summary>
         /// Get a profile by user email
@@ -167,10 +168,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        ApiResponse<EmployeeFullWrapper> GetProfileByEmailWithHttpInfo(string? email = default, string? culture = default);
+        ApiResponse<EmployeeFullWrapper> GetProfileByEmailWithHttpInfo(string? email = default, string? encemail = default, string? culture = default);
         /// <summary>
         /// Get a profile by user ID
         /// </summary>
@@ -507,11 +509,12 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
-        Task<EmployeeFullWrapper> GetProfileByEmailAsync(string? email = default, string? culture = default, CancellationToken cancellationToken = default);
+        Task<EmployeeFullWrapper> GetProfileByEmailAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a profile by user email
@@ -521,11 +524,12 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        Task<ApiResponse<EmployeeFullWrapper>> GetProfileByEmailWithHttpInfoAsync(string? email = default, string? culture = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EmployeeFullWrapper>> GetProfileByEmailWithHttpInfoAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a profile by user ID
         /// </summary>
@@ -1951,12 +1955,13 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
-        public EmployeeFullWrapper GetProfileByEmail(string? email = default, string? culture = default)
+        public EmployeeFullWrapper GetProfileByEmail(string? email = default, string? encemail = default, string? culture = default)
         {
-            var localVarResponse = GetProfileByEmailWithHttpInfo(email, culture);
+            var localVarResponse = GetProfileByEmailWithHttpInfo(email, encemail, culture);
             return localVarResponse.Data;
         }
 
@@ -1968,10 +1973,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
-        public ApiResponse<EmployeeFullWrapper> GetProfileByEmailWithHttpInfo(string? email = default, string? culture = default)
+        public ApiResponse<EmployeeFullWrapper> GetProfileByEmailWithHttpInfo(string? email = default, string? encemail = default, string? culture = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1989,6 +1995,10 @@ namespace DocSpace.API.SDK.Api.People
             if (email != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "email", email));
+            }
+            if (encemail != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "encemail", encemail));
             }
             if (culture != null)
             {
@@ -2049,13 +2059,14 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
-        public async Task<EmployeeFullWrapper> GetProfileByEmailAsync(string? email = default, string? culture = default, CancellationToken cancellationToken = default)
+        public async Task<EmployeeFullWrapper> GetProfileByEmailAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetProfileByEmailWithHttpInfoAsync(email, culture, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetProfileByEmailWithHttpInfoAsync(email, encemail, culture, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2067,11 +2078,12 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-profile-by-email/">REST API Reference for GetProfileByEmail Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
-        public async Task<ApiResponse<EmployeeFullWrapper>> GetProfileByEmailWithHttpInfoAsync(string? email = default, string? culture = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EmployeeFullWrapper>> GetProfileByEmailWithHttpInfoAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -2090,6 +2102,10 @@ namespace DocSpace.API.SDK.Api.People
             if (email != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "email", email));
+            }
+            if (encemail != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "encemail", encemail));
             }
             if (culture != null)
             {

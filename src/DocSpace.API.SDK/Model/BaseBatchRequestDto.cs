@@ -30,7 +30,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="folderIds">The list of folder IDs of the base batch request..</param>
         /// <param name="fileIds">The list of file IDs of the base batch request..</param>
-        public BaseBatchRequestDto(List<BaseBatchRequestDtoAllOfFolderIds> folderIds = default, List<BaseBatchRequestDtoAllOfFileIds> fileIds = default)
+        public BaseBatchRequestDto(List<int> folderIds = default, List<int> fileIds = default)
         {
             this.FolderIds = folderIds;
             this.FileIds = fileIds;
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of folder IDs of the base batch request.</value>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
+        public List<int> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs of the base batch request.
         /// </summary>
         /// <value>The list of file IDs of the base batch request.</value>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
-        public List<BaseBatchRequestDtoAllOfFileIds> FileIds { get; set; }
+        public List<int> FileIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -82,6 +82,5 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }
-    }
+        }    }
 }

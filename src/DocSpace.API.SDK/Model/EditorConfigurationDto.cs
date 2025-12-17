@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="recent">The recent configuration of the editor..</param>
         /// <param name="templates">The templates of the editor configuration..</param>
         /// <param name="user">user (required).</param>
-        public EditorConfigurationDto(string callbackUrl = default, CoEditingConfig coEditing = default, string createUrl = default, CustomizationConfigDto customization = default, EmbeddedConfig embedded = default, EncryptionKeysConfig encryptionKeys = default, string lang = default, string mode = default, bool modeWrite = default, PluginsConfig plugins = default, List<RecentConfig> recent = default, List<TemplatesConfig> templates = default, UserConfig user = default)
+        public EditorConfigurationDto(string callbackUrl = default, CoEditingConfig coEditing = default, string createUrl = default, CustomizationConfigDto customization = default, EmbeddedConfig embedded = default, EncryptionKeyDto encryptionKeys = default, string lang = default, string mode = default, bool modeWrite = default, PluginsConfig plugins = default, List<RecentConfig> recent = default, List<TemplatesConfig> templates = default, UserConfig user = default)
         {
             // to ensure "lang" is required (not null)
             if (lang == null)
@@ -120,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets EncryptionKeys
         /// </summary>
         [DataMember(Name = "encryptionKeys", EmitDefaultValue = false)]
-        public EncryptionKeysConfig EncryptionKeys { get; set; }
+        public EncryptionKeyDto EncryptionKeys { get; set; }
 
         /// <summary>
         /// The language of the editor configuration.
@@ -220,8 +220,7 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }
-    }
+        }    }
 
 
 }

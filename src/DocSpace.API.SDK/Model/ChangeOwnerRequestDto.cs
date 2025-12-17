@@ -36,7 +36,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="folderIds">The list of folder IDs to change the owner..</param>
         /// <param name="fileIds">The list of file IDs to change the owner..</param>
         /// <param name="userId">The new file owner ID. (required).</param>
-        public ChangeOwnerRequestDto(List<BatchRequestDtoAllOfFileIds> folderIds = default, List<BatchRequestDtoAllOfFileIds> fileIds = default, Guid userId = default)
+        public ChangeOwnerRequestDto(List<int> folderIds = default, List<int> fileIds = default, Guid userId = default)
         {
             this.UserId = userId;
             this.FolderIds = folderIds;
@@ -48,14 +48,14 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of folder IDs to change the owner.</value>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
-        public List<BatchRequestDtoAllOfFileIds> FolderIds { get; set; }
+        public List<int> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to change the owner.
         /// </summary>
         /// <value>The list of file IDs to change the owner.</value>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
-        public List<BatchRequestDtoAllOfFileIds> FileIds { get; set; }
+        public List<int> FileIds { get; set; }
 
         /// <summary>
         /// The new file owner ID.
@@ -99,8 +99,7 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }
-    }
+        }    }
 
 
 }

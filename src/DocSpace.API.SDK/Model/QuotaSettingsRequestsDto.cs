@@ -35,13 +35,8 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="enableQuota">Specifies whether the storage quota restrictions are enabled..</param>
         /// <param name="defaultQuota">defaultQuota (required).</param>
-        public QuotaSettingsRequestsDto(bool enableQuota = default, QuotaSettingsRequestsDtoDefaultQuota defaultQuota = default)
+        public QuotaSettingsRequestsDto(bool enableQuota = default, int defaultQuota = default)
         {
-            // to ensure "defaultQuota" is required (not null)
-            if (defaultQuota == null)
-            {
-                throw new ArgumentNullException("defaultQuota is a required property for QuotaSettingsRequestsDto and cannot be null");
-            }
             this.DefaultQuota = defaultQuota;
             this.EnableQuota = enableQuota;
         }
@@ -59,8 +54,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets DefaultQuota
         /// </summary>
+        /*
+        <example>1234</example>
+        */
         [DataMember(Name = "defaultQuota", IsRequired = true, EmitDefaultValue = true)]
-        public QuotaSettingsRequestsDtoDefaultQuota DefaultQuota { get; set; }
+        public int DefaultQuota { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -93,8 +91,7 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }
-    }
+        }    }
 
 
 }

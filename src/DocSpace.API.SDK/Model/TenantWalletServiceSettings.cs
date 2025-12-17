@@ -31,6 +31,16 @@ namespace DocSpace.API.SDK.Model
         public enum EnabledServicesEnum
         {
             /// <summary>
+            /// Enum WebSearch for value: -14
+            /// </summary>
+            WebSearch = -14,
+
+            /// <summary>
+            /// Enum AITools for value: -13
+            /// </summary>
+            AITools = -13,
+
+            /// <summary>
             /// Enum Backup for value: -12
             /// </summary>
             Backup = -12,
@@ -40,7 +50,6 @@ namespace DocSpace.API.SDK.Model
             /// </summary>
             Storage = -11
         }
-
     
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantWalletServiceSettings" /> class.
@@ -101,8 +110,7 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }
-    }
+        }    }
 
 
 }

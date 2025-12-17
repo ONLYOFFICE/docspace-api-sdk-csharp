@@ -37,7 +37,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="templateId">templateId.</param>
         /// <param name="enableExternalExt">Specifies whether to allow creating a file of an external extension or not..</param>
         /// <param name="formId">The form ID for creation..</param>
-        public CreateFileJsonElement(string title = default, CreateFileJsonElementTemplateId templateId = default, bool enableExternalExt = default, int formId = default)
+        public CreateFileJsonElement(string title = default, int templateId = default, bool enableExternalExt = default, int formId = default)
         {
             // to ensure "title" is required (not null)
             if (title == null)
@@ -63,8 +63,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets TemplateId
         /// </summary>
+        /*
+        <example>1234</example>
+        */
         [DataMember(Name = "templateId", EmitDefaultValue = false)]
-        public CreateFileJsonElementTemplateId TemplateId { get; set; }
+        public int TemplateId { get; set; }
 
         /// <summary>
         /// Specifies whether to allow creating a file of an external extension or not.
@@ -131,8 +134,7 @@ namespace DocSpace.API.SDK.Model
             }
 
             yield break;
-        }
-    }
+        }    }
 
 
 }

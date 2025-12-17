@@ -49,7 +49,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="@system">Specifies if the web plugin is system or not. (required).</param>
         /// <param name="url">The web plugin URL. (required).</param>
         /// <param name="settings">The web plugin settings. (required).</param>
-        public WebPluginDto(string name = default, string version = default, string minDocSpaceVersion = default, string description = default, string license = default, string author = default, string homePage = default, string pluginName = default, string scopes = default, string image = default, EmployeeDto createBy = default, DateTime createOn = default, bool enabled = default, bool @system = default, string url = default, string settings = default)
+        /// <param name="nameLocale">The web plugin localized name..</param>
+        /// <param name="descriptionLocale">The web plugin localized description..</param>
+        public WebPluginDto(string name = default, string version = default, string minDocSpaceVersion = default, string description = default, string license = default, string author = default, string homePage = default, string pluginName = default, string scopes = default, string image = default, EmployeeDto createBy = default, DateTime createOn = default, bool enabled = default, bool @system = default, string url = default, string settings = default, Dictionary<string, string> nameLocale = default, Dictionary<string, string> descriptionLocale = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -127,6 +129,8 @@ namespace DocSpace.API.SDK.Model
             }
             this.Settings = settings;
             this.MinDocSpaceVersion = minDocSpaceVersion;
+            this.NameLocale = nameLocale;
+            this.DescriptionLocale = descriptionLocale;
         }
 
         /// <summary>
@@ -286,6 +290,26 @@ namespace DocSpace.API.SDK.Model
         public string Settings { get; set; }
 
         /// <summary>
+        /// The web plugin localized name.
+        /// </summary>
+        /// <value>The web plugin localized name.</value>
+        /*
+        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
+        */
+        [DataMember(Name = "nameLocale", EmitDefaultValue = true)]
+        public Dictionary<string, string> NameLocale { get; set; }
+
+        /// <summary>
+        /// The web plugin localized description.
+        /// </summary>
+        /// <value>The web plugin localized description.</value>
+        /*
+        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
+        */
+        [DataMember(Name = "descriptionLocale", EmitDefaultValue = true)]
+        public Dictionary<string, string> DescriptionLocale { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -309,6 +333,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  System: ").Append(System).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Settings: ").Append(Settings).Append("\n");
+            sb.Append("  NameLocale: ").Append(NameLocale).Append("\n");
+            sb.Append("  DescriptionLocale: ").Append(DescriptionLocale).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -330,8 +356,7 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }
-    }
+        }    }
 
 
 }

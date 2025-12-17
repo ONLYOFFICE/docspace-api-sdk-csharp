@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="deleteAfter">Specifies whether to delete the source files/folders after they are moved or copied to the destination folder..</param>
         /// <param name="content">Specifies whether to copy or move the folder content or not..</param>
         /// <param name="toFillOut">Specifies whether the file is copied for filling out.</param>
-        public BatchRequestDto(List<BatchRequestDtoAllOfFolderIds> folderIds = default, List<BatchRequestDtoAllOfFileIds> fileIds = default, BatchRequestDtoAllOfDestFolderId destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool deleteAfter = default, bool content = default, bool toFillOut = default)
+        public BatchRequestDto(List<int> folderIds = default, List<int> fileIds = default, int destFolderId = default, FileConflictResolveType? conflictResolveType = default, bool deleteAfter = default, bool content = default, bool toFillOut = default)
         {
             this.FolderIds = folderIds;
             this.FileIds = fileIds;
@@ -57,20 +57,23 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of folder IDs to be copied/moved.</value>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
-        public List<BatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
+        public List<int> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to be copied/moved.
         /// </summary>
         /// <value>The list of file IDs to be copied/moved.</value>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
-        public List<BatchRequestDtoAllOfFileIds> FileIds { get; set; }
+        public List<int> FileIds { get; set; }
 
         /// <summary>
         /// Gets or Sets DestFolderId
         /// </summary>
+        /*
+        <example>1234</example>
+        */
         [DataMember(Name = "destFolderId", EmitDefaultValue = false)]
-        public BatchRequestDtoAllOfDestFolderId DestFolderId { get; set; }
+        public int DestFolderId { get; set; }
 
         /// <summary>
         /// Specifies whether to delete the source files/folders after they are moved or copied to the destination folder.
@@ -139,6 +142,5 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }
-    }
+        }    }
 }

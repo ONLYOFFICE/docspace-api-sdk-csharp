@@ -133,8 +133,7 @@ namespace DocSpace.API.SDK.Model
             }
 
             yield break;
-        }
-    }
+        }    }
 
 
 }

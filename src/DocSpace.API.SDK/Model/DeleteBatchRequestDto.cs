@@ -32,7 +32,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="fileIds">The list of file IDs to be deleted..</param>
         /// <param name="deleteAfter">Specifies whether to delete a file after the editing session is finished or not.</param>
         /// <param name="immediately">Specifies whether to move a file to the \\Trash\\ folder or delete it immediately..</param>
-        public DeleteBatchRequestDto(List<DeleteBatchRequestDtoAllOfFolderIds> folderIds = default, List<DeleteBatchRequestDtoAllOfFileIds> fileIds = default, bool deleteAfter = default, bool immediately = default)
+        public DeleteBatchRequestDto(List<int> folderIds = default, List<int> fileIds = default, bool deleteAfter = default, bool immediately = default)
         {
             this.FolderIds = folderIds;
             this.FileIds = fileIds;
@@ -45,14 +45,14 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of folder IDs to be deleted.</value>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
-        public List<DeleteBatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
+        public List<int> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to be deleted.
         /// </summary>
         /// <value>The list of file IDs to be deleted.</value>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
-        public List<DeleteBatchRequestDtoAllOfFileIds> FileIds { get; set; }
+        public List<int> FileIds { get; set; }
 
         /// <summary>
         /// Specifies whether to delete a file after the editing session is finished or not
@@ -108,6 +108,5 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }
-    }
+        }    }
 }

@@ -24,8 +24,11 @@ namespace DocSpace.API.SDK.Api.Files
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Apply external data password
         /// </summary>
+        /// <remarks>
+        /// Applies a password specified in the request to get the external data.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
         /// <param name="externalShareRequestParam">The external data share request parameters.</param>
@@ -34,10 +37,10 @@ namespace DocSpace.API.SDK.Api.Files
         ExternalShareWrapper ApplyExternalSharePassword(string key, ExternalShareRequestParam externalShareRequestParam);
 
         /// <summary>
-        /// 
+        /// Apply external data password
         /// </summary>
         /// <remarks>
-        /// 
+        /// Applies a password specified in the request to get the external data.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
@@ -46,8 +49,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of ExternalShareWrapper</returns>
         ApiResponse<ExternalShareWrapper> ApplyExternalSharePasswordWithHttpInfo(string key, ExternalShareRequestParam externalShareRequestParam);
         /// <summary>
-        /// 
+        /// Change the file owner
         /// </summary>
+        /// <remarks>
+        /// Changes the owner of the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/">REST API Reference for ChangeFileOwner Operation</seealso>
@@ -55,10 +61,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileEntryBaseArrayWrapper ChangeFileOwner(ChangeOwnerRequestDto? changeOwnerRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Change the file owner
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the owner of the file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
@@ -66,8 +72,34 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileEntryBaseArrayWrapper</returns>
         ApiResponse<FileEntryBaseArrayWrapper> ChangeFileOwnerWithHttpInfo(ChangeOwnerRequestDto? changeOwnerRequestDto = default);
         /// <summary>
-        /// 
+        /// Get file encryption keys
         /// </summary>
+        /// <remarks>
+        /// Returns the encryption keys to access a file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-access/">REST API Reference for GetEncryptionAccess Operation</seealso>
+        /// <returns>EncryptionKeyArrayWrapper</returns>
+        EncryptionKeyArrayWrapper GetEncryptionAccess(int fileId);
+
+        /// <summary>
+        /// Get file encryption keys
+        /// </summary>
+        /// <remarks>
+        /// Returns the encryption keys to access a file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-access/">REST API Reference for GetEncryptionAccess Operation</seealso>
+        /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
+        ApiResponse<EncryptionKeyArrayWrapper> GetEncryptionAccessWithHttpInfo(int fileId);
+        /// <summary>
+        /// Get the external data
+        /// </summary>
+        /// <remarks>
+        /// Returns the external data by the key specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
         /// <param name="fileId">The unique document identifier. (optional)</param>
@@ -77,10 +109,10 @@ namespace DocSpace.API.SDK.Api.Files
         ExternalShareWrapper GetExternalShareData(string key, string? fileId = default, string? folderId = default);
 
         /// <summary>
-        /// 
+        /// Get the external data
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the external data by the key specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
@@ -90,8 +122,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of ExternalShareWrapper</returns>
         ApiResponse<ExternalShareWrapper> GetExternalShareDataWithHttpInfo(string key, string? fileId = default, string? folderId = default);
         /// <summary>
-        /// 
+        /// Get the shared file information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about the shared file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -101,10 +136,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileShareArrayWrapper GetFileSecurityInfo(int id, int? count = default, int? startIndex = default);
 
         /// <summary>
-        /// 
+        /// Get the shared file information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the detailed information about the shared file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file unique identifier.</param>
@@ -114,8 +149,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
         ApiResponse<FileShareArrayWrapper> GetFileSecurityInfoWithHttpInfo(int id, int? count = default, int? startIndex = default);
         /// <summary>
-        /// 
+        /// Get the shared folder information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about the shared folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -125,10 +163,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileShareArrayWrapper GetFolderSecurityInfo(int id, int? count = default, int? startIndex = default);
 
         /// <summary>
-        /// 
+        /// Get the shared folder information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the detailed information about the shared folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder unique identifier.</param>
@@ -138,8 +176,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
         ApiResponse<FileShareArrayWrapper> GetFolderSecurityInfoWithHttpInfo(int id, int? count = default, int? startIndex = default);
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
+        /// <remarks>
+        /// Returns the group members with their file security information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="groupId">The group ID.</param>
@@ -151,10 +192,10 @@ namespace DocSpace.API.SDK.Api.Files
         GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFileSecurity(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
 
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the group members with their file security information.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -166,8 +207,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
         ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityWithHttpInfo(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
+        /// <remarks>
+        /// Returns the group members with their folder security information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="groupId">The group ID.</param>
@@ -179,10 +223,10 @@ namespace DocSpace.API.SDK.Api.Files
         GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFolderSecurity(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
 
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the group members with their folder security information.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
@@ -194,8 +238,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
         ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityWithHttpInfo(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
         /// <summary>
-        /// 
+        /// Get the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Returns the sharing rights for all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/">REST API Reference for GetSecurityInfo Operation</seealso>
@@ -203,10 +250,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileShareArrayWrapper GetSecurityInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Get the sharing rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the sharing rights for all the files and folders specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
@@ -214,8 +261,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
         ApiResponse<FileShareArrayWrapper> GetSecurityInfoWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
         /// <summary>
-        /// 
+        /// Get user access rights by file ID
         /// </summary>
+        /// <remarks>
+        /// Returns a list of users with their access rights to the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
@@ -223,10 +273,10 @@ namespace DocSpace.API.SDK.Api.Files
         MentionWrapperArrayWrapper GetSharedUsers(int fileId);
 
         /// <summary>
-        /// 
+        /// Get user access rights by file ID
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of users with their access rights to the file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
@@ -234,8 +284,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of MentionWrapperArrayWrapper</returns>
         ApiResponse<MentionWrapperArrayWrapper> GetSharedUsersWithHttpInfo(int fileId);
         /// <summary>
-        /// 
+        /// Remove the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Removes the sharing rights from all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/">REST API Reference for RemoveSecurityInfo Operation</seealso>
@@ -243,10 +296,10 @@ namespace DocSpace.API.SDK.Api.Files
         BooleanWrapper RemoveSecurityInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Remove the sharing rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the sharing rights from all the files and folders specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
@@ -254,8 +307,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> RemoveSecurityInfoWithHttpInfo(BaseBatchRequestDto? baseBatchRequestDto = default);
         /// <summary>
-        /// 
+        /// Send the mention message
         /// </summary>
+        /// <remarks>
+        /// Sends a message to the users who are mentioned in the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
@@ -264,10 +320,10 @@ namespace DocSpace.API.SDK.Api.Files
         AceShortWrapperArrayWrapper SendEditorNotify(int fileId, MentionMessageWrapper? mentionMessageWrapper = default);
 
         /// <summary>
-        /// 
+        /// Send the mention message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sends a message to the users who are mentioned in the file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID with the mention message.</param>
@@ -276,8 +332,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of AceShortWrapperArrayWrapper</returns>
         ApiResponse<AceShortWrapperArrayWrapper> SendEditorNotifyWithHttpInfo(int fileId, MentionMessageWrapper? mentionMessageWrapper = default);
         /// <summary>
-        /// 
+        /// Share a file
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing settings to a file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
@@ -286,10 +345,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileShareArrayWrapper SetFileSecurityInfo(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
 
         /// <summary>
-        /// 
+        /// Share a file
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the sharing settings to a file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -298,8 +357,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
         ApiResponse<FileShareArrayWrapper> SetFileSecurityInfoWithHttpInfo(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
         /// <summary>
-        /// 
+        /// Share a folder
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing settings to a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
@@ -308,10 +370,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileShareArrayWrapper SetFolderSecurityInfo(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
 
         /// <summary>
-        /// 
+        /// Share a folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the sharing settings to a folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
@@ -320,8 +382,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
         ApiResponse<FileShareArrayWrapper> SetFolderSecurityInfoWithHttpInfo(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto);
         /// <summary>
-        /// 
+        /// Set the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing rights to all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/">REST API Reference for SetSecurityInfo Operation</seealso>
@@ -329,10 +394,10 @@ namespace DocSpace.API.SDK.Api.Files
         FileShareArrayWrapper SetSecurityInfo(SecurityInfoRequestDto? securityInfoRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Set the sharing rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the sharing rights to all the files and folders specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
@@ -349,10 +414,10 @@ namespace DocSpace.API.SDK.Api.Files
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Apply external data password
         /// </summary>
         /// <remarks>
-        /// 
+        /// Applies a password specified in the request to get the external data.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
@@ -363,10 +428,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<ExternalShareWrapper> ApplyExternalSharePasswordAsync(string key, ExternalShareRequestParam externalShareRequestParam, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Apply external data password
         /// </summary>
         /// <remarks>
-        /// 
+        /// Applies a password specified in the request to get the external data.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
@@ -376,10 +441,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (ExternalShareWrapper)</returns>
         Task<ApiResponse<ExternalShareWrapper>> ApplyExternalSharePasswordWithHttpInfoAsync(string key, ExternalShareRequestParam externalShareRequestParam, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Change the file owner
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the owner of the file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
@@ -389,10 +454,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileEntryBaseArrayWrapper> ChangeFileOwnerAsync(ChangeOwnerRequestDto? changeOwnerRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Change the file owner
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes the owner of the file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
@@ -401,10 +466,35 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileEntryBaseArrayWrapper)</returns>
         Task<ApiResponse<FileEntryBaseArrayWrapper>> ChangeFileOwnerWithHttpInfoAsync(ChangeOwnerRequestDto? changeOwnerRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get file encryption keys
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the encryption keys to access a file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-access/">REST API Reference for GetEncryptionAccess Operation</seealso>
+        /// <returns>Task of EncryptionKeyArrayWrapper</returns>
+        Task<EncryptionKeyArrayWrapper> GetEncryptionAccessAsync(int fileId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get file encryption keys
+        /// </summary>
+        /// <remarks>
+        /// Returns the encryption keys to access a file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-access/">REST API Reference for GetEncryptionAccess Operation</seealso>
+        /// <returns>Task of ApiResponse (EncryptionKeyArrayWrapper)</returns>
+        Task<ApiResponse<EncryptionKeyArrayWrapper>> GetEncryptionAccessWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get the external data
+        /// </summary>
+        /// <remarks>
+        /// Returns the external data by the key specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
@@ -416,10 +506,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<ExternalShareWrapper> GetExternalShareDataAsync(string key, string? fileId = default, string? folderId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the external data
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the external data by the key specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
@@ -430,10 +520,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (ExternalShareWrapper)</returns>
         Task<ApiResponse<ExternalShareWrapper>> GetExternalShareDataWithHttpInfoAsync(string key, string? fileId = default, string? folderId = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the shared file information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the detailed information about the shared file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file unique identifier.</param>
@@ -445,10 +535,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileShareArrayWrapper> GetFileSecurityInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the shared file information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the detailed information about the shared file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file unique identifier.</param>
@@ -459,10 +549,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
         Task<ApiResponse<FileShareArrayWrapper>> GetFileSecurityInfoWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the shared folder information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the detailed information about the shared folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder unique identifier.</param>
@@ -474,10 +564,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileShareArrayWrapper> GetFolderSecurityInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the shared folder information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the detailed information about the shared folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder unique identifier.</param>
@@ -488,10 +578,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
         Task<ApiResponse<FileShareArrayWrapper>> GetFolderSecurityInfoWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the group members with their file security information.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -505,10 +595,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the group members with their file security information.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -521,10 +611,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
         Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFileSecurityWithHttpInfoAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the group members with their folder security information.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
@@ -538,10 +628,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the group members with their folder security information.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
@@ -554,10 +644,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
         Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFolderSecurityWithHttpInfoAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the sharing rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the sharing rights for all the files and folders specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
@@ -567,10 +657,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileShareArrayWrapper> GetSecurityInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the sharing rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the sharing rights for all the files and folders specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
@@ -579,10 +669,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
         Task<ApiResponse<FileShareArrayWrapper>> GetSecurityInfoWithHttpInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get user access rights by file ID
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of users with their access rights to the file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
@@ -592,10 +682,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<MentionWrapperArrayWrapper> GetSharedUsersAsync(int fileId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get user access rights by file ID
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of users with their access rights to the file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
@@ -604,10 +694,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (MentionWrapperArrayWrapper)</returns>
         Task<ApiResponse<MentionWrapperArrayWrapper>> GetSharedUsersWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Remove the sharing rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the sharing rights from all the files and folders specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
@@ -617,10 +707,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<BooleanWrapper> RemoveSecurityInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Remove the sharing rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the sharing rights from all the files and folders specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
@@ -629,10 +719,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> RemoveSecurityInfoWithHttpInfoAsync(BaseBatchRequestDto? baseBatchRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Send the mention message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sends a message to the users who are mentioned in the file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID with the mention message.</param>
@@ -643,10 +733,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<AceShortWrapperArrayWrapper> SendEditorNotifyAsync(int fileId, MentionMessageWrapper? mentionMessageWrapper = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Send the mention message
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sends a message to the users who are mentioned in the file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID with the mention message.</param>
@@ -656,10 +746,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (AceShortWrapperArrayWrapper)</returns>
         Task<ApiResponse<AceShortWrapperArrayWrapper>> SendEditorNotifyWithHttpInfoAsync(int fileId, MentionMessageWrapper? mentionMessageWrapper = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Share a file
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the sharing settings to a file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -670,10 +760,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileShareArrayWrapper> SetFileSecurityInfoAsync(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Share a file
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the sharing settings to a file with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
@@ -683,10 +773,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
         Task<ApiResponse<FileShareArrayWrapper>> SetFileSecurityInfoWithHttpInfoAsync(int fileId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Share a folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the sharing settings to a folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
@@ -697,10 +787,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileShareArrayWrapper> SetFolderSecurityInfoAsync(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Share a folder
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the sharing settings to a folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
@@ -710,10 +800,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
         Task<ApiResponse<FileShareArrayWrapper>> SetFolderSecurityInfoWithHttpInfoAsync(int folderId, SecurityInfoSimpleRequestDto securityInfoSimpleRequestDto, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Set the sharing rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the sharing rights to all the files and folders specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
@@ -723,10 +813,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<FileShareArrayWrapper> SetSecurityInfoAsync(SecurityInfoRequestDto? securityInfoRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Set the sharing rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the sharing rights to all the files and folders specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
@@ -949,8 +1039,11 @@ namespace DocSpace.API.SDK.Api.Files
 
 
         /// <summary>
-        /// 
+        /// Apply external data password
         /// </summary>
+        /// <remarks>
+        /// Applies a password specified in the request to get the external data.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
         /// <param name="externalShareRequestParam">The external data share request parameters.</param>
@@ -963,8 +1056,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Apply external data password
         /// </summary>
+        /// <remarks>
+        /// Applies a password specified in the request to get the external data.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
         /// <param name="externalShareRequestParam">The external data share request parameters.</param>
@@ -1013,8 +1109,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Apply external data password
         /// </summary>
+        /// <remarks>
+        /// Applies a password specified in the request to get the external data.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
         /// <param name="externalShareRequestParam">The external data share request parameters.</param>
@@ -1028,8 +1127,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Apply external data password
         /// </summary>
+        /// <remarks>
+        /// Applies a password specified in the request to get the external data.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique document identifier.</param>
         /// <param name="externalShareRequestParam">The external data share request parameters.</param>
@@ -1081,8 +1183,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the file owner
         /// </summary>
+        /// <remarks>
+        /// Changes the owner of the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/">REST API Reference for ChangeFileOwner Operation</seealso>
@@ -1094,8 +1199,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the file owner
         /// </summary>
+        /// <remarks>
+        /// Changes the owner of the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-file-owner/">REST API Reference for ChangeFileOwner Operation</seealso>
@@ -1117,6 +1225,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (changeOwnerRequestDto != null) localVarRequestOptions.Data = changeOwnerRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FileEntryBaseArrayWrapper>("/api/2.0/files/owner", localVarRequestOptions, Configuration);
@@ -1134,8 +1272,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the file owner
         /// </summary>
+        /// <remarks>
+        /// Changes the owner of the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1148,8 +1289,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Change the file owner
         /// </summary>
+        /// <remarks>
+        /// Changes the owner of the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="changeOwnerRequestDto">The request parameters for changing the file owner. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1173,6 +1317,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (changeOwnerRequestDto != null) localVarRequestOptions.Data = changeOwnerRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1191,8 +1365,193 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get file encryption keys
         /// </summary>
+        /// <remarks>
+        /// Returns the encryption keys to access a file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-access/">REST API Reference for GetEncryptionAccess Operation</seealso>
+        /// <returns>EncryptionKeyArrayWrapper</returns>
+        public EncryptionKeyArrayWrapper GetEncryptionAccess(int fileId)
+        {
+            var localVarResponse = GetEncryptionAccessWithHttpInfo(fileId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get file encryption keys
+        /// </summary>
+        /// <remarks>
+        /// Returns the encryption keys to access a file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-access/">REST API Reference for GetEncryptionAccess Operation</seealso>
+        /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
+        public ApiResponse<EncryptionKeyArrayWrapper> GetEncryptionAccessWithHttpInfo(int fileId)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<EncryptionKeyArrayWrapper>("/api/2.0/files/file/{fileId}/publickeys", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetEncryptionAccess", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get file encryption keys
+        /// </summary>
+        /// <remarks>
+        /// Returns the encryption keys to access a file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-access/">REST API Reference for GetEncryptionAccess Operation</seealso>
+        /// <returns>Task of EncryptionKeyArrayWrapper</returns>
+        public async Task<EncryptionKeyArrayWrapper> GetEncryptionAccessAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetEncryptionAccessWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get file encryption keys
+        /// </summary>
+        /// <remarks>
+        /// Returns the encryption keys to access a file with the ID specified in the request.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-access/">REST API Reference for GetEncryptionAccess Operation</seealso>
+        /// <returns>Task of ApiResponse (EncryptionKeyArrayWrapper)</returns>
+        public async Task<ApiResponse<EncryptionKeyArrayWrapper>> GetEncryptionAccessWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<EncryptionKeyArrayWrapper>("/api/2.0/files/file/{fileId}/publickeys", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetEncryptionAccess", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the external data
+        /// </summary>
+        /// <remarks>
+        /// Returns the external data by the key specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
         /// <param name="fileId">The unique document identifier. (optional)</param>
@@ -1206,8 +1565,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the external data
         /// </summary>
+        /// <remarks>
+        /// Returns the external data by the key specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
         /// <param name="fileId">The unique document identifier. (optional)</param>
@@ -1260,8 +1622,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the external data
         /// </summary>
+        /// <remarks>
+        /// Returns the external data by the key specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
         /// <param name="fileId">The unique document identifier. (optional)</param>
@@ -1276,8 +1641,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the external data
         /// </summary>
+        /// <remarks>
+        /// Returns the external data by the key specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="key">The unique key of the external shared data.</param>
         /// <param name="fileId">The unique document identifier. (optional)</param>
@@ -1333,8 +1701,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the shared file information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about the shared file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -1348,8 +1719,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the shared file information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about the shared file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -1381,6 +1755,36 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<FileShareArrayWrapper>("/api/2.0/files/file/{id}/share", localVarRequestOptions, Configuration);
@@ -1398,8 +1802,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the shared file information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about the shared file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -1414,8 +1821,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the shared file information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about the shared file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The file unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -1449,6 +1859,36 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1467,8 +1907,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the shared folder information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about the shared folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -1482,8 +1925,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the shared folder information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about the shared folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -1515,6 +1961,36 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<FileShareArrayWrapper>("/api/2.0/files/folder/{id}/share", localVarRequestOptions, Configuration);
@@ -1532,8 +2008,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the shared folder information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about the shared folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -1548,8 +2027,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the shared folder information
         /// </summary>
+        /// <remarks>
+        /// Returns the detailed information about the shared folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The folder unique identifier.</param>
         /// <param name="count">The number of items to retrieve in the request. (optional)</param>
@@ -1583,6 +2065,36 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1601,8 +2113,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
+        /// <remarks>
+        /// Returns the group members with their file security information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="groupId">The group ID.</param>
@@ -1618,8 +2133,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
+        /// <remarks>
+        /// Returns the group members with their file security information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="groupId">The group ID.</param>
@@ -1658,6 +2176,36 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/file/{fileId}/group/{groupId}/share", localVarRequestOptions, Configuration);
@@ -1675,8 +2223,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
+        /// <remarks>
+        /// Returns the group members with their file security information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="groupId">The group ID.</param>
@@ -1693,8 +2244,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
+        /// <remarks>
+        /// Returns the group members with their file security information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="groupId">The group ID.</param>
@@ -1735,6 +2289,36 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1753,8 +2337,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
+        /// <remarks>
+        /// Returns the group members with their folder security information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="groupId">The group ID.</param>
@@ -1770,8 +2357,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
+        /// <remarks>
+        /// Returns the group members with their folder security information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="groupId">The group ID.</param>
@@ -1810,6 +2400,36 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<GroupMemberSecurityRequestArrayWrapper>("/api/2.0/files/folder/{folderId}/group/{groupId}/share", localVarRequestOptions, Configuration);
@@ -1827,8 +2447,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
+        /// <remarks>
+        /// Returns the group members with their folder security information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="groupId">The group ID.</param>
@@ -1845,8 +2468,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get group members with security information
         /// </summary>
+        /// <remarks>
+        /// Returns the group members with their folder security information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="groupId">The group ID.</param>
@@ -1887,6 +2513,36 @@ namespace DocSpace.API.SDK.Api.Files
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -1905,8 +2561,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Returns the sharing rights for all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/">REST API Reference for GetSecurityInfo Operation</seealso>
@@ -1918,8 +2577,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Returns the sharing rights for all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-security-info/">REST API Reference for GetSecurityInfo Operation</seealso>
@@ -1941,6 +2603,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (baseBatchRequestDto != null) localVarRequestOptions.Data = baseBatchRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FileShareArrayWrapper>("/api/2.0/files/share", localVarRequestOptions, Configuration);
@@ -1958,8 +2650,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Returns the sharing rights for all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1972,8 +2667,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Returns the sharing rights for all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1997,6 +2695,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (baseBatchRequestDto != null) localVarRequestOptions.Data = baseBatchRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2015,8 +2743,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get user access rights by file ID
         /// </summary>
+        /// <remarks>
+        /// Returns a list of users with their access rights to the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
@@ -2028,8 +2759,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get user access rights by file ID
         /// </summary>
+        /// <remarks>
+        /// Returns a list of users with their access rights to the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-shared-users/">REST API Reference for GetSharedUsers Operation</seealso>
@@ -2051,6 +2785,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<MentionWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sharedusers", localVarRequestOptions, Configuration);
@@ -2068,8 +2832,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get user access rights by file ID
         /// </summary>
+        /// <remarks>
+        /// Returns a list of users with their access rights to the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2082,8 +2849,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Get user access rights by file ID
         /// </summary>
+        /// <remarks>
+        /// Returns a list of users with their access rights to the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2107,6 +2877,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2125,8 +2925,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Remove the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Removes the sharing rights from all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/">REST API Reference for RemoveSecurityInfo Operation</seealso>
@@ -2138,8 +2941,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Remove the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Removes the sharing rights from all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/remove-security-info/">REST API Reference for RemoveSecurityInfo Operation</seealso>
@@ -2161,6 +2967,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (baseBatchRequestDto != null) localVarRequestOptions.Data = baseBatchRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Delete<BooleanWrapper>("/api/2.0/files/share", localVarRequestOptions, Configuration);
@@ -2178,8 +3014,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Remove the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Removes the sharing rights from all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2192,8 +3031,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Remove the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Removes the sharing rights from all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="baseBatchRequestDto">The base batch request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2217,6 +3059,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (baseBatchRequestDto != null) localVarRequestOptions.Data = baseBatchRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2235,8 +3107,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Send the mention message
         /// </summary>
+        /// <remarks>
+        /// Sends a message to the users who are mentioned in the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
@@ -2249,8 +3124,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Send the mention message
         /// </summary>
+        /// <remarks>
+        /// Sends a message to the users who are mentioned in the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
@@ -2274,6 +3152,36 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (mentionMessageWrapper != null) localVarRequestOptions.Data = mentionMessageWrapper;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<AceShortWrapperArrayWrapper>("/api/2.0/files/file/{fileId}/sendeditornotify", localVarRequestOptions, Configuration);
@@ -2291,8 +3199,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Send the mention message
         /// </summary>
+        /// <remarks>
+        /// Sends a message to the users who are mentioned in the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
@@ -2306,8 +3217,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Send the mention message
         /// </summary>
+        /// <remarks>
+        /// Sends a message to the users who are mentioned in the file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID with the mention message.</param>
         /// <param name="mentionMessageWrapper">The mention message. (optional)</param>
@@ -2333,6 +3247,36 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (mentionMessageWrapper != null) localVarRequestOptions.Data = mentionMessageWrapper;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2351,8 +3295,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Share a file
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing settings to a file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
@@ -2365,8 +3312,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Share a file
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing settings to a file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
@@ -2394,6 +3344,36 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (securityInfoSimpleRequestDto != null) localVarRequestOptions.Data = securityInfoSimpleRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FileShareArrayWrapper>("/api/2.0/files/file/{fileId}/share", localVarRequestOptions, Configuration);
@@ -2411,8 +3391,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Share a file
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing settings to a file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
@@ -2426,8 +3409,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Share a file
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing settings to a file with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
@@ -2457,6 +3443,36 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (securityInfoSimpleRequestDto != null) localVarRequestOptions.Data = securityInfoSimpleRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2475,8 +3491,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Share a folder
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing settings to a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
@@ -2489,8 +3508,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Share a folder
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing settings to a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
@@ -2518,6 +3540,36 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (securityInfoSimpleRequestDto != null) localVarRequestOptions.Data = securityInfoSimpleRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FileShareArrayWrapper>("/api/2.0/files/folder/{folderId}/share", localVarRequestOptions, Configuration);
@@ -2535,8 +3587,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Share a folder
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing settings to a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
@@ -2550,8 +3605,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Share a folder
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing settings to a folder with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID.</param>
         /// <param name="securityInfoSimpleRequestDto">The parameters of the security information simple request.</param>
@@ -2581,6 +3639,36 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (securityInfoSimpleRequestDto != null) localVarRequestOptions.Data = securityInfoSimpleRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2599,8 +3687,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Set the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing rights to all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/">REST API Reference for SetSecurityInfo Operation</seealso>
@@ -2612,8 +3703,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Set the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing rights to all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-security-info/">REST API Reference for SetSecurityInfo Operation</seealso>
@@ -2635,6 +3729,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (securityInfoRequestDto != null) localVarRequestOptions.Data = securityInfoRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FileShareArrayWrapper>("/api/2.0/files/share", localVarRequestOptions, Configuration);
@@ -2652,8 +3776,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Set the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing rights to all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2666,8 +3793,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Set the sharing rights
         /// </summary>
+        /// <remarks>
+        /// Sets the sharing rights to all the files and folders specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="securityInfoRequestDto">The security information request parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2691,6 +3821,36 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (securityInfoRequestDto != null) localVarRequestOptions.Data = securityInfoRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
