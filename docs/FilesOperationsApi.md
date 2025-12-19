@@ -746,7 +746,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The session folder ID.
+            var folderId = 9079;  // int | The session folder ID.
             var sessionRequest = new SessionRequest(); // SessionRequest | The session parameters.
 
             try
@@ -1503,7 +1503,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
             var operationType = (FileOperationType) "0";  // FileOperationType | Specifies the type of file operation to be retrieved.
-            var id = 9846;  // string? | The ID of the file operation. (optional) 
+            var id = 9079;  // string? | The ID of the file operation. (optional) 
 
             try
             {

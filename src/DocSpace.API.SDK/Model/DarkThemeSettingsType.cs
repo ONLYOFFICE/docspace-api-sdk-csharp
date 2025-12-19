@@ -14,9 +14,7 @@
 
  
  using DocSpace.API.SDK.Client;
-
-using Newtonsoft.Json.Converters;
-
+ 
 
 namespace DocSpace.API.SDK.Model
 {
@@ -24,7 +22,7 @@ namespace DocSpace.API.SDK.Model
     /// [Base - Base, Dark - Dark, System - System]
     /// </summary>
     /// <value>[Base - Base, Dark - Dark, System - System]</value>
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum DarkThemeSettingsType
     {
         /// <summary>

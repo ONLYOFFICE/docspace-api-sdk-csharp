@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room title.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>1080p_small_wooden_mouse_personal_loan_account</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -225,6 +225,7 @@ namespace DocSpace.API.SDK.Model
 
             yield break;
         }
+
     }
 
 

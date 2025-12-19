@@ -22,7 +22,7 @@ namespace DocSpace.API.SDK.Model
     /// [Skip - Skip, Overwrite - Overwrite, Duplicate - Duplicate]
     /// </summary>
     /// <value>[Skip - Skip, Overwrite - Overwrite, Duplicate - Duplicate]</value>
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum FileConflictResolveType
     {
         /// <summary>

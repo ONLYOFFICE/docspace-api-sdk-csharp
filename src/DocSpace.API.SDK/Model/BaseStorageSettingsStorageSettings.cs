@@ -57,6 +57,23 @@ namespace DocSpace.API.SDK.Model
         public Dictionary<string, string> Props { get; set; }
 
         /// <summary>
+        /// Gets or Sets Id
+        /// </summary>
+        /*
+        <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
+        */
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public Guid Id { get; private set; }
+
+        /// <summary>
+        /// Returns false as Id should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeId()
+        {
+            return false;
+        }
+        /// <summary>
         /// Gets or Sets LastModified
         /// </summary>
         /*
@@ -75,6 +92,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class BaseStorageSettingsStorageSettings {\n");
             sb.Append("  Module: ").Append(Module).Append("\n");
             sb.Append("  Props: ").Append(Props).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  LastModified: ").Append(LastModified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -98,6 +116,7 @@ namespace DocSpace.API.SDK.Model
         {
             yield break;
         }
+
     }
 
 

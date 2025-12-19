@@ -22,7 +22,7 @@ namespace DocSpace.API.SDK.Model
     /// [All - All, RoomAdmin - Room admin, Guest - Guest, DocSpaceAdmin - DocSpace admin, User - User]
     /// </summary>
     /// <value>[All - All, RoomAdmin - Room admin, Guest - Guest, DocSpaceAdmin - DocSpace admin, User - User]</value>
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum EmployeeType
     {
         /// <summary>

@@ -3934,7 +3934,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The editing file ID from the request.
+            var fileId = 9079;  // int | The editing file ID from the request.
             var fileExtension = "fileExtension_example";  // string? | The editing file extension from the request. (optional) 
             var downloadUri = "downloadUri_example";  // string? | The URI to download the editing file. (optional) 
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | The request file stream. (optional) 
@@ -4946,7 +4946,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9079;  // int | The file ID.
+            var fileId = 9846;  // int | The file ID.
             var favorite = true;  // bool? | Specifies if the file is marked as favorite or not. (optional) 
 
             try

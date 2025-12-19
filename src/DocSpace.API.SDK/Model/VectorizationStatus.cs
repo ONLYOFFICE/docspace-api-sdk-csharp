@@ -19,24 +19,25 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Defines VectorizationStatus
+    /// [0 - In Progress, 1 - Completed, 2 - Failed]
     /// </summary>
+    /// <value>[0 - In Progress, 1 - Completed, 2 - Failed]</value>
     public enum VectorizationStatus
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum InProgress for value: 0
         /// </summary>
-        NUMBER_0 = 0,
+        InProgress = 0,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum Completed for value: 1
         /// </summary>
-        NUMBER_1 = 1,
+        Completed = 1,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum Failed for value: 2
         /// </summary>
-        NUMBER_2 = 2
+        Failed = 2
     }
 
 }

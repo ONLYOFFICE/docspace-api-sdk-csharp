@@ -9139,7 +9139,7 @@ paths:
         name: userid
         required: true
         schema:
-          example: "9079"
+          example: "9846"
           type: string
         style: simple
       requestBody:
@@ -12075,7 +12075,7 @@ paths:
         name: fileId
         required: true
         schema:
-          example: 9846
+          example: 9079
           format: int32
           type: integer
         style: simple
@@ -13923,7 +13923,7 @@ paths:
         name: fileId
         required: true
         schema:
-          example: 9079
+          example: 9846
           format: int32
           type: integer
         style: simple
@@ -14077,7 +14077,7 @@ paths:
       - Files / Files
     get:
       description: Returns the detailed list of files located in the Recent section.
-      operationId: getFolderRecent
+      operationId: getRecentFolder
       parameters:
       - description: The user or group ID.
         explode: true
@@ -15476,145 +15476,6 @@ paths:
       summary: Get the Private Room section
       tags:
       - Files / Folders
-  /api/2.0/files/@recent:
-    get:
-      description: Returns the detailed list of files located in the Recent section.
-      operationId: getRecentFolder
-      parameters:
-      - description: The user or group ID.
-        explode: true
-        in: query
-        name: userIdOrGroupId
-        required: false
-        schema:
-          example: 75a5f745-f697-4418-b38d-0fe0d277e258
-          format: uuid
-          type: string
-        style: form
-      - description: The filter type.
-        explode: true
-        in: query
-        name: filterType
-        required: false
-        schema:
-          $ref: "#/components/schemas/FilterType"
-        style: form
-      - description: Specifies whether to exclude search by user or group ID.
-        explode: true
-        in: query
-        name: excludeSubject
-        required: false
-        schema:
-          example: true
-          type: boolean
-        style: form
-      - description: "Specifies whether to return only files, only folders or all\
-          \ elements."
-        explode: true
-        in: query
-        name: applyFilterOption
-        required: false
-        schema:
-          $ref: "#/components/schemas/ApplyFilterOption"
-        style: form
-      - description: The search area.
-        explode: true
-        in: query
-        name: searchArea
-        required: false
-        schema:
-          $ref: "#/components/schemas/SearchArea"
-        style: form
-      - description: Specifies whether to search for a specific file extension in
-          the Recent folder.
-        explode: false
-        in: query
-        name: extension
-        required: false
-        schema:
-          example: .txt
-          items:
-            type: string
-          type: array
-        style: deepObject
-      - description: The maximum number of items to return.
-        explode: true
-        in: query
-        name: count
-        required: false
-        schema:
-          example: 1234
-          format: int32
-          maximum: 100
-          minimum: 1
-          type: integer
-        style: form
-      - description: The starting position of the results to be returned in the query
-          response.
-        explode: true
-        in: query
-        name: startIndex
-        required: false
-        schema:
-          example: 1234
-          format: int32
-          type: integer
-        style: form
-      - description: Specifies the sorting criteria for the folder request.
-        explode: true
-        in: query
-        name: sortBy
-        required: false
-        schema:
-          example: some text
-          type: string
-        style: form
-      - description: The order in which the results are sorted.
-        explode: true
-        in: query
-        name: sortOrder
-        required: false
-        schema:
-          $ref: "#/components/schemas/SortOrder"
-        style: form
-      - description: The text used for filtering or searching folder contents.
-        explode: true
-        in: query
-        name: filterValue
-        required: false
-        schema:
-          example: some text
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/FolderContentIntegerWrapper"
-          description: The Recent section contents
-        "401":
-          description: Unauthorized
-        "403":
-          description: You don't have enough permission to view the folder content
-        "404":
-          description: The required folder was not found
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: Get the Recent section
-      tags:
-      - Files / Folders
   /api/2.0/files/@root:
     get:
       description: Returns all the sections matching the parameters specified in the
@@ -16481,7 +16342,7 @@ paths:
         name: id
         required: false
         schema:
-          example: "9846"
+          example: "9079"
           type: string
         style: form
       responses:
@@ -16807,7 +16668,7 @@ paths:
         name: folderId
         required: true
         schema:
-          example: 9846
+          example: 9079
           format: int32
           type: integer
         style: simple
@@ -18197,7 +18058,7 @@ paths:
         - read
         - write
       - OpenId: []
-      summary: Get group members with security information
+      summary: Get folder group members with security information
       tags:
       - Files / Sharing
   /api/2.0/files/file/{fileId}/group/{groupId}/share:
@@ -18279,7 +18140,7 @@ paths:
         - read
         - write
       - OpenId: []
-      summary: Get group members with security information
+      summary: Get file group members with security information
       tags:
       - Files / Sharing
   /api/2.0/files/owner:
@@ -19190,7 +19051,7 @@ paths:
         name: id
         required: true
         schema:
-          example: 9079
+          example: 9846
           format: int32
           type: integer
         style: simple
@@ -20287,7 +20148,7 @@ paths:
         name: id
         required: true
         schema:
-          example: 9079
+          example: 9846
           format: int32
           type: integer
         style: simple
@@ -22538,7 +22399,7 @@ components:
         password: vfmf2vO1Kp
         provider: some text
         confirmData:
-          email: Sydney_Roberts4@hotmail.com
+          email: Randall63@hotmail.com
           first: true
           key: some text
         culture: some text
@@ -22870,6 +22731,11 @@ components:
             value: some text
           nullable: true
           type: object
+        id:
+          example: 75a5f745-f697-4418-b38d-0fe0d277e258
+          format: uuid
+          readOnly: true
+          type: string
         lastModified:
           example: 2008-04-10T06:30:00+04:00
           format: date-time
@@ -22891,6 +22757,11 @@ components:
             value: some text
           nullable: true
           type: object
+        id:
+          example: 75a5f745-f697-4418-b38d-0fe0d277e258
+          format: uuid
+          readOnly: true
+          type: string
         lastModified:
           example: 2008-04-10T06:30:00+04:00
           format: date-time
@@ -23025,6 +22896,7 @@ components:
       - type: object
       example:
         module: some text
+        id: 75a5f745-f697-4418-b38d-0fe0d277e258
         lastModified: 2008-04-10T06:30:00+04:00
         props:
         - key: some text
@@ -23033,6 +22905,7 @@ components:
       example:
         response:
           module: some text
+          id: 75a5f745-f697-4418-b38d-0fe0d277e258
           lastModified: 2008-04-10T06:30:00+04:00
           props:
           - key: some text
@@ -23259,13 +23132,13 @@ components:
       additionalProperties: false
       description: The additional confirmation data required for authentication.
       example:
-        email: Sydney_Roberts4@hotmail.com
+        email: Randall63@hotmail.com
         first: true
         key: some text
       properties:
         email:
           description: The email address to confirm the user's identity.
-          example: Sydney_Roberts4@hotmail.com
+          example: Randall63@hotmail.com
           format: email
           nullable: true
           type: string
@@ -24474,7 +24347,7 @@ components:
         emplType: All
         type: EmpInvite
         key: some text
-        email: Nat14@hotmail.com
+        email: Sydney_Roberts4@hotmail.com
         first: some text
         roomId: "9846"
       properties:
@@ -24487,7 +24360,7 @@ components:
           $ref: "#/components/schemas/EmployeeType"
         email:
           description: The email address.
-          example: Nat14@hotmail.com
+          example: Sydney_Roberts4@hotmail.com
           format: email
           nullable: true
           type: string
@@ -25420,9 +25293,9 @@ components:
       example:
         response:
         - default: true
-          name: Winfield Roberts
+          name: Winfield Upton
         - default: true
-          name: Winfield Roberts
+          name: Winfield Upton
         count: 0
         links:
         - action: action
@@ -25455,11 +25328,11 @@ components:
       description: The default white label logo parameters.
       example:
         default: true
-        name: Winfield Roberts
+        name: Winfield Upton
       properties:
         name:
           description: The white label logo name.
-          example: Winfield Roberts
+          example: Winfield Upton
           nullable: true
           type: string
         default:
@@ -25474,7 +25347,7 @@ components:
       example:
         response:
           default: true
-          name: Winfield Roberts
+          name: Winfield Upton
         count: 0
         links:
         - action: action
@@ -26005,55 +25878,54 @@ components:
         \ failed, 5150 - Form started to fill, 5151 - Form partially filled, 5152\
         \ - Form completely filled, 5153 - Form stopped, 5154 - Agent created, 5155\
         \ - Agent renamed, 5156 - Agent deleted, 5157 - MCP server added to agent,\
-        \ 5158 - MCP server deleted from agent, 5159 - Room change owner, 5501 - Ldap\
-        \ enabled, 5502 - Ldap disabled, 5503 - LDAP synchronization completed, 6000\
-        \ - Language settings updated, 6001 - Time zone settings updated, 6002 - Dns\
-        \ settings updated, 6003 - Trusted mail domain settings updated, 6004 - Password\
-        \ strength settings updated, 6005 - Two factor authentication settings updated,\
-        \ 6006 - Administrator message settings updated, 6007 - Default start page\
-        \ settings updated, 6008 - Products list updated, 6009 - Administrator added,\
-        \ 6010 - Administrator opened full access, 6011 - Administrator deleted, 6012\
-        \ - Users opened product access, 6013 - Groups opened product access, 6014\
-        \ - Product access opened, 6015 - Product access restricted, 6016 - Product\
-        \ added administrator, 6017 - Product deleted administrator, 6018 - Greeting\
-        \ settings updated, 6019 - Team template changed, 6020 - Color theme changed,\
-        \ 6021 - Owner sent change owner instructions, 6022 - Owner updated, 6023\
-        \ - Owner sent portal deactivation instructions, 6024 - Owner sent portal\
-        \ delete instructions, 6025 - Portal deactivated, 6026 - Portal deleted, 6027\
-        \ - Login history report downloaded, 6028 - Audit trail report downloaded,\
-        \ 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access settings updated,\
-        \ 6032 - Cookie settings updated, 6033 - Mail service settings updated, 6034\
-        \ - Custom navigation settings updated, 6035 - Audit settings updated, 6036\
-        \ - Two factor authentication disabled, 6037 - Two factor authentication enabled\
-        \ by sms, 6038 - Two factor authentication enabled by tfa app, 6039 - Portal\
-        \ renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled,\
-        \ 6042 - Quota per user changed, 6043 - Quota per user disabled, 6044 - Quota\
-        \ per portal changed, 6045 - Quota per portal disabled, 6046 - Form submit,\
-        \ 6047 - Form opened for filling, 6048 - Custom quota per room default, 6049\
-        \ - Custom quota per room changed, 6050 - Custom quota per room disabled,\
-        \ 6051 - Custom quota per user default, 6052 - Custom quota per user changed,\
-        \ 6053 - Custom quota per user disabled, 6054 - DevTools access settings changed,\
-        \ 6055 - Webhook created, 6056 - Webhook updated, 6057 - Webhook deleted,\
-        \ 6058 - Created api key, 6059 - Update api key, 6060 - Deleted User api key,\
-        \ 6061 - Customer wallet topped up, 6062 - Customer operation performed, 6063\
-        \ - Customer operations report downloaded, 6064 - Customer wallet top up settings\
-        \ updated, 6065 - Customer subscription updated, 6066 - Promotional banners\
-        \ visibility settings changed, 6067 - Customer wallet services settings updated,\
-        \ 6068 - Quota per AI agent changed, 6069 - Quota per AI agent disabled, 6070\
-        \ - Custom quota per AI agent default, 6071 - Custom quota per AI agent changed,\
-        \ 6072 - Custom quota per AI agent disabled, 6073 - AI provider created, 6074\
-        \ - AI provider updated, 6075 - AI provider deleted, 6076 - MCP server created,\
-        \ 6077 - MCP server updated, 6078 - MCP server enabled, 6079 - MCP server\
-        \ disabled, 6080 - MCP server deleted, 6081 - WebSearch settings configured,\
-        \ 6082 - WebSearch settings reset, 6083 - Vectorization settings configured,\
-        \ 6084 - Vectorization settings reset, 6085 - Webplugin uploaded, 6086 - Webplugin\
-        \ updated, 6087 - Webplugin deleted, 7000 - Contact admin mail sent, 7001\
-        \ - Room invite link used, 7002 - User created and added to room, 7003 - Guest\
-        \ created and added to room, 7004 - Contact sales mail sent, 9901 - Create\
-        \ client, 9902 - Update client, 9903 - Regenerate secret, 9904 - Delete client,\
-        \ 9905 - Change client activation, 9906 - Change client visibility, 9907 -\
-        \ Revoke user client, 9908 - Generate authorization code token, 9909 - Generate\
-        \ personal access token, -1 - None]"
+        \ 5158 - MCP server deleted from agent, 5501 - Ldap enabled, 5502 - Ldap disabled,\
+        \ 5503 - LDAP synchronization completed, 6000 - Language settings updated,\
+        \ 6001 - Time zone settings updated, 6002 - Dns settings updated, 6003 - Trusted\
+        \ mail domain settings updated, 6004 - Password strength settings updated,\
+        \ 6005 - Two factor authentication settings updated, 6006 - Administrator\
+        \ message settings updated, 6007 - Default start page settings updated, 6008\
+        \ - Products list updated, 6009 - Administrator added, 6010 - Administrator\
+        \ opened full access, 6011 - Administrator deleted, 6012 - Users opened product\
+        \ access, 6013 - Groups opened product access, 6014 - Product access opened,\
+        \ 6015 - Product access restricted, 6016 - Product added administrator, 6017\
+        \ - Product deleted administrator, 6018 - Greeting settings updated, 6019\
+        \ - Team template changed, 6020 - Color theme changed, 6021 - Owner sent change\
+        \ owner instructions, 6022 - Owner updated, 6023 - Owner sent portal deactivation\
+        \ instructions, 6024 - Owner sent portal delete instructions, 6025 - Portal\
+        \ deactivated, 6026 - Portal deleted, 6027 - Login history report downloaded,\
+        \ 6028 - Audit trail report downloaded, 6029 - SSO enabled, 6030 - SSO disabled,\
+        \ 6031 - Portal access settings updated, 6032 - Cookie settings updated, 6033\
+        \ - Mail service settings updated, 6034 - Custom navigation settings updated,\
+        \ 6035 - Audit settings updated, 6036 - Two factor authentication disabled,\
+        \ 6037 - Two factor authentication enabled by sms, 6038 - Two factor authentication\
+        \ enabled by tfa app, 6039 - Portal renamed, 6040 - Quota per room changed,\
+        \ 6041 - Quota per room disabled, 6042 - Quota per user changed, 6043 - Quota\
+        \ per user disabled, 6044 - Quota per portal changed, 6045 - Quota per portal\
+        \ disabled, 6046 - Form submit, 6047 - Form opened for filling, 6048 - Custom\
+        \ quota per room default, 6049 - Custom quota per room changed, 6050 - Custom\
+        \ quota per room disabled, 6051 - Custom quota per user default, 6052 - Custom\
+        \ quota per user changed, 6053 - Custom quota per user disabled, 6054 - DevTools\
+        \ access settings changed, 6055 - Webhook created, 6056 - Webhook updated,\
+        \ 6057 - Webhook deleted, 6058 - Created api key, 6059 - Update api key, 6060\
+        \ - Deleted User api key, 6061 - Customer wallet topped up, 6062 - Customer\
+        \ operation performed, 6063 - Customer operations report downloaded, 6064\
+        \ - Customer wallet top up settings updated, 6065 - Customer subscription\
+        \ updated, 6066 - Promotional banners visibility settings changed, 6067 -\
+        \ Customer wallet services settings updated, 6068 - Quota per AI agent changed,\
+        \ 6069 - Quota per AI agent disabled, 6070 - Custom quota per AI agent default,\
+        \ 6071 - Custom quota per AI agent changed, 6072 - Custom quota per AI agent\
+        \ disabled, 6073 - AI provider created, 6074 - AI provider updated, 6075 -\
+        \ AI provider deleted, 6076 - MCP server created, 6077 - MCP server updated,\
+        \ 6078 - MCP server enabled, 6079 - MCP server disabled, 6080 - MCP server\
+        \ deleted, 6081 - WebSearch settings configured, 6082 - WebSearch settings\
+        \ reset, 6083 - Vectorization settings configured, 6084 - Vectorization settings\
+        \ reset, 6085 - Webplugin uploaded, 6086 - Webplugin updated, 6087 - Webplugin\
+        \ deleted, 7000 - Contact admin mail sent, 7001 - Room invite link used, 7002\
+        \ - User created and added to room, 7003 - Guest created and added to room,\
+        \ 7004 - Contact sales mail sent, 9901 - Create client, 9902 - Update client,\
+        \ 9903 - Regenerate secret, 9904 - Delete client, 9905 - Change client activation,\
+        \ 9906 - Change client visibility, 9907 - Revoke user client, 9908 - Generate\
+        \ authorization code token, 9909 - Generate personal access token, -1 - None]"
       enum:
       - 1000
       - 1001
@@ -26261,7 +26133,6 @@ components:
       - 5156
       - 5157
       - 5158
-      - 5159
       - 5501
       - 5502
       - 5503
@@ -26578,7 +26449,6 @@ components:
       - AgentDeleted
       - AddedServerToAgent
       - DeletedServerFromAgent
-      - RoomChangeOwner
       - LdapEnabled
       - LdapDisabled
       - LdapSync
@@ -26892,7 +26762,6 @@ components:
       - Agent deleted
       - MCP server added to agent
       - MCP server deleted from agent
-      - Room change owner
       - Ldap enabled
       - Ldap disabled
       - LDAP synchronization completed
@@ -27069,7 +26938,7 @@ components:
             nullable: true
             type: string
           lastName:
-            example: Wyman
+            example: Upton
             nullable: true
             type: string
           userType:
@@ -27080,7 +26949,7 @@ components:
       example:
         shouldImport: true
         firstName: Winfield
-        lastName: Wyman
+        lastName: Upton
         migratingFiles:
           filesCount: 1234
           foldersCount: 1234
@@ -27110,7 +26979,7 @@ components:
         users:
         - shouldImport: true
           firstName: Winfield
-          lastName: Wyman
+          lastName: Upton
           migratingFiles:
             filesCount: 1234
             foldersCount: 1234
@@ -27121,7 +26990,7 @@ components:
           email: Sydney_Roberts4@hotmail.com
         - shouldImport: true
           firstName: Winfield
-          lastName: Wyman
+          lastName: Upton
           migratingFiles:
             filesCount: 1234
             foldersCount: 1234
@@ -27141,7 +27010,7 @@ components:
         existUsers:
         - shouldImport: true
           firstName: Winfield
-          lastName: Wyman
+          lastName: Upton
           migratingFiles:
             filesCount: 1234
             foldersCount: 1234
@@ -27152,7 +27021,7 @@ components:
           email: Sydney_Roberts4@hotmail.com
         - shouldImport: true
           firstName: Winfield
-          lastName: Wyman
+          lastName: Upton
           migratingFiles:
             filesCount: 1234
             foldersCount: 1234
@@ -27164,7 +27033,7 @@ components:
         withoutEmailUsers:
         - shouldImport: true
           firstName: Winfield
-          lastName: Wyman
+          lastName: Upton
           migratingFiles:
             filesCount: 1234
             foldersCount: 1234
@@ -27175,7 +27044,7 @@ components:
           email: Sydney_Roberts4@hotmail.com
         - shouldImport: true
           firstName: Winfield
-          lastName: Wyman
+          lastName: Upton
           migratingFiles:
             filesCount: 1234
             foldersCount: 1234
@@ -27289,7 +27158,7 @@ components:
           users:
           - shouldImport: true
             firstName: Winfield
-            lastName: Wyman
+            lastName: Upton
             migratingFiles:
               filesCount: 1234
               foldersCount: 1234
@@ -27300,7 +27169,7 @@ components:
             email: Sydney_Roberts4@hotmail.com
           - shouldImport: true
             firstName: Winfield
-            lastName: Wyman
+            lastName: Upton
             migratingFiles:
               filesCount: 1234
               foldersCount: 1234
@@ -27320,7 +27189,7 @@ components:
           existUsers:
           - shouldImport: true
             firstName: Winfield
-            lastName: Wyman
+            lastName: Upton
             migratingFiles:
               filesCount: 1234
               foldersCount: 1234
@@ -27331,7 +27200,7 @@ components:
             email: Sydney_Roberts4@hotmail.com
           - shouldImport: true
             firstName: Winfield
-            lastName: Wyman
+            lastName: Upton
             migratingFiles:
               filesCount: 1234
               foldersCount: 1234
@@ -27343,7 +27212,7 @@ components:
           withoutEmailUsers:
           - shouldImport: true
             firstName: Winfield
-            lastName: Wyman
+            lastName: Upton
             migratingFiles:
               filesCount: 1234
               foldersCount: 1234
@@ -27354,7 +27223,7 @@ components:
             email: Sydney_Roberts4@hotmail.com
           - shouldImport: true
             firstName: Winfield
-            lastName: Wyman
+            lastName: Upton
             migratingFiles:
               filesCount: 1234
               foldersCount: 1234
@@ -27410,7 +27279,7 @@ components:
             users:
             - shouldImport: true
               firstName: Winfield
-              lastName: Wyman
+              lastName: Upton
               migratingFiles:
                 filesCount: 1234
                 foldersCount: 1234
@@ -27421,7 +27290,7 @@ components:
               email: Sydney_Roberts4@hotmail.com
             - shouldImport: true
               firstName: Winfield
-              lastName: Wyman
+              lastName: Upton
               migratingFiles:
                 filesCount: 1234
                 foldersCount: 1234
@@ -27441,7 +27310,7 @@ components:
             existUsers:
             - shouldImport: true
               firstName: Winfield
-              lastName: Wyman
+              lastName: Upton
               migratingFiles:
                 filesCount: 1234
                 foldersCount: 1234
@@ -27452,7 +27321,7 @@ components:
               email: Sydney_Roberts4@hotmail.com
             - shouldImport: true
               firstName: Winfield
-              lastName: Wyman
+              lastName: Upton
               migratingFiles:
                 filesCount: 1234
                 foldersCount: 1234
@@ -27464,7 +27333,7 @@ components:
             withoutEmailUsers:
             - shouldImport: true
               firstName: Winfield
-              lastName: Wyman
+              lastName: Upton
               migratingFiles:
                 filesCount: 1234
                 foldersCount: 1234
@@ -27475,7 +27344,7 @@ components:
               email: Sydney_Roberts4@hotmail.com
             - shouldImport: true
               firstName: Winfield
-              lastName: Wyman
+              lastName: Upton
               migratingFiles:
                 filesCount: 1234
                 foldersCount: 1234
@@ -30565,6 +30434,7 @@ components:
       - type: object
       example:
         module: some text
+        id: 75a5f745-f697-4418-b38d-0fe0d277e258
         lastModified: 2008-04-10T06:30:00+04:00
         props:
         - key: some text
@@ -30573,6 +30443,7 @@ components:
       example:
         response:
           module: some text
+          id: 75a5f745-f697-4418-b38d-0fe0d277e258
           lastModified: 2008-04-10T06:30:00+04:00
           props:
           - key: some text
@@ -32628,7 +32499,7 @@ components:
         mobilePhone: some text
         createdBy: 75a5f745-f697-4418-b38d-0fe0d277e258
         tenantId: 1234
-        location: "001 Schroeder Run, New Tabithaport, Colombia"
+        location: "941 Camden Plaza, North Rose, Mayotte"
         lastModified: 2008-04-10T06:30:00+04:00
         spam: true
         contacts: some text
@@ -32707,7 +32578,7 @@ components:
           type: array
         location:
           description: The user location.
-          example: "001 Schroeder Run, New Tabithaport, Colombia"
+          example: "941 Camden Plaza, North Rose, Mayotte"
           nullable: true
           type: string
         notes:
@@ -32818,7 +32689,7 @@ components:
           mobilePhone: some text
           createdBy: 75a5f745-f697-4418-b38d-0fe0d277e258
           tenantId: 1234
-          location: "001 Schroeder Run, New Tabithaport, Colombia"
+          location: "941 Camden Plaza, North Rose, Mayotte"
           lastModified: 2008-04-10T06:30:00+04:00
           spam: true
           contacts: some text
@@ -34488,11 +34359,11 @@ components:
         expiresInDays: 1234
         permissions:
         - some text
-        name: Winfield Upton
+        name: Winfield Schroeder
       properties:
         name:
           description: The API key name.
-          example: Winfield Upton
+          example: Winfield Schroeder
           maxLength: 30
           minLength: 0
           type: string
@@ -36494,13 +36365,13 @@ components:
       description: The request parameters for the user generic information.
       example:
         encEmail: some text
-        password: fmf2vO1KpU
+        password: vfmf2vO1Kp
         passwordHash: some text
         email: Sydney_Roberts4@hotmail.com
       properties:
         password:
           description: The user password.
-          example: fmf2vO1KpU
+          example: vfmf2vO1Kp
           nullable: true
           type: string
         passwordHash:
@@ -38526,8 +38397,8 @@ components:
             isAnonim: true
           fileType: 0
           dimensions:
-            width: 1
-            height: 6
+            width: 6
+            height: 0
         editorConfig:
           coEditing:
             mode: 0
@@ -38872,8 +38743,8 @@ components:
               isAnonim: true
             fileType: 0
             dimensions:
-              width: 1
-              height: 6
+              width: 6
+              height: 0
           editorConfig:
             coEditing:
               mode: 0
@@ -41252,8 +41123,8 @@ components:
           isAnonim: true
         fileType: 0
         dimensions:
-          width: 1
-          height: 6
+          width: 6
+          height: 0
     FileEntryBaseArrayWrapper:
       example:
         response:
@@ -42246,8 +42117,8 @@ components:
             isAnonim: true
           fileType: 0
           dimensions:
-            width: 1
-            height: 6
+            width: 6
+            height: 0
         - isLinkExpired: true
           formFillingStatus: 0
           originRoomId: 1234
@@ -42374,8 +42245,8 @@ components:
             isAnonim: true
           fileType: 0
           dimensions:
-            width: 1
-            height: 6
+            width: 6
+            height: 0
         count: 0
         links:
         - action: action
@@ -42532,16 +42403,16 @@ components:
             isAnonim: true
           fileType: 0
           dimensions:
-            width: 1
-            height: 6
-        count: 5
+            width: 6
+            height: 0
+        count: 1
         links:
         - action: action
           href: href
         - action: action
           href: href
         status: 5
-        statusCode: 2
+        statusCode: 5
       properties:
         response:
           $ref: "#/components/schemas/FileDtoInteger"
@@ -42967,7 +42838,6 @@ components:
           Operation: 0
           error: ""
           url: some text
-          status: 0
         - processed: "1"
           folders:
           - shared: false
@@ -43261,7 +43131,6 @@ components:
           Operation: 0
           error: ""
           url: some text
-          status: 0
         count: 0
         links:
         - action: action
@@ -43586,7 +43455,6 @@ components:
         Operation: 0
         error: ""
         url: some text
-        status: 0
       properties:
         id:
           description: The file operation ID.
@@ -43632,8 +43500,6 @@ components:
             $ref: "#/components/schemas/FileEntryBaseDto"
           nullable: true
           type: array
-        status:
-          $ref: "#/components/schemas/DistributedTaskStatus"
       required:
       - Operation
       - error
@@ -43980,7 +43846,6 @@ components:
           Operation: 0
           error: ""
           url: some text
-          status: 0
         count: 0
         links:
         - action: action
@@ -45833,8 +45698,8 @@ components:
             isAnonim: true
           fileType: 0
           dimensions:
-            width: 1
-            height: 6
+            width: 6
+            height: 0
         originalForm:
           isLinkExpired: true
           formFillingStatus: 0
@@ -45962,8 +45827,8 @@ components:
             isAnonim: true
           fileType: 0
           dimensions:
-            width: 1
-            height: 6
+            width: 6
+            height: 0
         roomId: 9846
       properties:
         formNumber:
@@ -46203,8 +46068,8 @@ components:
               isAnonim: true
             fileType: 0
             dimensions:
-              width: 1
-              height: 6
+              width: 6
+              height: 0
           originalForm:
             isLinkExpired: true
             formFillingStatus: 0
@@ -46332,8 +46197,8 @@ components:
               isAnonim: true
             fileType: 0
             dimensions:
-              width: 1
-              height: 6
+              width: 6
+              height: 0
           roomId: 9846
         count: 0
         links:
@@ -51021,7 +50886,6 @@ components:
       - RenameEntryData
       - TagData
       - UserHistoryData
-      - ChangeRoomOwnerHistoryData
       - UserFileUpdateData
       - FileData
       - FileOperationData
@@ -51467,7 +51331,7 @@ components:
           mobilePhone: some text
           createdBy: 75a5f745-f697-4418-b38d-0fe0d277e258
           tenantId: 1234
-          location: "001 Schroeder Run, New Tabithaport, Colombia"
+          location: "941 Camden Plaza, North Rose, Mayotte"
           lastModified: 2008-04-10T06:30:00+04:00
           spam: true
           contacts: some text
@@ -51543,7 +51407,7 @@ components:
             mobilePhone: some text
             createdBy: 75a5f745-f697-4418-b38d-0fe0d277e258
             tenantId: 1234
-            location: "001 Schroeder Run, New Tabithaport, Colombia"
+            location: "941 Camden Plaza, North Rose, Mayotte"
             lastModified: 2008-04-10T06:30:00+04:00
             spam: true
             contacts: some text
@@ -51581,7 +51445,7 @@ components:
             mobilePhone: some text
             createdBy: 75a5f745-f697-4418-b38d-0fe0d277e258
             tenantId: 1234
-            location: "001 Schroeder Run, New Tabithaport, Colombia"
+            location: "941 Camden Plaza, North Rose, Mayotte"
             lastModified: 2008-04-10T06:30:00+04:00
             spam: true
             contacts: some text
@@ -55436,8 +55300,8 @@ components:
     Size:
       additionalProperties: false
       example:
-        width: 1
-        height: 6
+        width: 6
+        height: 0
       properties:
         height:
           format: int32
@@ -55992,14 +55856,14 @@ components:
           "y": 1234
           tmpFile: some text
           height: 6
-        title: legacy_1080p_small_wooden_mouse
+        title: 1080p_small_wooden_mouse_personal_loan_account
         denyDownload: true
         tags:
         - some text
       properties:
         title:
           description: The room title.
-          example: legacy_1080p_small_wooden_mouse
+          example: 1080p_small_wooden_mouse_personal_loan_account
           maxLength: 170
           minLength: 0
           nullable: true
@@ -56281,12 +56145,22 @@ components:
           type: boolean
       type: object
     VectorizationStatus:
+      description: "[0 - In Progress, 1 - Completed, 2 - Failed]"
       enum:
       - 0
       - 1
       - 2
-      format: int32
+      example: 0
       type: integer
+      x-enum-type: integer
+      x-enum-varnames:
+      - InProgress
+      - Completed
+      - Failed
+      x-enum-descriptions:
+      - In Progress
+      - Completed
+      - Failed
     WatermarkAdditions:
       description: "[1 - User name, 2 - User email, 4 - User ip adress, 8 - Current\
         \ date, 16 - Room name]"

@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user password.</value>
         /*
-        <example>fmf2vO1KpU</example>
+        <example>vfmf2vO1Kp</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
@@ -126,6 +126,7 @@ namespace DocSpace.API.SDK.Model
 
             yield break;
         }
+
     }
 
 

@@ -2,9 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36705.20 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpace.API.SDK", "src\DocSpace.API.SDK\DocSpace.API.SDK.csproj", "{C986F483-CBB8-406B-9242-8A81EB5A22A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpace.API.SDK", "src\DocSpace.API.SDK\DocSpace.API.SDK.csproj", "{EB0B3D83-4B0D-4282-9D9E-23FD0D988A76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpace.API.SDK.Example", "samples\DocSpace.API.SDK.Example\DocSpace.API.SDK.Example.csproj", "{8E7365AE-AA49-4E12-AC6D-891833AC8B31}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpace.API.SDK.Example", "samples\DocSpace.API.SDK.Example\DocSpace.API.SDK.Example.csproj", "{7BADAE10-5790-48CD-BB0F-489930C4EA44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,14 +12,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C986F483-CBB8-406B-9242-8A81EB5A22A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C986F483-CBB8-406B-9242-8A81EB5A22A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C986F483-CBB8-406B-9242-8A81EB5A22A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C986F483-CBB8-406B-9242-8A81EB5A22A8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E7365AE-AA49-4E12-AC6D-891833AC8B31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E7365AE-AA49-4E12-AC6D-891833AC8B31}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E7365AE-AA49-4E12-AC6D-891833AC8B31}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E7365AE-AA49-4E12-AC6D-891833AC8B31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB0B3D83-4B0D-4282-9D9E-23FD0D988A76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB0B3D83-4B0D-4282-9D9E-23FD0D988A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB0B3D83-4B0D-4282-9D9E-23FD0D988A76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB0B3D83-4B0D-4282-9D9E-23FD0D988A76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BADAE10-5790-48CD-BB0F-489930C4EA44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BADAE10-5790-48CD-BB0F-489930C4EA44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BADAE10-5790-48CD-BB0F-489930C4EA44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BADAE10-5790-48CD-BB0F-489930C4EA44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

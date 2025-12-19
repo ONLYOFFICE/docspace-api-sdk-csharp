@@ -39,4 +39,3 @@ global using System.Net.Http;
 global using System.Net.Security;
 global using System.Security.Cryptography.X509Certificates;
 global using System.Collections.Concurrent;
-global using Newtonsoft.Json.Converters;

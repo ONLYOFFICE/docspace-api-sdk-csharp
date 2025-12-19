@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The email address.</value>
         /*
-        <example>Nat14@hotmail.com</example>
+        <example>Sydney_Roberts4@hotmail.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -158,6 +158,7 @@ namespace DocSpace.API.SDK.Model
         {
             yield break;
         }
+
     }
 
 

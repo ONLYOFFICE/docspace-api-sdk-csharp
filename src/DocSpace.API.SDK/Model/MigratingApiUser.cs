@@ -92,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets LastName
         /// </summary>
         /*
-        <example>Wyman</example>
+        <example>Upton</example>
         */
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
@@ -141,5 +141,6 @@ namespace DocSpace.API.SDK.Model
         {
             yield break;
         }
+
     }
 }
