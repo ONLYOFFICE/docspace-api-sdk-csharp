@@ -619,6 +619,7 @@ namespace DocSpace.API.SDK.Api.Security
             return this;
         }
 
+        
         /// <summary>
         /// Generate the audit trail report
         /// </summary>

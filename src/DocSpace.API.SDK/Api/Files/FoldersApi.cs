@@ -1983,6 +1983,14 @@ namespace DocSpace.API.SDK.Api.Files
             return this;
         }
 
+        private bool _useAtRecent ;
+
+        public FoldersApi WithFields()
+        {
+            _useAtRecent = true;
+            return this;
+        }
+
         /// <summary>
         /// Check file uploads
         /// </summary>
@@ -5732,7 +5740,13 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/recent", localVarRequestOptions, Configuration);
+            var recentPrefix = _useAtRecent ? "@" : "";
+            var localVarResponse = Client.Get<FolderContentIntegerWrapper>(
+                $"/api/2.0/files/{recentPrefix}recent",
+                localVarRequestOptions,
+                Configuration
+            );
+            _useAtRecent = false;
 
             if (ExceptionFactory != null)
             {

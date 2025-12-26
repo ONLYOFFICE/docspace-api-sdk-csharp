@@ -1374,6 +1374,7 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
 
+        
         /// <summary>
         /// Change the third-party settings access
         /// </summary>
