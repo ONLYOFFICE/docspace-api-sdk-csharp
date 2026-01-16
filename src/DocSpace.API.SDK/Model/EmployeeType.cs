@@ -29,31 +29,31 @@ namespace DocSpace.API.SDK.Model
         /// Enum All for value: All
         /// </summary>
         [EnumMember(Value = "All")]
-        All,
+        All = 0,
 
         /// <summary>
         /// Enum RoomAdmin for value: RoomAdmin
         /// </summary>
         [EnumMember(Value = "RoomAdmin")]
-        RoomAdmin,
+        RoomAdmin = 1,
 
         /// <summary>
         /// Enum Guest for value: Guest
         /// </summary>
         [EnumMember(Value = "Guest")]
-        Guest,
+        Guest = 2,
 
         /// <summary>
         /// Enum DocSpaceAdmin for value: DocSpaceAdmin
         /// </summary>
         [EnumMember(Value = "DocSpaceAdmin")]
-        DocSpaceAdmin,
-        
+        DocSpaceAdmin = 3,
+
         /// <summary>
         /// Enum User for value: User
         /// </summary>
         [EnumMember(Value = "User")]
-        User
+        User = 4
     }
 
 }
