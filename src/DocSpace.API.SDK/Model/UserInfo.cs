@@ -233,7 +233,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user location.</value>
         /*
-        <example>001 Schroeder Run, New Tabithaport, Colombia</example>
+        <example>941 Camden Plaza, North Rose, Mayotte</example>
         */
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
@@ -464,6 +464,7 @@ namespace DocSpace.API.SDK.Model
         {
             yield break;
         }
+
     }
 
 

@@ -88,6 +88,7 @@ namespace DocSpace.API.SDK.Model
         {
             yield break;
         }
+
     }
 
     public class ApiDateTimeConverter : JsonConverter<ApiDateTime>

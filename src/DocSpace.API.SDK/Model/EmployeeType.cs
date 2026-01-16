@@ -19,35 +19,41 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - All, 1 - Room admin, 2 - Guest, 3 - DocSpace admin, 4 - User]
+    /// [All - All, RoomAdmin - Room admin, Guest - Guest, DocSpaceAdmin - DocSpace admin, User - User]
     /// </summary>
-    /// <value>[0 - All, 1 - Room admin, 2 - Guest, 3 - DocSpace admin, 4 - User]</value>
+    /// <value>[All - All, RoomAdmin - Room admin, Guest - Guest, DocSpaceAdmin - DocSpace admin, User - User]</value>
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum EmployeeType
     {
         /// <summary>
-        /// Enum All for value: 0
+        /// Enum All for value: All
         /// </summary>
-        All = 0,
+        [EnumMember(Value = "All")]
+        All = 1,
 
         /// <summary>
-        /// Enum RoomAdmin for value: 1
+        /// Enum RoomAdmin for value: RoomAdmin
         /// </summary>
-        RoomAdmin = 1,
+        [EnumMember(Value = "RoomAdmin")]
+        RoomAdmin = 2,
 
         /// <summary>
-        /// Enum Guest for value: 2
+        /// Enum Guest for value: Guest
         /// </summary>
-        Guest = 2,
+        [EnumMember(Value = "Guest")]
+        Guest = 3,
 
         /// <summary>
-        /// Enum DocSpaceAdmin for value: 3
+        /// Enum DocSpaceAdmin for value: DocSpaceAdmin
         /// </summary>
-        DocSpaceAdmin = 3,
+        [EnumMember(Value = "DocSpaceAdmin")]
+        DocSpaceAdmin = 4,
 
         /// <summary>
-        /// Enum User for value: 4
+        /// Enum User for value: User
         /// </summary>
-        User = 4
+        [EnumMember(Value = "User")]
+        User = 5
     }
 
 }

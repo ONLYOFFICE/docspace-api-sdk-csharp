@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Description** | **string** | The brief description of the authorization service. | [optional] 
 **Instruction** | **string** | The detailed instructions for configuring or using the authorization service. | [optional] 
 **CanSet** | **bool** | Specifies whether the authorization service can be configured by the user. | [optional] 
+**Paid** | **bool** | Specifies whether the authorization service is paid or not. | [optional] 
 **Props** | [**List&lt;AuthKey&gt;**](AuthKey.md) | The collection of authorization keys associated with the authorization service. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -19,25 +19,29 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - Skip, 1 - Overwrite, 2 - Duplicate]
+    /// [Skip - Skip, Overwrite - Overwrite, Duplicate - Duplicate]
     /// </summary>
-    /// <value>[0 - Skip, 1 - Overwrite, 2 - Duplicate]</value>
+    /// <value>[Skip - Skip, Overwrite - Overwrite, Duplicate - Duplicate]</value>
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum FileConflictResolveType
     {
         /// <summary>
-        /// Enum Skip for value: 0
+        /// Enum Skip for value: Skip
         /// </summary>
-        Skip = 0,
+        [EnumMember(Value = "Skip")]
+        Skip = 1,
 
         /// <summary>
-        /// Enum Overwrite for value: 1
+        /// Enum Overwrite for value: Overwrite
         /// </summary>
-        Overwrite = 1,
+        [EnumMember(Value = "Overwrite")]
+        Overwrite = 2,
 
         /// <summary>
-        /// Enum Duplicate for value: 2
+        /// Enum Duplicate for value: Duplicate
         /// </summary>
-        Duplicate = 2
+        [EnumMember(Value = "Duplicate")]
+        Duplicate = 3
     }
 
 }

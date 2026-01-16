@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.EmployeeType
-[0 - All, 1 - Room admin, 2 - Guest, 3 - DocSpace admin, 4 - User]
+[All - All, RoomAdmin - Room admin, Guest - Guest, DocSpaceAdmin - DocSpace admin, User - User]
 
 ## Properties
 

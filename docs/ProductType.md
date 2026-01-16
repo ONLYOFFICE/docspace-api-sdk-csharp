@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.ProductType
-[0 - None, 2 - Documents, 3 - Login, 4 - Others, 5 - People, 7 - Settings]
+[2 - Documents, 3 - Login, 7 - Settings, 8 - Contacts]
 
 ## Properties
 

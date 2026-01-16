@@ -19,25 +19,29 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - Base, 1 - Dark, 2 - System]
+    /// [Base - Base, Dark - Dark, System - System]
     /// </summary>
-    /// <value>[0 - Base, 1 - Dark, 2 - System]</value>
+    /// <value>[Base - Base, Dark - Dark, System - System]</value>
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum DarkThemeSettingsType
     {
         /// <summary>
-        /// Enum Base for value: 0
+        /// Enum Base for value: Base
         /// </summary>
-        Base = 0,
+        [EnumMember(Value = "Base")]
+        Base = 1,
 
         /// <summary>
-        /// Enum Dark for value: 1
+        /// Enum Dark for value: Dark
         /// </summary>
-        Dark = 1,
+        [EnumMember(Value = "Dark")]
+        Dark = 2,
 
         /// <summary>
-        /// Enum System for value: 2
+        /// Enum System for value: System
         /// </summary>
-        System = 2
+        [EnumMember(Value = "System")]
+        System = 3
     }
 
 }

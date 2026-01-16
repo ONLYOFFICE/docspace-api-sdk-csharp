@@ -442,6 +442,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
 
+        
         /// <summary>
         /// Get the progress of updating user type
         /// </summary>
