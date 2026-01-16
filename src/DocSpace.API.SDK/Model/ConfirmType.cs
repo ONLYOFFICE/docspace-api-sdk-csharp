@@ -29,115 +29,115 @@ namespace DocSpace.API.SDK.Model
         /// Enum EmpInvite for value: EmpInvite
         /// </summary>
         [EnumMember(Value = "EmpInvite")]
-        EmpInvite = 1,
+        EmpInvite = 0,
 
         /// <summary>
         /// Enum LinkInvite for value: LinkInvite
         /// </summary>
         [EnumMember(Value = "LinkInvite")]
-        LinkInvite = 2,
+        LinkInvite = 1,
 
         /// <summary>
         /// Enum PortalSuspend for value: PortalSuspend
         /// </summary>
         [EnumMember(Value = "PortalSuspend")]
-        PortalSuspend = 3,
+        PortalSuspend = 2,
 
         /// <summary>
         /// Enum PortalContinue for value: PortalContinue
         /// </summary>
         [EnumMember(Value = "PortalContinue")]
-        PortalContinue = 4,
+        PortalContinue = 3,
 
         /// <summary>
         /// Enum PortalRemove for value: PortalRemove
         /// </summary>
         [EnumMember(Value = "PortalRemove")]
-        PortalRemove = 5,
+        PortalRemove = 4,
 
         /// <summary>
         /// Enum DnsChange for value: DnsChange
         /// </summary>
         [EnumMember(Value = "DnsChange")]
-        DnsChange = 6,
+        DnsChange = 5,
 
         /// <summary>
         /// Enum PortalOwnerChange for value: PortalOwnerChange
         /// </summary>
         [EnumMember(Value = "PortalOwnerChange")]
-        PortalOwnerChange = 7,
+        PortalOwnerChange = 6,
 
         /// <summary>
         /// Enum Activation for value: Activation
         /// </summary>
         [EnumMember(Value = "Activation")]
-        Activation = 8,
+        Activation = 7,
 
         /// <summary>
         /// Enum EmailChange for value: EmailChange
         /// </summary>
         [EnumMember(Value = "EmailChange")]
-        EmailChange = 9,
+        EmailChange = 8,
 
         /// <summary>
         /// Enum EmailActivation for value: EmailActivation
         /// </summary>
         [EnumMember(Value = "EmailActivation")]
-        EmailActivation = 10,
+        EmailActivation = 9,
 
         /// <summary>
         /// Enum PasswordChange for value: PasswordChange
         /// </summary>
         [EnumMember(Value = "PasswordChange")]
-        PasswordChange = 11,
+        PasswordChange = 10,
 
         /// <summary>
         /// Enum ProfileRemove for value: ProfileRemove
         /// </summary>
         [EnumMember(Value = "ProfileRemove")]
-        ProfileRemove = 12,
+        ProfileRemove = 11,
 
         /// <summary>
         /// Enum PhoneActivation for value: PhoneActivation
         /// </summary>
         [EnumMember(Value = "PhoneActivation")]
-        PhoneActivation = 13,
+        PhoneActivation = 12,
 
         /// <summary>
         /// Enum PhoneAuth for value: PhoneAuth
         /// </summary>
         [EnumMember(Value = "PhoneAuth")]
-        PhoneAuth = 14,
+        PhoneAuth = 13,
 
         /// <summary>
         /// Enum Auth for value: Auth
         /// </summary>
         [EnumMember(Value = "Auth")]
-        Auth = 15,
+        Auth = 14,
 
         /// <summary>
         /// Enum TfaActivation for value: TfaActivation
         /// </summary>
         [EnumMember(Value = "TfaActivation")]
-        TfaActivation = 16,
+        TfaActivation = 15,
 
         /// <summary>
         /// Enum TfaAuth for value: TfaAuth
         /// </summary>
         [EnumMember(Value = "TfaAuth")]
-        TfaAuth = 17,
+        TfaAuth = 16,
 
         /// <summary>
         /// Enum Wizard for value: Wizard
         /// </summary>
         [EnumMember(Value = "Wizard")]
-        Wizard = 18,
+        Wizard = 17,
 
         /// <summary>
         /// Enum GuestShareLink for value: GuestShareLink
         /// </summary>
         [EnumMember(Value = "GuestShareLink")]
-        GuestShareLink = 19
+        GuestShareLink = 18
     }
 
 }
