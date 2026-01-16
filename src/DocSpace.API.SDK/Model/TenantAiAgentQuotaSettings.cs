@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The ai agent quota settings.
+    /// The AI agent quota settings.
     /// </summary>
     [DataContract(Name = "TenantAiAgentQuotaSettings")]
     public partial class TenantAiAgentQuotaSettings : TenantEntityQuotaSettings, IValidatableObject

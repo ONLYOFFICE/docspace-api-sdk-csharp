@@ -342,7 +342,6 @@ namespace DocSpace.API.SDK.Api.People
         }
 
 
-        
         /// <summary>
         /// Reset a user quota limit
         /// </summary>

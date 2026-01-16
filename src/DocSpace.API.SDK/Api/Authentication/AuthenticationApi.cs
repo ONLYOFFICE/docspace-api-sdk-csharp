@@ -578,7 +578,6 @@ namespace DocSpace.API.SDK.Api.Authentication
         }
 
 
-        
         /// <summary>
         /// Authenticate a user
         /// </summary>

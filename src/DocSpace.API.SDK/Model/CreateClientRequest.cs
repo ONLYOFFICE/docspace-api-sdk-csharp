@@ -263,11 +263,11 @@ namespace DocSpace.API.SDK.Model
 
             if (this.Logo != null) {
                 // Logo (string) pattern
-                Regex regexLogo = new Regex(@"^data:image\/(?:png|jpeg|jpg|svg\+xml);base64,.*.{1,}", RegexOptions.CultureInvariant);
-                if (!regexLogo.Match(this.Logo).Success)
-                {
-                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Logo, must match a pattern of " + regexLogo, new [] { "Logo" });
-                }
+                                Regex regexLogo = new Regex(@"^data:image\/(?:png|jpeg|jpg|svg\+xml);base64,.*.{1,}", RegexOptions.CultureInvariant);
+                                if (!regexLogo.Match(this.Logo).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Logo, must match a pattern of " + regexLogo, new [] { "Logo" });
+                                }
             }
 
             // WebsiteUrl (string) minLength
@@ -278,11 +278,11 @@ namespace DocSpace.API.SDK.Model
 
             if (this.WebsiteUrl != null) {
                 // WebsiteUrl (string) pattern
-                Regex regexWebsiteUrl = new Regex(@"^(https?://)?(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
-                if (!regexWebsiteUrl.Match(this.WebsiteUrl).Success)
-                {
-                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WebsiteUrl, must match a pattern of " + regexWebsiteUrl, new [] { "WebsiteUrl" });
-                }
+                                Regex regexWebsiteUrl = new Regex(@"^(https?://)?(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
+                                if (!regexWebsiteUrl.Match(this.WebsiteUrl).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WebsiteUrl, must match a pattern of " + regexWebsiteUrl, new [] { "WebsiteUrl" });
+                                }
             }
 
             // TermsUrl (string) minLength
@@ -293,11 +293,11 @@ namespace DocSpace.API.SDK.Model
 
             if (this.TermsUrl != null) {
                 // TermsUrl (string) pattern
-                Regex regexTermsUrl = new Regex(@"^(https?://)?(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
-                if (!regexTermsUrl.Match(this.TermsUrl).Success)
-                {
-                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TermsUrl, must match a pattern of " + regexTermsUrl, new [] { "TermsUrl" });
-                }
+                                Regex regexTermsUrl = new Regex(@"^(https?://)?(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
+                                if (!regexTermsUrl.Match(this.TermsUrl).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TermsUrl, must match a pattern of " + regexTermsUrl, new [] { "TermsUrl" });
+                                }
             }
 
             // PolicyUrl (string) minLength
@@ -308,11 +308,11 @@ namespace DocSpace.API.SDK.Model
 
             if (this.PolicyUrl != null) {
                 // PolicyUrl (string) pattern
-                Regex regexPolicyUrl = new Regex(@"^(https?://)?(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
-                if (!regexPolicyUrl.Match(this.PolicyUrl).Success)
-                {
-                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PolicyUrl, must match a pattern of " + regexPolicyUrl, new [] { "PolicyUrl" });
-                }
+                                Regex regexPolicyUrl = new Regex(@"^(https?://)?(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
+                                if (!regexPolicyUrl.Match(this.PolicyUrl).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PolicyUrl, must match a pattern of " + regexPolicyUrl, new [] { "PolicyUrl" });
+                                }
             }
 
             // LogoutRedirectUri (string) minLength
@@ -323,11 +323,11 @@ namespace DocSpace.API.SDK.Model
 
             if (this.LogoutRedirectUri != null) {
                 // LogoutRedirectUri (string) pattern
-                Regex regexLogoutRedirectUri = new Regex(@"^(https?://)?(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
-                if (!regexLogoutRedirectUri.Match(this.LogoutRedirectUri).Success)
-                {
-                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LogoutRedirectUri, must match a pattern of " + regexLogoutRedirectUri, new [] { "LogoutRedirectUri" });
-                }
+                                Regex regexLogoutRedirectUri = new Regex(@"^(https?://)?(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
+                                if (!regexLogoutRedirectUri.Match(this.LogoutRedirectUri).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LogoutRedirectUri, must match a pattern of " + regexLogoutRedirectUri, new [] { "LogoutRedirectUri" });
+                                }
             }
 
             yield break;

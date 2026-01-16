@@ -378,7 +378,6 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
-        
         /// <summary>
         /// Check the Telegram connection
         /// </summary>

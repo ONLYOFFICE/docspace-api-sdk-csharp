@@ -430,7 +430,6 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
-        
         /// <summary>
         /// Get the IP portal restrictions
         /// </summary>

@@ -346,7 +346,6 @@ namespace DocSpace.API.SDK.Api.People
         }
 
 
-        
         /// <summary>
         /// Change a user password
         /// </summary>

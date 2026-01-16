@@ -610,7 +610,6 @@ namespace DocSpace.API.SDK.Api.Migration
         }
 
 
-        
         /// <summary>
         /// Cancel migration
         /// </summary>

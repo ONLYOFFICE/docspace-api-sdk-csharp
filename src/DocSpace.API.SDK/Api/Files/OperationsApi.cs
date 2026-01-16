@@ -1178,7 +1178,6 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
 
-        
         /// <summary>
         /// Add favorite files and folders
         /// </summary>

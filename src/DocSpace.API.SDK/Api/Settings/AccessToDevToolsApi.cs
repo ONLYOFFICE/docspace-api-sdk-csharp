@@ -290,7 +290,6 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
-        
         /// <summary>
         /// Get the Developer Tools access settings
         /// </summary>

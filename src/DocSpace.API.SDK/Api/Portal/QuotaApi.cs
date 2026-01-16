@@ -426,7 +426,6 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
 
-        
         /// <summary>
         /// Get a portal quota
         /// </summary>

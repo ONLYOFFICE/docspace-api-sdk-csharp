@@ -426,7 +426,6 @@ namespace DocSpace.API.SDK.Api.People
         }
 
 
-        
         /// <summary>
         /// Get profiles by status
         /// </summary>

@@ -426,7 +426,6 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
-        
         /// <summary>
         /// Activate a license
         /// </summary>

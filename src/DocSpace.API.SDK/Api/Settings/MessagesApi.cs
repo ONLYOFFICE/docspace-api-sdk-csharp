@@ -390,7 +390,6 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
-        
         /// <summary>
         /// Enable the administrator message settings
         /// </summary>

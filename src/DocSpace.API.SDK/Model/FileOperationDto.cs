@@ -30,6 +30,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "Operation", IsRequired = true, EmitDefaultValue = true)]
         public FileOperationType Operation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public DistributedTaskStatus? Status { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="FileOperationDto" /> class.
@@ -48,7 +54,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="url">The file operation URL..</param>
         /// <param name="files">The list of files of the file operation..</param>
         /// <param name="folders">The list of folders of the file operation..</param>
-        public FileOperationDto(string id = default, FileOperationType operation = default, int progress = default, string error = default, string processed = default, bool finished = default, string url = default, List<FileEntryBaseDto> files = default, List<FileEntryBaseDto> folders = default)
+        /// <param name="status">status.</param>
+        public FileOperationDto(string id = default, FileOperationType operation = default, int progress = default, string error = default, string processed = default, bool finished = default, string url = default, List<FileEntryBaseDto> files = default, List<FileEntryBaseDto> folders = default, DistributedTaskStatus? status = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -74,6 +81,7 @@ namespace DocSpace.API.SDK.Model
             this.Url = url;
             this.Files = files;
             this.Folders = folders;
+            this.Status = status;
         }
 
         /// <summary>
@@ -164,6 +172,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("  Folders: ").Append(Folders).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

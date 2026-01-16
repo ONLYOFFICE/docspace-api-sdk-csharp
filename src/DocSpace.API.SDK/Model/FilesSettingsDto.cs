@@ -90,7 +90,6 @@ namespace DocSpace.API.SDK.Model
             /// </summary>
             ContentCreator = 11
         }
-
     
         /// <summary>
         /// Initializes a new instance of the <see cref="FilesSettingsDto" /> class.

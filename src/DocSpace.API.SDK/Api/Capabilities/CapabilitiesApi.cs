@@ -290,7 +290,6 @@ namespace DocSpace.API.SDK.Api.Capabilities
         }
 
 
-        
         /// <summary>
         /// Get portal capabilities
         /// </summary>

@@ -554,7 +554,6 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
 
-        
         /// <summary>
         /// Get client details
         /// </summary>

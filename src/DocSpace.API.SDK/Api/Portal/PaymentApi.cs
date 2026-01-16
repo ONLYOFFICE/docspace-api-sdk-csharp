@@ -1394,7 +1394,6 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
 
-        
         /// <summary>
         /// Calculate the wallet payment amount
         /// </summary>
@@ -2019,7 +2018,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<StringWrapper>("/api/2.0/portal/payment/chechoutsetupurl", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<StringWrapper>("/api/2.0/portal/payment/checkoutsetupurl", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -2115,7 +2114,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<StringWrapper>("/api/2.0/portal/payment/chechoutsetupurl", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<StringWrapper>("/api/2.0/portal/payment/checkoutsetupurl", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

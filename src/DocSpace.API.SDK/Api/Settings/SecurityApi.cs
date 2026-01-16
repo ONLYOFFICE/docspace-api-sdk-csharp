@@ -722,7 +722,6 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
-        
         /// <summary>
         /// Get the enabled modules
         /// </summary>

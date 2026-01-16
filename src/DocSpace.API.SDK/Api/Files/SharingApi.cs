@@ -990,7 +990,6 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
 
-        
         /// <summary>
         /// Apply external data password
         /// </summary>

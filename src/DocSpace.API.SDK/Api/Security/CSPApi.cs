@@ -338,7 +338,6 @@ namespace DocSpace.API.SDK.Api.Security
         }
 
 
-        
         /// <summary>
         /// Configure CSP settings
         /// </summary>

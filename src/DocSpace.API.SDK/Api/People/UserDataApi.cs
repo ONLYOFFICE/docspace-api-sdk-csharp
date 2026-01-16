@@ -718,7 +718,6 @@ namespace DocSpace.API.SDK.Api.People
         }
 
 
-        
         /// <summary>
         /// Get the progress of deleting the personal folder
         /// </summary>

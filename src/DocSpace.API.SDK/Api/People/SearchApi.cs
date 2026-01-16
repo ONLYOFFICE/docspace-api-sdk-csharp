@@ -1247,7 +1247,6 @@ namespace DocSpace.API.SDK.Api.People
             return this;
         }
 
-        
         /// <summary>
         /// Get account entries with file sharing settings
         /// </summary>

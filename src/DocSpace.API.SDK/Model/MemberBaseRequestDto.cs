@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user password.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>8yjgauQXph</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }

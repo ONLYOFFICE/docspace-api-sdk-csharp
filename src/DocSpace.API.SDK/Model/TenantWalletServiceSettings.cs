@@ -50,7 +50,6 @@ namespace DocSpace.API.SDK.Model
             /// </summary>
             Storage = -11
         }
-
     
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantWalletServiceSettings" /> class.

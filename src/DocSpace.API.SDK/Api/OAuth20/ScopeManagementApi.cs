@@ -290,7 +290,6 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
 
-        
         /// <summary>
         /// Get available OAuth2 scopes
         /// </summary>

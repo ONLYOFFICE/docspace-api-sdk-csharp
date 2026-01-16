@@ -294,7 +294,6 @@ namespace DocSpace.API.SDK.Api.Security
         }
 
 
-        
         /// <summary>
         /// Set the banners visibility
         /// </summary>

@@ -839,7 +839,6 @@ namespace DocSpace.API.SDK.Api.Group
             return this;
         }
 
-        
         /// <summary>
         /// Add a new group
         /// </summary>

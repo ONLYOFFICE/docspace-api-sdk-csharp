@@ -450,7 +450,6 @@ namespace DocSpace.API.SDK.Api.People
         }
 
 
-        
         /// <summary>
         /// Get third-party accounts
         /// </summary>

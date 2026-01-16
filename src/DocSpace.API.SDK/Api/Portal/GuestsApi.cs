@@ -294,7 +294,6 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
 
-        
         /// <summary>
         /// Get a guest sharing link
         /// </summary>

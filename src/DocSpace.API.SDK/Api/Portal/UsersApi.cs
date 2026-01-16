@@ -482,7 +482,6 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
 
-        
         /// <summary>
         /// Get an invitation link
         /// </summary>

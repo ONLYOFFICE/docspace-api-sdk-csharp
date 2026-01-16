@@ -959,7 +959,6 @@ namespace DocSpace.API.SDK.Api.People
             return this;
         }
 
-        
         /// <summary>
         /// Add a user
         /// </summary>

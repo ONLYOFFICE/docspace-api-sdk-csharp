@@ -470,7 +470,6 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
-        
         /// <summary>
         /// Get the default SSO settings
         /// </summary>

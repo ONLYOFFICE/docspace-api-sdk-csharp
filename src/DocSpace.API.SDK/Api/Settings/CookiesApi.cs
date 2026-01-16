@@ -338,7 +338,6 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
-        
         /// <summary>
         /// Get cookies lifetime
         /// </summary>

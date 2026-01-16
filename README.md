@@ -482,6 +482,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get form-filling result</td>
       </tr>
       <tr>
+        <td><a href="docs/FilesFilesApi.md#getformsubmissions"><strong>GetFormSubmissions</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/file/{fileId}/submissions</td>
+        <td>Get form submission results</td>
+      </tr>
+      <tr>
         <td><a href="docs/FilesFilesApi.md#getpresignedfileuri"><strong>GetPresignedFileUri</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/file/{fileId}/presigned</td>
         <td>Get file download link asynchronously</td>
@@ -660,6 +665,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get primary external link</td>
       </tr>
       <tr>
+        <td><a href="docs/FilesFoldersApi.md#getfolderrecent"><strong>GetFolderRecent</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/recent</td>
+        <td>Get the Recent section</td>
+      </tr>
+      <tr>
         <td><a href="docs/FilesFoldersApi.md#getfolders"><strong>GetFolders</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/{folderId}/subfolders</td>
         <td>Get subfolders</td>
@@ -681,7 +691,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       </tr>
       <tr>
         <td><a href="docs/FilesFoldersApi.md#getrecentfolder"><strong>GetRecentFolder</strong></a></td>
-        <td><strong>GET</strong> /api/2.0/files/recent</td>
+        <td><strong>GET</strong> /api/2.0/files/@recent</td>
         <td>Get the Recent section</td>
       </tr>
       <tr>
@@ -1716,7 +1726,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#getcheckoutsetupurl"><strong>GetCheckoutSetupUrl</strong></a></td>
-        <td><strong>GET</strong> /api/2.0/portal/payment/chechoutsetupurl</td>
+        <td><strong>GET</strong> /api/2.0/portal/payment/checkoutsetupurl</td>
         <td>Get the checkout setup page URL</td>
       </tr>
       <tr>
@@ -2406,6 +2416,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/SettingsCommonSettingsApi.md#gettimezones"><strong>GetTimeZones</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/timezones</td>
         <td>Get time zones</td>
+      </tr>
+      <tr>
+        <td><a href="docs/SettingsCommonSettingsApi.md#savedefaultfolder"><strong>SaveDefaultFolder</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/settings/defaultfolder</td>
+        <td>Set the default folder</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsCommonSettingsApi.md#savednssettings"><strong>SaveDnsSettings</strong></a></td>
@@ -3180,6 +3195,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.DeepLinkConfigurationRequestsDto](docs/DeepLinkConfigurationRequestsDto.md)
  - [Model.DeepLinkDto](docs/DeepLinkDto.md)
  - [Model.DeepLinkHandlingMode](docs/DeepLinkHandlingMode.md)
+ - [Model.DefaultProductRequestDto](docs/DefaultProductRequestDto.md)
  - [Model.Delete](docs/Delete.md)
  - [Model.DeleteBatchRequestDto](docs/DeleteBatchRequestDto.md)
  - [Model.DeleteBatchRequestDtoAllOfFileIds](docs/DeleteBatchRequestDtoAllOfFileIds.md)
@@ -3305,10 +3321,13 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.FormFillingManageAction](docs/FormFillingManageAction.md)
  - [Model.FormFillingStatus](docs/FormFillingStatus.md)
  - [Model.FormGalleryDto](docs/FormGalleryDto.md)
+ - [Model.FormResultsArrayWrapper](docs/FormResultsArrayWrapper.md)
+ - [Model.FormResultsDto](docs/FormResultsDto.md)
  - [Model.FormRole](docs/FormRole.md)
  - [Model.FormRoleArrayWrapper](docs/FormRoleArrayWrapper.md)
  - [Model.FormRoleDto](docs/FormRoleDto.md)
  - [Model.FormsItemArrayWrapper](docs/FormsItemArrayWrapper.md)
+ - [Model.FormsItemData](docs/FormsItemData.md)
  - [Model.FormsItemDto](docs/FormsItemDto.md)
  - [Model.GetReferenceDataDtoInteger](docs/GetReferenceDataDtoInteger.md)
  - [Model.GobackConfig](docs/GobackConfig.md)
@@ -3524,6 +3543,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.StorageSettings](docs/StorageSettings.md)
  - [Model.StorageSettingsWrapper](docs/StorageSettingsWrapper.md)
  - [Model.StringWrapper](docs/StringWrapper.md)
+ - [Model.StudioDefaultPageSettings](docs/StudioDefaultPageSettings.md)
+ - [Model.StudioDefaultPageSettingsWrapper](docs/StudioDefaultPageSettingsWrapper.md)
  - [Model.SubAccount](docs/SubAccount.md)
  - [Model.SubjectFilter](docs/SubjectFilter.md)
  - [Model.SubjectType](docs/SubjectType.md)

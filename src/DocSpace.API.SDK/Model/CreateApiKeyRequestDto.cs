@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The API key name.</value>
         /*
-        <example>Winfield Schroeder</example>
+        <example>Winfield Upton</example>
         */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }

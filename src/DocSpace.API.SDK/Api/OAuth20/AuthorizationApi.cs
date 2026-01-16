@@ -426,7 +426,6 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
 
-        
         /// <summary>
         /// OAuth2 authorization endpoint
         /// </summary>

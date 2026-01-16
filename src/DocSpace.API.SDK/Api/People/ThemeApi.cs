@@ -338,7 +338,6 @@ namespace DocSpace.API.SDK.Api.People
         }
 
 
-        
         /// <summary>
         /// Change the portal theme
         /// </summary>
