@@ -609,7 +609,7 @@ catch (ApiException e)
 
 <a id="createeditsession"></a>
 # **CreateEditSession**
-> ObjectWrapper CreateEditSession (int fileId, long? fileSize = null)
+> ChunkedUploadSessionResponseWrapperTWrapper CreateEditSession (int fileId, long? fileSize = null)
 
 Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  <ul>  <li><b>id:</b> unique ID of this upload session,</li>  <li><b>created:</b> UTC time when the session was created,</li>  <li><b>expired:</b> UTC time when the session will expire if no chunks are sent before that time,</li>  <li><b>location:</b> URL where you should send your next chunk,</li>  <li><b>bytes_uploaded:</b> number of bytes uploaded for the specific upload ID,</li>  <li><b>bytes_total:</b> total number of bytes which will be uploaded.</li>  </ul>
 
@@ -624,7 +624,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**ChunkedUploadSessionResponseWrapperTWrapper**](ChunkedUploadSessionResponseWrapperTWrapper.md)
 
 ### Authorization
 
@@ -673,7 +673,7 @@ namespace Example
             try
             {
                 // Create the editing session
-                ObjectWrapper result = apiInstance.CreateEditSession(fileId, fileSize);
+                ChunkedUploadSessionResponseWrapperTWrapper result = apiInstance.CreateEditSession(fileId, fileSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -694,7 +694,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create the editing session
-    ApiResponse<ObjectWrapper> response = apiInstance.CreateEditSessionWithHttpInfo(fileId, fileSize);
+    ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper> response = apiInstance.CreateEditSessionWithHttpInfo(fileId, fileSize);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2733,7 +2733,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
+            var fileId = 9079;  // int | The file unique identifier.
 
             try
             {

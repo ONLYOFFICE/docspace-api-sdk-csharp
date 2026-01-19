@@ -1,12 +1,11 @@
-# DocSpace.API.SDK.Model.UserInvitationRequestDto
-The user invitation parameters.
+# DocSpace.API.SDK.Model.ChunkedUploadSessionResponseWrapperT
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Email** | **string** | The email address. | [optional] 
-**Type** | **EmployeeType** |  | [optional] 
+**Success** | **bool** |  | [optional] 
+**Data** | [**ChunkedUploadSessionResponseT**](ChunkedUploadSessionResponseT.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -12577,7 +12577,7 @@ paths:
         name: fileId
         required: true
         schema:
-          example: 9846
+          example: 9079
           format: int32
           type: integer
         style: simple
@@ -14327,7 +14327,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/ChunkedUploadSessionResponseWrapperTWrapper"
           description: Information about created session
         "401":
           description: Unauthorized
@@ -16856,6 +16856,7 @@ paths:
       - Files / Operations
   /api/2.0/files/{folderId}/upload/create_session:
     post:
+      deprecated: true
       description: "Creates the session to upload large files in multiple chunks to\
         \ the folder with the ID specified in the request.\n\n **Note**: Each chunk\
         \ can have different length but the length should be multiple of <b>512</b>\
@@ -16899,7 +16900,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/ChunkedUploadSessionResponseWrapperTWrapper"
           description: Information about created session
         "401":
           description: Unauthorized
@@ -16919,6 +16920,251 @@ paths:
         - write
       - OpenId: []
       summary: Chunked upload
+      tags:
+      - Files / Operations
+  /api/2.0/files/{folderId}/session:
+    post:
+      operationId: createUploadSessionInFolder
+      parameters:
+      - description: The session folder ID.
+        explode: false
+        in: path
+        name: folderId
+        required: true
+        schema:
+          example: 9846
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SessionRequest"
+        description: The session parameters.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChunkedUploadSessionResponseIntegerWrapper"
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      tags:
+      - Files / Operations
+  /api/2.0/files/{folderId}/session/{sessionId}:
+    delete:
+      operationId: abortUploadSession
+      parameters:
+      - explode: false
+        in: path
+        name: sessionId
+        required: true
+        schema:
+          example: some text
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: folderId
+        required: true
+        schema:
+          example: 9846
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      tags:
+      - Files / Operations
+    post:
+      operationId: uploadSession
+      parameters:
+      - explode: false
+        in: path
+        name: folderId
+        required: true
+        schema:
+          example: 9846
+          format: int32
+          type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: sessionId
+        required: true
+        schema:
+          example: some text
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              File:
+                style: form
+            schema:
+              $ref: "#/components/schemas/uploadSession_request"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UploadSessionResponseIntegerWrapper"
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      tags:
+      - Files / Operations
+  /api/2.0/files/{folderId}/session/{sessionId}/upload:
+    post:
+      operationId: uploadAsyncSession
+      parameters:
+      - explode: false
+        in: path
+        name: folderId
+        required: true
+        schema:
+          example: 9846
+          format: int32
+          type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: sessionId
+        required: true
+        schema:
+          example: some text
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: ChunkNumber
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          type: integer
+        style: form
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              File:
+                style: form
+            schema:
+              $ref: "#/components/schemas/uploadSession_request"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChunkedUploadSessionResponseIntegerWrapper"
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      tags:
+      - Files / Operations
+  /api/2.0/files/{folderId}/session/{sessionId}/finalize:
+    put:
+      operationId: finalizeSession
+      parameters:
+      - explode: false
+        in: path
+        name: folderId
+        required: true
+        schema:
+          example: 9846
+          format: int32
+          type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: sessionId
+        required: true
+        schema:
+          example: some text
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UploadSessionResponseIntegerWrapper"
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
       tags:
       - Files / Operations
   /api/2.0/files/rooms/roomquota:
@@ -27242,7 +27488,7 @@ components:
             nullable: true
             type: string
           email:
-            example: Sydney_Roberts4@hotmail.com
+            example: Randall14@hotmail.com
             format: email
             nullable: true
             type: string
@@ -27274,7 +27520,7 @@ components:
         displayName: some text
         userType: All
         key: some text
-        email: Sydney_Roberts4@hotmail.com
+        email: Randall14@hotmail.com
     MigrationApiInfo:
       additionalProperties: false
       example:
@@ -27304,7 +27550,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Sydney_Roberts4@hotmail.com
+          email: Randall14@hotmail.com
         - shouldImport: true
           firstName: Winfield
           lastName: Wyman
@@ -27315,7 +27561,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Sydney_Roberts4@hotmail.com
+          email: Randall14@hotmail.com
         failedArchives:
         - some text
         importPersonalFiles: true
@@ -27335,7 +27581,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Sydney_Roberts4@hotmail.com
+          email: Randall14@hotmail.com
         - shouldImport: true
           firstName: Winfield
           lastName: Wyman
@@ -27346,7 +27592,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Sydney_Roberts4@hotmail.com
+          email: Randall14@hotmail.com
         withoutEmailUsers:
         - shouldImport: true
           firstName: Winfield
@@ -27358,7 +27604,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Sydney_Roberts4@hotmail.com
+          email: Randall14@hotmail.com
         - shouldImport: true
           firstName: Winfield
           lastName: Wyman
@@ -27369,7 +27615,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Sydney_Roberts4@hotmail.com
+          email: Randall14@hotmail.com
         operation: some text
         errors:
         - some text
@@ -27483,7 +27729,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Sydney_Roberts4@hotmail.com
+            email: Randall14@hotmail.com
           - shouldImport: true
             firstName: Winfield
             lastName: Wyman
@@ -27494,7 +27740,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Sydney_Roberts4@hotmail.com
+            email: Randall14@hotmail.com
           failedArchives:
           - some text
           importPersonalFiles: true
@@ -27514,7 +27760,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Sydney_Roberts4@hotmail.com
+            email: Randall14@hotmail.com
           - shouldImport: true
             firstName: Winfield
             lastName: Wyman
@@ -27525,7 +27771,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Sydney_Roberts4@hotmail.com
+            email: Randall14@hotmail.com
           withoutEmailUsers:
           - shouldImport: true
             firstName: Winfield
@@ -27537,7 +27783,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Sydney_Roberts4@hotmail.com
+            email: Randall14@hotmail.com
           - shouldImport: true
             firstName: Winfield
             lastName: Wyman
@@ -27548,7 +27794,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Sydney_Roberts4@hotmail.com
+            email: Randall14@hotmail.com
           operation: some text
           errors:
           - some text
@@ -27604,7 +27850,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Sydney_Roberts4@hotmail.com
+              email: Randall14@hotmail.com
             - shouldImport: true
               firstName: Winfield
               lastName: Wyman
@@ -27615,7 +27861,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Sydney_Roberts4@hotmail.com
+              email: Randall14@hotmail.com
             failedArchives:
             - some text
             importPersonalFiles: true
@@ -27635,7 +27881,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Sydney_Roberts4@hotmail.com
+              email: Randall14@hotmail.com
             - shouldImport: true
               firstName: Winfield
               lastName: Wyman
@@ -27646,7 +27892,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Sydney_Roberts4@hotmail.com
+              email: Randall14@hotmail.com
             withoutEmailUsers:
             - shouldImport: true
               firstName: Winfield
@@ -27658,7 +27904,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Sydney_Roberts4@hotmail.com
+              email: Randall14@hotmail.com
             - shouldImport: true
               firstName: Winfield
               lastName: Wyman
@@ -27669,7 +27915,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Sydney_Roberts4@hotmail.com
+              email: Randall14@hotmail.com
             operation: some text
             errors:
             - some text
@@ -34869,6 +35115,17 @@ components:
           format: int32
           type: integer
       type: object
+    EmailInvitationDto:
+      additionalProperties: false
+      description: The email invitation parameters.
+      properties:
+        email:
+          description: The email address.
+          example: Sydney_Roberts4@hotmail.com
+          format: email
+          nullable: true
+          type: string
+      type: object
     EmailMemberRequestDto:
       additionalProperties: false
       description: The request parameters for the user email.
@@ -36771,13 +37028,13 @@ components:
       description: The request parameters for the user generic information.
       example:
         encEmail: some text
-        password: 8yjgauQXph
+        password: vfmf2vO1Kp
         passwordHash: some text
         email: Sydney_Roberts4@hotmail.com
       properties:
         password:
           description: The user password.
-          example: 8yjgauQXph
+          example: vfmf2vO1Kp
           nullable: true
           type: string
         passwordHash:
@@ -36823,7 +37080,7 @@ components:
         department:
         - 75a5f745-f697-4418-b38d-0fe0d277e258
         spam: true
-        email: Sydney_Roberts4@hotmail.com
+        email: Nat.Schroeder1@hotmail.com
         contacts:
         - type: GTalk
           value: my@gmail.com
@@ -36846,7 +37103,7 @@ components:
           type: string
         email:
           description: The user email address.
-          example: Sydney_Roberts4@hotmail.com
+          example: Nat.Schroeder1@hotmail.com
           format: email
           maxLength: 255
           minLength: 0
@@ -37622,20 +37879,16 @@ components:
       type: object
     UserInvitationRequestDto:
       additionalProperties: false
+      allOf:
+      - $ref: "#/components/schemas/EmailInvitationDto"
+      - properties:
+          type:
+            $ref: "#/components/schemas/EmployeeType"
+        type: object
       description: The user invitation parameters.
       example:
         type: All
         email: Sydney_Roberts4@hotmail.com
-      properties:
-        type:
-          $ref: "#/components/schemas/EmployeeType"
-        email:
-          description: The user email address.
-          example: Sydney_Roberts4@hotmail.com
-          format: email
-          nullable: true
-          type: string
-      type: object
     AceShortWrapper:
       additionalProperties: false
       description: The information about the settings which allow to share the document
@@ -38563,6 +38816,177 @@ components:
             type: string
           nullable: true
           type: array
+      type: object
+    ChunkedUploadSessionResponseInteger:
+      additionalProperties: false
+      example:
+        path:
+        - 1234
+        expired: 2008-04-10T06:30:00+04:00
+        created: 2008-04-10T06:30:00+04:00
+        location: "001 Schroeder Run, New Tabithaport, Colombia"
+        id: "9846"
+        bytes_total: 1234
+      properties:
+        id:
+          example: "9846"
+          nullable: true
+          type: string
+        path:
+          example:
+          - 1234
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+        created:
+          example: 2008-04-10T06:30:00+04:00
+          format: date-time
+          type: string
+        expired:
+          example: 2008-04-10T06:30:00+04:00
+          format: date-time
+          type: string
+        location:
+          example: "001 Schroeder Run, New Tabithaport, Colombia"
+          nullable: true
+          type: string
+        bytes_total:
+          example: 1234
+          format: int64
+          type: integer
+      type: object
+    ChunkedUploadSessionResponseIntegerWrapper:
+      example:
+        response:
+          path:
+          - 1234
+          expired: 2008-04-10T06:30:00+04:00
+          created: 2008-04-10T06:30:00+04:00
+          location: "001 Schroeder Run, New Tabithaport, Colombia"
+          id: "9846"
+          bytes_total: 1234
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/ChunkedUploadSessionResponseInteger"
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
+      type: object
+    ChunkedUploadSessionResponseT:
+      additionalProperties: false
+      example:
+        path:
+        - null
+        - null
+        expired: 2008-04-10T06:30:00+04:00
+        created: 2008-04-10T06:30:00+04:00
+        location: "001 Schroeder Run, New Tabithaport, Colombia"
+        id: "9846"
+        bytes_total: 1234
+      properties:
+        id:
+          example: "9846"
+          nullable: true
+          type: string
+        path:
+          items:
+            $ref: "#/components/schemas/T"
+          nullable: true
+          type: array
+        created:
+          example: 2008-04-10T06:30:00+04:00
+          format: date-time
+          type: string
+        expired:
+          example: 2008-04-10T06:30:00+04:00
+          format: date-time
+          type: string
+        location:
+          example: "001 Schroeder Run, New Tabithaport, Colombia"
+          nullable: true
+          type: string
+        bytes_total:
+          example: 1234
+          format: int64
+          type: integer
+      type: object
+    ChunkedUploadSessionResponseWrapperT:
+      additionalProperties: false
+      example:
+        data:
+          path:
+          - null
+          - null
+          expired: 2008-04-10T06:30:00+04:00
+          created: 2008-04-10T06:30:00+04:00
+          location: "001 Schroeder Run, New Tabithaport, Colombia"
+          id: "9846"
+          bytes_total: 1234
+        success: true
+      properties:
+        success:
+          example: true
+          type: boolean
+        data:
+          $ref: "#/components/schemas/ChunkedUploadSessionResponseT"
+      type: object
+    ChunkedUploadSessionResponseWrapperTWrapper:
+      example:
+        response:
+          data:
+            path:
+            - null
+            - null
+            expired: 2008-04-10T06:30:00+04:00
+            created: 2008-04-10T06:30:00+04:00
+            location: "001 Schroeder Run, New Tabithaport, Colombia"
+            id: "9846"
+            bytes_total: 1234
+          success: true
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/ChunkedUploadSessionResponseWrapperT"
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
       type: object
     CoEditingConfig:
       additionalProperties: false
@@ -41025,17 +41449,6 @@ components:
       - Desktop
       - Mobile
       - Embedded
-    EmailInvitationDto:
-      additionalProperties: false
-      description: The email invitation parameters.
-      properties:
-        email:
-          description: The email address.
-          example: Sydney_Roberts4@hotmail.com
-          format: email
-          nullable: true
-          type: string
-      type: object
     EmbeddedConfig:
       additionalProperties: false
       description: The configuration parameters for the embedded document type.
@@ -55918,6 +56331,9 @@ components:
           nullable: true
           type: string
       type: object
+    T:
+      additionalProperties: false
+      type: object
     TemplatesConfig:
       additionalProperties: false
       description: The presence or absence of the templates in the Create New... menu
@@ -56486,6 +56902,334 @@ components:
       properties:
         response:
           $ref: "#/components/schemas/UploadResultDto"
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
+      type: object
+    UploadSessionResponseDtoInteger:
+      additionalProperties: false
+      example:
+        file:
+          isLinkExpired: true
+          formFillingStatus: 0
+          originRoomId: 1234
+          lastOpened:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
+          versionGroup: 1
+          draftLocation:
+            folderTitle: some text
+            fileTitle: some text
+            folderId: 9846
+            fileId: 9846
+          viewUrl: https://www.onlyoffice.com/viewfile?fileid=2221
+          originRoomTitle: some text
+          id: 10
+          locked: true
+          viewAccessibility: "[{\"value\":true}]"
+          parentShared: true
+          shortWebUrl: some text
+          order: some text
+          updatedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
+          providerItem: true
+          availableShareRights: "[{\"value\":[\"some text\"]}]"
+          created:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
+          canShare: true
+          sharedForUser: false
+          rootFolderId: 1234
+          mute: false
+          isForm: false
+          version: 3
+          folderId: 9846
+          originTitle: some text
+          external: true
+          pureContentLength: 1234
+          customFilterEnabled: true
+          startFilling: false
+          webUrl: some text
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
+          requestToken: some text
+          updated:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
+          thumbnailStatus: 0
+          providerKey: some text
+          isFavorite: true
+          hasDraft: false
+          shared: false
+          access: 0
+          title: Some titile.txt/ Some title
+          security: "[{\"value\":true}]"
+          fileExst: .txt
+          originId: 1234
+          customFilterEnabledBy: some text
+          expired:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
+          lockedBy: some text
+          fileStatus: 0
+          providerId: 1234
+          fileEntryType: 1
+          inProcessFolderTitle: some text
+          inProcessFolderId: 1234
+          expirationDate:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
+          thumbnailUrl: some text
+          shareSettings: "[{\"value\":1234}]"
+          vectorizationStatus: 0
+          parentRoomType: 0
+          encrypted: false
+          createdBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
+          autoDelete:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
+          rootFolderType: 0
+          contentLength: "12345"
+          comment: some text
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
+          fileType: 0
+          dimensions:
+            width: 6
+            height: 0
+        uploaded: true
+        id: 1234
+        title: legacy_1080p_small_wooden_mouse
+        version: 1234
+        folderId: 9846
+        providerKey: some text
+      properties:
+        id:
+          example: 1234
+          format: int32
+          type: integer
+        folderId:
+          example: 9846
+          format: int32
+          type: integer
+        version:
+          example: 1234
+          format: int32
+          type: integer
+        title:
+          example: legacy_1080p_small_wooden_mouse
+          nullable: true
+          type: string
+        providerKey:
+          example: some text
+          nullable: true
+          type: string
+        uploaded:
+          example: true
+          type: boolean
+        file:
+          $ref: "#/components/schemas/FileDtoInteger"
+      type: object
+    UploadSessionResponseIntegerWrapper:
+      example:
+        response:
+          file:
+            isLinkExpired: true
+            formFillingStatus: 0
+            originRoomId: 1234
+            lastOpened:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
+            versionGroup: 1
+            draftLocation:
+              folderTitle: some text
+              fileTitle: some text
+              folderId: 9846
+              fileId: 9846
+            viewUrl: https://www.onlyoffice.com/viewfile?fileid=2221
+            originRoomTitle: some text
+            id: 10
+            locked: true
+            viewAccessibility: "[{\"value\":true}]"
+            parentShared: true
+            shortWebUrl: some text
+            order: some text
+            updatedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
+            providerItem: true
+            availableShareRights: "[{\"value\":[\"some text\"]}]"
+            created:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
+            canShare: true
+            sharedForUser: false
+            rootFolderId: 1234
+            mute: false
+            isForm: false
+            version: 3
+            folderId: 9846
+            originTitle: some text
+            external: true
+            pureContentLength: 1234
+            customFilterEnabled: true
+            startFilling: false
+            webUrl: some text
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
+            requestToken: some text
+            updated:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
+            thumbnailStatus: 0
+            providerKey: some text
+            isFavorite: true
+            hasDraft: false
+            shared: false
+            access: 0
+            title: Some titile.txt/ Some title
+            security: "[{\"value\":true}]"
+            fileExst: .txt
+            originId: 1234
+            customFilterEnabledBy: some text
+            expired:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
+            lockedBy: some text
+            fileStatus: 0
+            providerId: 1234
+            fileEntryType: 1
+            inProcessFolderTitle: some text
+            inProcessFolderId: 1234
+            expirationDate:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
+            thumbnailUrl: some text
+            shareSettings: "[{\"value\":1234}]"
+            vectorizationStatus: 0
+            parentRoomType: 0
+            encrypted: false
+            createdBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
+            autoDelete:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
+            rootFolderType: 0
+            contentLength: "12345"
+            comment: some text
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
+            fileType: 0
+            dimensions:
+              width: 6
+              height: 0
+          uploaded: true
+          id: 1234
+          title: legacy_1080p_small_wooden_mouse
+          version: 1234
+          folderId: 9846
+          providerKey: some text
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/UploadSessionResponseDtoInteger"
         count:
           format: int32
           type: integer
@@ -57943,6 +58687,12 @@ components:
           example: 1234
           format: int32
           type: integer
+      type: object
+    uploadSession_request:
+      properties:
+        File:
+          format: binary
+          type: string
       type: object
     uploadRoomLogo_request:
       properties:

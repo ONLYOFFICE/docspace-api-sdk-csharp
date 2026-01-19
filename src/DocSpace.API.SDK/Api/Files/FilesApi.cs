@@ -154,8 +154,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper CreateEditSession(int fileId, long? fileSize = default);
+        /// <returns>ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        ChunkedUploadSessionResponseWrapperTWrapper CreateEditSession(int fileId, long? fileSize = default);
 
         /// <summary>
         /// Create the editing session
@@ -167,8 +167,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default);
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default);
         /// <summary>
         /// Create a file
         /// </summary>
@@ -1364,8 +1364,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        Task<ChunkedUploadSessionResponseWrapperTWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create the editing session
@@ -1378,8 +1378,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperTWrapper)</returns>
+        Task<ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a file
         /// </summary>
@@ -3624,8 +3624,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper CreateEditSession(int fileId, long? fileSize = default)
+        /// <returns>ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        public ChunkedUploadSessionResponseWrapperTWrapper CreateEditSession(int fileId, long? fileSize = default)
         {
             var localVarResponse = CreateEditSessionWithHttpInfo(fileId, fileSize);
             return localVarResponse.Data;
@@ -3641,8 +3641,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default)
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        public ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3695,7 +3695,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ObjectWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ChunkedUploadSessionResponseWrapperTWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3720,8 +3720,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        public async Task<ChunkedUploadSessionResponseWrapperTWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateEditSessionWithHttpInfoAsync(fileId, fileSize, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3738,8 +3738,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperTWrapper)</returns>
+        public async Task<ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3794,7 +3794,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ObjectWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResponseWrapperTWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

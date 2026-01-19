@@ -19,26 +19,37 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The user invitation parameters.
+    /// ChunkedUploadSessionResponseWrapperT
     /// </summary>
-    [DataContract(Name = "UserInvitationRequestDto")]
-    public partial class UserInvitationRequestDto : EmailInvitationDto, IValidatableObject
+    [DataContract(Name = "ChunkedUploadSessionResponseWrapperT")]
+    public partial class ChunkedUploadSessionResponseWrapperT : IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public EmployeeType? Type { get; set; }
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserInvitationRequestDto" /> class.
+        /// Initializes a new instance of the <see cref="ChunkedUploadSessionResponseWrapperT" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
-        public UserInvitationRequestDto(EmployeeType? type = default)
+        /// <param name="success">success.</param>
+        /// <param name="data">data.</param>
+        public ChunkedUploadSessionResponseWrapperT(bool success = default, ChunkedUploadSessionResponseT data = default)
         {
-            this.Type = type;
+            this.Success = success;
+            this.Data = data;
         }
+
+        /// <summary>
+        /// Gets or Sets Success
+        /// </summary>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "success", EmitDefaultValue = true)]
+        public bool Success { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Data
+        /// </summary>
+        [DataMember(Name = "data", EmitDefaultValue = false)]
+        public ChunkedUploadSessionResponseT Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -47,8 +58,9 @@ namespace DocSpace.API.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UserInvitationRequestDto {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("class ChunkedUploadSessionResponseWrapperT {\n");
+            sb.Append("  Success: ").Append(Success).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -57,11 +69,10 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
-    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -74,4 +85,6 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
+
 }
