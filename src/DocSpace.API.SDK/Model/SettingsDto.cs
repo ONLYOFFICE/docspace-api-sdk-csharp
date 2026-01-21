@@ -42,6 +42,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "tenantStatus", EmitDefaultValue = false)]
         public TenantStatus? TenantStatus { get; set; }
+
+        /// <summary>
+        /// Gets or Sets DefaultFolderType
+        /// </summary>
+        [DataMember(Name = "defaultFolderType", EmitDefaultValue = false)]
+        public FolderType? DefaultFolderType { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsDto" /> class.
@@ -93,7 +99,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="maxImageUploadSize">The maximum image upload size..</param>
         /// <param name="logoText">The white label logo text..</param>
         /// <param name="externalResources">externalResources.</param>
-        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default)
+        /// <param name="defaultFolderType">defaultFolderType.</param>
+        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default, FolderType? defaultFolderType = default)
         {
             // to ensure "culture" is required (not null)
             if (culture == null)
@@ -152,6 +159,7 @@ namespace DocSpace.API.SDK.Model
             this.MaxImageUploadSize = maxImageUploadSize;
             this.LogoText = logoText;
             this.ExternalResources = externalResources;
+            this.DefaultFolderType = defaultFolderType;
         }
 
         /// <summary>
@@ -566,6 +574,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  MaxImageUploadSize: ").Append(MaxImageUploadSize).Append("\n");
             sb.Append("  LogoText: ").Append(LogoText).Append("\n");
             sb.Append("  ExternalResources: ").Append(ExternalResources).Append("\n");
+            sb.Append("  DefaultFolderType: ").Append(DefaultFolderType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -587,7 +596,9 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }    }
+        }
+
+    }
 
 
 }

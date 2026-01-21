@@ -36,8 +36,13 @@ namespace DocSpace.API.SDK.Model
         /// <param name="key">key (required).</param>
         /// <param name="value">The target format or conversion type for the file download. (required).</param>
         /// <param name="password">The optional password for accessing protected files..</param>
-        public DownloadRequestItemDto(int key = default, string value = default, string password = default)
+        public DownloadRequestItemDto(DownloadRequestItemDtoKey key = default, string value = default, string password = default)
         {
+            // to ensure "key" is required (not null)
+            if (key == null)
+            {
+                throw new ArgumentNullException("key is a required property for DownloadRequestItemDto and cannot be null");
+            }
             this.Key = key;
             // to ensure "value" is required (not null)
             if (value == null)
@@ -51,11 +56,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Key
         /// </summary>
-        /*
-        <example>1234</example>
-        */
         [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
-        public int Key { get; set; }
+        public DownloadRequestItemDtoKey Key { get; set; }
 
         /// <summary>
         /// The target format or conversion type for the file download.
@@ -109,7 +111,9 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }    }
+        }
+
+    }
 
 
 }

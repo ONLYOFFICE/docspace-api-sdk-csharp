@@ -487,6 +487,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get form-filling result</td>
       </tr>
       <tr>
+        <td><a href="docs/FilesFilesApi.md#getformsubmissions"><strong>GetFormSubmissions</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/file/{fileId}/submissions</td>
+        <td>Get form submission results</td>
+      </tr>
+      <tr>
         <td><a href="docs/FilesFilesApi.md#getpresignedfileuri"><strong>GetPresignedFileUri</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/file/{fileId}/presigned</td>
         <td>Get file download link asynchronously</td>
@@ -748,6 +753,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td colspan="3" style="text-align: center;"><strong>OperationsApi</strong></td>
       </tr>
       <tr>
+        <td><a href="docs/FilesOperationsApi.md#abortuploadsession"><strong>AbortUploadSession</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/files/{folderId}/session/{sessionId}</td>
+        <td></td>
+      </tr>
+      <tr>
         <td><a href="docs/FilesOperationsApi.md#addfavorites"><strong>AddFavorites</strong></a></td>
         <td><strong>POST</strong> /api/2.0/files/favorites</td>
         <td>Add favorite files and folders</td>
@@ -783,6 +793,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Chunked upload</td>
       </tr>
       <tr>
+        <td><a href="docs/FilesOperationsApi.md#createuploadsessioninfolder"><strong>CreateUploadSessionInFolder</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/{folderId}/session</td>
+        <td></td>
+      </tr>
+      <tr>
         <td><a href="docs/FilesOperationsApi.md#deletebatchitems"><strong>DeleteBatchItems</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/files/fileops/delete</td>
         <td>Delete files and folders</td>
@@ -806,6 +821,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/FilesOperationsApi.md#emptytrash"><strong>EmptyTrash</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/files/fileops/emptytrash</td>
         <td>Empty the Trash folder</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesOperationsApi.md#finalizesession"><strong>FinalizeSession</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/files/{folderId}/session/{sessionId}/finalize</td>
+        <td></td>
       </tr>
       <tr>
         <td><a href="docs/FilesOperationsApi.md#getoperationstatuses"><strong>GetOperationStatuses</strong></a></td>
@@ -841,6 +861,16 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/FilesOperationsApi.md#updatefilecomment"><strong>UpdateFileComment</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/files/file/{fileId}/comment</td>
         <td>Update a comment</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesOperationsApi.md#uploadasyncsession"><strong>UploadAsyncSession</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/{folderId}/session/{sessionId}/upload</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesOperationsApi.md#uploadsession"><strong>UploadSession</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/{folderId}/session/{sessionId}</td>
+        <td></td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>QuotaApi</strong></td>
@@ -1014,12 +1044,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/FilesSharingApi.md#getgroupsmemberswithfilesecurity"><strong>GetGroupsMembersWithFileSecurity</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/file/{fileId}/group/{groupId}/share</td>
-        <td>Get group members with security information</td>
+        <td>Get file group members with security information</td>
       </tr>
       <tr>
         <td><a href="docs/FilesSharingApi.md#getgroupsmemberswithfoldersecurity"><strong>GetGroupsMembersWithFolderSecurity</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/folder/{folderId}/group/{groupId}/share</td>
-        <td>Get group members with security information</td>
+        <td>Get folder group members with security information</td>
       </tr>
       <tr>
         <td><a href="docs/FilesSharingApi.md#getsecurityinfo"><strong>GetSecurityInfo</strong></a></td>
@@ -1736,7 +1766,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#getcheckoutsetupurl"><strong>GetCheckoutSetupUrl</strong></a></td>
-        <td><strong>GET</strong> /api/2.0/portal/payment/chechoutsetupurl</td>
+        <td><strong>GET</strong> /api/2.0/portal/payment/checkoutsetupurl</td>
         <td>Get the checkout setup page URL</td>
       </tr>
       <tr>
@@ -2485,6 +2515,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get time zones</td>
       </tr>
       <tr>
+        <td><a href="docs/SettingsCommonSettingsApi.md#savedefaultfolder"><strong>SaveDefaultFolder</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/settings/defaultfolder</td>
+        <td>Set the default folder</td>
+      </tr>
+      <tr>
         <td><a href="docs/SettingsCommonSettingsApi.md#savednssettings"><strong>SaveDnsSettings</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/settings/dns</td>
         <td>Save the DNS settings</td>
@@ -3161,9 +3196,14 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.Balance](docs/Balance.md)
  - [Model.BalanceWrapper](docs/BalanceWrapper.md)
  - [Model.BaseBatchRequestDto](docs/BaseBatchRequestDto.md)
+ - [Model.BaseBatchRequestDtoAllOfFileIds](docs/BaseBatchRequestDtoAllOfFileIds.md)
+ - [Model.BaseBatchRequestDtoAllOfFolderIds](docs/BaseBatchRequestDtoAllOfFolderIds.md)
  - [Model.BaseStorageSettingsCdnStorageSettings](docs/BaseStorageSettingsCdnStorageSettings.md)
  - [Model.BaseStorageSettingsStorageSettings](docs/BaseStorageSettingsStorageSettings.md)
  - [Model.BatchRequestDto](docs/BatchRequestDto.md)
+ - [Model.BatchRequestDtoAllOfDestFolderId](docs/BatchRequestDtoAllOfDestFolderId.md)
+ - [Model.BatchRequestDtoAllOfFileIds](docs/BatchRequestDtoAllOfFileIds.md)
+ - [Model.BatchRequestDtoAllOfFolderIds](docs/BatchRequestDtoAllOfFolderIds.md)
  - [Model.BatchTagsRequestDto](docs/BatchTagsRequestDto.md)
  - [Model.BooleanWrapper](docs/BooleanWrapper.md)
  - [Model.CapabilitiesDto](docs/CapabilitiesDto.md)
@@ -3182,6 +3222,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.CheckDocServiceUrlRequestDto](docs/CheckDocServiceUrlRequestDto.md)
  - [Model.CheckFillFormDraft](docs/CheckFillFormDraft.md)
  - [Model.CheckUploadRequest](docs/CheckUploadRequest.md)
+ - [Model.ChunkedUploadSessionResponseInteger](docs/ChunkedUploadSessionResponseInteger.md)
+ - [Model.ChunkedUploadSessionResponseIntegerWrapper](docs/ChunkedUploadSessionResponseIntegerWrapper.md)
+ - [Model.ChunkedUploadSessionResponseT](docs/ChunkedUploadSessionResponseT.md)
+ - [Model.ChunkedUploadSessionResponseWrapperT](docs/ChunkedUploadSessionResponseWrapperT.md)
+ - [Model.ChunkedUploadSessionResponseWrapperTWrapper](docs/ChunkedUploadSessionResponseWrapperTWrapper.md)
  - [Model.ClientInfoResponse](docs/ClientInfoResponse.md)
  - [Model.ClientResponse](docs/ClientResponse.md)
  - [Model.ClientSecretResponse](docs/ClientSecretResponse.md)
@@ -3206,12 +3251,14 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.CookieSettingsRequestsDto](docs/CookieSettingsRequestsDto.md)
  - [Model.CookieSettingsWrapper](docs/CookieSettingsWrapper.md)
  - [Model.CopyAsJsonElement](docs/CopyAsJsonElement.md)
+ - [Model.CopyAsJsonElementDestFolderId](docs/CopyAsJsonElementDestFolderId.md)
  - [Model.CoverRequestDto](docs/CoverRequestDto.md)
  - [Model.CoversResultArrayWrapper](docs/CoversResultArrayWrapper.md)
  - [Model.CoversResultDto](docs/CoversResultDto.md)
  - [Model.CreateApiKeyRequestDto](docs/CreateApiKeyRequestDto.md)
  - [Model.CreateClientRequest](docs/CreateClientRequest.md)
  - [Model.CreateFileJsonElement](docs/CreateFileJsonElement.md)
+ - [Model.CreateFileJsonElementTemplateId](docs/CreateFileJsonElementTemplateId.md)
  - [Model.CreateFolder](docs/CreateFolder.md)
  - [Model.CreateRoomFromTemplateDto](docs/CreateRoomFromTemplateDto.md)
  - [Model.CreateRoomRequestDto](docs/CreateRoomRequestDto.md)
@@ -3251,8 +3298,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.DeepLinkConfigurationRequestsDto](docs/DeepLinkConfigurationRequestsDto.md)
  - [Model.DeepLinkDto](docs/DeepLinkDto.md)
  - [Model.DeepLinkHandlingMode](docs/DeepLinkHandlingMode.md)
+ - [Model.DefaultProductRequestDto](docs/DefaultProductRequestDto.md)
  - [Model.Delete](docs/Delete.md)
  - [Model.DeleteBatchRequestDto](docs/DeleteBatchRequestDto.md)
+ - [Model.DeleteBatchRequestDtoAllOfFileIds](docs/DeleteBatchRequestDtoAllOfFileIds.md)
+ - [Model.DeleteBatchRequestDtoAllOfFolderIds](docs/DeleteBatchRequestDtoAllOfFolderIds.md)
  - [Model.DeleteFolder](docs/DeleteFolder.md)
  - [Model.DeleteRoomRequest](docs/DeleteRoomRequest.md)
  - [Model.DeleteVersionBatchRequestDto](docs/DeleteVersionBatchRequestDto.md)
@@ -3266,9 +3316,14 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.DocumentConfigDto](docs/DocumentConfigDto.md)
  - [Model.DoubleWrapper](docs/DoubleWrapper.md)
  - [Model.DownloadRequestDto](docs/DownloadRequestDto.md)
+ - [Model.DownloadRequestDtoAllOfFileIds](docs/DownloadRequestDtoAllOfFileIds.md)
+ - [Model.DownloadRequestDtoAllOfFolderIds](docs/DownloadRequestDtoAllOfFolderIds.md)
  - [Model.DownloadRequestItemDto](docs/DownloadRequestItemDto.md)
+ - [Model.DownloadRequestItemDtoKey](docs/DownloadRequestItemDtoKey.md)
  - [Model.DraftLocationInteger](docs/DraftLocationInteger.md)
  - [Model.DuplicateRequestDto](docs/DuplicateRequestDto.md)
+ - [Model.DuplicateRequestDtoAllOfFileIds](docs/DuplicateRequestDtoAllOfFileIds.md)
+ - [Model.DuplicateRequestDtoAllOfFolderIds](docs/DuplicateRequestDtoAllOfFolderIds.md)
  - [Model.EditHistoryArrayWrapper](docs/EditHistoryArrayWrapper.md)
  - [Model.EditHistoryAuthor](docs/EditHistoryAuthor.md)
  - [Model.EditHistoryChangesWrapper](docs/EditHistoryChangesWrapper.md)
@@ -3376,10 +3431,13 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.FormFillingManageAction](docs/FormFillingManageAction.md)
  - [Model.FormFillingStatus](docs/FormFillingStatus.md)
  - [Model.FormGalleryDto](docs/FormGalleryDto.md)
+ - [Model.FormResultsArrayWrapper](docs/FormResultsArrayWrapper.md)
+ - [Model.FormResultsDto](docs/FormResultsDto.md)
  - [Model.FormRole](docs/FormRole.md)
  - [Model.FormRoleArrayWrapper](docs/FormRoleArrayWrapper.md)
  - [Model.FormRoleDto](docs/FormRoleDto.md)
  - [Model.FormsItemArrayWrapper](docs/FormsItemArrayWrapper.md)
+ - [Model.FormsItemData](docs/FormsItemData.md)
  - [Model.FormsItemDto](docs/FormsItemDto.md)
  - [Model.GetReferenceDataDtoInteger](docs/GetReferenceDataDtoInteger.md)
  - [Model.GobackConfig](docs/GobackConfig.md)
@@ -3514,6 +3572,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.QuotaDto](docs/QuotaDto.md)
  - [Model.QuotaFilter](docs/QuotaFilter.md)
  - [Model.QuotaSettingsRequestsDto](docs/QuotaSettingsRequestsDto.md)
+ - [Model.QuotaSettingsRequestsDtoDefaultQuota](docs/QuotaSettingsRequestsDtoDefaultQuota.md)
  - [Model.QuotaState](docs/QuotaState.md)
  - [Model.QuotaWrapper](docs/QuotaWrapper.md)
  - [Model.RecaptchaType](docs/RecaptchaType.md)
@@ -3595,6 +3654,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.StorageSettings](docs/StorageSettings.md)
  - [Model.StorageSettingsWrapper](docs/StorageSettingsWrapper.md)
  - [Model.StringWrapper](docs/StringWrapper.md)
+ - [Model.StudioDefaultPageSettings](docs/StudioDefaultPageSettings.md)
+ - [Model.StudioDefaultPageSettingsWrapper](docs/StudioDefaultPageSettingsWrapper.md)
  - [Model.SubAccount](docs/SubAccount.md)
  - [Model.SubjectFilter](docs/SubjectFilter.md)
  - [Model.SubjectType](docs/SubjectType.md)
@@ -3671,6 +3732,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.UpdateGroupRequest](docs/UpdateGroupRequest.md)
  - [Model.UpdateMemberRequestDto](docs/UpdateMemberRequestDto.md)
  - [Model.UpdateMembersQuotaRequestDto](docs/UpdateMembersQuotaRequestDto.md)
+ - [Model.UpdateMembersQuotaRequestDtoQuota](docs/UpdateMembersQuotaRequestDtoQuota.md)
  - [Model.UpdateMembersRequestDto](docs/UpdateMembersRequestDto.md)
  - [Model.UpdatePhotoMemberRequest](docs/UpdatePhotoMemberRequest.md)
  - [Model.UpdateRoomRequest](docs/UpdateRoomRequest.md)
@@ -3680,6 +3742,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.UploadRequestDto](docs/UploadRequestDto.md)
  - [Model.UploadResultDto](docs/UploadResultDto.md)
  - [Model.UploadResultWrapper](docs/UploadResultWrapper.md)
+ - [Model.UploadSessionResponseDtoInteger](docs/UploadSessionResponseDtoInteger.md)
+ - [Model.UploadSessionResponseIntegerWrapper](docs/UploadSessionResponseIntegerWrapper.md)
  - [Model.UsageSpaceStatItemArrayWrapper](docs/UsageSpaceStatItemArrayWrapper.md)
  - [Model.UsageSpaceStatItemDto](docs/UsageSpaceStatItemDto.md)
  - [Model.UserConfig](docs/UserConfig.md)

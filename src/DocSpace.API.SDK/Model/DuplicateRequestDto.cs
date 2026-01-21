@@ -30,7 +30,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="folderIds">The list of folder IDs..</param>
         /// <param name="fileIds">The list of file IDs..</param>
-        public DuplicateRequestDto(List<int> folderIds = default, List<int> fileIds = default)
+        public DuplicateRequestDto(List<DuplicateRequestDtoAllOfFolderIds> folderIds = default, List<DuplicateRequestDtoAllOfFileIds> fileIds = default)
         {
             this.FolderIds = folderIds;
             this.FileIds = fileIds;
@@ -41,14 +41,14 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of folder IDs.</value>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
-        public List<int> FolderIds { get; set; }
+        public List<DuplicateRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs.
         /// </summary>
         /// <value>The list of file IDs.</value>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
-        public List<int> FileIds { get; set; }
+        public List<DuplicateRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -82,5 +82,7 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }    }
+        }
+
+    }
 }

@@ -10,8 +10,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**GetExternalShareData**](#getexternalsharedata) | **GET** /api/2.0/files/share/{key} | Get the external data |
 | [**GetFileSecurityInfo**](#getfilesecurityinfo) | **GET** /api/2.0/files/file/{id}/share | Get the shared file information |
 | [**GetFolderSecurityInfo**](#getfoldersecurityinfo) | **GET** /api/2.0/files/folder/{id}/share | Get the shared folder information |
-| [**GetGroupsMembersWithFileSecurity**](#getgroupsmemberswithfilesecurity) | **GET** /api/2.0/files/file/{fileId}/group/{groupId}/share | Get group members with security information |
-| [**GetGroupsMembersWithFolderSecurity**](#getgroupsmemberswithfoldersecurity) | **GET** /api/2.0/files/folder/{folderId}/group/{groupId}/share | Get group members with security information |
+| [**GetGroupsMembersWithFileSecurity**](#getgroupsmemberswithfilesecurity) | **GET** /api/2.0/files/file/{fileId}/group/{groupId}/share | Get file group members with security information |
+| [**GetGroupsMembersWithFolderSecurity**](#getgroupsmemberswithfoldersecurity) | **GET** /api/2.0/files/folder/{folderId}/group/{groupId}/share | Get folder group members with security information |
 | [**GetSecurityInfo**](#getsecurityinfo) | **POST** /api/2.0/files/share | Get the sharing rights |
 | [**GetSharedUsers**](#getsharedusers) | **GET** /api/2.0/files/file/{fileId}/sharedusers | Get user access rights by file ID |
 | [**RemoveSecurityInfo**](#removesecurityinfo) | **DELETE** /api/2.0/files/share | Remove the sharing rights |
@@ -745,7 +745,7 @@ namespace Example
 
             try
             {
-                // Get group members with security information
+                // Get file group members with security information
                 GroupMemberSecurityRequestArrayWrapper result = apiInstance.GetGroupsMembersWithFileSecurity(fileId, groupId, count, startIndex, filterValue);
                 Debug.WriteLine(result);
             }
@@ -766,7 +766,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get group members with security information
+    // Get file group members with security information
     ApiResponse<GroupMemberSecurityRequestArrayWrapper> response = apiInstance.GetGroupsMembersWithFileSecurityWithHttpInfo(fileId, groupId, count, startIndex, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -865,7 +865,7 @@ namespace Example
 
             try
             {
-                // Get group members with security information
+                // Get folder group members with security information
                 GroupMemberSecurityRequestArrayWrapper result = apiInstance.GetGroupsMembersWithFolderSecurity(folderId, groupId, count, startIndex, filterValue);
                 Debug.WriteLine(result);
             }
@@ -886,7 +886,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get group members with security information
+    // Get folder group members with security information
     ApiResponse<GroupMemberSecurityRequestArrayWrapper> response = apiInstance.GetGroupsMembersWithFolderSecurityWithHttpInfo(folderId, groupId, count, startIndex, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

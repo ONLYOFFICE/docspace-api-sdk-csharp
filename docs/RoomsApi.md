@@ -103,7 +103,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9079;  // int | The room Id.
+            var id = 9846;  // int | The room Id.
             var batchTagsRequestDto = new BatchTagsRequestDto?(); // BatchTagsRequestDto? | The parameters for managing tags. (optional) 
 
             try
@@ -1348,7 +1348,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9079;  // int | The room ID.
+            var id = 9846;  // int | The room ID.
 
             try
             {

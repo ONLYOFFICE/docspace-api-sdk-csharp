@@ -96,8 +96,22 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // SharingMessage (string) maxLength
+            if (this.SharingMessage != null && this.SharingMessage.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SharingMessage, length must be less than 255.", new [] { "SharingMessage" });
+            }
+
+            // SharingMessage (string) minLength
+            if (this.SharingMessage != null && this.SharingMessage.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SharingMessage, length must be greater than 0.", new [] { "SharingMessage" });
+            }
+
             yield break;
-        }    }
+        }
+
+    }
 
 
 }

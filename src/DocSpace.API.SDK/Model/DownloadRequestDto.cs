@@ -31,7 +31,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="folderIds">The list of folder IDs to be downloaded..</param>
         /// <param name="fileIds">The list of file IDs to be downloaded..</param>
         /// <param name="fileConvertIds">The list of file IDs which will be converted..</param>
-        public DownloadRequestDto(List<int> folderIds = default, List<int> fileIds = default, List<DownloadRequestItemDto> fileConvertIds = default)
+        public DownloadRequestDto(List<DownloadRequestDtoAllOfFolderIds> folderIds = default, List<DownloadRequestDtoAllOfFileIds> fileIds = default, List<DownloadRequestItemDto> fileConvertIds = default)
         {
             this.FolderIds = folderIds;
             this.FileIds = fileIds;
@@ -43,14 +43,14 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of folder IDs to be downloaded.</value>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
-        public List<int> FolderIds { get; set; }
+        public List<DownloadRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to be downloaded.
         /// </summary>
         /// <value>The list of file IDs to be downloaded.</value>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
-        public List<int> FileIds { get; set; }
+        public List<DownloadRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
         /// The list of file IDs which will be converted.
@@ -92,5 +92,7 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }    }
+        }
+
+    }
 }

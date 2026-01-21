@@ -83,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user ID.</value>
         /*
-        <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
+        <example>0dec3996-2dfc-7cb2-e974-8e5fb9f399ce</example>
         */
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
@@ -165,7 +165,9 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }    }
+        }
+
+    }
 
 
 }

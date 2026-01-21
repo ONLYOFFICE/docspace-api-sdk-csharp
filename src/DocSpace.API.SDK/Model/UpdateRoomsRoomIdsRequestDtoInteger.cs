@@ -29,7 +29,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="UpdateRoomsRoomIdsRequestDtoInteger" /> class.
         /// </summary>
         /// <param name="roomIds">The list of room IDs..</param>
-        public UpdateRoomsRoomIdsRequestDtoInteger(List<int> roomIds = default)
+        public UpdateRoomsRoomIdsRequestDtoInteger(List<DuplicateRequestDtoAllOfFileIds> roomIds = default)
         {
             this.RoomIds = roomIds;
         }
@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of room IDs.</value>
         [DataMember(Name = "roomIds", EmitDefaultValue = true)]
-        public List<int> RoomIds { get; set; }
+        public List<DuplicateRequestDtoAllOfFileIds> RoomIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,7 +71,9 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }    }
+        }
+
+    }
 
 
 }

@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The unique identifier of the shared link.</value>
         /*
-        <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
+        <example>0dec3996-2dfc-7cb2-e974-8e5fb9f399ce</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The title of the shared content.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>1080p_sleek_concrete_car_compressing</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -101,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The password protection for accessing the shared content.</value>
         /*
-        <example>vm2v1UjQXp</example>
+        <example>vmOp8juQXp</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
@@ -196,7 +196,9 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }    }
+        }
+
+    }
 
 
 }

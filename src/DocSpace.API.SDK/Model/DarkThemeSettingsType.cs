@@ -29,19 +29,19 @@ namespace DocSpace.API.SDK.Model
         /// Enum Base for value: Base
         /// </summary>
         [EnumMember(Value = "Base")]
-        Base = 1,
+        Base = 0,
 
         /// <summary>
         /// Enum Dark for value: Dark
         /// </summary>
         [EnumMember(Value = "Dark")]
-        Dark = 2,
+        Dark = 1,
 
         /// <summary>
         /// Enum System for value: System
         /// </summary>
         [EnumMember(Value = "System")]
-        System = 3
+        System = 2
     }
 
 }

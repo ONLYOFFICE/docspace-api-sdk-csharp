@@ -31,6 +31,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**GetFilePrimaryExternalLink**](#getfileprimaryexternallink) | **GET** /api/2.0/files/file/{id}/link | Get primary external link |
 | [**GetFileVersionInfo**](#getfileversioninfo) | **GET** /api/2.0/files/file/{fileId}/history | Get file versions |
 | [**GetFillResult**](#getfillresult) | **GET** /api/2.0/files/file/fillresult | Get form-filling result |
+| [**GetFormSubmissions**](#getformsubmissions) | **GET** /api/2.0/files/file/{fileId}/submissions | Get form submission results |
 | [**GetPresignedFileUri**](#getpresignedfileuri) | **GET** /api/2.0/files/file/{fileId}/presigned | Get file download link asynchronously |
 | [**GetPresignedUri**](#getpresigneduri) | **GET** /api/2.0/files/file/{fileId}/presigneduri | Get file download link |
 | [**GetProtectedFileUsers**](#getprotectedfileusers) | **GET** /api/2.0/files/file/{fileId}/protectusers | Get users access rights to the protected file |
@@ -610,7 +611,7 @@ catch (ApiException e)
 
 <a id="createeditsession"></a>
 # **CreateEditSession**
-> ObjectWrapper CreateEditSession (int fileId, long? fileSize = null)
+> ChunkedUploadSessionResponseWrapperTWrapper CreateEditSession (int fileId, long? fileSize = null)
 
 Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  <ul>  <li><b>id:</b> unique ID of this upload session,</li>  <li><b>created:</b> UTC time when the session was created,</li>  <li><b>expired:</b> UTC time when the session will expire if no chunks are sent before that time,</li>  <li><b>location:</b> URL where you should send your next chunk,</li>  <li><b>bytes_uploaded:</b> number of bytes uploaded for the specific upload ID,</li>  <li><b>bytes_total:</b> total number of bytes which will be uploaded.</li>  </ul>
 
@@ -625,7 +626,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**ObjectWrapper**](ObjectWrapper.md)
+[**ChunkedUploadSessionResponseWrapperTWrapper**](ChunkedUploadSessionResponseWrapperTWrapper.md)
 
 ### Authorization
 
@@ -674,7 +675,7 @@ namespace Example
             try
             {
                 // Create the editing session
-                ObjectWrapper result = apiInstance.CreateEditSession(fileId, fileSize);
+                ChunkedUploadSessionResponseWrapperTWrapper result = apiInstance.CreateEditSession(fileId, fileSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -695,7 +696,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create the editing session
-    ApiResponse<ObjectWrapper> response = apiInstance.CreateEditSessionWithHttpInfo(fileId, fileSize);
+    ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper> response = apiInstance.CreateEditSessionWithHttpInfo(fileId, fileSize);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2108,7 +2109,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID.
+            var fileId = 9079;  // int | The file ID.
             var version = 1234;  // int? | The file version. (optional) 
 
             try
@@ -2746,7 +2747,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The file unique identifier.
+            var id = 9079;  // int | The file unique identifier.
             var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
 
@@ -2988,6 +2989,119 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getformsubmissions"></a>
+# **GetFormSubmissions**
+> FormResultsArrayWrapper GetFormSubmissions (int fileId)
+
+Returns the results of form submissions.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file unique identifier. |  |
+
+### Return type
+
+[**FormResultsArrayWrapper**](FormResultsArrayWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GetFormSubmissionsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
+            var fileId = 9846;  // int | The file unique identifier.
+
+            try
+            {
+                // Get form submission results
+                FormResultsArrayWrapper result = apiInstance.GetFormSubmissions(fileId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesApi.GetFormSubmissions: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetFormSubmissionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get form submission results
+    ApiResponse<FormResultsArrayWrapper> response = apiInstance.GetFormSubmissionsWithHttpInfo(fileId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.GetFormSubmissionsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Form submission results were successfully retrieved |  -  |
+| **401** | Unauthorized |  -  |
+| **403** | You do not have enough permissions to perform this action |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3927,7 +4041,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID of the restore version.
+            var fileId = 9079;  // int | The file ID of the restore version.
             var version = 1234;  // int? | The file version of the restore. (optional) 
             var url = some text;  // string? | The file version URL of the restore. (optional) 
 
@@ -4165,7 +4279,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var id = 9079;  // int | The file ID to save as PDF.
+            var id = 9846;  // int | The file ID to save as PDF.
             var saveAsPdfInteger = new SaveAsPdfInteger(); // SaveAsPdfInteger | The parameters for saving the file as PDF.
 
             try
@@ -4505,7 +4619,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | 
+            var fileId = 9079;  // int | 
             var accessRequestKeyDto = new List<AccessRequestKeyDto>?(); // List<AccessRequestKeyDto>? |  (optional) 
 
             try

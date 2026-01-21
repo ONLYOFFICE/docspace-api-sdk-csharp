@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.VectorizationStatus
+[0 - In Progress, 1 - Completed, 2 - Failed]
 
 ## Properties
 

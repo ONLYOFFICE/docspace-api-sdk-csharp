@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The link name.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>auxiliary_kids_internal</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -181,7 +181,9 @@ namespace DocSpace.API.SDK.Model
             }
 
             yield break;
-        }    }
+        }
+
+    }
 
 
 }

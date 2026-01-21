@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The author ID.</value>
         /*
-        <example>9846</example>
+        <example>9079</example>
         */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The author name.</value>
         /*
-        <example>Winfield Upton</example>
+        <example>Sydney Schroeder</example>
         */
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
@@ -97,7 +97,9 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }    }
+        }
+
+    }
 
 
 }

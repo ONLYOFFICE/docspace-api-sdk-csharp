@@ -30,7 +30,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="roomIds">The list of room IDs..</param>
         /// <param name="quota">The room quota..</param>
-        public UpdateRoomsQuotaRequestDtoInteger(List<int> roomIds = default, long quota = default)
+        public UpdateRoomsQuotaRequestDtoInteger(List<DuplicateRequestDtoAllOfFileIds> roomIds = default, long quota = default)
         {
             this.RoomIds = roomIds;
             this.Quota = quota;
@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of room IDs.</value>
         [DataMember(Name = "roomIds", EmitDefaultValue = true)]
-        public List<int> RoomIds { get; set; }
+        public List<DuplicateRequestDtoAllOfFileIds> RoomIds { get; set; }
 
         /// <summary>
         /// The room quota.
@@ -84,7 +84,9 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }    }
+        }
+
+    }
 
 
 }

@@ -30,7 +30,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="userIds">The list of user IDs..</param>
         /// <param name="quota">quota.</param>
-        public UpdateMembersQuotaRequestDto(List<Guid> userIds = default, int quota = default)
+        public UpdateMembersQuotaRequestDto(List<Guid> userIds = default, UpdateMembersQuotaRequestDtoQuota quota = default)
         {
             this.UserIds = userIds;
             this.Quota = quota;
@@ -49,11 +49,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Quota
         /// </summary>
-        /*
-        <example>1234</example>
-        */
         [DataMember(Name = "quota", EmitDefaultValue = false)]
-        public int Quota { get; set; }
+        public UpdateMembersQuotaRequestDtoQuota Quota { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,7 +83,9 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }    }
+        }
+
+    }
 
 
 }

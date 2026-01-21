@@ -22,7 +22,7 @@ namespace DocSpace.API.SDK.Model
     /// The user invitation parameters.
     /// </summary>
     [DataContract(Name = "UserInvitationRequestDto")]
-    public partial class UserInvitationRequestDto : IValidatableObject
+    public partial class UserInvitationRequestDto : EmailInvitationDto, IValidatableObject
     {
 
         /// <summary>
@@ -35,22 +35,10 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="UserInvitationRequestDto" /> class.
         /// </summary>
         /// <param name="type">type.</param>
-        /// <param name="email">The user email address..</param>
-        public UserInvitationRequestDto(EmployeeType? type = default, string email = default)
+        public UserInvitationRequestDto(EmployeeType? type = default)
         {
             this.Type = type;
-            this.Email = email;
         }
-
-        /// <summary>
-        /// The user email address.
-        /// </summary>
-        /// <value>The user email address.</value>
-        /*
-        <example>Sydney_Roberts4@hotmail.com</example>
-        */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
-        public string Email { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,7 +49,6 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class UserInvitationRequestDto {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -70,10 +57,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -83,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }    }
+        }
 
-
+    }
 }

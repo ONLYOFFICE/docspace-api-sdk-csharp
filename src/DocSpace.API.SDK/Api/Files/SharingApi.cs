@@ -176,7 +176,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
         ApiResponse<FileShareArrayWrapper> GetFolderSecurityInfoWithHttpInfo(int id, int? count = default, int? startIndex = default);
         /// <summary>
-        /// Get group members with security information
+        /// Get file group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their file security information.
@@ -192,7 +192,7 @@ namespace DocSpace.API.SDK.Api.Files
         GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFileSecurity(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
 
         /// <summary>
-        /// Get group members with security information
+        /// Get file group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their file security information.
@@ -207,7 +207,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of GroupMemberSecurityRequestArrayWrapper</returns>
         ApiResponse<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityWithHttpInfo(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
         /// <summary>
-        /// Get group members with security information
+        /// Get folder group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their folder security information.
@@ -223,7 +223,7 @@ namespace DocSpace.API.SDK.Api.Files
         GroupMemberSecurityRequestArrayWrapper GetGroupsMembersWithFolderSecurity(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default);
 
         /// <summary>
-        /// Get group members with security information
+        /// Get folder group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their folder security information.
@@ -578,7 +578,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
         Task<ApiResponse<FileShareArrayWrapper>> GetFolderSecurityInfoWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get group members with security information
+        /// Get file group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their file security information.
@@ -595,7 +595,7 @@ namespace DocSpace.API.SDK.Api.Files
         Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFileSecurityAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get group members with security information
+        /// Get file group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their file security information.
@@ -611,7 +611,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (GroupMemberSecurityRequestArrayWrapper)</returns>
         Task<ApiResponse<GroupMemberSecurityRequestArrayWrapper>> GetGroupsMembersWithFileSecurityWithHttpInfoAsync(int fileId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get group members with security information
+        /// Get folder group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their folder security information.
@@ -628,7 +628,7 @@ namespace DocSpace.API.SDK.Api.Files
         Task<GroupMemberSecurityRequestArrayWrapper> GetGroupsMembersWithFolderSecurityAsync(int folderId, Guid groupId, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get group members with security information
+        /// Get folder group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their folder security information.
@@ -2113,7 +2113,7 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get group members with security information
+        /// Get file group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their file security information.
@@ -2133,7 +2133,7 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get group members with security information
+        /// Get file group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their file security information.
@@ -2223,7 +2223,7 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get group members with security information
+        /// Get file group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their file security information.
@@ -2244,7 +2244,7 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get group members with security information
+        /// Get file group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their file security information.
@@ -2337,7 +2337,7 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get group members with security information
+        /// Get folder group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their folder security information.
@@ -2357,7 +2357,7 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get group members with security information
+        /// Get folder group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their folder security information.
@@ -2447,7 +2447,7 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get group members with security information
+        /// Get folder group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their folder security information.
@@ -2468,7 +2468,7 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get group members with security information
+        /// Get folder group members with security information
         /// </summary>
         /// <remarks>
         /// Returns the group members with their folder security information.

@@ -33,7 +33,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="share">The collection of sharing parameters..</param>
         /// <param name="notify">Specifies whether to notify users about the shared file or not..</param>
         /// <param name="sharingMessage">The message to send when notifying about the shared file..</param>
-        public SecurityInfoRequestDto(List<int> folderIds = default, List<int> fileIds = default, List<FileShareParams> share = default, bool notify = default, string sharingMessage = default)
+        public SecurityInfoRequestDto(List<DuplicateRequestDtoAllOfFileIds> folderIds = default, List<DuplicateRequestDtoAllOfFileIds> fileIds = default, List<FileShareParams> share = default, bool notify = default, string sharingMessage = default)
         {
             this.FolderIds = folderIds;
             this.FileIds = fileIds;
@@ -47,14 +47,14 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the shared folder IDs.</value>
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
-        public List<int> FolderIds { get; set; }
+        public List<DuplicateRequestDtoAllOfFileIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of the shared file IDs.
         /// </summary>
         /// <value>The list of the shared file IDs.</value>
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
-        public List<int> FileIds { get; set; }
+        public List<DuplicateRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
         /// The collection of sharing parameters.
@@ -116,8 +116,22 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // SharingMessage (string) maxLength
+            if (this.SharingMessage != null && this.SharingMessage.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SharingMessage, length must be less than 255.", new [] { "SharingMessage" });
+            }
+
+            // SharingMessage (string) minLength
+            if (this.SharingMessage != null && this.SharingMessage.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SharingMessage, length must be greater than 0.", new [] { "SharingMessage" });
+            }
+
             yield break;
-        }    }
+        }
+
+    }
 
 
 }

@@ -47,6 +47,7 @@ Name | Type | Description | Notes
 **MaxImageUploadSize** | **long** | The maximum image upload size. | [optional] 
 **LogoText** | **string** | The white label logo text. | [optional] 
 **ExternalResources** | [**CultureSpecificExternalResources**](CultureSpecificExternalResources.md) |  | [optional] 
+**DefaultFolderType** | **FolderType** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The new name for the API key.</value>
         /*
-        <example>Sydney Schroeder</example>
+        <example>Winfield Upton</example>
         */
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
@@ -112,7 +112,9 @@ namespace DocSpace.API.SDK.Model
             }
 
             yield break;
-        }    }
+        }
+
+    }
 
 
 }

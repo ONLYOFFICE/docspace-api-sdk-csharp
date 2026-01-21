@@ -24,6 +24,28 @@ namespace DocSpace.API.SDK.Api.Files
     {
         #region Synchronous Operations
         /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sessionId"></param>
+        /// <param name="folderId"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
+        /// <returns></returns>
+        void AbortUploadSession(string sessionId, int folderId);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sessionId"></param>
+        /// <param name="folderId"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> AbortUploadSessionWithHttpInfo(string sessionId, int folderId);
+        /// <summary>
         /// Add favorite files and folders
         /// </summary>
         /// <remarks>
@@ -173,8 +195,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest);
+        /// <returns>ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        [Obsolete]
+        ChunkedUploadSessionResponseWrapperTWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest);
 
         /// <summary>
         /// Chunked upload
@@ -186,8 +209,31 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest);
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        [Obsolete]
+        ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
+        /// <returns>ChunkedUploadSessionResponseIntegerWrapper</returns>
+        ChunkedUploadSessionResponseIntegerWrapper CreateUploadSessionInFolder(int folderId, SessionRequest sessionRequest);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseIntegerWrapper</returns>
+        ApiResponse<ChunkedUploadSessionResponseIntegerWrapper> CreateUploadSessionInFolderWithHttpInfo(int folderId, SessionRequest sessionRequest);
         /// <summary>
         /// Delete files and folders
         /// </summary>
@@ -303,6 +349,28 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         ApiResponse<FileOperationArrayWrapper> EmptyTrashWithHttpInfo(bool? single = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
+        /// <returns>UploadSessionResponseIntegerWrapper</returns>
+        UploadSessionResponseIntegerWrapper FinalizeSession(int folderId, string sessionId);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
+        /// <returns>ApiResponse of UploadSessionResponseIntegerWrapper</returns>
+        ApiResponse<UploadSessionResponseIntegerWrapper> FinalizeSessionWithHttpInfo(int folderId, string sessionId);
         /// <summary>
         /// Get active file operations
         /// </summary>
@@ -470,6 +538,56 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(int fileId, UpdateComment updateComment);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="chunkNumber"> (optional)</param>
+        /// <param name="file"> (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
+        /// <returns>ChunkedUploadSessionResponseIntegerWrapper</returns>
+        ChunkedUploadSessionResponseIntegerWrapper UploadAsyncSession(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="chunkNumber"> (optional)</param>
+        /// <param name="file"> (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseIntegerWrapper</returns>
+        ApiResponse<ChunkedUploadSessionResponseIntegerWrapper> UploadAsyncSessionWithHttpInfo(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="file"> (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
+        /// <returns>UploadSessionResponseIntegerWrapper</returns>
+        UploadSessionResponseIntegerWrapper UploadSession(int folderId, string sessionId, FileParameter? file = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="file"> (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
+        /// <returns>ApiResponse of UploadSessionResponseIntegerWrapper</returns>
+        ApiResponse<UploadSessionResponseIntegerWrapper> UploadSessionWithHttpInfo(int folderId, string sessionId, FileParameter? file = default);
         #endregion Synchronous Operations
     }
 
@@ -479,6 +597,33 @@ namespace DocSpace.API.SDK.Api.Files
     public interface IOperationsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sessionId"></param>
+        /// <param name="folderId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
+        /// <returns>Task of void</returns>
+        Task AbortUploadSessionAsync(string sessionId, int folderId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sessionId"></param>
+        /// <param name="folderId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> AbortUploadSessionWithHttpInfoAsync(string sessionId, int folderId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Add favorite files and folders
         /// </summary>
@@ -642,8 +787,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The session parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        [Obsolete]
+        Task<ChunkedUploadSessionResponseWrapperTWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Chunked upload
@@ -656,8 +802,36 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The session parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperTWrapper)</returns>
+        [Obsolete]
+        Task<ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
+        /// <returns>Task of ChunkedUploadSessionResponseIntegerWrapper</returns>
+        Task<ChunkedUploadSessionResponseIntegerWrapper> CreateUploadSessionInFolderAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseIntegerWrapper)</returns>
+        Task<ApiResponse<ChunkedUploadSessionResponseIntegerWrapper>> CreateUploadSessionInFolderWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete files and folders
         /// </summary>
@@ -783,6 +957,33 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/empty-trash/">REST API Reference for EmptyTrash Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
         Task<ApiResponse<FileOperationArrayWrapper>> EmptyTrashWithHttpInfoAsync(bool? single = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
+        /// <returns>Task of UploadSessionResponseIntegerWrapper</returns>
+        Task<UploadSessionResponseIntegerWrapper> FinalizeSessionAsync(int folderId, string sessionId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
+        /// <returns>Task of ApiResponse (UploadSessionResponseIntegerWrapper)</returns>
+        Task<ApiResponse<UploadSessionResponseIntegerWrapper>> FinalizeSessionWithHttpInfoAsync(int folderId, string sessionId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get active file operations
         /// </summary>
@@ -964,6 +1165,66 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-comment/">REST API Reference for UpdateFileComment Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
         Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(int fileId, UpdateComment updateComment, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="chunkNumber"> (optional)</param>
+        /// <param name="file"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
+        /// <returns>Task of ChunkedUploadSessionResponseIntegerWrapper</returns>
+        Task<ChunkedUploadSessionResponseIntegerWrapper> UploadAsyncSessionAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="chunkNumber"> (optional)</param>
+        /// <param name="file"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseIntegerWrapper)</returns>
+        Task<ApiResponse<ChunkedUploadSessionResponseIntegerWrapper>> UploadAsyncSessionWithHttpInfoAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="file"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
+        /// <returns>Task of UploadSessionResponseIntegerWrapper</returns>
+        Task<UploadSessionResponseIntegerWrapper> UploadSessionAsync(int folderId, string sessionId, FileParameter? file = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="file"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
+        /// <returns>Task of ApiResponse (UploadSessionResponseIntegerWrapper)</returns>
+        Task<ApiResponse<UploadSessionResponseIntegerWrapper>> UploadSessionWithHttpInfoAsync(int folderId, string sessionId, FileParameter? file = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -1177,6 +1438,188 @@ namespace DocSpace.API.SDK.Api.Files
             set => _exceptionFactory = value; 
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sessionId"></param>
+        /// <param name="folderId"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
+        /// <returns></returns>
+        public void AbortUploadSession(string sessionId, int folderId)
+        {
+            AbortUploadSessionWithHttpInfo(sessionId, folderId);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sessionId"></param>
+        /// <param name="folderId"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> AbortUploadSessionWithHttpInfo(string sessionId, int folderId)
+        {
+            // verify the required parameter 'sessionId' is set
+            if (sessionId == null)
+                throw new ApiException(400, "Missing required parameter 'sessionId' when calling OperationsApi->AbortUploadSession");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Delete<Object>("/api/2.0/files/{folderId}/session/{sessionId}", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AbortUploadSession", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sessionId"></param>
+        /// <param name="folderId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
+        /// <returns>Task of void</returns>
+        public async Task AbortUploadSessionAsync(string sessionId, int folderId, CancellationToken cancellationToken = default)
+        {
+            await AbortUploadSessionWithHttpInfoAsync(sessionId, folderId, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="sessionId"></param>
+        /// <param name="folderId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> AbortUploadSessionWithHttpInfoAsync(string sessionId, int folderId, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'sessionId' is set
+            if (sessionId == null)
+                throw new ApiException(400, "Missing required parameter 'sessionId' when calling OperationsApi->AbortUploadSession");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/files/{folderId}/session/{sessionId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("AbortUploadSession", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
 
         /// <summary>
         /// Add favorite files and folders
@@ -2244,8 +2687,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest)
+        /// <returns>ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        [Obsolete]
+        public ChunkedUploadSessionResponseWrapperTWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest)
         {
             var localVarResponse = CreateUploadSessionWithHttpInfo(folderId, sessionRequest);
             return localVarResponse.Data;
@@ -2261,8 +2705,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest)
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        [Obsolete]
+        public ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest)
         {
             // verify the required parameter 'sessionRequest' is set
             if (sessionRequest == null)
@@ -2316,7 +2761,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ObjectWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ChunkedUploadSessionResponseWrapperTWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -2341,8 +2786,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The session parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        [Obsolete]
+        public async Task<ChunkedUploadSessionResponseWrapperTWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateUploadSessionWithHttpInfoAsync(folderId, sessionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2359,8 +2805,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="sessionRequest">The session parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperTWrapper)</returns>
+        [Obsolete]
+        public async Task<ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'sessionRequest' is set
             if (sessionRequest == null)
@@ -2416,11 +2863,195 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ObjectWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResponseWrapperTWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("CreateUploadSession", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
+        /// <returns>ChunkedUploadSessionResponseIntegerWrapper</returns>
+        public ChunkedUploadSessionResponseIntegerWrapper CreateUploadSessionInFolder(int folderId, SessionRequest sessionRequest)
+        {
+            var localVarResponse = CreateUploadSessionInFolderWithHttpInfo(folderId, sessionRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseIntegerWrapper</returns>
+        public ApiResponse<ChunkedUploadSessionResponseIntegerWrapper> CreateUploadSessionInFolderWithHttpInfo(int folderId, SessionRequest sessionRequest)
+        {
+            // verify the required parameter 'sessionRequest' is set
+            if (sessionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'sessionRequest' when calling OperationsApi->CreateUploadSessionInFolder");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            if (sessionRequest != null) localVarRequestOptions.Data = sessionRequest;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<ChunkedUploadSessionResponseIntegerWrapper>("/api/2.0/files/{folderId}/session", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("CreateUploadSessionInFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
+        /// <returns>Task of ChunkedUploadSessionResponseIntegerWrapper</returns>
+        public async Task<ChunkedUploadSessionResponseIntegerWrapper> CreateUploadSessionInFolderAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await CreateUploadSessionInFolderWithHttpInfoAsync(folderId, sessionRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The session folder ID.</param>
+        /// <param name="sessionRequest">The session parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session-in-folder/">REST API Reference for CreateUploadSessionInFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseIntegerWrapper)</returns>
+        public async Task<ApiResponse<ChunkedUploadSessionResponseIntegerWrapper>> CreateUploadSessionInFolderWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'sessionRequest' is set
+            if (sessionRequest == null)
+                throw new ApiException(400, "Missing required parameter 'sessionRequest' when calling OperationsApi->CreateUploadSessionInFolder");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            if (sessionRequest != null) localVarRequestOptions.Data = sessionRequest;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResponseIntegerWrapper>("/api/2.0/files/{folderId}/session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("CreateUploadSessionInFolder", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -3337,6 +3968,190 @@ namespace DocSpace.API.SDK.Api.Files
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("EmptyTrash", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
+        /// <returns>UploadSessionResponseIntegerWrapper</returns>
+        public UploadSessionResponseIntegerWrapper FinalizeSession(int folderId, string sessionId)
+        {
+            var localVarResponse = FinalizeSessionWithHttpInfo(folderId, sessionId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
+        /// <returns>ApiResponse of UploadSessionResponseIntegerWrapper</returns>
+        public ApiResponse<UploadSessionResponseIntegerWrapper> FinalizeSessionWithHttpInfo(int folderId, string sessionId)
+        {
+            // verify the required parameter 'sessionId' is set
+            if (sessionId == null)
+                throw new ApiException(400, "Missing required parameter 'sessionId' when calling OperationsApi->FinalizeSession");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<UploadSessionResponseIntegerWrapper>("/api/2.0/files/{folderId}/session/{sessionId}/finalize", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("FinalizeSession", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
+        /// <returns>Task of UploadSessionResponseIntegerWrapper</returns>
+        public async Task<UploadSessionResponseIntegerWrapper> FinalizeSessionAsync(int folderId, string sessionId, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await FinalizeSessionWithHttpInfoAsync(folderId, sessionId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
+        /// <returns>Task of ApiResponse (UploadSessionResponseIntegerWrapper)</returns>
+        public async Task<ApiResponse<UploadSessionResponseIntegerWrapper>> FinalizeSessionWithHttpInfoAsync(int folderId, string sessionId, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'sessionId' is set
+            if (sessionId == null)
+                throw new ApiException(400, "Missing required parameter 'sessionId' when calling OperationsApi->FinalizeSession");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<UploadSessionResponseIntegerWrapper>("/api/2.0/files/{folderId}/session/{sessionId}/finalize", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("FinalizeSession", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -4477,6 +5292,410 @@ namespace DocSpace.API.SDK.Api.Files
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("UpdateFileComment", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="chunkNumber"> (optional)</param>
+        /// <param name="file"> (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
+        /// <returns>ChunkedUploadSessionResponseIntegerWrapper</returns>
+        public ChunkedUploadSessionResponseIntegerWrapper UploadAsyncSession(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default)
+        {
+            var localVarResponse = UploadAsyncSessionWithHttpInfo(folderId, sessionId, chunkNumber, file);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="chunkNumber"> (optional)</param>
+        /// <param name="file"> (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseIntegerWrapper</returns>
+        public ApiResponse<ChunkedUploadSessionResponseIntegerWrapper> UploadAsyncSessionWithHttpInfo(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default)
+        {
+            // verify the required parameter 'sessionId' is set
+            if (sessionId == null)
+                throw new ApiException(400, "Missing required parameter 'sessionId' when calling OperationsApi->UploadAsyncSession");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "multipart/form-data"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
+            if (chunkNumber != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ChunkNumber", chunkNumber));
+            }
+            if (file != null)
+            {
+                localVarRequestOptions.FileParameters.Add("File", file);
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<ChunkedUploadSessionResponseIntegerWrapper>("/api/2.0/files/{folderId}/session/{sessionId}/upload", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("UploadAsyncSession", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="chunkNumber"> (optional)</param>
+        /// <param name="file"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
+        /// <returns>Task of ChunkedUploadSessionResponseIntegerWrapper</returns>
+        public async Task<ChunkedUploadSessionResponseIntegerWrapper> UploadAsyncSessionAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await UploadAsyncSessionWithHttpInfoAsync(folderId, sessionId, chunkNumber, file, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="chunkNumber"> (optional)</param>
+        /// <param name="file"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseIntegerWrapper)</returns>
+        public async Task<ApiResponse<ChunkedUploadSessionResponseIntegerWrapper>> UploadAsyncSessionWithHttpInfoAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'sessionId' is set
+            if (sessionId == null)
+                throw new ApiException(400, "Missing required parameter 'sessionId' when calling OperationsApi->UploadAsyncSession");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "multipart/form-data"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
+            if (chunkNumber != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ChunkNumber", chunkNumber));
+            }
+            if (file != null)
+            {
+                localVarRequestOptions.FileParameters.Add("File", file);
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResponseIntegerWrapper>("/api/2.0/files/{folderId}/session/{sessionId}/upload", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("UploadAsyncSession", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="file"> (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
+        /// <returns>UploadSessionResponseIntegerWrapper</returns>
+        public UploadSessionResponseIntegerWrapper UploadSession(int folderId, string sessionId, FileParameter? file = default)
+        {
+            var localVarResponse = UploadSessionWithHttpInfo(folderId, sessionId, file);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="file"> (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
+        /// <returns>ApiResponse of UploadSessionResponseIntegerWrapper</returns>
+        public ApiResponse<UploadSessionResponseIntegerWrapper> UploadSessionWithHttpInfo(int folderId, string sessionId, FileParameter? file = default)
+        {
+            // verify the required parameter 'sessionId' is set
+            if (sessionId == null)
+                throw new ApiException(400, "Missing required parameter 'sessionId' when calling OperationsApi->UploadSession");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "multipart/form-data"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
+            if (file != null)
+            {
+                localVarRequestOptions.FileParameters.Add("File", file);
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<UploadSessionResponseIntegerWrapper>("/api/2.0/files/{folderId}/session/{sessionId}", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("UploadSession", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="file"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
+        /// <returns>Task of UploadSessionResponseIntegerWrapper</returns>
+        public async Task<UploadSessionResponseIntegerWrapper> UploadSessionAsync(int folderId, string sessionId, FileParameter? file = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await UploadSessionWithHttpInfoAsync(folderId, sessionId, file, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId"></param>
+        /// <param name="sessionId"></param>
+        /// <param name="file"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
+        /// <returns>Task of ApiResponse (UploadSessionResponseIntegerWrapper)</returns>
+        public async Task<ApiResponse<UploadSessionResponseIntegerWrapper>> UploadSessionWithHttpInfoAsync(int folderId, string sessionId, FileParameter? file = default, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'sessionId' is set
+            if (sessionId == null)
+                throw new ApiException(400, "Missing required parameter 'sessionId' when calling OperationsApi->UploadSession");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "multipart/form-data"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("sessionId", ClientUtils.ParameterToString(sessionId)); // path parameter
+            if (file != null)
+            {
+                localVarRequestOptions.FileParameters.Add("File", file);
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<UploadSessionResponseIntegerWrapper>("/api/2.0/files/{folderId}/session/{sessionId}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("UploadSession", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

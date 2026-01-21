@@ -154,8 +154,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper CreateEditSession(int fileId, long? fileSize = default);
+        /// <returns>ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        ChunkedUploadSessionResponseWrapperTWrapper CreateEditSession(int fileId, long? fileSize = default);
 
         /// <summary>
         /// Create the editing session
@@ -167,8 +167,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default);
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default);
         /// <summary>
         /// Create a file
         /// </summary>
@@ -679,6 +679,29 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/">REST API Reference for GetFillResult Operation</seealso>
         /// <returns>ApiResponse of FillingFormResultIntegerWrapper</returns>
         ApiResponse<FillingFormResultIntegerWrapper> GetFillResultWithHttpInfo(string? fillingSessionId = default);
+        /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>FormResultsArrayWrapper</returns>
+        FormResultsArrayWrapper GetFormSubmissions(int fileId);
+
+        /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>ApiResponse of FormResultsArrayWrapper</returns>
+        ApiResponse<FormResultsArrayWrapper> GetFormSubmissionsWithHttpInfo(int fileId);
         /// <summary>
         /// Get file download link asynchronously
         /// </summary>
@@ -1383,8 +1406,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        Task<ChunkedUploadSessionResponseWrapperTWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create the editing session
@@ -1397,8 +1420,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperTWrapper)</returns>
+        Task<ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a file
         /// </summary>
@@ -1954,6 +1977,31 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-fill-result/">REST API Reference for GetFillResult Operation</seealso>
         /// <returns>Task of ApiResponse (FillingFormResultIntegerWrapper)</returns>
         Task<ApiResponse<FillingFormResultIntegerWrapper>> GetFillResultWithHttpInfoAsync(string? fillingSessionId = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>Task of FormResultsArrayWrapper</returns>
+        Task<FormResultsArrayWrapper> GetFormSubmissionsAsync(int fileId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>Task of ApiResponse (FormResultsArrayWrapper)</returns>
+        Task<ApiResponse<FormResultsArrayWrapper>> GetFormSubmissionsWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get file download link asynchronously
         /// </summary>
@@ -3670,8 +3718,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper CreateEditSession(int fileId, long? fileSize = default)
+        /// <returns>ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        public ChunkedUploadSessionResponseWrapperTWrapper CreateEditSession(int fileId, long? fileSize = default)
         {
             var localVarResponse = CreateEditSessionWithHttpInfo(fileId, fileSize);
             return localVarResponse.Data;
@@ -3687,8 +3735,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default)
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        public ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3741,7 +3789,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ObjectWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ChunkedUploadSessionResponseWrapperTWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3766,8 +3814,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        public async Task<ChunkedUploadSessionResponseWrapperTWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateEditSessionWithHttpInfoAsync(fileId, fileSize, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3784,8 +3832,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperTWrapper)</returns>
+        public async Task<ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3840,7 +3888,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ObjectWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResponseWrapperTWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -7431,6 +7479,188 @@ namespace DocSpace.API.SDK.Api.Files
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetFillResult", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>FormResultsArrayWrapper</returns>
+        public FormResultsArrayWrapper GetFormSubmissions(int fileId)
+        {
+            var localVarResponse = GetFormSubmissionsWithHttpInfo(fileId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>ApiResponse of FormResultsArrayWrapper</returns>
+        public ApiResponse<FormResultsArrayWrapper> GetFormSubmissionsWithHttpInfo(int fileId)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<FormResultsArrayWrapper>("/api/2.0/files/file/{fileId}/submissions", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetFormSubmissions", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>Task of FormResultsArrayWrapper</returns>
+        public async Task<FormResultsArrayWrapper> GetFormSubmissionsAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetFormSubmissionsWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>Task of ApiResponse (FormResultsArrayWrapper)</returns>
+        public async Task<ApiResponse<FormResultsArrayWrapper>> GetFormSubmissionsWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<FormResultsArrayWrapper>("/api/2.0/files/file/{fileId}/submissions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetFormSubmissions", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

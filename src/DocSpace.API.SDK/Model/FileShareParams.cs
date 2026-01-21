@@ -22,7 +22,7 @@ namespace DocSpace.API.SDK.Model
     /// The collection of file sharing parameters.
     /// </summary>
     [DataContract(Name = "FileShareParams")]
-    public partial class FileShareParams : IValidatableObject
+    public partial class FileShareParams : EmailInvitationDto, IValidatableObject
     {
 
         /// <summary>
@@ -35,12 +35,10 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="FileShareParams" /> class.
         /// </summary>
         /// <param name="shareTo">The ID of the user to whom the file will be shared..</param>
-        /// <param name="email">The user email address..</param>
         /// <param name="access">access.</param>
-        public FileShareParams(Guid shareTo = default, string email = default, FileShare? access = default)
+        public FileShareParams(Guid shareTo = default, FileShare? access = default)
         {
             this.ShareTo = shareTo;
-            this.Email = email;
             this.Access = access;
         }
 
@@ -55,16 +53,6 @@ namespace DocSpace.API.SDK.Model
         public Guid ShareTo { get; set; }
 
         /// <summary>
-        /// The user email address.
-        /// </summary>
-        /// <value>The user email address.</value>
-        /*
-        <example>Sydney_Roberts4@hotmail.com</example>
-        */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
-        public string Email { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,7 +61,6 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class FileShareParams {\n");
             sb.Append("  ShareTo: ").Append(ShareTo).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Access: ").Append(Access).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -83,10 +70,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
             return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -96,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             yield break;
-        }    }
+        }
 
-
+    }
 }

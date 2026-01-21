@@ -28,13 +28,13 @@ namespace DocSpace.API.SDK.Model
         /// Enum Crypt for value: Crypt
         /// </summary>
         [EnumMember(Value = "Crypt")]
-        Crypt = 1,
+        Crypt = 0,
 
         /// <summary>
         /// Enum Sign for value: Sign
         /// </summary>
         [EnumMember(Value = "Sign")]
-        Sign = 2
+        Sign = 1
     }
 
 }

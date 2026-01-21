@@ -326,6 +326,29 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <returns>ApiResponse of TimezonesRequestsArrayWrapper</returns>
         ApiResponse<TimezonesRequestsArrayWrapper> GetTimeZonesWithHttpInfo();
         /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>StudioDefaultPageSettingsWrapper</returns>
+        StudioDefaultPageSettingsWrapper SaveDefaultFolder(DefaultProductRequestDto? defaultProductRequestDto = default);
+
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>ApiResponse of StudioDefaultPageSettingsWrapper</returns>
+        ApiResponse<StudioDefaultPageSettingsWrapper> SaveDefaultFolderWithHttpInfo(DefaultProductRequestDto? defaultProductRequestDto = default);
+        /// <summary>
         /// Save the DNS settings
         /// </summary>
         /// <remarks>
@@ -779,6 +802,31 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>Task of ApiResponse (TimezonesRequestsArrayWrapper)</returns>
         Task<ApiResponse<TimezonesRequestsArrayWrapper>> GetTimeZonesWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>Task of StudioDefaultPageSettingsWrapper</returns>
+        Task<StudioDefaultPageSettingsWrapper> SaveDefaultFolderAsync(DefaultProductRequestDto? defaultProductRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (StudioDefaultPageSettingsWrapper)</returns>
+        Task<ApiResponse<StudioDefaultPageSettingsWrapper>> SaveDefaultFolderWithHttpInfoAsync(DefaultProductRequestDto? defaultProductRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Save the DNS settings
         /// </summary>
@@ -3301,6 +3349,188 @@ namespace DocSpace.API.SDK.Api.Settings
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetTimeZones", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>StudioDefaultPageSettingsWrapper</returns>
+        public StudioDefaultPageSettingsWrapper SaveDefaultFolder(DefaultProductRequestDto? defaultProductRequestDto = default)
+        {
+            var localVarResponse = SaveDefaultFolderWithHttpInfo(defaultProductRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>ApiResponse of StudioDefaultPageSettingsWrapper</returns>
+        public ApiResponse<StudioDefaultPageSettingsWrapper> SaveDefaultFolderWithHttpInfo(DefaultProductRequestDto? defaultProductRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (defaultProductRequestDto != null) localVarRequestOptions.Data = defaultProductRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<StudioDefaultPageSettingsWrapper>("/api/2.0/settings/defaultfolder", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SaveDefaultFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>Task of StudioDefaultPageSettingsWrapper</returns>
+        public async Task<StudioDefaultPageSettingsWrapper> SaveDefaultFolderAsync(DefaultProductRequestDto? defaultProductRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await SaveDefaultFolderWithHttpInfoAsync(defaultProductRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (StudioDefaultPageSettingsWrapper)</returns>
+        public async Task<ApiResponse<StudioDefaultPageSettingsWrapper>> SaveDefaultFolderWithHttpInfoAsync(DefaultProductRequestDto? defaultProductRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (defaultProductRequestDto != null) localVarRequestOptions.Data = defaultProductRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<StudioDefaultPageSettingsWrapper>("/api/2.0/settings/defaultfolder", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SaveDefaultFolder", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

@@ -1073,7 +1073,7 @@ paths:
       summary: Send a payment request
       tags:
       - Portal / Payment
-  /api/2.0/portal/payment/chechoutsetupurl:
+  /api/2.0/portal/payment/checkoutsetupurl:
     get:
       description: Returns the URL to the checkout setup page.
       operationId: getCheckoutSetupUrl
@@ -3579,6 +3579,40 @@ paths:
         - write
       - OpenId: []
       summary: Close the admin helper
+      tags:
+      - Settings / Common settings
+  /api/2.0/settings/defaultfolder:
+    put:
+      description: Sets the default folder.
+      operationId: saveDefaultFolder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DefaultProductRequestDto"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StudioDefaultPageSettingsWrapper"
+          description: Message about saving settings successfully
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Set the default folder
       tags:
       - Settings / Common settings
   /api/2.0/settings/emailactivation:
@@ -7606,7 +7640,7 @@ paths:
         name: userId
         required: false
         schema:
-          example: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
+          example: aae1e103-bca5-9fa1-ba8c-42058b4abf28
           format: uuid
           type: string
         style: form
@@ -9679,7 +9713,7 @@ paths:
         name: id
         required: true
         schema:
-          example: 9079
+          example: 9846
           format: int32
           type: integer
         style: simple
@@ -13049,7 +13083,7 @@ paths:
         name: fileId
         required: true
         schema:
-          example: 9846
+          example: 9079
           format: int32
           type: integer
         style: simple
@@ -13205,7 +13239,7 @@ paths:
         name: fileId
         required: true
         schema:
-          example: 9846
+          example: 9079
           format: int32
           type: integer
         style: simple
@@ -13256,7 +13290,7 @@ paths:
         name: id
         required: true
         schema:
-          example: 9846
+          example: 9079
           format: int32
           type: integer
         style: simple
@@ -13548,7 +13582,7 @@ paths:
         name: id
         required: true
         schema:
-          example: 9079
+          example: 9846
           format: int32
           type: integer
         style: simple
@@ -13708,6 +13742,48 @@ paths:
       summary: Perform form filling action
       tags:
       - Files / Files
+  /api/2.0/files/file/{fileId}/submissions:
+    get:
+      description: Returns the results of form submissions.
+      operationId: getFormSubmissions
+      parameters:
+      - description: The file unique identifier.
+        explode: false
+        in: path
+        name: fileId
+        required: true
+        schema:
+          example: 9846
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FormResultsArrayWrapper"
+          description: Form submission results were successfully retrieved
+        "401":
+          description: Unauthorized
+        "403":
+          description: You do not have enough permissions to perform this action
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Get form submission results
+      tags:
+      - Files / Files
   /api/2.0/files/{fileId}/access:
     get:
       operationId: getEncryptionInfo
@@ -13752,7 +13828,7 @@ paths:
         name: fileId
         required: true
         schema:
-          example: 9846
+          example: 9079
           format: int32
           type: integer
         style: simple
@@ -14328,7 +14404,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/ChunkedUploadSessionResponseWrapperTWrapper"
           description: Information about created session
         "401":
           description: Unauthorized
@@ -16857,6 +16933,7 @@ paths:
       - Files / Operations
   /api/2.0/files/{folderId}/upload/create_session:
     post:
+      deprecated: true
       description: "Creates the session to upload large files in multiple chunks to\
         \ the folder with the ID specified in the request.\n\n **Note**: Each chunk\
         \ can have different length but the length should be multiple of <b>512</b>\
@@ -16900,7 +16977,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectWrapper"
+                $ref: "#/components/schemas/ChunkedUploadSessionResponseWrapperTWrapper"
           description: Information about created session
         "401":
           description: Unauthorized
@@ -16920,6 +16997,251 @@ paths:
         - write
       - OpenId: []
       summary: Chunked upload
+      tags:
+      - Files / Operations
+  /api/2.0/files/{folderId}/session:
+    post:
+      operationId: createUploadSessionInFolder
+      parameters:
+      - description: The session folder ID.
+        explode: false
+        in: path
+        name: folderId
+        required: true
+        schema:
+          example: 9846
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SessionRequest"
+        description: The session parameters.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChunkedUploadSessionResponseIntegerWrapper"
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      tags:
+      - Files / Operations
+  /api/2.0/files/{folderId}/session/{sessionId}:
+    delete:
+      operationId: abortUploadSession
+      parameters:
+      - explode: false
+        in: path
+        name: sessionId
+        required: true
+        schema:
+          example: some text
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: folderId
+        required: true
+        schema:
+          example: 9846
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      tags:
+      - Files / Operations
+    post:
+      operationId: uploadSession
+      parameters:
+      - explode: false
+        in: path
+        name: folderId
+        required: true
+        schema:
+          example: 9846
+          format: int32
+          type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: sessionId
+        required: true
+        schema:
+          example: some text
+          type: string
+        style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              File:
+                style: form
+            schema:
+              $ref: "#/components/schemas/uploadSession_request"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UploadSessionResponseIntegerWrapper"
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      tags:
+      - Files / Operations
+  /api/2.0/files/{folderId}/session/{sessionId}/upload:
+    post:
+      operationId: uploadAsyncSession
+      parameters:
+      - explode: false
+        in: path
+        name: folderId
+        required: true
+        schema:
+          example: 9846
+          format: int32
+          type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: sessionId
+        required: true
+        schema:
+          example: some text
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: ChunkNumber
+        required: false
+        schema:
+          example: 1234
+          format: int32
+          type: integer
+        style: form
+      requestBody:
+        content:
+          multipart/form-data:
+            encoding:
+              File:
+                style: form
+            schema:
+              $ref: "#/components/schemas/uploadSession_request"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChunkedUploadSessionResponseIntegerWrapper"
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      tags:
+      - Files / Operations
+  /api/2.0/files/{folderId}/session/{sessionId}/finalize:
+    put:
+      operationId: finalizeSession
+      parameters:
+      - explode: false
+        in: path
+        name: folderId
+        required: true
+        schema:
+          example: 9846
+          format: int32
+          type: integer
+        style: simple
+      - explode: false
+        in: path
+        name: sessionId
+        required: true
+        schema:
+          example: some text
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UploadSessionResponseIntegerWrapper"
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
       tags:
       - Files / Operations
   /api/2.0/files/rooms/roomquota:
@@ -18318,7 +18640,7 @@ paths:
         - read
         - write
       - OpenId: []
-      summary: Get group members with security information
+      summary: Get folder group members with security information
       tags:
       - Files / Sharing
   /api/2.0/files/file/{fileId}/group/{groupId}/share:
@@ -18400,7 +18722,7 @@ paths:
         - read
         - write
       - OpenId: []
-      summary: Get group members with security information
+      summary: Get file group members with security information
       tags:
       - Files / Sharing
   /api/2.0/files/owner:
@@ -20050,7 +20372,7 @@ paths:
         name: id
         required: true
         schema:
-          example: 9079
+          example: 9846
           format: int32
           type: integer
         style: simple
@@ -20098,7 +20420,7 @@ paths:
         name: id
         required: true
         schema:
-          example: 9079
+          example: 9846
           format: int32
           type: integer
         style: simple
@@ -22945,7 +23267,7 @@ components:
         password: vfmf2vO1Kp
         provider: some text
         confirmData:
-          email: Sydney14@hotmail.com
+          email: Sydney_Roberts4@hotmail.com
           first: true
           key: some text
         culture: some text
@@ -23666,13 +23988,13 @@ components:
       additionalProperties: false
       description: The additional confirmation data required for authentication.
       example:
-        email: Sydney14@hotmail.com
+        email: Sydney_Roberts4@hotmail.com
         first: true
         key: some text
       properties:
         email:
           description: The email address to confirm the user's identity.
-          example: Sydney14@hotmail.com
+          example: Sydney_Roberts4@hotmail.com
           format: email
           nullable: true
           type: string
@@ -24652,6 +24974,17 @@ components:
       - Provide choice
       - Web
       - App
+    DefaultProductRequestDto:
+      additionalProperties: false
+      description: The request parameters for setting the default product configuration.
+      example:
+        defaultFolderType: 0
+      properties:
+        defaultFolderType:
+          $ref: "#/components/schemas/FolderType"
+      required:
+      - defaultFolderType
+      type: object
     DistributedTaskStatus:
       description: "[0 - Created, 1 - Running, 2 - Completed, 3 - Canceled, 4 - Failted]"
       enum:
@@ -25456,6 +25789,105 @@ components:
           example: true
           type: boolean
       type: object
+    FolderType:
+      description: "[0 - Default, 1 - Coomon, 2 - Bunch, 3 - Trash, 5 - User, 6 -\
+        \ Share, 8 - Projects, 10 - Favourites, 11 - Recent, 12 - Templates, 13 -\
+        \ Privacy, 14 - Virtual rooms, 15 - Filling forms room, 16 - Editing room,\
+        \ 19 - Custom room, 20 - Archive, 21 - Thirdparty backup, 22 - Public room,\
+        \ 25 - Ready form folder, 26 - In process form folder, 27 - Form filling folder\
+        \ done, 28 - Form filling folder in progress, 29 - Virtual Data Room, 30 -\
+        \ Room templates folder, 31 - AI Room, 32 - Knowledge, 33 - Result storage,\
+        \ 34 - AI Agents]"
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 5
+      - 6
+      - 8
+      - 10
+      - 11
+      - 12
+      - 13
+      - 14
+      - 15
+      - 16
+      - 19
+      - 20
+      - 21
+      - 22
+      - 25
+      - 26
+      - 27
+      - 28
+      - 29
+      - 30
+      - 31
+      - 32
+      - 33
+      - 34
+      example: 0
+      type: integer
+      x-enum-type: integer
+      x-enum-varnames:
+      - DEFAULT
+      - COMMON
+      - BUNCH
+      - TRASH
+      - USER
+      - SHARE
+      - Projects
+      - Favorites
+      - Recent
+      - Templates
+      - Privacy
+      - VirtualRooms
+      - FillingFormsRoom
+      - EditingRoom
+      - CustomRoom
+      - Archive
+      - ThirdpartyBackup
+      - PublicRoom
+      - ReadyFormFolder
+      - InProcessFormFolder
+      - FormFillingFolderDone
+      - FormFillingFolderInProgress
+      - VirtualDataRoom
+      - RoomTemplates
+      - AiRoom
+      - Knowledge
+      - ResultStorage
+      - AiAgents
+      x-enum-descriptions:
+      - Default
+      - Coomon
+      - Bunch
+      - Trash
+      - User
+      - Share
+      - Projects
+      - Favourites
+      - Recent
+      - Templates
+      - Privacy
+      - Virtual rooms
+      - Filling forms room
+      - Editing room
+      - Custom room
+      - Archive
+      - Thirdparty backup
+      - Public room
+      - Ready form folder
+      - In process form folder
+      - Form filling folder done
+      - Form filling folder in progress
+      - Virtual Data Room
+      - Room templates folder
+      - AI Room
+      - Knowledge
+      - Result storage
+      - AI Agents
     FormGalleryDto:
       additionalProperties: false
       description: The form gallery parameters.
@@ -26410,30 +26842,30 @@ components:
         \ deleted, 5125 - Backup completed, 5126 - Backup failed, 5127 - Scheduled\
         \ backup started, 5128 - Scheduled backup completed, 5129 - Scheduled backup\
         \ failed, 5150 - Form started to fill, 5151 - Form partially filled, 5152\
-        \ - Form completely filled, 5153 - Form stopped, 5154 - Agent created, 5155\
-        \ - Agent renamed, 5156 - Agent deleted, 5157 - MCP server added to agent,\
-        \ 5158 - MCP server deleted from agent, 5159 - Room change owner, 5501 - Ldap\
-        \ enabled, 5502 - Ldap disabled, 5503 - LDAP synchronization completed, 6000\
-        \ - Language settings updated, 6001 - Time zone settings updated, 6002 - Dns\
-        \ settings updated, 6003 - Trusted mail domain settings updated, 6004 - Password\
-        \ strength settings updated, 6005 - Two factor authentication settings updated,\
-        \ 6006 - Administrator message settings updated, 6007 - Default start page\
-        \ settings updated, 6008 - Products list updated, 6009 - Administrator added,\
-        \ 6010 - Administrator opened full access, 6011 - Administrator deleted, 6012\
-        \ - Users opened product access, 6013 - Groups opened product access, 6014\
-        \ - Product access opened, 6015 - Product access restricted, 6016 - Product\
-        \ added administrator, 6017 - Product deleted administrator, 6018 - Greeting\
-        \ settings updated, 6019 - Team template changed, 6020 - Color theme changed,\
-        \ 6021 - Owner sent change owner instructions, 6022 - Owner updated, 6023\
-        \ - Owner sent portal deactivation instructions, 6024 - Owner sent portal\
-        \ delete instructions, 6025 - Portal deactivated, 6026 - Portal deleted, 6027\
-        \ - Login history report downloaded, 6028 - Audit trail report downloaded,\
-        \ 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access settings updated,\
-        \ 6032 - Cookie settings updated, 6033 - Mail service settings updated, 6034\
-        \ - Custom navigation settings updated, 6035 - Audit settings updated, 6036\
-        \ - Two factor authentication disabled, 6037 - Two factor authentication enabled\
-        \ by sms, 6038 - Two factor authentication enabled by tfa app, 6039 - Portal\
-        \ renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled,\
+        \ - Form completely filled, 5153 - Form stopped, 5154 - AI agent created,\
+        \ 5155 - AI agent renamed, 5156 - AI agent deleted, 5157 - MCP server added\
+        \ to AI agent, 5158 - MCP server deleted from AI agent, 5159 - Room change\
+        \ owner, 5501 - Ldap enabled, 5502 - Ldap disabled, 5503 - LDAP synchronization\
+        \ completed, 6000 - Language settings updated, 6001 - Time zone settings updated,\
+        \ 6002 - Dns settings updated, 6003 - Trusted mail domain settings updated,\
+        \ 6004 - Password strength settings updated, 6005 - Two factor authentication\
+        \ settings updated, 6006 - Administrator message settings updated, 6007 -\
+        \ Default start page settings updated, 6008 - Products list updated, 6009\
+        \ - Administrator added, 6010 - Administrator opened full access, 6011 - Administrator\
+        \ deleted, 6012 - Users opened product access, 6013 - Groups opened product\
+        \ access, 6014 - Product access opened, 6015 - Product access restricted,\
+        \ 6016 - Product added administrator, 6017 - Product deleted administrator,\
+        \ 6018 - Greeting settings updated, 6019 - Team template changed, 6020 - Color\
+        \ theme changed, 6021 - Owner sent change owner instructions, 6022 - Owner\
+        \ updated, 6023 - Owner sent portal deactivation instructions, 6024 - Owner\
+        \ sent portal delete instructions, 6025 - Portal deactivated, 6026 - Portal\
+        \ deleted, 6027 - Login history report downloaded, 6028 - Audit trail report\
+        \ downloaded, 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access\
+        \ settings updated, 6032 - Cookie settings updated, 6033 - Mail service settings\
+        \ updated, 6034 - Custom navigation settings updated, 6035 - Audit settings\
+        \ updated, 6036 - Two factor authentication disabled, 6037 - Two factor authentication\
+        \ enabled by sms, 6038 - Two factor authentication enabled by tfa app, 6039\
+        \ - Portal renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled,\
         \ 6042 - Quota per user changed, 6043 - Quota per user disabled, 6044 - Quota\
         \ per portal changed, 6045 - Quota per portal disabled, 6046 - Form submit,\
         \ 6047 - Form opened for filling, 6048 - Custom quota per room default, 6049\
@@ -26454,8 +26886,11 @@ components:
         \ disabled, 6080 - MCP server deleted, 6081 - WebSearch settings configured,\
         \ 6082 - WebSearch settings reset, 6083 - Vectorization settings configured,\
         \ 6084 - Vectorization settings reset, 6085 - Webplugin uploaded, 6086 - Webplugin\
-        \ updated, 6087 - Webplugin deleted, 7000 - Contact admin mail sent, 7001\
-        \ - Room invite link used, 7002 - User created and added to room, 7003 - Guest\
+        \ updated, 6087 - Webplugin deleted, 6088 - Whitelabel settings logo text\
+        \ updated, 6089 - Whitelabel settings logos updated, 6090 - Whitelabel company\
+        \ settings updated, 6091 - Whitelabel additional settings updated, 6092 -\
+        \ Whitelabel mail settings updated, 7000 - Contact admin mail sent, 7001 -\
+        \ Room invite link used, 7002 - User created and added to room, 7003 - Guest\
         \ created and added to room, 7004 - Contact sales mail sent, 9901 - Create\
         \ client, 9902 - Update client, 9903 - Regenerate secret, 9904 - Delete client,\
         \ 9905 - Change client activation, 9906 - Change client visibility, 9907 -\
@@ -26760,6 +27195,11 @@ components:
       - 6085
       - 6086
       - 6087
+      - 6088
+      - 6089
+      - 6090
+      - 6091
+      - 6092
       - 7000
       - 7001
       - 7002
@@ -27077,6 +27517,11 @@ components:
       - WebpluginUploaded
       - WebpluginUpdated
       - WebpluginDeleted
+      - WhiteLabelSettingsLogoTextUpdated
+      - WhiteLabelSettingsLogosUpdated
+      - WhiteLabelCompanySettingsUpdated
+      - WhiteLabelAdditionalSettingsUpdated
+      - WhiteLabelMailSettingsUpdated
       - ContactAdminMailSent
       - RoomInviteLinkUsed
       - UserCreatedAndAddedToRoom
@@ -27294,11 +27739,11 @@ components:
       - Form partially filled
       - Form completely filled
       - Form stopped
-      - Agent created
-      - Agent renamed
-      - Agent deleted
-      - MCP server added to agent
-      - MCP server deleted from agent
+      - AI agent created
+      - AI agent renamed
+      - AI agent deleted
+      - MCP server added to AI agent
+      - MCP server deleted from AI agent
       - Room change owner
       - Ldap enabled
       - Ldap disabled
@@ -27391,6 +27836,11 @@ components:
       - Webplugin uploaded
       - Webplugin updated
       - Webplugin deleted
+      - Whitelabel settings logo text updated
+      - Whitelabel settings logos updated
+      - Whitelabel company settings updated
+      - Whitelabel additional settings updated
+      - Whitelabel mail settings updated
       - Contact admin mail sent
       - Room invite link used
       - User created and added to room
@@ -29111,8 +29561,7 @@ components:
           example: true
           type: boolean
         defaultQuota:
-          example: 1234
-          type: integer
+          $ref: "#/components/schemas/QuotaSettingsRequestsDto_defaultQuota"
       required:
       - defaultQuota
       type: object
@@ -29741,6 +30190,7 @@ components:
         limitedAccessDevToolsForUsers: true
         cookieSettingsEnabled: true
         logoText: some text
+        defaultFolderType: 0
         thirdpartyEnable: true
         utcOffset: "-8.5"
         greetingSettings: Web Office Applications
@@ -30001,6 +30451,8 @@ components:
           type: string
         externalResources:
           $ref: "#/components/schemas/CultureSpecificExternalResources"
+        defaultFolderType:
+          $ref: "#/components/schemas/FolderType"
       required:
       - baseDomain
       - cookieSettingsEnabled
@@ -30043,6 +30495,7 @@ components:
           limitedAccessDevToolsForUsers: true
           cookieSettingsEnabled: true
           logoText: some text
+          defaultFolderType: 0
           thirdpartyEnable: true
           utcOffset: "-8.5"
           greetingSettings: Web Office Applications
@@ -31038,6 +31491,49 @@ components:
           format: int32
           type: integer
       type: object
+    StudioDefaultPageSettings:
+      additionalProperties: false
+      example:
+        defaultFolderType: 0
+        lastModified: 2008-04-10T06:30:00+04:00
+      properties:
+        defaultFolderType:
+          $ref: "#/components/schemas/FolderType"
+        lastModified:
+          example: 2008-04-10T06:30:00+04:00
+          format: date-time
+          type: string
+      type: object
+    StudioDefaultPageSettingsWrapper:
+      example:
+        response:
+          defaultFolderType: 0
+          lastModified: 2008-04-10T06:30:00+04:00
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/StudioDefaultPageSettings"
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
+      type: object
     SubAccount:
       additionalProperties: false
       description: Represents a sub-account with a specific currency and balance.
@@ -31270,7 +31766,7 @@ components:
             format: date-time
             type: string
         type: object
-      description: The ai agent quota settings.
+      description: The AI agent quota settings.
       example:
         lastRecalculateDate: 2008-04-10T06:30:00+04:00
         enableQuota: true
@@ -34701,7 +35197,7 @@ components:
           createOn:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
-          id: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
+          id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
           isActive: true
           key: some text
           expiresAt:
@@ -34729,7 +35225,7 @@ components:
           createOn:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
-          id: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
+          id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
           isActive: true
           key: some text
           expiresAt:
@@ -34788,7 +35284,7 @@ components:
         createOn:
           utcTime: 2008-04-10T06:30:00+04:00
           timeZoneOffset: 00:00:00
-        id: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
+        id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
         isActive: true
         key: some text
         expiresAt:
@@ -34797,7 +35293,7 @@ components:
       properties:
         id:
           description: The API key unique identifier.
-          example: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
+          example: aae1e103-bca5-9fa1-ba8c-42058b4abf28
           format: uuid
           type: string
         name:
@@ -34867,7 +35363,7 @@ components:
           createOn:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
-          id: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
+          id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
           isActive: true
           key: some text
           expiresAt:
@@ -35043,6 +35539,17 @@ components:
         statusCode:
           format: int32
           type: integer
+      type: object
+    EmailInvitationDto:
+      additionalProperties: false
+      description: The email invitation parameters.
+      properties:
+        email:
+          description: The email address.
+          example: Sydney_Roberts4@hotmail.com
+          format: email
+          nullable: true
+          type: string
       type: object
     EmailMemberRequestDto:
       additionalProperties: false
@@ -37557,12 +38064,12 @@ components:
       example:
         permissions:
         - some text
-        name: Sydney Schroeder
+        name: Winfield Upton
         isActive: true
       properties:
         name:
           description: The new name for the API key.
-          example: Sydney Schroeder
+          example: Winfield Upton
           maxLength: 30
           minLength: 0
           nullable: true
@@ -37758,8 +38265,7 @@ components:
           nullable: true
           type: array
         quota:
-          example: 1234
-          type: integer
+          $ref: "#/components/schemas/UpdateMembersQuotaRequestDto_quota"
       type: object
     UpdateMembersRequestDto:
       additionalProperties: false
@@ -37798,20 +38304,16 @@ components:
       type: object
     UserInvitationRequestDto:
       additionalProperties: false
+      allOf:
+      - $ref: "#/components/schemas/EmailInvitationDto"
+      - properties:
+          type:
+            $ref: "#/components/schemas/EmployeeType"
+        type: object
       description: The user invitation parameters.
       example:
         type: All
         email: Sydney_Roberts4@hotmail.com
-      properties:
-        type:
-          $ref: "#/components/schemas/EmployeeType"
-        email:
-          description: The user email address.
-          example: Sydney_Roberts4@hotmail.com
-          format: email
-          nullable: true
-          type: string
-      type: object
     AccessRequestKeyDto:
       additionalProperties: false
       example:
@@ -38118,17 +38620,13 @@ components:
           folderIds:
             description: The list of folder IDs of the base batch request.
             items:
-              description: The list of folder IDs of the base batch request.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/BaseBatchRequestDto_allOf_folderIds"
             nullable: true
             type: array
           fileIds:
             description: The list of file IDs of the base batch request.
             items:
-              description: The list of file IDs of the base batch request.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/BaseBatchRequestDto_allOf_fileIds"
             nullable: true
             type: array
         type: object
@@ -38149,22 +38647,17 @@ components:
           folderIds:
             description: The list of folder IDs to be copied/moved.
             items:
-              description: The list of folder IDs to be copied/moved.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/BatchRequestDto_allOf_folderIds"
             nullable: true
             type: array
           fileIds:
             description: The list of file IDs to be copied/moved.
             items:
-              description: The list of file IDs to be copied/moved.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/BatchRequestDto_allOf_fileIds"
             nullable: true
             type: array
           destFolderId:
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/BatchRequestDto_allOf_destFolderId"
           conflictResolveType:
             $ref: "#/components/schemas/FileConflictResolveType"
           deleteAfter:
@@ -38236,8 +38729,8 @@ components:
       description: The request parameters for changing the file owner.
       example:
         fileIds:
-        - 1234
-        - 1234
+        - null
+        - null
         folderIds:
         - 1234
         - 1234
@@ -38246,17 +38739,13 @@ components:
         folderIds:
           description: The list of folder IDs to change the owner.
           items:
-            description: The list of folder IDs to change the owner.
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/BatchRequestDto_allOf_fileIds"
           nullable: true
           type: array
         fileIds:
           description: The list of file IDs to change the owner.
           items:
-            description: The list of file IDs to change the owner.
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/BatchRequestDto_allOf_fileIds"
           nullable: true
           type: array
         userId:
@@ -38773,6 +39262,177 @@ components:
           nullable: true
           type: array
       type: object
+    ChunkedUploadSessionResponseInteger:
+      additionalProperties: false
+      example:
+        path:
+        - 1234
+        expired: 2008-04-10T06:30:00+04:00
+        created: 2008-04-10T06:30:00+04:00
+        location: "001 Schroeder Run, New Tabithaport, Colombia"
+        id: "9846"
+        bytes_total: 1234
+      properties:
+        id:
+          example: "9846"
+          nullable: true
+          type: string
+        path:
+          example:
+          - 1234
+          items:
+            format: int32
+            type: integer
+          nullable: true
+          type: array
+        created:
+          example: 2008-04-10T06:30:00+04:00
+          format: date-time
+          type: string
+        expired:
+          example: 2008-04-10T06:30:00+04:00
+          format: date-time
+          type: string
+        location:
+          example: "001 Schroeder Run, New Tabithaport, Colombia"
+          nullable: true
+          type: string
+        bytes_total:
+          example: 1234
+          format: int64
+          type: integer
+      type: object
+    ChunkedUploadSessionResponseIntegerWrapper:
+      example:
+        response:
+          path:
+          - 1234
+          expired: 2008-04-10T06:30:00+04:00
+          created: 2008-04-10T06:30:00+04:00
+          location: "001 Schroeder Run, New Tabithaport, Colombia"
+          id: "9846"
+          bytes_total: 1234
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/ChunkedUploadSessionResponseInteger"
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
+      type: object
+    ChunkedUploadSessionResponseT:
+      additionalProperties: false
+      example:
+        path:
+        - null
+        - null
+        expired: 2008-04-10T06:30:00+04:00
+        created: 2008-04-10T06:30:00+04:00
+        location: "001 Schroeder Run, New Tabithaport, Colombia"
+        id: "9846"
+        bytes_total: 1234
+      properties:
+        id:
+          example: "9846"
+          nullable: true
+          type: string
+        path:
+          items:
+            $ref: "#/components/schemas/T"
+          nullable: true
+          type: array
+        created:
+          example: 2008-04-10T06:30:00+04:00
+          format: date-time
+          type: string
+        expired:
+          example: 2008-04-10T06:30:00+04:00
+          format: date-time
+          type: string
+        location:
+          example: "001 Schroeder Run, New Tabithaport, Colombia"
+          nullable: true
+          type: string
+        bytes_total:
+          example: 1234
+          format: int64
+          type: integer
+      type: object
+    ChunkedUploadSessionResponseWrapperT:
+      additionalProperties: false
+      example:
+        data:
+          path:
+          - null
+          - null
+          expired: 2008-04-10T06:30:00+04:00
+          created: 2008-04-10T06:30:00+04:00
+          location: "001 Schroeder Run, New Tabithaport, Colombia"
+          id: "9846"
+          bytes_total: 1234
+        success: true
+      properties:
+        success:
+          example: true
+          type: boolean
+        data:
+          $ref: "#/components/schemas/ChunkedUploadSessionResponseT"
+      type: object
+    ChunkedUploadSessionResponseWrapperTWrapper:
+      example:
+        response:
+          data:
+            path:
+            - null
+            - null
+            expired: 2008-04-10T06:30:00+04:00
+            created: 2008-04-10T06:30:00+04:00
+            location: "001 Schroeder Run, New Tabithaport, Colombia"
+            id: "9846"
+            bytes_total: 1234
+          success: true
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/ChunkedUploadSessionResponseWrapperT"
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
+      type: object
     CoEditingConfig:
       additionalProperties: false
       description: The co-editing configuration parameters.
@@ -38862,7 +39522,7 @@ components:
                   - 1234
               transparent: -8.5
               height: -8.5
-          title: legacy_1080p_small_wooden_mouse
+          title: transmitter_protocol_electronics
           isForm: true
           fileType: some text
           key: some text
@@ -39012,8 +39672,8 @@ components:
             isAnonim: true
           fileType: 0
           dimensions:
-            width: 1
-            height: 6
+            width: 6
+            height: 0
         editorConfig:
           coEditing:
             mode: 0
@@ -39211,7 +39871,7 @@ components:
                     - 1234
                 transparent: -8.5
                 height: -8.5
-            title: legacy_1080p_small_wooden_mouse
+            title: transmitter_protocol_electronics
             isForm: true
             fileType: some text
             key: some text
@@ -39361,8 +40021,8 @@ components:
               isAnonim: true
             fileType: 0
             dimensions:
-              width: 1
-              height: 6
+              width: 6
+              height: 0
           editorConfig:
             coEditing:
               mode: 0
@@ -39671,8 +40331,7 @@ components:
           nullable: true
           type: string
         destFolderId:
-          example: 1234
-          type: integer
+          $ref: "#/components/schemas/CopyAsJsonElement_destFolderId"
         enableExternalExt:
           description: Specifies whether to allow creating the copied file of an external
             extension or not.
@@ -39781,8 +40440,7 @@ components:
           nullable: true
           type: string
         templateId:
-          example: 1234
-          type: integer
+          $ref: "#/components/schemas/CreateFileJsonElement_templateId"
         enableExternalExt:
           description: Specifies whether to allow creating a file of an external extension
             or not.
@@ -40317,17 +40975,13 @@ components:
           folderIds:
             description: The list of folder IDs to be deleted.
             items:
-              description: The list of folder IDs to be deleted.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/DeleteBatchRequestDto_allOf_folderIds"
             nullable: true
             type: array
           fileIds:
             description: The list of file IDs to be deleted.
             items:
-              description: The list of file IDs to be deleted.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/DeleteBatchRequestDto_allOf_fileIds"
             nullable: true
             type: array
           deleteAfter:
@@ -40585,7 +41239,7 @@ components:
                 - 1234
             transparent: -8.5
             height: -8.5
-        title: legacy_1080p_small_wooden_mouse
+        title: transmitter_protocol_electronics
         isForm: true
         fileType: some text
         key: some text
@@ -40637,7 +41291,7 @@ components:
           $ref: "#/components/schemas/FileReferenceData"
         title:
           description: The document title.
-          example: legacy_1080p_small_wooden_mouse
+          example: transmitter_protocol_electronics
           nullable: true
           type: string
         url:
@@ -40661,17 +41315,13 @@ components:
           folderIds:
             description: The list of folder IDs to be downloaded.
             items:
-              description: The list of folder IDs to be downloaded.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/DownloadRequestDto_allOf_folderIds"
             nullable: true
             type: array
           fileIds:
             description: The list of file IDs to be downloaded.
             items:
-              description: The list of file IDs to be downloaded.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/DownloadRequestDto_allOf_fileIds"
             nullable: true
             type: array
           fileConvertIds:
@@ -40707,8 +41357,7 @@ components:
         key: 1234
       properties:
         key:
-          example: 1234
-          type: integer
+          $ref: "#/components/schemas/DownloadRequestItemDto_key"
         value:
           description: The target format or conversion type for the file download.
           example: some text
@@ -40761,17 +41410,13 @@ components:
           folderIds:
             description: The list of folder IDs.
             items:
-              description: The list of folder IDs.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/DuplicateRequestDto_allOf_folderIds"
             nullable: true
             type: array
           fileIds:
             description: The list of file IDs.
             items:
-              description: The list of file IDs.
-              example: 1234
-              type: integer
+              $ref: "#/components/schemas/DuplicateRequestDto_allOf_fileIds"
             nullable: true
             type: array
         type: object
@@ -40798,21 +41443,21 @@ components:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             user:
-              name: Winfield Upton
-              id: "9846"
+              name: Sydney Schroeder
+              id: "9079"
             documentSha256: some text
           - created:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             user:
-              name: Winfield Upton
-              id: "9846"
+              name: Sydney Schroeder
+              id: "9079"
             documentSha256: some text
           id: 1234
           version: 1234
           user:
-            name: Winfield Upton
-            id: "9846"
+            name: Sydney Schroeder
+            id: "9079"
           key: some text
         - changesHistory: some text
           serverVersion: some text
@@ -40825,21 +41470,21 @@ components:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             user:
-              name: Winfield Upton
-              id: "9846"
+              name: Sydney Schroeder
+              id: "9079"
             documentSha256: some text
           - created:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
             user:
-              name: Winfield Upton
-              id: "9846"
+              name: Sydney Schroeder
+              id: "9079"
             documentSha256: some text
           id: 1234
           version: 1234
           user:
-            name: Winfield Upton
-            id: "9846"
+            name: Sydney Schroeder
+            id: "9079"
           key: some text
         count: 0
         links:
@@ -40872,17 +41517,17 @@ components:
       additionalProperties: false
       description: The information about the file editing history author.
       example:
-        name: Winfield Upton
-        id: "9846"
+        name: Sydney Schroeder
+        id: "9079"
       properties:
         id:
           description: The author ID.
-          example: "9846"
+          example: "9079"
           nullable: true
           type: string
         name:
           description: The author name.
-          example: Winfield Upton
+          example: Sydney Schroeder
           nullable: true
           type: string
       required:
@@ -40896,8 +41541,8 @@ components:
           utcTime: 2008-04-10T06:30:00+04:00
           timeZoneOffset: 00:00:00
         user:
-          name: Winfield Upton
-          id: "9846"
+          name: Sydney Schroeder
+          id: "9079"
         documentSha256: some text
       properties:
         user:
@@ -41020,21 +41665,21 @@ components:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           user:
-            name: Winfield Upton
-            id: "9846"
+            name: Sydney Schroeder
+            id: "9079"
           documentSha256: some text
         - created:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
           user:
-            name: Winfield Upton
-            id: "9846"
+            name: Sydney Schroeder
+            id: "9079"
           documentSha256: some text
         id: 1234
         version: 1234
         user:
-          name: Winfield Upton
-          id: "9846"
+          name: Sydney Schroeder
+          id: "9079"
         key: some text
       properties:
         id:
@@ -41258,17 +41903,6 @@ components:
       - Desktop
       - Mobile
       - Embedded
-    EmailInvitationDto:
-      additionalProperties: false
-      description: The email invitation parameters.
-      properties:
-        email:
-          description: The email address.
-          example: Sydney_Roberts4@hotmail.com
-          format: email
-          nullable: true
-          type: string
-      type: object
     EmbeddedConfig:
       additionalProperties: false
       description: The configuration parameters for the embedded document type.
@@ -41869,8 +42503,8 @@ components:
           isAnonim: true
         fileType: 0
         dimensions:
-          width: 1
-          height: 6
+          width: 6
+          height: 0
     FileEncryptionInfoDto:
       additionalProperties: false
       example:
@@ -42958,8 +43592,8 @@ components:
             isAnonim: true
           fileType: 0
           dimensions:
-            width: 1
-            height: 6
+            width: 6
+            height: 0
         - isLinkExpired: true
           formFillingStatus: 0
           originRoomId: 1234
@@ -43086,8 +43720,8 @@ components:
             isAnonim: true
           fileType: 0
           dimensions:
-            width: 1
-            height: 6
+            width: 6
+            height: 0
         count: 0
         links:
         - action: action
@@ -43244,16 +43878,16 @@ components:
             isAnonim: true
           fileType: 0
           dimensions:
-            width: 1
-            height: 6
-        count: 5
+            width: 6
+            height: 0
+        count: 1
         links:
         - action: action
           href: href
         - action: action
           href: href
         status: 5
-        statusCode: 2
+        statusCode: 5
       properties:
         response:
           $ref: "#/components/schemas/FileDtoInteger"
@@ -43344,7 +43978,7 @@ components:
         password: vfmf2vO1Kp
         linkId: 75a5f745-f697-4418-b38d-0fe0d277e258
         access: 0
-        title: legacy_1080p_small_wooden_mouse
+        title: auxiliary_kids_internal
         expirationDate:
           utcTime: 2008-04-10T06:30:00+04:00
           timeZoneOffset: 00:00:00
@@ -43362,7 +43996,7 @@ components:
           $ref: "#/components/schemas/ApiDateTime"
         title:
           description: The link name.
-          example: legacy_1080p_small_wooden_mouse
+          example: auxiliary_kids_internal
           maxLength: 255
           minLength: 0
           nullable: true
@@ -45029,13 +45663,13 @@ components:
           isLocked: false
           canRevoke: true
           sharedLink:
-            password: vm2v1UjQXp
+            password: vmOp8juQXp
             internal: true
             shareLink: some text
             linkType: 0
-            id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+            id: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
             requestToken: some text
-            title: legacy_1080p_small_wooden_mouse
+            title: 1080p_sleek_concrete_car_compressing
             isExpired: true
             expirationDate:
               utcTime: 2008-04-10T06:30:00+04:00
@@ -45141,13 +45775,13 @@ components:
           isLocked: false
           canRevoke: true
           sharedLink:
-            password: vm2v1UjQXp
+            password: vmOp8juQXp
             internal: true
             shareLink: some text
             linkType: 0
-            id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+            id: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
             requestToken: some text
-            title: legacy_1080p_small_wooden_mouse
+            title: 1080p_sleek_concrete_car_compressing
             isExpired: true
             expirationDate:
               utcTime: 2008-04-10T06:30:00+04:00
@@ -45284,13 +45918,13 @@ components:
         isLocked: false
         canRevoke: true
         sharedLink:
-          password: vm2v1UjQXp
+          password: vmOp8juQXp
           internal: true
           shareLink: some text
           linkType: 0
-          id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+          id: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
           requestToken: some text
-          title: legacy_1080p_small_wooden_mouse
+          title: 1080p_sleek_concrete_car_compressing
           isExpired: true
           expirationDate:
             utcTime: 2008-04-10T06:30:00+04:00
@@ -45364,13 +45998,13 @@ components:
       additionalProperties: false
       description: A shareable link for a file with its configuration and status.
       example:
-        password: vm2v1UjQXp
+        password: vmOp8juQXp
         internal: true
         shareLink: some text
         linkType: 0
-        id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+        id: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
         requestToken: some text
-        title: legacy_1080p_small_wooden_mouse
+        title: 1080p_sleek_concrete_car_compressing
         isExpired: true
         expirationDate:
           utcTime: 2008-04-10T06:30:00+04:00
@@ -45380,12 +46014,12 @@ components:
       properties:
         id:
           description: The unique identifier of the shared link.
-          example: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+          example: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
           format: uuid
           type: string
         title:
           description: The title of the shared content.
-          example: legacy_1080p_small_wooden_mouse
+          example: 1080p_sleek_concrete_car_compressing
           nullable: true
           type: string
         shareLink:
@@ -45399,7 +46033,7 @@ components:
           $ref: "#/components/schemas/LinkType"
         password:
           description: The password protection for accessing the shared content.
-          example: vm2v1UjQXp
+          example: vmOp8juQXp
           nullable: true
           type: string
         denyDownload:
@@ -45429,26 +46063,22 @@ components:
       type: object
     FileShareParams:
       additionalProperties: false
+      allOf:
+      - $ref: "#/components/schemas/EmailInvitationDto"
+      - properties:
+          shareTo:
+            description: The ID of the user to whom the file will be shared.
+            example: 75a5f745-f697-4418-b38d-0fe0d277e258
+            format: uuid
+            type: string
+          access:
+            $ref: "#/components/schemas/FileShare"
+        type: object
       description: The collection of file sharing parameters.
       example:
         access: 0
         shareTo: 75a5f745-f697-4418-b38d-0fe0d277e258
         email: Sydney_Roberts4@hotmail.com
-      properties:
-        shareTo:
-          description: The ID of the user to whom the file will be shared.
-          example: 75a5f745-f697-4418-b38d-0fe0d277e258
-          format: uuid
-          type: string
-        email:
-          description: The user email address.
-          example: Sydney_Roberts4@hotmail.com
-          format: email
-          nullable: true
-          type: string
-        access:
-          $ref: "#/components/schemas/FileShare"
-      type: object
     FileShareWrapper:
       example:
         response:
@@ -45550,13 +46180,13 @@ components:
           isLocked: false
           canRevoke: true
           sharedLink:
-            password: vm2v1UjQXp
+            password: vmOp8juQXp
             internal: true
             shareLink: some text
             linkType: 0
-            id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+            id: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
             requestToken: some text
-            title: legacy_1080p_small_wooden_mouse
+            title: 1080p_sleek_concrete_car_compressing
             isExpired: true
             expirationDate:
               utcTime: 2008-04-10T06:30:00+04:00
@@ -46580,8 +47210,8 @@ components:
             isAnonim: true
           fileType: 0
           dimensions:
-            width: 1
-            height: 6
+            width: 6
+            height: 0
         originalForm:
           isLinkExpired: true
           formFillingStatus: 0
@@ -46709,8 +47339,8 @@ components:
             isAnonim: true
           fileType: 0
           dimensions:
-            width: 1
-            height: 6
+            width: 6
+            height: 0
         roomId: 9846
       properties:
         formNumber:
@@ -46950,8 +47580,8 @@ components:
               isAnonim: true
             fileType: 0
             dimensions:
-              width: 1
-              height: 6
+              width: 6
+              height: 0
           originalForm:
             isLinkExpired: true
             formFillingStatus: 0
@@ -47079,8 +47709,8 @@ components:
               isAnonim: true
             fileType: 0
             dimensions:
-              width: 1
-              height: 6
+              width: 6
+              height: 0
           roomId: 9846
         count: 0
         links:
@@ -50450,105 +51080,6 @@ components:
           format: int32
           type: integer
       type: object
-    FolderType:
-      description: "[0 - Default, 1 - Coomon, 2 - Bunch, 3 - Trash, 5 - User, 6 -\
-        \ Share, 8 - Projects, 10 - Favourites, 11 - Recent, 12 - Templates, 13 -\
-        \ Privacy, 14 - Virtual rooms, 15 - Filling forms room, 16 - Editing room,\
-        \ 19 - Custom room, 20 - Archive, 21 - Thirdparty backup, 22 - Public room,\
-        \ 25 - Ready form folder, 26 - In process form folder, 27 - Form filling folder\
-        \ done, 28 - Form filling folder in progress, 29 - Virtual Data Room, 30 -\
-        \ Room templates folder, 31 - AI Room, 32 - Knowledge, 33 - Result storage,\
-        \ 34 - AI Agents]"
-      enum:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 5
-      - 6
-      - 8
-      - 10
-      - 11
-      - 12
-      - 13
-      - 14
-      - 15
-      - 16
-      - 19
-      - 20
-      - 21
-      - 22
-      - 25
-      - 26
-      - 27
-      - 28
-      - 29
-      - 30
-      - 31
-      - 32
-      - 33
-      - 34
-      example: 0
-      type: integer
-      x-enum-type: integer
-      x-enum-varnames:
-      - DEFAULT
-      - COMMON
-      - BUNCH
-      - TRASH
-      - USER
-      - SHARE
-      - Projects
-      - Favorites
-      - Recent
-      - Templates
-      - Privacy
-      - VirtualRooms
-      - FillingFormsRoom
-      - EditingRoom
-      - CustomRoom
-      - Archive
-      - ThirdpartyBackup
-      - PublicRoom
-      - ReadyFormFolder
-      - InProcessFormFolder
-      - FormFillingFolderDone
-      - FormFillingFolderInProgress
-      - VirtualDataRoom
-      - RoomTemplates
-      - AiRoom
-      - Knowledge
-      - ResultStorage
-      - AiAgents
-      x-enum-descriptions:
-      - Default
-      - Coomon
-      - Bunch
-      - Trash
-      - User
-      - Share
-      - Projects
-      - Favourites
-      - Recent
-      - Templates
-      - Privacy
-      - Virtual rooms
-      - Filling forms room
-      - Editing room
-      - Custom room
-      - Archive
-      - Thirdparty backup
-      - Public room
-      - Ready form folder
-      - In process form folder
-      - Form filling folder done
-      - Form filling folder in progress
-      - Virtual Data Room
-      - Room templates folder
-      - AI Room
-      - Knowledge
-      - Result storage
-      - AI Agents
     FormFillingManageAction:
       description: "[0 - Stop, 1 - Resume]"
       enum:
@@ -50590,6 +51121,82 @@ components:
       - In progress
       - Complete
       - Stoped
+    FormResultsArrayWrapper:
+      example:
+        response:
+        - createOn: 2008-04-10T06:30:00+04:00
+          formsData:
+          - tag: some text
+            type: some text
+            value: some text
+            key: some text
+          - tag: some text
+            type: some text
+            value: some text
+            key: some text
+        - createOn: 2008-04-10T06:30:00+04:00
+          formsData:
+          - tag: some text
+            type: some text
+            value: some text
+            key: some text
+          - tag: some text
+            type: some text
+            value: some text
+            key: some text
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          items:
+            $ref: "#/components/schemas/FormResultsDto"
+          type: array
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
+      type: object
+    FormResultsDto:
+      additionalProperties: false
+      example:
+        createOn: 2008-04-10T06:30:00+04:00
+        formsData:
+        - tag: some text
+          type: some text
+          value: some text
+          key: some text
+        - tag: some text
+          type: some text
+          value: some text
+          key: some text
+      properties:
+        createOn:
+          description: The date and time when the form was created.
+          example: 2008-04-10T06:30:00+04:00
+          format: date-time
+          type: string
+        formsData:
+          description: The list of forms data.
+          items:
+            $ref: "#/components/schemas/FormsItemData"
+          nullable: true
+          type: array
+      type: object
     FormRole:
       additionalProperties: false
       description: The form role.
@@ -50599,7 +51206,7 @@ components:
         roleColor: some text
         roleName: some text
         submissionDate: 2008-04-10T06:30:00+04:00
-        userId: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+        userId: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
         roomId: 9846
         openedAt: 2008-04-10T06:30:00+04:00
       properties:
@@ -50620,7 +51227,7 @@ components:
           type: string
         userId:
           description: The user ID.
-          example: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+          example: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
           format: uuid
           type: string
         sequence:
@@ -51255,6 +51862,36 @@ components:
         statusCode:
           format: int32
           type: integer
+      type: object
+    FormsItemData:
+      additionalProperties: false
+      description: The data of the separate form item.
+      example:
+        tag: some text
+        type: some text
+        value: some text
+        key: some text
+      properties:
+        key:
+          description: The form data key.
+          example: some text
+          nullable: true
+          type: string
+        tag:
+          description: The form data tag.
+          example: some text
+          nullable: true
+          type: string
+        value:
+          description: The form data value.
+          example: some text
+          nullable: true
+          type: string
+        type:
+          description: The form data type.
+          example: some text
+          nullable: true
+          type: string
       type: object
     FormsItemDto:
       additionalProperties: false
@@ -55290,13 +55927,13 @@ components:
           isLocked: false
           canRevoke: true
           sharedLink:
-            password: vm2v1UjQXp
+            password: vmOp8juQXp
             internal: true
             shareLink: some text
             linkType: 0
-            id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+            id: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
             requestToken: some text
-            title: legacy_1080p_small_wooden_mouse
+            title: 1080p_sleek_concrete_car_compressing
             isExpired: true
             expirationDate:
               utcTime: 2008-04-10T06:30:00+04:00
@@ -55402,13 +56039,13 @@ components:
           isLocked: false
           canRevoke: true
           sharedLink:
-            password: vm2v1UjQXp
+            password: vmOp8juQXp
             internal: true
             shareLink: some text
             linkType: 0
-            id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+            id: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
             requestToken: some text
-            title: legacy_1080p_small_wooden_mouse
+            title: 1080p_sleek_concrete_car_compressing
             isExpired: true
             expirationDate:
               utcTime: 2008-04-10T06:30:00+04:00
@@ -55549,13 +56186,13 @@ components:
             isLocked: false
             canRevoke: true
             sharedLink:
-              password: vm2v1UjQXp
+              password: vmOp8juQXp
               internal: true
               shareLink: some text
               linkType: 0
-              id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+              id: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
               requestToken: some text
-              title: legacy_1080p_small_wooden_mouse
+              title: 1080p_sleek_concrete_car_compressing
               isExpired: true
               expirationDate:
                 utcTime: 2008-04-10T06:30:00+04:00
@@ -55661,13 +56298,13 @@ components:
             isLocked: false
             canRevoke: true
             sharedLink:
-              password: vm2v1UjQXp
+              password: vmOp8juQXp
               internal: true
               shareLink: some text
               linkType: 0
-              id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+              id: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
               requestToken: some text
-              title: legacy_1080p_small_wooden_mouse
+              title: 1080p_sleek_concrete_car_compressing
               isExpired: true
               expirationDate:
                 utcTime: 2008-04-10T06:30:00+04:00
@@ -55721,7 +56358,7 @@ components:
         - 75a5f745-f697-4418-b38d-0fe0d277e258
         share:
         - some text
-        title: legacy_1080p_small_wooden_mouse
+        title: transmitter_protocol_electronics
         roomId: 9846
         tags:
         - some text
@@ -55733,7 +56370,7 @@ components:
           type: integer
         title:
           description: The room template title.
-          example: legacy_1080p_small_wooden_mouse
+          example: transmitter_protocol_electronics
           nullable: true
           type: string
         logo:
@@ -55950,7 +56587,7 @@ components:
           roleColor: some text
           roleName: some text
           submissionDate: 2008-04-10T06:30:00+04:00
-          userId: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+          userId: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
           roomId: 9846
           openedAt: 2008-04-10T06:30:00+04:00
         - sequence: 1234
@@ -55958,7 +56595,7 @@ components:
           roleColor: some text
           roleName: some text
           submissionDate: 2008-04-10T06:30:00+04:00
-          userId: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+          userId: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
           roomId: 9846
           openedAt: 2008-04-10T06:30:00+04:00
       properties:
@@ -56015,8 +56652,8 @@ components:
       description: The security information request parameters.
       example:
         fileIds:
-        - 1234
-        - 1234
+        - null
+        - null
         folderIds:
         - 1234
         - 1234
@@ -56033,17 +56670,13 @@ components:
         folderIds:
           description: The list of the shared folder IDs.
           items:
-            description: The list of the shared folder IDs.
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/DuplicateRequestDto_allOf_fileIds"
           nullable: true
           type: array
         fileIds:
           description: The list of the shared file IDs.
           items:
-            description: The list of the shared file IDs.
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/DuplicateRequestDto_allOf_fileIds"
           nullable: true
           type: array
         share:
@@ -56060,6 +56693,8 @@ components:
         sharingMessage:
           description: The message to send when notifying about the shared file.
           example: some text
+          maxLength: 255
+          minLength: 0
           nullable: true
           type: string
       type: object
@@ -56091,6 +56726,8 @@ components:
         sharingMessage:
           description: The message to send when notifying about the shared file.
           example: some text
+          maxLength: 255
+          minLength: 0
           nullable: true
           type: string
       type: object
@@ -56198,8 +56835,8 @@ components:
     Size:
       additionalProperties: false
       example:
-        width: 1
-        height: 6
+        width: 6
+        height: 0
       properties:
         height:
           format: int32
@@ -56397,6 +57034,9 @@ components:
           example: some text
           nullable: true
           type: string
+      type: object
+    T:
+      additionalProperties: false
       type: object
     TemplatesConfig:
       additionalProperties: false
@@ -56825,9 +57465,7 @@ components:
         roomIds:
           description: The list of room IDs.
           items:
-            description: The list of room IDs.
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/DuplicateRequestDto_allOf_fileIds"
           nullable: true
           type: array
         quota:
@@ -56847,9 +57485,7 @@ components:
         roomIds:
           description: The list of room IDs.
           items:
-            description: The list of room IDs.
-            example: 1234
-            type: integer
+            $ref: "#/components/schemas/DuplicateRequestDto_allOf_fileIds"
           nullable: true
           type: array
       type: object
@@ -56984,6 +57620,334 @@ components:
           format: int32
           type: integer
       type: object
+    UploadSessionResponseDtoInteger:
+      additionalProperties: false
+      example:
+        file:
+          isLinkExpired: true
+          formFillingStatus: 0
+          originRoomId: 1234
+          lastOpened:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
+          versionGroup: 1
+          draftLocation:
+            folderTitle: some text
+            fileTitle: some text
+            folderId: 9846
+            fileId: 9846
+          viewUrl: https://www.onlyoffice.com/viewfile?fileid=2221
+          originRoomTitle: some text
+          id: 10
+          locked: true
+          viewAccessibility: "[{\"value\":true}]"
+          parentShared: true
+          shortWebUrl: some text
+          order: some text
+          updatedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
+          providerItem: true
+          availableShareRights: "[{\"value\":[\"some text\"]}]"
+          created:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
+          canShare: true
+          sharedForUser: false
+          rootFolderId: 1234
+          mute: false
+          isForm: false
+          version: 3
+          folderId: 9846
+          originTitle: some text
+          external: true
+          pureContentLength: 1234
+          customFilterEnabled: true
+          startFilling: false
+          webUrl: some text
+          sharedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
+          requestToken: some text
+          updated:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
+          thumbnailStatus: 0
+          providerKey: some text
+          isFavorite: true
+          hasDraft: false
+          shared: false
+          access: 0
+          title: Some titile.txt/ Some title
+          security: "[{\"value\":true}]"
+          fileExst: .txt
+          originId: 1234
+          customFilterEnabledBy: some text
+          expired:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
+          lockedBy: some text
+          fileStatus: 0
+          providerId: 1234
+          fileEntryType: 1
+          inProcessFolderTitle: some text
+          inProcessFolderId: 1234
+          expirationDate:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
+          thumbnailUrl: some text
+          shareSettings: "[{\"value\":1234}]"
+          vectorizationStatus: 0
+          parentRoomType: 0
+          encrypted: false
+          createdBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
+          autoDelete:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
+          rootFolderType: 0
+          contentLength: "12345"
+          comment: some text
+          ownedBy:
+            profileUrl: some text
+            hasAvatar: true
+            avatarMedium: some text
+            avatarOriginal: some text
+            displayName: Mike Zanyatski
+            avatarMax: some text
+            id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+            avatar: some text
+            title: Manager
+            avatarSmall: url to small avatar
+            isAnonim: true
+          fileType: 0
+          dimensions:
+            width: 6
+            height: 0
+        uploaded: true
+        id: 1234
+        title: legacy_1080p_small_wooden_mouse
+        version: 1234
+        folderId: 9846
+        providerKey: some text
+      properties:
+        id:
+          example: 1234
+          format: int32
+          type: integer
+        folderId:
+          example: 9846
+          format: int32
+          type: integer
+        version:
+          example: 1234
+          format: int32
+          type: integer
+        title:
+          example: legacy_1080p_small_wooden_mouse
+          nullable: true
+          type: string
+        providerKey:
+          example: some text
+          nullable: true
+          type: string
+        uploaded:
+          example: true
+          type: boolean
+        file:
+          $ref: "#/components/schemas/FileDtoInteger"
+      type: object
+    UploadSessionResponseIntegerWrapper:
+      example:
+        response:
+          file:
+            isLinkExpired: true
+            formFillingStatus: 0
+            originRoomId: 1234
+            lastOpened:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
+            versionGroup: 1
+            draftLocation:
+              folderTitle: some text
+              fileTitle: some text
+              folderId: 9846
+              fileId: 9846
+            viewUrl: https://www.onlyoffice.com/viewfile?fileid=2221
+            originRoomTitle: some text
+            id: 10
+            locked: true
+            viewAccessibility: "[{\"value\":true}]"
+            parentShared: true
+            shortWebUrl: some text
+            order: some text
+            updatedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
+            providerItem: true
+            availableShareRights: "[{\"value\":[\"some text\"]}]"
+            created:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
+            canShare: true
+            sharedForUser: false
+            rootFolderId: 1234
+            mute: false
+            isForm: false
+            version: 3
+            folderId: 9846
+            originTitle: some text
+            external: true
+            pureContentLength: 1234
+            customFilterEnabled: true
+            startFilling: false
+            webUrl: some text
+            sharedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
+            requestToken: some text
+            updated:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
+            thumbnailStatus: 0
+            providerKey: some text
+            isFavorite: true
+            hasDraft: false
+            shared: false
+            access: 0
+            title: Some titile.txt/ Some title
+            security: "[{\"value\":true}]"
+            fileExst: .txt
+            originId: 1234
+            customFilterEnabledBy: some text
+            expired:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
+            lockedBy: some text
+            fileStatus: 0
+            providerId: 1234
+            fileEntryType: 1
+            inProcessFolderTitle: some text
+            inProcessFolderId: 1234
+            expirationDate:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
+            thumbnailUrl: some text
+            shareSettings: "[{\"value\":1234}]"
+            vectorizationStatus: 0
+            parentRoomType: 0
+            encrypted: false
+            createdBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
+            autoDelete:
+              utcTime: 2008-04-10T06:30:00+04:00
+              timeZoneOffset: 00:00:00
+            rootFolderType: 0
+            contentLength: "12345"
+            comment: some text
+            ownedBy:
+              profileUrl: some text
+              hasAvatar: true
+              avatarMedium: some text
+              avatarOriginal: some text
+              displayName: Mike Zanyatski
+              avatarMax: some text
+              id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+              avatar: some text
+              title: Manager
+              avatarSmall: url to small avatar
+              isAnonim: true
+            fileType: 0
+            dimensions:
+              width: 6
+              height: 0
+          uploaded: true
+          id: 1234
+          title: legacy_1080p_small_wooden_mouse
+          version: 1234
+          folderId: 9846
+          providerKey: some text
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/UploadSessionResponseDtoInteger"
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
+      type: object
     UserConfig:
       additionalProperties: false
       description: The configuration parameters of the user currently viewing or editing
@@ -57047,12 +58011,22 @@ components:
           type: boolean
       type: object
     VectorizationStatus:
+      description: "[0 - In Progress, 1 - Completed, 2 - Failed]"
       enum:
       - 0
       - 1
       - 2
-      format: int32
+      example: 0
       type: integer
+      x-enum-type: integer
+      x-enum-varnames:
+      - InProgress
+      - Completed
+      - Failed
+      x-enum-descriptions:
+      - In Progress
+      - Completed
+      - Failed
     WatermarkAdditions:
       description: "[1 - User name, 2 - User email, 4 - User ip adress, 8 - Current\
         \ date, 16 - Room name]"
@@ -58418,6 +59392,12 @@ components:
           format: int32
           type: integer
       type: object
+    uploadSession_request:
+      properties:
+        File:
+          format: binary
+          type: string
+      type: object
     uploadRoomLogo_request:
       properties:
         FormCollection:
@@ -58502,6 +59482,108 @@ components:
         action:
           type: string
       type: object
+    QuotaSettingsRequestsDto_defaultQuota:
+      description: The default storage quota value applied to new users.
+      oneOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    UpdateMembersQuotaRequestDto_quota:
+      description: The quota in JSON format.
+      oneOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    BaseBatchRequestDto_allOf_folderIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    BaseBatchRequestDto_allOf_fileIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    BatchRequestDto_allOf_folderIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    BatchRequestDto_allOf_fileIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    BatchRequestDto_allOf_destFolderId:
+      description: The destination folder ID.
+      oneOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    CopyAsJsonElement_destFolderId:
+      description: The destination folder ID of the copied file.
+      oneOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    CreateFileJsonElement_templateId:
+      description: The template file ID for creation.
+      oneOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DeleteBatchRequestDto_allOf_folderIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DeleteBatchRequestDto_allOf_fileIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DownloadRequestDto_allOf_folderIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DownloadRequestDto_allOf_fileIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DownloadRequestItemDto_key:
+      description: The unique identifier or reference key for the file to be downloaded.
+      oneOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DuplicateRequestDto_allOf_folderIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DuplicateRequestDto_allOf_fileIds:
+      anyOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
     FileDtoInteger_allOf_viewAccessibility:
       description: The file accessibility.
       example: "[{\"value\":true}]"

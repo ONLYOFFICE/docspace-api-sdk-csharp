@@ -74,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room template title.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>transmitter_protocol_electronics</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -229,7 +229,9 @@ namespace DocSpace.API.SDK.Model
             }
 
             yield break;
-        }    }
+        }
+
+    }
 
 
 }
