@@ -1923,11 +1923,12 @@ paths:
       - Portal / Users
   /api/2.0/portal/users/invite/{employeeType}:
     get:
+      deprecated: true
       description: Returns an invitation link for joining the portal.
       operationId: getInvitationLink
       parameters:
-      - description: "The type of employee role for the invitation link (All, RoomAdmin,\
-          \ Guest, DocSpaceAdmin, User)."
+      - description: "The type of employee role for the invitation link (DocSpaceAdmin,\
+          \ RoomAdmin or User)."
         explode: false
         in: path
         name: employeeType
@@ -1941,6 +1942,144 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/StringWrapper"
+          description: Invitation link
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Get an invitation link
+      tags:
+      - Portal / Users
+  /api/2.0/portal/users/invitationlink:
+    delete:
+      operationId: deleteInvitationLink
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InvitationLinkDeleteRequestDto"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StringWrapper"
+          description: Invitation link
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Delete an invitation link
+      tags:
+      - Portal / Users
+    post:
+      description: Returns an invitation link for joining the portal.
+      operationId: createInvitationLink
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InvitationLinkCreateRequestDto"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InvitationLinkWrapper"
+          description: Invitation link
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Create an invitation link
+      tags:
+      - Portal / Users
+    put:
+      description: Returns an invitation link for joining the portal.
+      operationId: updateInvitationLink
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InvitationLinkUpdateRequestDto"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InvitationLinkWrapper"
+          description: Invitation link
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Update an invitation link
+      tags:
+      - Portal / Users
+  /api/2.0/portal/users/invitationlink/{employeeType}:
+    get:
+      description: Returns an invitation link for joining the portal.
+      operationId: getInvitationLinkByEmployeeType
+      parameters:
+      - description: "The type of employee role for the invitation link (DocSpaceAdmin,\
+          \ RoomAdmin or User)."
+        explode: false
+        in: path
+        name: employeeType
+        required: true
+        schema:
+          $ref: "#/components/schemas/EmployeeType"
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InvitationLinkWrapper"
           description: Invitation link
         "401":
           description: Unauthorized
@@ -3900,7 +4039,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DoubleWrapper"
+                $ref: "#/components/schemas/UnknownWrapper"
           description: Storage encryption progress
         "401":
           description: Unauthorized
@@ -6331,8 +6470,8 @@ paths:
           description: List of the backup storages with the following parameters
         "401":
           description: Unauthorized
-        "402":
-          description: Your pricing plan does not support this option
+        "403":
+          description: Access denied
       security:
       - asc_auth_key:
         - read
@@ -9019,8 +9158,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/EmployeeArrayWrapper"
           description: List of users
+        "400":
+          description: Incorrect email or User disabled
         "401":
           description: Unauthorized
+        "402":
+          description: The number of admins exceeds the limit
         "403":
           description: No permissions to perform this action
       security:
@@ -10983,7 +11126,7 @@ paths:
         name: id
         required: true
         schema:
-          example: 9846
+          example: 9079
           format: int32
           type: integer
         style: simple
@@ -11509,7 +11652,7 @@ paths:
         name: userid
         required: true
         schema:
-          example: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+          example: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
           format: uuid
           type: string
         style: simple
@@ -12577,7 +12720,7 @@ paths:
         name: fileId
         required: true
         schema:
-          example: 9079
+          example: 9846
           format: int32
           type: integer
         style: simple
@@ -14153,7 +14296,7 @@ paths:
       - Files / Files
     get:
       description: Returns the detailed list of files located in the Recent section.
-      operationId: getFolderRecent
+      operationId: getRecentFolder
       parameters:
       - description: The user or group ID.
         explode: true
@@ -15550,145 +15693,6 @@ paths:
         - write
       - OpenId: []
       summary: Get the Private Room section
-      tags:
-      - Files / Folders
-  /api/2.0/files/@recent:
-    get:
-      description: Returns the detailed list of files located in the Recent section.
-      operationId: getRecentFolder
-      parameters:
-      - description: The user or group ID.
-        explode: true
-        in: query
-        name: userIdOrGroupId
-        required: false
-        schema:
-          example: 75a5f745-f697-4418-b38d-0fe0d277e258
-          format: uuid
-          type: string
-        style: form
-      - description: The filter type.
-        explode: true
-        in: query
-        name: filterType
-        required: false
-        schema:
-          $ref: "#/components/schemas/FilterType"
-        style: form
-      - description: Specifies whether to exclude search by user or group ID.
-        explode: true
-        in: query
-        name: excludeSubject
-        required: false
-        schema:
-          example: true
-          type: boolean
-        style: form
-      - description: "Specifies whether to return only files, only folders or all\
-          \ elements."
-        explode: true
-        in: query
-        name: applyFilterOption
-        required: false
-        schema:
-          $ref: "#/components/schemas/ApplyFilterOption"
-        style: form
-      - description: The search area.
-        explode: true
-        in: query
-        name: searchArea
-        required: false
-        schema:
-          $ref: "#/components/schemas/SearchArea"
-        style: form
-      - description: Specifies whether to search for a specific file extension in
-          the Recent folder.
-        explode: false
-        in: query
-        name: extension
-        required: false
-        schema:
-          example: .txt
-          items:
-            type: string
-          type: array
-        style: deepObject
-      - description: The maximum number of items to return.
-        explode: true
-        in: query
-        name: count
-        required: false
-        schema:
-          example: 1234
-          format: int32
-          maximum: 100
-          minimum: 1
-          type: integer
-        style: form
-      - description: The starting position of the results to be returned in the query
-          response.
-        explode: true
-        in: query
-        name: startIndex
-        required: false
-        schema:
-          example: 1234
-          format: int32
-          type: integer
-        style: form
-      - description: Specifies the sorting criteria for the folder request.
-        explode: true
-        in: query
-        name: sortBy
-        required: false
-        schema:
-          example: some text
-          type: string
-        style: form
-      - description: The order in which the results are sorted.
-        explode: true
-        in: query
-        name: sortOrder
-        required: false
-        schema:
-          $ref: "#/components/schemas/SortOrder"
-        style: form
-      - description: The text used for filtering or searching folder contents.
-        explode: true
-        in: query
-        name: filterValue
-        required: false
-        schema:
-          example: some text
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/FolderContentIntegerWrapper"
-          description: The Recent section contents
-        "401":
-          description: Unauthorized
-        "403":
-          description: You don't have enough permission to view the folder content
-        "404":
-          description: The required folder was not found
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: Get the Recent section
       tags:
       - Files / Folders
   /api/2.0/files/@root:
@@ -20745,8 +20749,8 @@ paths:
           description: Backup schedule
         "401":
           description: Unauthorized
-        "402":
-          description: Your pricing plan does not support this option
+        "403":
+          description: Access denied
       security:
       - asc_auth_key:
         - read
@@ -20787,7 +20791,7 @@ paths:
         "402":
           description: Your pricing plan does not support this option
         "403":
-          description: You don't have enough permission to create
+          description: Access denied
         "404":
           description: The required folder was not found
       security:
@@ -20829,8 +20833,8 @@ paths:
           description: "Boolean value: true if the operation is successful"
         "401":
           description: Unauthorized
-        "402":
-          description: Your pricing plan does not support this option
+        "403":
+          description: Access denied
       security:
       - asc_auth_key:
         - read
@@ -20872,7 +20876,7 @@ paths:
         "402":
           description: Your pricing plan does not support this option
         "403":
-          description: You don't have enough permission to create
+          description: Access denied
         "404":
           description: The required folder was not found
       security:
@@ -20915,8 +20919,8 @@ paths:
             \ tenant ID, backup progress item (Backup, Restore, Transfer), link"
         "401":
           description: Unauthorized
-        "402":
-          description: Your pricing plan does not support this option
+        "403":
+          description: Access denied
       security:
       - asc_auth_key:
         - read
@@ -20956,8 +20960,8 @@ paths:
           description: List of backup history records
         "401":
           description: Unauthorized
-        "402":
-          description: Your pricing plan does not support this option
+        "403":
+          description: Access denied
       security:
       - asc_auth_key:
         - read
@@ -20998,8 +21002,8 @@ paths:
           description: "Boolean value: true if the operation is successful"
         "401":
           description: Unauthorized
-        "402":
-          description: Your pricing plan does not support this option
+        "403":
+          description: Access denied
       security:
       - asc_auth_key:
         - read
@@ -21039,8 +21043,8 @@ paths:
           description: "Boolean value: true if the operation is successful"
         "401":
           description: Unauthorized
-        "402":
-          description: Your pricing plan does not support this option
+        "403":
+          description: Access denied
       security:
       - asc_auth_key:
         - read
@@ -21082,7 +21086,7 @@ paths:
         "402":
           description: Your pricing plan does not support this option
         "403":
-          description: You don't have enough permission to create
+          description: Access denied
         "404":
           description: The required file or folder was not found
       security:
@@ -21168,8 +21172,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/Int32Wrapper"
           description: Number of backups
+        "400":
+          description: From date must be less than to date
         "401":
           description: Unauthorized
+        "403":
+          description: Access denied
       security:
       - asc_auth_key:
         - read
@@ -24628,10 +24636,7 @@ components:
         percentage: 1234
         id: "9846"
         error: some text
-        resultFileId:
-          int: 1234
-          string: some text
-          boolean: true
+        resultFileId: ""
         isCompleted: true
         status: 0
       properties:
@@ -24659,10 +24664,6 @@ components:
           $ref: "#/components/schemas/DistributedTaskStatus"
         resultFileId:
           description: The result file ID.
-          example:
-            int: 1234
-            string: some text
-            boolean: true
           nullable: true
         resultFileName:
           description: The result file name.
@@ -24692,10 +24693,7 @@ components:
           percentage: 1234
           id: "9846"
           error: some text
-          resultFileId:
-            int: 1234
-            string: some text
-            boolean: true
+          resultFileId: ""
           isCompleted: true
           status: 0
         count: 0
@@ -25135,17 +25133,10 @@ components:
       description: The used space parameters of the tenant quota feature.
       example:
         title: legacy_1080p_small_wooden_mouse
-        value:
-          int: 1234
-          string: some text
-          boolean: true
+        value: ""
       properties:
         value:
           description: The used space value.
-          example:
-            int: 1234
-            string: some text
-            boolean: true
           nullable: true
         title:
           description: The used space title.
@@ -25591,14 +25582,14 @@ components:
         ignoreAspectRatio: true
         fillArea: true
         limitPixels: true
-        width: 1
+        width: 6
         x: 1234
         "y": 1234
         aspectRatio: true
         less: true
         isPercentage: true
         greater: true
-        height: 6
+        height: 0
       properties:
         aspectRatio:
           example: true
@@ -25759,6 +25750,160 @@ components:
       properties:
         response:
           type: integer
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
+      type: object
+    InvitationLinkCreateRequestDto:
+      additionalProperties: false
+      description: The request parameters for creating an invitation link.
+      example:
+        employeeType: All
+        expiration: 2008-04-10T06:30:00+04:00
+        maxUseCount: 1234
+      properties:
+        employeeType:
+          $ref: "#/components/schemas/EmployeeType"
+        expiration:
+          description: The expiration date of the invitation link.
+          example: 2008-04-10T06:30:00+04:00
+          format: date-time
+          nullable: true
+          type: string
+        maxUseCount:
+          description: The maximum number of times the invitation link can be used.
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          nullable: true
+          type: integer
+      required:
+      - employeeType
+      type: object
+    InvitationLinkDeleteRequestDto:
+      additionalProperties: false
+      description: The request parameters for deleting an invitation link.
+      example:
+        id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+      properties:
+        id:
+          description: The ID of the invitation link.
+          example: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+          format: uuid
+          type: string
+      required:
+      - id
+      type: object
+    InvitationLinkDto:
+      additionalProperties: false
+      description: The invitation link parameters.
+      example:
+        employeeType: All
+        currentUseCount: 1234
+        expiration:
+          utcTime: 2008-04-10T06:30:00+04:00
+          timeZoneOffset: 00:00:00
+        maxUseCount: 1234
+        id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+        isExpired: true
+        url: some text
+      properties:
+        id:
+          description: The ID of the invitation link.
+          example: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+          format: uuid
+          type: string
+        employeeType:
+          $ref: "#/components/schemas/EmployeeType"
+        expiration:
+          $ref: "#/components/schemas/ApiDateTime"
+        isExpired:
+          description: Indicates whether the invitation link has expired.
+          example: true
+          type: boolean
+        maxUseCount:
+          description: The maximum number of times the invitation link can be used.
+          example: 1234
+          format: int32
+          nullable: true
+          type: integer
+        currentUseCount:
+          description: The current number of times the invitation link has been used.
+          example: 1234
+          format: int32
+          type: integer
+        url:
+          description: The URL of the invitation link.
+          example: some text
+          nullable: true
+          type: string
+      required:
+      - employeeType
+      type: object
+    InvitationLinkUpdateRequestDto:
+      additionalProperties: false
+      description: The request parameters for updating an invitation link.
+      example:
+        expiration: 2008-04-10T06:30:00+04:00
+        maxUseCount: 1234
+        id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+      properties:
+        id:
+          description: The ID of the invitation link.
+          example: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+          format: uuid
+          type: string
+        expiration:
+          description: The expiration date of the invitation link.
+          example: 2008-04-10T06:30:00+04:00
+          format: date-time
+          nullable: true
+          type: string
+        maxUseCount:
+          description: The maximum number of times the invitation link can be used.
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          nullable: true
+          type: integer
+      required:
+      - id
+      type: object
+    InvitationLinkWrapper:
+      example:
+        response:
+          employeeType: All
+          currentUseCount: 1234
+          expiration:
+            utcTime: 2008-04-10T06:30:00+04:00
+            timeZoneOffset: 00:00:00
+          maxUseCount: 1234
+          id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+          isExpired: true
+          url: some text
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/InvitationLinkDto"
         count:
           format: int32
           type: integer
@@ -26479,13 +26624,17 @@ components:
         \ disabled, 6080 - MCP server deleted, 6081 - WebSearch settings configured,\
         \ 6082 - WebSearch settings reset, 6083 - Vectorization settings configured,\
         \ 6084 - Vectorization settings reset, 6085 - Webplugin uploaded, 6086 - Webplugin\
-        \ updated, 6087 - Webplugin deleted, 7000 - Contact admin mail sent, 7001\
-        \ - Room invite link used, 7002 - User created and added to room, 7003 - Guest\
-        \ created and added to room, 7004 - Contact sales mail sent, 9901 - Create\
-        \ client, 9902 - Update client, 9903 - Regenerate secret, 9904 - Delete client,\
-        \ 9905 - Change client activation, 9906 - Change client visibility, 9907 -\
-        \ Revoke user client, 9908 - Generate authorization code token, 9909 - Generate\
-        \ personal access token, -1 - None]"
+        \ updated, 6087 - Webplugin deleted, 6088 - Whitelabel settings logo text\
+        \ updated, 6089 - Whitelabel settings logos updated, 6090 - Whitelabel company\
+        \ settings updated, 6091 - Whitelabel additional settings updated, 6092 -\
+        \ Whitelabel mail settings updated, 6093 - Invitation settings updated, 6094\
+        \ - IP restrictions settings updated, 6095 - Login settings updated, 7000\
+        \ - Contact admin mail sent, 7001 - Room invite link used, 7002 - User created\
+        \ and added to room, 7003 - Guest created and added to room, 7004 - Contact\
+        \ sales mail sent, 9901 - Create client, 9902 - Update client, 9903 - Regenerate\
+        \ secret, 9904 - Delete client, 9905 - Change client activation, 9906 - Change\
+        \ client visibility, 9907 - Revoke user client, 9908 - Generate authorization\
+        \ code token, 9909 - Generate personal access token, -1 - None]"
       enum:
       - 1000
       - 1001
@@ -26785,6 +26934,14 @@ components:
       - 6085
       - 6086
       - 6087
+      - 6088
+      - 6089
+      - 6090
+      - 6091
+      - 6092
+      - 6093
+      - 6094
+      - 6095
       - 7000
       - 7001
       - 7002
@@ -27102,6 +27259,14 @@ components:
       - WebpluginUploaded
       - WebpluginUpdated
       - WebpluginDeleted
+      - WhiteLabelSettingsLogoTextUpdated
+      - WhiteLabelSettingsLogosUpdated
+      - WhiteLabelCompanySettingsUpdated
+      - WhiteLabelAdditionalSettingsUpdated
+      - WhiteLabelMailSettingsUpdated
+      - InvitationSettingsUpdated
+      - IPRestrictionsSettingsUpdated
+      - LoginSettingsUpdated
       - ContactAdminMailSent
       - RoomInviteLinkUsed
       - UserCreatedAndAddedToRoom
@@ -27416,6 +27581,14 @@ components:
       - Webplugin uploaded
       - Webplugin updated
       - Webplugin deleted
+      - Whitelabel settings logo text updated
+      - Whitelabel settings logos updated
+      - Whitelabel company settings updated
+      - Whitelabel additional settings updated
+      - Whitelabel mail settings updated
+      - Invitation settings updated
+      - IP restrictions settings updated
+      - Login settings updated
       - Contact admin mail sent
       - Room invite link used
       - User created and added to room
@@ -27488,7 +27661,7 @@ components:
             nullable: true
             type: string
           email:
-            example: Randall14@hotmail.com
+            example: Sydney_Roberts4@hotmail.com
             format: email
             nullable: true
             type: string
@@ -27520,7 +27693,7 @@ components:
         displayName: some text
         userType: All
         key: some text
-        email: Randall14@hotmail.com
+        email: Sydney_Roberts4@hotmail.com
     MigrationApiInfo:
       additionalProperties: false
       example:
@@ -27550,7 +27723,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Randall14@hotmail.com
+          email: Sydney_Roberts4@hotmail.com
         - shouldImport: true
           firstName: Winfield
           lastName: Wyman
@@ -27561,7 +27734,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Randall14@hotmail.com
+          email: Sydney_Roberts4@hotmail.com
         failedArchives:
         - some text
         importPersonalFiles: true
@@ -27581,7 +27754,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Randall14@hotmail.com
+          email: Sydney_Roberts4@hotmail.com
         - shouldImport: true
           firstName: Winfield
           lastName: Wyman
@@ -27592,7 +27765,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Randall14@hotmail.com
+          email: Sydney_Roberts4@hotmail.com
         withoutEmailUsers:
         - shouldImport: true
           firstName: Winfield
@@ -27604,7 +27777,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Randall14@hotmail.com
+          email: Sydney_Roberts4@hotmail.com
         - shouldImport: true
           firstName: Winfield
           lastName: Wyman
@@ -27615,7 +27788,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Randall14@hotmail.com
+          email: Sydney_Roberts4@hotmail.com
         operation: some text
         errors:
         - some text
@@ -27729,7 +27902,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Randall14@hotmail.com
+            email: Sydney_Roberts4@hotmail.com
           - shouldImport: true
             firstName: Winfield
             lastName: Wyman
@@ -27740,7 +27913,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Randall14@hotmail.com
+            email: Sydney_Roberts4@hotmail.com
           failedArchives:
           - some text
           importPersonalFiles: true
@@ -27760,7 +27933,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Randall14@hotmail.com
+            email: Sydney_Roberts4@hotmail.com
           - shouldImport: true
             firstName: Winfield
             lastName: Wyman
@@ -27771,7 +27944,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Randall14@hotmail.com
+            email: Sydney_Roberts4@hotmail.com
           withoutEmailUsers:
           - shouldImport: true
             firstName: Winfield
@@ -27783,7 +27956,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Randall14@hotmail.com
+            email: Sydney_Roberts4@hotmail.com
           - shouldImport: true
             firstName: Winfield
             lastName: Wyman
@@ -27794,7 +27967,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Randall14@hotmail.com
+            email: Sydney_Roberts4@hotmail.com
           operation: some text
           errors:
           - some text
@@ -27850,7 +28023,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Randall14@hotmail.com
+              email: Sydney_Roberts4@hotmail.com
             - shouldImport: true
               firstName: Winfield
               lastName: Wyman
@@ -27861,7 +28034,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Randall14@hotmail.com
+              email: Sydney_Roberts4@hotmail.com
             failedArchives:
             - some text
             importPersonalFiles: true
@@ -27881,7 +28054,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Randall14@hotmail.com
+              email: Sydney_Roberts4@hotmail.com
             - shouldImport: true
               firstName: Winfield
               lastName: Wyman
@@ -27892,7 +28065,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Randall14@hotmail.com
+              email: Sydney_Roberts4@hotmail.com
             withoutEmailUsers:
             - shouldImport: true
               firstName: Winfield
@@ -27904,7 +28077,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Randall14@hotmail.com
+              email: Sydney_Roberts4@hotmail.com
             - shouldImport: true
               firstName: Winfield
               lastName: Wyman
@@ -27915,7 +28088,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Randall14@hotmail.com
+              email: Sydney_Roberts4@hotmail.com
             operation: some text
             errors:
             - some text
@@ -28871,31 +29044,19 @@ components:
             id: "9846"
             used:
               title: legacy_1080p_small_wooden_mouse
-              value:
-                int: 1234
-                string: some text
-                boolean: true
+              value: ""
             title: legacy_1080p_small_wooden_mouse
             type: some text
-            value:
-              int: 1234
-              string: some text
-              boolean: true
+            value: ""
           - image: some text
             priceTitle: some text
             id: "9846"
             used:
               title: legacy_1080p_small_wooden_mouse
-              value:
-                int: 1234
-                string: some text
-                boolean: true
+              value: ""
             title: legacy_1080p_small_wooden_mouse
             type: some text
-            value:
-              int: 1234
-              string: some text
-              boolean: true
+            value: ""
           roomsQuota:
             lastRecalculateDate: 2008-04-10T06:30:00+04:00
             enableQuota: true
@@ -28929,31 +29090,19 @@ components:
             id: "9846"
             used:
               title: legacy_1080p_small_wooden_mouse
-              value:
-                int: 1234
-                string: some text
-                boolean: true
+              value: ""
             title: legacy_1080p_small_wooden_mouse
             type: some text
-            value:
-              int: 1234
-              string: some text
-              boolean: true
+            value: ""
           - image: some text
             priceTitle: some text
             id: "9846"
             used:
               title: legacy_1080p_small_wooden_mouse
-              value:
-                int: 1234
-                string: some text
-                boolean: true
+              value: ""
             title: legacy_1080p_small_wooden_mouse
             type: some text
-            value:
-              int: 1234
-              string: some text
-              boolean: true
+            value: ""
           roomsQuota:
             lastRecalculateDate: 2008-04-10T06:30:00+04:00
             enableQuota: true
@@ -29018,31 +29167,19 @@ components:
           id: "9846"
           used:
             title: legacy_1080p_small_wooden_mouse
-            value:
-              int: 1234
-              string: some text
-              boolean: true
+            value: ""
           title: legacy_1080p_small_wooden_mouse
           type: some text
-          value:
-            int: 1234
-            string: some text
-            boolean: true
+          value: ""
         - image: some text
           priceTitle: some text
           id: "9846"
           used:
             title: legacy_1080p_small_wooden_mouse
-            value:
-              int: 1234
-              string: some text
-              boolean: true
+            value: ""
           title: legacy_1080p_small_wooden_mouse
           type: some text
-          value:
-            int: 1234
-            string: some text
-            boolean: true
+          value: ""
         roomsQuota:
           lastRecalculateDate: 2008-04-10T06:30:00+04:00
           enableQuota: true
@@ -29163,31 +29300,19 @@ components:
             id: "9846"
             used:
               title: legacy_1080p_small_wooden_mouse
-              value:
-                int: 1234
-                string: some text
-                boolean: true
+              value: ""
             title: legacy_1080p_small_wooden_mouse
             type: some text
-            value:
-              int: 1234
-              string: some text
-              boolean: true
+            value: ""
           - image: some text
             priceTitle: some text
             id: "9846"
             used:
               title: legacy_1080p_small_wooden_mouse
-              value:
-                int: 1234
-                string: some text
-                boolean: true
+              value: ""
             title: legacy_1080p_small_wooden_mouse
             type: some text
-            value:
-              int: 1234
-              string: some text
-              boolean: true
+            value: ""
           roomsQuota:
             lastRecalculateDate: 2008-04-10T06:30:00+04:00
             enableQuota: true
@@ -29402,16 +29527,11 @@ components:
       description: The rooms notification settings.
       example:
         disabledRooms:
-        - int: 1234
-          string: some text
-          boolean: true
+        - "{}"
+        - "{}"
       properties:
         disabledRooms:
           description: The list of rooms with the disabled notifications.
-          example:
-          - int: 1234
-            string: some text
-            boolean: true
           items:
             type: object
           nullable: true
@@ -29421,9 +29541,8 @@ components:
       example:
         response:
           disabledRooms:
-          - int: 1234
-            string: some text
-            boolean: true
+          - "{}"
+          - "{}"
         count: 0
         links:
         - action: action
@@ -29455,17 +29574,10 @@ components:
         the chat or collaboration rooms.
       example:
         mute: true
-        roomsId:
-          int: 1234
-          string: some text
-          boolean: true
+        roomsId: ""
       properties:
         roomsId:
           description: The target room identifier.
-          example:
-            int: 1234
-            string: some text
-            boolean: true
           nullable: true
         mute:
           description: Specifies whether the notifications will be delivered to the
@@ -32060,16 +32172,10 @@ components:
         id: "9846"
         used:
           title: legacy_1080p_small_wooden_mouse
-          value:
-            int: 1234
-            string: some text
-            boolean: true
+          value: ""
         title: legacy_1080p_small_wooden_mouse
         type: some text
-        value:
-          int: 1234
-          string: some text
-          boolean: true
+        value: ""
       properties:
         id:
           description: The ID of the tenant quota feature.
@@ -32088,10 +32194,6 @@ components:
           type: string
         value:
           description: The value of the tenant quota feature.
-          example:
-            int: 1234
-            string: some text
-            boolean: true
           nullable: true
         type:
           description: The type of the tenant quota feature.
@@ -34419,16 +34521,16 @@ components:
             ignoreAspectRatio: true
             fillArea: true
             limitPixels: true
-            width: 1
+            width: 6
             x: 1234
             "y": 1234
             aspectRatio: true
             less: true
             isPercentage: true
             greater: true
-            height: 6
+            height: 0
           name: Winfield Upton
-          type: 0
+          type: 1
         - path:
             light: some text
             dark: some text
@@ -34436,24 +34538,24 @@ components:
             ignoreAspectRatio: true
             fillArea: true
             limitPixels: true
-            width: 1
+            width: 6
             x: 1234
             "y": 1234
             aspectRatio: true
             less: true
             isPercentage: true
             greater: true
-            height: 6
+            height: 0
           name: Winfield Upton
-          type: 0
-        count: 5
+          type: 1
+        count: 1
         links:
         - action: action
           href: href
         - action: action
           href: href
         status: 5
-        statusCode: 2
+        statusCode: 5
       properties:
         response:
           items:
@@ -34484,16 +34586,16 @@ components:
           ignoreAspectRatio: true
           fillArea: true
           limitPixels: true
-          width: 1
+          width: 6
           x: 1234
           "y": 1234
           aspectRatio: true
           less: true
           isPercentage: true
           greater: true
-          height: 6
+          height: 0
         name: Winfield Upton
-        type: 0
+        type: 1
       properties:
         type:
           $ref: "#/components/schemas/WhiteLabelLogoType"
@@ -34526,6 +34628,11 @@ components:
           type: string
       type: object
     WhiteLabelLogoType:
+      description: "[1 - Light small, 2 - Login page, 3 - Favicon, 4 - Docs editor,\
+        \ 5 - Docs editor embed, 6 - Left menu, 7 - About page, 8 - Notification,\
+        \ 9 - Spreadsheet editor, 10 - Spreadsheet editor embed, 11 - Presentation\
+        \ editor, 12 - Presentation editor embed, 13 - Pdf editor, 14 - Pdf editor\
+        \ embed, 15 - Diagram editor, 16 - Diagram editor embed]"
       enum:
       - 1
       - 2
@@ -34543,8 +34650,43 @@ components:
       - 14
       - 15
       - 16
-      format: int32
+      example: 1
       type: integer
+      x-enum-type: integer
+      x-enum-varnames:
+      - LightSmall
+      - LoginPage
+      - Favicon
+      - DocsEditor
+      - DocsEditorEmbed
+      - LeftMenu
+      - AboutPage
+      - Notification
+      - SpreadsheetEditor
+      - SpreadsheetEditorEmbed
+      - PresentationEditor
+      - PresentationEditorEmbed
+      - PdfEditor
+      - PdfEditorEmbed
+      - DiagramEditor
+      - DiagramEditorEmbed
+      x-enum-descriptions:
+      - Light small
+      - Login page
+      - Favicon
+      - Docs editor
+      - Docs editor embed
+      - Left menu
+      - About page
+      - Notification
+      - Spreadsheet editor
+      - Spreadsheet editor embed
+      - Presentation editor
+      - Presentation editor embed
+      - Pdf editor
+      - Pdf editor embed
+      - Diagram editor
+      - Diagram editor embed
     WhiteLabelRequestsDto:
       additionalProperties: false
       description: The request parameters for configuring the white label branding
@@ -34768,7 +34910,7 @@ components:
             isAnonim: true
           permissions:
           - some text
-          name: Winfield Upton
+          name: Sydney Schroeder
           createOn:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -34796,7 +34938,7 @@ components:
             isAnonim: true
           permissions:
           - some text
-          name: Winfield Upton
+          name: Sydney Schroeder
           createOn:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -34855,7 +34997,7 @@ components:
           isAnonim: true
         permissions:
         - some text
-        name: Winfield Upton
+        name: Sydney Schroeder
         createOn:
           utcTime: 2008-04-10T06:30:00+04:00
           timeZoneOffset: 00:00:00
@@ -34873,7 +35015,7 @@ components:
           type: string
         name:
           description: The API key name.
-          example: Winfield Upton
+          example: Sydney Schroeder
           nullable: true
           type: string
         key:
@@ -34934,7 +35076,7 @@ components:
             isAnonim: true
           permissions:
           - some text
-          name: Winfield Upton
+          name: Sydney Schroeder
           createOn:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
@@ -35011,11 +35153,11 @@ components:
         expiresInDays: 1234
         permissions:
         - some text
-        name: Winfield Upton
+        name: Sydney Schroeder
       properties:
         name:
           description: The API key name.
-          example: Winfield Upton
+          example: Sydney Schroeder
           maxLength: 30
           minLength: 0
           type: string
@@ -35738,10 +35880,7 @@ components:
       additionalProperties: false
       description: The file upload result.
       example:
-        data:
-          int: 1234
-          string: some text
-          boolean: true
+        data: ""
         success: true
         message: some text
       properties:
@@ -35751,10 +35890,6 @@ components:
           type: boolean
         data:
           description: The file upload result data.
-          example:
-            int: 1234
-            string: some text
-            boolean: true
           nullable: true
         message:
           description: The file upload result message.
@@ -35765,10 +35900,7 @@ components:
     FileUploadResultWrapper:
       example:
         response:
-          data:
-            int: 1234
-            string: some text
-            boolean: true
+          data: ""
           success: true
           message: some text
         count: 0
@@ -37080,7 +37212,7 @@ components:
         department:
         - 75a5f745-f697-4418-b38d-0fe0d277e258
         spam: true
-        email: Nat.Schroeder1@hotmail.com
+        email: Sydney_Roberts4@hotmail.com
         contacts:
         - type: GTalk
           value: my@gmail.com
@@ -37103,7 +37235,7 @@ components:
           type: string
         email:
           description: The user email address.
-          example: Nat.Schroeder1@hotmail.com
+          example: Sydney_Roberts4@hotmail.com
           format: email
           maxLength: 255
           minLength: 0
@@ -37315,12 +37447,12 @@ components:
       additionalProperties: false
       description: The request parameters for creating a third-party account.
       example:
-        firstName: Winfield
-        lastName: Wyman
+        firstName: Sydney
+        lastName: Upton
         employeeType: All
         culture: some text
         serializedProfile: some text
-        email: Sydney_Roberts4@hotmail.com
+        email: Myrtice63@hotmail.com
         passwordHash: some text
         key: some text
       properties:
@@ -37328,17 +37460,17 @@ components:
           $ref: "#/components/schemas/EmployeeType"
         firstName:
           description: The user first name.
-          example: Winfield
+          example: Sydney
           nullable: true
           type: string
         lastName:
           description: The user last name.
-          example: Wyman
+          example: Upton
           nullable: true
           type: string
         email:
           description: The user email address.
-          example: Sydney_Roberts4@hotmail.com
+          example: Myrtice63@hotmail.com
           format: email
           nullable: true
           type: string
@@ -37725,7 +37857,7 @@ components:
         department:
         - 75a5f745-f697-4418-b38d-0fe0d277e258
         spam: true
-        email: Sydney_Roberts4@hotmail.com
+        email: Nat.Schroeder1@hotmail.com
         contacts:
         - type: GTalk
           value: my@gmail.com
@@ -37747,7 +37879,7 @@ components:
           type: boolean
         email:
           description: The user email address.
-          example: Sydney_Roberts4@hotmail.com
+          example: Nat.Schroeder1@hotmail.com
           format: email
           maxLength: 255
           minLength: 0
@@ -39763,20 +39895,14 @@ components:
     ConversationResultArrayWrapper:
       example:
         response:
-        - result:
-            int: 1234
-            string: some text
-            boolean: true
+        - result: ""
           processed: some text
           progress: 1234
           id: "9846"
           Operation: 0
           source: some text
           error: some text
-        - result:
-            int: 1234
-            string: some text
-            boolean: true
+        - result: ""
           processed: some text
           progress: 1234
           id: "9846"
@@ -39814,10 +39940,7 @@ components:
       additionalProperties: false
       description: The result of file convertion operation.
       example:
-        result:
-          int: 1234
-          string: some text
-          boolean: true
+        result: ""
         processed: some text
         progress: 1234
         id: "9846"
@@ -39844,10 +39967,6 @@ components:
           type: string
         result:
           description: The resulting file after the conversion.
-          example:
-            int: 1234
-            string: some text
-            boolean: true
           nullable: true
         error:
           description: The conversion operation error message.
@@ -44876,10 +44995,7 @@ components:
         response:
         - access: 0
           canEditDenyDownload: true
-          sharedTo:
-            int: 1234
-            string: some text
-            boolean: true
+          sharedTo: ""
           subjectType: 0
           sharedToUser:
             profileUrl: some text
@@ -44972,26 +45088,25 @@ components:
           isLocked: false
           canRevoke: true
           sharedLink:
-            password: vfmf2vO1Kp
             internal: true
+            currentUseCount: 1234
             shareLink: some text
+            title: legacy_1080p_small_wooden_mouse
+            denyDownload: true
+            password: vfmf2vO1Kp
             linkType: 0
+            maxUseCount: 1234
             id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
             requestToken: some text
-            title: legacy_1080p_small_wooden_mouse
             isExpired: true
             expirationDate:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
-            denyDownload: true
             primary: true
           canEditAccess: true
         - access: 0
           canEditDenyDownload: true
-          sharedTo:
-            int: 1234
-            string: some text
-            boolean: true
+          sharedTo: ""
           subjectType: 0
           sharedToUser:
             profileUrl: some text
@@ -45084,18 +45199,20 @@ components:
           isLocked: false
           canRevoke: true
           sharedLink:
-            password: vfmf2vO1Kp
             internal: true
+            currentUseCount: 1234
             shareLink: some text
+            title: legacy_1080p_small_wooden_mouse
+            denyDownload: true
+            password: vfmf2vO1Kp
             linkType: 0
+            maxUseCount: 1234
             id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
             requestToken: some text
-            title: legacy_1080p_small_wooden_mouse
             isExpired: true
             expirationDate:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
-            denyDownload: true
             primary: true
           canEditAccess: true
         count: 0
@@ -45131,10 +45248,7 @@ components:
       example:
         access: 0
         canEditDenyDownload: true
-        sharedTo:
-          int: 1234
-          string: some text
-          boolean: true
+        sharedTo: ""
         subjectType: 0
         sharedToUser:
           profileUrl: some text
@@ -45227,18 +45341,20 @@ components:
         isLocked: false
         canRevoke: true
         sharedLink:
-          password: vfmf2vO1Kp
           internal: true
+          currentUseCount: 1234
           shareLink: some text
+          title: legacy_1080p_small_wooden_mouse
+          denyDownload: true
+          password: vfmf2vO1Kp
           linkType: 0
+          maxUseCount: 1234
           id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
           requestToken: some text
-          title: legacy_1080p_small_wooden_mouse
           isExpired: true
           expirationDate:
             utcTime: 2008-04-10T06:30:00+04:00
             timeZoneOffset: 00:00:00
-          denyDownload: true
           primary: true
         canEditAccess: true
       properties:
@@ -45247,10 +45363,6 @@ components:
         sharedTo:
           deprecated: true
           description: The user who has the access to the specified file.
-          example:
-            int: 1234
-            string: some text
-            boolean: true
           nullable: true
         sharedToUser:
           $ref: "#/components/schemas/EmployeeFullDto"
@@ -45307,18 +45419,20 @@ components:
       additionalProperties: false
       description: A shareable link for a file with its configuration and status.
       example:
-        password: vfmf2vO1Kp
         internal: true
+        currentUseCount: 1234
         shareLink: some text
+        title: legacy_1080p_small_wooden_mouse
+        denyDownload: true
+        password: vfmf2vO1Kp
         linkType: 0
+        maxUseCount: 1234
         id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
         requestToken: some text
-        title: legacy_1080p_small_wooden_mouse
         isExpired: true
         expirationDate:
           utcTime: 2008-04-10T06:30:00+04:00
           timeZoneOffset: 00:00:00
-        denyDownload: true
         primary: true
       properties:
         id:
@@ -45369,6 +45483,18 @@ components:
           example: some text
           nullable: true
           type: string
+        maxUseCount:
+          description: The maximum number of times the invitation link can be used.
+          example: 1234
+          format: int32
+          nullable: true
+          type: integer
+        currentUseCount:
+          description: The current number of times the invitation link has been used.
+          example: 1234
+          format: int32
+          nullable: true
+          type: integer
       type: object
     FileShareParams:
       additionalProperties: false
@@ -45393,10 +45519,7 @@ components:
         response:
           access: 0
           canEditDenyDownload: true
-          sharedTo:
-            int: 1234
-            string: some text
-            boolean: true
+          sharedTo: ""
           subjectType: 0
           sharedToUser:
             profileUrl: some text
@@ -45489,18 +45612,20 @@ components:
           isLocked: false
           canRevoke: true
           sharedLink:
-            password: vfmf2vO1Kp
             internal: true
+            currentUseCount: 1234
             shareLink: some text
+            title: legacy_1080p_small_wooden_mouse
+            denyDownload: true
+            password: vfmf2vO1Kp
             linkType: 0
+            maxUseCount: 1234
             id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
             requestToken: some text
-            title: legacy_1080p_small_wooden_mouse
             isExpired: true
             expirationDate:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
-            denyDownload: true
             primary: true
           canEditAccess: true
         count: 0
@@ -46650,7 +46775,7 @@ components:
           dimensions:
             width: 6
             height: 0
-        roomId: 9846
+        roomId: 9079
       properties:
         formNumber:
           description: The filling form number.
@@ -46665,7 +46790,7 @@ components:
           $ref: "#/components/schemas/EmployeeFullDto"
         roomId:
           description: The room ID where filling the form.
-          example: 9846
+          example: 9079
           format: int32
           type: integer
         isRoomMember:
@@ -47020,7 +47145,7 @@ components:
             dimensions:
               width: 6
               height: 0
-          roomId: 9846
+          roomId: 9079
         count: 0
         links:
         - action: action
@@ -54851,7 +54976,9 @@ components:
         password: vfmf2vO1Kp
         linkId: 75a5f745-f697-4418-b38d-0fe0d277e258
         access: 0
+        currentUseCount: 1234
         linkType: 0
+        maxUseCount: 1234
         title: legacy_1080p_small_wooden_mouse
         expirationDate:
           utcTime: 2008-04-10T06:30:00+04:00
@@ -54892,6 +55019,19 @@ components:
             or not.
           example: true
           type: boolean
+        maxUseCount:
+          description: The maximum number of times the invitation link can be used.
+          example: 1234
+          format: int32
+          maximum: 1000
+          minimum: 1
+          nullable: true
+          type: integer
+        currentUseCount:
+          description: The current number of times the invitation link has been used.
+          example: 1234
+          format: int32
+          type: integer
       type: object
     RoomNewItemsDto:
       additionalProperties: false
@@ -55129,10 +55269,7 @@ components:
         members:
         - access: 0
           canEditDenyDownload: true
-          sharedTo:
-            int: 1234
-            string: some text
-            boolean: true
+          sharedTo: ""
           subjectType: 0
           sharedToUser:
             profileUrl: some text
@@ -55225,26 +55362,25 @@ components:
           isLocked: false
           canRevoke: true
           sharedLink:
-            password: vfmf2vO1Kp
             internal: true
+            currentUseCount: 1234
             shareLink: some text
+            title: legacy_1080p_small_wooden_mouse
+            denyDownload: true
+            password: vfmf2vO1Kp
             linkType: 0
+            maxUseCount: 1234
             id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
             requestToken: some text
-            title: legacy_1080p_small_wooden_mouse
             isExpired: true
             expirationDate:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
-            denyDownload: true
             primary: true
           canEditAccess: true
         - access: 0
           canEditDenyDownload: true
-          sharedTo:
-            int: 1234
-            string: some text
-            boolean: true
+          sharedTo: ""
           subjectType: 0
           sharedToUser:
             profileUrl: some text
@@ -55337,18 +55473,20 @@ components:
           isLocked: false
           canRevoke: true
           sharedLink:
-            password: vfmf2vO1Kp
             internal: true
+            currentUseCount: 1234
             shareLink: some text
+            title: legacy_1080p_small_wooden_mouse
+            denyDownload: true
+            password: vfmf2vO1Kp
             linkType: 0
+            maxUseCount: 1234
             id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
             requestToken: some text
-            title: legacy_1080p_small_wooden_mouse
             isExpired: true
             expirationDate:
               utcTime: 2008-04-10T06:30:00+04:00
               timeZoneOffset: 00:00:00
-            denyDownload: true
             primary: true
           canEditAccess: true
         warning: some text
@@ -55388,10 +55526,7 @@ components:
           members:
           - access: 0
             canEditDenyDownload: true
-            sharedTo:
-              int: 1234
-              string: some text
-              boolean: true
+            sharedTo: ""
             subjectType: 0
             sharedToUser:
               profileUrl: some text
@@ -55484,26 +55619,25 @@ components:
             isLocked: false
             canRevoke: true
             sharedLink:
-              password: vfmf2vO1Kp
               internal: true
+              currentUseCount: 1234
               shareLink: some text
+              title: legacy_1080p_small_wooden_mouse
+              denyDownload: true
+              password: vfmf2vO1Kp
               linkType: 0
+              maxUseCount: 1234
               id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
               requestToken: some text
-              title: legacy_1080p_small_wooden_mouse
               isExpired: true
               expirationDate:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
-              denyDownload: true
               primary: true
             canEditAccess: true
           - access: 0
             canEditDenyDownload: true
-            sharedTo:
-              int: 1234
-              string: some text
-              boolean: true
+            sharedTo: ""
             subjectType: 0
             sharedToUser:
               profileUrl: some text
@@ -55596,18 +55730,20 @@ components:
             isLocked: false
             canRevoke: true
             sharedLink:
-              password: vfmf2vO1Kp
               internal: true
+              currentUseCount: 1234
               shareLink: some text
+              title: legacy_1080p_small_wooden_mouse
+              denyDownload: true
+              password: vfmf2vO1Kp
               linkType: 0
+              maxUseCount: 1234
               id: aae1e103-bca5-9fa1-ba8c-42058b4abf28
               requestToken: some text
-              title: legacy_1080p_small_wooden_mouse
               isExpired: true
               expirationDate:
                 utcTime: 2008-04-10T06:30:00+04:00
                 timeZoneOffset: 00:00:00
-              denyDownload: true
               primary: true
             canEditAccess: true
           warning: some text
@@ -56024,6 +56160,8 @@ components:
         sharingMessage:
           description: The message to send when notifying about the shared file.
           example: some text
+          maxLength: 255
+          minLength: 0
           nullable: true
           type: string
       type: object
@@ -56858,10 +56996,7 @@ components:
       additionalProperties: false
       description: The upload result parameters.
       example:
-        data:
-          int: 1234
-          string: some text
-          boolean: true
+        data: ""
         success: true
         message: some text
       properties:
@@ -56871,10 +57006,6 @@ components:
           type: boolean
         data:
           description: The uploaded data.
-          example:
-            int: 1234
-            string: some text
-            boolean: true
           nullable: true
         message:
           description: The message sent after the successful upload operation.
@@ -56885,10 +57016,7 @@ components:
     UploadResultWrapper:
       example:
         response:
-          data:
-            int: 1234
-            string: some text
-            boolean: true
+          data: ""
           success: true
           message: some text
         count: 0
@@ -57530,22 +57658,10 @@ components:
       description: The backup parameters.
       example:
         storageParams:
-        - value:
-            int: 1234
-            string: some text
-            boolean: true
-          key:
-            int: 1234
-            string: some text
-            boolean: true
-        - value:
-            int: 1234
-            string: some text
-            boolean: true
-          key:
-            int: 1234
-            string: some text
-            boolean: true
+        - value: ""
+          key: ""
+        - value: ""
+          key: ""
         storageType: 0
         dump: true
       properties:
@@ -57753,22 +57869,10 @@ components:
       description: The backup restoring parameters.
       example:
         storageParams:
-        - value:
-            int: 1234
-            string: some text
-            boolean: true
-          key:
-            int: 1234
-            string: some text
-            boolean: true
-        - value:
-            int: 1234
-            string: some text
-            boolean: true
-          key:
-            int: 1234
-            string: some text
-            boolean: true
+        - value: ""
+          key: ""
+        - value: ""
+          key: ""
         backupId: some text
         storageType: 0
         dump: true
@@ -57803,22 +57907,10 @@ components:
       description: The backup schedule parameters.
       example:
         storageParams:
-        - value:
-            int: 1234
-            string: some text
-            boolean: true
-          key:
-            int: 1234
-            string: some text
-            boolean: true
-        - value:
-            int: 1234
-            string: some text
-            boolean: true
-          key:
-            int: 1234
-            string: some text
-            boolean: true
+        - value: ""
+          key: ""
+        - value: ""
+          key: ""
         storageType: 0
         cronParams:
           period: 0
@@ -57986,26 +58078,12 @@ components:
     ItemKeyValuePairObjectObject:
       additionalProperties: false
       example:
-        value:
-          int: 1234
-          string: some text
-          boolean: true
-        key:
-          int: 1234
-          string: some text
-          boolean: true
+        value: ""
+        key: ""
       properties:
         key:
-          example:
-            int: 1234
-            string: some text
-            boolean: true
           nullable: true
         value:
-          example:
-            int: 1234
-            string: some text
-            boolean: true
           nullable: true
       type: object
     ScheduleDto:

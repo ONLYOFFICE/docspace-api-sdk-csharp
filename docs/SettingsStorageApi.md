@@ -123,7 +123,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | List of the backup storages with the following parameters |  -  |
 | **401** | Unauthorized |  -  |
-| **402** | Your pricing plan does not support this option |  -  |
+| **403** | Access denied |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

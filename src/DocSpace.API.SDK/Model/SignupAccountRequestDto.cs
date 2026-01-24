@@ -74,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user first name.</value>
         /*
-        <example>Winfield</example>
+        <example>Sydney</example>
         */
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
@@ -84,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user last name.</value>
         /*
-        <example>Wyman</example>
+        <example>Upton</example>
         */
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
@@ -94,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user email address.</value>
         /*
-        <example>Sydney_Roberts4@hotmail.com</example>
+        <example>Myrtice63@hotmail.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }

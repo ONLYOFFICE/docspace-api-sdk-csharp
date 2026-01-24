@@ -408,49 +408,6 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileShareWrapper</returns>
         ApiResponse<FileShareWrapper> GetFolderPrimaryExternalLinkWithHttpInfo(int id, int? count = default, int? startIndex = default);
         /// <summary>
-        /// Get the Recent section
-        /// </summary>
-        /// <remarks>
-        /// Returns the detailed list of files located in the Recent section.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
-        /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
-        /// <param name="count">The maximum number of items to return. (optional)</param>
-        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
-        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
-        /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetFolderRecent(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
-
-        /// <summary>
-        /// Get the Recent section
-        /// </summary>
-        /// <remarks>
-        /// Returns the detailed list of files located in the Recent section.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
-        /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
-        /// <param name="count">The maximum number of items to return. (optional)</param>
-        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
-        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
-        /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetFolderRecentWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
-        /// <summary>
         /// Get subfolders
         /// </summary>
         /// <remarks>
@@ -1322,51 +1279,6 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
         Task<ApiResponse<FileShareWrapper>> GetFolderPrimaryExternalLinkWithHttpInfoAsync(int id, int? count = default, int? startIndex = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get the Recent section
-        /// </summary>
-        /// <remarks>
-        /// Returns the detailed list of files located in the Recent section.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
-        /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
-        /// <param name="count">The maximum number of items to return. (optional)</param>
-        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
-        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
-        /// <returns>Task of FolderContentIntegerWrapper</returns>
-        Task<FolderContentIntegerWrapper> GetFolderRecentAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Get the Recent section
-        /// </summary>
-        /// <remarks>
-        /// Returns the detailed list of files located in the Recent section.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
-        /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
-        /// <param name="count">The maximum number of items to return. (optional)</param>
-        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
-        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderRecentWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
-        /// <summary>
         /// Get subfolders
         /// </summary>
         /// <remarks>
@@ -2068,6 +1980,14 @@ namespace DocSpace.API.SDK.Api.Files
         public FoldersApi WithFields(string fields)
         {
             _fields = fields;
+            return this;
+        }
+
+        private bool _useAtRecent ;
+
+        public FoldersApi WithFields()
+        {
+            _useAtRecent = true;
             return this;
         }
 
@@ -4776,317 +4696,6 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// Get the Recent section
-        /// </summary>
-        /// <remarks>
-        /// Returns the detailed list of files located in the Recent section.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
-        /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
-        /// <param name="count">The maximum number of items to return. (optional)</param>
-        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
-        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
-        /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetFolderRecent(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
-        {
-            var localVarResponse = GetFolderRecentWithHttpInfo(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get the Recent section
-        /// </summary>
-        /// <remarks>
-        /// Returns the detailed list of files located in the Recent section.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
-        /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
-        /// <param name="count">The maximum number of items to return. (optional)</param>
-        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
-        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
-        /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetFolderRecentWithHttpInfo(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = ["application/json"];
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (userIdOrGroupId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
-            }
-            if (filterType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
-            }
-            if (excludeSubject != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeSubject", excludeSubject));
-            }
-            if (applyFilterOption != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
-            }
-            if (searchArea != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "searchArea", searchArea));
-            }
-            if (extension != null)
-            {
-            }
-            if (count != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            }
-            if (startIndex != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
-            }
-            if (sortBy != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
-            }
-            if (sortOrder != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
-            }
-            if (filterValue != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-            if (_fields != null)
-            {
-                localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/recent", localVarRequestOptions, Configuration);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetFolderRecent", localVarResponse);
-                if (exception != null)
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get the Recent section
-        /// </summary>
-        /// <remarks>
-        /// Returns the detailed list of files located in the Recent section.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
-        /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
-        /// <param name="count">The maximum number of items to return. (optional)</param>
-        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
-        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
-        /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async Task<FolderContentIntegerWrapper> GetFolderRecentAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
-        {
-            var localVarResponse = await GetFolderRecentWithHttpInfoAsync(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get the Recent section
-        /// </summary>
-        /// <remarks>
-        /// Returns the detailed list of files located in the Recent section.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userIdOrGroupId">The user or group ID. (optional)</param>
-        /// <param name="filterType">The filter type. (optional)</param>
-        /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
-        /// <param name="applyFilterOption">Specifies whether to return only files, only folders or all elements. (optional)</param>
-        /// <param name="searchArea">The search area. (optional)</param>
-        /// <param name="extension">Specifies whether to search for a specific file extension in the Recent folder. (optional)</param>
-        /// <param name="count">The maximum number of items to return. (optional)</param>
-        /// <param name="startIndex">The starting position of the results to be returned in the query response. (optional)</param>
-        /// <param name="sortBy">Specifies the sorting criteria for the folder request. (optional)</param>
-        /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
-        /// <param name="filterValue">The text used for filtering or searching folder contents. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/">REST API Reference for GetFolderRecent Operation</seealso>
-        /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderRecentWithHttpInfoAsync(Guid? userIdOrGroupId = default, FilterType? filterType = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, SearchArea? searchArea = default, List<string>? extension = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [];
-
-            // to determine the Accept header
-            string[] accepts = [ "application/json"];
-
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (userIdOrGroupId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "userIdOrGroupId", userIdOrGroupId));
-            }
-            if (filterType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterType", filterType));
-            }
-            if (excludeSubject != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "excludeSubject", excludeSubject));
-            }
-            if (applyFilterOption != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
-            }
-            if (searchArea != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "searchArea", searchArea));
-            }
-            if (extension != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "extension", extension));
-            }
-            if (count != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "count", count));
-            }
-            if (startIndex != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startIndex", startIndex));
-            }
-            if (sortBy != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortBy", sortBy));
-            }
-            if (sortOrder != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "sortOrder", sortOrder));
-            }
-            if (filterValue != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
-            }
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/recent", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("GetFolderRecent", localVarResponse);
-                if (exception != null) 
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Get subfolders
         /// </summary>
         /// <remarks>
@@ -6131,7 +5740,13 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/@recent", localVarRequestOptions, Configuration);
+            var recentPrefix = _useAtRecent ? "@" : "";
+            var localVarResponse = Client.Get<FolderContentIntegerWrapper>(
+                $"/api/2.0/files/{recentPrefix}recent",
+                localVarRequestOptions,
+                Configuration
+            );
+            _useAtRecent = false;
 
             if (ExceptionFactory != null)
             {
@@ -6287,7 +5902,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/@recent", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<FolderContentIntegerWrapper>("/api/2.0/files/recent", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

@@ -1033,7 +1033,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of users |  -  |
+| **400** | Incorrect email or User disabled |  -  |
 | **401** | Unauthorized |  -  |
+| **402** | The number of admins exceeds the limit |  -  |
 | **403** | No permissions to perform this action |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

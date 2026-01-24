@@ -29,19 +29,19 @@ namespace DocSpace.API.SDK.Model
         /// Enum Skip for value: Skip
         /// </summary>
         [EnumMember(Value = "Skip")]
-        Skip = 0,
+        Skip,
 
         /// <summary>
         /// Enum Overwrite for value: Overwrite
         /// </summary>
         [EnumMember(Value = "Overwrite")]
-        Overwrite = 1,
+        Overwrite,
 
         /// <summary>
         /// Enum Duplicate for value: Duplicate
         /// </summary>
         [EnumMember(Value = "Duplicate")]
-        Duplicate = 2
+        Duplicate
     }
 
 }

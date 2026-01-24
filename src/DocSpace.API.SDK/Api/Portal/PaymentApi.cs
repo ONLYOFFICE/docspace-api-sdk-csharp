@@ -1394,6 +1394,7 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
 
+        
         /// <summary>
         /// Calculate the wallet payment amount
         /// </summary>

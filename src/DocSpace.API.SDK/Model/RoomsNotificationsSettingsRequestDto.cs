@@ -40,9 +40,6 @@ namespace DocSpace.API.SDK.Model
         /// The target room identifier.
         /// </summary>
         /// <value>The target room identifier.</value>
-        /*
-        <example>{&quot;int&quot;:1234,&quot;string&quot;:&quot;some text&quot;,&quot;boolean&quot;:true}</example>
-        */
         [DataMember(Name = "roomsId", EmitDefaultValue = true)]
         public Object RoomsId { get; set; }
 

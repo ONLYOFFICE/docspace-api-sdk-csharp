@@ -2191,6 +2191,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             return this;
         }
 
+        
         /// <summary>
         /// Add the room tags
         /// </summary>

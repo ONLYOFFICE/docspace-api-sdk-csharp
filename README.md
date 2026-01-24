@@ -665,11 +665,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get primary external link</td>
       </tr>
       <tr>
-        <td><a href="docs/FilesFoldersApi.md#getfolderrecent"><strong>GetFolderRecent</strong></a></td>
-        <td><strong>GET</strong> /api/2.0/files/recent</td>
-        <td>Get the Recent section</td>
-      </tr>
-      <tr>
         <td><a href="docs/FilesFoldersApi.md#getfolders"><strong>GetFolders</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/{folderId}/subfolders</td>
         <td>Get subfolders</td>
@@ -691,7 +686,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       </tr>
       <tr>
         <td><a href="docs/FilesFoldersApi.md#getrecentfolder"><strong>GetRecentFolder</strong></a></td>
-        <td><strong>GET</strong> /api/2.0/files/@recent</td>
+        <td><strong>GET</strong> /api/2.0/files/recent</td>
         <td>Get the Recent section</td>
       </tr>
       <tr>
@@ -1919,8 +1914,23 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td colspan="3" style="text-align: center;"><strong>UsersApi</strong></td>
       </tr>
       <tr>
+        <td><a href="docs/PortalUsersApi.md#createinvitationlink"><strong>CreateInvitationLink</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/portal/users/invitationlink</td>
+        <td>Create an invitation link</td>
+      </tr>
+      <tr>
+        <td><a href="docs/PortalUsersApi.md#deleteinvitationlink"><strong>DeleteInvitationLink</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/portal/users/invitationlink</td>
+        <td>Delete an invitation link</td>
+      </tr>
+      <tr>
         <td><a href="docs/PortalUsersApi.md#getinvitationlink"><strong>GetInvitationLink</strong></a></td>
         <td><strong>GET</strong> /api/2.0/portal/users/invite/{employeeType}</td>
+        <td>Get an invitation link</td>
+      </tr>
+      <tr>
+        <td><a href="docs/PortalUsersApi.md#getinvitationlinkbyemployeetype"><strong>GetInvitationLinkByEmployeeType</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/portal/users/invitationlink/{employeeType}</td>
         <td>Get an invitation link</td>
       </tr>
       <tr>
@@ -1942,6 +1952,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/PortalUsersApi.md#sendcongratulations"><strong>SendCongratulations</strong></a></td>
         <td><strong>POST</strong> /api/2.0/portal/sendcongratulations</td>
         <td>Send congratulations</td>
+      </tr>
+      <tr>
+        <td><a href="docs/PortalUsersApi.md#updateinvitationlink"><strong>UpdateInvitationLink</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/portal/users/invitationlink</td>
+        <td>Update an invitation link</td>
       </tr>
     </tbody>
   </table>
@@ -3385,6 +3400,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.InfoConfigDto](docs/InfoConfigDto.md)
  - [Model.Int32Wrapper](docs/Int32Wrapper.md)
  - [Model.Int64Wrapper](docs/Int64Wrapper.md)
+ - [Model.InvitationLinkCreateRequestDto](docs/InvitationLinkCreateRequestDto.md)
+ - [Model.InvitationLinkDeleteRequestDto](docs/InvitationLinkDeleteRequestDto.md)
+ - [Model.InvitationLinkDto](docs/InvitationLinkDto.md)
+ - [Model.InvitationLinkUpdateRequestDto](docs/InvitationLinkUpdateRequestDto.md)
+ - [Model.InvitationLinkWrapper](docs/InvitationLinkWrapper.md)
  - [Model.InviteUsersRequestDto](docs/InviteUsersRequestDto.md)
  - [Model.IpRestrictionBase](docs/IpRestrictionBase.md)
  - [Model.IpRestrictionsDto](docs/IpRestrictionsDto.md)

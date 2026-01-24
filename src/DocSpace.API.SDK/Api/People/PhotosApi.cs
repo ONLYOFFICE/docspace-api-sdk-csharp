@@ -498,6 +498,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
 
+        
         /// <summary>
         /// Create photo thumbnails
         /// </summary>

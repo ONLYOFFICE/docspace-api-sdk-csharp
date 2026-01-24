@@ -342,6 +342,7 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
+        
         /// <summary>
         /// Send the owner change instructions
         /// </summary>

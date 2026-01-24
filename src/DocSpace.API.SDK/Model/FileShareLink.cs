@@ -45,7 +45,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="primary">Indicates whether this is the primary shared link..</param>
         /// <param name="@internal">Indicates whether the link is for the internal sharing only..</param>
         /// <param name="requestToken">The token for validating access requests..</param>
-        public FileShareLink(Guid id = default, string title = default, string shareLink = default, ApiDateTime expirationDate = default, LinkType? linkType = default, string password = default, bool? denyDownload = default, bool? isExpired = default, bool primary = default, bool? @internal = default, string requestToken = default)
+        /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
+        /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>
+        public FileShareLink(Guid id = default, string title = default, string shareLink = default, ApiDateTime expirationDate = default, LinkType? linkType = default, string password = default, bool? denyDownload = default, bool? isExpired = default, bool primary = default, bool? @internal = default, string requestToken = default, int? maxUseCount = default, int? currentUseCount = default)
         {
             this.Id = id;
             this.Title = title;
@@ -58,6 +60,8 @@ namespace DocSpace.API.SDK.Model
             this.Primary = primary;
             this.Internal = @internal;
             this.RequestToken = requestToken;
+            this.MaxUseCount = maxUseCount;
+            this.CurrentUseCount = currentUseCount;
         }
 
         /// <summary>
@@ -157,6 +161,26 @@ namespace DocSpace.API.SDK.Model
         public string RequestToken { get; set; }
 
         /// <summary>
+        /// The maximum number of times the invitation link can be used.
+        /// </summary>
+        /// <value>The maximum number of times the invitation link can be used.</value>
+        /*
+        <example>1234</example>
+        */
+        [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
+        public int? MaxUseCount { get; set; }
+
+        /// <summary>
+        /// The current number of times the invitation link has been used.
+        /// </summary>
+        /// <value>The current number of times the invitation link has been used.</value>
+        /*
+        <example>1234</example>
+        */
+        [DataMember(Name = "currentUseCount", EmitDefaultValue = true)]
+        public int? CurrentUseCount { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -175,6 +199,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Primary: ").Append(Primary).Append("\n");
             sb.Append("  Internal: ").Append(Internal).Append("\n");
             sb.Append("  RequestToken: ").Append(RequestToken).Append("\n");
+            sb.Append("  MaxUseCount: ").Append(MaxUseCount).Append("\n");
+            sb.Append("  CurrentUseCount: ").Append(CurrentUseCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

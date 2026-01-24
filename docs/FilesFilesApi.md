@@ -2733,7 +2733,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9079;  // int | The file unique identifier.
+            var fileId = 9846;  // int | The file unique identifier.
 
             try
             {

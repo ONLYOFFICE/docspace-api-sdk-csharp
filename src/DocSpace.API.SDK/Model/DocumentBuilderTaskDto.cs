@@ -128,9 +128,6 @@ namespace DocSpace.API.SDK.Model
         /// The result file ID.
         /// </summary>
         /// <value>The result file ID.</value>
-        /*
-        <example>{&quot;int&quot;:1234,&quot;string&quot;:&quot;some text&quot;,&quot;boolean&quot;:true}</example>
-        */
         [DataMember(Name = "resultFileId", IsRequired = true, EmitDefaultValue = true)]
         public Object ResultFileId { get; set; }
 

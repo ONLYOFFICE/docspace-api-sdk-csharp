@@ -39,18 +39,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Key
         /// </summary>
-        /*
-        <example>{&quot;int&quot;:1234,&quot;string&quot;:&quot;some text&quot;,&quot;boolean&quot;:true}</example>
-        */
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public Object Key { get; set; }
 
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
-        /*
-        <example>{&quot;int&quot;:1234,&quot;string&quot;:&quot;some text&quot;,&quot;boolean&quot;:true}</example>
-        */
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public Object Value { get; set; }
 

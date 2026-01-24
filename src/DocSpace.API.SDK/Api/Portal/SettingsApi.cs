@@ -558,6 +558,7 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
 
+        
         /// <summary>
         /// Restore a portal
         /// </summary>
