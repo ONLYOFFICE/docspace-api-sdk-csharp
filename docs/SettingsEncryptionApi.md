@@ -10,7 +10,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="getstorageencryptionprogress"></a>
 # **GetStorageEncryptionProgress**
-> UnknownWrapper GetStorageEncryptionProgress ()
+> DoubleNullableWrapper GetStorageEncryptionProgress ()
 
 Returns the storage encryption progress.
 
@@ -20,7 +20,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**UnknownWrapper**](UnknownWrapper.md)
+[**DoubleNullableWrapper**](DoubleNullableWrapper.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ namespace Example
             try
             {
                 // Get the storage encryption progress
-                UnknownWrapper result = apiInstance.GetStorageEncryptionProgress();
+                DoubleNullableWrapper result = apiInstance.GetStorageEncryptionProgress();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -88,7 +88,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the storage encryption progress
-    ApiResponse<UnknownWrapper> response = apiInstance.GetStorageEncryptionProgressWithHttpInfo();
+    ApiResponse<DoubleNullableWrapper> response = apiInstance.GetStorageEncryptionProgressWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

@@ -3256,6 +3256,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.DocumentBuilderTaskDto](docs/DocumentBuilderTaskDto.md)
  - [Model.DocumentBuilderTaskWrapper](docs/DocumentBuilderTaskWrapper.md)
  - [Model.DocumentConfigDto](docs/DocumentConfigDto.md)
+ - [Model.DoubleNullableWrapper](docs/DoubleNullableWrapper.md)
  - [Model.DoubleWrapper](docs/DoubleWrapper.md)
  - [Model.DownloadRequestDto](docs/DownloadRequestDto.md)
  - [Model.DownloadRequestDtoAllOfFileIds](docs/DownloadRequestDtoAllOfFileIds.md)
