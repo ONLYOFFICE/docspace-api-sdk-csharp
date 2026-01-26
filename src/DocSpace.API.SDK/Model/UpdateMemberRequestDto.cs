@@ -95,7 +95,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user email address.</value>
         /*
-        <example>Nat14@hotmail.com</example>
+        <example>Sydney_Roberts4@hotmail.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -145,7 +145,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user title.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>1080p_small_wooden_tuna_central</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }

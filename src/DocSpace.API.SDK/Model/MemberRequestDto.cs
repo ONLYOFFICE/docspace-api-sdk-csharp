@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user password.</value>
         /*
-        <example>fmvO1KpUjg</example>
+        <example>vfmf2vO1Kp</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
@@ -111,7 +111,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user email address.</value>
         /*
-        <example>Camden_Dietrich@gmail.com</example>
+        <example>Sydney_Roberts4@hotmail.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -131,7 +131,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user first name.</value>
         /*
-        <example>Sydney</example>
+        <example>Winfield</example>
         */
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
@@ -161,7 +161,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user title.</value>
         /*
-        <example>1080p_small_wooden_mouse_savings_account</example>
+        <example>legacy_1080p_small_wooden_mouse</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -171,7 +171,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user location.</value>
         /*
-        <example>001 Schroeder Run, New Tabithaport, Colombia</example>
+        <example>408 Tabitha Expressway, Dericktown, United Kingdom</example>
         */
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }

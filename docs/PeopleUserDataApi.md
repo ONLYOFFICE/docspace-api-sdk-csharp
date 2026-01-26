@@ -406,7 +406,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UserDataApi(httpClient, config, httpClientHandler);
-            var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The user ID. (optional) 
+            var userId = 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce;  // Guid? | The user ID. (optional) 
             var type = new EmployeeType?(); // EmployeeType? | The expected user type. (optional) 
 
             try

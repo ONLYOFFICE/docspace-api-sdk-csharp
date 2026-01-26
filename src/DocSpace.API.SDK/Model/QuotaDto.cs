@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The quota title.</value>
         /*
-        <example>protocol_generic_concrete_shoes_refined</example>
+        <example>legacy_1080p_small_wooden_mouse</example>
         */
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }

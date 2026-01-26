@@ -840,7 +840,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UnknownWrapper"
+                $ref: "#/components/schemas/getPortalPrices_200_response"
           description: List of available portal prices
         "401":
           description: Unauthorized
@@ -7293,7 +7293,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/UnknownWrapper"
+                $ref: "#/components/schemas/getWebhookTriggers_200_response"
           description: List of triggers for a webhook
         "401":
           description: Unauthorized
@@ -8292,7 +8292,7 @@ paths:
         name: id
         required: true
         schema:
-          example: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
+          example: aae1e103-bca5-9fa1-ba8c-42058b4abf28
           format: uuid
           type: string
         style: simple
@@ -8797,7 +8797,7 @@ paths:
         name: userid
         required: true
         schema:
-          example: "9846"
+          example: "9079"
           type: string
         style: simple
       responses:
@@ -8840,7 +8840,7 @@ paths:
         name: userid
         required: true
         schema:
-          example: "9846"
+          example: "9079"
           type: string
         style: simple
       responses:
@@ -11591,7 +11591,7 @@ paths:
         name: UserId
         required: false
         schema:
-          example: aae1e103-bca5-9fa1-ba8c-42058b4abf28
+          example: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
           format: uuid
           type: string
         style: form
@@ -12240,7 +12240,7 @@ paths:
         name: fileId
         required: true
         schema:
-          example: 9079
+          example: 9846
           format: int32
           type: integer
         style: simple
@@ -19992,7 +19992,7 @@ paths:
         name: id
         required: true
         schema:
-          example: 9079
+          example: 9846
           format: int32
           type: integer
         style: simple
@@ -20080,7 +20080,7 @@ paths:
         name: id
         required: true
         schema:
-          example: 9079
+          example: 9846
           format: int32
           type: integer
         style: simple
@@ -20368,7 +20368,7 @@ paths:
         name: id
         required: true
         schema:
-          example: "9846"
+          example: "9079"
           type: string
         style: simple
       requestBody:
@@ -22399,7 +22399,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -22659,7 +22659,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -22934,7 +22934,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -23072,7 +23072,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -23129,7 +23129,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -23199,7 +23199,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -23293,7 +23293,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -23337,7 +23337,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -23461,7 +23461,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -23654,7 +23654,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -23721,7 +23721,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -23846,7 +23846,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -23976,7 +23976,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -24179,7 +24179,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -24259,7 +24259,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -24656,7 +24656,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -24685,7 +24685,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -24713,7 +24713,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -24760,7 +24760,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -24877,7 +24877,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -25043,7 +25043,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -25231,7 +25231,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -25595,7 +25595,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -25639,7 +25639,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -25674,7 +25674,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -25828,7 +25828,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -25903,7 +25903,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -25937,7 +25937,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -25987,7 +25987,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -26115,7 +26115,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -26335,7 +26335,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -27234,7 +27234,7 @@ components:
             nullable: true
             type: string
           email:
-            example: Sydney_Roberts4@hotmail.com
+            example: Myrtice14@hotmail.com
             format: email
             nullable: true
             type: string
@@ -27247,7 +27247,7 @@ components:
             nullable: true
             type: string
           lastName:
-            example: Wyman
+            example: Upton
             nullable: true
             type: string
           userType:
@@ -27258,7 +27258,7 @@ components:
       example:
         shouldImport: true
         firstName: Winfield
-        lastName: Wyman
+        lastName: Upton
         migratingFiles:
           filesCount: 1234
           foldersCount: 1234
@@ -27266,7 +27266,7 @@ components:
         displayName: some text
         userType: All
         key: some text
-        email: Sydney_Roberts4@hotmail.com
+        email: Myrtice14@hotmail.com
     MigrationApiInfo:
       additionalProperties: false
       example:
@@ -27288,7 +27288,7 @@ components:
         users:
         - shouldImport: true
           firstName: Winfield
-          lastName: Wyman
+          lastName: Upton
           migratingFiles:
             filesCount: 1234
             foldersCount: 1234
@@ -27296,10 +27296,10 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Sydney_Roberts4@hotmail.com
+          email: Myrtice14@hotmail.com
         - shouldImport: true
           firstName: Winfield
-          lastName: Wyman
+          lastName: Upton
           migratingFiles:
             filesCount: 1234
             foldersCount: 1234
@@ -27307,7 +27307,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Sydney_Roberts4@hotmail.com
+          email: Myrtice14@hotmail.com
         failedArchives:
         - some text
         importPersonalFiles: true
@@ -27319,7 +27319,7 @@ components:
         existUsers:
         - shouldImport: true
           firstName: Winfield
-          lastName: Wyman
+          lastName: Upton
           migratingFiles:
             filesCount: 1234
             foldersCount: 1234
@@ -27327,10 +27327,10 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Sydney_Roberts4@hotmail.com
+          email: Myrtice14@hotmail.com
         - shouldImport: true
           firstName: Winfield
-          lastName: Wyman
+          lastName: Upton
           migratingFiles:
             filesCount: 1234
             foldersCount: 1234
@@ -27338,11 +27338,11 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Sydney_Roberts4@hotmail.com
+          email: Myrtice14@hotmail.com
         withoutEmailUsers:
         - shouldImport: true
           firstName: Winfield
-          lastName: Wyman
+          lastName: Upton
           migratingFiles:
             filesCount: 1234
             foldersCount: 1234
@@ -27350,10 +27350,10 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Sydney_Roberts4@hotmail.com
+          email: Myrtice14@hotmail.com
         - shouldImport: true
           firstName: Winfield
-          lastName: Wyman
+          lastName: Upton
           migratingFiles:
             filesCount: 1234
             foldersCount: 1234
@@ -27361,7 +27361,7 @@ components:
           displayName: some text
           userType: All
           key: some text
-          email: Sydney_Roberts4@hotmail.com
+          email: Myrtice14@hotmail.com
         operation: some text
         errors:
         - some text
@@ -27467,7 +27467,7 @@ components:
           users:
           - shouldImport: true
             firstName: Winfield
-            lastName: Wyman
+            lastName: Upton
             migratingFiles:
               filesCount: 1234
               foldersCount: 1234
@@ -27475,10 +27475,10 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Sydney_Roberts4@hotmail.com
+            email: Myrtice14@hotmail.com
           - shouldImport: true
             firstName: Winfield
-            lastName: Wyman
+            lastName: Upton
             migratingFiles:
               filesCount: 1234
               foldersCount: 1234
@@ -27486,7 +27486,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Sydney_Roberts4@hotmail.com
+            email: Myrtice14@hotmail.com
           failedArchives:
           - some text
           importPersonalFiles: true
@@ -27498,7 +27498,7 @@ components:
           existUsers:
           - shouldImport: true
             firstName: Winfield
-            lastName: Wyman
+            lastName: Upton
             migratingFiles:
               filesCount: 1234
               foldersCount: 1234
@@ -27506,10 +27506,10 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Sydney_Roberts4@hotmail.com
+            email: Myrtice14@hotmail.com
           - shouldImport: true
             firstName: Winfield
-            lastName: Wyman
+            lastName: Upton
             migratingFiles:
               filesCount: 1234
               foldersCount: 1234
@@ -27517,11 +27517,11 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Sydney_Roberts4@hotmail.com
+            email: Myrtice14@hotmail.com
           withoutEmailUsers:
           - shouldImport: true
             firstName: Winfield
-            lastName: Wyman
+            lastName: Upton
             migratingFiles:
               filesCount: 1234
               foldersCount: 1234
@@ -27529,10 +27529,10 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Sydney_Roberts4@hotmail.com
+            email: Myrtice14@hotmail.com
           - shouldImport: true
             firstName: Winfield
-            lastName: Wyman
+            lastName: Upton
             migratingFiles:
               filesCount: 1234
               foldersCount: 1234
@@ -27540,7 +27540,7 @@ components:
             displayName: some text
             userType: All
             key: some text
-            email: Sydney_Roberts4@hotmail.com
+            email: Myrtice14@hotmail.com
           operation: some text
           errors:
           - some text
@@ -27588,7 +27588,7 @@ components:
             users:
             - shouldImport: true
               firstName: Winfield
-              lastName: Wyman
+              lastName: Upton
               migratingFiles:
                 filesCount: 1234
                 foldersCount: 1234
@@ -27596,10 +27596,10 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Sydney_Roberts4@hotmail.com
+              email: Myrtice14@hotmail.com
             - shouldImport: true
               firstName: Winfield
-              lastName: Wyman
+              lastName: Upton
               migratingFiles:
                 filesCount: 1234
                 foldersCount: 1234
@@ -27607,7 +27607,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Sydney_Roberts4@hotmail.com
+              email: Myrtice14@hotmail.com
             failedArchives:
             - some text
             importPersonalFiles: true
@@ -27619,7 +27619,7 @@ components:
             existUsers:
             - shouldImport: true
               firstName: Winfield
-              lastName: Wyman
+              lastName: Upton
               migratingFiles:
                 filesCount: 1234
                 foldersCount: 1234
@@ -27627,10 +27627,10 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Sydney_Roberts4@hotmail.com
+              email: Myrtice14@hotmail.com
             - shouldImport: true
               firstName: Winfield
-              lastName: Wyman
+              lastName: Upton
               migratingFiles:
                 filesCount: 1234
                 foldersCount: 1234
@@ -27638,11 +27638,11 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Sydney_Roberts4@hotmail.com
+              email: Myrtice14@hotmail.com
             withoutEmailUsers:
             - shouldImport: true
               firstName: Winfield
-              lastName: Wyman
+              lastName: Upton
               migratingFiles:
                 filesCount: 1234
                 foldersCount: 1234
@@ -27650,10 +27650,10 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Sydney_Roberts4@hotmail.com
+              email: Myrtice14@hotmail.com
             - shouldImport: true
               firstName: Winfield
-              lastName: Wyman
+              lastName: Upton
               migratingFiles:
                 filesCount: 1234
                 foldersCount: 1234
@@ -27661,7 +27661,7 @@ components:
               displayName: some text
               userType: All
               key: some text
-              email: Sydney_Roberts4@hotmail.com
+              email: Myrtice14@hotmail.com
             operation: some text
             errors:
             - some text
@@ -27684,7 +27684,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -27777,7 +27777,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -27838,7 +27838,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -27885,7 +27885,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -27913,7 +27913,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -28030,7 +28030,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -28199,7 +28199,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -28261,7 +28261,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -28356,7 +28356,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -28487,7 +28487,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -28699,7 +28699,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -28904,7 +28904,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -29056,7 +29056,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -29102,7 +29102,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -29151,7 +29151,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -29282,7 +29282,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -29823,7 +29823,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -29877,7 +29877,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -29947,7 +29947,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -30058,7 +30058,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -30457,7 +30457,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -30556,7 +30556,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -30684,7 +30684,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -30712,7 +30712,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -30755,7 +30755,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -30927,7 +30927,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -30972,7 +30972,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -31020,7 +31020,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -31113,7 +31113,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -31157,7 +31157,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -31217,7 +31217,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -31801,7 +31801,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -31867,7 +31867,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -31915,7 +31915,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -32019,7 +32019,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -32067,7 +32067,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -32148,7 +32148,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -32258,7 +32258,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -32369,7 +32369,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -32484,7 +32484,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -32546,34 +32546,6 @@ components:
           example: true
           type: boolean
       type: object
-    UnknownWrapper:
-      example:
-        response: "{}"
-        count: 0
-        links:
-        - action: action
-          href: href
-        - action: action
-          href: href
-        status: 6
-        statusCode: 1
-      properties:
-        response:
-          type: object
-        count:
-          format: int32
-          type: integer
-        links:
-          items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
-          type: array
-        status:
-          format: int32
-          type: integer
-        statusCode:
-          format: int32
-          type: integer
-      type: object
     UpdateWebhooksConfigRequestsDto:
       additionalProperties: false
       allOf:
@@ -32628,7 +32600,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -32914,7 +32886,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -33107,7 +33079,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -33341,7 +33313,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -33664,7 +33636,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -33779,7 +33751,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -33833,7 +33805,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -33951,7 +33923,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -34015,7 +33987,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -34231,7 +34203,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -34267,7 +34239,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -34394,7 +34366,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -34530,7 +34502,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -34577,11 +34549,11 @@ components:
         expiresInDays: 1234
         permissions:
         - some text
-        name: Sydney Schroeder
+        name: Winfield Upton
       properties:
         name:
           description: The API key name.
-          example: Sydney Schroeder
+          example: Winfield Upton
           maxLength: 30
           minLength: 0
           type: string
@@ -34672,7 +34644,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -34896,7 +34868,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -35252,7 +35224,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -35291,7 +35263,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -35343,7 +35315,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -35867,7 +35839,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -36245,7 +36217,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -36520,7 +36492,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -36630,7 +36602,7 @@ components:
         password: vfmf2vO1Kp
         fromInviteLink: true
         files: some text
-        location: "001 Schroeder Run, New Tabithaport, Colombia"
+        location: "408 Tabitha Expressway, Dericktown, United Kingdom"
         comment: some text
         isUser: true
         department:
@@ -36704,7 +36676,7 @@ components:
           type: string
         location:
           description: The user location.
-          example: "001 Schroeder Run, New Tabithaport, Colombia"
+          example: "408 Tabitha Expressway, Dericktown, United Kingdom"
           nullable: true
           type: string
         sex:
@@ -36799,7 +36771,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -36836,11 +36808,11 @@ components:
       additionalProperties: false
       description: The request for setting a group manager.
       example:
-        userId: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
+        userId: aae1e103-bca5-9fa1-ba8c-42058b4abf28
       properties:
         userId:
           description: The user ID.
-          example: 0dec3996-2dfc-7cb2-e974-8e5fb9f399ce
+          example: aae1e103-bca5-9fa1-ba8c-42058b4abf28
           format: uuid
           type: string
       required:
@@ -37042,7 +37014,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -37133,7 +37105,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -37257,7 +37229,7 @@ components:
           timeZoneOffset: 00:00:00
         lastName: Wyman
         sex: 0
-        title: legacy_1080p_small_wooden_mouse
+        title: 1080p_small_wooden_tuna_central
         userId: "9846"
         firstName: Winfield
         disable: true
@@ -37326,7 +37298,7 @@ components:
           type: array
         title:
           description: The user title.
-          example: legacy_1080p_small_wooden_mouse
+          example: 1080p_small_wooden_tuna_central
           maxLength: 255
           minLength: 0
           nullable: true
@@ -37484,7 +37456,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -37589,7 +37561,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -37682,7 +37654,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -38250,7 +38222,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -38418,7 +38390,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -38514,7 +38486,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -38609,7 +38581,7 @@ components:
                   - 1234
               transparent: -8.5
               height: -8.5
-          title: transmitter_protocol_electronics
+          title: legacy_1080p_small_wooden_mouse
           isForm: true
           fileType: some text
           key: some text
@@ -38955,7 +38927,7 @@ components:
                     - 1234
                 transparent: -8.5
                 height: -8.5
-            title: transmitter_protocol_electronics
+            title: legacy_1080p_small_wooden_mouse
             isForm: true
             fileType: some text
             key: some text
@@ -39203,7 +39175,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -39327,7 +39299,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -39461,7 +39433,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -39526,11 +39498,11 @@ components:
       additionalProperties: false
       description: The parameters for creating a folder.
       example:
-        title: transmitter_protocol_electronics
+        title: legacy_1080p_small_wooden_mouse
       properties:
         title:
           description: The folder title to create.
-          example: transmitter_protocol_electronics
+          example: legacy_1080p_small_wooden_mouse
           maxLength: 165
           minLength: 0
           nullable: true
@@ -39760,11 +39732,11 @@ components:
       additionalProperties: false
       description: The request parameters for creating a tag.
       example:
-        name: Sydney Schroeder
+        name: Winfield Upton
       properties:
         name:
           description: The tag name.
-          example: Sydney Schroeder
+          example: Winfield Upton
           maxLength: 255
           minLength: 0
           nullable: true
@@ -40239,7 +40211,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -40300,7 +40272,7 @@ components:
                 - 1234
             transparent: -8.5
             height: -8.5
-        title: transmitter_protocol_electronics
+        title: legacy_1080p_small_wooden_mouse
         isForm: true
         fileType: some text
         key: some text
@@ -40352,7 +40324,7 @@ components:
           $ref: "#/components/schemas/FileReferenceData"
         title:
           description: The document title.
-          example: transmitter_protocol_electronics
+          example: legacy_1080p_small_wooden_mouse
           nullable: true
           type: string
         url:
@@ -40565,7 +40537,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -40702,7 +40674,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -41148,7 +41120,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -41615,7 +41587,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -41868,7 +41840,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -42292,7 +42264,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -42589,7 +42561,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -42745,7 +42717,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -42857,7 +42829,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -43475,7 +43447,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -44183,7 +44155,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -44312,7 +44284,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -44597,7 +44569,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -45008,7 +44980,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -45659,7 +45631,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -45751,7 +45723,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -46491,7 +46463,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -47900,7 +47872,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -48354,7 +48326,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -49138,7 +49110,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -49300,7 +49272,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -49650,7 +49622,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -49812,7 +49784,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -49893,7 +49865,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -50338,7 +50310,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -50585,7 +50557,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -50885,7 +50857,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -51105,7 +51077,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -51225,7 +51197,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -51315,7 +51287,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -51717,7 +51689,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -51813,7 +51785,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -52749,7 +52721,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -53647,7 +53619,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -53955,7 +53927,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -54177,7 +54149,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -55040,7 +55012,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -55200,7 +55172,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -55886,7 +55858,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -56243,7 +56215,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -56571,7 +56543,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -56941,7 +56913,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -57045,7 +57017,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -57161,7 +57133,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -57249,7 +57221,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -57346,7 +57318,7 @@ components:
           type: integer
         links:
           items:
-            $ref: "#/components/schemas/ActiveConnectionsWrapper_links_inner"
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
           type: array
         status:
           format: int32
@@ -57813,6 +57785,48 @@ components:
           format: date-time
           type: string
       type: object
+    getPortalPrices_200_response_links_inner:
+      example:
+        action: action
+        href: href
+      properties:
+        href:
+          type: string
+        action:
+          type: string
+      type: object
+    getPortalPrices_200_response:
+      example:
+        response:
+          key: 0.8008281904610115
+        count: 6
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 1
+        statusCode: 5
+      properties:
+        response:
+          additionalProperties:
+            format: double
+            type: number
+          type: object
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
+      type: object
     uploadLicense_request:
       properties:
         Files:
@@ -57823,6 +57837,38 @@ components:
           type: array
       required:
       - Files
+      type: object
+    getWebhookTriggers_200_response:
+      example:
+        response:
+          key: 0
+        count: 6
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 1
+        statusCode: 5
+      properties:
+        response:
+          additionalProperties:
+            format: int32
+            type: integer
+          type: object
+        count:
+          format: int32
+          type: integer
+        links:
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+        status:
+          format: int32
+          type: integer
+        statusCode:
+          format: int32
+          type: integer
       type: object
     uploadMemberPhoto_request:
       properties:
@@ -58027,16 +58073,6 @@ components:
           description: The token used to obtain a new access token when the current
             one expires.
           example: def502...
-          type: string
-      type: object
-    ActiveConnectionsWrapper_links_inner:
-      example:
-        action: action
-        href: href
-      properties:
-        href:
-          type: string
-        action:
           type: string
       type: object
     QuotaSettingsRequestsDto_defaultQuota:

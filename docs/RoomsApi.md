@@ -1012,7 +1012,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // string | The ID of the folder in the third-party storage in which the contents of the room will be stored.
+            var id = 9079;  // string | The ID of the folder in the third-party storage in which the contents of the room will be stored.
             var createThirdPartyRoom = new CreateThirdPartyRoom(); // CreateThirdPartyRoom | The third-party room information.
 
             try

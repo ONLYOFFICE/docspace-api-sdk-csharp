@@ -1385,7 +1385,7 @@ catch (ApiException e)
 
 <a id="getportalprices"></a>
 # **GetPortalPrices**
-> UnknownWrapper GetPortalPrices ()
+> GetPortalPrices200Response GetPortalPrices ()
 
 Returns the available portal prices.
 
@@ -1395,7 +1395,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**UnknownWrapper**](UnknownWrapper.md)
+[**GetPortalPrices200Response**](GetPortalPrices200Response.md)
 
 ### Authorization
 
@@ -1442,7 +1442,7 @@ namespace Example
             try
             {
                 // Get prices
-                UnknownWrapper result = apiInstance.GetPortalPrices();
+                GetPortalPrices200Response result = apiInstance.GetPortalPrices();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1463,7 +1463,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get prices
-    ApiResponse<UnknownWrapper> response = apiInstance.GetPortalPricesWithHttpInfo();
+    ApiResponse<GetPortalPrices200Response> response = apiInstance.GetPortalPricesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

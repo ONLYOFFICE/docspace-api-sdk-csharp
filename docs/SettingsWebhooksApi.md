@@ -347,7 +347,7 @@ catch (ApiException e)
 
 <a id="getwebhooktriggers"></a>
 # **GetWebhookTriggers**
-> UnknownWrapper GetWebhookTriggers ()
+> GetWebhookTriggers200Response GetWebhookTriggers ()
 
 Returns a list of triggers for a webhook.
 
@@ -357,7 +357,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**UnknownWrapper**](UnknownWrapper.md)
+[**GetWebhookTriggers200Response**](GetWebhookTriggers200Response.md)
 
 ### Authorization
 
@@ -404,7 +404,7 @@ namespace Example
             try
             {
                 // Get webhook triggers
-                UnknownWrapper result = apiInstance.GetWebhookTriggers();
+                GetWebhookTriggers200Response result = apiInstance.GetWebhookTriggers();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -425,7 +425,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get webhook triggers
-    ApiResponse<UnknownWrapper> response = apiInstance.GetWebhookTriggersWithHttpInfo();
+    ApiResponse<GetWebhookTriggers200Response> response = apiInstance.GetWebhookTriggersWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets Email
         /// </summary>
         /*
-        <example>Sydney_Roberts4@hotmail.com</example>
+        <example>Myrtice14@hotmail.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -92,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets LastName
         /// </summary>
         /*
-        <example>Wyman</example>
+        <example>Upton</example>
         */
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
