@@ -67,7 +67,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The group name.</value>
         /*
-        <example>Winfield Upton</example>
+        <example>Sydney Schroeder</example>
         */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
@@ -97,7 +97,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The group ID.</value>
         /*
-        <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
+        <example>0dec3996-2dfc-7cb2-e974-8e5fb9f399ce</example>
         */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }

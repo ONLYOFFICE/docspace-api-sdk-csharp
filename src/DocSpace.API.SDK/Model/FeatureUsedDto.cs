@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The used space title.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>driver_blue_generating</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }

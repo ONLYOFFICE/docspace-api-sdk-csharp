@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user password.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>fmvO1KpUjg</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
@@ -111,7 +111,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user email address.</value>
         /*
-        <example>Sydney_Roberts4@hotmail.com</example>
+        <example>Camden_Dietrich@gmail.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -131,7 +131,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user first name.</value>
         /*
-        <example>Winfield</example>
+        <example>Sydney</example>
         */
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
@@ -161,7 +161,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user title.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>1080p_small_wooden_mouse_savings_account</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }

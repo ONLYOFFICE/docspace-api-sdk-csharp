@@ -2,9 +2,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpace.API.SDK", "src\DocSpace.API.SDK\DocSpace.API.SDK.csproj", "{1150E615-2341-4FCC-A2F8-C4A7E5FD5A4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpace.API.SDK", "src\DocSpace.API.SDK\DocSpace.API.SDK.csproj", "{4B74A12D-373C-4D44-A889-E748B1BD8F18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpace.API.SDK.Example", "samples\DocSpace.API.SDK.Example\DocSpace.API.SDK.Example.csproj", "{1150E615-2341-4FCC-A2F8-C4A7E5FD5A4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocSpace.API.SDK.Example", "samples\DocSpace.API.SDK.Example\DocSpace.API.SDK.Example.csproj", "{4B74A12D-373C-4D44-A889-E748B1BD8F18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1150E615-2341-4FCC-A2F8-C4A7E5FD5A4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1150E615-2341-4FCC-A2F8-C4A7E5FD5A4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1150E615-2341-4FCC-A2F8-C4A7E5FD5A4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1150E615-2341-4FCC-A2F8-C4A7E5FD5A4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B74A12D-373C-4D44-A889-E748B1BD8F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B74A12D-373C-4D44-A889-E748B1BD8F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B74A12D-373C-4D44-A889-E748B1BD8F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B74A12D-373C-4D44-A889-E748B1BD8F18}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

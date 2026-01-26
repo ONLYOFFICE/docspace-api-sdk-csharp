@@ -85,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The link password.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>fmf2vO1KpU</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
