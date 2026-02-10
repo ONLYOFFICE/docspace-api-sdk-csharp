@@ -1,4 +1,7 @@
 # Change Log
 
-## 1.0.0
+## 3.6.0
 - Initial release
+- Fixed enum formatting and corrected data types in generated models
+- Updated method descriptions and added missing/new fields
+- Regenerated SDK based on OpenAPI specification v3.6.0
