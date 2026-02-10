@@ -382,6 +382,7 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
+        
         /// <summary>
         /// Get the storage encryption progress
         /// </summary>

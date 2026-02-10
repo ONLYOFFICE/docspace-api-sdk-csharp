@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **PriceCurrencySymbol** | **string** | The tenant price currency symbol. | [optional] 
 **PriceISOCurrencySymbol** | **string** | The tenant price three-character ISO 4217 currency symbol. | [optional] 
 **ProductId** | **string** | The tenant product ID. | [optional] 
+**ServiceName** | **string** | The service name. | [optional] 
 **Visible** | **bool** | Specifies if the tenant quota is visible or not. | [optional] 
 **Wallet** | **bool** | Specifies if the tenant quota applies to the wallet or not | [optional] 
 **DueDate** | **DateTime?** | The quota due date. | [optional] 
@@ -41,6 +42,7 @@ Name | Type | Description | Notes
 **Year** | **bool** | Specifies if the tenant quota is yearly subscription or not. | [optional] 
 **CountFreeBackup** | **int** | The number of free backups within a month. | [optional] 
 **Backup** | **bool** | Specifies if the backup anabled as a wallet service or not. | [optional] 
+**CountAIAgent** | **int** | The number of AI agents. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -24,8 +24,11 @@ namespace DocSpace.API.SDK.Api.Rooms
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Add the room tags
         /// </summary>
+        /// <remarks>
+        /// Adds the tags to a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
@@ -34,10 +37,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FolderIntegerWrapper AddRoomTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Add the room tags
         /// </summary>
         /// <remarks>
-        /// 
+        /// Adds the tags to a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
@@ -46,8 +49,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> AddRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default);
         /// <summary>
-        /// 
+        /// Archive a room
         /// </summary>
+        /// <remarks>
+        /// Moves a room with the ID specified in the request to the Archive section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="archiveRoomRequest">The parameters for archiving a room. (optional)</param>
@@ -56,10 +62,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FileOperationWrapper ArchiveRoom(int id, ArchiveRoomRequest? archiveRoomRequest = default);
 
         /// <summary>
-        /// 
+        /// Archive a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Moves a room with the ID specified in the request to the Archive section.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -68,8 +74,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FileOperationWrapper</returns>
         ApiResponse<FileOperationWrapper> ArchiveRoomWithHttpInfo(int id, ArchiveRoomRequest? archiveRoomRequest = default);
         /// <summary>
-        /// 
+        /// Change the room cover
         /// </summary>
+        /// <remarks>
+        /// Changes a cover of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="coverRequestDto">The request parameters to change the room cover.</param>
@@ -78,10 +87,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FolderIntegerWrapper ChangeRoomCover(int id, CoverRequestDto coverRequestDto);
 
         /// <summary>
-        /// 
+        /// Change the room cover
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes a cover of a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -90,8 +99,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> ChangeRoomCoverWithHttpInfo(int id, CoverRequestDto coverRequestDto);
         /// <summary>
-        /// 
+        /// Create a room
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomRequestDto">The request parameters for creating a room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room/">REST API Reference for CreateRoom Operation</seealso>
@@ -99,10 +111,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FolderIntegerWrapper CreateRoom(CreateRoomRequestDto? createRoomRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Create a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a room in the Rooms section.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomRequestDto">The request parameters for creating a room. (optional)</param>
@@ -110,8 +122,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> CreateRoomWithHttpInfo(CreateRoomRequestDto? createRoomRequestDto = default);
         /// <summary>
-        /// 
+        /// Create a room from the template
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section based on the template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomFromTemplateDto">The parameters for creating a room from a template. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-from-template/">REST API Reference for CreateRoomFromTemplate Operation</seealso>
@@ -119,10 +134,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         RoomFromTemplateStatusWrapper CreateRoomFromTemplate(CreateRoomFromTemplateDto? createRoomFromTemplateDto = default);
 
         /// <summary>
-        /// 
+        /// Create a room from the template
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a room in the Rooms section based on the template.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomFromTemplateDto">The parameters for creating a room from a template. (optional)</param>
@@ -130,8 +145,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of RoomFromTemplateStatusWrapper</returns>
         ApiResponse<RoomFromTemplateStatusWrapper> CreateRoomFromTemplateWithHttpInfo(CreateRoomFromTemplateDto? createRoomFromTemplateDto = default);
         /// <summary>
-        /// 
+        /// Create a room logo
         /// </summary>
+        /// <remarks>
+        /// Creates a logo for a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="logoRequest">The logo request parameters.</param>
@@ -140,10 +158,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FolderIntegerWrapper CreateRoomLogo(int id, LogoRequest logoRequest);
 
         /// <summary>
-        /// 
+        /// Create a room logo
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a logo for a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -152,8 +170,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> CreateRoomLogoWithHttpInfo(int id, LogoRequest logoRequest);
         /// <summary>
-        /// 
+        /// Create a room tag
         /// </summary>
+        /// <remarks>
+        /// Creates a custom room tag with the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/">REST API Reference for CreateRoomTag Operation</seealso>
@@ -161,10 +182,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         ObjectWrapper CreateRoomTag(CreateTagRequestDto? createTagRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Create a room tag
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a custom room tag with the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
@@ -172,8 +193,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of ObjectWrapper</returns>
         ApiResponse<ObjectWrapper> CreateRoomTagWithHttpInfo(CreateTagRequestDto? createTagRequestDto = default);
         /// <summary>
-        /// 
+        /// Start creating room template
         /// </summary>
+        /// <remarks>
+        /// Starts creating the room template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomTemplateDto">The room template parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-template/">REST API Reference for CreateRoomTemplate Operation</seealso>
@@ -181,10 +205,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         RoomTemplateStatusWrapper CreateRoomTemplate(RoomTemplateDto? roomTemplateDto = default);
 
         /// <summary>
-        /// 
+        /// Start creating room template
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts creating the room template.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomTemplateDto">The room template parameters. (optional)</param>
@@ -192,8 +216,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of RoomTemplateStatusWrapper</returns>
         ApiResponse<RoomTemplateStatusWrapper> CreateRoomTemplateWithHttpInfo(RoomTemplateDto? roomTemplateDto = default);
         /// <summary>
-        /// 
+        /// Create a third-party room
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section stored in a third-party storage.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
         /// <param name="createThirdPartyRoom">The third-party room information.</param>
@@ -202,10 +229,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FolderStringWrapper CreateRoomThirdParty(string id, CreateThirdPartyRoom createThirdPartyRoom);
 
         /// <summary>
-        /// 
+        /// Create a third-party room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a room in the Rooms section stored in a third-party storage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
@@ -214,8 +241,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderStringWrapper</returns>
         ApiResponse<FolderStringWrapper> CreateRoomThirdPartyWithHttpInfo(string id, CreateThirdPartyRoom createThirdPartyRoom);
         /// <summary>
-        /// 
+        /// Delete the custom room tags
         /// </summary>
+        /// <remarks>
+        /// Deletes a bunch of custom room tags specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/">REST API Reference for DeleteCustomTags Operation</seealso>
@@ -223,10 +253,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         void DeleteCustomTags(BatchTagsRequestDto? batchTagsRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Delete the custom room tags
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a bunch of custom room tags specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
@@ -234,8 +264,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCustomTagsWithHttpInfo(BatchTagsRequestDto? batchTagsRequestDto = default);
         /// <summary>
-        /// 
+        /// Remove a room
         /// </summary>
+        /// <remarks>
+        /// Removes a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="deleteRoomRequest">The parameters for deleting a room.</param>
@@ -244,10 +277,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FileOperationWrapper DeleteRoom(int id, DeleteRoomRequest deleteRoomRequest);
 
         /// <summary>
-        /// 
+        /// Remove a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -256,8 +289,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FileOperationWrapper</returns>
         ApiResponse<FileOperationWrapper> DeleteRoomWithHttpInfo(int id, DeleteRoomRequest deleteRoomRequest);
         /// <summary>
-        /// 
+        /// Remove a room logo
         /// </summary>
+        /// <remarks>
+        /// Removes a logo from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/">REST API Reference for DeleteRoomLogo Operation</seealso>
@@ -265,10 +301,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FolderIntegerWrapper DeleteRoomLogo(int id);
 
         /// <summary>
-        /// 
+        /// Remove a room logo
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes a logo from a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -276,8 +312,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> DeleteRoomLogoWithHttpInfo(int id);
         /// <summary>
-        /// 
+        /// Remove the room tags
         /// </summary>
+        /// <remarks>
+        /// Removes the tags from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
@@ -286,10 +325,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FolderIntegerWrapper DeleteRoomTags(int id, BatchTagsRequestDto? batchTagsRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Remove the room tags
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the tags from a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
@@ -298,8 +337,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> DeleteRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default);
         /// <summary>
-        /// 
+        /// Get the new room items
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the new items from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/">REST API Reference for GetNewRoomItems Operation</seealso>
@@ -307,10 +349,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         NewItemsFileEntryBaseArrayWrapper GetNewRoomItems(int id);
 
         /// <summary>
-        /// 
+        /// Get the new room items
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of all the new items from a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -318,8 +360,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of NewItemsFileEntryBaseArrayWrapper</returns>
         ApiResponse<NewItemsFileEntryBaseArrayWrapper> GetNewRoomItemsWithHttpInfo(int id);
         /// <summary>
-        /// 
+        /// Get public settings
         /// </summary>
+        /// <remarks>
+        /// Returns the public settings of the room template with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room template ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-settings/">REST API Reference for GetPublicSettings Operation</seealso>
@@ -327,10 +372,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         BooleanWrapper GetPublicSettings(int id);
 
         /// <summary>
-        /// 
+        /// Get public settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the public settings of the room template with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room template ID.</param>
@@ -338,62 +383,74 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> GetPublicSettingsWithHttpInfo(int id);
         /// <summary>
-        /// 
+        /// Get covers
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all covers.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-covers/">REST API Reference for GetRoomCovers Operation</seealso>
         /// <returns>CoversResultArrayWrapper</returns>
         CoversResultArrayWrapper GetRoomCovers();
 
         /// <summary>
-        /// 
+        /// Get covers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of all covers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-covers/">REST API Reference for GetRoomCovers Operation</seealso>
         /// <returns>ApiResponse of CoversResultArrayWrapper</returns>
         ApiResponse<CoversResultArrayWrapper> GetRoomCoversWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get the room creation progress
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of creating a room from the template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-creating-status/">REST API Reference for GetRoomCreatingStatus Operation</seealso>
         /// <returns>RoomFromTemplateStatusWrapper</returns>
         RoomFromTemplateStatusWrapper GetRoomCreatingStatus();
 
         /// <summary>
-        /// 
+        /// Get the room creation progress
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the progress of creating a room from the template.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-creating-status/">REST API Reference for GetRoomCreatingStatus Operation</seealso>
         /// <returns>ApiResponse of RoomFromTemplateStatusWrapper</returns>
         ApiResponse<RoomFromTemplateStatusWrapper> GetRoomCreatingStatusWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get the room index export
         /// </summary>
+        /// <remarks>
+        /// Returns the room index export.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-index-export/">REST API Reference for GetRoomIndexExport Operation</seealso>
         /// <returns>DocumentBuilderTaskWrapper</returns>
         DocumentBuilderTaskWrapper GetRoomIndexExport();
 
         /// <summary>
-        /// 
+        /// Get the room index export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the room index export.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-index-export/">REST API Reference for GetRoomIndexExport Operation</seealso>
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
         ApiResponse<DocumentBuilderTaskWrapper> GetRoomIndexExportWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get room information
         /// </summary>
+        /// <remarks>
+        /// Returns the room information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/">REST API Reference for GetRoomInfo Operation</seealso>
@@ -401,10 +458,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FolderIntegerWrapper GetRoomInfo(int id);
 
         /// <summary>
-        /// 
+        /// Get room information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the room information.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -412,8 +469,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> GetRoomInfoWithHttpInfo(int id);
         /// <summary>
-        /// 
+        /// Get the room links
         /// </summary>
+        /// <remarks>
+        /// Returns the links of the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="type">The link type. (optional)</param>
@@ -422,10 +482,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FileShareArrayWrapper GetRoomLinks(int id, LinkType? type = default);
 
         /// <summary>
-        /// 
+        /// Get the room links
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the links of the room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -434,8 +494,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
         ApiResponse<FileShareArrayWrapper> GetRoomLinksWithHttpInfo(int id, LinkType? type = default);
         /// <summary>
-        /// 
+        /// Get the room access rights
         /// </summary>
+        /// <remarks>
+        /// Returns the access rights of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="filterType">The filter type of the access rights. (optional)</param>
@@ -447,10 +510,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FileShareArrayWrapper GetRoomSecurityInfo(int id, ShareFilterType? filterType = default, int? count = default, int? startIndex = default, string? filterValue = default);
 
         /// <summary>
-        /// 
+        /// Get the room access rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the access rights of a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -462,8 +525,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FileShareArrayWrapper</returns>
         ApiResponse<FileShareArrayWrapper> GetRoomSecurityInfoWithHttpInfo(int id, ShareFilterType? filterType = default, int? count = default, int? startIndex = default, string? filterValue = default);
         /// <summary>
-        /// 
+        /// Get the room tags
         /// </summary>
+        /// <remarks>
+        /// Returns a list of custom room tags.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
         /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
@@ -473,10 +539,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         ObjectArrayWrapper GetRoomTagsInfo(int? count = default, int? startIndex = default, string? filterValue = default);
 
         /// <summary>
-        /// 
+        /// Get the room tags
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of custom room tags.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
@@ -486,26 +552,32 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of ObjectArrayWrapper</returns>
         ApiResponse<ObjectArrayWrapper> GetRoomTagsInfoWithHttpInfo(int? count = default, int? startIndex = default, string? filterValue = default);
         /// <summary>
-        /// 
+        /// Get status of room template creation
         /// </summary>
+        /// <remarks>
+        /// Returns the progress status of the room template creation process.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-template-creating-status/">REST API Reference for GetRoomTemplateCreatingStatus Operation</seealso>
         /// <returns>RoomTemplateStatusWrapper</returns>
         RoomTemplateStatusWrapper GetRoomTemplateCreatingStatus();
 
         /// <summary>
-        /// 
+        /// Get status of room template creation
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the progress status of the room template creation process.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-template-creating-status/">REST API Reference for GetRoomTemplateCreatingStatus Operation</seealso>
         /// <returns>ApiResponse of RoomTemplateStatusWrapper</returns>
         ApiResponse<RoomTemplateStatusWrapper> GetRoomTemplateCreatingStatusWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get rooms
         /// </summary>
+        /// <remarks>
+        /// Returns the contents of the Rooms section by the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The filter by room type. (optional)</param>
         /// <param name="subjectId">The filter by user ID. (optional)</param>
@@ -527,10 +599,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
 
         /// <summary>
-        /// 
+        /// Get rooms
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the contents of the Rooms section by the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The filter by room type. (optional)</param>
@@ -552,26 +624,32 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
         ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
         /// <summary>
-        /// 
+        /// Get the room new items
         /// </summary>
+        /// <remarks>
+        /// Returns the room new items.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-new-items/">REST API Reference for GetRoomsNewItems Operation</seealso>
         /// <returns>NewItemsRoomNewItemsArrayWrapper</returns>
         NewItemsRoomNewItemsArrayWrapper GetRoomsNewItems();
 
         /// <summary>
-        /// 
+        /// Get the room new items
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the room new items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-new-items/">REST API Reference for GetRoomsNewItems Operation</seealso>
         /// <returns>ApiResponse of NewItemsRoomNewItemsArrayWrapper</returns>
         ApiResponse<NewItemsRoomNewItemsArrayWrapper> GetRoomsNewItemsWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get the room primary external link
         /// </summary>
+        /// <remarks>
+        /// Returns the primary external link of the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
@@ -579,10 +657,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FileShareWrapper GetRoomsPrimaryExternalLink(int id);
 
         /// <summary>
-        /// 
+        /// Get the room primary external link
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the primary external link of the room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -590,8 +668,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FileShareWrapper</returns>
         ApiResponse<FileShareWrapper> GetRoomsPrimaryExternalLinkWithHttpInfo(int id);
         /// <summary>
-        /// 
+        /// Pin a room
         /// </summary>
+        /// <remarks>
+        /// Pins a room with the ID specified in the request to the top of the list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/">REST API Reference for PinRoom Operation</seealso>
@@ -599,10 +680,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FolderIntegerWrapper PinRoom(int id);
 
         /// <summary>
-        /// 
+        /// Pin a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Pins a room with the ID specified in the request to the top of the list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -610,8 +691,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> PinRoomWithHttpInfo(int id);
         /// <summary>
-        /// 
+        /// Reorder the room
         /// </summary>
+        /// <remarks>
+        /// Reorders the room with ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/">REST API Reference for ReorderRoom Operation</seealso>
@@ -619,10 +703,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FolderIntegerWrapper ReorderRoom(int id);
 
         /// <summary>
-        /// 
+        /// Reorder the room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Reorders the room with ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -630,8 +714,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> ReorderRoomWithHttpInfo(int id);
         /// <summary>
-        /// 
+        /// Resend the room invitations
         /// </summary>
+        /// <remarks>
+        /// Resends the email invitations to a room with the ID specified in the request to the selected users.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="userInvitation">The user invitation parameters.</param>
@@ -640,10 +727,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         void ResendEmailInvitations(int id, UserInvitation userInvitation);
 
         /// <summary>
-        /// 
+        /// Resend the room invitations
         /// </summary>
         /// <remarks>
-        /// 
+        /// Resends the email invitations to a room with the ID specified in the request to the selected users.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -652,8 +739,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ResendEmailInvitationsWithHttpInfo(int id, UserInvitation userInvitation);
         /// <summary>
-        /// 
+        /// Set public settings
         /// </summary>
+        /// <remarks>
+        /// Sets the public settings for the room template with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setPublicDto">The public settings of the room template to set. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-public-settings/">REST API Reference for SetPublicSettings Operation</seealso>
@@ -661,10 +751,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         void SetPublicSettings(SetPublicDto? setPublicDto = default);
 
         /// <summary>
-        /// 
+        /// Set public settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the public settings for the room template with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setPublicDto">The public settings of the room template to set. (optional)</param>
@@ -672,8 +762,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SetPublicSettingsWithHttpInfo(SetPublicDto? setPublicDto = default);
         /// <summary>
-        /// 
+        /// Set the room external or invitation link
         /// </summary>
+        /// <remarks>
+        /// Sets the room external or invitation link with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="roomLinkRequest">The room link parameters.</param>
@@ -682,10 +775,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FileShareWrapper SetRoomLink(int id, RoomLinkRequest roomLinkRequest);
 
         /// <summary>
-        /// 
+        /// Set the room external or invitation link
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the room external or invitation link with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -694,8 +787,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FileShareWrapper</returns>
         ApiResponse<FileShareWrapper> SetRoomLinkWithHttpInfo(int id, RoomLinkRequest roomLinkRequest);
         /// <summary>
-        /// 
+        /// Set the room access rights
         /// </summary>
+        /// <remarks>
+        /// Sets the access rights to the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="roomInvitationRequest">The room invitation request.</param>
@@ -704,10 +800,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         RoomSecurityWrapper SetRoomSecurity(int id, RoomInvitationRequest roomInvitationRequest);
 
         /// <summary>
-        /// 
+        /// Set the room access rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the access rights to the room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -716,8 +812,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of RoomSecurityWrapper</returns>
         ApiResponse<RoomSecurityWrapper> SetRoomSecurityWithHttpInfo(int id, RoomInvitationRequest roomInvitationRequest);
         /// <summary>
-        /// 
+        /// Start the room index export
         /// </summary>
+        /// <remarks>
+        /// Starts the index export of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/">REST API Reference for StartRoomIndexExport Operation</seealso>
@@ -725,10 +824,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         DocumentBuilderTaskWrapper StartRoomIndexExport(int id);
 
         /// <summary>
-        /// 
+        /// Start the room index export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts the index export of a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -736,26 +835,32 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
         ApiResponse<DocumentBuilderTaskWrapper> StartRoomIndexExportWithHttpInfo(int id);
         /// <summary>
-        /// 
+        /// Terminate the room index export
         /// </summary>
+        /// <remarks>
+        /// Terminates the room index export.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-room-index-export/">REST API Reference for TerminateRoomIndexExport Operation</seealso>
         /// <returns></returns>
         void TerminateRoomIndexExport();
 
         /// <summary>
-        /// 
+        /// Terminate the room index export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Terminates the room index export.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-room-index-export/">REST API Reference for TerminateRoomIndexExport Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> TerminateRoomIndexExportWithHttpInfo();
         /// <summary>
-        /// 
+        /// Unarchive a room
         /// </summary>
+        /// <remarks>
+        /// Moves a room with the ID specified in the request from the Archive section to the Rooms section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="archiveRoomRequest">The parameters for archiving a room. (optional)</param>
@@ -764,10 +869,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FileOperationWrapper UnarchiveRoom(int id, ArchiveRoomRequest? archiveRoomRequest = default);
 
         /// <summary>
-        /// 
+        /// Unarchive a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Moves a room with the ID specified in the request from the Archive section to the Rooms section.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -776,8 +881,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FileOperationWrapper</returns>
         ApiResponse<FileOperationWrapper> UnarchiveRoomWithHttpInfo(int id, ArchiveRoomRequest? archiveRoomRequest = default);
         /// <summary>
-        /// 
+        /// Unpin a room
         /// </summary>
+        /// <remarks>
+        /// Unpins a room with the ID specified in the request from the top of the list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/">REST API Reference for UnpinRoom Operation</seealso>
@@ -785,10 +893,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FolderIntegerWrapper UnpinRoom(int id);
 
         /// <summary>
-        /// 
+        /// Unpin a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Unpins a room with the ID specified in the request from the top of the list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -796,8 +904,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> UnpinRoomWithHttpInfo(int id);
         /// <summary>
-        /// 
+        /// Update a room
         /// </summary>
+        /// <remarks>
+        /// Updates a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="updateRoomRequest">The request parameters for updating a room.</param>
@@ -806,10 +917,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         FolderIntegerWrapper UpdateRoom(int id, UpdateRoomRequest updateRoomRequest);
 
         /// <summary>
-        /// 
+        /// Update a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -818,8 +929,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> UpdateRoomWithHttpInfo(int id, UpdateRoomRequest updateRoomRequest);
         /// <summary>
-        /// 
+        /// Upload a room logo image
         /// </summary>
+        /// <remarks>
+        /// Uploads a temporary image to create a room logo.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="formCollection">The image data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/">REST API Reference for UploadRoomLogo Operation</seealso>
@@ -827,10 +941,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         UploadResultWrapper UploadRoomLogo(List<KeyValuePairStringStringValues>? formCollection = default);
 
         /// <summary>
-        /// 
+        /// Upload a room logo image
         /// </summary>
         /// <remarks>
-        /// 
+        /// Uploads a temporary image to create a room logo.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="formCollection">The image data. (optional)</param>
@@ -847,10 +961,10 @@ namespace DocSpace.API.SDK.Api.Rooms
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Add the room tags
         /// </summary>
         /// <remarks>
-        /// 
+        /// Adds the tags to a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
@@ -861,10 +975,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FolderIntegerWrapper> AddRoomTagsAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Add the room tags
         /// </summary>
         /// <remarks>
-        /// 
+        /// Adds the tags to a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
@@ -874,10 +988,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         Task<ApiResponse<FolderIntegerWrapper>> AddRoomTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Archive a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Moves a room with the ID specified in the request to the Archive section.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -888,10 +1002,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FileOperationWrapper> ArchiveRoomAsync(int id, ArchiveRoomRequest? archiveRoomRequest = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Archive a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Moves a room with the ID specified in the request to the Archive section.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -901,10 +1015,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FileOperationWrapper)</returns>
         Task<ApiResponse<FileOperationWrapper>> ArchiveRoomWithHttpInfoAsync(int id, ArchiveRoomRequest? archiveRoomRequest = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Change the room cover
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes a cover of a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -915,10 +1029,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FolderIntegerWrapper> ChangeRoomCoverAsync(int id, CoverRequestDto coverRequestDto, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Change the room cover
         /// </summary>
         /// <remarks>
-        /// 
+        /// Changes a cover of a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -928,10 +1042,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         Task<ApiResponse<FolderIntegerWrapper>> ChangeRoomCoverWithHttpInfoAsync(int id, CoverRequestDto coverRequestDto, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Create a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a room in the Rooms section.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomRequestDto">The request parameters for creating a room. (optional)</param>
@@ -941,10 +1055,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FolderIntegerWrapper> CreateRoomAsync(CreateRoomRequestDto? createRoomRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Create a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a room in the Rooms section.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomRequestDto">The request parameters for creating a room. (optional)</param>
@@ -953,10 +1067,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         Task<ApiResponse<FolderIntegerWrapper>> CreateRoomWithHttpInfoAsync(CreateRoomRequestDto? createRoomRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Create a room from the template
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a room in the Rooms section based on the template.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomFromTemplateDto">The parameters for creating a room from a template. (optional)</param>
@@ -966,10 +1080,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<RoomFromTemplateStatusWrapper> CreateRoomFromTemplateAsync(CreateRoomFromTemplateDto? createRoomFromTemplateDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Create a room from the template
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a room in the Rooms section based on the template.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomFromTemplateDto">The parameters for creating a room from a template. (optional)</param>
@@ -978,10 +1092,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (RoomFromTemplateStatusWrapper)</returns>
         Task<ApiResponse<RoomFromTemplateStatusWrapper>> CreateRoomFromTemplateWithHttpInfoAsync(CreateRoomFromTemplateDto? createRoomFromTemplateDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Create a room logo
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a logo for a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -992,10 +1106,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FolderIntegerWrapper> CreateRoomLogoAsync(int id, LogoRequest logoRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Create a room logo
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a logo for a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1005,10 +1119,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         Task<ApiResponse<FolderIntegerWrapper>> CreateRoomLogoWithHttpInfoAsync(int id, LogoRequest logoRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Create a room tag
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a custom room tag with the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
@@ -1018,10 +1132,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<ObjectWrapper> CreateRoomTagAsync(CreateTagRequestDto? createTagRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Create a room tag
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a custom room tag with the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
@@ -1030,10 +1144,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
         Task<ApiResponse<ObjectWrapper>> CreateRoomTagWithHttpInfoAsync(CreateTagRequestDto? createTagRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Start creating room template
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts creating the room template.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomTemplateDto">The room template parameters. (optional)</param>
@@ -1043,10 +1157,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<RoomTemplateStatusWrapper> CreateRoomTemplateAsync(RoomTemplateDto? roomTemplateDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Start creating room template
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts creating the room template.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomTemplateDto">The room template parameters. (optional)</param>
@@ -1055,10 +1169,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (RoomTemplateStatusWrapper)</returns>
         Task<ApiResponse<RoomTemplateStatusWrapper>> CreateRoomTemplateWithHttpInfoAsync(RoomTemplateDto? roomTemplateDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Create a third-party room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a room in the Rooms section stored in a third-party storage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
@@ -1069,10 +1183,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FolderStringWrapper> CreateRoomThirdPartyAsync(string id, CreateThirdPartyRoom createThirdPartyRoom, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Create a third-party room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a room in the Rooms section stored in a third-party storage.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
@@ -1082,10 +1196,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FolderStringWrapper)</returns>
         Task<ApiResponse<FolderStringWrapper>> CreateRoomThirdPartyWithHttpInfoAsync(string id, CreateThirdPartyRoom createThirdPartyRoom, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Delete the custom room tags
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a bunch of custom room tags specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
@@ -1095,10 +1209,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task DeleteCustomTagsAsync(BatchTagsRequestDto? batchTagsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Delete the custom room tags
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes a bunch of custom room tags specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
@@ -1107,10 +1221,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> DeleteCustomTagsWithHttpInfoAsync(BatchTagsRequestDto? batchTagsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Remove a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1121,10 +1235,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FileOperationWrapper> DeleteRoomAsync(int id, DeleteRoomRequest deleteRoomRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Remove a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1134,10 +1248,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FileOperationWrapper)</returns>
         Task<ApiResponse<FileOperationWrapper>> DeleteRoomWithHttpInfoAsync(int id, DeleteRoomRequest deleteRoomRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Remove a room logo
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes a logo from a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1147,10 +1261,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FolderIntegerWrapper> DeleteRoomLogoAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Remove a room logo
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes a logo from a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1159,10 +1273,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         Task<ApiResponse<FolderIntegerWrapper>> DeleteRoomLogoWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Remove the room tags
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the tags from a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
@@ -1173,10 +1287,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FolderIntegerWrapper> DeleteRoomTagsAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Remove the room tags
         /// </summary>
         /// <remarks>
-        /// 
+        /// Removes the tags from a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
@@ -1186,10 +1300,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         Task<ApiResponse<FolderIntegerWrapper>> DeleteRoomTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the new room items
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of all the new items from a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1199,10 +1313,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<NewItemsFileEntryBaseArrayWrapper> GetNewRoomItemsAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the new room items
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of all the new items from a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1211,10 +1325,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (NewItemsFileEntryBaseArrayWrapper)</returns>
         Task<ApiResponse<NewItemsFileEntryBaseArrayWrapper>> GetNewRoomItemsWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get public settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the public settings of the room template with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room template ID.</param>
@@ -1224,10 +1338,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<BooleanWrapper> GetPublicSettingsAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get public settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the public settings of the room template with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room template ID.</param>
@@ -1236,10 +1350,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> GetPublicSettingsWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get covers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of all covers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1248,10 +1362,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<CoversResultArrayWrapper> GetRoomCoversAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get covers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of all covers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1259,10 +1373,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (CoversResultArrayWrapper)</returns>
         Task<ApiResponse<CoversResultArrayWrapper>> GetRoomCoversWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the room creation progress
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the progress of creating a room from the template.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1271,10 +1385,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<RoomFromTemplateStatusWrapper> GetRoomCreatingStatusAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the room creation progress
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the progress of creating a room from the template.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1282,10 +1396,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (RoomFromTemplateStatusWrapper)</returns>
         Task<ApiResponse<RoomFromTemplateStatusWrapper>> GetRoomCreatingStatusWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the room index export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the room index export.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1294,10 +1408,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<DocumentBuilderTaskWrapper> GetRoomIndexExportAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the room index export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the room index export.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1305,10 +1419,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
         Task<ApiResponse<DocumentBuilderTaskWrapper>> GetRoomIndexExportWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get room information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the room information.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1318,10 +1432,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FolderIntegerWrapper> GetRoomInfoAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get room information
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the room information.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1330,10 +1444,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         Task<ApiResponse<FolderIntegerWrapper>> GetRoomInfoWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the room links
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the links of the room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1344,10 +1458,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FileShareArrayWrapper> GetRoomLinksAsync(int id, LinkType? type = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the room links
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the links of the room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1357,10 +1471,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
         Task<ApiResponse<FileShareArrayWrapper>> GetRoomLinksWithHttpInfoAsync(int id, LinkType? type = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the room access rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the access rights of a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1374,10 +1488,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FileShareArrayWrapper> GetRoomSecurityInfoAsync(int id, ShareFilterType? filterType = default, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the room access rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the access rights of a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1390,10 +1504,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FileShareArrayWrapper)</returns>
         Task<ApiResponse<FileShareArrayWrapper>> GetRoomSecurityInfoWithHttpInfoAsync(int id, ShareFilterType? filterType = default, int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the room tags
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of custom room tags.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
@@ -1405,10 +1519,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<ObjectArrayWrapper> GetRoomTagsInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the room tags
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a list of custom room tags.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
@@ -1419,10 +1533,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
         Task<ApiResponse<ObjectArrayWrapper>> GetRoomTagsInfoWithHttpInfoAsync(int? count = default, int? startIndex = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get status of room template creation
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the progress status of the room template creation process.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1431,10 +1545,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<RoomTemplateStatusWrapper> GetRoomTemplateCreatingStatusAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get status of room template creation
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the progress status of the room template creation process.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1442,10 +1556,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (RoomTemplateStatusWrapper)</returns>
         Task<ApiResponse<RoomTemplateStatusWrapper>> GetRoomTemplateCreatingStatusWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get rooms
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the contents of the Rooms section by the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The filter by room type. (optional)</param>
@@ -1469,10 +1583,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get rooms
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the contents of the Rooms section by the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The filter by room type. (optional)</param>
@@ -1495,10 +1609,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
         Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the room new items
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the room new items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1507,10 +1621,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<NewItemsRoomNewItemsArrayWrapper> GetRoomsNewItemsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the room new items
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the room new items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1518,10 +1632,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (NewItemsRoomNewItemsArrayWrapper)</returns>
         Task<ApiResponse<NewItemsRoomNewItemsArrayWrapper>> GetRoomsNewItemsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get the room primary external link
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the primary external link of the room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1531,10 +1645,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FileShareWrapper> GetRoomsPrimaryExternalLinkAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get the room primary external link
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the primary external link of the room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1543,10 +1657,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
         Task<ApiResponse<FileShareWrapper>> GetRoomsPrimaryExternalLinkWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Pin a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Pins a room with the ID specified in the request to the top of the list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1556,10 +1670,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FolderIntegerWrapper> PinRoomAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Pin a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Pins a room with the ID specified in the request to the top of the list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1568,10 +1682,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         Task<ApiResponse<FolderIntegerWrapper>> PinRoomWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Reorder the room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Reorders the room with ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1581,10 +1695,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FolderIntegerWrapper> ReorderRoomAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Reorder the room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Reorders the room with ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1593,10 +1707,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         Task<ApiResponse<FolderIntegerWrapper>> ReorderRoomWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Resend the room invitations
         /// </summary>
         /// <remarks>
-        /// 
+        /// Resends the email invitations to a room with the ID specified in the request to the selected users.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1607,10 +1721,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task ResendEmailInvitationsAsync(int id, UserInvitation userInvitation, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Resend the room invitations
         /// </summary>
         /// <remarks>
-        /// 
+        /// Resends the email invitations to a room with the ID specified in the request to the selected users.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1620,10 +1734,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> ResendEmailInvitationsWithHttpInfoAsync(int id, UserInvitation userInvitation, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Set public settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the public settings for the room template with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setPublicDto">The public settings of the room template to set. (optional)</param>
@@ -1633,10 +1747,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task SetPublicSettingsAsync(SetPublicDto? setPublicDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Set public settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the public settings for the room template with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setPublicDto">The public settings of the room template to set. (optional)</param>
@@ -1645,10 +1759,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> SetPublicSettingsWithHttpInfoAsync(SetPublicDto? setPublicDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Set the room external or invitation link
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the room external or invitation link with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1659,10 +1773,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FileShareWrapper> SetRoomLinkAsync(int id, RoomLinkRequest roomLinkRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Set the room external or invitation link
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the room external or invitation link with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1672,10 +1786,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
         Task<ApiResponse<FileShareWrapper>> SetRoomLinkWithHttpInfoAsync(int id, RoomLinkRequest roomLinkRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Set the room access rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the access rights to the room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1686,10 +1800,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<RoomSecurityWrapper> SetRoomSecurityAsync(int id, RoomInvitationRequest roomInvitationRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Set the room access rights
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the access rights to the room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1699,10 +1813,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (RoomSecurityWrapper)</returns>
         Task<ApiResponse<RoomSecurityWrapper>> SetRoomSecurityWithHttpInfoAsync(int id, RoomInvitationRequest roomInvitationRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Start the room index export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts the index export of a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1712,10 +1826,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<DocumentBuilderTaskWrapper> StartRoomIndexExportAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Start the room index export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Starts the index export of a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1724,10 +1838,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
         Task<ApiResponse<DocumentBuilderTaskWrapper>> StartRoomIndexExportWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Terminate the room index export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Terminates the room index export.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1736,10 +1850,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task TerminateRoomIndexExportAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Terminate the room index export
         /// </summary>
         /// <remarks>
-        /// 
+        /// Terminates the room index export.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1747,10 +1861,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> TerminateRoomIndexExportWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Unarchive a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Moves a room with the ID specified in the request from the Archive section to the Rooms section.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1761,10 +1875,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FileOperationWrapper> UnarchiveRoomAsync(int id, ArchiveRoomRequest? archiveRoomRequest = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Unarchive a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Moves a room with the ID specified in the request from the Archive section to the Rooms section.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1774,10 +1888,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FileOperationWrapper)</returns>
         Task<ApiResponse<FileOperationWrapper>> UnarchiveRoomWithHttpInfoAsync(int id, ArchiveRoomRequest? archiveRoomRequest = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Unpin a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Unpins a room with the ID specified in the request from the top of the list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1787,10 +1901,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FolderIntegerWrapper> UnpinRoomAsync(int id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Unpin a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Unpins a room with the ID specified in the request from the top of the list.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1799,10 +1913,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         Task<ApiResponse<FolderIntegerWrapper>> UnpinRoomWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Update a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1813,10 +1927,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<FolderIntegerWrapper> UpdateRoomAsync(int id, UpdateRoomRequest updateRoomRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Update a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates a room with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
@@ -1826,10 +1940,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         Task<ApiResponse<FolderIntegerWrapper>> UpdateRoomWithHttpInfoAsync(int id, UpdateRoomRequest updateRoomRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Upload a room logo image
         /// </summary>
         /// <remarks>
-        /// 
+        /// Uploads a temporary image to create a room logo.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="formCollection">The image data. (optional)</param>
@@ -1839,10 +1953,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         Task<UploadResultWrapper> UploadRoomLogoAsync(List<KeyValuePairStringStringValues>? formCollection = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Upload a room logo image
         /// </summary>
         /// <remarks>
-        /// 
+        /// Uploads a temporary image to create a room logo.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="formCollection">The image data. (optional)</param>
@@ -2077,9 +2191,13 @@ namespace DocSpace.API.SDK.Api.Rooms
             return this;
         }
 
+        
         /// <summary>
-        /// 
+        /// Add the room tags
         /// </summary>
+        /// <remarks>
+        /// Adds the tags to a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
@@ -2092,8 +2210,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Add the room tags
         /// </summary>
+        /// <remarks>
+        /// Adds the tags to a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
@@ -2117,6 +2238,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (batchTagsRequestDto != null) localVarRequestOptions.Data = batchTagsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FolderIntegerWrapper>("/api/2.0/files/rooms/{id}/tags", localVarRequestOptions, Configuration);
@@ -2134,8 +2285,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Add the room tags
         /// </summary>
+        /// <remarks>
+        /// Adds the tags to a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
@@ -2149,8 +2303,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Add the room tags
         /// </summary>
+        /// <remarks>
+        /// Adds the tags to a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
@@ -2176,6 +2333,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (batchTagsRequestDto != null) localVarRequestOptions.Data = batchTagsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2194,8 +2381,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Archive a room
         /// </summary>
+        /// <remarks>
+        /// Moves a room with the ID specified in the request to the Archive section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="archiveRoomRequest">The parameters for archiving a room. (optional)</param>
@@ -2208,8 +2398,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Archive a room
         /// </summary>
+        /// <remarks>
+        /// Moves a room with the ID specified in the request to the Archive section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="archiveRoomRequest">The parameters for archiving a room. (optional)</param>
@@ -2233,6 +2426,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (archiveRoomRequest != null) localVarRequestOptions.Data = archiveRoomRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FileOperationWrapper>("/api/2.0/files/rooms/{id}/archive", localVarRequestOptions, Configuration);
@@ -2250,8 +2473,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Archive a room
         /// </summary>
+        /// <remarks>
+        /// Moves a room with the ID specified in the request to the Archive section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="archiveRoomRequest">The parameters for archiving a room. (optional)</param>
@@ -2265,8 +2491,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Archive a room
         /// </summary>
+        /// <remarks>
+        /// Moves a room with the ID specified in the request to the Archive section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="archiveRoomRequest">The parameters for archiving a room. (optional)</param>
@@ -2292,6 +2521,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (archiveRoomRequest != null) localVarRequestOptions.Data = archiveRoomRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2310,8 +2569,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Change the room cover
         /// </summary>
+        /// <remarks>
+        /// Changes a cover of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="coverRequestDto">The request parameters to change the room cover.</param>
@@ -2324,8 +2586,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Change the room cover
         /// </summary>
+        /// <remarks>
+        /// Changes a cover of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="coverRequestDto">The request parameters to change the room cover.</param>
@@ -2353,6 +2618,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (coverRequestDto != null) localVarRequestOptions.Data = coverRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FolderIntegerWrapper>("/api/2.0/files/rooms/{id}/cover", localVarRequestOptions, Configuration);
@@ -2370,8 +2665,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Change the room cover
         /// </summary>
+        /// <remarks>
+        /// Changes a cover of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="coverRequestDto">The request parameters to change the room cover.</param>
@@ -2385,8 +2683,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Change the room cover
         /// </summary>
+        /// <remarks>
+        /// Changes a cover of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="coverRequestDto">The request parameters to change the room cover.</param>
@@ -2416,6 +2717,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (coverRequestDto != null) localVarRequestOptions.Data = coverRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2434,8 +2765,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomRequestDto">The request parameters for creating a room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room/">REST API Reference for CreateRoom Operation</seealso>
@@ -2447,8 +2781,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomRequestDto">The request parameters for creating a room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room/">REST API Reference for CreateRoom Operation</seealso>
@@ -2470,6 +2807,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (createRoomRequestDto != null) localVarRequestOptions.Data = createRoomRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FolderIntegerWrapper>("/api/2.0/files/rooms", localVarRequestOptions, Configuration);
@@ -2487,8 +2854,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomRequestDto">The request parameters for creating a room. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2501,8 +2871,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomRequestDto">The request parameters for creating a room. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2526,6 +2899,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (createRoomRequestDto != null) localVarRequestOptions.Data = createRoomRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2544,8 +2947,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room from the template
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section based on the template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomFromTemplateDto">The parameters for creating a room from a template. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-from-template/">REST API Reference for CreateRoomFromTemplate Operation</seealso>
@@ -2557,8 +2963,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room from the template
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section based on the template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomFromTemplateDto">The parameters for creating a room from a template. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-from-template/">REST API Reference for CreateRoomFromTemplate Operation</seealso>
@@ -2580,6 +2989,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (createRoomFromTemplateDto != null) localVarRequestOptions.Data = createRoomFromTemplateDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<RoomFromTemplateStatusWrapper>("/api/2.0/files/rooms/fromtemplate", localVarRequestOptions, Configuration);
@@ -2597,8 +3036,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room from the template
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section based on the template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomFromTemplateDto">The parameters for creating a room from a template. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2611,8 +3053,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room from the template
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section based on the template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createRoomFromTemplateDto">The parameters for creating a room from a template. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2636,6 +3081,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (createRoomFromTemplateDto != null) localVarRequestOptions.Data = createRoomFromTemplateDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2654,8 +3129,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room logo
         /// </summary>
+        /// <remarks>
+        /// Creates a logo for a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="logoRequest">The logo request parameters.</param>
@@ -2668,8 +3146,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room logo
         /// </summary>
+        /// <remarks>
+        /// Creates a logo for a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="logoRequest">The logo request parameters.</param>
@@ -2697,6 +3178,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (logoRequest != null) localVarRequestOptions.Data = logoRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FolderIntegerWrapper>("/api/2.0/files/rooms/{id}/logo", localVarRequestOptions, Configuration);
@@ -2714,8 +3225,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room logo
         /// </summary>
+        /// <remarks>
+        /// Creates a logo for a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="logoRequest">The logo request parameters.</param>
@@ -2729,8 +3243,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room logo
         /// </summary>
+        /// <remarks>
+        /// Creates a logo for a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="logoRequest">The logo request parameters.</param>
@@ -2760,6 +3277,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (logoRequest != null) localVarRequestOptions.Data = logoRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2778,8 +3325,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room tag
         /// </summary>
+        /// <remarks>
+        /// Creates a custom room tag with the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/">REST API Reference for CreateRoomTag Operation</seealso>
@@ -2791,8 +3341,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room tag
         /// </summary>
+        /// <remarks>
+        /// Creates a custom room tag with the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/">REST API Reference for CreateRoomTag Operation</seealso>
@@ -2814,6 +3367,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (createTagRequestDto != null) localVarRequestOptions.Data = createTagRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<ObjectWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration);
@@ -2831,8 +3414,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room tag
         /// </summary>
+        /// <remarks>
+        /// Creates a custom room tag with the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2845,8 +3431,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a room tag
         /// </summary>
+        /// <remarks>
+        /// Creates a custom room tag with the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2870,6 +3459,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (createTagRequestDto != null) localVarRequestOptions.Data = createTagRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2888,8 +3507,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Start creating room template
         /// </summary>
+        /// <remarks>
+        /// Starts creating the room template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomTemplateDto">The room template parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-template/">REST API Reference for CreateRoomTemplate Operation</seealso>
@@ -2901,8 +3523,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Start creating room template
         /// </summary>
+        /// <remarks>
+        /// Starts creating the room template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomTemplateDto">The room template parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-template/">REST API Reference for CreateRoomTemplate Operation</seealso>
@@ -2924,6 +3549,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (roomTemplateDto != null) localVarRequestOptions.Data = roomTemplateDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<RoomTemplateStatusWrapper>("/api/2.0/files/roomtemplate", localVarRequestOptions, Configuration);
@@ -2941,8 +3596,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Start creating room template
         /// </summary>
+        /// <remarks>
+        /// Starts creating the room template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomTemplateDto">The room template parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2955,8 +3613,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Start creating room template
         /// </summary>
+        /// <remarks>
+        /// Starts creating the room template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomTemplateDto">The room template parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2980,6 +3641,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (roomTemplateDto != null) localVarRequestOptions.Data = roomTemplateDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -2998,8 +3689,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a third-party room
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section stored in a third-party storage.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
         /// <param name="createThirdPartyRoom">The third-party room information.</param>
@@ -3012,8 +3706,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a third-party room
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section stored in a third-party storage.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
         /// <param name="createThirdPartyRoom">The third-party room information.</param>
@@ -3045,6 +3742,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (createThirdPartyRoom != null) localVarRequestOptions.Data = createThirdPartyRoom;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<FolderStringWrapper>("/api/2.0/files/rooms/thirdparty/{id}", localVarRequestOptions, Configuration);
@@ -3062,8 +3789,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a third-party room
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section stored in a third-party storage.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
         /// <param name="createThirdPartyRoom">The third-party room information.</param>
@@ -3077,8 +3807,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Create a third-party room
         /// </summary>
+        /// <remarks>
+        /// Creates a room in the Rooms section stored in a third-party storage.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the folder in the third-party storage in which the contents of the room will be stored.</param>
         /// <param name="createThirdPartyRoom">The third-party room information.</param>
@@ -3112,6 +3845,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (createThirdPartyRoom != null) localVarRequestOptions.Data = createThirdPartyRoom;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3130,8 +3893,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Delete the custom room tags
         /// </summary>
+        /// <remarks>
+        /// Deletes a bunch of custom room tags specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/">REST API Reference for DeleteCustomTags Operation</seealso>
@@ -3142,8 +3908,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Delete the custom room tags
         /// </summary>
+        /// <remarks>
+        /// Deletes a bunch of custom room tags specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-custom-tags/">REST API Reference for DeleteCustomTags Operation</seealso>
@@ -3165,6 +3934,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (batchTagsRequestDto != null) localVarRequestOptions.Data = batchTagsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Delete<Object>("/api/2.0/files/tags", localVarRequestOptions, Configuration);
@@ -3182,8 +3981,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Delete the custom room tags
         /// </summary>
+        /// <remarks>
+        /// Deletes a bunch of custom room tags specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3195,8 +3997,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Delete the custom room tags
         /// </summary>
+        /// <remarks>
+        /// Deletes a bunch of custom room tags specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3220,6 +4025,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (batchTagsRequestDto != null) localVarRequestOptions.Data = batchTagsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3238,8 +4073,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Remove a room
         /// </summary>
+        /// <remarks>
+        /// Removes a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="deleteRoomRequest">The parameters for deleting a room.</param>
@@ -3252,8 +4090,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Remove a room
         /// </summary>
+        /// <remarks>
+        /// Removes a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="deleteRoomRequest">The parameters for deleting a room.</param>
@@ -3281,6 +4122,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (deleteRoomRequest != null) localVarRequestOptions.Data = deleteRoomRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Delete<FileOperationWrapper>("/api/2.0/files/rooms/{id}", localVarRequestOptions, Configuration);
@@ -3298,8 +4169,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Remove a room
         /// </summary>
+        /// <remarks>
+        /// Removes a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="deleteRoomRequest">The parameters for deleting a room.</param>
@@ -3313,8 +4187,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Remove a room
         /// </summary>
+        /// <remarks>
+        /// Removes a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="deleteRoomRequest">The parameters for deleting a room.</param>
@@ -3344,6 +4221,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (deleteRoomRequest != null) localVarRequestOptions.Data = deleteRoomRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3362,8 +4269,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Remove a room logo
         /// </summary>
+        /// <remarks>
+        /// Removes a logo from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/">REST API Reference for DeleteRoomLogo Operation</seealso>
@@ -3375,8 +4285,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Remove a room logo
         /// </summary>
+        /// <remarks>
+        /// Removes a logo from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-logo/">REST API Reference for DeleteRoomLogo Operation</seealso>
@@ -3398,6 +4311,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Delete<FolderIntegerWrapper>("/api/2.0/files/rooms/{id}/logo", localVarRequestOptions, Configuration);
@@ -3415,8 +4358,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Remove a room logo
         /// </summary>
+        /// <remarks>
+        /// Removes a logo from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3429,8 +4375,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Remove a room logo
         /// </summary>
+        /// <remarks>
+        /// Removes a logo from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3454,6 +4403,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3472,8 +4451,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Remove the room tags
         /// </summary>
+        /// <remarks>
+        /// Removes the tags from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
@@ -3486,8 +4468,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Remove the room tags
         /// </summary>
+        /// <remarks>
+        /// Removes the tags from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
@@ -3511,6 +4496,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (batchTagsRequestDto != null) localVarRequestOptions.Data = batchTagsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Delete<FolderIntegerWrapper>("/api/2.0/files/rooms/{id}/tags", localVarRequestOptions, Configuration);
@@ -3528,8 +4543,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Remove the room tags
         /// </summary>
+        /// <remarks>
+        /// Removes the tags from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
@@ -3543,8 +4561,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Remove the room tags
         /// </summary>
+        /// <remarks>
+        /// Removes the tags from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room Id.</param>
         /// <param name="batchTagsRequestDto">The parameters for managing tags. (optional)</param>
@@ -3570,6 +4591,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (batchTagsRequestDto != null) localVarRequestOptions.Data = batchTagsRequestDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3588,8 +4639,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the new room items
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the new items from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/">REST API Reference for GetNewRoomItems Operation</seealso>
@@ -3601,8 +4655,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the new room items
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the new items from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-new-room-items/">REST API Reference for GetNewRoomItems Operation</seealso>
@@ -3624,6 +4681,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<NewItemsFileEntryBaseArrayWrapper>("/api/2.0/files/rooms/{id}/news", localVarRequestOptions, Configuration);
@@ -3641,8 +4728,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the new room items
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the new items from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3655,8 +4745,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the new room items
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all the new items from a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3680,6 +4773,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3698,8 +4821,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get public settings
         /// </summary>
+        /// <remarks>
+        /// Returns the public settings of the room template with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room template ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-settings/">REST API Reference for GetPublicSettings Operation</seealso>
@@ -3711,8 +4837,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get public settings
         /// </summary>
+        /// <remarks>
+        /// Returns the public settings of the room template with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room template ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-settings/">REST API Reference for GetPublicSettings Operation</seealso>
@@ -3734,6 +4863,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<BooleanWrapper>("/api/2.0/files/roomtemplate/{id}/public", localVarRequestOptions, Configuration);
@@ -3751,8 +4910,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get public settings
         /// </summary>
+        /// <remarks>
+        /// Returns the public settings of the room template with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room template ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3765,8 +4927,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get public settings
         /// </summary>
+        /// <remarks>
+        /// Returns the public settings of the room template with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room template ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3790,6 +4955,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3808,8 +5003,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get covers
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all covers.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-covers/">REST API Reference for GetRoomCovers Operation</seealso>
         /// <returns>CoversResultArrayWrapper</returns>
@@ -3820,8 +5018,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get covers
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all covers.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-covers/">REST API Reference for GetRoomCovers Operation</seealso>
         /// <returns>ApiResponse of CoversResultArrayWrapper</returns>
@@ -3841,6 +5042,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<CoversResultArrayWrapper>("/api/2.0/files/rooms/covers", localVarRequestOptions, Configuration);
@@ -3858,8 +5089,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get covers
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all covers.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-covers/">REST API Reference for GetRoomCovers Operation</seealso>
@@ -3871,8 +5105,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get covers
         /// </summary>
+        /// <remarks>
+        /// Returns a list of all covers.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-covers/">REST API Reference for GetRoomCovers Operation</seealso>
@@ -3894,6 +5131,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -3912,8 +5179,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room creation progress
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of creating a room from the template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-creating-status/">REST API Reference for GetRoomCreatingStatus Operation</seealso>
         /// <returns>RoomFromTemplateStatusWrapper</returns>
@@ -3924,8 +5194,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room creation progress
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of creating a room from the template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-creating-status/">REST API Reference for GetRoomCreatingStatus Operation</seealso>
         /// <returns>ApiResponse of RoomFromTemplateStatusWrapper</returns>
@@ -3945,6 +5218,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<RoomFromTemplateStatusWrapper>("/api/2.0/files/rooms/fromtemplate/status", localVarRequestOptions, Configuration);
@@ -3962,8 +5265,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room creation progress
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of creating a room from the template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-creating-status/">REST API Reference for GetRoomCreatingStatus Operation</seealso>
@@ -3975,8 +5281,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room creation progress
         /// </summary>
+        /// <remarks>
+        /// Returns the progress of creating a room from the template.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-creating-status/">REST API Reference for GetRoomCreatingStatus Operation</seealso>
@@ -3998,6 +5307,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -4016,8 +5355,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room index export
         /// </summary>
+        /// <remarks>
+        /// Returns the room index export.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-index-export/">REST API Reference for GetRoomIndexExport Operation</seealso>
         /// <returns>DocumentBuilderTaskWrapper</returns>
@@ -4028,8 +5370,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room index export
         /// </summary>
+        /// <remarks>
+        /// Returns the room index export.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-index-export/">REST API Reference for GetRoomIndexExport Operation</seealso>
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
@@ -4049,6 +5394,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<DocumentBuilderTaskWrapper>("/api/2.0/files/rooms/indexexport", localVarRequestOptions, Configuration);
@@ -4066,8 +5441,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room index export
         /// </summary>
+        /// <remarks>
+        /// Returns the room index export.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-index-export/">REST API Reference for GetRoomIndexExport Operation</seealso>
@@ -4079,8 +5457,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room index export
         /// </summary>
+        /// <remarks>
+        /// Returns the room index export.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-index-export/">REST API Reference for GetRoomIndexExport Operation</seealso>
@@ -4102,6 +5483,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -4120,8 +5531,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get room information
         /// </summary>
+        /// <remarks>
+        /// Returns the room information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/">REST API Reference for GetRoomInfo Operation</seealso>
@@ -4133,8 +5547,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get room information
         /// </summary>
+        /// <remarks>
+        /// Returns the room information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-info/">REST API Reference for GetRoomInfo Operation</seealso>
@@ -4173,8 +5590,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get room information
         /// </summary>
+        /// <remarks>
+        /// Returns the room information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4187,8 +5607,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get room information
         /// </summary>
+        /// <remarks>
+        /// Returns the room information.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4230,8 +5653,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room links
         /// </summary>
+        /// <remarks>
+        /// Returns the links of the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="type">The link type. (optional)</param>
@@ -4244,8 +5670,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room links
         /// </summary>
+        /// <remarks>
+        /// Returns the links of the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="type">The link type. (optional)</param>
@@ -4272,6 +5701,36 @@ namespace DocSpace.API.SDK.Api.Rooms
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<FileShareArrayWrapper>("/api/2.0/files/rooms/{id}/links", localVarRequestOptions, Configuration);
@@ -4289,8 +5748,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room links
         /// </summary>
+        /// <remarks>
+        /// Returns the links of the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="type">The link type. (optional)</param>
@@ -4304,8 +5766,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room links
         /// </summary>
+        /// <remarks>
+        /// Returns the links of the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="type">The link type. (optional)</param>
@@ -4334,6 +5799,36 @@ namespace DocSpace.API.SDK.Api.Rooms
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -4352,8 +5847,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room access rights
         /// </summary>
+        /// <remarks>
+        /// Returns the access rights of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="filterType">The filter type of the access rights. (optional)</param>
@@ -4369,8 +5867,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room access rights
         /// </summary>
+        /// <remarks>
+        /// Returns the access rights of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="filterType">The filter type of the access rights. (optional)</param>
@@ -4412,6 +5913,36 @@ namespace DocSpace.API.SDK.Api.Rooms
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<FileShareArrayWrapper>("/api/2.0/files/rooms/{id}/share", localVarRequestOptions, Configuration);
@@ -4429,8 +5960,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room access rights
         /// </summary>
+        /// <remarks>
+        /// Returns the access rights of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="filterType">The filter type of the access rights. (optional)</param>
@@ -4447,8 +5981,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room access rights
         /// </summary>
+        /// <remarks>
+        /// Returns the access rights of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="filterType">The filter type of the access rights. (optional)</param>
@@ -4492,6 +6029,36 @@ namespace DocSpace.API.SDK.Api.Rooms
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -4510,8 +6077,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room tags
         /// </summary>
+        /// <remarks>
+        /// Returns a list of custom room tags.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
         /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
@@ -4525,8 +6095,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room tags
         /// </summary>
+        /// <remarks>
+        /// Returns a list of custom room tags.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
         /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
@@ -4565,6 +6138,36 @@ namespace DocSpace.API.SDK.Api.Rooms
                 localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<ObjectArrayWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration);
@@ -4582,8 +6185,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room tags
         /// </summary>
+        /// <remarks>
+        /// Returns a list of custom room tags.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
         /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
@@ -4598,8 +6204,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room tags
         /// </summary>
+        /// <remarks>
+        /// Returns a list of custom room tags.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
         /// <param name="startIndex">Represents the starting index from which the tags&#39; information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional)</param>
@@ -4636,6 +6245,36 @@ namespace DocSpace.API.SDK.Api.Rooms
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -4654,8 +6293,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get status of room template creation
         /// </summary>
+        /// <remarks>
+        /// Returns the progress status of the room template creation process.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-template-creating-status/">REST API Reference for GetRoomTemplateCreatingStatus Operation</seealso>
         /// <returns>RoomTemplateStatusWrapper</returns>
@@ -4666,8 +6308,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get status of room template creation
         /// </summary>
+        /// <remarks>
+        /// Returns the progress status of the room template creation process.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-template-creating-status/">REST API Reference for GetRoomTemplateCreatingStatus Operation</seealso>
         /// <returns>ApiResponse of RoomTemplateStatusWrapper</returns>
@@ -4687,6 +6332,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<RoomTemplateStatusWrapper>("/api/2.0/files/roomtemplate/status", localVarRequestOptions, Configuration);
@@ -4704,8 +6379,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get status of room template creation
         /// </summary>
+        /// <remarks>
+        /// Returns the progress status of the room template creation process.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-template-creating-status/">REST API Reference for GetRoomTemplateCreatingStatus Operation</seealso>
@@ -4717,8 +6395,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get status of room template creation
         /// </summary>
+        /// <remarks>
+        /// Returns the progress status of the room template creation process.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-template-creating-status/">REST API Reference for GetRoomTemplateCreatingStatus Operation</seealso>
@@ -4740,6 +6421,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -4758,8 +6469,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get rooms
         /// </summary>
+        /// <remarks>
+        /// Returns the contents of the Rooms section by the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The filter by room type. (optional)</param>
         /// <param name="subjectId">The filter by user ID. (optional)</param>
@@ -4785,8 +6499,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get rooms
         /// </summary>
+        /// <remarks>
+        /// Returns the contents of the Rooms section by the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The filter by room type. (optional)</param>
         /// <param name="subjectId">The filter by user ID. (optional)</param>
@@ -4884,6 +6601,36 @@ namespace DocSpace.API.SDK.Api.Rooms
                 localVarRequestOptions.HeaderParameters.Add("fields", _fields); // header parameter
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<FolderContentIntegerWrapper>("/api/2.0/files/rooms", localVarRequestOptions, Configuration);
@@ -4901,8 +6648,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get rooms
         /// </summary>
+        /// <remarks>
+        /// Returns the contents of the Rooms section by the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The filter by room type. (optional)</param>
         /// <param name="subjectId">The filter by user ID. (optional)</param>
@@ -4929,8 +6679,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get rooms
         /// </summary>
+        /// <remarks>
+        /// Returns the contents of the Rooms section by the parameters specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type">The filter by room type. (optional)</param>
         /// <param name="subjectId">The filter by user ID. (optional)</param>
@@ -5027,6 +6780,36 @@ namespace DocSpace.API.SDK.Api.Rooms
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -5045,8 +6828,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room new items
         /// </summary>
+        /// <remarks>
+        /// Returns the room new items.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-new-items/">REST API Reference for GetRoomsNewItems Operation</seealso>
         /// <returns>NewItemsRoomNewItemsArrayWrapper</returns>
@@ -5057,8 +6843,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room new items
         /// </summary>
+        /// <remarks>
+        /// Returns the room new items.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-new-items/">REST API Reference for GetRoomsNewItems Operation</seealso>
         /// <returns>ApiResponse of NewItemsRoomNewItemsArrayWrapper</returns>
@@ -5078,6 +6867,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<NewItemsRoomNewItemsArrayWrapper>("/api/2.0/files/rooms/news", localVarRequestOptions, Configuration);
@@ -5095,8 +6914,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room new items
         /// </summary>
+        /// <remarks>
+        /// Returns the room new items.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-new-items/">REST API Reference for GetRoomsNewItems Operation</seealso>
@@ -5108,8 +6930,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room new items
         /// </summary>
+        /// <remarks>
+        /// Returns the room new items.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-new-items/">REST API Reference for GetRoomsNewItems Operation</seealso>
@@ -5131,6 +6956,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -5149,8 +7004,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room primary external link
         /// </summary>
+        /// <remarks>
+        /// Returns the primary external link of the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
@@ -5162,8 +7020,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room primary external link
         /// </summary>
+        /// <remarks>
+        /// Returns the primary external link of the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
@@ -5185,6 +7046,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Get<FileShareWrapper>("/api/2.0/files/rooms/{id}/link", localVarRequestOptions, Configuration);
@@ -5202,8 +7093,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room primary external link
         /// </summary>
+        /// <remarks>
+        /// Returns the primary external link of the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5216,8 +7110,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Get the room primary external link
         /// </summary>
+        /// <remarks>
+        /// Returns the primary external link of the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5241,6 +7138,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -5259,8 +7186,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Pin a room
         /// </summary>
+        /// <remarks>
+        /// Pins a room with the ID specified in the request to the top of the list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/">REST API Reference for PinRoom Operation</seealso>
@@ -5272,8 +7202,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Pin a room
         /// </summary>
+        /// <remarks>
+        /// Pins a room with the ID specified in the request to the top of the list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/pin-room/">REST API Reference for PinRoom Operation</seealso>
@@ -5295,6 +7228,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FolderIntegerWrapper>("/api/2.0/files/rooms/{id}/pin", localVarRequestOptions, Configuration);
@@ -5312,8 +7275,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Pin a room
         /// </summary>
+        /// <remarks>
+        /// Pins a room with the ID specified in the request to the top of the list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5326,8 +7292,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Pin a room
         /// </summary>
+        /// <remarks>
+        /// Pins a room with the ID specified in the request to the top of the list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5351,6 +7320,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -5369,8 +7368,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Reorder the room
         /// </summary>
+        /// <remarks>
+        /// Reorders the room with ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/">REST API Reference for ReorderRoom Operation</seealso>
@@ -5382,8 +7384,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Reorder the room
         /// </summary>
+        /// <remarks>
+        /// Reorders the room with ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/reorder-room/">REST API Reference for ReorderRoom Operation</seealso>
@@ -5405,6 +7410,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FolderIntegerWrapper>("/api/2.0/files/rooms/{id}/reorder", localVarRequestOptions, Configuration);
@@ -5422,8 +7457,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Reorder the room
         /// </summary>
+        /// <remarks>
+        /// Reorders the room with ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5436,8 +7474,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Reorder the room
         /// </summary>
+        /// <remarks>
+        /// Reorders the room with ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5461,6 +7502,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -5479,8 +7550,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Resend the room invitations
         /// </summary>
+        /// <remarks>
+        /// Resends the email invitations to a room with the ID specified in the request to the selected users.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="userInvitation">The user invitation parameters.</param>
@@ -5492,8 +7566,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Resend the room invitations
         /// </summary>
+        /// <remarks>
+        /// Resends the email invitations to a room with the ID specified in the request to the selected users.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="userInvitation">The user invitation parameters.</param>
@@ -5521,6 +7598,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (userInvitation != null) localVarRequestOptions.Data = userInvitation;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<Object>("/api/2.0/files/rooms/{id}/resend", localVarRequestOptions, Configuration);
@@ -5538,8 +7645,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Resend the room invitations
         /// </summary>
+        /// <remarks>
+        /// Resends the email invitations to a room with the ID specified in the request to the selected users.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="userInvitation">The user invitation parameters.</param>
@@ -5552,8 +7662,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Resend the room invitations
         /// </summary>
+        /// <remarks>
+        /// Resends the email invitations to a room with the ID specified in the request to the selected users.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="userInvitation">The user invitation parameters.</param>
@@ -5583,6 +7696,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (userInvitation != null) localVarRequestOptions.Data = userInvitation;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -5601,8 +7744,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Set public settings
         /// </summary>
+        /// <remarks>
+        /// Sets the public settings for the room template with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setPublicDto">The public settings of the room template to set. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-public-settings/">REST API Reference for SetPublicSettings Operation</seealso>
@@ -5613,8 +7759,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Set public settings
         /// </summary>
+        /// <remarks>
+        /// Sets the public settings for the room template with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setPublicDto">The public settings of the room template to set. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-public-settings/">REST API Reference for SetPublicSettings Operation</seealso>
@@ -5636,6 +7785,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (setPublicDto != null) localVarRequestOptions.Data = setPublicDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<Object>("/api/2.0/files/roomtemplate/public", localVarRequestOptions, Configuration);
@@ -5653,8 +7832,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Set public settings
         /// </summary>
+        /// <remarks>
+        /// Sets the public settings for the room template with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setPublicDto">The public settings of the room template to set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5666,8 +7848,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Set public settings
         /// </summary>
+        /// <remarks>
+        /// Sets the public settings for the room template with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setPublicDto">The public settings of the room template to set. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -5691,6 +7876,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (setPublicDto != null) localVarRequestOptions.Data = setPublicDto;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -5709,8 +7924,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Set the room external or invitation link
         /// </summary>
+        /// <remarks>
+        /// Sets the room external or invitation link with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="roomLinkRequest">The room link parameters.</param>
@@ -5723,8 +7941,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Set the room external or invitation link
         /// </summary>
+        /// <remarks>
+        /// Sets the room external or invitation link with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="roomLinkRequest">The room link parameters.</param>
@@ -5752,6 +7973,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (roomLinkRequest != null) localVarRequestOptions.Data = roomLinkRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FileShareWrapper>("/api/2.0/files/rooms/{id}/links", localVarRequestOptions, Configuration);
@@ -5769,8 +8020,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Set the room external or invitation link
         /// </summary>
+        /// <remarks>
+        /// Sets the room external or invitation link with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="roomLinkRequest">The room link parameters.</param>
@@ -5784,8 +8038,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Set the room external or invitation link
         /// </summary>
+        /// <remarks>
+        /// Sets the room external or invitation link with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="roomLinkRequest">The room link parameters.</param>
@@ -5815,6 +8072,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (roomLinkRequest != null) localVarRequestOptions.Data = roomLinkRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -5833,8 +8120,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Set the room access rights
         /// </summary>
+        /// <remarks>
+        /// Sets the access rights to the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="roomInvitationRequest">The room invitation request.</param>
@@ -5847,8 +8137,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Set the room access rights
         /// </summary>
+        /// <remarks>
+        /// Sets the access rights to the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="roomInvitationRequest">The room invitation request.</param>
@@ -5876,6 +8169,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (roomInvitationRequest != null) localVarRequestOptions.Data = roomInvitationRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<RoomSecurityWrapper>("/api/2.0/files/rooms/{id}/share", localVarRequestOptions, Configuration);
@@ -5893,8 +8216,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Set the room access rights
         /// </summary>
+        /// <remarks>
+        /// Sets the access rights to the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="roomInvitationRequest">The room invitation request.</param>
@@ -5908,8 +8234,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Set the room access rights
         /// </summary>
+        /// <remarks>
+        /// Sets the access rights to the room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="roomInvitationRequest">The room invitation request.</param>
@@ -5939,6 +8268,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (roomInvitationRequest != null) localVarRequestOptions.Data = roomInvitationRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -5957,8 +8316,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Start the room index export
         /// </summary>
+        /// <remarks>
+        /// Starts the index export of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/">REST API Reference for StartRoomIndexExport Operation</seealso>
@@ -5970,8 +8332,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Start the room index export
         /// </summary>
+        /// <remarks>
+        /// Starts the index export of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-room-index-export/">REST API Reference for StartRoomIndexExport Operation</seealso>
@@ -5993,6 +8358,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<DocumentBuilderTaskWrapper>("/api/2.0/files/rooms/{id}/indexexport", localVarRequestOptions, Configuration);
@@ -6010,8 +8405,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Start the room index export
         /// </summary>
+        /// <remarks>
+        /// Starts the index export of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6024,8 +8422,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Start the room index export
         /// </summary>
+        /// <remarks>
+        /// Starts the index export of a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6049,6 +8450,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -6067,8 +8498,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Terminate the room index export
         /// </summary>
+        /// <remarks>
+        /// Terminates the room index export.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-room-index-export/">REST API Reference for TerminateRoomIndexExport Operation</seealso>
         /// <returns></returns>
@@ -6078,8 +8512,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Terminate the room index export
         /// </summary>
+        /// <remarks>
+        /// Terminates the room index export.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-room-index-export/">REST API Reference for TerminateRoomIndexExport Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -6099,6 +8536,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Delete<Object>("/api/2.0/files/rooms/indexexport", localVarRequestOptions, Configuration);
@@ -6116,8 +8583,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Terminate the room index export
         /// </summary>
+        /// <remarks>
+        /// Terminates the room index export.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-room-index-export/">REST API Reference for TerminateRoomIndexExport Operation</seealso>
@@ -6128,8 +8598,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Terminate the room index export
         /// </summary>
+        /// <remarks>
+        /// Terminates the room index export.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-room-index-export/">REST API Reference for TerminateRoomIndexExport Operation</seealso>
@@ -6151,6 +8624,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -6169,8 +8672,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Unarchive a room
         /// </summary>
+        /// <remarks>
+        /// Moves a room with the ID specified in the request from the Archive section to the Rooms section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="archiveRoomRequest">The parameters for archiving a room. (optional)</param>
@@ -6183,8 +8689,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Unarchive a room
         /// </summary>
+        /// <remarks>
+        /// Moves a room with the ID specified in the request from the Archive section to the Rooms section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="archiveRoomRequest">The parameters for archiving a room. (optional)</param>
@@ -6208,6 +8717,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (archiveRoomRequest != null) localVarRequestOptions.Data = archiveRoomRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FileOperationWrapper>("/api/2.0/files/rooms/{id}/unarchive", localVarRequestOptions, Configuration);
@@ -6225,8 +8764,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Unarchive a room
         /// </summary>
+        /// <remarks>
+        /// Moves a room with the ID specified in the request from the Archive section to the Rooms section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="archiveRoomRequest">The parameters for archiving a room. (optional)</param>
@@ -6240,8 +8782,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Unarchive a room
         /// </summary>
+        /// <remarks>
+        /// Moves a room with the ID specified in the request from the Archive section to the Rooms section.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="archiveRoomRequest">The parameters for archiving a room. (optional)</param>
@@ -6267,6 +8812,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (archiveRoomRequest != null) localVarRequestOptions.Data = archiveRoomRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -6285,8 +8860,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Unpin a room
         /// </summary>
+        /// <remarks>
+        /// Unpins a room with the ID specified in the request from the top of the list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/">REST API Reference for UnpinRoom Operation</seealso>
@@ -6298,8 +8876,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Unpin a room
         /// </summary>
+        /// <remarks>
+        /// Unpins a room with the ID specified in the request from the top of the list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/unpin-room/">REST API Reference for UnpinRoom Operation</seealso>
@@ -6321,6 +8902,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FolderIntegerWrapper>("/api/2.0/files/rooms/{id}/unpin", localVarRequestOptions, Configuration);
@@ -6338,8 +8949,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Unpin a room
         /// </summary>
+        /// <remarks>
+        /// Unpins a room with the ID specified in the request from the top of the list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6352,8 +8966,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Unpin a room
         /// </summary>
+        /// <remarks>
+        /// Unpins a room with the ID specified in the request from the top of the list.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6377,6 +8994,36 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -6395,8 +9042,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Update a room
         /// </summary>
+        /// <remarks>
+        /// Updates a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="updateRoomRequest">The request parameters for updating a room.</param>
@@ -6409,8 +9059,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Update a room
         /// </summary>
+        /// <remarks>
+        /// Updates a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="updateRoomRequest">The request parameters for updating a room.</param>
@@ -6438,6 +9091,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (updateRoomRequest != null) localVarRequestOptions.Data = updateRoomRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Put<FolderIntegerWrapper>("/api/2.0/files/rooms/{id}", localVarRequestOptions, Configuration);
@@ -6455,8 +9138,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Update a room
         /// </summary>
+        /// <remarks>
+        /// Updates a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="updateRoomRequest">The request parameters for updating a room.</param>
@@ -6470,8 +9156,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Update a room
         /// </summary>
+        /// <remarks>
+        /// Updates a room with the ID specified in the request.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The room ID.</param>
         /// <param name="updateRoomRequest">The request parameters for updating a room.</param>
@@ -6501,6 +9190,36 @@ namespace DocSpace.API.SDK.Api.Rooms
             localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
             if (updateRoomRequest != null) localVarRequestOptions.Data = updateRoomRequest;
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 
@@ -6519,8 +9238,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Upload a room logo image
         /// </summary>
+        /// <remarks>
+        /// Uploads a temporary image to create a room logo.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="formCollection">The image data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/">REST API Reference for UploadRoomLogo Operation</seealso>
@@ -6532,8 +9254,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Upload a room logo image
         /// </summary>
+        /// <remarks>
+        /// Uploads a temporary image to create a room logo.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="formCollection">The image data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/">REST API Reference for UploadRoomLogo Operation</seealso>
@@ -6558,6 +9283,36 @@ namespace DocSpace.API.SDK.Api.Rooms
                 localVarRequestOptions.FormParameters.Add("FormCollection",ClientUtils.ParameterToString(formCollection)); // form parameter
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
             var localVarResponse = Client.Post<UploadResultWrapper>("/api/2.0/files/logos", localVarRequestOptions, Configuration);
@@ -6575,8 +9330,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Upload a room logo image
         /// </summary>
+        /// <remarks>
+        /// Uploads a temporary image to create a room logo.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="formCollection">The image data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6589,8 +9347,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         }
 
         /// <summary>
-        /// 
+        /// Upload a room logo image
         /// </summary>
+        /// <remarks>
+        /// Uploads a temporary image to create a room logo.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="formCollection">The image data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -6617,6 +9378,36 @@ namespace DocSpace.API.SDK.Api.Rooms
                 localVarRequestOptions.FormParameters.Add("FormCollection", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(formCollection)); // form parameter
             }
 
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
 
             // make the HTTP request
 

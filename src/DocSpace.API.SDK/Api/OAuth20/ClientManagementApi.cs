@@ -542,6 +542,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
 
+        
         /// <summary>
         /// Change the client activation status
         /// </summary>

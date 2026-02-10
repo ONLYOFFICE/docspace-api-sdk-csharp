@@ -19,104 +19,124 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - Emp invite, 1 - Link invite, 2 - Portal suspend, 3 - Portal continue, 4 - Portal remove, 5 - Dns change, 6 - Portal owner change, 7 - Activation, 8 - Email change, 9 - Email activation, 10 - Password change, 11 - Profile remove, 12 - Phone activation, 13 - Phone auth, 14 - Auth, 15 - Tfa activation, 16 - Tfa auth, 17 - Wizard, 18 - Guest share link]
+    /// [EmpInvite - Emp invite, LinkInvite - Link invite, PortalSuspend - Portal suspend, PortalContinue - Portal continue, PortalRemove - Portal remove, DnsChange - Dns change, PortalOwnerChange - Portal owner change, Activation - Activation, EmailChange - Email change, EmailActivation - Email activation, PasswordChange - Password change, ProfileRemove - Profile remove, PhoneActivation - Phone activation, PhoneAuth - Phone auth, Auth - Auth, TfaActivation - Tfa activation, TfaAuth - Tfa auth, Wizard - Wizard, GuestShareLink - Guest share link]
     /// </summary>
-    /// <value>[0 - Emp invite, 1 - Link invite, 2 - Portal suspend, 3 - Portal continue, 4 - Portal remove, 5 - Dns change, 6 - Portal owner change, 7 - Activation, 8 - Email change, 9 - Email activation, 10 - Password change, 11 - Profile remove, 12 - Phone activation, 13 - Phone auth, 14 - Auth, 15 - Tfa activation, 16 - Tfa auth, 17 - Wizard, 18 - Guest share link]</value>
+    /// <value>[EmpInvite - Emp invite, LinkInvite - Link invite, PortalSuspend - Portal suspend, PortalContinue - Portal continue, PortalRemove - Portal remove, DnsChange - Dns change, PortalOwnerChange - Portal owner change, Activation - Activation, EmailChange - Email change, EmailActivation - Email activation, PasswordChange - Password change, ProfileRemove - Profile remove, PhoneActivation - Phone activation, PhoneAuth - Phone auth, Auth - Auth, TfaActivation - Tfa activation, TfaAuth - Tfa auth, Wizard - Wizard, GuestShareLink - Guest share link]</value>
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum ConfirmType
     {
         /// <summary>
-        /// Enum EmpInvite for value: 0
+        /// Enum EmpInvite for value: EmpInvite
         /// </summary>
+        [EnumMember(Value = "EmpInvite")]
         EmpInvite = 0,
 
         /// <summary>
-        /// Enum LinkInvite for value: 1
+        /// Enum LinkInvite for value: LinkInvite
         /// </summary>
+        [EnumMember(Value = "LinkInvite")]
         LinkInvite = 1,
 
         /// <summary>
-        /// Enum PortalSuspend for value: 2
+        /// Enum PortalSuspend for value: PortalSuspend
         /// </summary>
+        [EnumMember(Value = "PortalSuspend")]
         PortalSuspend = 2,
 
         /// <summary>
-        /// Enum PortalContinue for value: 3
+        /// Enum PortalContinue for value: PortalContinue
         /// </summary>
+        [EnumMember(Value = "PortalContinue")]
         PortalContinue = 3,
 
         /// <summary>
-        /// Enum PortalRemove for value: 4
+        /// Enum PortalRemove for value: PortalRemove
         /// </summary>
+        [EnumMember(Value = "PortalRemove")]
         PortalRemove = 4,
 
         /// <summary>
-        /// Enum DnsChange for value: 5
+        /// Enum DnsChange for value: DnsChange
         /// </summary>
+        [EnumMember(Value = "DnsChange")]
         DnsChange = 5,
 
         /// <summary>
-        /// Enum PortalOwnerChange for value: 6
+        /// Enum PortalOwnerChange for value: PortalOwnerChange
         /// </summary>
+        [EnumMember(Value = "PortalOwnerChange")]
         PortalOwnerChange = 6,
 
         /// <summary>
-        /// Enum Activation for value: 7
+        /// Enum Activation for value: Activation
         /// </summary>
+        [EnumMember(Value = "Activation")]
         Activation = 7,
 
         /// <summary>
-        /// Enum EmailChange for value: 8
+        /// Enum EmailChange for value: EmailChange
         /// </summary>
+        [EnumMember(Value = "EmailChange")]
         EmailChange = 8,
 
         /// <summary>
-        /// Enum EmailActivation for value: 9
+        /// Enum EmailActivation for value: EmailActivation
         /// </summary>
+        [EnumMember(Value = "EmailActivation")]
         EmailActivation = 9,
 
         /// <summary>
-        /// Enum PasswordChange for value: 10
+        /// Enum PasswordChange for value: PasswordChange
         /// </summary>
+        [EnumMember(Value = "PasswordChange")]
         PasswordChange = 10,
 
         /// <summary>
-        /// Enum ProfileRemove for value: 11
+        /// Enum ProfileRemove for value: ProfileRemove
         /// </summary>
+        [EnumMember(Value = "ProfileRemove")]
         ProfileRemove = 11,
 
         /// <summary>
-        /// Enum PhoneActivation for value: 12
+        /// Enum PhoneActivation for value: PhoneActivation
         /// </summary>
+        [EnumMember(Value = "PhoneActivation")]
         PhoneActivation = 12,
 
         /// <summary>
-        /// Enum PhoneAuth for value: 13
+        /// Enum PhoneAuth for value: PhoneAuth
         /// </summary>
+        [EnumMember(Value = "PhoneAuth")]
         PhoneAuth = 13,
 
         /// <summary>
-        /// Enum Auth for value: 14
+        /// Enum Auth for value: Auth
         /// </summary>
+        [EnumMember(Value = "Auth")]
         Auth = 14,
 
         /// <summary>
-        /// Enum TfaActivation for value: 15
+        /// Enum TfaActivation for value: TfaActivation
         /// </summary>
+        [EnumMember(Value = "TfaActivation")]
         TfaActivation = 15,
 
         /// <summary>
-        /// Enum TfaAuth for value: 16
+        /// Enum TfaAuth for value: TfaAuth
         /// </summary>
+        [EnumMember(Value = "TfaAuth")]
         TfaAuth = 16,
 
         /// <summary>
-        /// Enum Wizard for value: 17
+        /// Enum Wizard for value: Wizard
         /// </summary>
+        [EnumMember(Value = "Wizard")]
         Wizard = 17,
 
         /// <summary>
-        /// Enum GuestShareLink for value: 18
+        /// Enum GuestShareLink for value: GuestShareLink
         /// </summary>
+        [EnumMember(Value = "GuestShareLink")]
         GuestShareLink = 18
     }
 

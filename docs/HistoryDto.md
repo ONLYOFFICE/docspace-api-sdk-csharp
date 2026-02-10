@@ -5,6 +5,7 @@ The file history information.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **int** | The unique identifier for the file history entry. | 
 **Action** | [**HistoryAction**](HistoryAction.md) |  | 
 **Initiator** | [**EmployeeDto**](EmployeeDto.md) |  | 
 **Date** | [**ApiDateTime**](ApiDateTime.md) |  | 
