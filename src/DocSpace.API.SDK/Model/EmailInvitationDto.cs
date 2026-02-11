@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The email address.</value>
         /*
-        <example>Sydney_Roberts4@hotmail.com</example>
+        <example>example@onlyoffice.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -73,6 +73,12 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Email (string) maxLength
+            if (this.Email != null && this.Email.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than 255.", new [] { "Email" });
+            }
+
             yield break;
         }
 

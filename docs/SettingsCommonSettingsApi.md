@@ -415,7 +415,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The ID of the portal theme to delete.
+            var id = 1;  // int | The ID of the portal theme to delete.
 
             try
             {

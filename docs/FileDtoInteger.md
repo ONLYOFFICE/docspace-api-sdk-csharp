@@ -46,6 +46,7 @@ Name | Type | Description | Notes
 **ContentLength** | **string** | The content length of the file. | [optional] 
 **PureContentLength** | **long?** | The pure content length of the file. | [optional] 
 **FileStatus** | **FileStatus** |  | [optional] 
+**EditingBy** | **Dictionary&lt;string, string&gt;** | The list of users editing the file. | [optional] 
 **Mute** | **bool** | Specifies if the file is muted or not. | [optional] 
 **ViewUrl** | **string** | The URL link to view the file. | [optional] 
 **WebUrl** | **string** | The Web URL link to the file. | [optional] 

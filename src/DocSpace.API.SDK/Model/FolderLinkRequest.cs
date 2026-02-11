@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The link name.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>SampleFile</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -85,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The link password.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>P@ssw0rd123</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }

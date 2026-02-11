@@ -70,7 +70,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | The user ID.
+            var userid = 1;  // string | The user ID.
             var thumbnailsRequest = new ThumbnailsRequest(); // ThumbnailsRequest | The thumbnail request.
 
             try
@@ -185,7 +185,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9079;  // string | The user ID.
+            var userid = 1;  // string | The user ID.
 
             try
             {
@@ -299,7 +299,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9079;  // string | The user ID.
+            var userid = 1;  // string | The user ID.
 
             try
             {
@@ -414,7 +414,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | The user ID.
+            var userid = 1;  // string | The user ID.
             var updatePhotoMemberRequest = new UpdatePhotoMemberRequest(); // UpdatePhotoMemberRequest | The request parameters for updating a photo.
 
             try
@@ -530,7 +530,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | The user ID.
+            var userid = 1;  // string | The user ID.
             var formCollection = new List<KeyValuePairStringStringValues>(); // List<KeyValuePairStringStringValues> | The image data.
 
             try

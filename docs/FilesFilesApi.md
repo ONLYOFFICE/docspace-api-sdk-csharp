@@ -112,7 +112,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
+            var fileId = 1;  // int | The file unique identifier.
 
             try
             {
@@ -337,7 +337,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file Id to change its version history.
+            var fileId = 1;  // int | The file Id to change its version history.
             var changeHistory = new ChangeHistory(); // ChangeHistory | The parameters for changing version history.
 
             try
@@ -436,7 +436,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID of the form draft.
+            var fileId = 1;  // int | The file ID of the form draft.
             var checkFillFormDraft = new CheckFillFormDraft(); // CheckFillFormDraft | The parameters for checking the form draft filling.
 
             try
@@ -550,7 +550,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID to copy.
+            var fileId = 1;  // int | The file ID to copy.
             var copyAsJsonElement = new CopyAsJsonElement(); // CopyAsJsonElement | The parameters for copying a file.
 
             try
@@ -609,9 +609,9 @@ catch (ApiException e)
 
 <a id="createeditsession"></a>
 # **CreateEditSession**
-> ChunkedUploadSessionResponseWrapperTWrapper CreateEditSession (int fileId, long? fileSize = null)
+> ChunkedUploadSessionResponseWrapperIntegerWrapper CreateEditSession (int fileId, long? fileSize = null)
 
-Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  <ul>  <li><b>id:</b> unique ID of this upload session,</li>  <li><b>created:</b> UTC time when the session was created,</li>  <li><b>expired:</b> UTC time when the session will expire if no chunks are sent before that time,</li>  <li><b>location:</b> URL where you should send your next chunk,</li>  <li><b>bytes_uploaded:</b> number of bytes uploaded for the specific upload ID,</li>  <li><b>bytes_total:</b> total number of bytes which will be uploaded.</li>  </ul>
+Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/).
 
@@ -624,7 +624,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**ChunkedUploadSessionResponseWrapperTWrapper**](ChunkedUploadSessionResponseWrapperTWrapper.md)
+[**ChunkedUploadSessionResponseWrapperIntegerWrapper**](ChunkedUploadSessionResponseWrapperIntegerWrapper.md)
 
 ### Authorization
 
@@ -667,13 +667,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID.
+            var fileId = 1;  // int | The file ID.
             var fileSize = 1234;  // long? | The file size in bytes. (optional) 
 
             try
             {
                 // Create the editing session
-                ChunkedUploadSessionResponseWrapperTWrapper result = apiInstance.CreateEditSession(fileId, fileSize);
+                ChunkedUploadSessionResponseWrapperIntegerWrapper result = apiInstance.CreateEditSession(fileId, fileSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -694,7 +694,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Create the editing session
-    ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper> response = apiInstance.CreateEditSessionWithHttpInfo(fileId, fileSize);
+    ApiResponse<ChunkedUploadSessionResponseWrapperIntegerWrapper> response = apiInstance.CreateEditSessionWithHttpInfo(fileId, fileSize);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -726,7 +726,7 @@ catch (ApiException e)
 # **CreateFile**
 > FileIntegerWrapper CreateFile (int folderId, CreateFileJsonElement createFileJsonElement)
 
-Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+Creates a new file in the specified folder with the title specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file/).
 
@@ -782,7 +782,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID for the file creation.
+            var folderId = 1;  // int | The folder ID for the file creation.
             var createFileJsonElement = new CreateFileJsonElement(); // CreateFileJsonElement | The parameters for creating a file.
 
             try
@@ -840,7 +840,7 @@ catch (ApiException e)
 # **CreateFileInMyDocuments**
 > FileIntegerWrapper CreateFileInMyDocuments (CreateFileJsonElement? createFileJsonElement = null)
 
-Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+Creates a new file in the My documents section with the title specified in the request.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/create-file-in-my-documents/).
 
@@ -1008,7 +1008,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The file ID.
+            var id = 1;  // int | The file ID.
             var fileLinkRequest = new FileLinkRequest(); // FileLinkRequest | The file external link parameters.
 
             try
@@ -1123,7 +1123,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID to create the text or HTML file.
+            var folderId = 1;  // int | The folder ID to create the text or HTML file.
             var createTextOrHtmlFile = new CreateTextOrHtmlFile(); // CreateTextOrHtmlFile | The parameters for creating an HTML or text file.
 
             try
@@ -1351,7 +1351,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID to create the text or HTML file.
+            var folderId = 1;  // int | The folder ID to create the text or HTML file.
             var createTextOrHtmlFile = new CreateTextOrHtmlFile(); // CreateTextOrHtmlFile | The parameters for creating an HTML or text file.
 
             try
@@ -1672,7 +1672,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID to delete.
+            var fileId = 1;  // int | The file ID to delete.
             var delete = new Delete(); // Delete | The parameters for deleting a file.
 
             try
@@ -2009,7 +2009,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
+            var fileId = 1;  // int | The file unique identifier.
 
             try
             {
@@ -2107,7 +2107,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID.
+            var fileId = 1;  // int | The file ID.
             var version = 1234;  // int? | The file version. (optional) 
 
             try
@@ -2203,7 +2203,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
+            var fileId = 1;  // int | The file unique identifier.
 
             try
             {
@@ -2318,7 +2318,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID of the history request.
+            var fileId = 1;  // int | The file ID of the history request.
             var fromDate = new ApiDateTime?(); // ApiDateTime? | The start date of the history. (optional) 
             var toDate = new ApiDateTime?(); // ApiDateTime? | The end date of the history. (optional) 
             var count = 1234;  // int? | The number of history entries to retrieve for the file log. (optional) 
@@ -2421,7 +2421,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID.
+            var fileId = 1;  // int | The file ID.
             var version = 1234;  // int? | The file version. (optional) 
 
             try
@@ -2535,7 +2535,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The file unique identifier.
+            var id = 1;  // int | The file unique identifier.
             var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
 
@@ -2635,7 +2635,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The file unique identifier.
+            var id = 1;  // int | The file unique identifier.
             var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
 
@@ -2733,7 +2733,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
+            var fileId = 1;  // int | The file unique identifier.
 
             try
             {
@@ -2939,7 +2939,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
+            var fileId = 1;  // int | The file unique identifier.
 
             try
             {
@@ -3052,7 +3052,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
+            var fileId = 1;  // int | The file unique identifier.
 
             try
             {
@@ -3164,7 +3164,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
+            var fileId = 1;  // int | The file unique identifier.
 
             try
             {
@@ -3276,7 +3276,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
+            var fileId = 1;  // int | The file unique identifier.
 
             try
             {
@@ -3500,7 +3500,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
+            var fileId = 1;  // int | The file unique identifier.
 
             try
             {
@@ -3613,7 +3613,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID for locking.
+            var fileId = 1;  // int | The file ID for locking.
             var lockFileParameters = new LockFileParameters(); // LockFileParameters | The parameters for locking a file.
 
             try
@@ -3826,7 +3826,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID to open.
+            var fileId = 1;  // int | The file ID to open.
             var version = 1234;  // int? | The file version to open. (optional) 
             var view = true;  // bool? | Specifies if the document will be opened for viewing only or not. (optional) 
             var editorType = new EditorType?(); // EditorType? | The editor type to open the file. (optional) 
@@ -3929,7 +3929,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID of the restore version.
+            var fileId = 1;  // int | The file ID of the restore version.
             var version = 1234;  // int? | The file version of the restore. (optional) 
             var url = some text;  // string? | The file version URL of the restore. (optional) 
 
@@ -4048,7 +4048,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The editing file ID from the request.
+            var fileId = 1;  // int | The editing file ID from the request.
             var fileExtension = "fileExtension_example";  // string? | The editing file extension from the request. (optional) 
             var downloadUri = "downloadUri_example";  // string? | The URI to download the editing file. (optional) 
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | The request file stream. (optional) 
@@ -4167,7 +4167,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The file ID to save as PDF.
+            var id = 1;  // int | The file ID to save as PDF.
             var saveAsPdfInteger = new SaveAsPdfInteger(); // SaveAsPdfInteger | The parameters for saving the file as PDF.
 
             try
@@ -4393,7 +4393,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID.
+            var fileId = 1;  // int | The file ID.
             var customFilterParameters = new CustomFilterParameters(); // CustomFilterParameters | The parameters for setting the Custom Filter editing mode.
 
             try
@@ -4507,7 +4507,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The file ID.
+            var id = 1;  // int | The file ID.
             var fileLinkRequest = new FileLinkRequest(); // FileLinkRequest | The file external link parameters.
 
             try
@@ -4621,7 +4621,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
+            var fileId = 1;  // int | The file unique identifier.
             var orderRequestDto = new OrderRequestDto?(); // OrderRequestDto? | The file order information. (optional) 
 
             try
@@ -4833,7 +4833,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID to start editing.
+            var fileId = 1;  // int | The file ID to start editing.
             var startEdit = new StartEdit(); // StartEdit | The file parameters to start editing.
 
             try
@@ -4946,7 +4946,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID to start filling.
+            var fileId = 1;  // int | The file ID to start filling.
 
             try
             {
@@ -5060,7 +5060,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID.
+            var fileId = 1;  // int | The file ID.
             var favorite = true;  // bool? | Specifies if the file is marked as favorite or not. (optional) 
 
             try
@@ -5161,7 +5161,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID to track editing changes.
+            var fileId = 1;  // int | The file ID to track editing changes.
             var tabId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The tab ID to track editing changes. (optional) 
             var docKeyForTrack = some text;  // string? | The document key for tracking changes. (optional) 
             var isFinish = true;  // bool? | Specifies whether to finish file tracking or not. (optional) 
@@ -5261,7 +5261,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID to update.
+            var fileId = 1;  // int | The file ID to update.
             var updateFile = new UpdateFile(); // UpdateFile | The parameters for updating a file.
 
             try

@@ -526,7 +526,7 @@ namespace Example
             var configId = 1234;  // int? | The webhook configuration identifier. (optional) 
             var eventId = 1234;  // int? | The unique identifier of the event that triggered the webhook. (optional) 
             var groupStatus = new WebhookGroupStatus?(); // WebhookGroupStatus? | The status of the webhook delivery group. (optional) 
-            var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The identifier of the user associated with the webhook event. (optional) 
+            var userId = 00000000-0000-0000-0000-000000000000;  // Guid? | The identifier of the user associated with the webhook event. (optional) 
             var trigger = new WebhookTrigger?(); // WebhookTrigger? | The type of event that triggered the webhook. (optional) 
             var count = 1234;  // int? | The maximum number of webhook log records to return in the query response. (optional) 
             var startIndex = 1234;  // int? | Specifies the starting index for retrieving webhook logs.  Used for pagination in the webhook delivery log queries. (optional) 
@@ -641,7 +641,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The ID extracted from the route parameters.
+            var id = 1;  // int | The ID extracted from the route parameters.
 
             try
             {
@@ -753,7 +753,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The ID extracted from the route parameters.
+            var id = 1;  // int | The ID extracted from the route parameters.
 
             try
             {

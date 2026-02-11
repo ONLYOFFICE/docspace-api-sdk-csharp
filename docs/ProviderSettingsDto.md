@@ -1,0 +1,11 @@
+# DocSpace.API.SDK.Model.ProviderSettingsDto
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Type** | **ProviderType** |  | [optional] 
+**Url** | **string** |  | 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

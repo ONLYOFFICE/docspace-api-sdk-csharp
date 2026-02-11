@@ -148,32 +148,32 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ChunkedUploadSessionResponseWrapperTWrapper</returns>
-        ChunkedUploadSessionResponseWrapperTWrapper CreateEditSession(int fileId, long? fileSize = default);
+        /// <returns>ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
+        ChunkedUploadSessionResponseWrapperIntegerWrapper CreateEditSession(int fileId, long? fileSize = default);
 
         /// <summary>
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperTWrapper</returns>
-        ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default);
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
+        ApiResponse<ChunkedUploadSessionResponseWrapperIntegerWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default);
         /// <summary>
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -186,7 +186,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -198,7 +198,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -210,7 +210,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -1357,34 +1357,34 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ChunkedUploadSessionResponseWrapperTWrapper</returns>
-        Task<ChunkedUploadSessionResponseWrapperTWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
+        Task<ChunkedUploadSessionResponseWrapperIntegerWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperTWrapper)</returns>
-        Task<ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperIntegerWrapper)</returns>
+        Task<ApiResponse<ChunkedUploadSessionResponseWrapperIntegerWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -1398,7 +1398,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -1411,7 +1411,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -1424,7 +1424,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -3619,14 +3619,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ChunkedUploadSessionResponseWrapperTWrapper</returns>
-        public ChunkedUploadSessionResponseWrapperTWrapper CreateEditSession(int fileId, long? fileSize = default)
+        /// <returns>ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
+        public ChunkedUploadSessionResponseWrapperIntegerWrapper CreateEditSession(int fileId, long? fileSize = default)
         {
             var localVarResponse = CreateEditSessionWithHttpInfo(fileId, fileSize);
             return localVarResponse.Data;
@@ -3636,14 +3636,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperTWrapper</returns>
-        public ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default)
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
+        public ApiResponse<ChunkedUploadSessionResponseWrapperIntegerWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3696,7 +3696,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ChunkedUploadSessionResponseWrapperTWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ChunkedUploadSessionResponseWrapperIntegerWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3714,15 +3714,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ChunkedUploadSessionResponseWrapperTWrapper</returns>
-        public async Task<ChunkedUploadSessionResponseWrapperTWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
+        public async Task<ChunkedUploadSessionResponseWrapperIntegerWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateEditSessionWithHttpInfoAsync(fileId, fileSize, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3732,15 +3732,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperTWrapper)</returns>
-        public async Task<ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperIntegerWrapper)</returns>
+        public async Task<ApiResponse<ChunkedUploadSessionResponseWrapperIntegerWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3795,7 +3795,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResponseWrapperTWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResponseWrapperIntegerWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -3813,7 +3813,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -3830,7 +3830,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -3909,7 +3909,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -3927,7 +3927,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -4009,7 +4009,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -4025,7 +4025,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -4098,7 +4098,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -4115,7 +4115,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>

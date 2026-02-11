@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "userId", EmitDefaultValue = true)]
         public string UserId { get; set; }
@@ -95,7 +95,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user email address.</value>
         /*
-        <example>Sydney_Roberts4@hotmail.com</example>
+        <example>example@onlyoffice.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -115,7 +115,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user first name.</value>
         /*
-        <example>Winfield</example>
+        <example>John</example>
         */
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
@@ -125,7 +125,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user last name.</value>
         /*
-        <example>Wyman</example>
+        <example>Doe</example>
         */
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
@@ -145,7 +145,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user title.</value>
         /*
-        <example>1080p_small_wooden_tuna_central</example>
+        <example>SampleFile</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }

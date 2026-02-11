@@ -72,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The unique system identifier.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "instanceId", IsRequired = true, EmitDefaultValue = true)]
         public string InstanceId { get; set; }

@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document title that will be displayed in the Open Recent... menu option.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>SampleFile</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }

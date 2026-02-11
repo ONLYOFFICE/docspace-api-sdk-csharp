@@ -182,8 +182,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
-            var productid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The ID of the product extracted from the query parameters.
-            var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID extracted from the query parameters.
+            var productid = 00000000-0000-0000-0000-000000000000;  // Guid | The ID of the product extracted from the query parameters.
+            var userid = 00000000-0000-0000-0000-000000000000;  // Guid | The user ID extracted from the query parameters.
 
             try
             {
@@ -402,7 +402,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
-            var productid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The ID of the product extracted from the route parameters.
+            var productid = 00000000-0000-0000-0000-000000000000;  // Guid | The ID of the product extracted from the route parameters.
 
             try
             {
@@ -514,7 +514,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
-            var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The ID extracted from the route parameters.
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | The ID extracted from the route parameters.
 
             try
             {

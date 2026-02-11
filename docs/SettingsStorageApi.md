@@ -26,7 +26,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **dump** | **bool?** |  | [optional]  |
+| **dump** | **bool?** | Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. | [optional]  |
 
 ### Return type
 
@@ -73,7 +73,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new StorageApi(httpClient, config, httpClientHandler);
-            var dump = true;  // bool? |  (optional) 
+            var dump = true;  // bool? | Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. (optional) 
 
             try
             {

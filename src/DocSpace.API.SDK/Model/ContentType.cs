@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets Name
         /// </summary>
         /*
-        <example>Winfield Upton</example>
+        <example>John Doe</example>
         */
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }

@@ -79,7 +79,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The password in plain text for user authentication.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>P@ssw0rd123</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }

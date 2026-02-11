@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The ID of the user to share a room with.</value>
         /*
-        <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
@@ -83,6 +83,12 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Email (string) maxLength
+            if (this.Email != null && this.Email.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than 255.", new [] { "Email" });
+            }
+
             yield break;
         }
 

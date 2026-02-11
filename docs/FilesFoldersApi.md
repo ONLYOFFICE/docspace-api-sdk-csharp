@@ -93,7 +93,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID.
+            var folderId = 1;  // int | The folder ID.
             var checkUploadRequest = new CheckUploadRequest(); // CheckUploadRequest | The request parameters for checking file uploads.
 
             try
@@ -207,7 +207,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID for the folder creation.
+            var folderId = 1;  // int | The folder ID for the folder creation.
             var createFolder = new CreateFolder(); // CreateFolder | The parameters for creating a folder.
 
             try
@@ -321,7 +321,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The folder ID.
+            var id = 1;  // int | The folder ID.
             var folderLinkRequest = new FolderLinkRequest(); // FolderLinkRequest | The folder link parameters.
 
             try
@@ -550,7 +550,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID to delete.
+            var folderId = 1;  // int | The folder ID to delete.
             var deleteFolder = new DeleteFolder(); // DeleteFolder | The parameters for deleting a folder.
 
             try
@@ -880,7 +880,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder unique identifier.
+            var folderId = 1;  // int | The folder unique identifier.
 
             try
             {
@@ -991,11 +991,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID.
+            var folderId = 1;  // int | The folder ID.
             var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
             var sharedBy = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The identifier of the user who shared the folder or file. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
-            var roomId = 9846;  // int? | The room ID. (optional) 
+            var roomId = 1;  // int? | The room ID. (optional) 
             var excludeSubject = true;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
             var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders, or all elements from the specified folder. (optional) 
             var extension = .txt;  // string? | Specifies whether to search for the specific file extension. (optional) 
@@ -1124,7 +1124,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID of the history request.
+            var folderId = 1;  // int | The folder ID of the history request.
             var fromDate = new ApiDateTime?(); // ApiDateTime? | The start date of the history request. (optional) 
             var toDate = new ApiDateTime?(); // ApiDateTime? | The end date of the history request. (optional) 
             var count = 1234;  // int? | The number of records to retrieve for the folder history. (optional) 
@@ -1226,7 +1226,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder unique identifier.
+            var folderId = 1;  // int | The folder unique identifier.
 
             try
             {
@@ -1337,7 +1337,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The folder ID.
+            var id = 1;  // int | The folder ID.
 
             try
             {
@@ -1449,7 +1449,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder unique identifier.
+            var folderId = 1;  // int | The folder unique identifier.
 
             try
             {
@@ -1548,7 +1548,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The folder unique identifier.
+            var id = 1;  // int | The folder unique identifier.
             var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
 
@@ -1662,7 +1662,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder unique identifier.
+            var folderId = 1;  // int | The folder unique identifier.
 
             try
             {
@@ -1903,7 +1903,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder unique identifier.
+            var folderId = 1;  // int | The folder unique identifier.
 
             try
             {
@@ -2544,7 +2544,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID for inserting a file.
+            var folderId = 1;  // int | The folder ID for inserting a file.
             var insertFileFile = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | The file to be inserted. (optional) 
             var insertFileTitle = "insertFileTitle_example";  // string? | The file title to be inserted. (optional) 
             var insertFileCreateNewIfExist = true;  // bool? | Specifies whether to create a new file if it already exists or not. (optional) 
@@ -2807,7 +2807,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID for the folder creation.
+            var folderId = 1;  // int | The folder ID for the folder creation.
             var createFolder = new CreateFolder(); // CreateFolder | The parameters for creating a folder.
 
             try
@@ -2922,7 +2922,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder unique identifier.
+            var folderId = 1;  // int | The folder unique identifier.
             var orderRequestDto = new OrderRequestDto?(); // OrderRequestDto? | The folder order information. (optional) 
 
             try
@@ -3036,7 +3036,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The folder ID.
+            var id = 1;  // int | The folder ID.
             var folderLinkRequest = new FolderLinkRequest(); // FolderLinkRequest | The folder link parameters.
 
             try
@@ -3094,7 +3094,7 @@ catch (ApiException e)
 # **UploadFile**
 > ObjectWrapper UploadFile (int folderId, UploadRequestDto? uploadRequestDto = null)
 
-Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
+Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/).
 
@@ -3150,7 +3150,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID to upload a file.
+            var folderId = 1;  // int | The folder ID to upload a file.
             var uploadRequestDto = new UploadRequestDto?(); // UploadRequestDto? | The request parameters for uploading a file. (optional) 
 
             try
@@ -3210,7 +3210,7 @@ catch (ApiException e)
 # **UploadFileToMy**
 > ObjectWrapper UploadFileToMy (UploadRequestDto? inDto = null)
 
-Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
+Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/).
 

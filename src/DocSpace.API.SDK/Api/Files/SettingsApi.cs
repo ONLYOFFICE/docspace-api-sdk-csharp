@@ -296,6 +296,27 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of AutoCleanUpDataWrapper</returns>
         ApiResponse<AutoCleanUpDataWrapper> GetAutomaticallyCleanUpWithHttpInfo();
         /// <summary>
+        /// Get the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Returns the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-templates/">REST API Reference for GetDefaultTemplates Operation</seealso>
+        /// <returns>DefaultTemplateSettingsWrapper</returns>
+        DefaultTemplateSettingsWrapper GetDefaultTemplates();
+
+        /// <summary>
+        /// Get the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Returns the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-templates/">REST API Reference for GetDefaultTemplates Operation</seealso>
+        /// <returns>ApiResponse of DefaultTemplateSettingsWrapper</returns>
+        ApiResponse<DefaultTemplateSettingsWrapper> GetDefaultTemplatesWithHttpInfo();
+        /// <summary>
         /// Get the document service URL
         /// </summary>
         /// <remarks>
@@ -474,6 +495,29 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> KeepNewFileNameWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
         /// <summary>
+        /// Change the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Changes the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultTemplateSettingsRequestDto">Default templates settings request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-template/">REST API Reference for SetDefaultTemplate Operation</seealso>
+        /// <returns>DefaultTemplateSettingsWrapper</returns>
+        DefaultTemplateSettingsWrapper SetDefaultTemplate(DefaultTemplateSettingsRequestDto? defaultTemplateSettingsRequestDto = default);
+
+        /// <summary>
+        /// Change the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Changes the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultTemplateSettingsRequestDto">Default templates settings request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-template/">REST API Reference for SetDefaultTemplate Operation</seealso>
+        /// <returns>ApiResponse of DefaultTemplateSettingsWrapper</returns>
+        ApiResponse<DefaultTemplateSettingsWrapper> SetDefaultTemplateWithHttpInfo(DefaultTemplateSettingsRequestDto? defaultTemplateSettingsRequestDto = default);
+        /// <summary>
         /// Open document in the same browser tab
         /// </summary>
         /// <remarks>
@@ -563,6 +607,31 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/">REST API Reference for UpdateFileIfExist Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> UpdateFileIfExistWithHttpInfo(SettingsRequestDto? settingsRequestDto = default);
+        /// <summary>
+        /// Upload a file as the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Uploads a file to use as the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileExtension">File extension of a template to replace</param>
+        /// <param name="file">File to replace template with</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-default-template/">REST API Reference for UploadDefaultTemplate Operation</seealso>
+        /// <returns>DefaultTemplateSettingsWrapper</returns>
+        DefaultTemplateSettingsWrapper UploadDefaultTemplate(string fileExtension, FileParameter file);
+
+        /// <summary>
+        /// Upload a file as the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Uploads a file to use as the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileExtension">File extension of a template to replace</param>
+        /// <param name="file">File to replace template with</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-default-template/">REST API Reference for UploadDefaultTemplate Operation</seealso>
+        /// <returns>ApiResponse of DefaultTemplateSettingsWrapper</returns>
+        ApiResponse<DefaultTemplateSettingsWrapper> UploadDefaultTemplateWithHttpInfo(string fileExtension, FileParameter file);
         #endregion Synchronous Operations
     }
 
@@ -869,6 +938,29 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (AutoCleanUpDataWrapper)</returns>
         Task<ApiResponse<AutoCleanUpDataWrapper>> GetAutomaticallyCleanUpWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Returns the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-templates/">REST API Reference for GetDefaultTemplates Operation</seealso>
+        /// <returns>Task of DefaultTemplateSettingsWrapper</returns>
+        Task<DefaultTemplateSettingsWrapper> GetDefaultTemplatesAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Returns the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-templates/">REST API Reference for GetDefaultTemplates Operation</seealso>
+        /// <returns>Task of ApiResponse (DefaultTemplateSettingsWrapper)</returns>
+        Task<ApiResponse<DefaultTemplateSettingsWrapper>> GetDefaultTemplatesWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get the document service URL
         /// </summary>
         /// <remarks>
@@ -1063,6 +1155,31 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> KeepNewFileNameWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
+        /// Change the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Changes the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultTemplateSettingsRequestDto">Default templates settings request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-template/">REST API Reference for SetDefaultTemplate Operation</seealso>
+        /// <returns>Task of DefaultTemplateSettingsWrapper</returns>
+        Task<DefaultTemplateSettingsWrapper> SetDefaultTemplateAsync(DefaultTemplateSettingsRequestDto? defaultTemplateSettingsRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Change the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Changes the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultTemplateSettingsRequestDto">Default templates settings request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-template/">REST API Reference for SetDefaultTemplate Operation</seealso>
+        /// <returns>Task of ApiResponse (DefaultTemplateSettingsWrapper)</returns>
+        Task<ApiResponse<DefaultTemplateSettingsWrapper>> SetDefaultTemplateWithHttpInfoAsync(DefaultTemplateSettingsRequestDto? defaultTemplateSettingsRequestDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Open document in the same browser tab
         /// </summary>
         /// <remarks>
@@ -1160,6 +1277,33 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-file-if-exist/">REST API Reference for UpdateFileIfExist Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> UpdateFileIfExistWithHttpInfoAsync(SettingsRequestDto? settingsRequestDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Upload a file as the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Uploads a file to use as the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileExtension">File extension of a template to replace</param>
+        /// <param name="file">File to replace template with</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-default-template/">REST API Reference for UploadDefaultTemplate Operation</seealso>
+        /// <returns>Task of DefaultTemplateSettingsWrapper</returns>
+        Task<DefaultTemplateSettingsWrapper> UploadDefaultTemplateAsync(string fileExtension, FileParameter file, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Upload a file as the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Uploads a file to use as the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileExtension">File extension of a template to replace</param>
+        /// <param name="file">File to replace template with</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-default-template/">REST API Reference for UploadDefaultTemplate Operation</seealso>
+        /// <returns>Task of ApiResponse (DefaultTemplateSettingsWrapper)</returns>
+        Task<ApiResponse<DefaultTemplateSettingsWrapper>> UploadDefaultTemplateWithHttpInfoAsync(string fileExtension, FileParameter file, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -3548,6 +3692,182 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
+        /// Get the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Returns the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-templates/">REST API Reference for GetDefaultTemplates Operation</seealso>
+        /// <returns>DefaultTemplateSettingsWrapper</returns>
+        public DefaultTemplateSettingsWrapper GetDefaultTemplates()
+        {
+            var localVarResponse = GetDefaultTemplatesWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Returns the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-templates/">REST API Reference for GetDefaultTemplates Operation</seealso>
+        /// <returns>ApiResponse of DefaultTemplateSettingsWrapper</returns>
+        public ApiResponse<DefaultTemplateSettingsWrapper> GetDefaultTemplatesWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<DefaultTemplateSettingsWrapper>("/api/2.0/files/settings/defaulttemplate", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetDefaultTemplates", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Returns the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-templates/">REST API Reference for GetDefaultTemplates Operation</seealso>
+        /// <returns>Task of DefaultTemplateSettingsWrapper</returns>
+        public async Task<DefaultTemplateSettingsWrapper> GetDefaultTemplatesAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetDefaultTemplatesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Returns the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-templates/">REST API Reference for GetDefaultTemplates Operation</seealso>
+        /// <returns>Task of ApiResponse (DefaultTemplateSettingsWrapper)</returns>
+        public async Task<ApiResponse<DefaultTemplateSettingsWrapper>> GetDefaultTemplatesWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<DefaultTemplateSettingsWrapper>("/api/2.0/files/settings/defaulttemplate", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetDefaultTemplates", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get the document service URL
         /// </summary>
         /// <remarks>
@@ -4872,6 +5192,188 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
+        /// Change the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Changes the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultTemplateSettingsRequestDto">Default templates settings request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-template/">REST API Reference for SetDefaultTemplate Operation</seealso>
+        /// <returns>DefaultTemplateSettingsWrapper</returns>
+        public DefaultTemplateSettingsWrapper SetDefaultTemplate(DefaultTemplateSettingsRequestDto? defaultTemplateSettingsRequestDto = default)
+        {
+            var localVarResponse = SetDefaultTemplateWithHttpInfo(defaultTemplateSettingsRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Changes the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultTemplateSettingsRequestDto">Default templates settings request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-template/">REST API Reference for SetDefaultTemplate Operation</seealso>
+        /// <returns>ApiResponse of DefaultTemplateSettingsWrapper</returns>
+        public ApiResponse<DefaultTemplateSettingsWrapper> SetDefaultTemplateWithHttpInfo(DefaultTemplateSettingsRequestDto? defaultTemplateSettingsRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (defaultTemplateSettingsRequestDto != null) localVarRequestOptions.Data = defaultTemplateSettingsRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<DefaultTemplateSettingsWrapper>("/api/2.0/files/settings/defaulttemplate", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SetDefaultTemplate", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Change the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Changes the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultTemplateSettingsRequestDto">Default templates settings request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-template/">REST API Reference for SetDefaultTemplate Operation</seealso>
+        /// <returns>Task of DefaultTemplateSettingsWrapper</returns>
+        public async Task<DefaultTemplateSettingsWrapper> SetDefaultTemplateAsync(DefaultTemplateSettingsRequestDto? defaultTemplateSettingsRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await SetDefaultTemplateWithHttpInfoAsync(defaultTemplateSettingsRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Changes the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultTemplateSettingsRequestDto">Default templates settings request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-template/">REST API Reference for SetDefaultTemplate Operation</seealso>
+        /// <returns>Task of ApiResponse (DefaultTemplateSettingsWrapper)</returns>
+        public async Task<ApiResponse<DefaultTemplateSettingsWrapper>> SetDefaultTemplateWithHttpInfoAsync(DefaultTemplateSettingsRequestDto? defaultTemplateSettingsRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (defaultTemplateSettingsRequestDto != null) localVarRequestOptions.Data = defaultTemplateSettingsRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<DefaultTemplateSettingsWrapper>("/api/2.0/files/settings/defaulttemplate", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SetDefaultTemplate", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Open document in the same browser tab
         /// </summary>
         /// <remarks>
@@ -5584,6 +6086,210 @@ namespace DocSpace.API.SDK.Api.Files
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("UpdateFileIfExist", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Upload a file as the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Uploads a file to use as the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileExtension">File extension of a template to replace</param>
+        /// <param name="file">File to replace template with</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-default-template/">REST API Reference for UploadDefaultTemplate Operation</seealso>
+        /// <returns>DefaultTemplateSettingsWrapper</returns>
+        public DefaultTemplateSettingsWrapper UploadDefaultTemplate(string fileExtension, FileParameter file)
+        {
+            var localVarResponse = UploadDefaultTemplateWithHttpInfo(fileExtension, file);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Upload a file as the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Uploads a file to use as the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileExtension">File extension of a template to replace</param>
+        /// <param name="file">File to replace template with</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-default-template/">REST API Reference for UploadDefaultTemplate Operation</seealso>
+        /// <returns>ApiResponse of DefaultTemplateSettingsWrapper</returns>
+        public ApiResponse<DefaultTemplateSettingsWrapper> UploadDefaultTemplateWithHttpInfo(string fileExtension, FileParameter file)
+        {
+            // verify the required parameter 'fileExtension' is set
+            if (fileExtension == null)
+                throw new ApiException(400, "Missing required parameter 'fileExtension' when calling SettingsApi->UploadDefaultTemplate");
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+                throw new ApiException(400, "Missing required parameter 'file' when calling SettingsApi->UploadDefaultTemplate");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "multipart/form-data"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "FileExtension", fileExtension));
+            localVarRequestOptions.FileParameters.Add("File", file);
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<DefaultTemplateSettingsWrapper>("/api/2.0/files/settings/defaulttemplate", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("UploadDefaultTemplate", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Upload a file as the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Uploads a file to use as the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileExtension">File extension of a template to replace</param>
+        /// <param name="file">File to replace template with</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-default-template/">REST API Reference for UploadDefaultTemplate Operation</seealso>
+        /// <returns>Task of DefaultTemplateSettingsWrapper</returns>
+        public async Task<DefaultTemplateSettingsWrapper> UploadDefaultTemplateAsync(string fileExtension, FileParameter file, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await UploadDefaultTemplateWithHttpInfoAsync(fileExtension, file, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Upload a file as the default template setting
+        /// </summary>
+        /// <remarks>
+        /// Uploads a file to use as the default template setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileExtension">File extension of a template to replace</param>
+        /// <param name="file">File to replace template with</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-default-template/">REST API Reference for UploadDefaultTemplate Operation</seealso>
+        /// <returns>Task of ApiResponse (DefaultTemplateSettingsWrapper)</returns>
+        public async Task<ApiResponse<DefaultTemplateSettingsWrapper>> UploadDefaultTemplateWithHttpInfoAsync(string fileExtension, FileParameter file, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'fileExtension' is set
+            if (fileExtension == null)
+                throw new ApiException(400, "Missing required parameter 'fileExtension' when calling SettingsApi->UploadDefaultTemplate");
+
+            // verify the required parameter 'file' is set
+            if (file == null)
+                throw new ApiException(400, "Missing required parameter 'file' when calling SettingsApi->UploadDefaultTemplate");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "multipart/form-data"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "FileExtension", fileExtension));
+            localVarRequestOptions.FileParameters.Add("File", file);
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<DefaultTemplateSettingsWrapper>("/api/2.0/files/settings/defaulttemplate", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("UploadDefaultTemplate", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

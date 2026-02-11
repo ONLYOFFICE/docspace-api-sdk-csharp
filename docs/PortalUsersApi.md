@@ -5,7 +5,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CreateInvitationLink**](#createinvitationlink) | **POST** /api/2.0/portal/users/invitationlink | Create an invitation link |
-| [**DeleteInvitationLink**](#deleteinvitationlink) | **DELETE** /api/2.0/portal/users/invitationlink | Delete an invitation link |
+| [**DeleteInvitationLink**](#deleteinvitationlink) | **DELETE** /api/2.0/portal/users/invitationlink | Deletes an invitation link. |
 | [**GetInvitationLink**](#getinvitationlink) | **GET** /api/2.0/portal/users/invite/{employeeType} | Get an invitation link |
 | [**GetInvitationLinkByEmployeeType**](#getinvitationlinkbyemployeetype) | **GET** /api/2.0/portal/users/invitationlink/{employeeType} | Get an invitation link |
 | [**GetPortalUsersCount**](#getportaluserscount) | **GET** /api/2.0/portal/userscount | Get a number of portal users |
@@ -130,7 +130,7 @@ catch (ApiException e)
 # **DeleteInvitationLink**
 > StringWrapper DeleteInvitationLink (InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = null)
 
-
+Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/).
 
@@ -138,7 +138,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **invitationLinkDeleteRequestDto** | [**InvitationLinkDeleteRequestDto?**](InvitationLinkDeleteRequestDto.md) | The request parameters for deleting an invitation link. | [optional]  |
+| **invitationLinkDeleteRequestDto** | [**InvitationLinkDeleteRequestDto?**](InvitationLinkDeleteRequestDto.md) | The data transfer object containing the details of the invitation link to be deleted. | [optional]  |
 
 ### Return type
 
@@ -185,11 +185,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UsersApi(httpClient, config, httpClientHandler);
-            var invitationLinkDeleteRequestDto = new InvitationLinkDeleteRequestDto?(); // InvitationLinkDeleteRequestDto? | The request parameters for deleting an invitation link. (optional) 
+            var invitationLinkDeleteRequestDto = new InvitationLinkDeleteRequestDto?(); // InvitationLinkDeleteRequestDto? | The data transfer object containing the details of the invitation link to be deleted. (optional) 
 
             try
             {
-                // Delete an invitation link
+                // Deletes an invitation link.
                 StringWrapper result = apiInstance.DeleteInvitationLink(invitationLinkDeleteRequestDto);
                 Debug.WriteLine(result);
             }
@@ -210,7 +210,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Delete an invitation link
+    // Deletes an invitation link.
     ApiResponse<StringWrapper> response = apiInstance.DeleteInvitationLinkWithHttpInfo(invitationLinkDeleteRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -628,7 +628,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UsersApi(httpClient, config, httpClientHandler);
-            var userID = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID extracted from the route parameters.
+            var userID = 00000000-0000-0000-0000-000000000000;  // Guid | The user ID extracted from the route parameters.
 
             try
             {

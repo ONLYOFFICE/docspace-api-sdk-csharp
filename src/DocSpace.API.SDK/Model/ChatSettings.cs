@@ -66,6 +66,23 @@ namespace DocSpace.API.SDK.Model
         public string Prompt { get; set; }
 
         /// <summary>
+        /// Gets or Sets Internal
+        /// </summary>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "internal", EmitDefaultValue = true)]
+        public bool Internal { get; private set; }
+
+        /// <summary>
+        /// Returns false as Internal should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeInternal()
+        {
+            return false;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +93,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ProviderId: ").Append(ProviderId).Append("\n");
             sb.Append("  ModelId: ").Append(ModelId).Append("\n");
             sb.Append("  Prompt: ").Append(Prompt).Append("\n");
+            sb.Append("  Internal: ").Append(Internal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

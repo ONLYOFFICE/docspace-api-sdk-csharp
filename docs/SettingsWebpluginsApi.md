@@ -183,7 +183,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
-            var name = Winfield Upton;  // string | The web plugin name.
+            var name = John Doe;  // string | The web plugin name.
 
             try
             {
@@ -292,7 +292,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
-            var name = Winfield Upton;  // string | The web plugin name.
+            var name = John Doe;  // string | The web plugin name.
 
             try
             {
@@ -519,7 +519,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
-            var name = Winfield Upton;  // string | The web plugin name.
+            var name = John Doe;  // string | The web plugin name.
             var webPluginRequests = new WebPluginRequests(); // WebPluginRequests | The configuration settings for the web plugin instance.
 
             try

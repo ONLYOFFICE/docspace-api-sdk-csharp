@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets Id
         /// </summary>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }

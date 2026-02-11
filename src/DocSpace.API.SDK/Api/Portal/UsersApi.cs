@@ -47,22 +47,25 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>ApiResponse of InvitationLinkWrapper</returns>
         ApiResponse<InvitationLinkWrapper> CreateInvitationLinkWithHttpInfo(InvitationLinkCreateRequestDto? invitationLinkCreateRequestDto = default);
         /// <summary>
-        /// Delete an invitation link
+        /// Deletes an invitation link.
         /// </summary>
+        /// <remarks>
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationLinkDeleteRequestDto">The request parameters for deleting an invitation link. (optional)</param>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
         /// <returns>StringWrapper</returns>
         StringWrapper DeleteInvitationLink(InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = default);
 
         /// <summary>
-        /// Delete an invitation link
+        /// Deletes an invitation link.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationLinkDeleteRequestDto">The request parameters for deleting an invitation link. (optional)</param>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> DeleteInvitationLinkWithHttpInfo(InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = default);
@@ -262,26 +265,26 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>Task of ApiResponse (InvitationLinkWrapper)</returns>
         Task<ApiResponse<InvitationLinkWrapper>> CreateInvitationLinkWithHttpInfoAsync(InvitationLinkCreateRequestDto? invitationLinkCreateRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Delete an invitation link
+        /// Deletes an invitation link.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationLinkDeleteRequestDto">The request parameters for deleting an invitation link. (optional)</param>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
         Task<StringWrapper> DeleteInvitationLinkAsync(InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Delete an invitation link
+        /// Deletes an invitation link.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationLinkDeleteRequestDto">The request parameters for deleting an invitation link. (optional)</param>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
@@ -859,10 +862,13 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
         /// <summary>
-        /// Delete an invitation link
+        /// Deletes an invitation link.
         /// </summary>
+        /// <remarks>
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationLinkDeleteRequestDto">The request parameters for deleting an invitation link. (optional)</param>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
         /// <returns>StringWrapper</returns>
         public StringWrapper DeleteInvitationLink(InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = default)
@@ -872,10 +878,13 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
         /// <summary>
-        /// Delete an invitation link
+        /// Deletes an invitation link.
         /// </summary>
+        /// <remarks>
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationLinkDeleteRequestDto">The request parameters for deleting an invitation link. (optional)</param>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
         public ApiResponse<StringWrapper> DeleteInvitationLinkWithHttpInfo(InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = default)
@@ -942,10 +951,13 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
         /// <summary>
-        /// Delete an invitation link
+        /// Deletes an invitation link.
         /// </summary>
+        /// <remarks>
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationLinkDeleteRequestDto">The request parameters for deleting an invitation link. (optional)</param>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
@@ -956,10 +968,13 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
         /// <summary>
-        /// Delete an invitation link
+        /// Deletes an invitation link.
         /// </summary>
+        /// <remarks>
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="invitationLinkDeleteRequestDto">The request parameters for deleting an invitation link. (optional)</param>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>

@@ -176,7 +176,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ActiveConnectionsApi(httpClient, config, httpClientHandler);
-            var loginEventId = 9846;  // int | The ID of the specific login event.
+            var loginEventId = 1;  // int | The ID of the specific login event.
 
             try
             {
@@ -396,7 +396,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ActiveConnectionsApi(httpClient, config, httpClientHandler);
-            var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID extracted from the route parameters.
+            var userId = 00000000-0000-0000-0000-000000000000;  // Guid | The user ID extracted from the route parameters.
 
             try
             {

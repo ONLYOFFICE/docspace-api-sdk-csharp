@@ -424,8 +424,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-services/">REST API Reference for GetWalletServices Operation</seealso>
-        /// <returns>QuotaArrayWrapper</returns>
-        QuotaArrayWrapper GetWalletServices();
+        /// <returns>WalletServiceArrayWrapper</returns>
+        WalletServiceArrayWrapper GetWalletServices();
 
         /// <summary>
         /// Get wallet services
@@ -435,8 +435,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-services/">REST API Reference for GetWalletServices Operation</seealso>
-        /// <returns>ApiResponse of QuotaArrayWrapper</returns>
-        ApiResponse<QuotaArrayWrapper> GetWalletServicesWithHttpInfo();
+        /// <returns>ApiResponse of WalletServiceArrayWrapper</returns>
+        ApiResponse<WalletServiceArrayWrapper> GetWalletServicesWithHttpInfo();
         /// <summary>
         /// Send a payment request
         /// </summary>
@@ -1018,8 +1018,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-services/">REST API Reference for GetWalletServices Operation</seealso>
-        /// <returns>Task of QuotaArrayWrapper</returns>
-        Task<QuotaArrayWrapper> GetWalletServicesAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of WalletServiceArrayWrapper</returns>
+        Task<WalletServiceArrayWrapper> GetWalletServicesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get wallet services
@@ -1030,8 +1030,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-services/">REST API Reference for GetWalletServices Operation</seealso>
-        /// <returns>Task of ApiResponse (QuotaArrayWrapper)</returns>
-        Task<ApiResponse<QuotaArrayWrapper>> GetWalletServicesWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (WalletServiceArrayWrapper)</returns>
+        Task<ApiResponse<WalletServiceArrayWrapper>> GetWalletServicesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Send a payment request
         /// </summary>
@@ -4581,8 +4581,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-services/">REST API Reference for GetWalletServices Operation</seealso>
-        /// <returns>QuotaArrayWrapper</returns>
-        public QuotaArrayWrapper GetWalletServices()
+        /// <returns>WalletServiceArrayWrapper</returns>
+        public WalletServiceArrayWrapper GetWalletServices()
         {
             var localVarResponse = GetWalletServicesWithHttpInfo();
             return localVarResponse.Data;
@@ -4596,8 +4596,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-services/">REST API Reference for GetWalletServices Operation</seealso>
-        /// <returns>ApiResponse of QuotaArrayWrapper</returns>
-        public ApiResponse<QuotaArrayWrapper> GetWalletServicesWithHttpInfo()
+        /// <returns>ApiResponse of WalletServiceArrayWrapper</returns>
+        public ApiResponse<WalletServiceArrayWrapper> GetWalletServicesWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4645,7 +4645,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<QuotaArrayWrapper>("/api/2.0/portal/payment/walletservices", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<WalletServiceArrayWrapper>("/api/2.0/portal/payment/walletservices", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -4668,8 +4668,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-services/">REST API Reference for GetWalletServices Operation</seealso>
-        /// <returns>Task of QuotaArrayWrapper</returns>
-        public async Task<QuotaArrayWrapper> GetWalletServicesAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of WalletServiceArrayWrapper</returns>
+        public async Task<WalletServiceArrayWrapper> GetWalletServicesAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetWalletServicesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4684,8 +4684,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-services/">REST API Reference for GetWalletServices Operation</seealso>
-        /// <returns>Task of ApiResponse (QuotaArrayWrapper)</returns>
-        public async Task<ApiResponse<QuotaArrayWrapper>> GetWalletServicesWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (WalletServiceArrayWrapper)</returns>
+        public async Task<ApiResponse<WalletServiceArrayWrapper>> GetWalletServicesWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4735,7 +4735,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<QuotaArrayWrapper>("/api/2.0/portal/payment/walletservices", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<WalletServiceArrayWrapper>("/api/2.0/portal/payment/walletservices", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

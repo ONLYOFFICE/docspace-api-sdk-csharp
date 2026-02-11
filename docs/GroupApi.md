@@ -188,7 +188,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | The group ID.
             var membersRequest = new MembersRequest(); // MembersRequest | The member request.
 
             try
@@ -302,7 +302,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | The group ID.
 
             try
             {
@@ -360,7 +360,7 @@ catch (ApiException e)
 # **GetGroup**
 > GroupWrapper GetGroup (Guid id, bool? includeMembers = null)
 
-Returns the detailed information about the selected group.   **Note**: This method returns full group information.
+Returns the detailed information about the selected group.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-group/).
 
@@ -416,7 +416,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | The group ID.
             var includeMembers = true;  // bool? | Specifies whether to include the group members or not. (optional) 
 
             try
@@ -530,7 +530,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID.
+            var userid = 00000000-0000-0000-0000-000000000000;  // Guid | The user ID.
 
             try
             {
@@ -587,7 +587,7 @@ catch (ApiException e)
 # **GetGroups**
 > GroupArrayWrapper GetGroups (Guid? userId = null, bool? manager = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
-Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+Returns the general information about all the groups, such as group ID and group manager.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-groups/).
 
@@ -648,7 +648,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The user ID. (optional) 
+            var userId = 00000000-0000-0000-0000-000000000000;  // Guid? | The user ID. (optional) 
             var manager = true;  // bool? | Specifies if the user is a manager or not. (optional) 
             var count = 1234;  // int? | The number of records to retrieve. (optional) 
             var startIndex = 1234;  // int? | The starting index for paginated results. (optional) 
@@ -882,7 +882,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | The group ID.
             var membersRequest = new MembersRequest(); // MembersRequest | The member request.
 
             try
@@ -997,7 +997,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | The group ID.
             var setManagerRequest = new SetManagerRequest(); // SetManagerRequest | The request for setting a group manager.
 
             try
@@ -1112,7 +1112,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | The group ID.
             var membersRequest = new MembersRequest(); // MembersRequest | The member request.
 
             try
@@ -1226,7 +1226,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The group ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | The group ID.
             var updateGroupRequest = new UpdateGroupRequest(); // UpdateGroupRequest | The request for updating a group.
 
             try

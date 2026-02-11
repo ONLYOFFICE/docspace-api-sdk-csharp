@@ -103,7 +103,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room Id.
+            var id = 1;  // int | The room Id.
             var batchTagsRequestDto = new BatchTagsRequestDto?(); // BatchTagsRequestDto? | The parameters for managing tags. (optional) 
 
             try
@@ -218,7 +218,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
             var archiveRoomRequest = new ArchiveRoomRequest?(); // ArchiveRoomRequest? | The parameters for archiving a room. (optional) 
 
             try
@@ -332,7 +332,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
             var coverRequestDto = new CoverRequestDto(); // CoverRequestDto | The request parameters to change the room cover.
 
             try
@@ -672,7 +672,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
             var logoRequest = new LogoRequest(); // LogoRequest | The logo request parameters.
 
             try
@@ -1012,7 +1012,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9079;  // string | The ID of the folder in the third-party storage in which the contents of the room will be stored.
+            var id = 1;  // string | The ID of the folder in the third-party storage in which the contents of the room will be stored.
             var createThirdPartyRoom = new CreateThirdPartyRoom(); // CreateThirdPartyRoom | The third-party room information.
 
             try
@@ -1235,7 +1235,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
             var deleteRoomRequest = new DeleteRoomRequest(); // DeleteRoomRequest | The parameters for deleting a room.
 
             try
@@ -1348,7 +1348,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
 
             try
             {
@@ -1461,7 +1461,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room Id.
+            var id = 1;  // int | The room Id.
             var batchTagsRequestDto = new BatchTagsRequestDto?(); // BatchTagsRequestDto? | The parameters for managing tags. (optional) 
 
             try
@@ -1575,7 +1575,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
 
             try
             {
@@ -1687,7 +1687,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room template ID.
+            var id = 1;  // int | The room template ID.
 
             try
             {
@@ -2104,7 +2104,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
 
             try
             {
@@ -2216,7 +2216,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
             var type = new LinkType?(); // LinkType? | The link type. (optional) 
 
             try
@@ -2333,7 +2333,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
             var filterType = new ShareFilterType?(); // ShareFilterType? | The filter type of the access rights. (optional) 
             var count = 1234;  // int? | The number of items to be retrieved or processed. (optional) 
             var startIndex = 1234;  // int? | The starting index of the items to retrieve in a paginated request. (optional) 
@@ -2920,7 +2920,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
 
             try
             {
@@ -3033,7 +3033,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
 
             try
             {
@@ -3145,7 +3145,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
 
             try
             {
@@ -3258,7 +3258,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
             var userInvitation = new UserInvitation(); // UserInvitation | The user invitation parameters.
 
             try
@@ -3476,7 +3476,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
             var roomLinkRequest = new RoomLinkRequest(); // RoomLinkRequest | The room link parameters.
 
             try
@@ -3590,7 +3590,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
             var roomInvitationRequest = new RoomInvitationRequest(); // RoomInvitationRequest | The room invitation request.
 
             try
@@ -3703,7 +3703,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
 
             try
             {
@@ -3920,7 +3920,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
             var archiveRoomRequest = new ArchiveRoomRequest?(); // ArchiveRoomRequest? | The parameters for archiving a room. (optional) 
 
             try
@@ -4033,7 +4033,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
 
             try
             {
@@ -4146,7 +4146,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The room ID.
+            var id = 1;  // int | The room ID.
             var updateRoomRequest = new UpdateRoomRequest(); // UpdateRoomRequest | The request parameters for updating a room.
 
             try

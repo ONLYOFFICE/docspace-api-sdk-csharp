@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The authorization key name.</value>
         /*
-        <example>Winfield Upton</example>
+        <example>John Doe</example>
         */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
@@ -78,7 +78,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The authorization key title.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>SampleFile</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }

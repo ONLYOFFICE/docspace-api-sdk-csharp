@@ -813,7 +813,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
@@ -826,7 +826,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
@@ -838,7 +838,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
@@ -850,7 +850,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
@@ -1708,7 +1708,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
@@ -1722,7 +1722,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
@@ -1735,7 +1735,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
@@ -1748,7 +1748,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
@@ -7698,7 +7698,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
@@ -7715,7 +7715,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
@@ -7790,7 +7790,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
@@ -7808,7 +7808,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
@@ -7886,7 +7886,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
@@ -7902,7 +7902,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
@@ -7978,7 +7978,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
@@ -7995,7 +7995,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inDto">The request parameters for uploading a file. (optional)</param>

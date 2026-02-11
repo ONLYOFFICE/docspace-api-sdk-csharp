@@ -68,7 +68,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UserTypeApi(httpClient, config, httpClientHandler);
-            var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID.
+            var userid = 00000000-0000-0000-0000-000000000000;  // Guid | The user ID.
 
             try
             {
@@ -457,6 +457,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | List of users with the detailed information |  -  |
 | **401** | Unauthorized |  -  |
+| **403** | No permissions to perform this action |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

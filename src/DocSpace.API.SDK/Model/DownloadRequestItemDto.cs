@@ -74,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The optional password for accessing protected files.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>P@ssw0rd123</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
