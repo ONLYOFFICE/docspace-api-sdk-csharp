@@ -803,8 +803,8 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Logs of the webhook activities |  -  |
 | **400** | Id incorrect |  -  |
-| **401** | Unauthorized |  -  |
 | **404** | Item not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

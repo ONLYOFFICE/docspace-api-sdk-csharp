@@ -280,6 +280,9 @@ namespace DocSpace.API.SDK.Model
         /// The tenant maximum total size.
         /// </summary>
         /// <value>The tenant maximum total size.</value>
+        /*
+        <example>9223372036854775807</example>
+        */
         [DataMember(Name = "maxTotalSize", EmitDefaultValue = false)]
         public long MaxTotalSize { get; set; }
 

@@ -13,6 +13,9 @@
 // limitations under the License.
 
 
+using System;
+using System.Threading.Tasks;
+
 namespace DocSpace.API.SDK.Client
 {
     /// <summary>

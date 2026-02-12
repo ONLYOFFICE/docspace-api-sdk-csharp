@@ -36,7 +36,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="message">message (required).</param>
         /// <param name="contextFolderId">contextFolderId.</param>
         /// <param name="files">files.</param>
-        public StartNewChatBody(string message = default, int? contextFolderId = default, List<DuplicateRequestDtoAllOfFileIds> files = default)
+        public StartNewChatBody(string message = default, int? contextFolderId = default, List<ContinueChatBodyFilesInner> files = default)
         {
             // to ensure "message" is required (not null)
             if (message == null)
@@ -70,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets Files
         /// </summary>
         [DataMember(Name = "files", EmitDefaultValue = true)]
-        public List<DuplicateRequestDtoAllOfFileIds> Files { get; set; }
+        public List<ContinueChatBodyFilesInner> Files { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

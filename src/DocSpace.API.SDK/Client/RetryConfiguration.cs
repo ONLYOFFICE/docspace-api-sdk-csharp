@@ -13,6 +13,9 @@
 // limitations under the License.
 
 
+using Polly;
+using System.Net.Http;
+
 namespace DocSpace.API.SDK.Client
 {
     /// <summary>

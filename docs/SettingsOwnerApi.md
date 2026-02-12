@@ -116,8 +116,8 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Message about changing the portal owner |  -  |
 | **400** | Owner&#39;s email is not activated |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Collaborator can not be an owner |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -226,8 +226,8 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 | **400** | The user could not be found |  -  |
-| **401** | Unauthorized |  -  |
 | **409** |  |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

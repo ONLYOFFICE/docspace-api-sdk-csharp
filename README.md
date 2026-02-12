@@ -3498,6 +3498,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.ContentDisposition](docs/ContentDisposition.md)
  - [Model.ContentType](docs/ContentType.md)
  - [Model.ContinueChatBody](docs/ContinueChatBody.md)
+ - [Model.ContinueChatBodyFilesInner](docs/ContinueChatBodyFilesInner.md)
  - [Model.ConversationResultArrayWrapper](docs/ConversationResultArrayWrapper.md)
  - [Model.ConversationResultDto](docs/ConversationResultDto.md)
  - [Model.CookieSettingsDto](docs/CookieSettingsDto.md)

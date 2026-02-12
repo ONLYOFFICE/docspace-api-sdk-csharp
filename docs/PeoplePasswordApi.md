@@ -118,9 +118,9 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Detailed user information |  -  |
 | **400** | Incorrect userId or password |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | The link is invalid or no permissions to perform this action |  -  |
 | **404** | The user could not be found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

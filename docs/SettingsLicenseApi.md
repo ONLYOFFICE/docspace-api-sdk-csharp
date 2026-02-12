@@ -422,9 +422,9 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | License |  -  |
 | **400** | The uploaded file could not be found |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Portal Access |  -  |
 | **405** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
