@@ -64,6 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="contentLength">The content length of the file..</param>
         /// <param name="pureContentLength">The pure content length of the file..</param>
         /// <param name="fileStatus">fileStatus.</param>
+        /// <param name="editingBy">The list of users editing the file..</param>
         /// <param name="mute">Specifies if the file is muted or not..</param>
         /// <param name="viewUrl">The URL link to view the file..</param>
         /// <param name="webUrl">The Web URL link to the file..</param>
@@ -89,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="expired">expired.</param>
         /// <param name="vectorizationStatus">vectorizationStatus.</param>
         /// <param name="dimensions">dimensions.</param>
-        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, VectorizationStatus? vectorizationStatus = default, Size dimensions = default)
+        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, Dictionary<string, string> editingBy = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, VectorizationStatus? vectorizationStatus = default, Size dimensions = default)
         {
             this.FolderId = folderId;
             this.@Version = version;
@@ -97,6 +98,7 @@ namespace DocSpace.API.SDK.Model
             this.ContentLength = contentLength;
             this.PureContentLength = pureContentLength;
             this.FileStatus = fileStatus;
+            this.EditingBy = editingBy;
             this.Mute = mute;
             this.ViewUrl = viewUrl;
             this.WebUrl = webUrl;
@@ -129,7 +131,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The folder ID where the file is located.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "folderId", EmitDefaultValue = false)]
         public int FolderId { get; set; }
@@ -173,6 +175,16 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "pureContentLength", EmitDefaultValue = true)]
         public long? PureContentLength { get; set; }
+
+        /// <summary>
+        /// The list of users editing the file.
+        /// </summary>
+        /// <value>The list of users editing the file.</value>
+        /*
+        <example>[{&quot;key&quot;:&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
+        */
+        [DataMember(Name = "editingBy", EmitDefaultValue = true)]
+        public Dictionary<string, string> EditingBy { get; set; }
 
         /// <summary>
         /// Specifies if the file is muted or not.
@@ -378,6 +390,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ContentLength: ").Append(ContentLength).Append("\n");
             sb.Append("  PureContentLength: ").Append(PureContentLength).Append("\n");
             sb.Append("  FileStatus: ").Append(FileStatus).Append("\n");
+            sb.Append("  EditingBy: ").Append(EditingBy).Append("\n");
             sb.Append("  Mute: ").Append(Mute).Append("\n");
             sb.Append("  ViewUrl: ").Append(ViewUrl).Append("\n");
             sb.Append("  WebUrl: ").Append(WebUrl).Append("\n");

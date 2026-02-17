@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Link** | **string** |  | [optional] 
 **TenantId** | **int** |  | [optional] 
 **BackupProgressEnum** | **BackupProgressEnum** |  | [optional] 
+**Status** | **DistributedTaskStatus** |  | [optional] 
 **TaskId** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

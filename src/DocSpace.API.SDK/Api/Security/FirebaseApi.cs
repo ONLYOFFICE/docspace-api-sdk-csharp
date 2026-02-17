@@ -342,6 +342,7 @@ namespace DocSpace.API.SDK.Api.Security
         }
 
 
+        
         /// <summary>
         /// Save the Documents Firebase device token
         /// </summary>

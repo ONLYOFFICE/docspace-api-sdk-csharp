@@ -438,6 +438,7 @@ namespace DocSpace.API.SDK.Api.Group
         }
 
 
+        
         /// <summary>
         /// Get groups with file sharing settings
         /// </summary>

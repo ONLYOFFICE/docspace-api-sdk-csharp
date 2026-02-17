@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The template title that will be displayed in the Create New... menu option.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>SampleFile</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }

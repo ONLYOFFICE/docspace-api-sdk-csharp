@@ -124,8 +124,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **405** | Not available |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -238,8 +238,8 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Wizard settings |  -  |
 | **400** | Incorrect email address/The password is empty |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | You must enter a license key or license key is not correct or license expired or user quota does not match the license |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -415,7 +415,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new CommonSettingsApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The ID of the portal theme to delete.
+            var id = 1;  // int | The ID of the portal theme to delete.
 
             try
             {
@@ -1679,9 +1679,9 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Message about changing DNS |  -  |
 | **400** | Invalid domain name/incorrect length of doman name |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
 | **405** | Method not allowed |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

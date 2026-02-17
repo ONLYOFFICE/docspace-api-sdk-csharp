@@ -24,15 +24,62 @@ namespace DocSpace.API.SDK.Api.Portal
     {
         #region Synchronous Operations
         /// <summary>
+        /// Create an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkCreateRequestDto">The request parameters for creating an invitation link. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-invitation-link/">REST API Reference for CreateInvitationLink Operation</seealso>
+        /// <returns>InvitationLinkWrapper</returns>
+        InvitationLinkWrapper CreateInvitationLink(InvitationLinkCreateRequestDto? invitationLinkCreateRequestDto = default);
+
+        /// <summary>
+        /// Create an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkCreateRequestDto">The request parameters for creating an invitation link. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-invitation-link/">REST API Reference for CreateInvitationLink Operation</seealso>
+        /// <returns>ApiResponse of InvitationLinkWrapper</returns>
+        ApiResponse<InvitationLinkWrapper> CreateInvitationLinkWithHttpInfo(InvitationLinkCreateRequestDto? invitationLinkCreateRequestDto = default);
+        /// <summary>
+        /// Deletes an invitation link.
+        /// </summary>
+        /// <remarks>
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
+        /// <returns>StringWrapper</returns>
+        StringWrapper DeleteInvitationLink(InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = default);
+
+        /// <summary>
+        /// Deletes an invitation link.
+        /// </summary>
+        /// <remarks>
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
+        /// <returns>ApiResponse of StringWrapper</returns>
+        ApiResponse<StringWrapper> DeleteInvitationLinkWithHttpInfo(InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = default);
+        /// <summary>
         /// Get an invitation link
         /// </summary>
         /// <remarks>
         /// Returns an invitation link for joining the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>StringWrapper</returns>
+        [Obsolete]
         StringWrapper GetInvitationLink(EmployeeType employeeType);
 
         /// <summary>
@@ -42,10 +89,34 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Returns an invitation link for joining the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
+        [Obsolete]
         ApiResponse<StringWrapper> GetInvitationLinkWithHttpInfo(EmployeeType employeeType);
+        /// <summary>
+        /// Get an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link-by-employee-type/">REST API Reference for GetInvitationLinkByEmployeeType Operation</seealso>
+        /// <returns>InvitationLinkWrapper</returns>
+        InvitationLinkWrapper GetInvitationLinkByEmployeeType(EmployeeType employeeType);
+
+        /// <summary>
+        /// Get an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link-by-employee-type/">REST API Reference for GetInvitationLinkByEmployeeType Operation</seealso>
+        /// <returns>ApiResponse of InvitationLinkWrapper</returns>
+        ApiResponse<InvitationLinkWrapper> GetInvitationLinkByEmployeeTypeWithHttpInfo(EmployeeType employeeType);
         /// <summary>
         /// Get a number of portal users
         /// </summary>
@@ -136,6 +207,29 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SendCongratulationsWithHttpInfo(Guid userid, string key);
+        /// <summary>
+        /// Update an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkUpdateRequestDto">The request parameters for updating an invitation link. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-link/">REST API Reference for UpdateInvitationLink Operation</seealso>
+        /// <returns>InvitationLinkWrapper</returns>
+        InvitationLinkWrapper UpdateInvitationLink(InvitationLinkUpdateRequestDto? invitationLinkUpdateRequestDto = default);
+
+        /// <summary>
+        /// Update an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkUpdateRequestDto">The request parameters for updating an invitation link. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-link/">REST API Reference for UpdateInvitationLink Operation</seealso>
+        /// <returns>ApiResponse of InvitationLinkWrapper</returns>
+        ApiResponse<InvitationLinkWrapper> UpdateInvitationLinkWithHttpInfo(InvitationLinkUpdateRequestDto? invitationLinkUpdateRequestDto = default);
         #endregion Synchronous Operations
     }
 
@@ -146,16 +240,67 @@ namespace DocSpace.API.SDK.Api.Portal
     {
         #region Asynchronous Operations
         /// <summary>
+        /// Create an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkCreateRequestDto">The request parameters for creating an invitation link. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-invitation-link/">REST API Reference for CreateInvitationLink Operation</seealso>
+        /// <returns>Task of InvitationLinkWrapper</returns>
+        Task<InvitationLinkWrapper> CreateInvitationLinkAsync(InvitationLinkCreateRequestDto? invitationLinkCreateRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Create an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkCreateRequestDto">The request parameters for creating an invitation link. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-invitation-link/">REST API Reference for CreateInvitationLink Operation</seealso>
+        /// <returns>Task of ApiResponse (InvitationLinkWrapper)</returns>
+        Task<ApiResponse<InvitationLinkWrapper>> CreateInvitationLinkWithHttpInfoAsync(InvitationLinkCreateRequestDto? invitationLinkCreateRequestDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Deletes an invitation link.
+        /// </summary>
+        /// <remarks>
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
+        /// <returns>Task of StringWrapper</returns>
+        Task<StringWrapper> DeleteInvitationLinkAsync(InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Deletes an invitation link.
+        /// </summary>
+        /// <remarks>
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
+        /// <returns>Task of ApiResponse (StringWrapper)</returns>
+        Task<ApiResponse<StringWrapper>> DeleteInvitationLinkWithHttpInfoAsync(InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get an invitation link
         /// </summary>
         /// <remarks>
         /// Returns an invitation link for joining the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
+        [Obsolete]
         Task<StringWrapper> GetInvitationLinkAsync(EmployeeType employeeType, CancellationToken cancellationToken = default);
 
         /// <summary>
@@ -165,11 +310,37 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Returns an invitation link for joining the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
+        [Obsolete]
         Task<ApiResponse<StringWrapper>> GetInvitationLinkWithHttpInfoAsync(EmployeeType employeeType, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link-by-employee-type/">REST API Reference for GetInvitationLinkByEmployeeType Operation</seealso>
+        /// <returns>Task of InvitationLinkWrapper</returns>
+        Task<InvitationLinkWrapper> GetInvitationLinkByEmployeeTypeAsync(EmployeeType employeeType, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link-by-employee-type/">REST API Reference for GetInvitationLinkByEmployeeType Operation</seealso>
+        /// <returns>Task of ApiResponse (InvitationLinkWrapper)</returns>
+        Task<ApiResponse<InvitationLinkWrapper>> GetInvitationLinkByEmployeeTypeWithHttpInfoAsync(EmployeeType employeeType, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get a number of portal users
         /// </summary>
@@ -268,6 +439,31 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-congratulations/">REST API Reference for SendCongratulations Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> SendCongratulationsWithHttpInfoAsync(Guid userid, string key, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkUpdateRequestDto">The request parameters for updating an invitation link. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-link/">REST API Reference for UpdateInvitationLink Operation</seealso>
+        /// <returns>Task of InvitationLinkWrapper</returns>
+        Task<InvitationLinkWrapper> UpdateInvitationLinkAsync(InvitationLinkUpdateRequestDto? invitationLinkUpdateRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Update an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkUpdateRequestDto">The request parameters for updating an invitation link. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-link/">REST API Reference for UpdateInvitationLink Operation</seealso>
+        /// <returns>Task of ApiResponse (InvitationLinkWrapper)</returns>
+        Task<ApiResponse<InvitationLinkWrapper>> UpdateInvitationLinkWithHttpInfoAsync(InvitationLinkUpdateRequestDto? invitationLinkUpdateRequestDto = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -482,6 +678,371 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
 
+        
+        /// <summary>
+        /// Create an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkCreateRequestDto">The request parameters for creating an invitation link. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-invitation-link/">REST API Reference for CreateInvitationLink Operation</seealso>
+        /// <returns>InvitationLinkWrapper</returns>
+        public InvitationLinkWrapper CreateInvitationLink(InvitationLinkCreateRequestDto? invitationLinkCreateRequestDto = default)
+        {
+            var localVarResponse = CreateInvitationLinkWithHttpInfo(invitationLinkCreateRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkCreateRequestDto">The request parameters for creating an invitation link. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-invitation-link/">REST API Reference for CreateInvitationLink Operation</seealso>
+        /// <returns>ApiResponse of InvitationLinkWrapper</returns>
+        public ApiResponse<InvitationLinkWrapper> CreateInvitationLinkWithHttpInfo(InvitationLinkCreateRequestDto? invitationLinkCreateRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (invitationLinkCreateRequestDto != null) localVarRequestOptions.Data = invitationLinkCreateRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<InvitationLinkWrapper>("/api/2.0/portal/users/invitationlink", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("CreateInvitationLink", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkCreateRequestDto">The request parameters for creating an invitation link. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-invitation-link/">REST API Reference for CreateInvitationLink Operation</seealso>
+        /// <returns>Task of InvitationLinkWrapper</returns>
+        public async Task<InvitationLinkWrapper> CreateInvitationLinkAsync(InvitationLinkCreateRequestDto? invitationLinkCreateRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await CreateInvitationLinkWithHttpInfoAsync(invitationLinkCreateRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkCreateRequestDto">The request parameters for creating an invitation link. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-invitation-link/">REST API Reference for CreateInvitationLink Operation</seealso>
+        /// <returns>Task of ApiResponse (InvitationLinkWrapper)</returns>
+        public async Task<ApiResponse<InvitationLinkWrapper>> CreateInvitationLinkWithHttpInfoAsync(InvitationLinkCreateRequestDto? invitationLinkCreateRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (invitationLinkCreateRequestDto != null) localVarRequestOptions.Data = invitationLinkCreateRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<InvitationLinkWrapper>("/api/2.0/portal/users/invitationlink", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("CreateInvitationLink", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Deletes an invitation link.
+        /// </summary>
+        /// <remarks>
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
+        /// <returns>StringWrapper</returns>
+        public StringWrapper DeleteInvitationLink(InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = default)
+        {
+            var localVarResponse = DeleteInvitationLinkWithHttpInfo(invitationLinkDeleteRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Deletes an invitation link.
+        /// </summary>
+        /// <remarks>
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
+        /// <returns>ApiResponse of StringWrapper</returns>
+        public ApiResponse<StringWrapper> DeleteInvitationLinkWithHttpInfo(InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (invitationLinkDeleteRequestDto != null) localVarRequestOptions.Data = invitationLinkDeleteRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Delete<StringWrapper>("/api/2.0/portal/users/invitationlink", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("DeleteInvitationLink", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Deletes an invitation link.
+        /// </summary>
+        /// <remarks>
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
+        /// <returns>Task of StringWrapper</returns>
+        public async Task<StringWrapper> DeleteInvitationLinkAsync(InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await DeleteInvitationLinkWithHttpInfoAsync(invitationLinkDeleteRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Deletes an invitation link.
+        /// </summary>
+        /// <remarks>
+        /// Ensures that the current user has permission to delete the specified invitation link.  Throws security or not-found exceptions if required conditions are not met.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkDeleteRequestDto">The data transfer object containing the details of the invitation link to be deleted. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-invitation-link/">REST API Reference for DeleteInvitationLink Operation</seealso>
+        /// <returns>Task of ApiResponse (StringWrapper)</returns>
+        public async Task<ApiResponse<StringWrapper>> DeleteInvitationLinkWithHttpInfoAsync(InvitationLinkDeleteRequestDto? invitationLinkDeleteRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (invitationLinkDeleteRequestDto != null) localVarRequestOptions.Data = invitationLinkDeleteRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.DeleteAsync<StringWrapper>("/api/2.0/portal/users/invitationlink", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("DeleteInvitationLink", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
         /// <summary>
         /// Get an invitation link
         /// </summary>
@@ -489,9 +1050,10 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Returns an invitation link for joining the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>StringWrapper</returns>
+        [Obsolete]
         public StringWrapper GetInvitationLink(EmployeeType employeeType)
         {
             var localVarResponse = GetInvitationLinkWithHttpInfo(employeeType);
@@ -505,9 +1067,10 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Returns an invitation link for joining the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>ApiResponse of StringWrapper</returns>
+        [Obsolete]
         public ApiResponse<StringWrapper> GetInvitationLinkWithHttpInfo(EmployeeType employeeType)
         {
             var localVarRequestOptions = new RequestOptions();
@@ -578,10 +1141,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Returns an invitation link for joining the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>Task of StringWrapper</returns>
+        [Obsolete]
         public async Task<StringWrapper> GetInvitationLinkAsync(EmployeeType employeeType, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetInvitationLinkWithHttpInfoAsync(employeeType, cancellationToken).ConfigureAwait(false);
@@ -595,10 +1159,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// Returns an invitation link for joining the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="employeeType">The type of employee role for the invitation link (All, RoomAdmin, Guest, DocSpaceAdmin, User).</param>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link/">REST API Reference for GetInvitationLink Operation</seealso>
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
+        [Obsolete]
         public async Task<ApiResponse<StringWrapper>> GetInvitationLinkWithHttpInfoAsync(EmployeeType employeeType, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
@@ -655,6 +1220,188 @@ namespace DocSpace.API.SDK.Api.Portal
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetInvitationLink", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link-by-employee-type/">REST API Reference for GetInvitationLinkByEmployeeType Operation</seealso>
+        /// <returns>InvitationLinkWrapper</returns>
+        public InvitationLinkWrapper GetInvitationLinkByEmployeeType(EmployeeType employeeType)
+        {
+            var localVarResponse = GetInvitationLinkByEmployeeTypeWithHttpInfo(employeeType);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link-by-employee-type/">REST API Reference for GetInvitationLinkByEmployeeType Operation</seealso>
+        /// <returns>ApiResponse of InvitationLinkWrapper</returns>
+        public ApiResponse<InvitationLinkWrapper> GetInvitationLinkByEmployeeTypeWithHttpInfo(EmployeeType employeeType)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("employeeType", ClientUtils.ParameterToString(employeeType)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<InvitationLinkWrapper>("/api/2.0/portal/users/invitationlink/{employeeType}", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetInvitationLinkByEmployeeType", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link-by-employee-type/">REST API Reference for GetInvitationLinkByEmployeeType Operation</seealso>
+        /// <returns>Task of InvitationLinkWrapper</returns>
+        public async Task<InvitationLinkWrapper> GetInvitationLinkByEmployeeTypeAsync(EmployeeType employeeType, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetInvitationLinkByEmployeeTypeWithHttpInfoAsync(employeeType, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="employeeType">The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-invitation-link-by-employee-type/">REST API Reference for GetInvitationLinkByEmployeeType Operation</seealso>
+        /// <returns>Task of ApiResponse (InvitationLinkWrapper)</returns>
+        public async Task<ApiResponse<InvitationLinkWrapper>> GetInvitationLinkByEmployeeTypeWithHttpInfoAsync(EmployeeType employeeType, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("employeeType", ClientUtils.ParameterToString(employeeType)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<InvitationLinkWrapper>("/api/2.0/portal/users/invitationlink/{employeeType}", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetInvitationLinkByEmployeeType", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -1321,6 +2068,188 @@ namespace DocSpace.API.SDK.Api.Portal
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("SendCongratulations", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkUpdateRequestDto">The request parameters for updating an invitation link. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-link/">REST API Reference for UpdateInvitationLink Operation</seealso>
+        /// <returns>InvitationLinkWrapper</returns>
+        public InvitationLinkWrapper UpdateInvitationLink(InvitationLinkUpdateRequestDto? invitationLinkUpdateRequestDto = default)
+        {
+            var localVarResponse = UpdateInvitationLinkWithHttpInfo(invitationLinkUpdateRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkUpdateRequestDto">The request parameters for updating an invitation link. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-link/">REST API Reference for UpdateInvitationLink Operation</seealso>
+        /// <returns>ApiResponse of InvitationLinkWrapper</returns>
+        public ApiResponse<InvitationLinkWrapper> UpdateInvitationLinkWithHttpInfo(InvitationLinkUpdateRequestDto? invitationLinkUpdateRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (invitationLinkUpdateRequestDto != null) localVarRequestOptions.Data = invitationLinkUpdateRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<InvitationLinkWrapper>("/api/2.0/portal/users/invitationlink", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("UpdateInvitationLink", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkUpdateRequestDto">The request parameters for updating an invitation link. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-link/">REST API Reference for UpdateInvitationLink Operation</seealso>
+        /// <returns>Task of InvitationLinkWrapper</returns>
+        public async Task<InvitationLinkWrapper> UpdateInvitationLinkAsync(InvitationLinkUpdateRequestDto? invitationLinkUpdateRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await UpdateInvitationLinkWithHttpInfoAsync(invitationLinkUpdateRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update an invitation link
+        /// </summary>
+        /// <remarks>
+        /// Returns an invitation link for joining the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="invitationLinkUpdateRequestDto">The request parameters for updating an invitation link. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-invitation-link/">REST API Reference for UpdateInvitationLink Operation</seealso>
+        /// <returns>Task of ApiResponse (InvitationLinkWrapper)</returns>
+        public async Task<ApiResponse<InvitationLinkWrapper>> UpdateInvitationLinkWithHttpInfoAsync(InvitationLinkUpdateRequestDto? invitationLinkUpdateRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (invitationLinkUpdateRequestDto != null) localVarRequestOptions.Data = invitationLinkUpdateRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<InvitationLinkWrapper>("/api/2.0/portal/users/invitationlink", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("UpdateInvitationLink", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

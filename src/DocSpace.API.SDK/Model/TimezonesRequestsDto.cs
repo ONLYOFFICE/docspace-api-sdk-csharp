@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The IANA time zone identifier.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }

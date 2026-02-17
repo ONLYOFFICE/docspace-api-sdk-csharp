@@ -65,7 +65,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new StatisticsApi(httpClient, config, httpClientHandler);
-            var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The ID extracted from the route parameters.
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | The ID extracted from the route parameters.
 
             try
             {

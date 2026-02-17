@@ -13,6 +13,8 @@
 // limitations under the License.
 
 
+using System.IO;
+
 namespace DocSpace.API.SDK.Client
 {
 

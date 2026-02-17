@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The encryption password.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>P@ssw0rd123</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }

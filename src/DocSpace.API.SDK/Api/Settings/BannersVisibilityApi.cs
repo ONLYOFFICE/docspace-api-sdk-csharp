@@ -290,6 +290,7 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
+        
         /// <summary>
         /// Get the banners visibility
         /// </summary>

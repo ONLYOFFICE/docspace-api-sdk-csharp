@@ -24,126 +24,142 @@ namespace DocSpace.API.SDK.Api.Privacyroom
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Deletes an encryption key and removes it from the system.
         /// </summary>
+        /// <remarks>
+        /// Deletes an encryption key and removes it from the system based on the provided key identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The unique identifier of the encryption key to be deleted.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-keys/">REST API Reference for DeleteKeys Operation</seealso>
         /// <returns>EncryptionKeyArrayWrapper</returns>
         EncryptionKeyArrayWrapper DeleteKeys(Guid id);
 
         /// <summary>
-        /// 
+        /// Deletes an encryption key and removes it from the system.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes an encryption key and removes it from the system based on the provided key identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The unique identifier of the encryption key to be deleted.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-keys/">REST API Reference for DeleteKeys Operation</seealso>
         /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
         ApiResponse<EncryptionKeyArrayWrapper> DeleteKeysWithHttpInfo(Guid id);
         /// <summary>
-        /// 
+        /// Retrieves the current settings for the Privacy Room functionality.
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current settings for the Privacy Room functionality.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-room-settings/">REST API Reference for GetPrivacyRoomSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper GetPrivacyRoomSettings();
 
         /// <summary>
-        /// 
+        /// Retrieves the current settings for the Privacy Room functionality.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the current settings for the Privacy Room functionality.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-room-settings/">REST API Reference for GetPrivacyRoomSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> GetPrivacyRoomSettingsWithHttpInfo();
         /// <summary>
-        /// 
+        /// Retrieves encryption keys associated with the current user.
         /// </summary>
+        /// <remarks>
+        /// Retrieves encryption keys associated with the current user.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys/">REST API Reference for GetUserKeys Operation</seealso>
         /// <returns>EncryptionKeyArrayWrapper</returns>
         EncryptionKeyArrayWrapper GetUserKeys();
 
         /// <summary>
-        /// 
+        /// Retrieves encryption keys associated with the current user.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves encryption keys associated with the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys/">REST API Reference for GetUserKeys Operation</seealso>
         /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
         ApiResponse<EncryptionKeyArrayWrapper> GetUserKeysWithHttpInfo();
         /// <summary>
-        /// 
-        /// </summary>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"> (optional)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="version"> (optional)</param>
-        /// <param name="publicKey"> (optional)</param>
-        /// <param name="privateKeyEnc"> (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-by-filter/">REST API Reference for GetUserKeysByFilter Operation</seealso>
-        /// <returns>EncryptionKeyWrapper</returns>
-        EncryptionKeyWrapper GetUserKeysByFilter(Guid? id = default, EncryptionKeyType? type = default, string? version = default, string? publicKey = default, string? privateKeyEnc = default);
-
-        /// <summary>
-        /// 
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"> (optional)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="version"> (optional)</param>
-        /// <param name="publicKey"> (optional)</param>
-        /// <param name="privateKeyEnc"> (optional)</param>
+        /// <param name="id">The optional identifier of the encryption key to filter by. (optional)</param>
+        /// <param name="type">The optional type of the encryption key to filter by. (optional)</param>
+        /// <param name="publicKey">The optional public key to filter by. (optional)</param>
+        /// <param name="privateKeyEnc">The optional encrypted private key to filter by. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-by-filter/">REST API Reference for GetUserKeysByFilter Operation</seealso>
+        /// <returns>EncryptionKeyWrapper</returns>
+        EncryptionKeyWrapper GetUserKeysByFilter(Guid? id = default, EncryptionKeyType? type = default, string? publicKey = default, string? privateKeyEnc = default);
+
+        /// <summary>
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
+        /// </summary>
+        /// <remarks>
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The optional identifier of the encryption key to filter by. (optional)</param>
+        /// <param name="type">The optional type of the encryption key to filter by. (optional)</param>
+        /// <param name="publicKey">The optional public key to filter by. (optional)</param>
+        /// <param name="privateKeyEnc">The optional encrypted private key to filter by. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-by-filter/">REST API Reference for GetUserKeysByFilter Operation</seealso>
         /// <returns>ApiResponse of EncryptionKeyWrapper</returns>
-        ApiResponse<EncryptionKeyWrapper> GetUserKeysByFilterWithHttpInfo(Guid? id = default, EncryptionKeyType? type = default, string? version = default, string? publicKey = default, string? privateKeyEnc = default);
+        ApiResponse<EncryptionKeyWrapper> GetUserKeysByFilterWithHttpInfo(Guid? id = default, EncryptionKeyType? type = default, string? publicKey = default, string? privateKeyEnc = default);
         /// <summary>
-        /// 
+        /// Retrieves the encryption keys associated with a specific privacy room.
         /// </summary>
+        /// <remarks>
+        /// Retrieves the encryption keys associated with a specific privacy room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the privacy room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-for-room/">REST API Reference for GetUserKeysForRoom Operation</seealso>
         /// <returns>EncryptionKeyArrayWrapper</returns>
         EncryptionKeyArrayWrapper GetUserKeysForRoom(int roomId);
 
         /// <summary>
-        /// 
+        /// Retrieves the encryption keys associated with a specific privacy room.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the encryption keys associated with a specific privacy room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the privacy room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-for-room/">REST API Reference for GetUserKeysForRoom Operation</seealso>
         /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
         ApiResponse<EncryptionKeyArrayWrapper> GetUserKeysForRoomWithHttpInfo(int roomId);
         /// <summary>
-        /// 
+        /// Replaces an existing encryption key with a new one for the user.
         /// </summary>
+        /// <remarks>
+        /// Replaces an existing encryption key with a new one for the user.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="encryptionKeyRequestDto"> (optional)</param>
+        /// <param name="encryptionKeyRequestDto">The request object containing the public and private key information to replace the existing key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/replace-key/">REST API Reference for ReplaceKey Operation</seealso>
         /// <returns>EncryptionKeyArrayWrapper</returns>
         EncryptionKeyArrayWrapper ReplaceKey(EncryptionKeyRequestDto? encryptionKeyRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Replaces an existing encryption key with a new one for the user.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces an existing encryption key with a new one for the user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="encryptionKeyRequestDto"> (optional)</param>
+        /// <param name="encryptionKeyRequestDto">The request object containing the public and private key information to replace the existing key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/replace-key/">REST API Reference for ReplaceKey Operation</seealso>
         /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
         ApiResponse<EncryptionKeyArrayWrapper> ReplaceKeyWithHttpInfo(EncryptionKeyRequestDto? encryptionKeyRequestDto = default);
@@ -171,22 +187,25 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
         ApiResponse<EncryptionKeyArrayWrapper> SetKeysWithHttpInfo(EncryptionKeyRequestDto? encryptionKeyRequestDto = default);
         /// <summary>
-        /// 
+        /// Configures the privacy room settings for the portal.
         /// </summary>
+        /// <remarks>
+        /// Configures the privacy room settings for the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="privacyRoomEnableRequestDto">The request parameters for setting encryption keys. (optional)</param>
+        /// <param name="privacyRoomEnableRequestDto">The request object containing the privacy room enable or disable flag. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-privacy-room-settings/">REST API Reference for SetPrivacyRoomSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         BooleanWrapper SetPrivacyRoomSettings(PrivacyRoomEnableRequestDto? privacyRoomEnableRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Configures the privacy room settings for the portal.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Configures the privacy room settings for the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="privacyRoomEnableRequestDto">The request parameters for setting encryption keys. (optional)</param>
+        /// <param name="privacyRoomEnableRequestDto">The request object containing the privacy room enable or disable flag. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-privacy-room-settings/">REST API Reference for SetPrivacyRoomSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> SetPrivacyRoomSettingsWithHttpInfo(PrivacyRoomEnableRequestDto? privacyRoomEnableRequestDto = default);
@@ -200,35 +219,35 @@ namespace DocSpace.API.SDK.Api.Privacyroom
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Deletes an encryption key and removes it from the system.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes an encryption key and removes it from the system based on the provided key identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The unique identifier of the encryption key to be deleted.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-keys/">REST API Reference for DeleteKeys Operation</seealso>
         /// <returns>Task of EncryptionKeyArrayWrapper</returns>
         Task<EncryptionKeyArrayWrapper> DeleteKeysAsync(Guid id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Deletes an encryption key and removes it from the system.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deletes an encryption key and removes it from the system based on the provided key identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The unique identifier of the encryption key to be deleted.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-keys/">REST API Reference for DeleteKeys Operation</seealso>
         /// <returns>Task of ApiResponse (EncryptionKeyArrayWrapper)</returns>
         Task<ApiResponse<EncryptionKeyArrayWrapper>> DeleteKeysWithHttpInfoAsync(Guid id, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Retrieves the current settings for the Privacy Room functionality.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the current settings for the Privacy Room functionality.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -237,10 +256,10 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         Task<BooleanWrapper> GetPrivacyRoomSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Retrieves the current settings for the Privacy Room functionality.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the current settings for the Privacy Room functionality.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -248,10 +267,10 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> GetPrivacyRoomSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Retrieves encryption keys associated with the current user.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves encryption keys associated with the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -260,10 +279,10 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         Task<EncryptionKeyArrayWrapper> GetUserKeysAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Retrieves encryption keys associated with the current user.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves encryption keys associated with the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -271,84 +290,82 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         /// <returns>Task of ApiResponse (EncryptionKeyArrayWrapper)</returns>
         Task<ApiResponse<EncryptionKeyArrayWrapper>> GetUserKeysWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"> (optional)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="version"> (optional)</param>
-        /// <param name="publicKey"> (optional)</param>
-        /// <param name="privateKeyEnc"> (optional)</param>
+        /// <param name="id">The optional identifier of the encryption key to filter by. (optional)</param>
+        /// <param name="type">The optional type of the encryption key to filter by. (optional)</param>
+        /// <param name="publicKey">The optional public key to filter by. (optional)</param>
+        /// <param name="privateKeyEnc">The optional encrypted private key to filter by. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-by-filter/">REST API Reference for GetUserKeysByFilter Operation</seealso>
         /// <returns>Task of EncryptionKeyWrapper</returns>
-        Task<EncryptionKeyWrapper> GetUserKeysByFilterAsync(Guid? id = default, EncryptionKeyType? type = default, string? version = default, string? publicKey = default, string? privateKeyEnc = default, CancellationToken cancellationToken = default);
+        Task<EncryptionKeyWrapper> GetUserKeysByFilterAsync(Guid? id = default, EncryptionKeyType? type = default, string? publicKey = default, string? privateKeyEnc = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"> (optional)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="version"> (optional)</param>
-        /// <param name="publicKey"> (optional)</param>
-        /// <param name="privateKeyEnc"> (optional)</param>
+        /// <param name="id">The optional identifier of the encryption key to filter by. (optional)</param>
+        /// <param name="type">The optional type of the encryption key to filter by. (optional)</param>
+        /// <param name="publicKey">The optional public key to filter by. (optional)</param>
+        /// <param name="privateKeyEnc">The optional encrypted private key to filter by. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-by-filter/">REST API Reference for GetUserKeysByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (EncryptionKeyWrapper)</returns>
-        Task<ApiResponse<EncryptionKeyWrapper>> GetUserKeysByFilterWithHttpInfoAsync(Guid? id = default, EncryptionKeyType? type = default, string? version = default, string? publicKey = default, string? privateKeyEnc = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<EncryptionKeyWrapper>> GetUserKeysByFilterWithHttpInfoAsync(Guid? id = default, EncryptionKeyType? type = default, string? publicKey = default, string? privateKeyEnc = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Retrieves the encryption keys associated with a specific privacy room.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the encryption keys associated with a specific privacy room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the privacy room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-for-room/">REST API Reference for GetUserKeysForRoom Operation</seealso>
         /// <returns>Task of EncryptionKeyArrayWrapper</returns>
         Task<EncryptionKeyArrayWrapper> GetUserKeysForRoomAsync(int roomId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Retrieves the encryption keys associated with a specific privacy room.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the encryption keys associated with a specific privacy room.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the privacy room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-for-room/">REST API Reference for GetUserKeysForRoom Operation</seealso>
         /// <returns>Task of ApiResponse (EncryptionKeyArrayWrapper)</returns>
         Task<ApiResponse<EncryptionKeyArrayWrapper>> GetUserKeysForRoomWithHttpInfoAsync(int roomId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Replaces an existing encryption key with a new one for the user.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces an existing encryption key with a new one for the user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="encryptionKeyRequestDto"> (optional)</param>
+        /// <param name="encryptionKeyRequestDto">The request object containing the public and private key information to replace the existing key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/replace-key/">REST API Reference for ReplaceKey Operation</seealso>
         /// <returns>Task of EncryptionKeyArrayWrapper</returns>
         Task<EncryptionKeyArrayWrapper> ReplaceKeyAsync(EncryptionKeyRequestDto? encryptionKeyRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Replaces an existing encryption key with a new one for the user.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Replaces an existing encryption key with a new one for the user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="encryptionKeyRequestDto"> (optional)</param>
+        /// <param name="encryptionKeyRequestDto">The request object containing the public and private key information to replace the existing key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/replace-key/">REST API Reference for ReplaceKey Operation</seealso>
         /// <returns>Task of ApiResponse (EncryptionKeyArrayWrapper)</returns>
@@ -379,26 +396,26 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         /// <returns>Task of ApiResponse (EncryptionKeyArrayWrapper)</returns>
         Task<ApiResponse<EncryptionKeyArrayWrapper>> SetKeysWithHttpInfoAsync(EncryptionKeyRequestDto? encryptionKeyRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Configures the privacy room settings for the portal.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Configures the privacy room settings for the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="privacyRoomEnableRequestDto">The request parameters for setting encryption keys. (optional)</param>
+        /// <param name="privacyRoomEnableRequestDto">The request object containing the privacy room enable or disable flag. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-privacy-room-settings/">REST API Reference for SetPrivacyRoomSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
         Task<BooleanWrapper> SetPrivacyRoomSettingsAsync(PrivacyRoomEnableRequestDto? privacyRoomEnableRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Configures the privacy room settings for the portal.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Configures the privacy room settings for the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="privacyRoomEnableRequestDto">The request parameters for setting encryption keys. (optional)</param>
+        /// <param name="privacyRoomEnableRequestDto">The request object containing the privacy room enable or disable flag. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-privacy-room-settings/">REST API Reference for SetPrivacyRoomSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
@@ -617,11 +634,15 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
 
+        
         /// <summary>
-        /// 
+        /// Deletes an encryption key and removes it from the system.
         /// </summary>
+        /// <remarks>
+        /// Deletes an encryption key and removes it from the system based on the provided key identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The unique identifier of the encryption key to be deleted.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-keys/">REST API Reference for DeleteKeys Operation</seealso>
         /// <returns>EncryptionKeyArrayWrapper</returns>
         public EncryptionKeyArrayWrapper DeleteKeys(Guid id)
@@ -631,10 +652,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Deletes an encryption key and removes it from the system.
         /// </summary>
+        /// <remarks>
+        /// Deletes an encryption key and removes it from the system based on the provided key identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The unique identifier of the encryption key to be deleted.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-keys/">REST API Reference for DeleteKeys Operation</seealso>
         /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
         public ApiResponse<EncryptionKeyArrayWrapper> DeleteKeysWithHttpInfo(Guid id)
@@ -701,10 +725,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Deletes an encryption key and removes it from the system.
         /// </summary>
+        /// <remarks>
+        /// Deletes an encryption key and removes it from the system based on the provided key identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The unique identifier of the encryption key to be deleted.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-keys/">REST API Reference for DeleteKeys Operation</seealso>
         /// <returns>Task of EncryptionKeyArrayWrapper</returns>
@@ -715,10 +742,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Deletes an encryption key and removes it from the system.
         /// </summary>
+        /// <remarks>
+        /// Deletes an encryption key and removes it from the system based on the provided key identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">The unique identifier of the encryption key to be deleted.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-keys/">REST API Reference for DeleteKeys Operation</seealso>
         /// <returns>Task of ApiResponse (EncryptionKeyArrayWrapper)</returns>
@@ -788,8 +818,11 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves the current settings for the Privacy Room functionality.
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current settings for the Privacy Room functionality.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-room-settings/">REST API Reference for GetPrivacyRoomSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
@@ -800,8 +833,11 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves the current settings for the Privacy Room functionality.
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current settings for the Privacy Room functionality.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-room-settings/">REST API Reference for GetPrivacyRoomSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
@@ -868,8 +904,11 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves the current settings for the Privacy Room functionality.
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current settings for the Privacy Room functionality.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-room-settings/">REST API Reference for GetPrivacyRoomSettings Operation</seealso>
@@ -881,8 +920,11 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves the current settings for the Privacy Room functionality.
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current settings for the Privacy Room functionality.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-room-settings/">REST API Reference for GetPrivacyRoomSettings Operation</seealso>
@@ -952,8 +994,11 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves encryption keys associated with the current user.
         /// </summary>
+        /// <remarks>
+        /// Retrieves encryption keys associated with the current user.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys/">REST API Reference for GetUserKeys Operation</seealso>
         /// <returns>EncryptionKeyArrayWrapper</returns>
@@ -964,8 +1009,11 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves encryption keys associated with the current user.
         /// </summary>
+        /// <remarks>
+        /// Retrieves encryption keys associated with the current user.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys/">REST API Reference for GetUserKeys Operation</seealso>
         /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
@@ -1032,8 +1080,11 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves encryption keys associated with the current user.
         /// </summary>
+        /// <remarks>
+        /// Retrieves encryption keys associated with the current user.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys/">REST API Reference for GetUserKeys Operation</seealso>
@@ -1045,8 +1096,11 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves encryption keys associated with the current user.
         /// </summary>
+        /// <remarks>
+        /// Retrieves encryption keys associated with the current user.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys/">REST API Reference for GetUserKeys Operation</seealso>
@@ -1116,34 +1170,38 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
         /// </summary>
+        /// <remarks>
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"> (optional)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="version"> (optional)</param>
-        /// <param name="publicKey"> (optional)</param>
-        /// <param name="privateKeyEnc"> (optional)</param>
+        /// <param name="id">The optional identifier of the encryption key to filter by. (optional)</param>
+        /// <param name="type">The optional type of the encryption key to filter by. (optional)</param>
+        /// <param name="publicKey">The optional public key to filter by. (optional)</param>
+        /// <param name="privateKeyEnc">The optional encrypted private key to filter by. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-by-filter/">REST API Reference for GetUserKeysByFilter Operation</seealso>
         /// <returns>EncryptionKeyWrapper</returns>
-        public EncryptionKeyWrapper GetUserKeysByFilter(Guid? id = default, EncryptionKeyType? type = default, string? version = default, string? publicKey = default, string? privateKeyEnc = default)
+        public EncryptionKeyWrapper GetUserKeysByFilter(Guid? id = default, EncryptionKeyType? type = default, string? publicKey = default, string? privateKeyEnc = default)
         {
-            var localVarResponse = GetUserKeysByFilterWithHttpInfo(id, type, version, publicKey, privateKeyEnc);
+            var localVarResponse = GetUserKeysByFilterWithHttpInfo(id, type, publicKey, privateKeyEnc);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// 
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
         /// </summary>
+        /// <remarks>
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"> (optional)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="version"> (optional)</param>
-        /// <param name="publicKey"> (optional)</param>
-        /// <param name="privateKeyEnc"> (optional)</param>
+        /// <param name="id">The optional identifier of the encryption key to filter by. (optional)</param>
+        /// <param name="type">The optional type of the encryption key to filter by. (optional)</param>
+        /// <param name="publicKey">The optional public key to filter by. (optional)</param>
+        /// <param name="privateKeyEnc">The optional encrypted private key to filter by. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-by-filter/">REST API Reference for GetUserKeysByFilter Operation</seealso>
         /// <returns>ApiResponse of EncryptionKeyWrapper</returns>
-        public ApiResponse<EncryptionKeyWrapper> GetUserKeysByFilterWithHttpInfo(Guid? id = default, EncryptionKeyType? type = default, string? version = default, string? publicKey = default, string? privateKeyEnc = default)
+        public ApiResponse<EncryptionKeyWrapper> GetUserKeysByFilterWithHttpInfo(Guid? id = default, EncryptionKeyType? type = default, string? publicKey = default, string? privateKeyEnc = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1165,10 +1223,6 @@ namespace DocSpace.API.SDK.Api.Privacyroom
             if (type != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
-            }
-            if (version != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "version", version));
             }
             if (publicKey != null)
             {
@@ -1226,36 +1280,40 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
         /// </summary>
+        /// <remarks>
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"> (optional)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="version"> (optional)</param>
-        /// <param name="publicKey"> (optional)</param>
-        /// <param name="privateKeyEnc"> (optional)</param>
+        /// <param name="id">The optional identifier of the encryption key to filter by. (optional)</param>
+        /// <param name="type">The optional type of the encryption key to filter by. (optional)</param>
+        /// <param name="publicKey">The optional public key to filter by. (optional)</param>
+        /// <param name="privateKeyEnc">The optional encrypted private key to filter by. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-by-filter/">REST API Reference for GetUserKeysByFilter Operation</seealso>
         /// <returns>Task of EncryptionKeyWrapper</returns>
-        public async Task<EncryptionKeyWrapper> GetUserKeysByFilterAsync(Guid? id = default, EncryptionKeyType? type = default, string? version = default, string? publicKey = default, string? privateKeyEnc = default, CancellationToken cancellationToken = default)
+        public async Task<EncryptionKeyWrapper> GetUserKeysByFilterAsync(Guid? id = default, EncryptionKeyType? type = default, string? publicKey = default, string? privateKeyEnc = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetUserKeysByFilterWithHttpInfoAsync(id, type, version, publicKey, privateKeyEnc, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetUserKeysByFilterWithHttpInfoAsync(id, type, publicKey, privateKeyEnc, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// 
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
         /// </summary>
+        /// <remarks>
+        /// Retrieves a specific user encryption key based on the provided filter conditions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"> (optional)</param>
-        /// <param name="type"> (optional)</param>
-        /// <param name="version"> (optional)</param>
-        /// <param name="publicKey"> (optional)</param>
-        /// <param name="privateKeyEnc"> (optional)</param>
+        /// <param name="id">The optional identifier of the encryption key to filter by. (optional)</param>
+        /// <param name="type">The optional type of the encryption key to filter by. (optional)</param>
+        /// <param name="publicKey">The optional public key to filter by. (optional)</param>
+        /// <param name="privateKeyEnc">The optional encrypted private key to filter by. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-by-filter/">REST API Reference for GetUserKeysByFilter Operation</seealso>
         /// <returns>Task of ApiResponse (EncryptionKeyWrapper)</returns>
-        public async Task<ApiResponse<EncryptionKeyWrapper>> GetUserKeysByFilterWithHttpInfoAsync(Guid? id = default, EncryptionKeyType? type = default, string? version = default, string? publicKey = default, string? privateKeyEnc = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<EncryptionKeyWrapper>> GetUserKeysByFilterWithHttpInfoAsync(Guid? id = default, EncryptionKeyType? type = default, string? publicKey = default, string? privateKeyEnc = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1278,10 +1336,6 @@ namespace DocSpace.API.SDK.Api.Privacyroom
             if (type != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "type", type));
-            }
-            if (version != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "version", version));
             }
             if (publicKey != null)
             {
@@ -1340,10 +1394,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves the encryption keys associated with a specific privacy room.
         /// </summary>
+        /// <remarks>
+        /// Retrieves the encryption keys associated with a specific privacy room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the privacy room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-for-room/">REST API Reference for GetUserKeysForRoom Operation</seealso>
         /// <returns>EncryptionKeyArrayWrapper</returns>
         public EncryptionKeyArrayWrapper GetUserKeysForRoom(int roomId)
@@ -1353,10 +1410,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves the encryption keys associated with a specific privacy room.
         /// </summary>
+        /// <remarks>
+        /// Retrieves the encryption keys associated with a specific privacy room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the privacy room.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-for-room/">REST API Reference for GetUserKeysForRoom Operation</seealso>
         /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
         public ApiResponse<EncryptionKeyArrayWrapper> GetUserKeysForRoomWithHttpInfo(int roomId)
@@ -1423,10 +1483,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves the encryption keys associated with a specific privacy room.
         /// </summary>
+        /// <remarks>
+        /// Retrieves the encryption keys associated with a specific privacy room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the privacy room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-for-room/">REST API Reference for GetUserKeysForRoom Operation</seealso>
         /// <returns>Task of EncryptionKeyArrayWrapper</returns>
@@ -1437,10 +1500,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Retrieves the encryption keys associated with a specific privacy room.
         /// </summary>
+        /// <remarks>
+        /// Retrieves the encryption keys associated with a specific privacy room.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the privacy room.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-for-room/">REST API Reference for GetUserKeysForRoom Operation</seealso>
         /// <returns>Task of ApiResponse (EncryptionKeyArrayWrapper)</returns>
@@ -1510,10 +1576,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Replaces an existing encryption key with a new one for the user.
         /// </summary>
+        /// <remarks>
+        /// Replaces an existing encryption key with a new one for the user.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="encryptionKeyRequestDto"> (optional)</param>
+        /// <param name="encryptionKeyRequestDto">The request object containing the public and private key information to replace the existing key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/replace-key/">REST API Reference for ReplaceKey Operation</seealso>
         /// <returns>EncryptionKeyArrayWrapper</returns>
         public EncryptionKeyArrayWrapper ReplaceKey(EncryptionKeyRequestDto? encryptionKeyRequestDto = default)
@@ -1523,10 +1592,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Replaces an existing encryption key with a new one for the user.
         /// </summary>
+        /// <remarks>
+        /// Replaces an existing encryption key with a new one for the user.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="encryptionKeyRequestDto"> (optional)</param>
+        /// <param name="encryptionKeyRequestDto">The request object containing the public and private key information to replace the existing key. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/replace-key/">REST API Reference for ReplaceKey Operation</seealso>
         /// <returns>ApiResponse of EncryptionKeyArrayWrapper</returns>
         public ApiResponse<EncryptionKeyArrayWrapper> ReplaceKeyWithHttpInfo(EncryptionKeyRequestDto? encryptionKeyRequestDto = default)
@@ -1593,10 +1665,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Replaces an existing encryption key with a new one for the user.
         /// </summary>
+        /// <remarks>
+        /// Replaces an existing encryption key with a new one for the user.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="encryptionKeyRequestDto"> (optional)</param>
+        /// <param name="encryptionKeyRequestDto">The request object containing the public and private key information to replace the existing key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/replace-key/">REST API Reference for ReplaceKey Operation</seealso>
         /// <returns>Task of EncryptionKeyArrayWrapper</returns>
@@ -1607,10 +1682,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Replaces an existing encryption key with a new one for the user.
         /// </summary>
+        /// <remarks>
+        /// Replaces an existing encryption key with a new one for the user.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="encryptionKeyRequestDto"> (optional)</param>
+        /// <param name="encryptionKeyRequestDto">The request object containing the public and private key information to replace the existing key. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/replace-key/">REST API Reference for ReplaceKey Operation</seealso>
         /// <returns>Task of ApiResponse (EncryptionKeyArrayWrapper)</returns>
@@ -1862,10 +1940,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Configures the privacy room settings for the portal.
         /// </summary>
+        /// <remarks>
+        /// Configures the privacy room settings for the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="privacyRoomEnableRequestDto">The request parameters for setting encryption keys. (optional)</param>
+        /// <param name="privacyRoomEnableRequestDto">The request object containing the privacy room enable or disable flag. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-privacy-room-settings/">REST API Reference for SetPrivacyRoomSettings Operation</seealso>
         /// <returns>BooleanWrapper</returns>
         public BooleanWrapper SetPrivacyRoomSettings(PrivacyRoomEnableRequestDto? privacyRoomEnableRequestDto = default)
@@ -1875,10 +1956,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Configures the privacy room settings for the portal.
         /// </summary>
+        /// <remarks>
+        /// Configures the privacy room settings for the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="privacyRoomEnableRequestDto">The request parameters for setting encryption keys. (optional)</param>
+        /// <param name="privacyRoomEnableRequestDto">The request object containing the privacy room enable or disable flag. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-privacy-room-settings/">REST API Reference for SetPrivacyRoomSettings Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         public ApiResponse<BooleanWrapper> SetPrivacyRoomSettingsWithHttpInfo(PrivacyRoomEnableRequestDto? privacyRoomEnableRequestDto = default)
@@ -1945,10 +2029,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Configures the privacy room settings for the portal.
         /// </summary>
+        /// <remarks>
+        /// Configures the privacy room settings for the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="privacyRoomEnableRequestDto">The request parameters for setting encryption keys. (optional)</param>
+        /// <param name="privacyRoomEnableRequestDto">The request object containing the privacy room enable or disable flag. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-privacy-room-settings/">REST API Reference for SetPrivacyRoomSettings Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
@@ -1959,10 +2046,13 @@ namespace DocSpace.API.SDK.Api.Privacyroom
         }
 
         /// <summary>
-        /// 
+        /// Configures the privacy room settings for the portal.
         /// </summary>
+        /// <remarks>
+        /// Configures the privacy room settings for the portal.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="privacyRoomEnableRequestDto">The request parameters for setting encryption keys. (optional)</param>
+        /// <param name="privacyRoomEnableRequestDto">The request object containing the privacy room enable or disable flag. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-privacy-room-settings/">REST API Reference for SetPrivacyRoomSettings Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>

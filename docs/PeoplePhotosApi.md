@@ -70,7 +70,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | The user ID.
+            var userid = 1;  // string | The user ID.
             var thumbnailsRequest = new ThumbnailsRequest(); // ThumbnailsRequest | The thumbnail request.
 
             try
@@ -120,9 +120,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Thumbnail parameters |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -185,7 +185,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | The user ID.
+            var userid = 1;  // string | The user ID.
 
             try
             {
@@ -234,9 +234,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Thumbnail parameters: original photo, retina, maximum size photo, big, medium, small |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -299,7 +299,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | The user ID.
+            var userid = 1;  // string | The user ID.
 
             try
             {
@@ -348,9 +348,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Thumbnail parameters: original photo, retina, maximum size photo, big, medium, small |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -414,7 +414,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | The user ID.
+            var userid = 1;  // string | The user ID.
             var updatePhotoMemberRequest = new UpdatePhotoMemberRequest(); // UpdatePhotoMemberRequest | The request parameters for updating a photo.
 
             try
@@ -464,9 +464,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated thumbnail parameters: original photo, retina, maximum size photo, big, medium, small |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -530,7 +530,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
-            var userid = 9846;  // string | The user ID.
+            var userid = 1;  // string | The user ID.
             var formCollection = new List<KeyValuePairStringStringValues>(); // List<KeyValuePairStringStringValues> | The image data.
 
             try
@@ -581,10 +581,10 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Result of file uploading |  -  |
 | **400** | The uploaded file could not be found |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **413** | Image size is too large |  -  |
 | **415** | Unknown image file type |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

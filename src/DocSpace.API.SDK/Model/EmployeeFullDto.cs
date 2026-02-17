@@ -89,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="registrationDate">registrationDate.</param>
         /// <param name="hasPersonalFolder">Specifies if the user has a personal folder or not..</param>
         /// <param name="tfaAppEnabled">Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app..</param>
-        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, ApiDateTime birthday = default, string sex = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, ApiDateTime workFrom = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, double? authCookieLifetime = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool hasPersonalFolder = default, bool? tfaAppEnabled = default)
+        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, ApiDateTime birthday = default, string sex = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, ApiDateTime workFrom = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, double? authCookieLifetime = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool? hasPersonalFolder = default, bool? tfaAppEnabled = default)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -422,7 +422,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "hasPersonalFolder", EmitDefaultValue = true)]
-        public bool HasPersonalFolder { get; set; }
+        public bool? HasPersonalFolder { get; set; }
 
         /// <summary>
         /// Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app.

@@ -10,7 +10,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 # **GetThirdPartyCode**
 > ObjectWrapper GetThirdPartyCode (LoginProvider provider)
 
-Returns a request to get the confirmation code from URL.   **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.
+Returns a request to get the confirmation code from URL.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-third-party-code/).
 

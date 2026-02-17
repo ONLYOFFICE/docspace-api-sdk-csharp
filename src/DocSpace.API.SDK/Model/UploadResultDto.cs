@@ -52,9 +52,6 @@ namespace DocSpace.API.SDK.Model
         /// The uploaded data.
         /// </summary>
         /// <value>The uploaded data.</value>
-        /*
-        <example>{&quot;int&quot;:1234,&quot;string&quot;:&quot;some text&quot;,&quot;boolean&quot;:true}</example>
-        */
         [DataMember(Name = "data", EmitDefaultValue = true)]
         public Object Data { get; set; }
 

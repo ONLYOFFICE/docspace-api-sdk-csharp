@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file ID to check conversion proccess.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "fileId", EmitDefaultValue = false)]
         public int FileId { get; set; }
@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The password of the converted file.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>P@ssw0rd123</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }

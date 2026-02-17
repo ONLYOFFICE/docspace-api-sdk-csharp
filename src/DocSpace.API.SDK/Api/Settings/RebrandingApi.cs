@@ -1082,6 +1082,7 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
+        
         /// <summary>
         /// Delete the additional white label settings
         /// </summary>

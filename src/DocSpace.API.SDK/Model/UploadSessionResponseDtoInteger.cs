@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets FolderId
         /// </summary>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "folderId", EmitDefaultValue = false)]
         public int FolderId { get; set; }
@@ -77,7 +77,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets Title
         /// </summary>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>SampleFile</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }

@@ -26,7 +26,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **dump** | **bool?** |  | [optional]  |
+| **dump** | **bool?** | Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. | [optional]  |
 
 ### Return type
 
@@ -73,7 +73,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new StorageApi(httpClient, config, httpClientHandler);
-            var dump = true;  // bool? |  (optional) 
+            var dump = true;  // bool? | Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. (optional) 
 
             try
             {
@@ -122,8 +122,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of the backup storages with the following parameters |  -  |
+| **403** | Access denied |  -  |
 | **401** | Unauthorized |  -  |
-| **402** | Your pricing plan does not support this option |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -230,8 +230,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of the CDN storages with the following parameters |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -338,8 +338,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of storages with the following parameters |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -656,8 +656,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -760,8 +760,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -874,8 +874,8 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Updated CDN storage |  -  |
 | **400** | Module |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -988,8 +988,8 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Updated storage settings |  -  |
 | **400** | Module |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

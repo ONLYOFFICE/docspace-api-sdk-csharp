@@ -289,7 +289,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
+            var fileId = 1;  // int | The file unique identifier.
 
             try
             {
@@ -338,8 +338,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of encryption key pairs: encrypted private key, public key, user ID |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You do not have enough permissions to edit the file |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -389,8 +389,8 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
             var key = some text;  // string | The unique key of the external shared data.
-            var fileId = 9846;  // string? | The unique document identifier. (optional) 
-            var folderId = 9846;  // string? | The unique folder identifier. (optional) 
+            var fileId = 1;  // string? | The unique document identifier. (optional) 
+            var folderId = 1;  // string? | The unique folder identifier. (optional) 
 
             try
             {
@@ -503,7 +503,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The file unique identifier.
+            var id = 1;  // int | The file unique identifier.
             var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
 
@@ -619,7 +619,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The folder unique identifier.
+            var id = 1;  // int | The folder unique identifier.
             var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
 
@@ -737,7 +737,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID.
+            var fileId = 1;  // int | The file ID.
             var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID.
             var count = 1234;  // int? | The number of items to be retrieved in the current query. (optional) 
             var startIndex = 1234;  // int? | The starting index for the query result set. (optional) 
@@ -857,7 +857,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID.
+            var folderId = 1;  // int | The folder ID.
             var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID.
             var count = 1234;  // int? | The number of items to be retrieved in the current query. (optional) 
             var startIndex = 1234;  // int? | The starting index for the query result set. (optional) 
@@ -1085,7 +1085,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file unique identifier.
+            var fileId = 1;  // int | The file unique identifier.
 
             try
             {
@@ -1310,7 +1310,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID with the mention message.
+            var fileId = 1;  // int | The file ID with the mention message.
             var mentionMessageWrapper = new MentionMessageWrapper?(); // MentionMessageWrapper? | The mention message. (optional) 
 
             try
@@ -1424,7 +1424,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var fileId = 9846;  // int | The file ID.
+            var fileId = 1;  // int | The file ID.
             var securityInfoSimpleRequestDto = new SecurityInfoSimpleRequestDto(); // SecurityInfoSimpleRequestDto | The parameters of the security information simple request.
 
             try
@@ -1538,7 +1538,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID.
+            var folderId = 1;  // int | The folder ID.
             var securityInfoSimpleRequestDto = new SecurityInfoSimpleRequestDto(); // SecurityInfoSimpleRequestDto | The parameters of the security information simple request.
 
             try

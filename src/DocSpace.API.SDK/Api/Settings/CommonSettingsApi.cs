@@ -1166,6 +1166,7 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
+        
         /// <summary>
         /// Close the admin helper
         /// </summary>

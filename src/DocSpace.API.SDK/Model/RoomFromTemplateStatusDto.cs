@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "roomId", IsRequired = true, EmitDefaultValue = true)]
         public int RoomId { get; set; }

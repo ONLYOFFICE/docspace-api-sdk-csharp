@@ -119,8 +119,8 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Web plugin |  -  |
 | **400** | bad request |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Plugins disabled |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -183,7 +183,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
-            var name = Winfield Upton;  // string | The web plugin name.
+            var name = John Doe;  // string | The web plugin name.
 
             try
             {
@@ -228,8 +228,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Plugins disabled |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -292,7 +292,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
-            var name = Winfield Upton;  // string | The web plugin name.
+            var name = John Doe;  // string | The web plugin name.
 
             try
             {
@@ -341,8 +341,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Web plugin |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Plugins disabled |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -454,8 +454,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Web plugin |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Plugins disabled |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -519,7 +519,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
-            var name = Winfield Upton;  // string | The web plugin name.
+            var name = John Doe;  // string | The web plugin name.
             var webPluginRequests = new WebPluginRequests(); // WebPluginRequests | The configuration settings for the web plugin instance.
 
             try
@@ -565,8 +565,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Plugins disabled |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

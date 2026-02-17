@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The unique system identifier.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "instanceId", EmitDefaultValue = true)]
         public string InstanceId { get; set; }
@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Room ID</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "roomId", EmitDefaultValue = true)]
         public string RoomId { get; set; }

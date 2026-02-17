@@ -79,9 +79,6 @@ namespace DocSpace.API.SDK.Model
         /// The user who has the access to the specified file.
         /// </summary>
         /// <value>The user who has the access to the specified file.</value>
-        /*
-        <example>{&quot;int&quot;:1234,&quot;string&quot;:&quot;some text&quot;,&quot;boolean&quot;:true}</example>
-        */
         [DataMember(Name = "sharedTo", EmitDefaultValue = true)]
         [Obsolete]
         public Object SharedTo { get; set; }

@@ -129,7 +129,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document title.</value>
         /*
-        <example>transmitter_protocol_electronics</example>
+        <example>SampleFile</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }

@@ -137,8 +137,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Payment calculation |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -250,8 +250,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The wallet service settings |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -475,8 +475,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The URL to the checkout setup page |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -588,8 +588,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The customer balance |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -701,8 +701,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The customer info |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -826,8 +826,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The customer operations |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1046,8 +1046,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The URL to the payment account |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1378,14 +1378,14 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The URL to the payment page |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="getportalprices"></a>
 # **GetPortalPrices**
-> UnknownWrapper GetPortalPrices ()
+> GetPortalPrices200Response GetPortalPrices ()
 
 Returns the available portal prices.
 
@@ -1395,7 +1395,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**UnknownWrapper**](UnknownWrapper.md)
+[**GetPortalPrices200Response**](GetPortalPrices200Response.md)
 
 ### Authorization
 
@@ -1442,7 +1442,7 @@ namespace Example
             try
             {
                 // Get prices
-                UnknownWrapper result = apiInstance.GetPortalPrices();
+                GetPortalPrices200Response result = apiInstance.GetPortalPrices();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1463,7 +1463,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get prices
-    ApiResponse<UnknownWrapper> response = apiInstance.GetPortalPricesWithHttpInfo();
+    ApiResponse<GetPortalPrices200Response> response = apiInstance.GetPortalPricesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1598,8 +1598,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Payment information about the current portal quota |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1706,8 +1706,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The wallet services settings |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1814,8 +1814,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The wallet auto top up settings |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1933,7 +1933,7 @@ catch (ApiException e)
 
 <a id="getwalletservices"></a>
 # **GetWalletServices**
-> QuotaArrayWrapper GetWalletServices ()
+> WalletServiceArrayWrapper GetWalletServices ()
 
 Returns the available wallet services.
 
@@ -1943,7 +1943,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**QuotaArrayWrapper**](QuotaArrayWrapper.md)
+[**WalletServiceArrayWrapper**](WalletServiceArrayWrapper.md)
 
 ### Authorization
 
@@ -1990,7 +1990,7 @@ namespace Example
             try
             {
                 // Get wallet services
-                QuotaArrayWrapper result = apiInstance.GetWalletServices();
+                WalletServiceArrayWrapper result = apiInstance.GetWalletServices();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2011,7 +2011,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get wallet services
-    ApiResponse<QuotaArrayWrapper> response = apiInstance.GetWalletServicesWithHttpInfo();
+    ApiResponse<WalletServiceArrayWrapper> response = apiInstance.GetWalletServicesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2143,8 +2143,8 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
 | **400** | Incorrect email or message text is empty |  -  |
-| **401** | Unauthorized |  -  |
 | **429** | Request limit is exceeded |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2256,8 +2256,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The wallet auto top up settings |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2472,8 +2472,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2585,8 +2585,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2698,8 +2698,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

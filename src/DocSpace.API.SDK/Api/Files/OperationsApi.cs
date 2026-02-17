@@ -24,8 +24,11 @@ namespace DocSpace.API.SDK.Api.Files
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Aborts an in-progress file upload session.
         /// </summary>
+        /// <remarks>
+        /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
         /// <param name="folderId"></param>
@@ -34,10 +37,10 @@ namespace DocSpace.API.SDK.Api.Files
         void AbortUploadSession(string sessionId, int folderId);
 
         /// <summary>
-        /// 
+        /// Aborts an in-progress file upload session.
         /// </summary>
         /// <remarks>
-        /// 
+        /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -189,32 +192,35 @@ namespace DocSpace.API.SDK.Api.Files
         /// Chunked upload
         /// </summary>
         /// <remarks>
-        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        /// <returns>ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
         [Obsolete]
-        ChunkedUploadSessionResponseWrapperTWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest);
+        ChunkedUploadSessionResponseWrapperIntegerWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest);
 
         /// <summary>
         /// Chunked upload
         /// </summary>
         /// <remarks>
-        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
         [Obsolete]
-        ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest);
+        ApiResponse<ChunkedUploadSessionResponseWrapperIntegerWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest);
         /// <summary>
-        /// 
+        /// Creates a session for uploading a file to a specific folder in chunks.
         /// </summary>
+        /// <remarks>
+        /// The session allows the user to upload a file in smaller chunks to the folder identified by its ID.  The file information, such as name, size, and additional metadata, must be provided in the request.  This method facilitates large file upload scenarios by enabling chunked file uploads.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
@@ -223,10 +229,10 @@ namespace DocSpace.API.SDK.Api.Files
         ChunkedUploadSessionResponseIntegerWrapper CreateUploadSessionInFolder(int folderId, SessionRequest sessionRequest);
 
         /// <summary>
-        /// 
+        /// Creates a session for uploading a file to a specific folder in chunks.
         /// </summary>
         /// <remarks>
-        /// 
+        /// The session allows the user to upload a file in smaller chunks to the folder identified by its ID.  The file information, such as name, size, and additional metadata, must be provided in the request.  This method facilitates large file upload scenarios by enabling chunked file uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
@@ -350,8 +356,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         ApiResponse<FileOperationArrayWrapper> EmptyTrashWithHttpInfo(bool? single = default);
         /// <summary>
-        /// 
+        /// Finalize an upload session
         /// </summary>
+        /// <remarks>
+        /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -360,10 +369,10 @@ namespace DocSpace.API.SDK.Api.Files
         UploadSessionResponseIntegerWrapper FinalizeSession(int folderId, string sessionId);
 
         /// <summary>
-        /// 
+        /// Finalize an upload session
         /// </summary>
         /// <remarks>
-        /// 
+        /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
@@ -539,8 +548,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of StringWrapper</returns>
         ApiResponse<StringWrapper> UpdateFileCommentWithHttpInfo(int fileId, UpdateComment updateComment);
         /// <summary>
-        /// 
+        /// Handles the upload of a chunk for an existing upload session.
         /// </summary>
+        /// <remarks>
+        /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -551,10 +563,10 @@ namespace DocSpace.API.SDK.Api.Files
         ChunkedUploadSessionResponseIntegerWrapper UploadAsyncSession(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
 
         /// <summary>
-        /// 
+        /// Handles the upload of a chunk for an existing upload session.
         /// </summary>
         /// <remarks>
-        /// 
+        /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
@@ -565,8 +577,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of ChunkedUploadSessionResponseIntegerWrapper</returns>
         ApiResponse<ChunkedUploadSessionResponseIntegerWrapper> UploadAsyncSessionWithHttpInfo(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
         /// <summary>
-        /// 
+        /// Resumes an ongoing file upload session for uploading additional chunks of data.
         /// </summary>
+        /// <remarks>
+        /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -576,10 +591,10 @@ namespace DocSpace.API.SDK.Api.Files
         UploadSessionResponseIntegerWrapper UploadSession(int folderId, string sessionId, FileParameter? file = default);
 
         /// <summary>
-        /// 
+        /// Resumes an ongoing file upload session for uploading additional chunks of data.
         /// </summary>
         /// <remarks>
-        /// 
+        /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
@@ -598,10 +613,10 @@ namespace DocSpace.API.SDK.Api.Files
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Aborts an in-progress file upload session.
         /// </summary>
         /// <remarks>
-        /// 
+        /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -612,10 +627,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task AbortUploadSessionAsync(string sessionId, int folderId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Aborts an in-progress file upload session.
         /// </summary>
         /// <remarks>
-        /// 
+        /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -780,36 +795,36 @@ namespace DocSpace.API.SDK.Api.Files
         /// Chunked upload
         /// </summary>
         /// <remarks>
-        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        /// <returns>Task of ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
         [Obsolete]
-        Task<ChunkedUploadSessionResponseWrapperTWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+        Task<ChunkedUploadSessionResponseWrapperIntegerWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Chunked upload
         /// </summary>
         /// <remarks>
-        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperTWrapper)</returns>
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperIntegerWrapper)</returns>
         [Obsolete]
-        Task<ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ChunkedUploadSessionResponseWrapperIntegerWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Creates a session for uploading a file to a specific folder in chunks.
         /// </summary>
         /// <remarks>
-        /// 
+        /// The session allows the user to upload a file in smaller chunks to the folder identified by its ID.  The file information, such as name, size, and additional metadata, must be provided in the request.  This method facilitates large file upload scenarios by enabling chunked file uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
@@ -820,10 +835,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<ChunkedUploadSessionResponseIntegerWrapper> CreateUploadSessionInFolderAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Creates a session for uploading a file to a specific folder in chunks.
         /// </summary>
         /// <remarks>
-        /// 
+        /// The session allows the user to upload a file in smaller chunks to the folder identified by its ID.  The file information, such as name, size, and additional metadata, must be provided in the request.  This method facilitates large file upload scenarios by enabling chunked file uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
@@ -958,10 +973,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
         Task<ApiResponse<FileOperationArrayWrapper>> EmptyTrashWithHttpInfoAsync(bool? single = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Finalize an upload session
         /// </summary>
         /// <remarks>
-        /// 
+        /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
@@ -972,10 +987,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<UploadSessionResponseIntegerWrapper> FinalizeSessionAsync(int folderId, string sessionId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Finalize an upload session
         /// </summary>
         /// <remarks>
-        /// 
+        /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
@@ -1166,10 +1181,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (StringWrapper)</returns>
         Task<ApiResponse<StringWrapper>> UpdateFileCommentWithHttpInfoAsync(int fileId, UpdateComment updateComment, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Handles the upload of a chunk for an existing upload session.
         /// </summary>
         /// <remarks>
-        /// 
+        /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
@@ -1182,10 +1197,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<ChunkedUploadSessionResponseIntegerWrapper> UploadAsyncSessionAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Handles the upload of a chunk for an existing upload session.
         /// </summary>
         /// <remarks>
-        /// 
+        /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
@@ -1197,10 +1212,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseIntegerWrapper)</returns>
         Task<ApiResponse<ChunkedUploadSessionResponseIntegerWrapper>> UploadAsyncSessionWithHttpInfoAsync(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Resumes an ongoing file upload session for uploading additional chunks of data.
         /// </summary>
         /// <remarks>
-        /// 
+        /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
@@ -1212,10 +1227,10 @@ namespace DocSpace.API.SDK.Api.Files
         Task<UploadSessionResponseIntegerWrapper> UploadSessionAsync(int folderId, string sessionId, FileParameter? file = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Resumes an ongoing file upload session for uploading additional chunks of data.
         /// </summary>
         /// <remarks>
-        /// 
+        /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
@@ -1439,9 +1454,13 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
 
+        
         /// <summary>
-        /// 
+        /// Aborts an in-progress file upload session.
         /// </summary>
+        /// <remarks>
+        /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
         /// <param name="folderId"></param>
@@ -1453,8 +1472,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Aborts an in-progress file upload session.
         /// </summary>
+        /// <remarks>
+        /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
         /// <param name="folderId"></param>
@@ -1529,8 +1551,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Aborts an in-progress file upload session.
         /// </summary>
+        /// <remarks>
+        /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
         /// <param name="folderId"></param>
@@ -1543,8 +1568,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Aborts an in-progress file upload session.
         /// </summary>
+        /// <remarks>
+        /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
         /// <param name="folderId"></param>
@@ -2681,15 +2709,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// Chunked upload
         /// </summary>
         /// <remarks>
-        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        /// <returns>ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
         [Obsolete]
-        public ChunkedUploadSessionResponseWrapperTWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest)
+        public ChunkedUploadSessionResponseWrapperIntegerWrapper CreateUploadSession(int folderId, SessionRequest sessionRequest)
         {
             var localVarResponse = CreateUploadSessionWithHttpInfo(folderId, sessionRequest);
             return localVarResponse.Data;
@@ -2699,15 +2727,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// Chunked upload
         /// </summary>
         /// <remarks>
-        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
         [Obsolete]
-        public ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest)
+        public ApiResponse<ChunkedUploadSessionResponseWrapperIntegerWrapper> CreateUploadSessionWithHttpInfo(int folderId, SessionRequest sessionRequest)
         {
             // verify the required parameter 'sessionRequest' is set
             if (sessionRequest == null)
@@ -2761,7 +2789,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ChunkedUploadSessionResponseWrapperTWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ChunkedUploadSessionResponseWrapperIntegerWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -2779,16 +2807,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// Chunked upload
         /// </summary>
         /// <remarks>
-        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ChunkedUploadSessionResponseWrapperTWrapper</returns>
+        /// <returns>Task of ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
         [Obsolete]
-        public async Task<ChunkedUploadSessionResponseWrapperTWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        public async Task<ChunkedUploadSessionResponseWrapperIntegerWrapper> CreateUploadSessionAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateUploadSessionWithHttpInfoAsync(folderId, sessionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -2798,16 +2826,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// Chunked upload
         /// </summary>
         /// <remarks>
-        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.   **Note**: Each chunk can have different length but the length should be multiple of &lt;b&gt;512&lt;/b&gt; and greater or equal to &lt;b&gt;10 mb&lt;/b&gt;. Last chunk can have any size.  After the initial response to the request with the &lt;b&gt;200 OK&lt;/b&gt; status, you must get the &lt;em&gt;location&lt;/em&gt; field value from the response. Send all your chunks to this location.  Each chunk must be sent in the exact order the chunks appear in the file.  After receiving each chunk, the server will respond with the current information about the upload session if no errors occurred.  When the number of bytes uploaded is equal to the number of bytes you sent in the initial request, the server responds with the &lt;b&gt;201 Created&lt;/b&gt; status and sends you information about the uploaded file.  Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates the session to upload large files in multiple chunks to the folder with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-upload-session/">REST API Reference for CreateUploadSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperTWrapper)</returns>
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperIntegerWrapper)</returns>
         [Obsolete]
-        public async Task<ApiResponse<ChunkedUploadSessionResponseWrapperTWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ChunkedUploadSessionResponseWrapperIntegerWrapper>> CreateUploadSessionWithHttpInfoAsync(int folderId, SessionRequest sessionRequest, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'sessionRequest' is set
             if (sessionRequest == null)
@@ -2863,7 +2891,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResponseWrapperTWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResponseWrapperIntegerWrapper>("/api/2.0/files/{folderId}/upload/create_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -2878,8 +2906,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Creates a session for uploading a file to a specific folder in chunks.
         /// </summary>
+        /// <remarks>
+        /// The session allows the user to upload a file in smaller chunks to the folder identified by its ID.  The file information, such as name, size, and additional metadata, must be provided in the request.  This method facilitates large file upload scenarios by enabling chunked file uploads.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
@@ -2892,8 +2923,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Creates a session for uploading a file to a specific folder in chunks.
         /// </summary>
+        /// <remarks>
+        /// The session allows the user to upload a file in smaller chunks to the folder identified by its ID.  The file information, such as name, size, and additional metadata, must be provided in the request.  This method facilitates large file upload scenarios by enabling chunked file uploads.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
@@ -2968,8 +3002,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Creates a session for uploading a file to a specific folder in chunks.
         /// </summary>
+        /// <remarks>
+        /// The session allows the user to upload a file in smaller chunks to the folder identified by its ID.  The file information, such as name, size, and additional metadata, must be provided in the request.  This method facilitates large file upload scenarios by enabling chunked file uploads.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
@@ -2983,8 +3020,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Creates a session for uploading a file to a specific folder in chunks.
         /// </summary>
+        /// <remarks>
+        /// The session allows the user to upload a file in smaller chunks to the folder identified by its ID.  The file information, such as name, size, and additional metadata, must be provided in the request.  This method facilitates large file upload scenarios by enabling chunked file uploads.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The session folder ID.</param>
         /// <param name="sessionRequest">The session parameters.</param>
@@ -3978,8 +4018,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Finalize an upload session
         /// </summary>
+        /// <remarks>
+        /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -3992,8 +4035,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Finalize an upload session
         /// </summary>
+        /// <remarks>
+        /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -4068,8 +4114,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Finalize an upload session
         /// </summary>
+        /// <remarks>
+        /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -4083,8 +4132,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Finalize an upload session
         /// </summary>
+        /// <remarks>
+        /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -5302,8 +5354,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Handles the upload of a chunk for an existing upload session.
         /// </summary>
+        /// <remarks>
+        /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -5318,8 +5373,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Handles the upload of a chunk for an existing upload session.
         /// </summary>
+        /// <remarks>
+        /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -5404,8 +5462,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Handles the upload of a chunk for an existing upload session.
         /// </summary>
+        /// <remarks>
+        /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -5421,8 +5482,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Handles the upload of a chunk for an existing upload session.
         /// </summary>
+        /// <remarks>
+        /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -5510,8 +5574,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Resumes an ongoing file upload session for uploading additional chunks of data.
         /// </summary>
+        /// <remarks>
+        /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -5525,8 +5592,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Resumes an ongoing file upload session for uploading additional chunks of data.
         /// </summary>
+        /// <remarks>
+        /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -5606,8 +5676,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Resumes an ongoing file upload session for uploading additional chunks of data.
         /// </summary>
+        /// <remarks>
+        /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>
@@ -5622,8 +5695,11 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
-        /// 
+        /// Resumes an ongoing file upload session for uploading additional chunks of data.
         /// </summary>
+        /// <remarks>
+        /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId"></param>
         /// <param name="sessionId"></param>

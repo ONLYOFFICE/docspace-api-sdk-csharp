@@ -76,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
@@ -86,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook name.</value>
         /*
-        <example>Winfield Upton</example>
+        <example>John Doe</example>
         */
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }

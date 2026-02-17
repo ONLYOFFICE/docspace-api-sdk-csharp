@@ -182,8 +182,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
-            var productid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The ID of the product extracted from the query parameters.
-            var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID extracted from the query parameters.
+            var productid = 00000000-0000-0000-0000-000000000000;  // Guid | The ID of the product extracted from the query parameters.
+            var userid = 00000000-0000-0000-0000-000000000000;  // Guid | The user ID extracted from the query parameters.
 
             try
             {
@@ -402,7 +402,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
-            var productid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The ID of the product extracted from the route parameters.
+            var productid = 00000000-0000-0000-0000-000000000000;  // Guid | The ID of the product extracted from the route parameters.
 
             try
             {
@@ -514,7 +514,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
-            var id = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The ID extracted from the route parameters.
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | The ID extracted from the route parameters.
 
             try
             {
@@ -787,8 +787,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Security settings |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Security settings are disabled for an open portal |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -900,9 +900,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Object with the user security information: product ID, user ID, administrator or not |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
 | **403** | Only portal owner can set user as administrator |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1014,8 +1014,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Security settings |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Security settings are disabled for an open portal |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get all providers
         /// </summary>
         /// <remarks>
-        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+        /// Returns a list of all providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="excludewebdav">Specifies whether WebDAV resources should be excluded from the result.. (optional)</param>
@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get all providers
         /// </summary>
         /// <remarks>
-        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+        /// Returns a list of all providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="excludewebdav">Specifies whether WebDAV resources should be excluded from the result.. (optional)</param>
@@ -94,7 +94,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get providers
         /// </summary>
         /// <remarks>
-        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Returns the list of the available providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
@@ -105,7 +105,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get providers
         /// </summary>
         /// <remarks>
-        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Returns the list of the available providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
@@ -157,7 +157,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account
         /// </summary>
         /// <remarks>
-        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
@@ -169,7 +169,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account
         /// </summary>
         /// <remarks>
-        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
@@ -180,7 +180,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account backup
         /// </summary>
         /// <remarks>
-        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves a backup of the connected third-party account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
@@ -192,7 +192,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account backup
         /// </summary>
         /// <remarks>
-        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves a backup of the connected third-party account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
@@ -237,7 +237,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get all providers
         /// </summary>
         /// <remarks>
-        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+        /// Returns a list of all providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="excludewebdav">Specifies whether WebDAV resources should be excluded from the result.. (optional)</param>
@@ -250,7 +250,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get all providers
         /// </summary>
         /// <remarks>
-        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+        /// Returns a list of all providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="excludewebdav">Specifies whether WebDAV resources should be excluded from the result.. (optional)</param>
@@ -285,7 +285,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get providers
         /// </summary>
         /// <remarks>
-        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Returns the list of the available providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -297,7 +297,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get providers
         /// </summary>
         /// <remarks>
-        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Returns the list of the available providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -354,7 +354,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account
         /// </summary>
         /// <remarks>
-        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
@@ -367,7 +367,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account
         /// </summary>
         /// <remarks>
-        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
@@ -379,7 +379,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account backup
         /// </summary>
         /// <remarks>
-        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves a backup of the connected third-party account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
@@ -392,7 +392,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account backup
         /// </summary>
         /// <remarks>
-        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves a backup of the connected third-party account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
@@ -614,6 +614,7 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
 
+        
         /// <summary>
         /// Remove a third-party account
         /// </summary>
@@ -800,7 +801,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get all providers
         /// </summary>
         /// <remarks>
-        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+        /// Returns a list of all providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="excludewebdav">Specifies whether WebDAV resources should be excluded from the result.. (optional)</param>
@@ -816,7 +817,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get all providers
         /// </summary>
         /// <remarks>
-        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+        /// Returns a list of all providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="excludewebdav">Specifies whether WebDAV resources should be excluded from the result.. (optional)</param>
@@ -892,7 +893,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get all providers
         /// </summary>
         /// <remarks>
-        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+        /// Returns a list of all providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="excludewebdav">Specifies whether WebDAV resources should be excluded from the result.. (optional)</param>
@@ -909,7 +910,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get all providers
         /// </summary>
         /// <remarks>
-        /// Returns a list of all providers.   **Note**: Available provider keys: Dropbox, Box, WebDav, OneDrive, GoogleDrive, kDrive, ownCloud, Nextcloud.
+        /// Returns a list of all providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="excludewebdav">Specifies whether WebDAV resources should be excluded from the result.. (optional)</param>
@@ -1164,7 +1165,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get providers
         /// </summary>
         /// <remarks>
-        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Returns the list of the available providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
@@ -1179,7 +1180,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get providers
         /// </summary>
         /// <remarks>
-        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Returns the list of the available providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-capabilities/">REST API Reference for GetCapabilities Operation</seealso>
@@ -1250,7 +1251,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get providers
         /// </summary>
         /// <remarks>
-        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Returns the list of the available providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1266,7 +1267,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Get providers
         /// </summary>
         /// <remarks>
-        /// Returns the list of the available providers.   **Note**: Available provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Returns the list of the available providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1692,7 +1693,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account
         /// </summary>
         /// <remarks>
-        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
@@ -1708,7 +1709,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account
         /// </summary>
         /// <remarks>
-        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
@@ -1781,7 +1782,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account
         /// </summary>
         /// <remarks>
-        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
@@ -1798,7 +1799,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account
         /// </summary>
         /// <remarks>
-        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves the third-party storage service account. For WebDav, Yandex, kDrive and SharePoint, the login and password are used for authentication. For other providers, the authentication is performed using a token received via OAuth 2.0.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyRequestDto">The third-party request parameters. (optional)</param>
@@ -1874,7 +1875,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account backup
         /// </summary>
         /// <remarks>
-        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves a backup of the connected third-party account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
@@ -1890,7 +1891,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account backup
         /// </summary>
         /// <remarks>
-        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves a backup of the connected third-party account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
@@ -1963,7 +1964,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account backup
         /// </summary>
         /// <remarks>
-        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves a backup of the connected third-party account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>
@@ -1980,7 +1981,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Save a third-party account backup
         /// </summary>
         /// <remarks>
-        /// Saves a backup of the connected third-party account.   **Note**: List of provider keys: DropboxV2, Box, WebDav, Yandex, OneDrive, SharePoint, GoogleDrive, kDrive.
+        /// Saves a backup of the connected third-party account.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="thirdPartyBackupRequestDto">The third-party backup request parameters. (optional)</param>

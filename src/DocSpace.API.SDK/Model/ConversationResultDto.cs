@@ -67,7 +67,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The conversion operation ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
@@ -96,9 +96,6 @@ namespace DocSpace.API.SDK.Model
         /// The resulting file after the conversion.
         /// </summary>
         /// <value>The resulting file after the conversion.</value>
-        /*
-        <example>{&quot;int&quot;:1234,&quot;string&quot;:&quot;some text&quot;,&quot;boolean&quot;:true}</example>
-        */
         [DataMember(Name = "result", EmitDefaultValue = true)]
         public Object Result { get; set; }
 

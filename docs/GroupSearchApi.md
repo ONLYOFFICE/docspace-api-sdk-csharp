@@ -71,7 +71,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The group ID.
+            var id = 1;  // int | The group ID.
             var excludeShared = true;  // bool? | Specifies whether to exclude the group sharing settings from the response. (optional) 
             var count = 1234;  // int? | The number of groups to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The starting index from which to begin retrieving groups with their sharing settings. (optional) 
@@ -124,8 +124,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -192,7 +192,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The group ID.
+            var id = 1;  // int | The group ID.
             var excludeShared = true;  // bool? | Specifies whether to exclude the group sharing settings from the response. (optional) 
             var count = 1234;  // int? | The number of groups to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The starting index from which to begin retrieving groups with their sharing settings. (optional) 
@@ -245,8 +245,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -313,7 +313,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The group ID.
+            var id = 1;  // int | The group ID.
             var excludeShared = true;  // bool? | Specifies whether to exclude the group sharing settings from the response. (optional) 
             var count = 1234;  // int? | The number of groups to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The starting index from which to begin retrieving groups with their sharing settings. (optional) 
@@ -366,8 +366,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

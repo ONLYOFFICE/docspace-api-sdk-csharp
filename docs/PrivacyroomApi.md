@@ -4,20 +4,20 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**DeleteKeys**](#deletekeys) | **DELETE** /api/2.0/privacyroom/keys/{id} |  |
-| [**GetPrivacyRoomSettings**](#getprivacyroomsettings) | **GET** /api/2.0/privacyroom |  |
-| [**GetUserKeys**](#getuserkeys) | **GET** /api/2.0/privacyroom/keys |  |
-| [**GetUserKeysByFilter**](#getuserkeysbyfilter) | **GET** /api/2.0/privacyroom/keys/filter |  |
-| [**GetUserKeysForRoom**](#getuserkeysforroom) | **GET** /api/2.0/privacyroom/{roomId}/access |  |
-| [**ReplaceKey**](#replacekey) | **PUT** /api/2.0/privacyroom/keys |  |
+| [**DeleteKeys**](#deletekeys) | **DELETE** /api/2.0/privacyroom/keys/{id} | Deletes an encryption key and removes it from the system. |
+| [**GetPrivacyRoomSettings**](#getprivacyroomsettings) | **GET** /api/2.0/privacyroom | Retrieves the current settings for the Privacy Room functionality. |
+| [**GetUserKeys**](#getuserkeys) | **GET** /api/2.0/privacyroom/keys | Retrieves encryption keys associated with the current user. |
+| [**GetUserKeysByFilter**](#getuserkeysbyfilter) | **GET** /api/2.0/privacyroom/keys/filter | Retrieves a specific user encryption key based on the provided filter conditions. |
+| [**GetUserKeysForRoom**](#getuserkeysforroom) | **GET** /api/2.0/privacyroom/{roomId}/access | Retrieves the encryption keys associated with a specific privacy room. |
+| [**ReplaceKey**](#replacekey) | **PUT** /api/2.0/privacyroom/keys | Replaces an existing encryption key with a new one for the user. |
 | [**SetKeys**](#setkeys) | **POST** /api/2.0/privacyroom/keys | Creates and sets encryption keys for the user. |
-| [**SetPrivacyRoomSettings**](#setprivacyroomsettings) | **PUT** /api/2.0/privacyroom |  |
+| [**SetPrivacyRoomSettings**](#setprivacyroomsettings) | **PUT** /api/2.0/privacyroom | Configures the privacy room settings for the portal. |
 
 <a id="deletekeys"></a>
 # **DeleteKeys**
 > EncryptionKeyArrayWrapper DeleteKeys (Guid id)
 
-
+Deletes an encryption key and removes it from the system based on the provided key identifier.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-keys/).
 
@@ -25,7 +25,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **Guid** |  |  |
+| **id** | **Guid** | The unique identifier of the encryption key to be deleted. |  |
 
 ### Return type
 
@@ -72,10 +72,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PrivacyroomApi(httpClient, config, httpClientHandler);
-            var id = "id_example";  // Guid | 
+            var id = "id_example";  // Guid | The unique identifier of the encryption key to be deleted.
 
             try
             {
+                // Deletes an encryption key and removes it from the system.
                 EncryptionKeyArrayWrapper result = apiInstance.DeleteKeys(id);
                 Debug.WriteLine(result);
             }
@@ -96,6 +97,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Deletes an encryption key and removes it from the system.
     ApiResponse<EncryptionKeyArrayWrapper> response = apiInstance.DeleteKeysWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -127,7 +129,7 @@ catch (ApiException e)
 # **GetPrivacyRoomSettings**
 > BooleanWrapper GetPrivacyRoomSettings ()
 
-
+Retrieves the current settings for the Privacy Room functionality.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-privacy-room-settings/).
 
@@ -181,6 +183,7 @@ namespace Example
 
             try
             {
+                // Retrieves the current settings for the Privacy Room functionality.
                 BooleanWrapper result = apiInstance.GetPrivacyRoomSettings();
                 Debug.WriteLine(result);
             }
@@ -201,6 +204,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Retrieves the current settings for the Privacy Room functionality.
     ApiResponse<BooleanWrapper> response = apiInstance.GetPrivacyRoomSettingsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -232,7 +236,7 @@ catch (ApiException e)
 # **GetUserKeys**
 > EncryptionKeyArrayWrapper GetUserKeys ()
 
-
+Retrieves encryption keys associated with the current user.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys/).
 
@@ -286,6 +290,7 @@ namespace Example
 
             try
             {
+                // Retrieves encryption keys associated with the current user.
                 EncryptionKeyArrayWrapper result = apiInstance.GetUserKeys();
                 Debug.WriteLine(result);
             }
@@ -306,6 +311,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Retrieves encryption keys associated with the current user.
     ApiResponse<EncryptionKeyArrayWrapper> response = apiInstance.GetUserKeysWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -335,9 +341,9 @@ catch (ApiException e)
 
 <a id="getuserkeysbyfilter"></a>
 # **GetUserKeysByFilter**
-> EncryptionKeyWrapper GetUserKeysByFilter (Guid? id = null, EncryptionKeyType? type = null, string? version = null, string? publicKey = null, string? privateKeyEnc = null)
+> EncryptionKeyWrapper GetUserKeysByFilter (Guid? id = null, EncryptionKeyType? type = null, string? publicKey = null, string? privateKeyEnc = null)
 
-
+Retrieves a specific user encryption key based on the provided filter conditions.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-by-filter/).
 
@@ -345,11 +351,10 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **Guid?** |  | [optional]  |
-| **type** | [**EncryptionKeyType?**](EncryptionKeyType.md) |  | [optional]  |
-| **version** | **string?** |  | [optional]  |
-| **publicKey** | **string?** |  | [optional]  |
-| **privateKeyEnc** | **string?** |  | [optional]  |
+| **id** | **Guid?** | The optional identifier of the encryption key to filter by. | [optional]  |
+| **type** | [**EncryptionKeyType?**](EncryptionKeyType.md) | The optional type of the encryption key to filter by. | [optional]  |
+| **publicKey** | **string?** | The optional public key to filter by. | [optional]  |
+| **privateKeyEnc** | **string?** | The optional encrypted private key to filter by. | [optional]  |
 
 ### Return type
 
@@ -396,15 +401,15 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PrivacyroomApi(httpClient, config, httpClientHandler);
-            var id = "id_example";  // Guid? |  (optional) 
-            var type = new EncryptionKeyType?(); // EncryptionKeyType? |  (optional) 
-            var version = "version_example";  // string? |  (optional) 
-            var publicKey = "publicKey_example";  // string? |  (optional) 
-            var privateKeyEnc = "privateKeyEnc_example";  // string? |  (optional) 
+            var id = "id_example";  // Guid? | The optional identifier of the encryption key to filter by. (optional) 
+            var type = new EncryptionKeyType?(); // EncryptionKeyType? | The optional type of the encryption key to filter by. (optional) 
+            var publicKey = "publicKey_example";  // string? | The optional public key to filter by. (optional) 
+            var privateKeyEnc = "privateKeyEnc_example";  // string? | The optional encrypted private key to filter by. (optional) 
 
             try
             {
-                EncryptionKeyWrapper result = apiInstance.GetUserKeysByFilter(id, type, version, publicKey, privateKeyEnc);
+                // Retrieves a specific user encryption key based on the provided filter conditions.
+                EncryptionKeyWrapper result = apiInstance.GetUserKeysByFilter(id, type, publicKey, privateKeyEnc);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -424,7 +429,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<EncryptionKeyWrapper> response = apiInstance.GetUserKeysByFilterWithHttpInfo(id, type, version, publicKey, privateKeyEnc);
+    // Retrieves a specific user encryption key based on the provided filter conditions.
+    ApiResponse<EncryptionKeyWrapper> response = apiInstance.GetUserKeysByFilterWithHttpInfo(id, type, publicKey, privateKeyEnc);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -455,7 +461,7 @@ catch (ApiException e)
 # **GetUserKeysForRoom**
 > EncryptionKeyArrayWrapper GetUserKeysForRoom (int roomId)
 
-
+Retrieves the encryption keys associated with a specific privacy room.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-keys-for-room/).
 
@@ -463,7 +469,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **roomId** | **int** |  |  |
+| **roomId** | **int** | The identifier of the privacy room. |  |
 
 ### Return type
 
@@ -510,10 +516,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PrivacyroomApi(httpClient, config, httpClientHandler);
-            var roomId = 56;  // int | 
+            var roomId = 56;  // int | The identifier of the privacy room.
 
             try
             {
+                // Retrieves the encryption keys associated with a specific privacy room.
                 EncryptionKeyArrayWrapper result = apiInstance.GetUserKeysForRoom(roomId);
                 Debug.WriteLine(result);
             }
@@ -534,6 +541,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Retrieves the encryption keys associated with a specific privacy room.
     ApiResponse<EncryptionKeyArrayWrapper> response = apiInstance.GetUserKeysForRoomWithHttpInfo(roomId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -565,7 +573,7 @@ catch (ApiException e)
 # **ReplaceKey**
 > EncryptionKeyArrayWrapper ReplaceKey (EncryptionKeyRequestDto? encryptionKeyRequestDto = null)
 
-
+Replaces an existing encryption key with a new one for the user.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/replace-key/).
 
@@ -573,7 +581,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **encryptionKeyRequestDto** | [**EncryptionKeyRequestDto?**](EncryptionKeyRequestDto.md) |  | [optional]  |
+| **encryptionKeyRequestDto** | [**EncryptionKeyRequestDto?**](EncryptionKeyRequestDto.md) | The request object containing the public and private key information to replace the existing key. | [optional]  |
 
 ### Return type
 
@@ -620,10 +628,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PrivacyroomApi(httpClient, config, httpClientHandler);
-            var encryptionKeyRequestDto = new EncryptionKeyRequestDto?(); // EncryptionKeyRequestDto? |  (optional) 
+            var encryptionKeyRequestDto = new EncryptionKeyRequestDto?(); // EncryptionKeyRequestDto? | The request object containing the public and private key information to replace the existing key. (optional) 
 
             try
             {
+                // Replaces an existing encryption key with a new one for the user.
                 EncryptionKeyArrayWrapper result = apiInstance.ReplaceKey(encryptionKeyRequestDto);
                 Debug.WriteLine(result);
             }
@@ -644,6 +653,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Replaces an existing encryption key with a new one for the user.
     ApiResponse<EncryptionKeyArrayWrapper> response = apiInstance.ReplaceKeyWithHttpInfo(encryptionKeyRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -787,7 +797,7 @@ catch (ApiException e)
 # **SetPrivacyRoomSettings**
 > BooleanWrapper SetPrivacyRoomSettings (PrivacyRoomEnableRequestDto? privacyRoomEnableRequestDto = null)
 
-
+Configures the privacy room settings for the portal.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-privacy-room-settings/).
 
@@ -795,7 +805,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **privacyRoomEnableRequestDto** | [**PrivacyRoomEnableRequestDto?**](PrivacyRoomEnableRequestDto.md) | The request parameters for setting encryption keys. | [optional]  |
+| **privacyRoomEnableRequestDto** | [**PrivacyRoomEnableRequestDto?**](PrivacyRoomEnableRequestDto.md) | The request object containing the privacy room enable or disable flag. | [optional]  |
 
 ### Return type
 
@@ -842,10 +852,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PrivacyroomApi(httpClient, config, httpClientHandler);
-            var privacyRoomEnableRequestDto = new PrivacyRoomEnableRequestDto?(); // PrivacyRoomEnableRequestDto? | The request parameters for setting encryption keys. (optional) 
+            var privacyRoomEnableRequestDto = new PrivacyRoomEnableRequestDto?(); // PrivacyRoomEnableRequestDto? | The request object containing the privacy room enable or disable flag. (optional) 
 
             try
             {
+                // Configures the privacy room settings for the portal.
                 BooleanWrapper result = apiInstance.SetPrivacyRoomSettings(privacyRoomEnableRequestDto);
                 Debug.WriteLine(result);
             }
@@ -866,6 +877,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Configures the privacy room settings for the portal.
     ApiResponse<BooleanWrapper> response = apiInstance.SetPrivacyRoomSettingsWithHttpInfo(privacyRoomEnableRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

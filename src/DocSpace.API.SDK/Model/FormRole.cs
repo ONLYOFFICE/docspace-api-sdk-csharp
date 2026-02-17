@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "roomId", EmitDefaultValue = false)]
         public int RoomId { get; set; }
@@ -83,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user ID.</value>
         /*
-        <example>0dec3996-2dfc-7cb2-e974-8e5fb9f399ce</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }

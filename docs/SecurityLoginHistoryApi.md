@@ -111,8 +111,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | URL to the xlsx report file |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -219,8 +219,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of login events |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -288,7 +288,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new LoginHistoryApi(httpClient, config, httpClientHandler);
-            var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The ID of the user whose login events are being queried. (optional) 
+            var userId = 00000000-0000-0000-0000-000000000000;  // Guid? | The ID of the user whose login events are being queried. (optional) 
             var action = new MessageAction?(); // MessageAction? | The login-related action to filter events by. (optional) 
             var from = new ApiDateTime?(); // ApiDateTime? | The starting date and time for filtering login events. (optional) 
             var to = new ApiDateTime?(); // ApiDateTime? | The ending date and time for filtering login events. (optional) 
@@ -342,8 +342,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of filtered login events |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

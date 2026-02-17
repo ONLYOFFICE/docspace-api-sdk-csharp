@@ -490,6 +490,7 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
 
+        
         /// <summary>
         /// Add a web plugin
         /// </summary>

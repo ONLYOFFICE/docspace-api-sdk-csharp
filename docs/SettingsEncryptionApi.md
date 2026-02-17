@@ -10,7 +10,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="getstorageencryptionprogress"></a>
 # **GetStorageEncryptionProgress**
-> DoubleWrapper GetStorageEncryptionProgress ()
+> DoubleNullableWrapper GetStorageEncryptionProgress ()
 
 Returns the storage encryption progress.
 
@@ -20,7 +20,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**DoubleWrapper**](DoubleWrapper.md)
+[**DoubleNullableWrapper**](DoubleNullableWrapper.md)
 
 ### Authorization
 
@@ -67,7 +67,7 @@ namespace Example
             try
             {
                 // Get the storage encryption progress
-                DoubleWrapper result = apiInstance.GetStorageEncryptionProgress();
+                DoubleNullableWrapper result = apiInstance.GetStorageEncryptionProgress();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -88,7 +88,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the storage encryption progress
-    ApiResponse<DoubleWrapper> response = apiInstance.GetStorageEncryptionProgressWithHttpInfo();
+    ApiResponse<DoubleNullableWrapper> response = apiInstance.GetStorageEncryptionProgressWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -111,8 +111,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Storage encryption progress |  -  |
-| **401** | Unauthorized |  -  |
 | **405** | Method not allowed |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -219,9 +219,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Storage encryption settings |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **405** | Method not allowed |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -333,10 +333,10 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
 | **403** | No permissions to perform this action |  -  |
 | **405** | Method not allowed |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

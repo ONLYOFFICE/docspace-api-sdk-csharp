@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The full name of the user.</value>
         /*
-        <example>Winfield Upton</example>
+        <example>John Doe</example>
         */
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }

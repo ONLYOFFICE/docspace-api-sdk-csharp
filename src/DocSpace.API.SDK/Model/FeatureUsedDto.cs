@@ -50,9 +50,6 @@ namespace DocSpace.API.SDK.Model
         /// The used space value.
         /// </summary>
         /// <value>The used space value.</value>
-        /*
-        <example>{&quot;int&quot;:1234,&quot;string&quot;:&quot;some text&quot;,&quot;boolean&quot;:true}</example>
-        */
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public Object Value { get; set; }
 
@@ -61,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The used space title.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>SampleFile</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }

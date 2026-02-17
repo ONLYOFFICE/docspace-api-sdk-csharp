@@ -61,18 +61,18 @@ config.AccessToken = "YOUR_BEARER_TOKEN";
 // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
 HttpClient httpClient = new HttpClient();
 HttpClientHandler httpClientHandler = new HttpClientHandler();
-var apiInstance = new ApiKeysApi(httpClient, config, httpClientHandler);
-var createApiKeyRequestDto = new CreateApiKeyRequestDto?(); // CreateApiKeyRequestDto? | The request parameters for creating a new API key. (optional) 
+var apiInstance = new AIAgentsApi(httpClient, config, httpClientHandler);
+var createAgentRequestDto = new CreateAgentRequestDto?(); // CreateAgentRequestDto? | Request to create a new AI agent room. (optional) 
 
 try
 {
-    // Create a user API key
-    ApiKeyResponseWrapper result = apiInstance.CreateApiKey(createApiKeyRequestDto);
+    // Create an ai agent
+    FolderIntegerWrapper result = apiInstance.CreateAgent(createAgentRequestDto);
     Debug.WriteLine(result);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ApiKeysApi.CreateApiKey: " + e.Message );
+    Debug.Print("Exception when calling AIAgentsApi.CreateAgent: " + e.Message );
     Debug.Print("Status Code: "+ e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

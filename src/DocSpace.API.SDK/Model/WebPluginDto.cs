@@ -48,10 +48,11 @@ namespace DocSpace.API.SDK.Model
         /// <param name="enabled">Specifies if the web plugin is enabled or not. (required).</param>
         /// <param name="@system">Specifies if the web plugin is system or not. (required).</param>
         /// <param name="url">The web plugin URL. (required).</param>
+        /// <param name="cssUrl">The web plugin css URL. (required).</param>
         /// <param name="settings">The web plugin settings. (required).</param>
         /// <param name="nameLocale">The web plugin localized name..</param>
         /// <param name="descriptionLocale">The web plugin localized description..</param>
-        public WebPluginDto(string name = default, string version = default, string minDocSpaceVersion = default, string description = default, string license = default, string author = default, string homePage = default, string pluginName = default, string scopes = default, string image = default, EmployeeDto createBy = default, DateTime createOn = default, bool enabled = default, bool @system = default, string url = default, string settings = default, Dictionary<string, string> nameLocale = default, Dictionary<string, string> descriptionLocale = default)
+        public WebPluginDto(string name = default, string version = default, string minDocSpaceVersion = default, string description = default, string license = default, string author = default, string homePage = default, string pluginName = default, string scopes = default, string image = default, EmployeeDto createBy = default, DateTime createOn = default, bool enabled = default, bool @system = default, string url = default, string cssUrl = default, string settings = default, Dictionary<string, string> nameLocale = default, Dictionary<string, string> descriptionLocale = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -122,6 +123,12 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("url is a required property for WebPluginDto and cannot be null");
             }
             this.Url = url;
+            // to ensure "cssUrl" is required (not null)
+            if (cssUrl == null)
+            {
+                throw new ArgumentNullException("cssUrl is a required property for WebPluginDto and cannot be null");
+            }
+            this.CssUrl = cssUrl;
             // to ensure "settings" is required (not null)
             if (settings == null)
             {
@@ -138,7 +145,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The web plugin name.</value>
         /*
-        <example>Winfield Upton</example>
+        <example>John Doe</example>
         */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
@@ -280,6 +287,16 @@ namespace DocSpace.API.SDK.Model
         public string Url { get; set; }
 
         /// <summary>
+        /// The web plugin css URL.
+        /// </summary>
+        /// <value>The web plugin css URL.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "cssUrl", IsRequired = true, EmitDefaultValue = true)]
+        public string CssUrl { get; set; }
+
+        /// <summary>
         /// The web plugin settings.
         /// </summary>
         /// <value>The web plugin settings.</value>
@@ -332,6 +349,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  System: ").Append(System).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  CssUrl: ").Append(CssUrl).Append("\n");
             sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("  NameLocale: ").Append(NameLocale).Append("\n");
             sb.Append("  DescriptionLocale: ").Append(DescriptionLocale).Append("\n");

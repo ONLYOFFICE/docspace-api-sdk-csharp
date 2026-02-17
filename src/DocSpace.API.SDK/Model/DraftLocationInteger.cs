@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The InProcess folder ID of the draft.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "folderId", EmitDefaultValue = false)]
         public int FolderId { get; set; }
@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The draft ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "fileId", EmitDefaultValue = false)]
         public int FileId { get; set; }

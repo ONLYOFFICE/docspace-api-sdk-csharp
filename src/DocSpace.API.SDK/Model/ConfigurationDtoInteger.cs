@@ -36,6 +36,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "startFillingMode", EmitDefaultValue = false)]
         public StartFillingMode? StartFillingMode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets QuotaExceededScope
+        /// </summary>
+        [DataMember(Name = "quotaExceededScope", EmitDefaultValue = false)]
+        public QuotaScope? QuotaExceededScope { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigurationDtoInteger" /> class.
@@ -58,7 +64,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="fillingStatus">The file filling status..</param>
         /// <param name="startFillingMode">startFillingMode.</param>
         /// <param name="fillingSessionId">The file filling session ID..</param>
-        public ConfigurationDtoInteger(DocumentConfigDto document = default, string documentType = default, EditorConfigurationDto editorConfig = default, EditorType editorType = default, string editorUrl = default, string token = default, string type = default, FileDtoInteger file = default, string errorMessage = default, bool? startFilling = default, bool? fillingStatus = default, StartFillingMode? startFillingMode = default, string fillingSessionId = default)
+        /// <param name="quotaExceededScope">quotaExceededScope.</param>
+        /// <param name="generationToolCallState">generationToolCallState.</param>
+        public ConfigurationDtoInteger(DocumentConfigDto document = default, string documentType = default, EditorConfigurationDto editorConfig = default, EditorType editorType = default, string editorUrl = default, string token = default, string type = default, FileDtoInteger file = default, string errorMessage = default, bool? startFilling = default, bool? fillingStatus = default, StartFillingMode? startFillingMode = default, string fillingSessionId = default, QuotaScope? quotaExceededScope = default, EditorToolCallStateDto generationToolCallState = default)
         {
             // to ensure "document" is required (not null)
             if (document == null)
@@ -98,6 +106,8 @@ namespace DocSpace.API.SDK.Model
             this.FillingStatus = fillingStatus;
             this.StartFillingMode = startFillingMode;
             this.FillingSessionId = fillingSessionId;
+            this.QuotaExceededScope = quotaExceededScope;
+            this.GenerationToolCallState = generationToolCallState;
         }
 
         /// <summary>
@@ -199,6 +209,12 @@ namespace DocSpace.API.SDK.Model
         public string FillingSessionId { get; set; }
 
         /// <summary>
+        /// Gets or Sets GenerationToolCallState
+        /// </summary>
+        [DataMember(Name = "generationToolCallState", EmitDefaultValue = false)]
+        public EditorToolCallStateDto GenerationToolCallState { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -219,6 +235,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  FillingStatus: ").Append(FillingStatus).Append("\n");
             sb.Append("  StartFillingMode: ").Append(StartFillingMode).Append("\n");
             sb.Append("  FillingSessionId: ").Append(FillingSessionId).Append("\n");
+            sb.Append("  QuotaExceededScope: ").Append(QuotaExceededScope).Append("\n");
+            sb.Append("  GenerationToolCallState: ").Append(GenerationToolCallState).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

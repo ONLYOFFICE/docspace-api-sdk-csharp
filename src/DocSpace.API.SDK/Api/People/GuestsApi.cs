@@ -342,6 +342,7 @@ namespace DocSpace.API.SDK.Api.People
         }
 
 
+        
         /// <summary>
         /// Approve a guest sharing link
         /// </summary>

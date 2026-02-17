@@ -18,12 +18,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**GetFolderLinks**](#getfolderlinks) | **GET** /api/2.0/files/folder/{id}/links | Get the folder links |
 | [**GetFolderPath**](#getfolderpath) | **GET** /api/2.0/files/folder/{folderId}/path | Get the folder path |
 | [**GetFolderPrimaryExternalLink**](#getfolderprimaryexternallink) | **GET** /api/2.0/files/folder/{id}/link | Get primary external link |
-| [**GetFolderRecent**](#getfolderrecent) | **GET** /api/2.0/files/recent | Get the Recent section |
 | [**GetFolders**](#getfolders) | **GET** /api/2.0/files/{folderId}/subfolders | Get subfolders |
 | [**GetMyFolder**](#getmyfolder) | **GET** /api/2.0/files/@my | Get the My documents section |
 | [**GetNewFolderItems**](#getnewfolderitems) | **GET** /api/2.0/files/{folderId}/news | Get new folder items |
 | [**GetPrivacyFolder**](#getprivacyfolder) | **GET** /api/2.0/files/@privacy | Get the Private Room section |
-| [**GetRecentFolder**](#getrecentfolder) | **GET** /api/2.0/files/@recent | Get the Recent section |
+| [**GetRecentFolder**](#getrecentfolder) | **GET** /api/2.0/files/recent | Get the Recent section |
 | [**GetRootFolders**](#getrootfolders) | **GET** /api/2.0/files/@root | Get filtered sections |
 | [**GetTrashFolder**](#gettrashfolder) | **GET** /api/2.0/files/@trash | Get the Trash section |
 | [**InsertFile**](#insertfile) | **POST** /api/2.0/files/{folderId}/insert | Insert a file |
@@ -94,7 +93,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID.
+            var folderId = 1;  // int | The folder ID.
             var checkUploadRequest = new CheckUploadRequest(); // CheckUploadRequest | The request parameters for checking file uploads.
 
             try
@@ -208,7 +207,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID for the folder creation.
+            var folderId = 1;  // int | The folder ID for the folder creation.
             var createFolder = new CreateFolder(); // CreateFolder | The parameters for creating a folder.
 
             try
@@ -322,7 +321,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The folder ID.
+            var id = 1;  // int | The folder ID.
             var folderLinkRequest = new FolderLinkRequest(); // FolderLinkRequest | The folder link parameters.
 
             try
@@ -372,8 +371,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Folders security information |  -  |
-| **401** | Unauthorized |  -  |
 | **404** | Not Found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -485,9 +484,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | URL to the report file |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -551,7 +550,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID to delete.
+            var folderId = 1;  // int | The folder ID to delete.
             var deleteFolder = new DeleteFolder(); // DeleteFolder | The parameters for deleting a folder.
 
             try
@@ -725,9 +724,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Favorites section contents |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -881,7 +880,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder unique identifier.
+            var folderId = 1;  // int | The folder unique identifier.
 
             try
             {
@@ -992,11 +991,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID.
+            var folderId = 1;  // int | The folder ID.
             var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
             var sharedBy = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The identifier of the user who shared the folder or file. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
-            var roomId = 9846;  // int? | The room ID. (optional) 
+            var roomId = 1;  // int? | The room ID. (optional) 
             var excludeSubject = true;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
             var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders, or all elements from the specified folder. (optional) 
             var extension = .txt;  // string? | Specifies whether to search for the specific file extension. (optional) 
@@ -1125,7 +1124,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID of the history request.
+            var folderId = 1;  // int | The folder ID of the history request.
             var fromDate = new ApiDateTime?(); // ApiDateTime? | The start date of the history request. (optional) 
             var toDate = new ApiDateTime?(); // ApiDateTime? | The end date of the history request. (optional) 
             var count = 1234;  // int? | The number of records to retrieve for the folder history. (optional) 
@@ -1178,9 +1177,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of actions in the folder |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1227,7 +1226,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder unique identifier.
+            var folderId = 1;  // int | The folder unique identifier.
 
             try
             {
@@ -1338,7 +1337,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The folder ID.
+            var id = 1;  // int | The folder ID.
 
             try
             {
@@ -1450,7 +1449,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder unique identifier.
+            var folderId = 1;  // int | The folder unique identifier.
 
             try
             {
@@ -1499,8 +1498,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file entry information |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1549,7 +1548,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The folder unique identifier.
+            var id = 1;  // int | The folder unique identifier.
             var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
             var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
 
@@ -1601,140 +1600,6 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Folder security information |  -  |
 | **404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a id="getfolderrecent"></a>
-# **GetFolderRecent**
-> FolderContentIntegerWrapper GetFolderRecent (Guid? userIdOrGroupId = null, FilterType? filterType = null, bool? excludeSubject = null, ApplyFilterOption? applyFilterOption = null, SearchArea? searchArea = null, List<string>? extension = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
-
-Returns the detailed list of files located in the Recent section.
-
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-recent/).
-
-### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **userIdOrGroupId** | **Guid?** | The user or group ID. | [optional]  |
-| **filterType** | [**FilterType?**](FilterType.md) | The filter type. | [optional]  |
-| **excludeSubject** | **bool?** | Specifies whether to exclude search by user or group ID. | [optional]  |
-| **applyFilterOption** | [**ApplyFilterOption?**](ApplyFilterOption.md) | Specifies whether to return only files, only folders or all elements. | [optional]  |
-| **searchArea** | [**SearchArea?**](SearchArea.md) | The search area. | [optional]  |
-| **extension** | [**List&lt;string&gt;?**](string.md) | Specifies whether to search for a specific file extension in the Recent folder. | [optional]  |
-| **count** | **int?** | The maximum number of items to return. | [optional]  |
-| **startIndex** | **int?** | The starting position of the results to be returned in the query response. | [optional]  |
-| **sortBy** | **string?** | Specifies the sorting criteria for the folder request. | [optional]  |
-| **sortOrder** | [**SortOrder?**](SortOrder.md) | The order in which the results are sorted. | [optional]  |
-| **filterValue** | **string?** | The text used for filtering or searching folder contents. | [optional]  |
-
-### Return type
-
-[**FolderContentIntegerWrapper**](FolderContentIntegerWrapper.md)
-
-### Authorization
-
-[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net.Http;
-using DocSpace.API.SDK.Api;
-using DocSpace.API.SDK.Client;
-using DocSpace.API.SDK.Model;
-
-namespace Example
-{
-    public class GetFolderRecentExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure HTTP basic authorization: Basic
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
-            // Configure OAuth2 access token for authorization: OAuth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-            // Configure API key authorization: ApiKeyBearer
-            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
-            // Configure Bearer token for authorization: Bearer
-            config.AccessToken = "YOUR_BEARER_TOKEN";
-
-            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
-            HttpClient httpClient = new HttpClient();
-            HttpClientHandler httpClientHandler = new HttpClientHandler();
-            var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
-            var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
-            var excludeSubject = true;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
-            var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements. (optional) 
-            var searchArea = new SearchArea?(); // SearchArea? | The search area. (optional) 
-            var extension = new List<string>?(); // List<string>? | Specifies whether to search for a specific file extension in the Recent folder. (optional) 
-            var count = 1234;  // int? | The maximum number of items to return. (optional) 
-            var startIndex = 1234;  // int? | The starting position of the results to be returned in the query response. (optional) 
-            var sortBy = some text;  // string? | Specifies the sorting criteria for the folder request. (optional) 
-            var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterValue = some text;  // string? | The text used for filtering or searching folder contents. (optional) 
-
-            try
-            {
-                // Get the Recent section
-                FolderContentIntegerWrapper result = apiInstance.GetFolderRecent(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling FoldersApi.GetFolderRecent: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-#### Using the GetFolderRecentWithHttpInfo variant
-This returns an ApiResponse object which contains the response data, status code and headers.
-
-```csharp
-try
-{
-    // Get the Recent section
-    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetFolderRecentWithHttpInfo(userIdOrGroupId, filterType, excludeSubject, applyFilterOption, searchArea, extension, count, startIndex, sortBy, sortOrder, filterValue);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
-}
-catch (ApiException e)
-{
-    Debug.Print("Exception when calling FoldersApi.GetFolderRecentWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
-}
-```
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | The Recent section contents |  -  |
-| **401** | Unauthorized |  -  |
-| **403** | You don&#39;t have enough permission to view the folder content |  -  |
-| **404** | The required folder was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1797,7 +1662,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder unique identifier.
+            var folderId = 1;  // int | The folder unique identifier.
 
             try
             {
@@ -1846,8 +1711,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file entry information |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1973,9 +1838,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The My documents section contents |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2038,7 +1903,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder unique identifier.
+            var folderId = 1;  // int | The folder unique identifier.
 
             try
             {
@@ -2087,8 +1952,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of file entry information |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2212,9 +2077,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Private Room section contents |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2346,9 +2211,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Recent section contents |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2474,9 +2339,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of section contents with the following parameters |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2602,9 +2467,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The Trash section contents |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to view the folder content |  -  |
 | **404** | The required folder was not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2679,7 +2544,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID for inserting a file.
+            var folderId = 1;  // int | The folder ID for inserting a file.
             var insertFileFile = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | The file to be inserted. (optional) 
             var insertFileTitle = "insertFileTitle_example";  // string? | The file title to be inserted. (optional) 
             var insertFileCreateNewIfExist = true;  // bool? | Specifies whether to create a new file if it already exists or not. (optional) 
@@ -2740,9 +2605,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Inserted file |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2876,9 +2741,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Inserted file |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2942,7 +2807,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID for the folder creation.
+            var folderId = 1;  // int | The folder ID for the folder creation.
             var createFolder = new CreateFolder(); // CreateFolder | The parameters for creating a folder.
 
             try
@@ -2992,8 +2857,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Folder parameters |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to rename the folder |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3057,7 +2922,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder unique identifier.
+            var folderId = 1;  // int | The folder unique identifier.
             var orderRequestDto = new OrderRequestDto?(); // OrderRequestDto? | The folder order information. (optional) 
 
             try
@@ -3171,7 +3036,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The folder ID.
+            var id = 1;  // int | The folder ID.
             var folderLinkRequest = new FolderLinkRequest(); // FolderLinkRequest | The folder link parameters.
 
             try
@@ -3229,7 +3094,7 @@ catch (ApiException e)
 # **UploadFile**
 > ObjectWrapper UploadFile (int folderId, UploadRequestDto? uploadRequestDto = null)
 
-Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
+Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/).
 
@@ -3285,7 +3150,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 9846;  // int | The folder ID to upload a file.
+            var folderId = 1;  // int | The folder ID to upload a file.
             var uploadRequestDto = new UploadRequestDto?(); // UploadRequestDto? | The request parameters for uploading a file. (optional) 
 
             try
@@ -3335,9 +3200,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Inserted file |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 | **404** | Folder not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3345,7 +3210,7 @@ catch (ApiException e)
 # **UploadFileToMy**
 > ObjectWrapper UploadFileToMy (UploadRequestDto? inDto = null)
 
-Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   <ol>  <li>Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.</li>  <li>Using standart multipart/form-data method.</li>  </ol>
+Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/).
 
@@ -3449,9 +3314,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Uploaded file(s) |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
 | **404** | File not found |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

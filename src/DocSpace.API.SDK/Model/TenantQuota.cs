@@ -35,6 +35,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="priceISOCurrencySymbol">The tenant price three-character ISO 4217 currency symbol..</param>
         /// <param name="productId">The tenant product ID..</param>
         /// <param name="serviceName">The service name..</param>
+        /// <param name="serviceGroup">The service group..</param>
         /// <param name="visible">Specifies if the tenant quota is visible or not..</param>
         /// <param name="wallet">Specifies if the tenant quota applies to the wallet or not.</param>
         /// <param name="dueDate">The quota due date..</param>
@@ -57,6 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="branding">Specifies if the branding settings are available or not..</param>
         /// <param name="customization">Specifies if the customization settings are available or not..</param>
         /// <param name="lifetime">Specifies if the license has the lifetime settings or not..</param>
+        /// <param name="automationApi">Specifies if the Automation API is available or not..</param>
         /// <param name="custom">Specifies if the custom domain URL is available or not..</param>
         /// <param name="restore">Specifies if the restore is enabled or not..</param>
         /// <param name="oauth">Specifies if Oauth is available or not..</param>
@@ -66,7 +68,25 @@ namespace DocSpace.API.SDK.Model
         /// <param name="countFreeBackup">The number of free backups within a month..</param>
         /// <param name="backup">Specifies if the backup anabled as a wallet service or not..</param>
         /// <param name="countAIAgent">The number of AI agents..</param>
-        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, bool visible = default, bool wallet = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default)
+        /// <param name="aiTools">Specifies if the AI tools anabled as a wallet service or not..</param>
+        /// <param name="aiToolsWebSearch">Specifies whether the web search is enabled as a subservice of AI tools..</param>
+        /// <param name="aiToolsWebFetch">Specifies whether the web fetch is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsEmbedding">Specifies whether the embedding is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsDeepseek31Input">Specifies whether the Deepseek 3.1 input tokens is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsDeepseek31Output">Specifies whether the Deepseek 3.1 output tokens is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsClaude45Input">Specifies whether the Claude 4.5 input tokens is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsClaude45Output">Specifies whether the Claude 4.5 output tokens is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsGPT5Input">Specifies whether the GPT 5 input tokens is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsGPT5Output">Specifies whether the GPT 5 output tokens is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsDeepseek32Input">Specifies whether the Deepseek 3.2 input tokens is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsDeepseek32Output">Specifies whether the Deepseek 3.2 output tokens is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsGPT52Input">Specifies whether the GPT 5.2 input tokens is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsGPT52Output">Specifies whether the GPT 5.2 output tokens is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsGemini3ProInput">Specifies whether the Gemini 3 Pro input tokens is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsGemini3ProOutput">Specifies whether the Gemini 3 Pro output tokens is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsGemini3FlashInput">Specifies whether the Gemini 3 Flash input tokens is enabled as a subservice of AI tools.</param>
+        /// <param name="aiToolsGemini3FlashOutput">Specifies whether the Gemini 3 Flash output tokens is enabled as a subservice of AI tools.</param>
+        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, string serviceGroup = default, bool visible = default, bool wallet = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool automationApi = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default, bool aiTools = default, bool aiToolsWebSearch = default, bool aiToolsWebFetch = default, bool aiToolsEmbedding = default, bool aiToolsDeepseek31Input = default, bool aiToolsDeepseek31Output = default, bool aiToolsClaude45Input = default, bool aiToolsClaude45Output = default, bool aiToolsGPT5Input = default, bool aiToolsGPT5Output = default, bool aiToolsDeepseek32Input = default, bool aiToolsDeepseek32Output = default, bool aiToolsGPT52Input = default, bool aiToolsGPT52Output = default, bool aiToolsGemini3ProInput = default, bool aiToolsGemini3ProOutput = default, bool aiToolsGemini3FlashInput = default, bool aiToolsGemini3FlashOutput = default)
         {
             this.TenantId = tenantId;
             this.Name = name;
@@ -75,6 +95,7 @@ namespace DocSpace.API.SDK.Model
             this.PriceISOCurrencySymbol = priceISOCurrencySymbol;
             this.ProductId = productId;
             this.ServiceName = serviceName;
+            this.ServiceGroup = serviceGroup;
             this.Visible = visible;
             this.Wallet = wallet;
             this.DueDate = dueDate;
@@ -97,6 +118,7 @@ namespace DocSpace.API.SDK.Model
             this.Branding = branding;
             this.Customization = customization;
             this.Lifetime = lifetime;
+            this.AutomationApi = automationApi;
             this.Custom = custom;
             this.Restore = restore;
             this.Oauth = oauth;
@@ -106,6 +128,24 @@ namespace DocSpace.API.SDK.Model
             this.CountFreeBackup = countFreeBackup;
             this.Backup = backup;
             this.CountAIAgent = countAIAgent;
+            this.AiTools = aiTools;
+            this.AiToolsWebSearch = aiToolsWebSearch;
+            this.AiToolsWebFetch = aiToolsWebFetch;
+            this.AiToolsEmbedding = aiToolsEmbedding;
+            this.AiToolsDeepseek31Input = aiToolsDeepseek31Input;
+            this.AiToolsDeepseek31Output = aiToolsDeepseek31Output;
+            this.AiToolsClaude45Input = aiToolsClaude45Input;
+            this.AiToolsClaude45Output = aiToolsClaude45Output;
+            this.AiToolsGPT5Input = aiToolsGPT5Input;
+            this.AiToolsGPT5Output = aiToolsGPT5Output;
+            this.AiToolsDeepseek32Input = aiToolsDeepseek32Input;
+            this.AiToolsDeepseek32Output = aiToolsDeepseek32Output;
+            this.AiToolsGPT52Input = aiToolsGPT52Input;
+            this.AiToolsGPT52Output = aiToolsGPT52Output;
+            this.AiToolsGemini3ProInput = aiToolsGemini3ProInput;
+            this.AiToolsGemini3ProOutput = aiToolsGemini3ProOutput;
+            this.AiToolsGemini3FlashInput = aiToolsGemini3FlashInput;
+            this.AiToolsGemini3FlashOutput = aiToolsGemini3FlashOutput;
         }
 
         /// <summary>
@@ -163,7 +203,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant product ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "productId", EmitDefaultValue = true)]
         public string ProductId { get; set; }
@@ -177,6 +217,16 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "serviceName", EmitDefaultValue = true)]
         public string ServiceName { get; set; }
+
+        /// <summary>
+        /// The service group.
+        /// </summary>
+        /// <value>The service group.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "serviceGroup", EmitDefaultValue = true)]
+        public string ServiceGroup { get; set; }
 
         /// <summary>
         /// Specifies if the tenant quota is visible or not.
@@ -232,6 +282,9 @@ namespace DocSpace.API.SDK.Model
         /// The tenant maximum total size.
         /// </summary>
         /// <value>The tenant maximum total size.</value>
+        /*
+        <example>9223372036854775807</example>
+        */
         [DataMember(Name = "maxTotalSize", EmitDefaultValue = false)]
         public long MaxTotalSize { get; set; }
 
@@ -396,6 +449,16 @@ namespace DocSpace.API.SDK.Model
         public bool Lifetime { get; set; }
 
         /// <summary>
+        /// Specifies if the Automation API is available or not.
+        /// </summary>
+        /// <value>Specifies if the Automation API is available or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "automationApi", EmitDefaultValue = true)]
+        public bool AutomationApi { get; set; }
+
+        /// <summary>
         /// Specifies if the custom domain URL is available or not.
         /// </summary>
         /// <value>Specifies if the custom domain URL is available or not.</value>
@@ -486,6 +549,186 @@ namespace DocSpace.API.SDK.Model
         public int CountAIAgent { get; set; }
 
         /// <summary>
+        /// Specifies if the AI tools anabled as a wallet service or not.
+        /// </summary>
+        /// <value>Specifies if the AI tools anabled as a wallet service or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiTools", EmitDefaultValue = true)]
+        public bool AiTools { get; set; }
+
+        /// <summary>
+        /// Specifies whether the web search is enabled as a subservice of AI tools.
+        /// </summary>
+        /// <value>Specifies whether the web search is enabled as a subservice of AI tools.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsWebSearch", EmitDefaultValue = true)]
+        public bool AiToolsWebSearch { get; set; }
+
+        /// <summary>
+        /// Specifies whether the web fetch is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the web fetch is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsWebFetch", EmitDefaultValue = true)]
+        public bool AiToolsWebFetch { get; set; }
+
+        /// <summary>
+        /// Specifies whether the embedding is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the embedding is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsEmbedding", EmitDefaultValue = true)]
+        public bool AiToolsEmbedding { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Deepseek 3.1 input tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the Deepseek 3.1 input tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsDeepseek31Input", EmitDefaultValue = true)]
+        public bool AiToolsDeepseek31Input { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Deepseek 3.1 output tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the Deepseek 3.1 output tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsDeepseek31Output", EmitDefaultValue = true)]
+        public bool AiToolsDeepseek31Output { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Claude 4.5 input tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the Claude 4.5 input tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsClaude45Input", EmitDefaultValue = true)]
+        public bool AiToolsClaude45Input { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Claude 4.5 output tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the Claude 4.5 output tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsClaude45Output", EmitDefaultValue = true)]
+        public bool AiToolsClaude45Output { get; set; }
+
+        /// <summary>
+        /// Specifies whether the GPT 5 input tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the GPT 5 input tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsGPT5Input", EmitDefaultValue = true)]
+        public bool AiToolsGPT5Input { get; set; }
+
+        /// <summary>
+        /// Specifies whether the GPT 5 output tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the GPT 5 output tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsGPT5Output", EmitDefaultValue = true)]
+        public bool AiToolsGPT5Output { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Deepseek 3.2 input tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the Deepseek 3.2 input tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsDeepseek32Input", EmitDefaultValue = true)]
+        public bool AiToolsDeepseek32Input { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Deepseek 3.2 output tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the Deepseek 3.2 output tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsDeepseek32Output", EmitDefaultValue = true)]
+        public bool AiToolsDeepseek32Output { get; set; }
+
+        /// <summary>
+        /// Specifies whether the GPT 5.2 input tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the GPT 5.2 input tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsGPT52Input", EmitDefaultValue = true)]
+        public bool AiToolsGPT52Input { get; set; }
+
+        /// <summary>
+        /// Specifies whether the GPT 5.2 output tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the GPT 5.2 output tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsGPT52Output", EmitDefaultValue = true)]
+        public bool AiToolsGPT52Output { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Gemini 3 Pro input tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the Gemini 3 Pro input tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsGemini3ProInput", EmitDefaultValue = true)]
+        public bool AiToolsGemini3ProInput { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Gemini 3 Pro output tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the Gemini 3 Pro output tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsGemini3ProOutput", EmitDefaultValue = true)]
+        public bool AiToolsGemini3ProOutput { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Gemini 3 Flash input tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the Gemini 3 Flash input tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsGemini3FlashInput", EmitDefaultValue = true)]
+        public bool AiToolsGemini3FlashInput { get; set; }
+
+        /// <summary>
+        /// Specifies whether the Gemini 3 Flash output tokens is enabled as a subservice of AI tools
+        /// </summary>
+        /// <value>Specifies whether the Gemini 3 Flash output tokens is enabled as a subservice of AI tools</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiToolsGemini3FlashOutput", EmitDefaultValue = true)]
+        public bool AiToolsGemini3FlashOutput { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -500,6 +743,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  PriceISOCurrencySymbol: ").Append(PriceISOCurrencySymbol).Append("\n");
             sb.Append("  ProductId: ").Append(ProductId).Append("\n");
             sb.Append("  ServiceName: ").Append(ServiceName).Append("\n");
+            sb.Append("  ServiceGroup: ").Append(ServiceGroup).Append("\n");
             sb.Append("  Visible: ").Append(Visible).Append("\n");
             sb.Append("  Wallet: ").Append(Wallet).Append("\n");
             sb.Append("  DueDate: ").Append(DueDate).Append("\n");
@@ -522,6 +766,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Branding: ").Append(Branding).Append("\n");
             sb.Append("  Customization: ").Append(Customization).Append("\n");
             sb.Append("  Lifetime: ").Append(Lifetime).Append("\n");
+            sb.Append("  AutomationApi: ").Append(AutomationApi).Append("\n");
             sb.Append("  Custom: ").Append(Custom).Append("\n");
             sb.Append("  Restore: ").Append(Restore).Append("\n");
             sb.Append("  Oauth: ").Append(Oauth).Append("\n");
@@ -531,6 +776,24 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  CountFreeBackup: ").Append(CountFreeBackup).Append("\n");
             sb.Append("  Backup: ").Append(Backup).Append("\n");
             sb.Append("  CountAIAgent: ").Append(CountAIAgent).Append("\n");
+            sb.Append("  AiTools: ").Append(AiTools).Append("\n");
+            sb.Append("  AiToolsWebSearch: ").Append(AiToolsWebSearch).Append("\n");
+            sb.Append("  AiToolsWebFetch: ").Append(AiToolsWebFetch).Append("\n");
+            sb.Append("  AiToolsEmbedding: ").Append(AiToolsEmbedding).Append("\n");
+            sb.Append("  AiToolsDeepseek31Input: ").Append(AiToolsDeepseek31Input).Append("\n");
+            sb.Append("  AiToolsDeepseek31Output: ").Append(AiToolsDeepseek31Output).Append("\n");
+            sb.Append("  AiToolsClaude45Input: ").Append(AiToolsClaude45Input).Append("\n");
+            sb.Append("  AiToolsClaude45Output: ").Append(AiToolsClaude45Output).Append("\n");
+            sb.Append("  AiToolsGPT5Input: ").Append(AiToolsGPT5Input).Append("\n");
+            sb.Append("  AiToolsGPT5Output: ").Append(AiToolsGPT5Output).Append("\n");
+            sb.Append("  AiToolsDeepseek32Input: ").Append(AiToolsDeepseek32Input).Append("\n");
+            sb.Append("  AiToolsDeepseek32Output: ").Append(AiToolsDeepseek32Output).Append("\n");
+            sb.Append("  AiToolsGPT52Input: ").Append(AiToolsGPT52Input).Append("\n");
+            sb.Append("  AiToolsGPT52Output: ").Append(AiToolsGPT52Output).Append("\n");
+            sb.Append("  AiToolsGemini3ProInput: ").Append(AiToolsGemini3ProInput).Append("\n");
+            sb.Append("  AiToolsGemini3ProOutput: ").Append(AiToolsGemini3ProOutput).Append("\n");
+            sb.Append("  AiToolsGemini3FlashInput: ").Append(AiToolsGemini3FlashInput).Append("\n");
+            sb.Append("  AiToolsGemini3FlashOutput: ").Append(AiToolsGemini3FlashOutput).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

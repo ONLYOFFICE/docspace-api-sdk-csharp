@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The confirmation room ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "roomId", EmitDefaultValue = true)]
         public string RoomId { get; set; }
@@ -68,7 +68,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The confirmation title.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>SampleFile</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -78,7 +78,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The confirmation email.</value>
         /*
-        <example>Sydney_Roberts4@hotmail.com</example>
+        <example>example@onlyoffice.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }

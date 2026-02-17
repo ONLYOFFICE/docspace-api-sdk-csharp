@@ -176,7 +176,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ActiveConnectionsApi(httpClient, config, httpClientHandler);
-            var loginEventId = 9846;  // int | The ID of the specific login event.
+            var loginEventId = 1;  // int | The ID of the specific login event.
 
             try
             {
@@ -225,8 +225,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Method not available |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -396,7 +396,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ActiveConnectionsApi(httpClient, config, httpClientHandler);
-            var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID extracted from the route parameters.
+            var userId = 00000000-0000-0000-0000-000000000000;  // Guid | The user ID extracted from the route parameters.
 
             try
             {
@@ -441,8 +441,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
 | **403** | Method not available |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

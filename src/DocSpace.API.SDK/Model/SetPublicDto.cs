@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room template ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }

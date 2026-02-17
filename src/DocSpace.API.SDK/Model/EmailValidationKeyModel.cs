@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The email address.</value>
         /*
-        <example>Sydney_Roberts4@hotmail.com</example>
+        <example>example@onlyoffice.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -115,7 +115,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "roomId", EmitDefaultValue = true)]
         public string RoomId { get; set; }

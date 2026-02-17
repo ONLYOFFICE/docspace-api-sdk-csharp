@@ -115,9 +115,9 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | URL to the xlsx report file |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
 | **403** | You don&#39;t have enough permission to create |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -189,7 +189,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuditTrailDataApi(httpClient, config, httpClientHandler);
-            var userId = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid? | The ID of the user who triggered the audit event. (optional) 
+            var userId = 00000000-0000-0000-0000-000000000000;  // Guid? | The ID of the user who triggered the audit event. (optional) 
             var moduleType = new LocationType?(); // LocationType? | The location where the audit event occurred. (optional) 
             var actionType = new ActionType?(); // ActionType? | The type of action performed in the audit event (e.g., Create, Update, Delete). (optional) 
             var action = new MessageAction?(); // MessageAction? | The specific action that occurred within the audit event. (optional) 
@@ -247,8 +247,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of filtered audit trail data |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -355,8 +355,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Audit settings |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -650,8 +650,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of audit trail data |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -764,8 +764,8 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Audit trail settings |  -  |
 | **400** | Exception in LoginHistoryLifeTime or AuditTrailLifeTime |  -  |
-| **401** | Unauthorized |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
+| **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

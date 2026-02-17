@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file title for text or HTML file.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>SampleFile</example>
         */
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }

@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The ID of the tenant quota feature.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The title of the tenant quota feature.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>SampleFile</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -80,9 +80,6 @@ namespace DocSpace.API.SDK.Model
         /// The value of the tenant quota feature.
         /// </summary>
         /// <value>The value of the tenant quota feature.</value>
-        /*
-        <example>{&quot;int&quot;:1234,&quot;string&quot;:&quot;some text&quot;,&quot;boolean&quot;:true}</example>
-        */
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public Object Value { get; set; }
 

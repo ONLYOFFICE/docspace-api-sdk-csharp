@@ -63,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file ID to delete.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "fileId", IsRequired = true, EmitDefaultValue = true)]
         public int FileId { get; set; }
