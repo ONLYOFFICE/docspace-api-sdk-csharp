@@ -24,106 +24,124 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Add an AI provider
         /// </summary>
+        /// <remarks>
+        /// Registers a new AI provider for the current tenant by specifying its type, display title, API endpoint URL, and authentication key.  The provider becomes available for AI chat conversations after creation. This action is rate-limited.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createProviderRequestDto"> (optional)</param>
+        /// <param name="createProviderRequestDto">Request parameters for creating a new AI provider. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-provider/">REST API Reference for AddProvider Operation</seealso>
         /// <returns>AiProviderWrapper</returns>
         AiProviderWrapper AddProvider(CreateProviderRequestDto? createProviderRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Add an AI provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Registers a new AI provider for the current tenant by specifying its type, display title, API endpoint URL, and authentication key.  The provider becomes available for AI chat conversations after creation. This action is rate-limited.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createProviderRequestDto"> (optional)</param>
+        /// <param name="createProviderRequestDto">Request parameters for creating a new AI provider. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-provider/">REST API Reference for AddProvider Operation</seealso>
         /// <returns>ApiResponse of AiProviderWrapper</returns>
         ApiResponse<AiProviderWrapper> AddProviderWithHttpInfo(CreateProviderRequestDto? createProviderRequestDto = default);
         /// <summary>
-        /// 
+        /// Delete AI providers
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes one or more AI providers by their identifiers.  All specified providers are removed from the current tenant. This action cannot be undone.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="removeProviderRequestDto"> (optional)</param>
+        /// <param name="removeProviderRequestDto">Request parameters for deleting one or more AI providers. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-providers/">REST API Reference for DeleteProviders Operation</seealso>
         /// <returns></returns>
         void DeleteProviders(RemoveProviderRequestDto? removeProviderRequestDto = default);
 
         /// <summary>
-        /// 
+        /// Delete AI providers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently deletes one or more AI providers by their identifiers.  All specified providers are removed from the current tenant. This action cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="removeProviderRequestDto"> (optional)</param>
+        /// <param name="removeProviderRequestDto">Request parameters for deleting one or more AI providers. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-providers/">REST API Reference for DeleteProviders Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteProvidersWithHttpInfo(RemoveProviderRequestDto? removeProviderRequestDto = default);
         /// <summary>
-        /// 
+        /// Get available AI provider types
         /// </summary>
+        /// <remarks>
+        /// Returns the list of AI provider types that are available for configuration on the current instance.  Each entry includes the provider type identifier and the default API endpoint URL.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-providers/">REST API Reference for GetAvailableProviders Operation</seealso>
         /// <returns>ProviderSettingsArrayWrapper</returns>
         ProviderSettingsArrayWrapper GetAvailableProviders();
 
         /// <summary>
-        /// 
+        /// Get available AI provider types
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the list of AI provider types that are available for configuration on the current instance.  Each entry includes the provider type identifier and the default API endpoint URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-providers/">REST API Reference for GetAvailableProviders Operation</seealso>
         /// <returns>ApiResponse of ProviderSettingsArrayWrapper</returns>
         ApiResponse<ProviderSettingsArrayWrapper> GetAvailableProvidersWithHttpInfo();
         /// <summary>
-        /// Returns the default AI provider for the current tenant.
+        /// Get the default AI provider
         /// </summary>
+        /// <remarks>
+        /// Returns the default AI provider and model configured for the current tenant.  Returns null if the tenant does not have any registered providers.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-provider/">REST API Reference for GetDefaultProvider Operation</seealso>
         /// <returns>DefaultProviderWrapper</returns>
         DefaultProviderWrapper GetDefaultProvider();
 
         /// <summary>
-        /// Returns the default AI provider for the current tenant.
+        /// Get the default AI provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the default AI provider and model configured for the current tenant.  Returns null if the tenant does not have any registered providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-provider/">REST API Reference for GetDefaultProvider Operation</seealso>
         /// <returns>ApiResponse of DefaultProviderWrapper</returns>
         ApiResponse<DefaultProviderWrapper> GetDefaultProviderWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get AI providers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of AI providers configured for the current tenant.  Supports pagination via the startIndex and count query parameters. The total number of providers is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-providers/">REST API Reference for GetProviders Operation</seealso>
         /// <returns>AiProviderArrayWrapper</returns>
         AiProviderArrayWrapper GetProviders(int? startIndex = default, int? count = default);
 
         /// <summary>
-        /// 
+        /// Get AI providers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of AI providers configured for the current tenant.  Supports pagination via the startIndex and count query parameters. The total number of providers is included in the response metadata.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-providers/">REST API Reference for GetProviders Operation</seealso>
         /// <returns>ApiResponse of AiProviderArrayWrapper</returns>
         ApiResponse<AiProviderArrayWrapper> GetProvidersWithHttpInfo(int? startIndex = default, int? count = default);
         /// <summary>
-        /// Sets the default AI provider for the current tenant.
+        /// Set the default AI provider
         /// </summary>
+        /// <remarks>
+        /// Sets the default AI provider and model for the current tenant.  The specified provider and model will be used as the default for all new AI chat sessions within the tenant.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setDefaultProviderRequestDto">Request parameters for setting the default AI provider. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-provider/">REST API Reference for SetDefaultProvider Operation</seealso>
@@ -131,10 +149,10 @@ namespace DocSpace.API.SDK.Api.AI
         DefaultProviderWrapper SetDefaultProvider(SetDefaultProviderRequestDto? setDefaultProviderRequestDto = default);
 
         /// <summary>
-        /// Sets the default AI provider for the current tenant.
+        /// Set the default AI provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the default AI provider and model for the current tenant.  The specified provider and model will be used as the default for all new AI chat sessions within the tenant.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setDefaultProviderRequestDto">Request parameters for setting the default AI provider. (optional)</param>
@@ -142,24 +160,27 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>ApiResponse of DefaultProviderWrapper</returns>
         ApiResponse<DefaultProviderWrapper> SetDefaultProviderWithHttpInfo(SetDefaultProviderRequestDto? setDefaultProviderRequestDto = default);
         /// <summary>
-        /// 
+        /// Update an AI provider
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of an existing AI provider, including its display title, API endpoint URL, and authentication key.  Only the fields provided in the request body will be updated. This action is rate-limited.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateProviderBody"></param>
+        /// <param name="id">The identifier of the AI provider to update.</param>
+        /// <param name="updateProviderBody">The AI provider configuration parameters to update.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-provider/">REST API Reference for UpdateProvider Operation</seealso>
         /// <returns>AiProviderWrapper</returns>
         AiProviderWrapper UpdateProvider(int id, UpdateProviderBody updateProviderBody);
 
         /// <summary>
-        /// 
+        /// Update an AI provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the configuration of an existing AI provider, including its display title, API endpoint URL, and authentication key.  Only the fields provided in the request body will be updated. This action is rate-limited.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateProviderBody"></param>
+        /// <param name="id">The identifier of the AI provider to update.</param>
+        /// <param name="updateProviderBody">The AI provider configuration parameters to update.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-provider/">REST API Reference for UpdateProvider Operation</seealso>
         /// <returns>ApiResponse of AiProviderWrapper</returns>
         ApiResponse<AiProviderWrapper> UpdateProviderWithHttpInfo(int id, UpdateProviderBody updateProviderBody);
@@ -173,60 +194,60 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Add an AI provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Registers a new AI provider for the current tenant by specifying its type, display title, API endpoint URL, and authentication key.  The provider becomes available for AI chat conversations after creation. This action is rate-limited.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createProviderRequestDto"> (optional)</param>
+        /// <param name="createProviderRequestDto">Request parameters for creating a new AI provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-provider/">REST API Reference for AddProvider Operation</seealso>
         /// <returns>Task of AiProviderWrapper</returns>
         Task<AiProviderWrapper> AddProviderAsync(CreateProviderRequestDto? createProviderRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Add an AI provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Registers a new AI provider for the current tenant by specifying its type, display title, API endpoint URL, and authentication key.  The provider becomes available for AI chat conversations after creation. This action is rate-limited.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createProviderRequestDto"> (optional)</param>
+        /// <param name="createProviderRequestDto">Request parameters for creating a new AI provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-provider/">REST API Reference for AddProvider Operation</seealso>
         /// <returns>Task of ApiResponse (AiProviderWrapper)</returns>
         Task<ApiResponse<AiProviderWrapper>> AddProviderWithHttpInfoAsync(CreateProviderRequestDto? createProviderRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Delete AI providers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently deletes one or more AI providers by their identifiers.  All specified providers are removed from the current tenant. This action cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="removeProviderRequestDto"> (optional)</param>
+        /// <param name="removeProviderRequestDto">Request parameters for deleting one or more AI providers. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-providers/">REST API Reference for DeleteProviders Operation</seealso>
         /// <returns>Task of void</returns>
         Task DeleteProvidersAsync(RemoveProviderRequestDto? removeProviderRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Delete AI providers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently deletes one or more AI providers by their identifiers.  All specified providers are removed from the current tenant. This action cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="removeProviderRequestDto"> (optional)</param>
+        /// <param name="removeProviderRequestDto">Request parameters for deleting one or more AI providers. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-providers/">REST API Reference for DeleteProviders Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> DeleteProvidersWithHttpInfoAsync(RemoveProviderRequestDto? removeProviderRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get available AI provider types
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the list of AI provider types that are available for configuration on the current instance.  Each entry includes the provider type identifier and the default API endpoint URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -235,10 +256,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<ProviderSettingsArrayWrapper> GetAvailableProvidersAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get available AI provider types
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the list of AI provider types that are available for configuration on the current instance.  Each entry includes the provider type identifier and the default API endpoint URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -246,10 +267,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (ProviderSettingsArrayWrapper)</returns>
         Task<ApiResponse<ProviderSettingsArrayWrapper>> GetAvailableProvidersWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// Returns the default AI provider for the current tenant.
+        /// Get the default AI provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the default AI provider and model configured for the current tenant.  Returns null if the tenant does not have any registered providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -258,10 +279,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<DefaultProviderWrapper> GetDefaultProviderAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Returns the default AI provider for the current tenant.
+        /// Get the default AI provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the default AI provider and model configured for the current tenant.  Returns null if the tenant does not have any registered providers.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -269,37 +290,37 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (DefaultProviderWrapper)</returns>
         Task<ApiResponse<DefaultProviderWrapper>> GetDefaultProviderWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get AI providers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of AI providers configured for the current tenant.  Supports pagination via the startIndex and count query parameters. The total number of providers is included in the response metadata.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-providers/">REST API Reference for GetProviders Operation</seealso>
         /// <returns>Task of AiProviderArrayWrapper</returns>
         Task<AiProviderArrayWrapper> GetProvidersAsync(int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get AI providers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of AI providers configured for the current tenant.  Supports pagination via the startIndex and count query parameters. The total number of providers is included in the response metadata.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-providers/">REST API Reference for GetProviders Operation</seealso>
         /// <returns>Task of ApiResponse (AiProviderArrayWrapper)</returns>
         Task<ApiResponse<AiProviderArrayWrapper>> GetProvidersWithHttpInfoAsync(int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Sets the default AI provider for the current tenant.
+        /// Set the default AI provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the default AI provider and model for the current tenant.  The specified provider and model will be used as the default for all new AI chat sessions within the tenant.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setDefaultProviderRequestDto">Request parameters for setting the default AI provider. (optional)</param>
@@ -309,10 +330,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<DefaultProviderWrapper> SetDefaultProviderAsync(SetDefaultProviderRequestDto? setDefaultProviderRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Sets the default AI provider for the current tenant.
+        /// Set the default AI provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Sets the default AI provider and model for the current tenant.  The specified provider and model will be used as the default for all new AI chat sessions within the tenant.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setDefaultProviderRequestDto">Request parameters for setting the default AI provider. (optional)</param>
@@ -321,28 +342,28 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (DefaultProviderWrapper)</returns>
         Task<ApiResponse<DefaultProviderWrapper>> SetDefaultProviderWithHttpInfoAsync(SetDefaultProviderRequestDto? setDefaultProviderRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Update an AI provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the configuration of an existing AI provider, including its display title, API endpoint URL, and authentication key.  Only the fields provided in the request body will be updated. This action is rate-limited.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateProviderBody"></param>
+        /// <param name="id">The identifier of the AI provider to update.</param>
+        /// <param name="updateProviderBody">The AI provider configuration parameters to update.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-provider/">REST API Reference for UpdateProvider Operation</seealso>
         /// <returns>Task of AiProviderWrapper</returns>
         Task<AiProviderWrapper> UpdateProviderAsync(int id, UpdateProviderBody updateProviderBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Update an AI provider
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the configuration of an existing AI provider, including its display title, API endpoint URL, and authentication key.  Only the fields provided in the request body will be updated. This action is rate-limited.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateProviderBody"></param>
+        /// <param name="id">The identifier of the AI provider to update.</param>
+        /// <param name="updateProviderBody">The AI provider configuration parameters to update.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-provider/">REST API Reference for UpdateProvider Operation</seealso>
         /// <returns>Task of ApiResponse (AiProviderWrapper)</returns>
@@ -576,10 +597,13 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// 
+        /// Add an AI provider
         /// </summary>
+        /// <remarks>
+        /// Registers a new AI provider for the current tenant by specifying its type, display title, API endpoint URL, and authentication key.  The provider becomes available for AI chat conversations after creation. This action is rate-limited.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createProviderRequestDto"> (optional)</param>
+        /// <param name="createProviderRequestDto">Request parameters for creating a new AI provider. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-provider/">REST API Reference for AddProvider Operation</seealso>
         /// <returns>AiProviderWrapper</returns>
         public AiProviderWrapper AddProvider(CreateProviderRequestDto? createProviderRequestDto = default)
@@ -589,10 +613,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Add an AI provider
         /// </summary>
+        /// <remarks>
+        /// Registers a new AI provider for the current tenant by specifying its type, display title, API endpoint URL, and authentication key.  The provider becomes available for AI chat conversations after creation. This action is rate-limited.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createProviderRequestDto"> (optional)</param>
+        /// <param name="createProviderRequestDto">Request parameters for creating a new AI provider. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-provider/">REST API Reference for AddProvider Operation</seealso>
         /// <returns>ApiResponse of AiProviderWrapper</returns>
         public ApiResponse<AiProviderWrapper> AddProviderWithHttpInfo(CreateProviderRequestDto? createProviderRequestDto = default)
@@ -659,10 +686,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Add an AI provider
         /// </summary>
+        /// <remarks>
+        /// Registers a new AI provider for the current tenant by specifying its type, display title, API endpoint URL, and authentication key.  The provider becomes available for AI chat conversations after creation. This action is rate-limited.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createProviderRequestDto"> (optional)</param>
+        /// <param name="createProviderRequestDto">Request parameters for creating a new AI provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-provider/">REST API Reference for AddProvider Operation</seealso>
         /// <returns>Task of AiProviderWrapper</returns>
@@ -673,10 +703,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Add an AI provider
         /// </summary>
+        /// <remarks>
+        /// Registers a new AI provider for the current tenant by specifying its type, display title, API endpoint URL, and authentication key.  The provider becomes available for AI chat conversations after creation. This action is rate-limited.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createProviderRequestDto"> (optional)</param>
+        /// <param name="createProviderRequestDto">Request parameters for creating a new AI provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-provider/">REST API Reference for AddProvider Operation</seealso>
         /// <returns>Task of ApiResponse (AiProviderWrapper)</returns>
@@ -746,10 +779,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Delete AI providers
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes one or more AI providers by their identifiers.  All specified providers are removed from the current tenant. This action cannot be undone.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="removeProviderRequestDto"> (optional)</param>
+        /// <param name="removeProviderRequestDto">Request parameters for deleting one or more AI providers. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-providers/">REST API Reference for DeleteProviders Operation</seealso>
         /// <returns></returns>
         public void DeleteProviders(RemoveProviderRequestDto? removeProviderRequestDto = default)
@@ -758,10 +794,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Delete AI providers
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes one or more AI providers by their identifiers.  All specified providers are removed from the current tenant. This action cannot be undone.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="removeProviderRequestDto"> (optional)</param>
+        /// <param name="removeProviderRequestDto">Request parameters for deleting one or more AI providers. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-providers/">REST API Reference for DeleteProviders Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteProvidersWithHttpInfo(RemoveProviderRequestDto? removeProviderRequestDto = default)
@@ -828,10 +867,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Delete AI providers
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes one or more AI providers by their identifiers.  All specified providers are removed from the current tenant. This action cannot be undone.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="removeProviderRequestDto"> (optional)</param>
+        /// <param name="removeProviderRequestDto">Request parameters for deleting one or more AI providers. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-providers/">REST API Reference for DeleteProviders Operation</seealso>
         /// <returns>Task of void</returns>
@@ -841,10 +883,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Delete AI providers
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes one or more AI providers by their identifiers.  All specified providers are removed from the current tenant. This action cannot be undone.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="removeProviderRequestDto"> (optional)</param>
+        /// <param name="removeProviderRequestDto">Request parameters for deleting one or more AI providers. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-providers/">REST API Reference for DeleteProviders Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -914,8 +959,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get available AI provider types
         /// </summary>
+        /// <remarks>
+        /// Returns the list of AI provider types that are available for configuration on the current instance.  Each entry includes the provider type identifier and the default API endpoint URL.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-providers/">REST API Reference for GetAvailableProviders Operation</seealso>
         /// <returns>ProviderSettingsArrayWrapper</returns>
@@ -926,8 +974,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get available AI provider types
         /// </summary>
+        /// <remarks>
+        /// Returns the list of AI provider types that are available for configuration on the current instance.  Each entry includes the provider type identifier and the default API endpoint URL.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-providers/">REST API Reference for GetAvailableProviders Operation</seealso>
         /// <returns>ApiResponse of ProviderSettingsArrayWrapper</returns>
@@ -994,8 +1045,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get available AI provider types
         /// </summary>
+        /// <remarks>
+        /// Returns the list of AI provider types that are available for configuration on the current instance.  Each entry includes the provider type identifier and the default API endpoint URL.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-providers/">REST API Reference for GetAvailableProviders Operation</seealso>
@@ -1007,8 +1061,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get available AI provider types
         /// </summary>
+        /// <remarks>
+        /// Returns the list of AI provider types that are available for configuration on the current instance.  Each entry includes the provider type identifier and the default API endpoint URL.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-providers/">REST API Reference for GetAvailableProviders Operation</seealso>
@@ -1078,8 +1135,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Returns the default AI provider for the current tenant.
+        /// Get the default AI provider
         /// </summary>
+        /// <remarks>
+        /// Returns the default AI provider and model configured for the current tenant.  Returns null if the tenant does not have any registered providers.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-provider/">REST API Reference for GetDefaultProvider Operation</seealso>
         /// <returns>DefaultProviderWrapper</returns>
@@ -1090,8 +1150,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Returns the default AI provider for the current tenant.
+        /// Get the default AI provider
         /// </summary>
+        /// <remarks>
+        /// Returns the default AI provider and model configured for the current tenant.  Returns null if the tenant does not have any registered providers.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-provider/">REST API Reference for GetDefaultProvider Operation</seealso>
         /// <returns>ApiResponse of DefaultProviderWrapper</returns>
@@ -1158,8 +1221,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Returns the default AI provider for the current tenant.
+        /// Get the default AI provider
         /// </summary>
+        /// <remarks>
+        /// Returns the default AI provider and model configured for the current tenant.  Returns null if the tenant does not have any registered providers.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-provider/">REST API Reference for GetDefaultProvider Operation</seealso>
@@ -1171,8 +1237,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Returns the default AI provider for the current tenant.
+        /// Get the default AI provider
         /// </summary>
+        /// <remarks>
+        /// Returns the default AI provider and model configured for the current tenant.  Returns null if the tenant does not have any registered providers.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-default-provider/">REST API Reference for GetDefaultProvider Operation</seealso>
@@ -1242,11 +1311,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get AI providers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of AI providers configured for the current tenant.  Supports pagination via the startIndex and count query parameters. The total number of providers is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-providers/">REST API Reference for GetProviders Operation</seealso>
         /// <returns>AiProviderArrayWrapper</returns>
         public AiProviderArrayWrapper GetProviders(int? startIndex = default, int? count = default)
@@ -1256,11 +1328,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get AI providers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of AI providers configured for the current tenant.  Supports pagination via the startIndex and count query parameters. The total number of providers is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-providers/">REST API Reference for GetProviders Operation</seealso>
         /// <returns>ApiResponse of AiProviderArrayWrapper</returns>
         public ApiResponse<AiProviderArrayWrapper> GetProvidersWithHttpInfo(int? startIndex = default, int? count = default)
@@ -1338,11 +1413,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get AI providers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of AI providers configured for the current tenant.  Supports pagination via the startIndex and count query parameters. The total number of providers is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-providers/">REST API Reference for GetProviders Operation</seealso>
         /// <returns>Task of AiProviderArrayWrapper</returns>
@@ -1353,11 +1431,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get AI providers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of AI providers configured for the current tenant.  Supports pagination via the startIndex and count query parameters. The total number of providers is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-providers/">REST API Reference for GetProviders Operation</seealso>
         /// <returns>Task of ApiResponse (AiProviderArrayWrapper)</returns>
@@ -1434,8 +1515,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Sets the default AI provider for the current tenant.
+        /// Set the default AI provider
         /// </summary>
+        /// <remarks>
+        /// Sets the default AI provider and model for the current tenant.  The specified provider and model will be used as the default for all new AI chat sessions within the tenant.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setDefaultProviderRequestDto">Request parameters for setting the default AI provider. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-provider/">REST API Reference for SetDefaultProvider Operation</seealso>
@@ -1447,8 +1531,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Sets the default AI provider for the current tenant.
+        /// Set the default AI provider
         /// </summary>
+        /// <remarks>
+        /// Sets the default AI provider and model for the current tenant.  The specified provider and model will be used as the default for all new AI chat sessions within the tenant.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setDefaultProviderRequestDto">Request parameters for setting the default AI provider. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-default-provider/">REST API Reference for SetDefaultProvider Operation</seealso>
@@ -1517,8 +1604,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Sets the default AI provider for the current tenant.
+        /// Set the default AI provider
         /// </summary>
+        /// <remarks>
+        /// Sets the default AI provider and model for the current tenant.  The specified provider and model will be used as the default for all new AI chat sessions within the tenant.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setDefaultProviderRequestDto">Request parameters for setting the default AI provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1531,8 +1621,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// Sets the default AI provider for the current tenant.
+        /// Set the default AI provider
         /// </summary>
+        /// <remarks>
+        /// Sets the default AI provider and model for the current tenant.  The specified provider and model will be used as the default for all new AI chat sessions within the tenant.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="setDefaultProviderRequestDto">Request parameters for setting the default AI provider. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1604,11 +1697,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update an AI provider
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of an existing AI provider, including its display title, API endpoint URL, and authentication key.  Only the fields provided in the request body will be updated. This action is rate-limited.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateProviderBody"></param>
+        /// <param name="id">The identifier of the AI provider to update.</param>
+        /// <param name="updateProviderBody">The AI provider configuration parameters to update.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-provider/">REST API Reference for UpdateProvider Operation</seealso>
         /// <returns>AiProviderWrapper</returns>
         public AiProviderWrapper UpdateProvider(int id, UpdateProviderBody updateProviderBody)
@@ -1618,11 +1714,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update an AI provider
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of an existing AI provider, including its display title, API endpoint URL, and authentication key.  Only the fields provided in the request body will be updated. This action is rate-limited.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateProviderBody"></param>
+        /// <param name="id">The identifier of the AI provider to update.</param>
+        /// <param name="updateProviderBody">The AI provider configuration parameters to update.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-provider/">REST API Reference for UpdateProvider Operation</seealso>
         /// <returns>ApiResponse of AiProviderWrapper</returns>
         public ApiResponse<AiProviderWrapper> UpdateProviderWithHttpInfo(int id, UpdateProviderBody updateProviderBody)
@@ -1694,11 +1793,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update an AI provider
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of an existing AI provider, including its display title, API endpoint URL, and authentication key.  Only the fields provided in the request body will be updated. This action is rate-limited.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateProviderBody"></param>
+        /// <param name="id">The identifier of the AI provider to update.</param>
+        /// <param name="updateProviderBody">The AI provider configuration parameters to update.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-provider/">REST API Reference for UpdateProvider Operation</seealso>
         /// <returns>Task of AiProviderWrapper</returns>
@@ -1709,11 +1811,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update an AI provider
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of an existing AI provider, including its display title, API endpoint URL, and authentication key.  Only the fields provided in the request body will be updated. This action is rate-limited.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateProviderBody"></param>
+        /// <param name="id">The identifier of the AI provider to update.</param>
+        /// <param name="updateProviderBody">The AI provider configuration parameters to update.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-provider/">REST API Reference for UpdateProvider Operation</seealso>
         /// <returns>Task of ApiResponse (AiProviderWrapper)</returns>

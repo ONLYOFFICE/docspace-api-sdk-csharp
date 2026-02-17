@@ -33,18 +33,21 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiSettingsDto" /> class.
         /// </summary>
-        /// <param name="webSearchEnabled">webSearchEnabled.</param>
-        /// <param name="webSearchNeedReset">webSearchNeedReset.</param>
-        /// <param name="vectorizationEnabled">vectorizationEnabled.</param>
-        /// <param name="vectorizationNeedReset">vectorizationNeedReset.</param>
-        /// <param name="aiReady">aiReady.</param>
-        /// <param name="aiReadyNeedReset">aiReadyNeedReset.</param>
-        /// <param name="portalMcpServerId">portalMcpServerId.</param>
-        /// <param name="embeddingModel">embeddingModel (required).</param>
-        /// <param name="knowledgeSearchToolName">knowledgeSearchToolName (required).</param>
-        /// <param name="webSearchToolName">webSearchToolName (required).</param>
-        /// <param name="webCrawlingToolName">webCrawlingToolName (required).</param>
-        public AiSettingsDto(bool webSearchEnabled = default, bool webSearchNeedReset = default, bool vectorizationEnabled = default, bool vectorizationNeedReset = default, bool aiReady = default, bool aiReadyNeedReset = default, Guid? portalMcpServerId = default, string embeddingModel = default, string knowledgeSearchToolName = default, string webSearchToolName = default, string webCrawlingToolName = default)
+        /// <param name="webSearchEnabled">Indicates whether web search is enabled for AI chat sessions..</param>
+        /// <param name="webSearchNeedReset">Indicates whether the web search API key needs to be reconfigured..</param>
+        /// <param name="vectorizationEnabled">Indicates whether document vectorization is enabled..</param>
+        /// <param name="vectorizationNeedReset">Indicates whether the embedding provider API key needs to be reconfigured..</param>
+        /// <param name="aiReady">Indicates whether the AI subsystem is fully configured and operational..</param>
+        /// <param name="aiReadyNeedReset">Indicates whether the AI provider API key needs to be reconfigured..</param>
+        /// <param name="portalMcpServerId">The unique identifier of the portal-level MCP server, if configured..</param>
+        /// <param name="embeddingModel">The name of the embedding model used for document vectorization. (required).</param>
+        /// <param name="knowledgeSearchToolName">The tool name used by the AI assistant for knowledge base search. (required).</param>
+        /// <param name="webSearchToolName">The tool name used by the AI assistant for web search. (required).</param>
+        /// <param name="webCrawlingToolName">The tool name used by the AI assistant for web page crawling. (required).</param>
+        /// <param name="generateDocxToolName">The tool name used by the AI to launch docx creation in the editor. (required).</param>
+        /// <param name="generateFormToolName">The tool name used by the AI assistant to launch form creation in the editor. (required).</param>
+        /// <param name="generatePresentationToolName">The tool name used by the AI assistant to launch presentation creation in the editor. (required).</param>
+        public AiSettingsDto(bool webSearchEnabled = default, bool webSearchNeedReset = default, bool vectorizationEnabled = default, bool vectorizationNeedReset = default, bool aiReady = default, bool aiReadyNeedReset = default, Guid? portalMcpServerId = default, string embeddingModel = default, string knowledgeSearchToolName = default, string webSearchToolName = default, string webCrawlingToolName = default, string generateDocxToolName = default, string generateFormToolName = default, string generatePresentationToolName = default)
         {
             // to ensure "embeddingModel" is required (not null)
             if (embeddingModel == null)
@@ -70,6 +73,24 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("webCrawlingToolName is a required property for AiSettingsDto and cannot be null");
             }
             this.WebCrawlingToolName = webCrawlingToolName;
+            // to ensure "generateDocxToolName" is required (not null)
+            if (generateDocxToolName == null)
+            {
+                throw new ArgumentNullException("generateDocxToolName is a required property for AiSettingsDto and cannot be null");
+            }
+            this.GenerateDocxToolName = generateDocxToolName;
+            // to ensure "generateFormToolName" is required (not null)
+            if (generateFormToolName == null)
+            {
+                throw new ArgumentNullException("generateFormToolName is a required property for AiSettingsDto and cannot be null");
+            }
+            this.GenerateFormToolName = generateFormToolName;
+            // to ensure "generatePresentationToolName" is required (not null)
+            if (generatePresentationToolName == null)
+            {
+                throw new ArgumentNullException("generatePresentationToolName is a required property for AiSettingsDto and cannot be null");
+            }
+            this.GeneratePresentationToolName = generatePresentationToolName;
             this.WebSearchEnabled = webSearchEnabled;
             this.WebSearchNeedReset = webSearchNeedReset;
             this.VectorizationEnabled = vectorizationEnabled;
@@ -80,8 +101,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets WebSearchEnabled
+        /// Indicates whether web search is enabled for AI chat sessions.
         /// </summary>
+        /// <value>Indicates whether web search is enabled for AI chat sessions.</value>
         /*
         <example>true</example>
         */
@@ -89,8 +111,9 @@ namespace DocSpace.API.SDK.Model
         public bool WebSearchEnabled { get; set; }
 
         /// <summary>
-        /// Gets or Sets WebSearchNeedReset
+        /// Indicates whether the web search API key needs to be reconfigured.
         /// </summary>
+        /// <value>Indicates whether the web search API key needs to be reconfigured.</value>
         /*
         <example>true</example>
         */
@@ -98,8 +121,9 @@ namespace DocSpace.API.SDK.Model
         public bool WebSearchNeedReset { get; set; }
 
         /// <summary>
-        /// Gets or Sets VectorizationEnabled
+        /// Indicates whether document vectorization is enabled.
         /// </summary>
+        /// <value>Indicates whether document vectorization is enabled.</value>
         /*
         <example>true</example>
         */
@@ -107,8 +131,9 @@ namespace DocSpace.API.SDK.Model
         public bool VectorizationEnabled { get; set; }
 
         /// <summary>
-        /// Gets or Sets VectorizationNeedReset
+        /// Indicates whether the embedding provider API key needs to be reconfigured.
         /// </summary>
+        /// <value>Indicates whether the embedding provider API key needs to be reconfigured.</value>
         /*
         <example>true</example>
         */
@@ -116,8 +141,9 @@ namespace DocSpace.API.SDK.Model
         public bool VectorizationNeedReset { get; set; }
 
         /// <summary>
-        /// Gets or Sets AiReady
+        /// Indicates whether the AI subsystem is fully configured and operational.
         /// </summary>
+        /// <value>Indicates whether the AI subsystem is fully configured and operational.</value>
         /*
         <example>true</example>
         */
@@ -125,8 +151,9 @@ namespace DocSpace.API.SDK.Model
         public bool AiReady { get; set; }
 
         /// <summary>
-        /// Gets or Sets AiReadyNeedReset
+        /// Indicates whether the AI provider API key needs to be reconfigured.
         /// </summary>
+        /// <value>Indicates whether the AI provider API key needs to be reconfigured.</value>
         /*
         <example>true</example>
         */
@@ -134,8 +161,9 @@ namespace DocSpace.API.SDK.Model
         public bool AiReadyNeedReset { get; set; }
 
         /// <summary>
-        /// Gets or Sets PortalMcpServerId
+        /// The unique identifier of the portal-level MCP server, if configured.
         /// </summary>
+        /// <value>The unique identifier of the portal-level MCP server, if configured.</value>
         /*
         <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
         */
@@ -143,8 +171,9 @@ namespace DocSpace.API.SDK.Model
         public Guid? PortalMcpServerId { get; set; }
 
         /// <summary>
-        /// Gets or Sets EmbeddingModel
+        /// The name of the embedding model used for document vectorization.
         /// </summary>
+        /// <value>The name of the embedding model used for document vectorization.</value>
         /*
         <example>some text</example>
         */
@@ -152,8 +181,9 @@ namespace DocSpace.API.SDK.Model
         public string EmbeddingModel { get; set; }
 
         /// <summary>
-        /// Gets or Sets KnowledgeSearchToolName
+        /// The tool name used by the AI assistant for knowledge base search.
         /// </summary>
+        /// <value>The tool name used by the AI assistant for knowledge base search.</value>
         /*
         <example>some text</example>
         */
@@ -161,8 +191,9 @@ namespace DocSpace.API.SDK.Model
         public string KnowledgeSearchToolName { get; set; }
 
         /// <summary>
-        /// Gets or Sets WebSearchToolName
+        /// The tool name used by the AI assistant for web search.
         /// </summary>
+        /// <value>The tool name used by the AI assistant for web search.</value>
         /*
         <example>some text</example>
         */
@@ -170,13 +201,44 @@ namespace DocSpace.API.SDK.Model
         public string WebSearchToolName { get; set; }
 
         /// <summary>
-        /// Gets or Sets WebCrawlingToolName
+        /// The tool name used by the AI assistant for web page crawling.
         /// </summary>
+        /// <value>The tool name used by the AI assistant for web page crawling.</value>
         /*
         <example>some text</example>
         */
         [DataMember(Name = "webCrawlingToolName", IsRequired = true, EmitDefaultValue = true)]
         public string WebCrawlingToolName { get; set; }
+
+        /// <summary>
+        /// The tool name used by the AI to launch docx creation in the editor.
+        /// </summary>
+        /// <value>The tool name used by the AI to launch docx creation in the editor.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "generateDocxToolName", IsRequired = true, EmitDefaultValue = true)]
+        public string GenerateDocxToolName { get; set; }
+
+        /// <summary>
+        /// The tool name used by the AI assistant to launch form creation in the editor.
+        /// </summary>
+        /// <value>The tool name used by the AI assistant to launch form creation in the editor.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "generateFormToolName", IsRequired = true, EmitDefaultValue = true)]
+        public string GenerateFormToolName { get; set; }
+
+        /// <summary>
+        /// The tool name used by the AI assistant to launch presentation creation in the editor.
+        /// </summary>
+        /// <value>The tool name used by the AI assistant to launch presentation creation in the editor.</value>
+        /*
+        <example>some text</example>
+        */
+        [DataMember(Name = "generatePresentationToolName", IsRequired = true, EmitDefaultValue = true)]
+        public string GeneratePresentationToolName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -197,6 +259,9 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  KnowledgeSearchToolName: ").Append(KnowledgeSearchToolName).Append("\n");
             sb.Append("  WebSearchToolName: ").Append(WebSearchToolName).Append("\n");
             sb.Append("  WebCrawlingToolName: ").Append(WebCrawlingToolName).Append("\n");
+            sb.Append("  GenerateDocxToolName: ").Append(GenerateDocxToolName).Append("\n");
+            sb.Append("  GenerateFormToolName: ").Append(GenerateFormToolName).Append("\n");
+            sb.Append("  GeneratePresentationToolName: ").Append(GeneratePresentationToolName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

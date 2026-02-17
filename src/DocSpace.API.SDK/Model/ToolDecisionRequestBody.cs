@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ToolDecisionRequestBody
+    /// Parameters for the tool execution permission decision.
     /// </summary>
     [DataContract(Name = "ToolDecisionRequestBody")]
     public partial class ToolDecisionRequestBody : IValidatableObject

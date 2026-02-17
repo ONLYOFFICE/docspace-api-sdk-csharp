@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AddMcpServerRequestBody
+    /// Parameters for creating a new custom MCP server.
     /// </summary>
     [DataContract(Name = "AddMcpServerRequestBody")]
     public partial class AddMcpServerRequestBody : IValidatableObject
@@ -33,11 +33,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AddMcpServerRequestBody" /> class.
         /// </summary>
-        /// <param name="name">name (required).</param>
-        /// <param name="description">description (required).</param>
-        /// <param name="endpoint">endpoint (required).</param>
-        /// <param name="headers">headers.</param>
-        /// <param name="icon">icon.</param>
+        /// <param name="name">Unique display name for the server. Only letters, numbers, underscores, and hyphens are allowed. Maximum 128 characters. (required).</param>
+        /// <param name="description">Human-readable description of the server&#39;s purpose and capabilities. Maximum 255 characters. (required).</param>
+        /// <param name="endpoint">Base URL of the MCP server endpoint. Must be a valid, reachable URL. The system will verify connectivity during registration. (required).</param>
+        /// <param name="headers">Optional HTTP headers to include with every request to the MCP server (e.g., authentication tokens or API keys)..</param>
+        /// <param name="icon">Optional Base64-encoded icon image for the server. Used as the visual identifier in the UI..</param>
         public AddMcpServerRequestBody(string name = default, string description = default, string endpoint = default, Dictionary<string, string> headers = default, string icon = default)
         {
             // to ensure "name" is required (not null)
@@ -63,35 +63,39 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Unique display name for the server. Only letters, numbers, underscores, and hyphens are allowed. Maximum 128 characters.
         /// </summary>
+        /// <value>Unique display name for the server. Only letters, numbers, underscores, and hyphens are allowed. Maximum 128 characters.</value>
         /*
-        <example>John Doe</example>
+        <example>my-custom-server</example>
         */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// Human-readable description of the server&#39;s purpose and capabilities. Maximum 255 characters.
         /// </summary>
+        /// <value>Human-readable description of the server&#39;s purpose and capabilities. Maximum 255 characters.</value>
         /*
-        <example>some text</example>
+        <example>Custom MCP server for project management tools</example>
         */
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets Endpoint
+        /// Base URL of the MCP server endpoint. Must be a valid, reachable URL. The system will verify connectivity during registration.
         /// </summary>
+        /// <value>Base URL of the MCP server endpoint. Must be a valid, reachable URL. The system will verify connectivity during registration.</value>
         /*
-        <example>some text</example>
+        <example>https://mcp.example.com/sse</example>
         */
         [DataMember(Name = "endpoint", IsRequired = true, EmitDefaultValue = true)]
         public string Endpoint { get; set; }
 
         /// <summary>
-        /// Gets or Sets Headers
+        /// Optional HTTP headers to include with every request to the MCP server (e.g., authentication tokens or API keys).
         /// </summary>
+        /// <value>Optional HTTP headers to include with every request to the MCP server (e.g., authentication tokens or API keys).</value>
         /*
         <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
         */
@@ -99,8 +103,9 @@ namespace DocSpace.API.SDK.Model
         public Dictionary<string, string> Headers { get; set; }
 
         /// <summary>
-        /// Gets or Sets Icon
+        /// Optional Base64-encoded icon image for the server. Used as the visual identifier in the UI.
         /// </summary>
+        /// <value>Optional Base64-encoded icon image for the server. Used as the visual identifier in the UI.</value>
         /*
         <example>some text</example>
         */

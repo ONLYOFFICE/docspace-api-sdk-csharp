@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// VectorizationStartRequestBody
+    /// Parameters for submitting files for vectorization.
     /// </summary>
     [DataContract(Name = "VectorizationStartRequestBody")]
     public partial class VectorizationStartRequestBody : IValidatableObject
@@ -33,7 +33,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VectorizationStartRequestBody" /> class.
         /// </summary>
-        /// <param name="files">files (required).</param>
+        /// <param name="files">The set of file identifiers to submit for vectorization. (required).</param>
         public VectorizationStartRequestBody(List<int> files = default)
         {
             // to ensure "files" is required (not null)
@@ -45,8 +45,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Files
+        /// The set of file identifiers to submit for vectorization.
         /// </summary>
+        /// <value>The set of file identifiers to submit for vectorization.</value>
         /*
         <example>[1234]</example>
         */

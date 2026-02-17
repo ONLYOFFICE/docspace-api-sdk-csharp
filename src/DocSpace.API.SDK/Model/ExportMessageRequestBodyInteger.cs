@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ExportMessageRequestBodyInteger
+    /// Parameters for exporting an AI chat message to a document.
     /// </summary>
     [DataContract(Name = "ExportMessageRequestBodyInteger")]
     public partial class ExportMessageRequestBodyInteger : IValidatableObject
@@ -33,8 +33,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExportMessageRequestBodyInteger" /> class.
         /// </summary>
-        /// <param name="folderId">folderId (required).</param>
-        /// <param name="title">title (required).</param>
+        /// <param name="folderId">The identifier of the destination folder where the exported document will be saved. (required).</param>
+        /// <param name="title">The file name (without extension) to use for the exported document. (required).</param>
         public ExportMessageRequestBodyInteger(int folderId = default, string title = default)
         {
             this.FolderId = folderId;
@@ -47,8 +47,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets FolderId
+        /// The identifier of the destination folder where the exported document will be saved.
         /// </summary>
+        /// <value>The identifier of the destination folder where the exported document will be saved.</value>
         /*
         <example>1</example>
         */
@@ -56,8 +57,9 @@ namespace DocSpace.API.SDK.Model
         public int FolderId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// The file name (without extension) to use for the exported document.
         /// </summary>
+        /// <value>The file name (without extension) to use for the exported document.</value>
         /*
         <example>SampleFile</example>
         */

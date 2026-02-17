@@ -19,38 +19,54 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Parameters for configuring the embedding provider.
+    /// The editor tool call state. Used to run the agent flow in the editor.
     /// </summary>
-    [DataContract(Name = "SetEmbeddingConfigRequestBody")]
-    public partial class SetEmbeddingConfigRequestBody : IValidatableObject
+    [DataContract(Name = "EditorToolCallStateDto")]
+    public partial class EditorToolCallStateDto : IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", EmitDefaultValue = false)]
-        public EmbeddingProviderType? Type { get; set; }
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="SetEmbeddingConfigRequestBody" /> class.
+        /// Initializes a new instance of the <see cref="EditorToolCallStateDto" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
-        /// <param name="key">The API key for the selected embedding provider. Pass null to keep the existing key unchanged..</param>
-        public SetEmbeddingConfigRequestBody(EmbeddingProviderType? type = default, string key = default)
+        [JsonConstructorAttribute]
+        protected EditorToolCallStateDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EditorToolCallStateDto" /> class.
+        /// </summary>
+        /// <param name="toolName">The tool name. (required).</param>
+        /// <param name="parameters">The editor tool call parameters. (required).</param>
+        public EditorToolCallStateDto(string toolName = default, Object parameters = default)
         {
-            this.Type = type;
-            this.Key = key;
+            // to ensure "toolName" is required (not null)
+            if (toolName == null)
+            {
+                throw new ArgumentNullException("toolName is a required property for EditorToolCallStateDto and cannot be null");
+            }
+            this.ToolName = toolName;
+            // to ensure "parameters" is required (not null)
+            if (parameters == null)
+            {
+                throw new ArgumentNullException("parameters is a required property for EditorToolCallStateDto and cannot be null");
+            }
+            this.Parameters = parameters;
         }
 
         /// <summary>
-        /// The API key for the selected embedding provider. Pass null to keep the existing key unchanged.
+        /// The tool name.
         /// </summary>
-        /// <value>The API key for the selected embedding provider. Pass null to keep the existing key unchanged.</value>
+        /// <value>The tool name.</value>
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "key", EmitDefaultValue = true)]
-        public string Key { get; set; }
+        [DataMember(Name = "toolName", IsRequired = true, EmitDefaultValue = true)]
+        public string ToolName { get; set; }
+
+        /// <summary>
+        /// The editor tool call parameters.
+        /// </summary>
+        /// <value>The editor tool call parameters.</value>
+        [DataMember(Name = "parameters", IsRequired = true, EmitDefaultValue = true)]
+        public Object Parameters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -59,9 +75,9 @@ namespace DocSpace.API.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class SetEmbeddingConfigRequestBody {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("class EditorToolCallStateDto {\n");
+            sb.Append("  ToolName: ").Append(ToolName).Append("\n");
+            sb.Append("  Parameters: ").Append(Parameters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

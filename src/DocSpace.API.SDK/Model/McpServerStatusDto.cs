@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// McpServerStatusDto
+    /// MCP server status within a room, reflecting the current user&#39;s connection state for OAuth-based servers.
     /// </summary>
     [DataContract(Name = "McpServerStatusDto")]
     public partial class McpServerStatusDto : IValidatableObject
@@ -39,12 +39,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="McpServerStatusDto" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="name">name (required).</param>
+        /// <param name="id">Unique identifier of the MCP server..</param>
+        /// <param name="name">Display name of the MCP server. (required).</param>
         /// <param name="serverType">serverType.</param>
-        /// <param name="connected">connected.</param>
+        /// <param name="connected">Indicates whether the current user has an active connection to this server. For direct-connection servers this is always true; for OAuth-based servers it reflects whether the user has completed authorization..</param>
         /// <param name="icon">icon.</param>
-        /// <param name="needReset">needReset.</param>
+        /// <param name="needReset">Indicates whether the server requires a configuration reset due to connectivity or credential issues..</param>
         public McpServerStatusDto(Guid id = default, string name = default, ServerType? serverType = default, bool connected = default, Icon icon = default, bool needReset = default)
         {
             // to ensure "name" is required (not null)
@@ -61,8 +61,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Unique identifier of the MCP server.
         /// </summary>
+        /// <value>Unique identifier of the MCP server.</value>
         /*
         <example>00000000-0000-0000-0000-000000000000</example>
         */
@@ -70,8 +71,9 @@ namespace DocSpace.API.SDK.Model
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Display name of the MCP server.
         /// </summary>
+        /// <value>Display name of the MCP server.</value>
         /*
         <example>John Doe</example>
         */
@@ -79,8 +81,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Connected
+        /// Indicates whether the current user has an active connection to this server. For direct-connection servers this is always true; for OAuth-based servers it reflects whether the user has completed authorization.
         /// </summary>
+        /// <value>Indicates whether the current user has an active connection to this server. For direct-connection servers this is always true; for OAuth-based servers it reflects whether the user has completed authorization.</value>
         /*
         <example>true</example>
         */
@@ -94,8 +97,9 @@ namespace DocSpace.API.SDK.Model
         public Icon Icon { get; set; }
 
         /// <summary>
-        /// Gets or Sets NeedReset
+        /// Indicates whether the server requires a configuration reset due to connectivity or credential issues.
         /// </summary>
+        /// <value>Indicates whether the server requires a configuration reset due to connectivity or credential issues.</value>
         /*
         <example>true</example>
         */

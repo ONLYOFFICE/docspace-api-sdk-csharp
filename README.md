@@ -62,7 +62,7 @@ config.AccessToken = "YOUR_BEARER_TOKEN";
 HttpClient httpClient = new HttpClient();
 HttpClientHandler httpClientHandler = new HttpClientHandler();
 var apiInstance = new AIAgentsApi(httpClient, config, httpClientHandler);
-var createAgentRequestDto = new CreateAgentRequestDto?(); // CreateAgentRequestDto? |  (optional) 
+var createAgentRequestDto = new CreateAgentRequestDto?(); // CreateAgentRequestDto? | Request to create a new AI agent room. (optional) 
 
 try
 {
@@ -199,62 +199,62 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/AIChatApi.md#continuechat"><strong>ContinueChat</strong></a></td>
         <td><strong>POST</strong> /api/2.0/ai/chats/{chatId}/messages</td>
-        <td></td>
+        <td>Send a message to an existing AI chat</td>
       </tr>
       <tr>
         <td><a href="docs/AIChatApi.md#deletechat"><strong>DeleteChat</strong></a></td>
         <td><strong>DELETE</strong> /api/2.0/ai/chats/{chatId}</td>
-        <td></td>
+        <td>Delete an AI chat</td>
       </tr>
       <tr>
         <td><a href="docs/AIChatApi.md#exportchat"><strong>ExportChat</strong></a></td>
         <td><strong>POST</strong> /api/2.0/ai/chats/{chatId}/messages/export</td>
-        <td></td>
+        <td>Export AI chat messages to a file</td>
       </tr>
       <tr>
         <td><a href="docs/AIChatApi.md#getchat"><strong>GetChat</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/chats/{chatId}</td>
-        <td></td>
+        <td>Get an AI chat by ID</td>
       </tr>
       <tr>
         <td><a href="docs/AIChatApi.md#getchatmodels"><strong>GetChatModels</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/chats/models</td>
-        <td></td>
+        <td>Get available AI models</td>
       </tr>
       <tr>
         <td><a href="docs/AIChatApi.md#getchats"><strong>GetChats</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/rooms/{roomId}/chats</td>
-        <td></td>
+        <td>Get AI chats in a room</td>
       </tr>
       <tr>
         <td><a href="docs/AIChatApi.md#getmessages"><strong>GetMessages</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/chats/{chatId}/messages</td>
-        <td></td>
+        <td>Get messages of an AI chat</td>
       </tr>
       <tr>
         <td><a href="docs/AIChatApi.md#getuserchatssettings"><strong>GetUserChatsSettings</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/rooms/{roomId}/chats/config</td>
-        <td></td>
+        <td>Get user chat settings for a room</td>
       </tr>
       <tr>
         <td><a href="docs/AIChatApi.md#providepermission"><strong>ProvidePermission</strong></a></td>
         <td><strong>POST</strong> /api/2.0/ai/chats/tool-permissions/{callId}/decision</td>
-        <td></td>
+        <td>Submit a tool execution permission decision</td>
       </tr>
       <tr>
         <td><a href="docs/AIChatApi.md#renamechat"><strong>RenameChat</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/ai/chats/{chatId}</td>
-        <td></td>
+        <td>Rename an AI chat</td>
       </tr>
       <tr>
         <td><a href="docs/AIChatApi.md#setuserchatssettings"><strong>SetUserChatsSettings</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/ai/rooms/{roomId}/chats/config</td>
-        <td></td>
+        <td>Update user chat settings for a room</td>
       </tr>
       <tr>
         <td><a href="docs/AIChatApi.md#startnewchat"><strong>StartNewChat</strong></a></td>
         <td><strong>POST</strong> /api/2.0/ai/rooms/{roomId}/chats</td>
-        <td></td>
+        <td>Start a new AI chat</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>MCPApi</strong></td>
@@ -262,72 +262,72 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/AIMCPApi.md#addroomservers"><strong>AddRoomServers</strong></a></td>
         <td><strong>POST</strong> /api/2.0/ai/rooms/{roomId}/servers</td>
-        <td></td>
+        <td>Assign MCP servers to a room</td>
       </tr>
       <tr>
         <td><a href="docs/AIMCPApi.md#addserver"><strong>AddServer</strong></a></td>
         <td><strong>POST</strong> /api/2.0/ai/servers</td>
-        <td></td>
+        <td>Register a custom MCP server</td>
       </tr>
       <tr>
         <td><a href="docs/AIMCPApi.md#connectserver"><strong>ConnectServer</strong></a></td>
         <td><strong>POST</strong> /api/2.0/ai/rooms/{roomId}/servers/{serverId}/connect</td>
-        <td></td>
+        <td>Connect an OAuth-based MCP server in a room</td>
       </tr>
       <tr>
         <td><a href="docs/AIMCPApi.md#deleteroomservers"><strong>DeleteRoomServers</strong></a></td>
         <td><strong>DELETE</strong> /api/2.0/ai/rooms/{roomId}/servers</td>
-        <td></td>
+        <td>Remove MCP servers from a room</td>
       </tr>
       <tr>
         <td><a href="docs/AIMCPApi.md#deleteserver"><strong>DeleteServer</strong></a></td>
         <td><strong>DELETE</strong> /api/2.0/ai/servers</td>
-        <td></td>
+        <td>Delete MCP servers</td>
       </tr>
       <tr>
         <td><a href="docs/AIMCPApi.md#disconnectserver"><strong>DisconnectServer</strong></a></td>
         <td><strong>POST</strong> /api/2.0/ai/rooms/{roomId}/servers/{serverId}/disconnect</td>
-        <td></td>
+        <td>Disconnect an MCP server in a room</td>
       </tr>
       <tr>
         <td><a href="docs/AIMCPApi.md#getavailableservers"><strong>GetAvailableServers</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/servers/available</td>
-        <td></td>
+        <td>Get available MCP servers</td>
       </tr>
       <tr>
         <td><a href="docs/AIMCPApi.md#getroomservers"><strong>GetRoomServers</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/rooms/{roomId}/servers</td>
-        <td></td>
+        <td>Get MCP servers assigned to a room</td>
       </tr>
       <tr>
         <td><a href="docs/AIMCPApi.md#getserver"><strong>GetServer</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/servers/{id}</td>
-        <td></td>
+        <td>Get an MCP server by ID</td>
       </tr>
       <tr>
         <td><a href="docs/AIMCPApi.md#getservers"><strong>GetServers</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/servers</td>
-        <td></td>
+        <td>Get all MCP servers</td>
       </tr>
       <tr>
         <td><a href="docs/AIMCPApi.md#gettools"><strong>GetTools</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/rooms/{roomId}/servers/{serverId}/tools</td>
-        <td></td>
+        <td>Get MCP server tools in a room</td>
       </tr>
       <tr>
         <td><a href="docs/AIMCPApi.md#setserverstatus"><strong>SetServerStatus</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/ai/servers/{id}/status</td>
-        <td></td>
+        <td>Enable or disable an MCP server</td>
       </tr>
       <tr>
         <td><a href="docs/AIMCPApi.md#settools"><strong>SetTools</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/ai/rooms/{roomId}/servers/{serverId}/tools</td>
-        <td></td>
+        <td>Configure MCP server tools in a room</td>
       </tr>
       <tr>
         <td><a href="docs/AIMCPApi.md#updateserver"><strong>UpdateServer</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/ai/servers/{id}</td>
-        <td></td>
+        <td>Update a custom MCP server</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>MessagesApi</strong></td>
@@ -335,7 +335,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/AIMessagesApi.md#exportmessage"><strong>ExportMessage</strong></a></td>
         <td><strong>POST</strong> /api/2.0/ai/messages/{messageId}/export</td>
-        <td></td>
+        <td>Export a single AI message to a document</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>ProvidersApi</strong></td>
@@ -343,37 +343,37 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/AIProvidersApi.md#addprovider"><strong>AddProvider</strong></a></td>
         <td><strong>POST</strong> /api/2.0/ai/providers</td>
-        <td></td>
+        <td>Add an AI provider</td>
       </tr>
       <tr>
         <td><a href="docs/AIProvidersApi.md#deleteproviders"><strong>DeleteProviders</strong></a></td>
         <td><strong>DELETE</strong> /api/2.0/ai/providers</td>
-        <td></td>
+        <td>Delete AI providers</td>
       </tr>
       <tr>
         <td><a href="docs/AIProvidersApi.md#getavailableproviders"><strong>GetAvailableProviders</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/providers/available</td>
-        <td></td>
+        <td>Get available AI provider types</td>
       </tr>
       <tr>
         <td><a href="docs/AIProvidersApi.md#getdefaultprovider"><strong>GetDefaultProvider</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/providers/default</td>
-        <td>Returns the default AI provider for the current tenant.</td>
+        <td>Get the default AI provider</td>
       </tr>
       <tr>
         <td><a href="docs/AIProvidersApi.md#getproviders"><strong>GetProviders</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/providers</td>
-        <td></td>
+        <td>Get AI providers</td>
       </tr>
       <tr>
         <td><a href="docs/AIProvidersApi.md#setdefaultprovider"><strong>SetDefaultProvider</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/ai/providers/default</td>
-        <td>Sets the default AI provider for the current tenant.</td>
+        <td>Set the default AI provider</td>
       </tr>
       <tr>
         <td><a href="docs/AIProvidersApi.md#updateprovider"><strong>UpdateProvider</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/ai/providers/{id}</td>
-        <td></td>
+        <td>Update an AI provider</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>SettingsApi</strong></td>
@@ -381,27 +381,27 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/AISettingsApi.md#getaisettings"><strong>GetAiSettings</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/config</td>
-        <td></td>
+        <td>Get AI settings</td>
       </tr>
       <tr>
         <td><a href="docs/AISettingsApi.md#getvectorizationsettings"><strong>GetVectorizationSettings</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/config/vectorization</td>
-        <td></td>
+        <td>Get vectorization settings</td>
       </tr>
       <tr>
         <td><a href="docs/AISettingsApi.md#getwebsearchsettings"><strong>GetWebSearchSettings</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/config/web-search</td>
-        <td></td>
+        <td>Get web search settings</td>
       </tr>
       <tr>
         <td><a href="docs/AISettingsApi.md#setvectorizationsettings"><strong>SetVectorizationSettings</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/ai/config/vectorization</td>
-        <td></td>
+        <td>Update vectorization settings</td>
       </tr>
       <tr>
         <td><a href="docs/AISettingsApi.md#setwebsearchsettings"><strong>SetWebSearchSettings</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/ai/config/web-search</td>
-        <td></td>
+        <td>Update web search settings</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>VectorizationApi</strong></td>
@@ -409,7 +409,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/AIVectorizationApi.md#starttask"><strong>StartTask</strong></a></td>
         <td><strong>POST</strong> /api/2.0/ai/vectorization/tasks</td>
-        <td></td>
+        <td>Start a vectorization task</td>
       </tr>
     </tbody>
   </table>
@@ -526,6 +526,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       </tr>
       <tr>
         <td colspan="3" style="text-align: center;"><strong>BackupApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/BackupApi.md#cancelbackup"><strong>CancelBackup</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/backup/cancelbackup</td>
+        <td>Cancel current backup</td>
       </tr>
       <tr>
         <td><a href="docs/BackupApi.md#createbackupschedule"><strong>CreateBackupSchedule</strong></a></td>
@@ -3597,6 +3602,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.EditHistoryDto](docs/EditHistoryDto.md)
  - [Model.EditHistoryUrl](docs/EditHistoryUrl.md)
  - [Model.EditorConfigurationDto](docs/EditorConfigurationDto.md)
+ - [Model.EditorToolCallStateDto](docs/EditorToolCallStateDto.md)
  - [Model.EditorType](docs/EditorType.md)
  - [Model.EmailActivationSettings](docs/EmailActivationSettings.md)
  - [Model.EmailActivationSettingsWrapper](docs/EmailActivationSettingsWrapper.md)

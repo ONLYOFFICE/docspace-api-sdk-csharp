@@ -24,22 +24,25 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Submits the specified files for vectorization. Each file is processed asynchronously by the configured embedding provider  and indexed for semantic search in AI chat sessions. Only files accessible to the current user can be vectorized.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vectorizationStartRequestBody"></param>
+        /// <param name="vectorizationStartRequestBody">The vectorization parameters including file identifiers.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-task/">REST API Reference for StartTask Operation</seealso>
         /// <returns></returns>
         void StartTask(VectorizationStartRequestBody vectorizationStartRequestBody);
 
         /// <summary>
-        /// 
+        /// Start a vectorization task
         /// </summary>
         /// <remarks>
-        /// 
+        /// Submits the specified files for vectorization. Each file is processed asynchronously by the configured embedding provider  and indexed for semantic search in AI chat sessions. Only files accessible to the current user can be vectorized.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vectorizationStartRequestBody"></param>
+        /// <param name="vectorizationStartRequestBody">The vectorization parameters including file identifiers.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-task/">REST API Reference for StartTask Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> StartTaskWithHttpInfo(VectorizationStartRequestBody vectorizationStartRequestBody);
@@ -53,26 +56,26 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Start a vectorization task
         /// </summary>
         /// <remarks>
-        /// 
+        /// Submits the specified files for vectorization. Each file is processed asynchronously by the configured embedding provider  and indexed for semantic search in AI chat sessions. Only files accessible to the current user can be vectorized.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vectorizationStartRequestBody"></param>
+        /// <param name="vectorizationStartRequestBody">The vectorization parameters including file identifiers.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-task/">REST API Reference for StartTask Operation</seealso>
         /// <returns>Task of void</returns>
         Task StartTaskAsync(VectorizationStartRequestBody vectorizationStartRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Start a vectorization task
         /// </summary>
         /// <remarks>
-        /// 
+        /// Submits the specified files for vectorization. Each file is processed asynchronously by the configured embedding provider  and indexed for semantic search in AI chat sessions. Only files accessible to the current user can be vectorized.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vectorizationStartRequestBody"></param>
+        /// <param name="vectorizationStartRequestBody">The vectorization parameters including file identifiers.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-task/">REST API Reference for StartTask Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -293,10 +296,13 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// 
+        /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Submits the specified files for vectorization. Each file is processed asynchronously by the configured embedding provider  and indexed for semantic search in AI chat sessions. Only files accessible to the current user can be vectorized.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vectorizationStartRequestBody"></param>
+        /// <param name="vectorizationStartRequestBody">The vectorization parameters including file identifiers.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-task/">REST API Reference for StartTask Operation</seealso>
         /// <returns></returns>
         public void StartTask(VectorizationStartRequestBody vectorizationStartRequestBody)
@@ -305,10 +311,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Submits the specified files for vectorization. Each file is processed asynchronously by the configured embedding provider  and indexed for semantic search in AI chat sessions. Only files accessible to the current user can be vectorized.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vectorizationStartRequestBody"></param>
+        /// <param name="vectorizationStartRequestBody">The vectorization parameters including file identifiers.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-task/">REST API Reference for StartTask Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> StartTaskWithHttpInfo(VectorizationStartRequestBody vectorizationStartRequestBody)
@@ -379,10 +388,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Submits the specified files for vectorization. Each file is processed asynchronously by the configured embedding provider  and indexed for semantic search in AI chat sessions. Only files accessible to the current user can be vectorized.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vectorizationStartRequestBody"></param>
+        /// <param name="vectorizationStartRequestBody">The vectorization parameters including file identifiers.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-task/">REST API Reference for StartTask Operation</seealso>
         /// <returns>Task of void</returns>
@@ -392,10 +404,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Start a vectorization task
         /// </summary>
+        /// <remarks>
+        /// Submits the specified files for vectorization. Each file is processed asynchronously by the configured embedding provider  and indexed for semantic search in AI chat sessions. Only files accessible to the current user can be vectorized.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="vectorizationStartRequestBody"></param>
+        /// <param name="vectorizationStartRequestBody">The vectorization parameters including file identifiers.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-task/">REST API Reference for StartTask Operation</seealso>
         /// <returns>Task of ApiResponse</returns>

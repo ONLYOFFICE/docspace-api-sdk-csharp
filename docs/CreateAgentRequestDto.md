@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.CreateAgentRequestDto
+Request to create a new AI agent room.
 
 ## Properties
 

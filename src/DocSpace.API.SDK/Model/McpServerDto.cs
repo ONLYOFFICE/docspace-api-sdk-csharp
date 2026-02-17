@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// McpServerDto
+    /// Full MCP server configuration, including connection details and authentication headers. Returned for administrator-level operations.
     /// </summary>
     [DataContract(Name = "McpServerDto")]
     public partial class McpServerDto : IValidatableObject
@@ -34,15 +34,15 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="McpServerDto" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="name">name.</param>
-        /// <param name="description">description.</param>
-        /// <param name="endpoint">endpoint.</param>
+        /// <param name="id">Unique identifier of the MCP server..</param>
+        /// <param name="name">Display name of the MCP server..</param>
+        /// <param name="description">Human-readable description of the server&#39;s purpose and capabilities..</param>
+        /// <param name="endpoint">Base URL of the MCP server endpoint..</param>
         /// <param name="serverType">serverType.</param>
-        /// <param name="headers">headers.</param>
-        /// <param name="enabled">enabled.</param>
+        /// <param name="headers">HTTP headers sent with every request to the server (e.g., authentication tokens)..</param>
+        /// <param name="enabled">Indicates whether the server is currently enabled and available for room assignment..</param>
         /// <param name="icon">icon.</param>
-        /// <param name="needReset">needReset.</param>
+        /// <param name="needReset">Indicates whether the server requires a configuration reset due to connectivity or credential issues..</param>
         public McpServerDto(Guid id = default, string name = default, string description = default, string endpoint = default, ServerType? serverType = default, Dictionary<string, string> headers = default, bool enabled = default, Icon icon = default, bool needReset = default)
         {
             this.Id = id;
@@ -57,8 +57,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Unique identifier of the MCP server.
         /// </summary>
+        /// <value>Unique identifier of the MCP server.</value>
         /*
         <example>00000000-0000-0000-0000-000000000000</example>
         */
@@ -66,8 +67,9 @@ namespace DocSpace.API.SDK.Model
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Display name of the MCP server.
         /// </summary>
+        /// <value>Display name of the MCP server.</value>
         /*
         <example>John Doe</example>
         */
@@ -75,8 +77,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// Human-readable description of the server&#39;s purpose and capabilities.
         /// </summary>
+        /// <value>Human-readable description of the server&#39;s purpose and capabilities.</value>
         /*
         <example>some text</example>
         */
@@ -84,8 +87,9 @@ namespace DocSpace.API.SDK.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets Endpoint
+        /// Base URL of the MCP server endpoint.
         /// </summary>
+        /// <value>Base URL of the MCP server endpoint.</value>
         /*
         <example>some text</example>
         */
@@ -93,8 +97,9 @@ namespace DocSpace.API.SDK.Model
         public string Endpoint { get; set; }
 
         /// <summary>
-        /// Gets or Sets Headers
+        /// HTTP headers sent with every request to the server (e.g., authentication tokens).
         /// </summary>
+        /// <value>HTTP headers sent with every request to the server (e.g., authentication tokens).</value>
         /*
         <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
         */
@@ -102,8 +107,9 @@ namespace DocSpace.API.SDK.Model
         public Dictionary<string, string> Headers { get; set; }
 
         /// <summary>
-        /// Gets or Sets Enabled
+        /// Indicates whether the server is currently enabled and available for room assignment.
         /// </summary>
+        /// <value>Indicates whether the server is currently enabled and available for room assignment.</value>
         /*
         <example>true</example>
         */
@@ -117,8 +123,9 @@ namespace DocSpace.API.SDK.Model
         public Icon Icon { get; set; }
 
         /// <summary>
-        /// Gets or Sets NeedReset
+        /// Indicates whether the server requires a configuration reset due to connectivity or credential issues.
         /// </summary>
+        /// <value>Indicates whether the server requires a configuration reset due to connectivity or credential issues.</value>
         /*
         <example>true</example>
         */

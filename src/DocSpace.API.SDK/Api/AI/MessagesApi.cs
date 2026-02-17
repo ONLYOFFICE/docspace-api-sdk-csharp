@@ -24,24 +24,27 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Export a single AI message to a document
         /// </summary>
+        /// <remarks>
+        /// Exports a specific AI chat message as a document into the specified folder. The system verifies that the message exists  and belongs to a chat accessible by the current user, then publishes an asynchronous export task to the event bus.  The exported document will be created in the target folder with the given title once the background task completes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
-        /// <param name="exportMessageRequestBodyInteger"></param>
+        /// <param name="messageId">The unique identifier of the AI chat message to export.</param>
+        /// <param name="exportMessageRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-message/">REST API Reference for ExportMessage Operation</seealso>
         /// <returns></returns>
         void ExportMessage(int messageId, ExportMessageRequestBodyInteger exportMessageRequestBodyInteger);
 
         /// <summary>
-        /// 
+        /// Export a single AI message to a document
         /// </summary>
         /// <remarks>
-        /// 
+        /// Exports a specific AI chat message as a document into the specified folder. The system verifies that the message exists  and belongs to a chat accessible by the current user, then publishes an asynchronous export task to the event bus.  The exported document will be created in the target folder with the given title once the background task completes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
-        /// <param name="exportMessageRequestBodyInteger"></param>
+        /// <param name="messageId">The unique identifier of the AI chat message to export.</param>
+        /// <param name="exportMessageRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-message/">REST API Reference for ExportMessage Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ExportMessageWithHttpInfo(int messageId, ExportMessageRequestBodyInteger exportMessageRequestBodyInteger);
@@ -55,28 +58,28 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Export a single AI message to a document
         /// </summary>
         /// <remarks>
-        /// 
+        /// Exports a specific AI chat message as a document into the specified folder. The system verifies that the message exists  and belongs to a chat accessible by the current user, then publishes an asynchronous export task to the event bus.  The exported document will be created in the target folder with the given title once the background task completes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
-        /// <param name="exportMessageRequestBodyInteger"></param>
+        /// <param name="messageId">The unique identifier of the AI chat message to export.</param>
+        /// <param name="exportMessageRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-message/">REST API Reference for ExportMessage Operation</seealso>
         /// <returns>Task of void</returns>
         Task ExportMessageAsync(int messageId, ExportMessageRequestBodyInteger exportMessageRequestBodyInteger, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Export a single AI message to a document
         /// </summary>
         /// <remarks>
-        /// 
+        /// Exports a specific AI chat message as a document into the specified folder. The system verifies that the message exists  and belongs to a chat accessible by the current user, then publishes an asynchronous export task to the event bus.  The exported document will be created in the target folder with the given title once the background task completes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
-        /// <param name="exportMessageRequestBodyInteger"></param>
+        /// <param name="messageId">The unique identifier of the AI chat message to export.</param>
+        /// <param name="exportMessageRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-message/">REST API Reference for ExportMessage Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -297,11 +300,14 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// 
+        /// Export a single AI message to a document
         /// </summary>
+        /// <remarks>
+        /// Exports a specific AI chat message as a document into the specified folder. The system verifies that the message exists  and belongs to a chat accessible by the current user, then publishes an asynchronous export task to the event bus.  The exported document will be created in the target folder with the given title once the background task completes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
-        /// <param name="exportMessageRequestBodyInteger"></param>
+        /// <param name="messageId">The unique identifier of the AI chat message to export.</param>
+        /// <param name="exportMessageRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-message/">REST API Reference for ExportMessage Operation</seealso>
         /// <returns></returns>
         public void ExportMessage(int messageId, ExportMessageRequestBodyInteger exportMessageRequestBodyInteger)
@@ -310,11 +316,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Export a single AI message to a document
         /// </summary>
+        /// <remarks>
+        /// Exports a specific AI chat message as a document into the specified folder. The system verifies that the message exists  and belongs to a chat accessible by the current user, then publishes an asynchronous export task to the event bus.  The exported document will be created in the target folder with the given title once the background task completes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
-        /// <param name="exportMessageRequestBodyInteger"></param>
+        /// <param name="messageId">The unique identifier of the AI chat message to export.</param>
+        /// <param name="exportMessageRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-message/">REST API Reference for ExportMessage Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> ExportMessageWithHttpInfo(int messageId, ExportMessageRequestBodyInteger exportMessageRequestBodyInteger)
@@ -386,11 +395,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Export a single AI message to a document
         /// </summary>
+        /// <remarks>
+        /// Exports a specific AI chat message as a document into the specified folder. The system verifies that the message exists  and belongs to a chat accessible by the current user, then publishes an asynchronous export task to the event bus.  The exported document will be created in the target folder with the given title once the background task completes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
-        /// <param name="exportMessageRequestBodyInteger"></param>
+        /// <param name="messageId">The unique identifier of the AI chat message to export.</param>
+        /// <param name="exportMessageRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-message/">REST API Reference for ExportMessage Operation</seealso>
         /// <returns>Task of void</returns>
@@ -400,11 +412,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Export a single AI message to a document
         /// </summary>
+        /// <remarks>
+        /// Exports a specific AI chat message as a document into the specified folder. The system verifies that the message exists  and belongs to a chat accessible by the current user, then publishes an asynchronous export task to the event bus.  The exported document will be created in the target folder with the given title once the background task completes.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="messageId"></param>
-        /// <param name="exportMessageRequestBodyInteger"></param>
+        /// <param name="messageId">The unique identifier of the AI chat message to export.</param>
+        /// <param name="exportMessageRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-message/">REST API Reference for ExportMessage Operation</seealso>
         /// <returns>Task of ApiResponse</returns>

@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.MessageContentType
+The type of content block within a chat message.
 
 ## Properties
 

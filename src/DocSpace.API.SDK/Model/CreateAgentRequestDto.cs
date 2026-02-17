@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// CreateAgentRequestDto
+    /// Request to create a new AI agent room.
     /// </summary>
     [DataContract(Name = "CreateAgentRequestDto")]
     public partial class CreateAgentRequestDto : IValidatableObject

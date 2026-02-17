@@ -35,6 +35,7 @@ Name | Type | Description | Notes
 **Branding** | **bool** | Specifies if the branding settings are available or not. | [optional] 
 **Customization** | **bool** | Specifies if the customization settings are available or not. | [optional] 
 **Lifetime** | **bool** | Specifies if the license has the lifetime settings or not. | [optional] 
+**AutomationApi** | **bool** | Specifies if the Automation API is available or not. | [optional] 
 **Custom** | **bool** | Specifies if the custom domain URL is available or not. | [optional] 
 **Restore** | **bool** | Specifies if the restore is enabled or not. | [optional] 
 **Oauth** | **bool** | Specifies if Oauth is available or not. | [optional] 

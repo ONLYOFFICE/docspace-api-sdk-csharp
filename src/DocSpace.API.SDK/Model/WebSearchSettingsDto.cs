@@ -34,9 +34,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WebSearchSettingsDto" /> class.
         /// </summary>
-        /// <param name="enabled">enabled.</param>
+        /// <param name="enabled">Indicates whether web search is currently enabled..</param>
         /// <param name="type">type.</param>
-        /// <param name="needReset">needReset.</param>
+        /// <param name="needReset">Indicates whether the web search API key needs to be reconfigured..</param>
         public WebSearchSettingsDto(bool enabled = default, EngineType? type = default, bool needReset = default)
         {
             this.Enabled = enabled;
@@ -45,8 +45,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Enabled
+        /// Indicates whether web search is currently enabled.
         /// </summary>
+        /// <value>Indicates whether web search is currently enabled.</value>
         /*
         <example>true</example>
         */
@@ -54,8 +55,9 @@ namespace DocSpace.API.SDK.Model
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Gets or Sets NeedReset
+        /// Indicates whether the web search API key needs to be reconfigured.
         /// </summary>
+        /// <value>Indicates whether the web search API key needs to be reconfigured.</value>
         /*
         <example>true</example>
         */

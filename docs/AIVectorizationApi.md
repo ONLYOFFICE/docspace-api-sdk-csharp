@@ -4,13 +4,13 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**StartTask**](#starttask) | **POST** /api/2.0/ai/vectorization/tasks |  |
+| [**StartTask**](#starttask) | **POST** /api/2.0/ai/vectorization/tasks | Start a vectorization task |
 
 <a id="starttask"></a>
 # **StartTask**
 > void StartTask (VectorizationStartRequestBody vectorizationStartRequestBody)
 
-
+Submits the specified files for vectorization. Each file is processed asynchronously by the configured embedding provider  and indexed for semantic search in AI chat sessions. Only files accessible to the current user can be vectorized.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-task/).
 
@@ -18,7 +18,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **vectorizationStartRequestBody** | [**VectorizationStartRequestBody**](VectorizationStartRequestBody.md) |  |  |
+| **vectorizationStartRequestBody** | [**VectorizationStartRequestBody**](VectorizationStartRequestBody.md) | The vectorization parameters including file identifiers. |  |
 
 ### Return type
 
@@ -65,10 +65,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new VectorizationApi(httpClient, config, httpClientHandler);
-            var vectorizationStartRequestBody = new VectorizationStartRequestBody(); // VectorizationStartRequestBody | 
+            var vectorizationStartRequestBody = new VectorizationStartRequestBody(); // VectorizationStartRequestBody | The vectorization parameters including file identifiers.
 
             try
             {
+                // Start a vectorization task
                 apiInstance.StartTask(vectorizationStartRequestBody);
             }
             catch (ApiException  e)
@@ -88,6 +89,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Start a vectorization task
     apiInstance.StartTaskWithHttpInfo(vectorizationStartRequestBody);
 }
 catch (ApiException e)
@@ -107,7 +109,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | The vectorization task was successfully submitted |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

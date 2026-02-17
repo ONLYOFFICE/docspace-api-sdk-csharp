@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **Guid** |  | [optional] 
-**Title** | **string** |  | [optional] 
+**Id** | **Guid** | The unique identifier of the AI chat session. | [optional] 
+**Title** | **string** | The display title of the chat session. | [optional] 
 **CreatedOn** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **ModifiedOn** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **CreatedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 

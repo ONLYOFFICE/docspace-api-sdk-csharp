@@ -62,7 +62,7 @@ config.AccessToken = "YOUR_BEARER_TOKEN";
 HttpClient httpClient = new HttpClient();
 HttpClientHandler httpClientHandler = new HttpClientHandler();
 var apiInstance = new AIAgentsApi(httpClient, config, httpClientHandler);
-var createAgentRequestDto = new CreateAgentRequestDto?(); // CreateAgentRequestDto? |  (optional) 
+var createAgentRequestDto = new CreateAgentRequestDto?(); // CreateAgentRequestDto? | Request to create a new AI agent room. (optional) 
 
 try
 {

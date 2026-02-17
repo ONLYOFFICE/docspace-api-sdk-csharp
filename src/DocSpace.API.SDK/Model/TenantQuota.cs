@@ -58,6 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="branding">Specifies if the branding settings are available or not..</param>
         /// <param name="customization">Specifies if the customization settings are available or not..</param>
         /// <param name="lifetime">Specifies if the license has the lifetime settings or not..</param>
+        /// <param name="automationApi">Specifies if the Automation API is available or not..</param>
         /// <param name="custom">Specifies if the custom domain URL is available or not..</param>
         /// <param name="restore">Specifies if the restore is enabled or not..</param>
         /// <param name="oauth">Specifies if Oauth is available or not..</param>
@@ -85,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="aiToolsGemini3ProOutput">Specifies whether the Gemini 3 Pro output tokens is enabled as a subservice of AI tools.</param>
         /// <param name="aiToolsGemini3FlashInput">Specifies whether the Gemini 3 Flash input tokens is enabled as a subservice of AI tools.</param>
         /// <param name="aiToolsGemini3FlashOutput">Specifies whether the Gemini 3 Flash output tokens is enabled as a subservice of AI tools.</param>
-        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, string serviceGroup = default, bool visible = default, bool wallet = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default, bool aiTools = default, bool aiToolsWebSearch = default, bool aiToolsWebFetch = default, bool aiToolsEmbedding = default, bool aiToolsDeepseek31Input = default, bool aiToolsDeepseek31Output = default, bool aiToolsClaude45Input = default, bool aiToolsClaude45Output = default, bool aiToolsGPT5Input = default, bool aiToolsGPT5Output = default, bool aiToolsDeepseek32Input = default, bool aiToolsDeepseek32Output = default, bool aiToolsGPT52Input = default, bool aiToolsGPT52Output = default, bool aiToolsGemini3ProInput = default, bool aiToolsGemini3ProOutput = default, bool aiToolsGemini3FlashInput = default, bool aiToolsGemini3FlashOutput = default)
+        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, string serviceGroup = default, bool visible = default, bool wallet = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool automationApi = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default, bool aiTools = default, bool aiToolsWebSearch = default, bool aiToolsWebFetch = default, bool aiToolsEmbedding = default, bool aiToolsDeepseek31Input = default, bool aiToolsDeepseek31Output = default, bool aiToolsClaude45Input = default, bool aiToolsClaude45Output = default, bool aiToolsGPT5Input = default, bool aiToolsGPT5Output = default, bool aiToolsDeepseek32Input = default, bool aiToolsDeepseek32Output = default, bool aiToolsGPT52Input = default, bool aiToolsGPT52Output = default, bool aiToolsGemini3ProInput = default, bool aiToolsGemini3ProOutput = default, bool aiToolsGemini3FlashInput = default, bool aiToolsGemini3FlashOutput = default)
         {
             this.TenantId = tenantId;
             this.Name = name;
@@ -117,6 +118,7 @@ namespace DocSpace.API.SDK.Model
             this.Branding = branding;
             this.Customization = customization;
             this.Lifetime = lifetime;
+            this.AutomationApi = automationApi;
             this.Custom = custom;
             this.Restore = restore;
             this.Oauth = oauth;
@@ -447,6 +449,16 @@ namespace DocSpace.API.SDK.Model
         public bool Lifetime { get; set; }
 
         /// <summary>
+        /// Specifies if the Automation API is available or not.
+        /// </summary>
+        /// <value>Specifies if the Automation API is available or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "automationApi", EmitDefaultValue = true)]
+        public bool AutomationApi { get; set; }
+
+        /// <summary>
         /// Specifies if the custom domain URL is available or not.
         /// </summary>
         /// <value>Specifies if the custom domain URL is available or not.</value>
@@ -754,6 +766,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Branding: ").Append(Branding).Append("\n");
             sb.Append("  Customization: ").Append(Customization).Append("\n");
             sb.Append("  Lifetime: ").Append(Lifetime).Append("\n");
+            sb.Append("  AutomationApi: ").Append(AutomationApi).Append("\n");
             sb.Append("  Custom: ").Append(Custom).Append("\n");
             sb.Append("  Restore: ").Append(Restore).Append("\n");
             sb.Append("  Oauth: ").Append(Oauth).Append("\n");

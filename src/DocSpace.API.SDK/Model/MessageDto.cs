@@ -34,9 +34,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MessageDto" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
+        /// <param name="id">The unique identifier of the message..</param>
         /// <param name="role">role.</param>
-        /// <param name="contents">contents.</param>
+        /// <param name="contents">The ordered collection of content blocks that make up the message body (text, tool calls, or attachments)..</param>
         /// <param name="createdOn">createdOn.</param>
         public MessageDto(long id = default, Role? role = default, List<MessageContentDto> contents = default, ApiDateTime createdOn = default)
         {
@@ -47,14 +47,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The unique identifier of the message.
         /// </summary>
+        /// <value>The unique identifier of the message.</value>
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public long Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Contents
+        /// The ordered collection of content blocks that make up the message body (text, tool calls, or attachments).
         /// </summary>
+        /// <value>The ordered collection of content blocks that make up the message body (text, tool calls, or attachments).</value>
         [DataMember(Name = "contents", EmitDefaultValue = true)]
         public List<MessageContentDto> Contents { get; set; }
 

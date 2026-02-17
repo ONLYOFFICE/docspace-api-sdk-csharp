@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// McpServerShortDto
+    /// Compact MCP server summary without sensitive details like endpoint URL or authentication headers.
     /// </summary>
     [DataContract(Name = "McpServerShortDto")]
     public partial class McpServerShortDto : IValidatableObject
@@ -34,12 +34,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="McpServerShortDto" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="name">name.</param>
+        /// <param name="id">Unique identifier of the MCP server..</param>
+        /// <param name="name">Display name of the MCP server..</param>
         /// <param name="serverType">serverType.</param>
-        /// <param name="enabled">enabled.</param>
+        /// <param name="enabled">Indicates whether the server is currently enabled and available for room assignment..</param>
         /// <param name="icon">icon.</param>
-        /// <param name="needReset">needReset.</param>
+        /// <param name="needReset">Indicates whether the server requires a configuration reset due to connectivity or credential issues..</param>
         public McpServerShortDto(Guid id = default, string name = default, ServerType? serverType = default, bool enabled = default, Icon icon = default, bool needReset = default)
         {
             this.Id = id;
@@ -51,8 +51,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// Unique identifier of the MCP server.
         /// </summary>
+        /// <value>Unique identifier of the MCP server.</value>
         /*
         <example>00000000-0000-0000-0000-000000000000</example>
         */
@@ -60,8 +61,9 @@ namespace DocSpace.API.SDK.Model
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Display name of the MCP server.
         /// </summary>
+        /// <value>Display name of the MCP server.</value>
         /*
         <example>John Doe</example>
         */
@@ -69,8 +71,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Enabled
+        /// Indicates whether the server is currently enabled and available for room assignment.
         /// </summary>
+        /// <value>Indicates whether the server is currently enabled and available for room assignment.</value>
         /*
         <example>true</example>
         */
@@ -84,8 +87,9 @@ namespace DocSpace.API.SDK.Model
         public Icon Icon { get; set; }
 
         /// <summary>
-        /// Gets or Sets NeedReset
+        /// Indicates whether the server requires a configuration reset due to connectivity or credential issues.
         /// </summary>
+        /// <value>Indicates whether the server requires a configuration reset due to connectivity or credential issues.</value>
         /*
         <example>true</example>
         */

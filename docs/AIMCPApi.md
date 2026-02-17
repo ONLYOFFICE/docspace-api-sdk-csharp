@@ -4,26 +4,26 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AddRoomServers**](#addroomservers) | **POST** /api/2.0/ai/rooms/{roomId}/servers |  |
-| [**AddServer**](#addserver) | **POST** /api/2.0/ai/servers |  |
-| [**ConnectServer**](#connectserver) | **POST** /api/2.0/ai/rooms/{roomId}/servers/{serverId}/connect |  |
-| [**DeleteRoomServers**](#deleteroomservers) | **DELETE** /api/2.0/ai/rooms/{roomId}/servers |  |
-| [**DeleteServer**](#deleteserver) | **DELETE** /api/2.0/ai/servers |  |
-| [**DisconnectServer**](#disconnectserver) | **POST** /api/2.0/ai/rooms/{roomId}/servers/{serverId}/disconnect |  |
-| [**GetAvailableServers**](#getavailableservers) | **GET** /api/2.0/ai/servers/available |  |
-| [**GetRoomServers**](#getroomservers) | **GET** /api/2.0/ai/rooms/{roomId}/servers |  |
-| [**GetServer**](#getserver) | **GET** /api/2.0/ai/servers/{id} |  |
-| [**GetServers**](#getservers) | **GET** /api/2.0/ai/servers |  |
-| [**GetTools**](#gettools) | **GET** /api/2.0/ai/rooms/{roomId}/servers/{serverId}/tools |  |
-| [**SetServerStatus**](#setserverstatus) | **PUT** /api/2.0/ai/servers/{id}/status |  |
-| [**SetTools**](#settools) | **PUT** /api/2.0/ai/rooms/{roomId}/servers/{serverId}/tools |  |
-| [**UpdateServer**](#updateserver) | **PUT** /api/2.0/ai/servers/{id} |  |
+| [**AddRoomServers**](#addroomservers) | **POST** /api/2.0/ai/rooms/{roomId}/servers | Assign MCP servers to a room |
+| [**AddServer**](#addserver) | **POST** /api/2.0/ai/servers | Register a custom MCP server |
+| [**ConnectServer**](#connectserver) | **POST** /api/2.0/ai/rooms/{roomId}/servers/{serverId}/connect | Connect an OAuth-based MCP server in a room |
+| [**DeleteRoomServers**](#deleteroomservers) | **DELETE** /api/2.0/ai/rooms/{roomId}/servers | Remove MCP servers from a room |
+| [**DeleteServer**](#deleteserver) | **DELETE** /api/2.0/ai/servers | Delete MCP servers |
+| [**DisconnectServer**](#disconnectserver) | **POST** /api/2.0/ai/rooms/{roomId}/servers/{serverId}/disconnect | Disconnect an MCP server in a room |
+| [**GetAvailableServers**](#getavailableservers) | **GET** /api/2.0/ai/servers/available | Get available MCP servers |
+| [**GetRoomServers**](#getroomservers) | **GET** /api/2.0/ai/rooms/{roomId}/servers | Get MCP servers assigned to a room |
+| [**GetServer**](#getserver) | **GET** /api/2.0/ai/servers/{id} | Get an MCP server by ID |
+| [**GetServers**](#getservers) | **GET** /api/2.0/ai/servers | Get all MCP servers |
+| [**GetTools**](#gettools) | **GET** /api/2.0/ai/rooms/{roomId}/servers/{serverId}/tools | Get MCP server tools in a room |
+| [**SetServerStatus**](#setserverstatus) | **PUT** /api/2.0/ai/servers/{id}/status | Enable or disable an MCP server |
+| [**SetTools**](#settools) | **PUT** /api/2.0/ai/rooms/{roomId}/servers/{serverId}/tools | Configure MCP server tools in a room |
+| [**UpdateServer**](#updateserver) | **PUT** /api/2.0/ai/servers/{id} | Update a custom MCP server |
 
 <a id="addroomservers"></a>
 # **AddRoomServers**
 > McpServerStatusArrayWrapper AddRoomServers (int roomId, AddRoomServersRequestBody addRoomServersRequestBody)
 
-
+Associates one or more MCP servers with a specific room, making them available for AI chat sessions  within that room. A maximum of 5 MCP servers can be assigned to a single room. If OAuth-based servers  are included, each room member will need to individually authorize their connection.  Requires room edit permissions.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-servers/).
 
@@ -31,8 +31,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **roomId** | **int** |  |  |
-| **addRoomServersRequestBody** | [**AddRoomServersRequestBody**](AddRoomServersRequestBody.md) |  |  |
+| **roomId** | **int** | Identifier of the room to which MCP servers will be assigned. |  |
+| **addRoomServersRequestBody** | [**AddRoomServersRequestBody**](AddRoomServersRequestBody.md) | Server identifiers to assign. |  |
 
 ### Return type
 
@@ -79,11 +79,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | 
-            var addRoomServersRequestBody = new AddRoomServersRequestBody(); // AddRoomServersRequestBody | 
+            var roomId = 1;  // int | Identifier of the room to which MCP servers will be assigned.
+            var addRoomServersRequestBody = new AddRoomServersRequestBody(); // AddRoomServersRequestBody | Server identifiers to assign.
 
             try
             {
+                // Assign MCP servers to a room
                 McpServerStatusArrayWrapper result = apiInstance.AddRoomServers(roomId, addRoomServersRequestBody);
                 Debug.WriteLine(result);
             }
@@ -104,6 +105,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Assign MCP servers to a room
     ApiResponse<McpServerStatusArrayWrapper> response = apiInstance.AddRoomServersWithHttpInfo(roomId, addRoomServersRequestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -126,7 +128,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | List of MCP server statuses after assignment |  -  |
+| **400** | The maximum number of servers per room has been exceeded |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **404** | The room with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -135,7 +140,7 @@ catch (ApiException e)
 # **AddServer**
 > McpServerWrapper AddServer (AddMcpServerRequestBody addMcpServerRequestBody)
 
-
+Registers a new custom MCP (Model Context Protocol) server for the current tenant.  The system validates the server name (only letters, numbers, underscores, and hyphens are allowed),  checks that it is not reserved or already taken, and then attempts to connect to the provided endpoint  to verify reachability and credentials before persisting the configuration.  Requires DocSpace administrator privileges.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/add-server/).
 
@@ -143,7 +148,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **addMcpServerRequestBody** | [**AddMcpServerRequestBody**](AddMcpServerRequestBody.md) |  |  |
+| **addMcpServerRequestBody** | [**AddMcpServerRequestBody**](AddMcpServerRequestBody.md) | MCP server registration parameters. |  |
 
 ### Return type
 
@@ -190,10 +195,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var addMcpServerRequestBody = new AddMcpServerRequestBody(); // AddMcpServerRequestBody | 
+            var addMcpServerRequestBody = new AddMcpServerRequestBody(); // AddMcpServerRequestBody | MCP server registration parameters.
 
             try
             {
+                // Register a custom MCP server
                 McpServerWrapper result = apiInstance.AddServer(addMcpServerRequestBody);
                 Debug.WriteLine(result);
             }
@@ -214,6 +220,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Register a custom MCP server
     ApiResponse<McpServerWrapper> response = apiInstance.AddServerWithHttpInfo(addMcpServerRequestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -236,7 +243,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Newly registered MCP server configuration |  -  |
+| **400** | Invalid server name, reserved name, duplicate name, incorrect credentials, or invalid endpoint URL |  -  |
+| **403** | You don&#39;t have permission to manage MCP servers |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -245,7 +254,7 @@ catch (ApiException e)
 # **ConnectServer**
 > McpServerStatusWrapper ConnectServer (int roomId, Guid serverId, ConnectServerRequestBody connectServerRequestBody)
 
-
+Completes the OAuth authorization flow for an MCP server within a specific room on behalf of the  current user. The authorization code obtained from the OAuth provider must be passed in the request body.  Upon successful token exchange, the system verifies connectivity to the server and stores  the credentials for the current user. Requires room edit permissions.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/).
 
@@ -253,9 +262,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **roomId** | **int** |  |  |
-| **serverId** | **Guid** |  |  |
-| **connectServerRequestBody** | [**ConnectServerRequestBody**](ConnectServerRequestBody.md) |  |  |
+| **roomId** | **int** | Identifier of the room containing the MCP server. |  |
+| **serverId** | **Guid** | Unique identifier of the MCP server to connect. |  |
+| **connectServerRequestBody** | [**ConnectServerRequestBody**](ConnectServerRequestBody.md) | OAuth authorization parameters. |  |
 
 ### Return type
 
@@ -302,12 +311,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | 
-            var serverId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | 
-            var connectServerRequestBody = new ConnectServerRequestBody(); // ConnectServerRequestBody | 
+            var roomId = 1;  // int | Identifier of the room containing the MCP server.
+            var serverId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | Unique identifier of the MCP server to connect.
+            var connectServerRequestBody = new ConnectServerRequestBody(); // ConnectServerRequestBody | OAuth authorization parameters.
 
             try
             {
+                // Connect an OAuth-based MCP server in a room
                 McpServerStatusWrapper result = apiInstance.ConnectServer(roomId, serverId, connectServerRequestBody);
                 Debug.WriteLine(result);
             }
@@ -328,6 +338,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Connect an OAuth-based MCP server in a room
     ApiResponse<McpServerStatusWrapper> response = apiInstance.ConnectServerWithHttpInfo(roomId, serverId, connectServerRequestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -350,7 +361,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | MCP server connection status after authorization |  -  |
+| **400** | The provided authorization code is invalid |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **404** | The room or MCP server connection was not found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -359,7 +373,7 @@ catch (ApiException e)
 # **DeleteRoomServers**
 > void DeleteRoomServers (int roomId, DeleteRoomServersRequestBody deleteRoomServersRequestBody)
 
-
+Detaches one or more MCP servers from the specified room. After removal, the servers will no longer  be available in AI chat sessions within this room. Existing connections and tool configurations for  the removed servers are also cleaned up. Requires room edit permissions.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-servers/).
 
@@ -367,8 +381,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **roomId** | **int** |  |  |
-| **deleteRoomServersRequestBody** | [**DeleteRoomServersRequestBody**](DeleteRoomServersRequestBody.md) |  |  |
+| **roomId** | **int** | Identifier of the room from which MCP servers will be removed. |  |
+| **deleteRoomServersRequestBody** | [**DeleteRoomServersRequestBody**](DeleteRoomServersRequestBody.md) | Server identifiers to remove. |  |
 
 ### Return type
 
@@ -415,11 +429,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | 
-            var deleteRoomServersRequestBody = new DeleteRoomServersRequestBody(); // DeleteRoomServersRequestBody | 
+            var roomId = 1;  // int | Identifier of the room from which MCP servers will be removed.
+            var deleteRoomServersRequestBody = new DeleteRoomServersRequestBody(); // DeleteRoomServersRequestBody | Server identifiers to remove.
 
             try
             {
+                // Remove MCP servers from a room
                 apiInstance.DeleteRoomServers(roomId, deleteRoomServersRequestBody);
             }
             catch (ApiException  e)
@@ -439,6 +454,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Remove MCP servers from a room
     apiInstance.DeleteRoomServersWithHttpInfo(roomId, deleteRoomServersRequestBody);
 }
 catch (ApiException e)
@@ -458,7 +474,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **204** | MCP servers were successfully removed from the room |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **404** | The room with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -467,7 +485,7 @@ catch (ApiException e)
 # **DeleteServer**
 > void DeleteServer (DeleteServersRequestBody deleteServersRequestBody)
 
-
+Permanently removes one or more MCP servers from the current tenant by their IDs.  All room associations and connection data for the deleted servers are also cleaned up.  This action is irreversible. Requires DocSpace administrator privileges.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-server/).
 
@@ -475,7 +493,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **deleteServersRequestBody** | [**DeleteServersRequestBody**](DeleteServersRequestBody.md) |  |  |
+| **deleteServersRequestBody** | [**DeleteServersRequestBody**](DeleteServersRequestBody.md) | Server identifiers to delete. |  |
 
 ### Return type
 
@@ -522,10 +540,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var deleteServersRequestBody = new DeleteServersRequestBody(); // DeleteServersRequestBody | 
+            var deleteServersRequestBody = new DeleteServersRequestBody(); // DeleteServersRequestBody | Server identifiers to delete.
 
             try
             {
+                // Delete MCP servers
                 apiInstance.DeleteServer(deleteServersRequestBody);
             }
             catch (ApiException  e)
@@ -545,6 +564,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Delete MCP servers
     apiInstance.DeleteServerWithHttpInfo(deleteServersRequestBody);
 }
 catch (ApiException e)
@@ -564,7 +584,8 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **204** | MCP servers were successfully deleted |  -  |
+| **403** | You don&#39;t have permission to manage MCP servers |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -573,7 +594,7 @@ catch (ApiException e)
 # **DisconnectServer**
 > McpServerStatusWrapper DisconnectServer (int roomId, Guid serverId)
 
-
+Revokes the current user's OAuth connection to an MCP server within the specified room. After  disconnection, the server's tools will no longer be available to this user in AI chat sessions  until they re-authorize. Other room members' connections are not affected.  Requires room edit permissions.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/disconnect-server/).
 
@@ -581,8 +602,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **roomId** | **int** |  |  |
-| **serverId** | **Guid** |  |  |
+| **roomId** | **int** | Identifier of the room containing the MCP server. |  |
+| **serverId** | **Guid** | Unique identifier of the MCP server to disconnect from. |  |
 
 ### Return type
 
@@ -629,11 +650,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | 
-            var serverId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | 
+            var roomId = 1;  // int | Identifier of the room containing the MCP server.
+            var serverId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | Unique identifier of the MCP server to disconnect from.
 
             try
             {
+                // Disconnect an MCP server in a room
                 McpServerStatusWrapper result = apiInstance.DisconnectServer(roomId, serverId);
                 Debug.WriteLine(result);
             }
@@ -654,6 +676,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Disconnect an MCP server in a room
     ApiResponse<McpServerStatusWrapper> response = apiInstance.DisconnectServerWithHttpInfo(roomId, serverId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -676,7 +699,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | MCP server connection status after disconnection |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **404** | The room or MCP server connection was not found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -685,7 +710,7 @@ catch (ApiException e)
 # **GetAvailableServers**
 > McpServerShortArrayWrapper GetAvailableServers (int? startIndex = null, int? count = null)
 
-
+Returns a paginated list of MCP servers that are currently active (enabled) and available for  assignment to rooms. Only servers in the enabled state are included. Each entry contains a compact  summary with the server name, type, icon, and status. Supports pagination via startIndex and count.  The total count of available servers is included in the response metadata.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-servers/).
 
@@ -693,8 +718,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **startIndex** | **int?** |  | [optional]  |
-| **count** | **int?** |  | [optional]  |
+| **startIndex** | **int?** | The number of items to skip before returning results (zero-based offset). Defaults to 0. | [optional]  |
+| **count** | **int?** | The maximum number of items to return per page. Defaults to 100. | [optional]  |
 
 ### Return type
 
@@ -741,11 +766,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var startIndex = 1234;  // int? |  (optional) 
-            var count = 1234;  // int? |  (optional) 
+            var startIndex = 1234;  // int? | The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional) 
+            var count = 1234;  // int? | The maximum number of items to return per page. Defaults to 100. (optional) 
 
             try
             {
+                // Get available MCP servers
                 McpServerShortArrayWrapper result = apiInstance.GetAvailableServers(startIndex, count);
                 Debug.WriteLine(result);
             }
@@ -766,6 +792,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Get available MCP servers
     ApiResponse<McpServerShortArrayWrapper> response = apiInstance.GetAvailableServersWithHttpInfo(startIndex, count);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -788,7 +815,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Paginated list of active MCP servers available for room assignment |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -797,7 +824,7 @@ catch (ApiException e)
 # **GetRoomServers**
 > McpServerStatusArrayWrapper GetRoomServers (int roomId)
 
-
+Returns the list of MCP servers currently assigned to the specified room along with their connection  statuses for the current user. For OAuth-based servers, the connection status reflects whether the  current user has completed authorization. Requires access to the room's AI chat.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-servers/).
 
@@ -805,7 +832,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **roomId** | **int** |  |  |
+| **roomId** | **int** | Identifier of the room whose assigned MCP servers are being retrieved. |  |
 
 ### Return type
 
@@ -852,10 +879,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | 
+            var roomId = 1;  // int | Identifier of the room whose assigned MCP servers are being retrieved.
 
             try
             {
+                // Get MCP servers assigned to a room
                 McpServerStatusArrayWrapper result = apiInstance.GetRoomServers(roomId);
                 Debug.WriteLine(result);
             }
@@ -876,6 +904,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Get MCP servers assigned to a room
     ApiResponse<McpServerStatusArrayWrapper> response = apiInstance.GetRoomServersWithHttpInfo(roomId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -898,7 +927,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | List of MCP server statuses in the room |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **404** | The room with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -907,7 +938,7 @@ catch (ApiException e)
 # **GetServer**
 > McpServerShortWrapper GetServer (Guid id)
 
-
+Retrieves a summary view of a single MCP server by its unique identifier, including its name,  type, enabled state, and icon. This endpoint returns a compact representation without  sensitive details such as endpoint URL or authentication headers.  Requires DocSpace administrator privileges.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-server/).
 
@@ -915,7 +946,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **Guid** |  |  |
+| **id** | **Guid** | Unique identifier of the MCP server to retrieve. |  |
 
 ### Return type
 
@@ -962,10 +993,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var id = 00000000-0000-0000-0000-000000000000;  // Guid | 
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | Unique identifier of the MCP server to retrieve.
 
             try
             {
+                // Get an MCP server by ID
                 McpServerShortWrapper result = apiInstance.GetServer(id);
                 Debug.WriteLine(result);
             }
@@ -986,6 +1018,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Get an MCP server by ID
     ApiResponse<McpServerShortWrapper> response = apiInstance.GetServerWithHttpInfo(id);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1008,7 +1041,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | MCP server summary information |  -  |
+| **403** | You don&#39;t have permission to manage MCP servers |  -  |
+| **404** | The MCP server with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1017,7 +1052,7 @@ catch (ApiException e)
 # **GetServers**
 > McpServerArrayWrapper GetServers (int? startIndex = null, int? count = null)
 
-
+Returns a paginated list of all MCP servers registered for the current tenant, including both  enabled and disabled servers. Each entry contains the full configuration (endpoint, headers,  icon, type, and status). Supports pagination via the startIndex and count query parameters.  The total number of servers is included in the response metadata.  Requires DocSpace administrator privileges.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-servers/).
 
@@ -1025,8 +1060,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **startIndex** | **int?** |  | [optional]  |
-| **count** | **int?** |  | [optional]  |
+| **startIndex** | **int?** | The number of items to skip before returning results (zero-based offset). Defaults to 0. | [optional]  |
+| **count** | **int?** | The maximum number of items to return per page. Defaults to 100. | [optional]  |
 
 ### Return type
 
@@ -1073,11 +1108,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var startIndex = 1234;  // int? |  (optional) 
-            var count = 1234;  // int? |  (optional) 
+            var startIndex = 1234;  // int? | The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional) 
+            var count = 1234;  // int? | The maximum number of items to return per page. Defaults to 100. (optional) 
 
             try
             {
+                // Get all MCP servers
                 McpServerArrayWrapper result = apiInstance.GetServers(startIndex, count);
                 Debug.WriteLine(result);
             }
@@ -1098,6 +1134,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Get all MCP servers
     ApiResponse<McpServerArrayWrapper> response = apiInstance.GetServersWithHttpInfo(startIndex, count);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1120,7 +1157,8 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Paginated list of all registered MCP servers |  -  |
+| **403** | You don&#39;t have permission to manage MCP servers |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1129,7 +1167,7 @@ catch (ApiException e)
 # **GetTools**
 > McpToolArrayWrapper GetTools (int roomId, Guid serverId)
 
-
+Retrieves the full list of tools exposed by an MCP server within the context of a specific room,  along with each tool's enabled or disabled state. Disabled tools will not be invoked during  AI chat sessions in this room. Requires access to the room's AI chat.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tools/).
 
@@ -1137,8 +1175,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **roomId** | **int** |  |  |
-| **serverId** | **Guid** |  |  |
+| **roomId** | **int** | Identifier of the room containing the MCP server. |  |
+| **serverId** | **Guid** | Unique identifier of the MCP server whose tools are being retrieved. |  |
 
 ### Return type
 
@@ -1185,11 +1223,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | 
-            var serverId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | 
+            var roomId = 1;  // int | Identifier of the room containing the MCP server.
+            var serverId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | Unique identifier of the MCP server whose tools are being retrieved.
 
             try
             {
+                // Get MCP server tools in a room
                 McpToolArrayWrapper result = apiInstance.GetTools(roomId, serverId);
                 Debug.WriteLine(result);
             }
@@ -1210,6 +1249,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Get MCP server tools in a room
     ApiResponse<McpToolArrayWrapper> response = apiInstance.GetToolsWithHttpInfo(roomId, serverId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1232,7 +1272,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | List of tools with their enabled/disabled states |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **404** | The room or MCP server was not found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1241,7 +1283,7 @@ catch (ApiException e)
 # **SetServerStatus**
 > McpServerWrapper SetServerStatus (Guid id, SetServerStatusRequestBody setServerStatusRequestBody)
 
-
+Toggles the enabled/disabled state of an MCP server. When a server is disabled, it becomes  unavailable for assignment to rooms and will not be used during AI chat sessions.  Enabling a previously disabled server restores its availability across the tenant.  Requires DocSpace administrator privileges.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-server-status/).
 
@@ -1249,8 +1291,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **Guid** |  |  |
-| **setServerStatusRequestBody** | [**SetServerStatusRequestBody**](SetServerStatusRequestBody.md) |  |  |
+| **id** | **Guid** | Unique identifier of the MCP server whose status is being changed. |  |
+| **setServerStatusRequestBody** | [**SetServerStatusRequestBody**](SetServerStatusRequestBody.md) | New status value. |  |
 
 ### Return type
 
@@ -1297,11 +1339,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var id = 00000000-0000-0000-0000-000000000000;  // Guid | 
-            var setServerStatusRequestBody = new SetServerStatusRequestBody(); // SetServerStatusRequestBody | 
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | Unique identifier of the MCP server whose status is being changed.
+            var setServerStatusRequestBody = new SetServerStatusRequestBody(); // SetServerStatusRequestBody | New status value.
 
             try
             {
+                // Enable or disable an MCP server
                 McpServerWrapper result = apiInstance.SetServerStatus(id, setServerStatusRequestBody);
                 Debug.WriteLine(result);
             }
@@ -1322,6 +1365,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Enable or disable an MCP server
     ApiResponse<McpServerWrapper> response = apiInstance.SetServerStatusWithHttpInfo(id, setServerStatusRequestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1344,7 +1388,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | MCP server with the updated status |  -  |
+| **403** | You don&#39;t have permission to manage MCP servers |  -  |
+| **404** | The MCP server with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1353,7 +1399,7 @@ catch (ApiException e)
 # **SetTools**
 > McpToolArrayWrapper SetTools (int roomId, Guid serverId, SetMcpToolsRequestBody setMcpToolsRequestBody)
 
-
+Updates the set of disabled tools for an MCP server within a specific room. Pass a list of tool names  that should be disabled — all other tools exposed by the server will remain enabled. This allows  room administrators to restrict which MCP capabilities are available during AI chat sessions.  Requires room edit permissions.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tools/).
 
@@ -1361,9 +1407,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **roomId** | **int** |  |  |
-| **serverId** | **Guid** |  |  |
-| **setMcpToolsRequestBody** | [**SetMcpToolsRequestBody**](SetMcpToolsRequestBody.md) |  |  |
+| **roomId** | **int** | Identifier of the room containing the MCP server. |  |
+| **serverId** | **Guid** | Unique identifier of the MCP server whose tools are being configured. |  |
+| **setMcpToolsRequestBody** | [**SetMcpToolsRequestBody**](SetMcpToolsRequestBody.md) | Tool configuration parameters. |  |
 
 ### Return type
 
@@ -1410,12 +1456,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | 
-            var serverId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | 
-            var setMcpToolsRequestBody = new SetMcpToolsRequestBody(); // SetMcpToolsRequestBody | 
+            var roomId = 1;  // int | Identifier of the room containing the MCP server.
+            var serverId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | Unique identifier of the MCP server whose tools are being configured.
+            var setMcpToolsRequestBody = new SetMcpToolsRequestBody(); // SetMcpToolsRequestBody | Tool configuration parameters.
 
             try
             {
+                // Configure MCP server tools in a room
                 McpToolArrayWrapper result = apiInstance.SetTools(roomId, serverId, setMcpToolsRequestBody);
                 Debug.WriteLine(result);
             }
@@ -1436,6 +1483,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Configure MCP server tools in a room
     ApiResponse<McpToolArrayWrapper> response = apiInstance.SetToolsWithHttpInfo(roomId, serverId, setMcpToolsRequestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1458,7 +1506,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Complete list of tools with their enabled/disabled states |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **404** | The room or MCP server was not found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1467,7 +1517,7 @@ catch (ApiException e)
 # **UpdateServer**
 > McpServerWrapper UpdateServer (Guid id, UpdateServerRequestBody updateServerRequestBody)
 
-
+Updates the configuration of an existing custom MCP server identified by its unique ID.  Any combination of fields (name, description, endpoint, headers, icon) can be updated in a single request.  If the endpoint or headers are changed, the system re-validates connectivity by attempting to reach  the new endpoint before saving. Name uniqueness and format rules are enforced on every update.  Requires DocSpace administrator privileges.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-server/).
 
@@ -1475,8 +1525,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **id** | **Guid** |  |  |
-| **updateServerRequestBody** | [**UpdateServerRequestBody**](UpdateServerRequestBody.md) |  |  |
+| **id** | **Guid** | Unique identifier of the MCP server to update. |  |
+| **updateServerRequestBody** | [**UpdateServerRequestBody**](UpdateServerRequestBody.md) | Updated server configuration fields. |  |
 
 ### Return type
 
@@ -1523,11 +1573,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var id = 00000000-0000-0000-0000-000000000000;  // Guid | 
-            var updateServerRequestBody = new UpdateServerRequestBody(); // UpdateServerRequestBody | 
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | Unique identifier of the MCP server to update.
+            var updateServerRequestBody = new UpdateServerRequestBody(); // UpdateServerRequestBody | Updated server configuration fields.
 
             try
             {
+                // Update a custom MCP server
                 McpServerWrapper result = apiInstance.UpdateServer(id, updateServerRequestBody);
                 Debug.WriteLine(result);
             }
@@ -1548,6 +1599,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Update a custom MCP server
     ApiResponse<McpServerWrapper> response = apiInstance.UpdateServerWithHttpInfo(id, updateServerRequestBody);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -1570,7 +1622,10 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | Updated MCP server configuration |  -  |
+| **400** | Invalid server name, reserved name, duplicate name, incorrect credentials, or invalid endpoint URL |  -  |
+| **403** | You don&#39;t have permission to manage MCP servers |  -  |
+| **404** | The MCP server with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

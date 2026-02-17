@@ -24,96 +24,111 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Get AI settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
         /// <returns>AiSettingsWrapper</returns>
         AiSettingsWrapper GetAiSettings();
 
         /// <summary>
-        /// 
+        /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
         /// <returns>ApiResponse of AiSettingsWrapper</returns>
         ApiResponse<AiSettingsWrapper> GetAiSettingsWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
         /// <returns>VectorizationSettingsWrapper</returns>
         VectorizationSettingsWrapper GetVectorizationSettings();
 
         /// <summary>
-        /// 
+        /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
         /// <returns>ApiResponse of VectorizationSettingsWrapper</returns>
         ApiResponse<VectorizationSettingsWrapper> GetVectorizationSettingsWithHttpInfo();
         /// <summary>
-        /// 
+        /// Get web search settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
         /// <returns>WebSearchSettingsWrapper</returns>
         WebSearchSettingsWrapper GetWebSearchSettings();
 
         /// <summary>
-        /// 
+        /// Get web search settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
         /// <returns>ApiResponse of WebSearchSettingsWrapper</returns>
         ApiResponse<WebSearchSettingsWrapper> GetWebSearchSettingsWithHttpInfo();
         /// <summary>
-        /// 
+        /// Update vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody"></param>
+        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
         /// <returns>VectorizationSettingsWrapper</returns>
         VectorizationSettingsWrapper SetVectorizationSettings(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody);
 
         /// <summary>
-        /// 
+        /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody"></param>
+        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
         /// <returns>ApiResponse of VectorizationSettingsWrapper</returns>
         ApiResponse<VectorizationSettingsWrapper> SetVectorizationSettingsWithHttpInfo(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody);
         /// <summary>
-        /// 
+        /// Update web search settings
         /// </summary>
+        /// <remarks>
+        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody"></param>
+        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
         /// <returns>WebSearchSettingsWrapper</returns>
         WebSearchSettingsWrapper SetWebSearchSettings(SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody);
 
         /// <summary>
-        /// 
+        /// Update web search settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody"></param>
+        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
         /// <returns>ApiResponse of WebSearchSettingsWrapper</returns>
         ApiResponse<WebSearchSettingsWrapper> SetWebSearchSettingsWithHttpInfo(SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody);
@@ -127,10 +142,10 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -139,10 +154,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<AiSettingsWrapper> GetAiSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get AI settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -150,10 +165,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (AiSettingsWrapper)</returns>
         Task<ApiResponse<AiSettingsWrapper>> GetAiSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -162,10 +177,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<VectorizationSettingsWrapper> GetVectorizationSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get vectorization settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -173,10 +188,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (VectorizationSettingsWrapper)</returns>
         Task<ApiResponse<VectorizationSettingsWrapper>> GetVectorizationSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get web search settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -185,10 +200,10 @@ namespace DocSpace.API.SDK.Api.AI
         Task<WebSearchSettingsWrapper> GetWebSearchSettingsAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get web search settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -196,51 +211,51 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (WebSearchSettingsWrapper)</returns>
         Task<ApiResponse<WebSearchSettingsWrapper>> GetWebSearchSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody"></param>
+        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
         /// <returns>Task of VectorizationSettingsWrapper</returns>
         Task<VectorizationSettingsWrapper> SetVectorizationSettingsAsync(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Update vectorization settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody"></param>
+        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (VectorizationSettingsWrapper)</returns>
         Task<ApiResponse<VectorizationSettingsWrapper>> SetVectorizationSettingsWithHttpInfoAsync(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Update web search settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody"></param>
+        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
         /// <returns>Task of WebSearchSettingsWrapper</returns>
         Task<WebSearchSettingsWrapper> SetWebSearchSettingsAsync(SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Update web search settings
         /// </summary>
         /// <remarks>
-        /// 
+        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody"></param>
+        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
         /// <returns>Task of ApiResponse (WebSearchSettingsWrapper)</returns>
@@ -461,8 +476,11 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// 
+        /// Get AI settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
         /// <returns>AiSettingsWrapper</returns>
@@ -473,8 +491,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get AI settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
         /// <returns>ApiResponse of AiSettingsWrapper</returns>
@@ -541,8 +562,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get AI settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
@@ -554,8 +578,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get AI settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the combined AI configuration for the current portal, including the status of web search,  vectorization, and AI readiness, along with tool names and the portal MCP server identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-ai-settings/">REST API Reference for GetAiSettings Operation</seealso>
@@ -625,8 +652,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
         /// <returns>VectorizationSettingsWrapper</returns>
@@ -637,8 +667,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
         /// <returns>ApiResponse of VectorizationSettingsWrapper</returns>
@@ -705,8 +738,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
@@ -718,8 +754,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current embedding provider settings used for document vectorization,  including the configured provider type and whether the API key needs to be reset.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-vectorization-settings/">REST API Reference for GetVectorizationSettings Operation</seealso>
@@ -789,8 +828,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get web search settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
         /// <returns>WebSearchSettingsWrapper</returns>
@@ -801,8 +843,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get web search settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
         /// <returns>ApiResponse of WebSearchSettingsWrapper</returns>
@@ -869,8 +914,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get web search settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
@@ -882,8 +930,11 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get web search settings
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current web search integration settings for AI chat sessions,  including whether web search is enabled, the configured search engine type, and whether the API key needs to be reset.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-web-search-settings/">REST API Reference for GetWebSearchSettings Operation</seealso>
@@ -953,10 +1004,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody"></param>
+        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
         /// <returns>VectorizationSettingsWrapper</returns>
         public VectorizationSettingsWrapper SetVectorizationSettings(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody)
@@ -966,10 +1020,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody"></param>
+        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
         /// <returns>ApiResponse of VectorizationSettingsWrapper</returns>
         public ApiResponse<VectorizationSettingsWrapper> SetVectorizationSettingsWithHttpInfo(SetEmbeddingConfigRequestBody setEmbeddingConfigRequestBody)
@@ -1040,10 +1097,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody"></param>
+        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
         /// <returns>Task of VectorizationSettingsWrapper</returns>
@@ -1054,10 +1114,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update vectorization settings
         /// </summary>
+        /// <remarks>
+        /// Configures the embedding provider used for document vectorization at the portal level.  Vectorization enables semantic search and knowledge retrieval capabilities in AI chat sessions.  Allows selecting the embedding provider type and providing the API key for the chosen provider.  Only portal administrators can modify these settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setEmbeddingConfigRequestBody"></param>
+        /// <param name="setEmbeddingConfigRequestBody">The embedding provider configuration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-vectorization-settings/">REST API Reference for SetVectorizationSettings Operation</seealso>
         /// <returns>Task of ApiResponse (VectorizationSettingsWrapper)</returns>
@@ -1131,10 +1194,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update web search settings
         /// </summary>
+        /// <remarks>
+        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody"></param>
+        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
         /// <returns>WebSearchSettingsWrapper</returns>
         public WebSearchSettingsWrapper SetWebSearchSettings(SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody)
@@ -1144,10 +1210,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update web search settings
         /// </summary>
+        /// <remarks>
+        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody"></param>
+        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
         /// <returns>ApiResponse of WebSearchSettingsWrapper</returns>
         public ApiResponse<WebSearchSettingsWrapper> SetWebSearchSettingsWithHttpInfo(SetWebSearchSettingsRequestBody setWebSearchSettingsRequestBody)
@@ -1218,10 +1287,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update web search settings
         /// </summary>
+        /// <remarks>
+        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody"></param>
+        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
         /// <returns>Task of WebSearchSettingsWrapper</returns>
@@ -1232,10 +1304,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update web search settings
         /// </summary>
+        /// <remarks>
+        /// Configures the web search integration for AI chat sessions at the portal level.  Allows enabling or disabling web search, selecting the search engine type, and providing the API key for the chosen engine.  Only portal administrators can modify these settings.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="setWebSearchSettingsRequestBody"></param>
+        /// <param name="setWebSearchSettingsRequestBody">The web search configuration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-web-search-settings/">REST API Reference for SetWebSearchSettings Operation</seealso>
         /// <returns>Task of ApiResponse (WebSearchSettingsWrapper)</returns>

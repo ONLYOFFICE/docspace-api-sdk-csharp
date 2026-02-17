@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// RenameChatBody
+    /// Parameters for renaming an AI chat session.
     /// </summary>
     [DataContract(Name = "RenameChatBody")]
     public partial class RenameChatBody : IValidatableObject
@@ -33,7 +33,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RenameChatBody" /> class.
         /// </summary>
-        /// <param name="name">name (required).</param>
+        /// <param name="name">The new display name for the chat session (maximum 255 characters). (required).</param>
         public RenameChatBody(string name = default)
         {
             // to ensure "name" is required (not null)
@@ -45,8 +45,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// The new display name for the chat session (maximum 255 characters).
         /// </summary>
+        /// <value>The new display name for the chat session (maximum 255 characters).</value>
         /*
         <example>John Doe</example>
         */

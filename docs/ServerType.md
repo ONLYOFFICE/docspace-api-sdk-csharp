@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.ServerType
+[0 - Custom, 1 - DocSpace, 2 - Github, 3 - Box]
 
 ## Properties
 

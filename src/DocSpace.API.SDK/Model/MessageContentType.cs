@@ -19,8 +19,9 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Defines MessageContentType
+    /// The type of content block within a chat message.
     /// </summary>
+    /// <value>The type of content block within a chat message.</value>
     public enum MessageContentType
     {
         /// <summary>

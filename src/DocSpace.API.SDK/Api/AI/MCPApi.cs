@@ -24,306 +24,348 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Assign MCP servers to a room
         /// </summary>
+        /// <remarks>
+        /// Associates one or more MCP servers with a specific room, making them available for AI chat sessions  within that room. A maximum of 5 MCP servers can be assigned to a single room. If OAuth-based servers  are included, each room member will need to individually authorize their connection.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="addRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room to which MCP servers will be assigned.</param>
+        /// <param name="addRoomServersRequestBody">Server identifiers to assign.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-servers/">REST API Reference for AddRoomServers Operation</seealso>
         /// <returns>McpServerStatusArrayWrapper</returns>
         McpServerStatusArrayWrapper AddRoomServers(int roomId, AddRoomServersRequestBody addRoomServersRequestBody);
 
         /// <summary>
-        /// 
+        /// Assign MCP servers to a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Associates one or more MCP servers with a specific room, making them available for AI chat sessions  within that room. A maximum of 5 MCP servers can be assigned to a single room. If OAuth-based servers  are included, each room member will need to individually authorize their connection.  Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="addRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room to which MCP servers will be assigned.</param>
+        /// <param name="addRoomServersRequestBody">Server identifiers to assign.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-servers/">REST API Reference for AddRoomServers Operation</seealso>
         /// <returns>ApiResponse of McpServerStatusArrayWrapper</returns>
         ApiResponse<McpServerStatusArrayWrapper> AddRoomServersWithHttpInfo(int roomId, AddRoomServersRequestBody addRoomServersRequestBody);
         /// <summary>
-        /// 
+        /// Register a custom MCP server
         /// </summary>
+        /// <remarks>
+        /// Registers a new custom MCP (Model Context Protocol) server for the current tenant.  The system validates the server name (only letters, numbers, underscores, and hyphens are allowed),  checks that it is not reserved or already taken, and then attempts to connect to the provided endpoint  to verify reachability and credentials before persisting the configuration.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addMcpServerRequestBody"></param>
+        /// <param name="addMcpServerRequestBody">MCP server registration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-server/">REST API Reference for AddServer Operation</seealso>
         /// <returns>McpServerWrapper</returns>
         McpServerWrapper AddServer(AddMcpServerRequestBody addMcpServerRequestBody);
 
         /// <summary>
-        /// 
+        /// Register a custom MCP server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Registers a new custom MCP (Model Context Protocol) server for the current tenant.  The system validates the server name (only letters, numbers, underscores, and hyphens are allowed),  checks that it is not reserved or already taken, and then attempts to connect to the provided endpoint  to verify reachability and credentials before persisting the configuration.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addMcpServerRequestBody"></param>
+        /// <param name="addMcpServerRequestBody">MCP server registration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-server/">REST API Reference for AddServer Operation</seealso>
         /// <returns>ApiResponse of McpServerWrapper</returns>
         ApiResponse<McpServerWrapper> AddServerWithHttpInfo(AddMcpServerRequestBody addMcpServerRequestBody);
         /// <summary>
-        /// 
+        /// Connect an OAuth-based MCP server in a room
         /// </summary>
+        /// <remarks>
+        /// Completes the OAuth authorization flow for an MCP server within a specific room on behalf of the  current user. The authorization code obtained from the OAuth provider must be passed in the request body.  Upon successful token exchange, the system verifies connectivity to the server and stores  the credentials for the current user. Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="connectServerRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
+        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>McpServerStatusWrapper</returns>
         McpServerStatusWrapper ConnectServer(int roomId, Guid serverId, ConnectServerRequestBody connectServerRequestBody);
 
         /// <summary>
-        /// 
+        /// Connect an OAuth-based MCP server in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Completes the OAuth authorization flow for an MCP server within a specific room on behalf of the  current user. The authorization code obtained from the OAuth provider must be passed in the request body.  Upon successful token exchange, the system verifies connectivity to the server and stores  the credentials for the current user. Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="connectServerRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
+        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>ApiResponse of McpServerStatusWrapper</returns>
         ApiResponse<McpServerStatusWrapper> ConnectServerWithHttpInfo(int roomId, Guid serverId, ConnectServerRequestBody connectServerRequestBody);
         /// <summary>
-        /// 
+        /// Remove MCP servers from a room
         /// </summary>
+        /// <remarks>
+        /// Detaches one or more MCP servers from the specified room. After removal, the servers will no longer  be available in AI chat sessions within this room. Existing connections and tool configurations for  the removed servers are also cleaned up. Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="deleteRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room from which MCP servers will be removed.</param>
+        /// <param name="deleteRoomServersRequestBody">Server identifiers to remove.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-servers/">REST API Reference for DeleteRoomServers Operation</seealso>
         /// <returns></returns>
         void DeleteRoomServers(int roomId, DeleteRoomServersRequestBody deleteRoomServersRequestBody);
 
         /// <summary>
-        /// 
+        /// Remove MCP servers from a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Detaches one or more MCP servers from the specified room. After removal, the servers will no longer  be available in AI chat sessions within this room. Existing connections and tool configurations for  the removed servers are also cleaned up. Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="deleteRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room from which MCP servers will be removed.</param>
+        /// <param name="deleteRoomServersRequestBody">Server identifiers to remove.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-servers/">REST API Reference for DeleteRoomServers Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteRoomServersWithHttpInfo(int roomId, DeleteRoomServersRequestBody deleteRoomServersRequestBody);
         /// <summary>
-        /// 
+        /// Delete MCP servers
         /// </summary>
+        /// <remarks>
+        /// Permanently removes one or more MCP servers from the current tenant by their IDs.  All room associations and connection data for the deleted servers are also cleaned up.  This action is irreversible. Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteServersRequestBody"></param>
+        /// <param name="deleteServersRequestBody">Server identifiers to delete.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-server/">REST API Reference for DeleteServer Operation</seealso>
         /// <returns></returns>
         void DeleteServer(DeleteServersRequestBody deleteServersRequestBody);
 
         /// <summary>
-        /// 
+        /// Delete MCP servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently removes one or more MCP servers from the current tenant by their IDs.  All room associations and connection data for the deleted servers are also cleaned up.  This action is irreversible. Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteServersRequestBody"></param>
+        /// <param name="deleteServersRequestBody">Server identifiers to delete.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-server/">REST API Reference for DeleteServer Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteServerWithHttpInfo(DeleteServersRequestBody deleteServersRequestBody);
         /// <summary>
-        /// 
+        /// Disconnect an MCP server in a room
         /// </summary>
+        /// <remarks>
+        /// Revokes the current user&#39;s OAuth connection to an MCP server within the specified room. After  disconnection, the server&#39;s tools will no longer be available to this user in AI chat sessions  until they re-authorize. Other room members&#39; connections are not affected.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to disconnect from.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/disconnect-server/">REST API Reference for DisconnectServer Operation</seealso>
         /// <returns>McpServerStatusWrapper</returns>
         McpServerStatusWrapper DisconnectServer(int roomId, Guid serverId);
 
         /// <summary>
-        /// 
+        /// Disconnect an MCP server in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Revokes the current user&#39;s OAuth connection to an MCP server within the specified room. After  disconnection, the server&#39;s tools will no longer be available to this user in AI chat sessions  until they re-authorize. Other room members&#39; connections are not affected.  Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to disconnect from.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/disconnect-server/">REST API Reference for DisconnectServer Operation</seealso>
         /// <returns>ApiResponse of McpServerStatusWrapper</returns>
         ApiResponse<McpServerStatusWrapper> DisconnectServerWithHttpInfo(int roomId, Guid serverId);
         /// <summary>
-        /// 
+        /// Get available MCP servers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of MCP servers that are currently active (enabled) and available for  assignment to rooms. Only servers in the enabled state are included. Each entry contains a compact  summary with the server name, type, icon, and status. Supports pagination via startIndex and count.  The total count of available servers is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-servers/">REST API Reference for GetAvailableServers Operation</seealso>
         /// <returns>McpServerShortArrayWrapper</returns>
         McpServerShortArrayWrapper GetAvailableServers(int? startIndex = default, int? count = default);
 
         /// <summary>
-        /// 
+        /// Get available MCP servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of MCP servers that are currently active (enabled) and available for  assignment to rooms. Only servers in the enabled state are included. Each entry contains a compact  summary with the server name, type, icon, and status. Supports pagination via startIndex and count.  The total count of available servers is included in the response metadata.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-servers/">REST API Reference for GetAvailableServers Operation</seealso>
         /// <returns>ApiResponse of McpServerShortArrayWrapper</returns>
         ApiResponse<McpServerShortArrayWrapper> GetAvailableServersWithHttpInfo(int? startIndex = default, int? count = default);
         /// <summary>
-        /// 
+        /// Get MCP servers assigned to a room
         /// </summary>
+        /// <remarks>
+        /// Returns the list of MCP servers currently assigned to the specified room along with their connection  statuses for the current user. For OAuth-based servers, the connection status reflects whether the  current user has completed authorization. Requires access to the room&#39;s AI chat.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">Identifier of the room whose assigned MCP servers are being retrieved.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-servers/">REST API Reference for GetRoomServers Operation</seealso>
         /// <returns>McpServerStatusArrayWrapper</returns>
         McpServerStatusArrayWrapper GetRoomServers(int roomId);
 
         /// <summary>
-        /// 
+        /// Get MCP servers assigned to a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the list of MCP servers currently assigned to the specified room along with their connection  statuses for the current user. For OAuth-based servers, the connection status reflects whether the  current user has completed authorization. Requires access to the room&#39;s AI chat.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">Identifier of the room whose assigned MCP servers are being retrieved.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-servers/">REST API Reference for GetRoomServers Operation</seealso>
         /// <returns>ApiResponse of McpServerStatusArrayWrapper</returns>
         ApiResponse<McpServerStatusArrayWrapper> GetRoomServersWithHttpInfo(int roomId);
         /// <summary>
-        /// 
+        /// Get an MCP server by ID
         /// </summary>
+        /// <remarks>
+        /// Retrieves a summary view of a single MCP server by its unique identifier, including its name,  type, enabled state, and icon. This endpoint returns a compact representation without  sensitive details such as endpoint URL or authentication headers.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Unique identifier of the MCP server to retrieve.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-server/">REST API Reference for GetServer Operation</seealso>
         /// <returns>McpServerShortWrapper</returns>
         McpServerShortWrapper GetServer(Guid id);
 
         /// <summary>
-        /// 
+        /// Get an MCP server by ID
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves a summary view of a single MCP server by its unique identifier, including its name,  type, enabled state, and icon. This endpoint returns a compact representation without  sensitive details such as endpoint URL or authentication headers.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Unique identifier of the MCP server to retrieve.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-server/">REST API Reference for GetServer Operation</seealso>
         /// <returns>ApiResponse of McpServerShortWrapper</returns>
         ApiResponse<McpServerShortWrapper> GetServerWithHttpInfo(Guid id);
         /// <summary>
-        /// 
+        /// Get all MCP servers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of all MCP servers registered for the current tenant, including both  enabled and disabled servers. Each entry contains the full configuration (endpoint, headers,  icon, type, and status). Supports pagination via the startIndex and count query parameters.  The total number of servers is included in the response metadata.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-servers/">REST API Reference for GetServers Operation</seealso>
         /// <returns>McpServerArrayWrapper</returns>
         McpServerArrayWrapper GetServers(int? startIndex = default, int? count = default);
 
         /// <summary>
-        /// 
+        /// Get all MCP servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of all MCP servers registered for the current tenant, including both  enabled and disabled servers. Each entry contains the full configuration (endpoint, headers,  icon, type, and status). Supports pagination via the startIndex and count query parameters.  The total number of servers is included in the response metadata.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-servers/">REST API Reference for GetServers Operation</seealso>
         /// <returns>ApiResponse of McpServerArrayWrapper</returns>
         ApiResponse<McpServerArrayWrapper> GetServersWithHttpInfo(int? startIndex = default, int? count = default);
         /// <summary>
-        /// 
+        /// Get MCP server tools in a room
         /// </summary>
+        /// <remarks>
+        /// Retrieves the full list of tools exposed by an MCP server within the context of a specific room,  along with each tool&#39;s enabled or disabled state. Disabled tools will not be invoked during  AI chat sessions in this room. Requires access to the room&#39;s AI chat.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being retrieved.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tools/">REST API Reference for GetTools Operation</seealso>
         /// <returns>McpToolArrayWrapper</returns>
         McpToolArrayWrapper GetTools(int roomId, Guid serverId);
 
         /// <summary>
-        /// 
+        /// Get MCP server tools in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the full list of tools exposed by an MCP server within the context of a specific room,  along with each tool&#39;s enabled or disabled state. Disabled tools will not be invoked during  AI chat sessions in this room. Requires access to the room&#39;s AI chat.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being retrieved.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tools/">REST API Reference for GetTools Operation</seealso>
         /// <returns>ApiResponse of McpToolArrayWrapper</returns>
         ApiResponse<McpToolArrayWrapper> GetToolsWithHttpInfo(int roomId, Guid serverId);
         /// <summary>
-        /// 
+        /// Enable or disable an MCP server
         /// </summary>
+        /// <remarks>
+        /// Toggles the enabled/disabled state of an MCP server. When a server is disabled, it becomes  unavailable for assignment to rooms and will not be used during AI chat sessions.  Enabling a previously disabled server restores its availability across the tenant.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="setServerStatusRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server whose status is being changed.</param>
+        /// <param name="setServerStatusRequestBody">New status value.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-server-status/">REST API Reference for SetServerStatus Operation</seealso>
         /// <returns>McpServerWrapper</returns>
         McpServerWrapper SetServerStatus(Guid id, SetServerStatusRequestBody setServerStatusRequestBody);
 
         /// <summary>
-        /// 
+        /// Enable or disable an MCP server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Toggles the enabled/disabled state of an MCP server. When a server is disabled, it becomes  unavailable for assignment to rooms and will not be used during AI chat sessions.  Enabling a previously disabled server restores its availability across the tenant.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="setServerStatusRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server whose status is being changed.</param>
+        /// <param name="setServerStatusRequestBody">New status value.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-server-status/">REST API Reference for SetServerStatus Operation</seealso>
         /// <returns>ApiResponse of McpServerWrapper</returns>
         ApiResponse<McpServerWrapper> SetServerStatusWithHttpInfo(Guid id, SetServerStatusRequestBody setServerStatusRequestBody);
         /// <summary>
-        /// 
+        /// Configure MCP server tools in a room
         /// </summary>
+        /// <remarks>
+        /// Updates the set of disabled tools for an MCP server within a specific room. Pass a list of tool names  that should be disabled — all other tools exposed by the server will remain enabled. This allows  room administrators to restrict which MCP capabilities are available during AI chat sessions.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="setMcpToolsRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being configured.</param>
+        /// <param name="setMcpToolsRequestBody">Tool configuration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tools/">REST API Reference for SetTools Operation</seealso>
         /// <returns>McpToolArrayWrapper</returns>
         McpToolArrayWrapper SetTools(int roomId, Guid serverId, SetMcpToolsRequestBody setMcpToolsRequestBody);
 
         /// <summary>
-        /// 
+        /// Configure MCP server tools in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the set of disabled tools for an MCP server within a specific room. Pass a list of tool names  that should be disabled — all other tools exposed by the server will remain enabled. This allows  room administrators to restrict which MCP capabilities are available during AI chat sessions.  Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="setMcpToolsRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being configured.</param>
+        /// <param name="setMcpToolsRequestBody">Tool configuration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tools/">REST API Reference for SetTools Operation</seealso>
         /// <returns>ApiResponse of McpToolArrayWrapper</returns>
         ApiResponse<McpToolArrayWrapper> SetToolsWithHttpInfo(int roomId, Guid serverId, SetMcpToolsRequestBody setMcpToolsRequestBody);
         /// <summary>
-        /// 
+        /// Update a custom MCP server
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of an existing custom MCP server identified by its unique ID.  Any combination of fields (name, description, endpoint, headers, icon) can be updated in a single request.  If the endpoint or headers are changed, the system re-validates connectivity by attempting to reach  the new endpoint before saving. Name uniqueness and format rules are enforced on every update.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateServerRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server to update.</param>
+        /// <param name="updateServerRequestBody">Updated server configuration fields.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-server/">REST API Reference for UpdateServer Operation</seealso>
         /// <returns>McpServerWrapper</returns>
         McpServerWrapper UpdateServer(Guid id, UpdateServerRequestBody updateServerRequestBody);
 
         /// <summary>
-        /// 
+        /// Update a custom MCP server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the configuration of an existing custom MCP server identified by its unique ID.  Any combination of fields (name, description, endpoint, headers, icon) can be updated in a single request.  If the endpoint or headers are changed, the system re-validates connectivity by attempting to reach  the new endpoint before saving. Name uniqueness and format rules are enforced on every update.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateServerRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server to update.</param>
+        /// <param name="updateServerRequestBody">Updated server configuration fields.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-server/">REST API Reference for UpdateServer Operation</seealso>
         /// <returns>ApiResponse of McpServerWrapper</returns>
         ApiResponse<McpServerWrapper> UpdateServerWithHttpInfo(Guid id, UpdateServerRequestBody updateServerRequestBody);
@@ -337,375 +379,375 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Assign MCP servers to a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Associates one or more MCP servers with a specific room, making them available for AI chat sessions  within that room. A maximum of 5 MCP servers can be assigned to a single room. If OAuth-based servers  are included, each room member will need to individually authorize their connection.  Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="addRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room to which MCP servers will be assigned.</param>
+        /// <param name="addRoomServersRequestBody">Server identifiers to assign.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-servers/">REST API Reference for AddRoomServers Operation</seealso>
         /// <returns>Task of McpServerStatusArrayWrapper</returns>
         Task<McpServerStatusArrayWrapper> AddRoomServersAsync(int roomId, AddRoomServersRequestBody addRoomServersRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Assign MCP servers to a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Associates one or more MCP servers with a specific room, making them available for AI chat sessions  within that room. A maximum of 5 MCP servers can be assigned to a single room. If OAuth-based servers  are included, each room member will need to individually authorize their connection.  Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="addRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room to which MCP servers will be assigned.</param>
+        /// <param name="addRoomServersRequestBody">Server identifiers to assign.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-servers/">REST API Reference for AddRoomServers Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerStatusArrayWrapper)</returns>
         Task<ApiResponse<McpServerStatusArrayWrapper>> AddRoomServersWithHttpInfoAsync(int roomId, AddRoomServersRequestBody addRoomServersRequestBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Register a custom MCP server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Registers a new custom MCP (Model Context Protocol) server for the current tenant.  The system validates the server name (only letters, numbers, underscores, and hyphens are allowed),  checks that it is not reserved or already taken, and then attempts to connect to the provided endpoint  to verify reachability and credentials before persisting the configuration.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addMcpServerRequestBody"></param>
+        /// <param name="addMcpServerRequestBody">MCP server registration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-server/">REST API Reference for AddServer Operation</seealso>
         /// <returns>Task of McpServerWrapper</returns>
         Task<McpServerWrapper> AddServerAsync(AddMcpServerRequestBody addMcpServerRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Register a custom MCP server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Registers a new custom MCP (Model Context Protocol) server for the current tenant.  The system validates the server name (only letters, numbers, underscores, and hyphens are allowed),  checks that it is not reserved or already taken, and then attempts to connect to the provided endpoint  to verify reachability and credentials before persisting the configuration.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addMcpServerRequestBody"></param>
+        /// <param name="addMcpServerRequestBody">MCP server registration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-server/">REST API Reference for AddServer Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerWrapper)</returns>
         Task<ApiResponse<McpServerWrapper>> AddServerWithHttpInfoAsync(AddMcpServerRequestBody addMcpServerRequestBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Connect an OAuth-based MCP server in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Completes the OAuth authorization flow for an MCP server within a specific room on behalf of the  current user. The authorization code obtained from the OAuth provider must be passed in the request body.  Upon successful token exchange, the system verifies connectivity to the server and stores  the credentials for the current user. Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="connectServerRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
+        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>Task of McpServerStatusWrapper</returns>
         Task<McpServerStatusWrapper> ConnectServerAsync(int roomId, Guid serverId, ConnectServerRequestBody connectServerRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Connect an OAuth-based MCP server in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Completes the OAuth authorization flow for an MCP server within a specific room on behalf of the  current user. The authorization code obtained from the OAuth provider must be passed in the request body.  Upon successful token exchange, the system verifies connectivity to the server and stores  the credentials for the current user. Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="connectServerRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
+        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerStatusWrapper)</returns>
         Task<ApiResponse<McpServerStatusWrapper>> ConnectServerWithHttpInfoAsync(int roomId, Guid serverId, ConnectServerRequestBody connectServerRequestBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Remove MCP servers from a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Detaches one or more MCP servers from the specified room. After removal, the servers will no longer  be available in AI chat sessions within this room. Existing connections and tool configurations for  the removed servers are also cleaned up. Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="deleteRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room from which MCP servers will be removed.</param>
+        /// <param name="deleteRoomServersRequestBody">Server identifiers to remove.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-servers/">REST API Reference for DeleteRoomServers Operation</seealso>
         /// <returns>Task of void</returns>
         Task DeleteRoomServersAsync(int roomId, DeleteRoomServersRequestBody deleteRoomServersRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Remove MCP servers from a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Detaches one or more MCP servers from the specified room. After removal, the servers will no longer  be available in AI chat sessions within this room. Existing connections and tool configurations for  the removed servers are also cleaned up. Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="deleteRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room from which MCP servers will be removed.</param>
+        /// <param name="deleteRoomServersRequestBody">Server identifiers to remove.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-servers/">REST API Reference for DeleteRoomServers Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> DeleteRoomServersWithHttpInfoAsync(int roomId, DeleteRoomServersRequestBody deleteRoomServersRequestBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Delete MCP servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently removes one or more MCP servers from the current tenant by their IDs.  All room associations and connection data for the deleted servers are also cleaned up.  This action is irreversible. Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteServersRequestBody"></param>
+        /// <param name="deleteServersRequestBody">Server identifiers to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-server/">REST API Reference for DeleteServer Operation</seealso>
         /// <returns>Task of void</returns>
         Task DeleteServerAsync(DeleteServersRequestBody deleteServersRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Delete MCP servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently removes one or more MCP servers from the current tenant by their IDs.  All room associations and connection data for the deleted servers are also cleaned up.  This action is irreversible. Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteServersRequestBody"></param>
+        /// <param name="deleteServersRequestBody">Server identifiers to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-server/">REST API Reference for DeleteServer Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> DeleteServerWithHttpInfoAsync(DeleteServersRequestBody deleteServersRequestBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Disconnect an MCP server in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Revokes the current user&#39;s OAuth connection to an MCP server within the specified room. After  disconnection, the server&#39;s tools will no longer be available to this user in AI chat sessions  until they re-authorize. Other room members&#39; connections are not affected.  Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to disconnect from.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/disconnect-server/">REST API Reference for DisconnectServer Operation</seealso>
         /// <returns>Task of McpServerStatusWrapper</returns>
         Task<McpServerStatusWrapper> DisconnectServerAsync(int roomId, Guid serverId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Disconnect an MCP server in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Revokes the current user&#39;s OAuth connection to an MCP server within the specified room. After  disconnection, the server&#39;s tools will no longer be available to this user in AI chat sessions  until they re-authorize. Other room members&#39; connections are not affected.  Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to disconnect from.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/disconnect-server/">REST API Reference for DisconnectServer Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerStatusWrapper)</returns>
         Task<ApiResponse<McpServerStatusWrapper>> DisconnectServerWithHttpInfoAsync(int roomId, Guid serverId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get available MCP servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of MCP servers that are currently active (enabled) and available for  assignment to rooms. Only servers in the enabled state are included. Each entry contains a compact  summary with the server name, type, icon, and status. Supports pagination via startIndex and count.  The total count of available servers is included in the response metadata.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-servers/">REST API Reference for GetAvailableServers Operation</seealso>
         /// <returns>Task of McpServerShortArrayWrapper</returns>
         Task<McpServerShortArrayWrapper> GetAvailableServersAsync(int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get available MCP servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of MCP servers that are currently active (enabled) and available for  assignment to rooms. Only servers in the enabled state are included. Each entry contains a compact  summary with the server name, type, icon, and status. Supports pagination via startIndex and count.  The total count of available servers is included in the response metadata.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-servers/">REST API Reference for GetAvailableServers Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerShortArrayWrapper)</returns>
         Task<ApiResponse<McpServerShortArrayWrapper>> GetAvailableServersWithHttpInfoAsync(int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get MCP servers assigned to a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the list of MCP servers currently assigned to the specified room along with their connection  statuses for the current user. For OAuth-based servers, the connection status reflects whether the  current user has completed authorization. Requires access to the room&#39;s AI chat.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">Identifier of the room whose assigned MCP servers are being retrieved.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-servers/">REST API Reference for GetRoomServers Operation</seealso>
         /// <returns>Task of McpServerStatusArrayWrapper</returns>
         Task<McpServerStatusArrayWrapper> GetRoomServersAsync(int roomId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get MCP servers assigned to a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the list of MCP servers currently assigned to the specified room along with their connection  statuses for the current user. For OAuth-based servers, the connection status reflects whether the  current user has completed authorization. Requires access to the room&#39;s AI chat.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">Identifier of the room whose assigned MCP servers are being retrieved.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-servers/">REST API Reference for GetRoomServers Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerStatusArrayWrapper)</returns>
         Task<ApiResponse<McpServerStatusArrayWrapper>> GetRoomServersWithHttpInfoAsync(int roomId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get an MCP server by ID
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves a summary view of a single MCP server by its unique identifier, including its name,  type, enabled state, and icon. This endpoint returns a compact representation without  sensitive details such as endpoint URL or authentication headers.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Unique identifier of the MCP server to retrieve.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-server/">REST API Reference for GetServer Operation</seealso>
         /// <returns>Task of McpServerShortWrapper</returns>
         Task<McpServerShortWrapper> GetServerAsync(Guid id, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get an MCP server by ID
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves a summary view of a single MCP server by its unique identifier, including its name,  type, enabled state, and icon. This endpoint returns a compact representation without  sensitive details such as endpoint URL or authentication headers.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Unique identifier of the MCP server to retrieve.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-server/">REST API Reference for GetServer Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerShortWrapper)</returns>
         Task<ApiResponse<McpServerShortWrapper>> GetServerWithHttpInfoAsync(Guid id, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get all MCP servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of all MCP servers registered for the current tenant, including both  enabled and disabled servers. Each entry contains the full configuration (endpoint, headers,  icon, type, and status). Supports pagination via the startIndex and count query parameters.  The total number of servers is included in the response metadata.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-servers/">REST API Reference for GetServers Operation</seealso>
         /// <returns>Task of McpServerArrayWrapper</returns>
         Task<McpServerArrayWrapper> GetServersAsync(int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get all MCP servers
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of all MCP servers registered for the current tenant, including both  enabled and disabled servers. Each entry contains the full configuration (endpoint, headers,  icon, type, and status). Supports pagination via the startIndex and count query parameters.  The total number of servers is included in the response metadata.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-servers/">REST API Reference for GetServers Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerArrayWrapper)</returns>
         Task<ApiResponse<McpServerArrayWrapper>> GetServersWithHttpInfoAsync(int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get MCP server tools in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the full list of tools exposed by an MCP server within the context of a specific room,  along with each tool&#39;s enabled or disabled state. Disabled tools will not be invoked during  AI chat sessions in this room. Requires access to the room&#39;s AI chat.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being retrieved.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tools/">REST API Reference for GetTools Operation</seealso>
         /// <returns>Task of McpToolArrayWrapper</returns>
         Task<McpToolArrayWrapper> GetToolsAsync(int roomId, Guid serverId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get MCP server tools in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the full list of tools exposed by an MCP server within the context of a specific room,  along with each tool&#39;s enabled or disabled state. Disabled tools will not be invoked during  AI chat sessions in this room. Requires access to the room&#39;s AI chat.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being retrieved.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tools/">REST API Reference for GetTools Operation</seealso>
         /// <returns>Task of ApiResponse (McpToolArrayWrapper)</returns>
         Task<ApiResponse<McpToolArrayWrapper>> GetToolsWithHttpInfoAsync(int roomId, Guid serverId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Enable or disable an MCP server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Toggles the enabled/disabled state of an MCP server. When a server is disabled, it becomes  unavailable for assignment to rooms and will not be used during AI chat sessions.  Enabling a previously disabled server restores its availability across the tenant.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="setServerStatusRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server whose status is being changed.</param>
+        /// <param name="setServerStatusRequestBody">New status value.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-server-status/">REST API Reference for SetServerStatus Operation</seealso>
         /// <returns>Task of McpServerWrapper</returns>
         Task<McpServerWrapper> SetServerStatusAsync(Guid id, SetServerStatusRequestBody setServerStatusRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Enable or disable an MCP server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Toggles the enabled/disabled state of an MCP server. When a server is disabled, it becomes  unavailable for assignment to rooms and will not be used during AI chat sessions.  Enabling a previously disabled server restores its availability across the tenant.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="setServerStatusRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server whose status is being changed.</param>
+        /// <param name="setServerStatusRequestBody">New status value.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-server-status/">REST API Reference for SetServerStatus Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerWrapper)</returns>
         Task<ApiResponse<McpServerWrapper>> SetServerStatusWithHttpInfoAsync(Guid id, SetServerStatusRequestBody setServerStatusRequestBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Configure MCP server tools in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the set of disabled tools for an MCP server within a specific room. Pass a list of tool names  that should be disabled — all other tools exposed by the server will remain enabled. This allows  room administrators to restrict which MCP capabilities are available during AI chat sessions.  Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="setMcpToolsRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being configured.</param>
+        /// <param name="setMcpToolsRequestBody">Tool configuration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tools/">REST API Reference for SetTools Operation</seealso>
         /// <returns>Task of McpToolArrayWrapper</returns>
         Task<McpToolArrayWrapper> SetToolsAsync(int roomId, Guid serverId, SetMcpToolsRequestBody setMcpToolsRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Configure MCP server tools in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the set of disabled tools for an MCP server within a specific room. Pass a list of tool names  that should be disabled — all other tools exposed by the server will remain enabled. This allows  room administrators to restrict which MCP capabilities are available during AI chat sessions.  Requires room edit permissions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="setMcpToolsRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being configured.</param>
+        /// <param name="setMcpToolsRequestBody">Tool configuration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tools/">REST API Reference for SetTools Operation</seealso>
         /// <returns>Task of ApiResponse (McpToolArrayWrapper)</returns>
         Task<ApiResponse<McpToolArrayWrapper>> SetToolsWithHttpInfoAsync(int roomId, Guid serverId, SetMcpToolsRequestBody setMcpToolsRequestBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Update a custom MCP server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the configuration of an existing custom MCP server identified by its unique ID.  Any combination of fields (name, description, endpoint, headers, icon) can be updated in a single request.  If the endpoint or headers are changed, the system re-validates connectivity by attempting to reach  the new endpoint before saving. Name uniqueness and format rules are enforced on every update.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateServerRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server to update.</param>
+        /// <param name="updateServerRequestBody">Updated server configuration fields.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-server/">REST API Reference for UpdateServer Operation</seealso>
         /// <returns>Task of McpServerWrapper</returns>
         Task<McpServerWrapper> UpdateServerAsync(Guid id, UpdateServerRequestBody updateServerRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Update a custom MCP server
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the configuration of an existing custom MCP server identified by its unique ID.  Any combination of fields (name, description, endpoint, headers, icon) can be updated in a single request.  If the endpoint or headers are changed, the system re-validates connectivity by attempting to reach  the new endpoint before saving. Name uniqueness and format rules are enforced on every update.  Requires DocSpace administrator privileges.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateServerRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server to update.</param>
+        /// <param name="updateServerRequestBody">Updated server configuration fields.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-server/">REST API Reference for UpdateServer Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerWrapper)</returns>
@@ -939,11 +981,14 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// 
+        /// Assign MCP servers to a room
         /// </summary>
+        /// <remarks>
+        /// Associates one or more MCP servers with a specific room, making them available for AI chat sessions  within that room. A maximum of 5 MCP servers can be assigned to a single room. If OAuth-based servers  are included, each room member will need to individually authorize their connection.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="addRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room to which MCP servers will be assigned.</param>
+        /// <param name="addRoomServersRequestBody">Server identifiers to assign.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-servers/">REST API Reference for AddRoomServers Operation</seealso>
         /// <returns>McpServerStatusArrayWrapper</returns>
         public McpServerStatusArrayWrapper AddRoomServers(int roomId, AddRoomServersRequestBody addRoomServersRequestBody)
@@ -953,11 +998,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Assign MCP servers to a room
         /// </summary>
+        /// <remarks>
+        /// Associates one or more MCP servers with a specific room, making them available for AI chat sessions  within that room. A maximum of 5 MCP servers can be assigned to a single room. If OAuth-based servers  are included, each room member will need to individually authorize their connection.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="addRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room to which MCP servers will be assigned.</param>
+        /// <param name="addRoomServersRequestBody">Server identifiers to assign.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-servers/">REST API Reference for AddRoomServers Operation</seealso>
         /// <returns>ApiResponse of McpServerStatusArrayWrapper</returns>
         public ApiResponse<McpServerStatusArrayWrapper> AddRoomServersWithHttpInfo(int roomId, AddRoomServersRequestBody addRoomServersRequestBody)
@@ -1029,11 +1077,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Assign MCP servers to a room
         /// </summary>
+        /// <remarks>
+        /// Associates one or more MCP servers with a specific room, making them available for AI chat sessions  within that room. A maximum of 5 MCP servers can be assigned to a single room. If OAuth-based servers  are included, each room member will need to individually authorize their connection.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="addRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room to which MCP servers will be assigned.</param>
+        /// <param name="addRoomServersRequestBody">Server identifiers to assign.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-servers/">REST API Reference for AddRoomServers Operation</seealso>
         /// <returns>Task of McpServerStatusArrayWrapper</returns>
@@ -1044,11 +1095,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Assign MCP servers to a room
         /// </summary>
+        /// <remarks>
+        /// Associates one or more MCP servers with a specific room, making them available for AI chat sessions  within that room. A maximum of 5 MCP servers can be assigned to a single room. If OAuth-based servers  are included, each room member will need to individually authorize their connection.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="addRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room to which MCP servers will be assigned.</param>
+        /// <param name="addRoomServersRequestBody">Server identifiers to assign.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-room-servers/">REST API Reference for AddRoomServers Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerStatusArrayWrapper)</returns>
@@ -1123,10 +1177,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Register a custom MCP server
         /// </summary>
+        /// <remarks>
+        /// Registers a new custom MCP (Model Context Protocol) server for the current tenant.  The system validates the server name (only letters, numbers, underscores, and hyphens are allowed),  checks that it is not reserved or already taken, and then attempts to connect to the provided endpoint  to verify reachability and credentials before persisting the configuration.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addMcpServerRequestBody"></param>
+        /// <param name="addMcpServerRequestBody">MCP server registration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-server/">REST API Reference for AddServer Operation</seealso>
         /// <returns>McpServerWrapper</returns>
         public McpServerWrapper AddServer(AddMcpServerRequestBody addMcpServerRequestBody)
@@ -1136,10 +1193,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Register a custom MCP server
         /// </summary>
+        /// <remarks>
+        /// Registers a new custom MCP (Model Context Protocol) server for the current tenant.  The system validates the server name (only letters, numbers, underscores, and hyphens are allowed),  checks that it is not reserved or already taken, and then attempts to connect to the provided endpoint  to verify reachability and credentials before persisting the configuration.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addMcpServerRequestBody"></param>
+        /// <param name="addMcpServerRequestBody">MCP server registration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-server/">REST API Reference for AddServer Operation</seealso>
         /// <returns>ApiResponse of McpServerWrapper</returns>
         public ApiResponse<McpServerWrapper> AddServerWithHttpInfo(AddMcpServerRequestBody addMcpServerRequestBody)
@@ -1210,10 +1270,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Register a custom MCP server
         /// </summary>
+        /// <remarks>
+        /// Registers a new custom MCP (Model Context Protocol) server for the current tenant.  The system validates the server name (only letters, numbers, underscores, and hyphens are allowed),  checks that it is not reserved or already taken, and then attempts to connect to the provided endpoint  to verify reachability and credentials before persisting the configuration.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addMcpServerRequestBody"></param>
+        /// <param name="addMcpServerRequestBody">MCP server registration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-server/">REST API Reference for AddServer Operation</seealso>
         /// <returns>Task of McpServerWrapper</returns>
@@ -1224,10 +1287,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Register a custom MCP server
         /// </summary>
+        /// <remarks>
+        /// Registers a new custom MCP (Model Context Protocol) server for the current tenant.  The system validates the server name (only letters, numbers, underscores, and hyphens are allowed),  checks that it is not reserved or already taken, and then attempts to connect to the provided endpoint  to verify reachability and credentials before persisting the configuration.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="addMcpServerRequestBody"></param>
+        /// <param name="addMcpServerRequestBody">MCP server registration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-server/">REST API Reference for AddServer Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerWrapper)</returns>
@@ -1301,12 +1367,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Connect an OAuth-based MCP server in a room
         /// </summary>
+        /// <remarks>
+        /// Completes the OAuth authorization flow for an MCP server within a specific room on behalf of the  current user. The authorization code obtained from the OAuth provider must be passed in the request body.  Upon successful token exchange, the system verifies connectivity to the server and stores  the credentials for the current user. Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="connectServerRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
+        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>McpServerStatusWrapper</returns>
         public McpServerStatusWrapper ConnectServer(int roomId, Guid serverId, ConnectServerRequestBody connectServerRequestBody)
@@ -1316,12 +1385,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Connect an OAuth-based MCP server in a room
         /// </summary>
+        /// <remarks>
+        /// Completes the OAuth authorization flow for an MCP server within a specific room on behalf of the  current user. The authorization code obtained from the OAuth provider must be passed in the request body.  Upon successful token exchange, the system verifies connectivity to the server and stores  the credentials for the current user. Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="connectServerRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
+        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>ApiResponse of McpServerStatusWrapper</returns>
         public ApiResponse<McpServerStatusWrapper> ConnectServerWithHttpInfo(int roomId, Guid serverId, ConnectServerRequestBody connectServerRequestBody)
@@ -1394,12 +1466,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Connect an OAuth-based MCP server in a room
         /// </summary>
+        /// <remarks>
+        /// Completes the OAuth authorization flow for an MCP server within a specific room on behalf of the  current user. The authorization code obtained from the OAuth provider must be passed in the request body.  Upon successful token exchange, the system verifies connectivity to the server and stores  the credentials for the current user. Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="connectServerRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
+        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>Task of McpServerStatusWrapper</returns>
@@ -1410,12 +1485,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Connect an OAuth-based MCP server in a room
         /// </summary>
+        /// <remarks>
+        /// Completes the OAuth authorization flow for an MCP server within a specific room on behalf of the  current user. The authorization code obtained from the OAuth provider must be passed in the request body.  Upon successful token exchange, the system verifies connectivity to the server and stores  the credentials for the current user. Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="connectServerRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
+        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerStatusWrapper)</returns>
@@ -1491,11 +1569,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Remove MCP servers from a room
         /// </summary>
+        /// <remarks>
+        /// Detaches one or more MCP servers from the specified room. After removal, the servers will no longer  be available in AI chat sessions within this room. Existing connections and tool configurations for  the removed servers are also cleaned up. Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="deleteRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room from which MCP servers will be removed.</param>
+        /// <param name="deleteRoomServersRequestBody">Server identifiers to remove.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-servers/">REST API Reference for DeleteRoomServers Operation</seealso>
         /// <returns></returns>
         public void DeleteRoomServers(int roomId, DeleteRoomServersRequestBody deleteRoomServersRequestBody)
@@ -1504,11 +1585,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Remove MCP servers from a room
         /// </summary>
+        /// <remarks>
+        /// Detaches one or more MCP servers from the specified room. After removal, the servers will no longer  be available in AI chat sessions within this room. Existing connections and tool configurations for  the removed servers are also cleaned up. Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="deleteRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room from which MCP servers will be removed.</param>
+        /// <param name="deleteRoomServersRequestBody">Server identifiers to remove.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-servers/">REST API Reference for DeleteRoomServers Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteRoomServersWithHttpInfo(int roomId, DeleteRoomServersRequestBody deleteRoomServersRequestBody)
@@ -1580,11 +1664,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Remove MCP servers from a room
         /// </summary>
+        /// <remarks>
+        /// Detaches one or more MCP servers from the specified room. After removal, the servers will no longer  be available in AI chat sessions within this room. Existing connections and tool configurations for  the removed servers are also cleaned up. Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="deleteRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room from which MCP servers will be removed.</param>
+        /// <param name="deleteRoomServersRequestBody">Server identifiers to remove.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-servers/">REST API Reference for DeleteRoomServers Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1594,11 +1681,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Remove MCP servers from a room
         /// </summary>
+        /// <remarks>
+        /// Detaches one or more MCP servers from the specified room. After removal, the servers will no longer  be available in AI chat sessions within this room. Existing connections and tool configurations for  the removed servers are also cleaned up. Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="deleteRoomServersRequestBody"></param>
+        /// <param name="roomId">Identifier of the room from which MCP servers will be removed.</param>
+        /// <param name="deleteRoomServersRequestBody">Server identifiers to remove.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-servers/">REST API Reference for DeleteRoomServers Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1673,10 +1763,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Delete MCP servers
         /// </summary>
+        /// <remarks>
+        /// Permanently removes one or more MCP servers from the current tenant by their IDs.  All room associations and connection data for the deleted servers are also cleaned up.  This action is irreversible. Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteServersRequestBody"></param>
+        /// <param name="deleteServersRequestBody">Server identifiers to delete.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-server/">REST API Reference for DeleteServer Operation</seealso>
         /// <returns></returns>
         public void DeleteServer(DeleteServersRequestBody deleteServersRequestBody)
@@ -1685,10 +1778,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Delete MCP servers
         /// </summary>
+        /// <remarks>
+        /// Permanently removes one or more MCP servers from the current tenant by their IDs.  All room associations and connection data for the deleted servers are also cleaned up.  This action is irreversible. Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteServersRequestBody"></param>
+        /// <param name="deleteServersRequestBody">Server identifiers to delete.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-server/">REST API Reference for DeleteServer Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteServerWithHttpInfo(DeleteServersRequestBody deleteServersRequestBody)
@@ -1759,10 +1855,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Delete MCP servers
         /// </summary>
+        /// <remarks>
+        /// Permanently removes one or more MCP servers from the current tenant by their IDs.  All room associations and connection data for the deleted servers are also cleaned up.  This action is irreversible. Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteServersRequestBody"></param>
+        /// <param name="deleteServersRequestBody">Server identifiers to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-server/">REST API Reference for DeleteServer Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1772,10 +1871,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Delete MCP servers
         /// </summary>
+        /// <remarks>
+        /// Permanently removes one or more MCP servers from the current tenant by their IDs.  All room associations and connection data for the deleted servers are also cleaned up.  This action is irreversible. Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteServersRequestBody"></param>
+        /// <param name="deleteServersRequestBody">Server identifiers to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-server/">REST API Reference for DeleteServer Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1849,11 +1951,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Disconnect an MCP server in a room
         /// </summary>
+        /// <remarks>
+        /// Revokes the current user&#39;s OAuth connection to an MCP server within the specified room. After  disconnection, the server&#39;s tools will no longer be available to this user in AI chat sessions  until they re-authorize. Other room members&#39; connections are not affected.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to disconnect from.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/disconnect-server/">REST API Reference for DisconnectServer Operation</seealso>
         /// <returns>McpServerStatusWrapper</returns>
         public McpServerStatusWrapper DisconnectServer(int roomId, Guid serverId)
@@ -1863,11 +1968,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Disconnect an MCP server in a room
         /// </summary>
+        /// <remarks>
+        /// Revokes the current user&#39;s OAuth connection to an MCP server within the specified room. After  disconnection, the server&#39;s tools will no longer be available to this user in AI chat sessions  until they re-authorize. Other room members&#39; connections are not affected.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to disconnect from.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/disconnect-server/">REST API Reference for DisconnectServer Operation</seealso>
         /// <returns>ApiResponse of McpServerStatusWrapper</returns>
         public ApiResponse<McpServerStatusWrapper> DisconnectServerWithHttpInfo(int roomId, Guid serverId)
@@ -1935,11 +2043,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Disconnect an MCP server in a room
         /// </summary>
+        /// <remarks>
+        /// Revokes the current user&#39;s OAuth connection to an MCP server within the specified room. After  disconnection, the server&#39;s tools will no longer be available to this user in AI chat sessions  until they re-authorize. Other room members&#39; connections are not affected.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to disconnect from.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/disconnect-server/">REST API Reference for DisconnectServer Operation</seealso>
         /// <returns>Task of McpServerStatusWrapper</returns>
@@ -1950,11 +2061,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Disconnect an MCP server in a room
         /// </summary>
+        /// <remarks>
+        /// Revokes the current user&#39;s OAuth connection to an MCP server within the specified room. After  disconnection, the server&#39;s tools will no longer be available to this user in AI chat sessions  until they re-authorize. Other room members&#39; connections are not affected.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server to disconnect from.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/disconnect-server/">REST API Reference for DisconnectServer Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerStatusWrapper)</returns>
@@ -2025,11 +2139,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get available MCP servers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of MCP servers that are currently active (enabled) and available for  assignment to rooms. Only servers in the enabled state are included. Each entry contains a compact  summary with the server name, type, icon, and status. Supports pagination via startIndex and count.  The total count of available servers is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-servers/">REST API Reference for GetAvailableServers Operation</seealso>
         /// <returns>McpServerShortArrayWrapper</returns>
         public McpServerShortArrayWrapper GetAvailableServers(int? startIndex = default, int? count = default)
@@ -2039,11 +2156,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get available MCP servers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of MCP servers that are currently active (enabled) and available for  assignment to rooms. Only servers in the enabled state are included. Each entry contains a compact  summary with the server name, type, icon, and status. Supports pagination via startIndex and count.  The total count of available servers is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-servers/">REST API Reference for GetAvailableServers Operation</seealso>
         /// <returns>ApiResponse of McpServerShortArrayWrapper</returns>
         public ApiResponse<McpServerShortArrayWrapper> GetAvailableServersWithHttpInfo(int? startIndex = default, int? count = default)
@@ -2121,11 +2241,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get available MCP servers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of MCP servers that are currently active (enabled) and available for  assignment to rooms. Only servers in the enabled state are included. Each entry contains a compact  summary with the server name, type, icon, and status. Supports pagination via startIndex and count.  The total count of available servers is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-servers/">REST API Reference for GetAvailableServers Operation</seealso>
         /// <returns>Task of McpServerShortArrayWrapper</returns>
@@ -2136,11 +2259,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get available MCP servers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of MCP servers that are currently active (enabled) and available for  assignment to rooms. Only servers in the enabled state are included. Each entry contains a compact  summary with the server name, type, icon, and status. Supports pagination via startIndex and count.  The total count of available servers is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-available-servers/">REST API Reference for GetAvailableServers Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerShortArrayWrapper)</returns>
@@ -2217,10 +2343,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get MCP servers assigned to a room
         /// </summary>
+        /// <remarks>
+        /// Returns the list of MCP servers currently assigned to the specified room along with their connection  statuses for the current user. For OAuth-based servers, the connection status reflects whether the  current user has completed authorization. Requires access to the room&#39;s AI chat.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">Identifier of the room whose assigned MCP servers are being retrieved.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-servers/">REST API Reference for GetRoomServers Operation</seealso>
         /// <returns>McpServerStatusArrayWrapper</returns>
         public McpServerStatusArrayWrapper GetRoomServers(int roomId)
@@ -2230,10 +2359,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get MCP servers assigned to a room
         /// </summary>
+        /// <remarks>
+        /// Returns the list of MCP servers currently assigned to the specified room along with their connection  statuses for the current user. For OAuth-based servers, the connection status reflects whether the  current user has completed authorization. Requires access to the room&#39;s AI chat.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">Identifier of the room whose assigned MCP servers are being retrieved.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-servers/">REST API Reference for GetRoomServers Operation</seealso>
         /// <returns>ApiResponse of McpServerStatusArrayWrapper</returns>
         public ApiResponse<McpServerStatusArrayWrapper> GetRoomServersWithHttpInfo(int roomId)
@@ -2300,10 +2432,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get MCP servers assigned to a room
         /// </summary>
+        /// <remarks>
+        /// Returns the list of MCP servers currently assigned to the specified room along with their connection  statuses for the current user. For OAuth-based servers, the connection status reflects whether the  current user has completed authorization. Requires access to the room&#39;s AI chat.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">Identifier of the room whose assigned MCP servers are being retrieved.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-servers/">REST API Reference for GetRoomServers Operation</seealso>
         /// <returns>Task of McpServerStatusArrayWrapper</returns>
@@ -2314,10 +2449,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get MCP servers assigned to a room
         /// </summary>
+        /// <remarks>
+        /// Returns the list of MCP servers currently assigned to the specified room along with their connection  statuses for the current user. For OAuth-based servers, the connection status reflects whether the  current user has completed authorization. Requires access to the room&#39;s AI chat.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">Identifier of the room whose assigned MCP servers are being retrieved.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-room-servers/">REST API Reference for GetRoomServers Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerStatusArrayWrapper)</returns>
@@ -2387,10 +2525,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get an MCP server by ID
         /// </summary>
+        /// <remarks>
+        /// Retrieves a summary view of a single MCP server by its unique identifier, including its name,  type, enabled state, and icon. This endpoint returns a compact representation without  sensitive details such as endpoint URL or authentication headers.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Unique identifier of the MCP server to retrieve.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-server/">REST API Reference for GetServer Operation</seealso>
         /// <returns>McpServerShortWrapper</returns>
         public McpServerShortWrapper GetServer(Guid id)
@@ -2400,10 +2541,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get an MCP server by ID
         /// </summary>
+        /// <remarks>
+        /// Retrieves a summary view of a single MCP server by its unique identifier, including its name,  type, enabled state, and icon. This endpoint returns a compact representation without  sensitive details such as endpoint URL or authentication headers.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Unique identifier of the MCP server to retrieve.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-server/">REST API Reference for GetServer Operation</seealso>
         /// <returns>ApiResponse of McpServerShortWrapper</returns>
         public ApiResponse<McpServerShortWrapper> GetServerWithHttpInfo(Guid id)
@@ -2470,10 +2614,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get an MCP server by ID
         /// </summary>
+        /// <remarks>
+        /// Retrieves a summary view of a single MCP server by its unique identifier, including its name,  type, enabled state, and icon. This endpoint returns a compact representation without  sensitive details such as endpoint URL or authentication headers.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Unique identifier of the MCP server to retrieve.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-server/">REST API Reference for GetServer Operation</seealso>
         /// <returns>Task of McpServerShortWrapper</returns>
@@ -2484,10 +2631,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get an MCP server by ID
         /// </summary>
+        /// <remarks>
+        /// Retrieves a summary view of a single MCP server by its unique identifier, including its name,  type, enabled state, and icon. This endpoint returns a compact representation without  sensitive details such as endpoint URL or authentication headers.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
+        /// <param name="id">Unique identifier of the MCP server to retrieve.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-server/">REST API Reference for GetServer Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerShortWrapper)</returns>
@@ -2557,11 +2707,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get all MCP servers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of all MCP servers registered for the current tenant, including both  enabled and disabled servers. Each entry contains the full configuration (endpoint, headers,  icon, type, and status). Supports pagination via the startIndex and count query parameters.  The total number of servers is included in the response metadata.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-servers/">REST API Reference for GetServers Operation</seealso>
         /// <returns>McpServerArrayWrapper</returns>
         public McpServerArrayWrapper GetServers(int? startIndex = default, int? count = default)
@@ -2571,11 +2724,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get all MCP servers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of all MCP servers registered for the current tenant, including both  enabled and disabled servers. Each entry contains the full configuration (endpoint, headers,  icon, type, and status). Supports pagination via the startIndex and count query parameters.  The total number of servers is included in the response metadata.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-servers/">REST API Reference for GetServers Operation</seealso>
         /// <returns>ApiResponse of McpServerArrayWrapper</returns>
         public ApiResponse<McpServerArrayWrapper> GetServersWithHttpInfo(int? startIndex = default, int? count = default)
@@ -2653,11 +2809,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get all MCP servers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of all MCP servers registered for the current tenant, including both  enabled and disabled servers. Each entry contains the full configuration (endpoint, headers,  icon, type, and status). Supports pagination via the startIndex and count query parameters.  The total number of servers is included in the response metadata.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-servers/">REST API Reference for GetServers Operation</seealso>
         /// <returns>Task of McpServerArrayWrapper</returns>
@@ -2668,11 +2827,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get all MCP servers
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of all MCP servers registered for the current tenant, including both  enabled and disabled servers. Each entry contains the full configuration (endpoint, headers,  icon, type, and status). Supports pagination via the startIndex and count query parameters.  The total number of servers is included in the response metadata.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-servers/">REST API Reference for GetServers Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerArrayWrapper)</returns>
@@ -2749,11 +2911,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get MCP server tools in a room
         /// </summary>
+        /// <remarks>
+        /// Retrieves the full list of tools exposed by an MCP server within the context of a specific room,  along with each tool&#39;s enabled or disabled state. Disabled tools will not be invoked during  AI chat sessions in this room. Requires access to the room&#39;s AI chat.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being retrieved.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tools/">REST API Reference for GetTools Operation</seealso>
         /// <returns>McpToolArrayWrapper</returns>
         public McpToolArrayWrapper GetTools(int roomId, Guid serverId)
@@ -2763,11 +2928,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get MCP server tools in a room
         /// </summary>
+        /// <remarks>
+        /// Retrieves the full list of tools exposed by an MCP server within the context of a specific room,  along with each tool&#39;s enabled or disabled state. Disabled tools will not be invoked during  AI chat sessions in this room. Requires access to the room&#39;s AI chat.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being retrieved.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tools/">REST API Reference for GetTools Operation</seealso>
         /// <returns>ApiResponse of McpToolArrayWrapper</returns>
         public ApiResponse<McpToolArrayWrapper> GetToolsWithHttpInfo(int roomId, Guid serverId)
@@ -2835,11 +3003,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get MCP server tools in a room
         /// </summary>
+        /// <remarks>
+        /// Retrieves the full list of tools exposed by an MCP server within the context of a specific room,  along with each tool&#39;s enabled or disabled state. Disabled tools will not be invoked during  AI chat sessions in this room. Requires access to the room&#39;s AI chat.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being retrieved.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tools/">REST API Reference for GetTools Operation</seealso>
         /// <returns>Task of McpToolArrayWrapper</returns>
@@ -2850,11 +3021,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get MCP server tools in a room
         /// </summary>
+        /// <remarks>
+        /// Retrieves the full list of tools exposed by an MCP server within the context of a specific room,  along with each tool&#39;s enabled or disabled state. Disabled tools will not be invoked during  AI chat sessions in this room. Requires access to the room&#39;s AI chat.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being retrieved.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tools/">REST API Reference for GetTools Operation</seealso>
         /// <returns>Task of ApiResponse (McpToolArrayWrapper)</returns>
@@ -2925,11 +3099,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Enable or disable an MCP server
         /// </summary>
+        /// <remarks>
+        /// Toggles the enabled/disabled state of an MCP server. When a server is disabled, it becomes  unavailable for assignment to rooms and will not be used during AI chat sessions.  Enabling a previously disabled server restores its availability across the tenant.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="setServerStatusRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server whose status is being changed.</param>
+        /// <param name="setServerStatusRequestBody">New status value.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-server-status/">REST API Reference for SetServerStatus Operation</seealso>
         /// <returns>McpServerWrapper</returns>
         public McpServerWrapper SetServerStatus(Guid id, SetServerStatusRequestBody setServerStatusRequestBody)
@@ -2939,11 +3116,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Enable or disable an MCP server
         /// </summary>
+        /// <remarks>
+        /// Toggles the enabled/disabled state of an MCP server. When a server is disabled, it becomes  unavailable for assignment to rooms and will not be used during AI chat sessions.  Enabling a previously disabled server restores its availability across the tenant.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="setServerStatusRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server whose status is being changed.</param>
+        /// <param name="setServerStatusRequestBody">New status value.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-server-status/">REST API Reference for SetServerStatus Operation</seealso>
         /// <returns>ApiResponse of McpServerWrapper</returns>
         public ApiResponse<McpServerWrapper> SetServerStatusWithHttpInfo(Guid id, SetServerStatusRequestBody setServerStatusRequestBody)
@@ -3015,11 +3195,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Enable or disable an MCP server
         /// </summary>
+        /// <remarks>
+        /// Toggles the enabled/disabled state of an MCP server. When a server is disabled, it becomes  unavailable for assignment to rooms and will not be used during AI chat sessions.  Enabling a previously disabled server restores its availability across the tenant.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="setServerStatusRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server whose status is being changed.</param>
+        /// <param name="setServerStatusRequestBody">New status value.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-server-status/">REST API Reference for SetServerStatus Operation</seealso>
         /// <returns>Task of McpServerWrapper</returns>
@@ -3030,11 +3213,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Enable or disable an MCP server
         /// </summary>
+        /// <remarks>
+        /// Toggles the enabled/disabled state of an MCP server. When a server is disabled, it becomes  unavailable for assignment to rooms and will not be used during AI chat sessions.  Enabling a previously disabled server restores its availability across the tenant.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="setServerStatusRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server whose status is being changed.</param>
+        /// <param name="setServerStatusRequestBody">New status value.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-server-status/">REST API Reference for SetServerStatus Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerWrapper)</returns>
@@ -3109,12 +3295,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Configure MCP server tools in a room
         /// </summary>
+        /// <remarks>
+        /// Updates the set of disabled tools for an MCP server within a specific room. Pass a list of tool names  that should be disabled — all other tools exposed by the server will remain enabled. This allows  room administrators to restrict which MCP capabilities are available during AI chat sessions.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="setMcpToolsRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being configured.</param>
+        /// <param name="setMcpToolsRequestBody">Tool configuration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tools/">REST API Reference for SetTools Operation</seealso>
         /// <returns>McpToolArrayWrapper</returns>
         public McpToolArrayWrapper SetTools(int roomId, Guid serverId, SetMcpToolsRequestBody setMcpToolsRequestBody)
@@ -3124,12 +3313,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Configure MCP server tools in a room
         /// </summary>
+        /// <remarks>
+        /// Updates the set of disabled tools for an MCP server within a specific room. Pass a list of tool names  that should be disabled — all other tools exposed by the server will remain enabled. This allows  room administrators to restrict which MCP capabilities are available during AI chat sessions.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="setMcpToolsRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being configured.</param>
+        /// <param name="setMcpToolsRequestBody">Tool configuration parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tools/">REST API Reference for SetTools Operation</seealso>
         /// <returns>ApiResponse of McpToolArrayWrapper</returns>
         public ApiResponse<McpToolArrayWrapper> SetToolsWithHttpInfo(int roomId, Guid serverId, SetMcpToolsRequestBody setMcpToolsRequestBody)
@@ -3202,12 +3394,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Configure MCP server tools in a room
         /// </summary>
+        /// <remarks>
+        /// Updates the set of disabled tools for an MCP server within a specific room. Pass a list of tool names  that should be disabled — all other tools exposed by the server will remain enabled. This allows  room administrators to restrict which MCP capabilities are available during AI chat sessions.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="setMcpToolsRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being configured.</param>
+        /// <param name="setMcpToolsRequestBody">Tool configuration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tools/">REST API Reference for SetTools Operation</seealso>
         /// <returns>Task of McpToolArrayWrapper</returns>
@@ -3218,12 +3413,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Configure MCP server tools in a room
         /// </summary>
+        /// <remarks>
+        /// Updates the set of disabled tools for an MCP server within a specific room. Pass a list of tool names  that should be disabled — all other tools exposed by the server will remain enabled. This allows  room administrators to restrict which MCP capabilities are available during AI chat sessions.  Requires room edit permissions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="serverId"></param>
-        /// <param name="setMcpToolsRequestBody"></param>
+        /// <param name="roomId">Identifier of the room containing the MCP server.</param>
+        /// <param name="serverId">Unique identifier of the MCP server whose tools are being configured.</param>
+        /// <param name="setMcpToolsRequestBody">Tool configuration parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tools/">REST API Reference for SetTools Operation</seealso>
         /// <returns>Task of ApiResponse (McpToolArrayWrapper)</returns>
@@ -3299,11 +3497,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update a custom MCP server
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of an existing custom MCP server identified by its unique ID.  Any combination of fields (name, description, endpoint, headers, icon) can be updated in a single request.  If the endpoint or headers are changed, the system re-validates connectivity by attempting to reach  the new endpoint before saving. Name uniqueness and format rules are enforced on every update.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateServerRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server to update.</param>
+        /// <param name="updateServerRequestBody">Updated server configuration fields.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-server/">REST API Reference for UpdateServer Operation</seealso>
         /// <returns>McpServerWrapper</returns>
         public McpServerWrapper UpdateServer(Guid id, UpdateServerRequestBody updateServerRequestBody)
@@ -3313,11 +3514,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update a custom MCP server
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of an existing custom MCP server identified by its unique ID.  Any combination of fields (name, description, endpoint, headers, icon) can be updated in a single request.  If the endpoint or headers are changed, the system re-validates connectivity by attempting to reach  the new endpoint before saving. Name uniqueness and format rules are enforced on every update.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateServerRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server to update.</param>
+        /// <param name="updateServerRequestBody">Updated server configuration fields.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-server/">REST API Reference for UpdateServer Operation</seealso>
         /// <returns>ApiResponse of McpServerWrapper</returns>
         public ApiResponse<McpServerWrapper> UpdateServerWithHttpInfo(Guid id, UpdateServerRequestBody updateServerRequestBody)
@@ -3389,11 +3593,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update a custom MCP server
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of an existing custom MCP server identified by its unique ID.  Any combination of fields (name, description, endpoint, headers, icon) can be updated in a single request.  If the endpoint or headers are changed, the system re-validates connectivity by attempting to reach  the new endpoint before saving. Name uniqueness and format rules are enforced on every update.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateServerRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server to update.</param>
+        /// <param name="updateServerRequestBody">Updated server configuration fields.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-server/">REST API Reference for UpdateServer Operation</seealso>
         /// <returns>Task of McpServerWrapper</returns>
@@ -3404,11 +3611,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update a custom MCP server
         /// </summary>
+        /// <remarks>
+        /// Updates the configuration of an existing custom MCP server identified by its unique ID.  Any combination of fields (name, description, endpoint, headers, icon) can be updated in a single request.  If the endpoint or headers are changed, the system re-validates connectivity by attempting to reach  the new endpoint before saving. Name uniqueness and format rules are enforced on every update.  Requires DocSpace administrator privileges.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id"></param>
-        /// <param name="updateServerRequestBody"></param>
+        /// <param name="id">Unique identifier of the MCP server to update.</param>
+        /// <param name="updateServerRequestBody">Updated server configuration fields.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-server/">REST API Reference for UpdateServer Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerWrapper)</returns>

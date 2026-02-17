@@ -35,7 +35,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="VectorizationSettingsDto" /> class.
         /// </summary>
         /// <param name="type">type.</param>
-        /// <param name="needReset">needReset.</param>
+        /// <param name="needReset">Indicates whether the embedding provider API key needs to be reconfigured..</param>
         public VectorizationSettingsDto(EmbeddingProviderType? type = default, bool needReset = default)
         {
             this.Type = type;
@@ -43,8 +43,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets NeedReset
+        /// Indicates whether the embedding provider API key needs to be reconfigured.
         /// </summary>
+        /// <value>Indicates whether the embedding provider API key needs to be reconfigured.</value>
         /*
         <example>true</example>
         */

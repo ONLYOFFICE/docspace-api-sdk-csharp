@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ConnectServerRequestBody
+    /// Parameters for completing an OAuth connection to an MCP server.
     /// </summary>
     [DataContract(Name = "ConnectServerRequestBody")]
     public partial class ConnectServerRequestBody : IValidatableObject
@@ -33,7 +33,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConnectServerRequestBody" /> class.
         /// </summary>
-        /// <param name="code">code (required).</param>
+        /// <param name="code">OAuth authorization code received from the provider&#39;s redirect. Used to exchange for access and refresh tokens. (required).</param>
         public ConnectServerRequestBody(string code = default)
         {
             // to ensure "code" is required (not null)
@@ -45,8 +45,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// OAuth authorization code received from the provider&#39;s redirect. Used to exchange for access and refresh tokens.
         /// </summary>
+        /// <value>OAuth authorization code received from the provider&#39;s redirect. Used to exchange for access and refresh tokens.</value>
         /*
         <example>some text</example>
         */

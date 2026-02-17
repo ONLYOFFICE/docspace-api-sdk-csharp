@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// UpdateServerRequestBody
+    /// Parameters for updating an existing MCP server. All fields are optional — only provided fields will be modified.
     /// </summary>
     [DataContract(Name = "UpdateServerRequestBody")]
     public partial class UpdateServerRequestBody : IValidatableObject
@@ -28,12 +28,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateServerRequestBody" /> class.
         /// </summary>
-        /// <param name="name">name.</param>
-        /// <param name="description">description.</param>
-        /// <param name="endpoint">endpoint.</param>
-        /// <param name="headers">headers.</param>
-        /// <param name="updateIcon">updateIcon.</param>
-        /// <param name="icon">icon.</param>
+        /// <param name="name">New display name for the server. Only letters, numbers, underscores, and hyphens are allowed. Maximum 128 characters..</param>
+        /// <param name="description">New human-readable description of the server&#39;s purpose. Maximum 255 characters..</param>
+        /// <param name="endpoint">New base URL of the MCP server endpoint. If changed, the system will re-verify connectivity before saving..</param>
+        /// <param name="headers">New HTTP headers to include with every request. If changed alongside the endpoint, connectivity is re-verified..</param>
+        /// <param name="updateIcon">Set to true to update the server icon. When true, the Icon field value (or null to remove) will be applied..</param>
+        /// <param name="icon">New Base64-encoded icon image for the server, or null to remove the existing icon. Only applied when UpdateIcon is true..</param>
         public UpdateServerRequestBody(string name = default, string description = default, string endpoint = default, Dictionary<string, string> headers = default, bool updateIcon = default, string icon = default)
         {
             this.Name = name;
@@ -45,8 +45,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// New display name for the server. Only letters, numbers, underscores, and hyphens are allowed. Maximum 128 characters.
         /// </summary>
+        /// <value>New display name for the server. Only letters, numbers, underscores, and hyphens are allowed. Maximum 128 characters.</value>
         /*
         <example>John Doe</example>
         */
@@ -54,8 +55,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Description
+        /// New human-readable description of the server&#39;s purpose. Maximum 255 characters.
         /// </summary>
+        /// <value>New human-readable description of the server&#39;s purpose. Maximum 255 characters.</value>
         /*
         <example>some text</example>
         */
@@ -63,8 +65,9 @@ namespace DocSpace.API.SDK.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or Sets Endpoint
+        /// New base URL of the MCP server endpoint. If changed, the system will re-verify connectivity before saving.
         /// </summary>
+        /// <value>New base URL of the MCP server endpoint. If changed, the system will re-verify connectivity before saving.</value>
         /*
         <example>some text</example>
         */
@@ -72,8 +75,9 @@ namespace DocSpace.API.SDK.Model
         public string Endpoint { get; set; }
 
         /// <summary>
-        /// Gets or Sets Headers
+        /// New HTTP headers to include with every request. If changed alongside the endpoint, connectivity is re-verified.
         /// </summary>
+        /// <value>New HTTP headers to include with every request. If changed alongside the endpoint, connectivity is re-verified.</value>
         /*
         <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
         */
@@ -81,8 +85,9 @@ namespace DocSpace.API.SDK.Model
         public Dictionary<string, string> Headers { get; set; }
 
         /// <summary>
-        /// Gets or Sets UpdateIcon
+        /// Set to true to update the server icon. When true, the Icon field value (or null to remove) will be applied.
         /// </summary>
+        /// <value>Set to true to update the server icon. When true, the Icon field value (or null to remove) will be applied.</value>
         /*
         <example>true</example>
         */
@@ -90,8 +95,9 @@ namespace DocSpace.API.SDK.Model
         public bool UpdateIcon { get; set; }
 
         /// <summary>
-        /// Gets or Sets Icon
+        /// New Base64-encoded icon image for the server, or null to remove the existing icon. Only applied when UpdateIcon is true.
         /// </summary>
+        /// <value>New Base64-encoded icon image for the server, or null to remove the existing icon. Only applied when UpdateIcon is true.</value>
         /*
         <example>some text</example>
         */

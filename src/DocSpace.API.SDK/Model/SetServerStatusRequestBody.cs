@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// SetServerStatusRequestBody
+    /// Parameters for toggling the MCP server status.
     /// </summary>
     [DataContract(Name = "SetServerStatusRequestBody")]
     public partial class SetServerStatusRequestBody : IValidatableObject
@@ -28,15 +28,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetServerStatusRequestBody" /> class.
         /// </summary>
-        /// <param name="enabled">enabled.</param>
+        /// <param name="enabled">Set to true to enable the server (making it available for room assignment), or false to disable it..</param>
         public SetServerStatusRequestBody(bool enabled = default)
         {
             this.Enabled = enabled;
         }
 
         /// <summary>
-        /// Gets or Sets Enabled
+        /// Set to true to enable the server (making it available for room assignment), or false to disable it.
         /// </summary>
+        /// <value>Set to true to enable the server (making it available for room assignment), or false to disable it.</value>
         /*
         <example>true</example>
         */

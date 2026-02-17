@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AddRoomServersRequestBody
+    /// Parameters specifying which MCP servers to assign to the room.
     /// </summary>
     [DataContract(Name = "AddRoomServersRequestBody")]
     public partial class AddRoomServersRequestBody : IValidatableObject
@@ -33,7 +33,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AddRoomServersRequestBody" /> class.
         /// </summary>
-        /// <param name="servers">servers (required).</param>
+        /// <param name="servers">Set of unique identifiers of MCP servers to associate with the room. A maximum of 5 servers can be assigned per room. (required).</param>
         public AddRoomServersRequestBody(List<Guid> servers = default)
         {
             // to ensure "servers" is required (not null)
@@ -45,8 +45,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Servers
+        /// Set of unique identifiers of MCP servers to associate with the room. A maximum of 5 servers can be assigned per room.
         /// </summary>
+        /// <value>Set of unique identifiers of MCP servers to associate with the room. A maximum of 5 servers can be assigned per room.</value>
         /*
         <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
         */

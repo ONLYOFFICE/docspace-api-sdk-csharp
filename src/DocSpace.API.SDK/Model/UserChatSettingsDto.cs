@@ -28,15 +28,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserChatSettingsDto" /> class.
         /// </summary>
-        /// <param name="webSearchEnabled">webSearchEnabled.</param>
+        /// <param name="webSearchEnabled">Indicates whether the AI assistant is allowed to perform web searches when generating responses in this room..</param>
         public UserChatSettingsDto(bool webSearchEnabled = default)
         {
             this.WebSearchEnabled = webSearchEnabled;
         }
 
         /// <summary>
-        /// Gets or Sets WebSearchEnabled
+        /// Indicates whether the AI assistant is allowed to perform web searches when generating responses in this room.
         /// </summary>
+        /// <value>Indicates whether the AI assistant is allowed to perform web searches when generating responses in this room.</value>
         /*
         <example>true</example>
         */

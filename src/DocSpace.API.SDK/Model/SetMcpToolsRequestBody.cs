@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// SetMcpToolsRequestBody
+    /// Parameters for updating the disabled tools list of an MCP server in a room.
     /// </summary>
     [DataContract(Name = "SetMcpToolsRequestBody")]
     public partial class SetMcpToolsRequestBody : IValidatableObject
@@ -33,7 +33,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetMcpToolsRequestBody" /> class.
         /// </summary>
-        /// <param name="disabledTools">disabledTools (required).</param>
+        /// <param name="disabledTools">List of tool names to disable. Tools not included in this list will remain enabled. Pass an empty list to enable all tools. (required).</param>
         public SetMcpToolsRequestBody(List<string> disabledTools = default)
         {
             // to ensure "disabledTools" is required (not null)
@@ -45,8 +45,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets DisabledTools
+        /// List of tool names to disable. Tools not included in this list will remain enabled. Pass an empty list to enable all tools.
         /// </summary>
+        /// <value>List of tool names to disable. Tools not included in this list will remain enabled. Pass an empty list to enable all tools.</value>
         /*
         <example>[&quot;some text&quot;]</example>
         */

@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// SetWebSearchSettingsRequestBody
+    /// Parameters for configuring web search settings.
     /// </summary>
     [DataContract(Name = "SetWebSearchSettingsRequestBody")]
     public partial class SetWebSearchSettingsRequestBody : IValidatableObject
@@ -34,9 +34,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetWebSearchSettingsRequestBody" /> class.
         /// </summary>
-        /// <param name="enabled">enabled.</param>
+        /// <param name="enabled">Indicates whether web search is enabled for AI chat sessions..</param>
         /// <param name="type">type.</param>
-        /// <param name="key">key.</param>
+        /// <param name="key">The API key for the selected web search engine. Pass null to keep the existing key unchanged..</param>
         public SetWebSearchSettingsRequestBody(bool enabled = default, EngineType? type = default, string key = default)
         {
             this.Enabled = enabled;
@@ -45,8 +45,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Enabled
+        /// Indicates whether web search is enabled for AI chat sessions.
         /// </summary>
+        /// <value>Indicates whether web search is enabled for AI chat sessions.</value>
         /*
         <example>true</example>
         */
@@ -54,8 +55,9 @@ namespace DocSpace.API.SDK.Model
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// Gets or Sets Key
+        /// The API key for the selected web search engine. Pass null to keep the existing key unchanged.
         /// </summary>
+        /// <value>The API key for the selected web search engine. Pass null to keep the existing key unchanged.</value>
         /*
         <example>some text</example>
         */

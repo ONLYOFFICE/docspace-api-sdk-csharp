@@ -28,8 +28,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatDto" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="title">title.</param>
+        /// <param name="id">The unique identifier of the AI chat session..</param>
+        /// <param name="title">The display title of the chat session..</param>
         /// <param name="createdOn">createdOn.</param>
         /// <param name="modifiedOn">modifiedOn.</param>
         /// <param name="createdBy">createdBy.</param>
@@ -43,8 +43,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The unique identifier of the AI chat session.
         /// </summary>
+        /// <value>The unique identifier of the AI chat session.</value>
         /*
         <example>00000000-0000-0000-0000-000000000000</example>
         */
@@ -52,8 +53,9 @@ namespace DocSpace.API.SDK.Model
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// The display title of the chat session.
         /// </summary>
+        /// <value>The display title of the chat session.</value>
         /*
         <example>SampleFile</example>
         */

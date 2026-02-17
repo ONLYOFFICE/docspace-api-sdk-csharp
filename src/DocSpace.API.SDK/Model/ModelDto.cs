@@ -33,9 +33,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ModelDto" /> class.
         /// </summary>
-        /// <param name="providerId">providerId.</param>
-        /// <param name="providerTitle">providerTitle (required).</param>
-        /// <param name="modelId">modelId (required).</param>
+        /// <param name="providerId">The unique identifier of the AI provider that offers this model..</param>
+        /// <param name="providerTitle">The human-readable display name of the AI provider (e.g., OpenAI, Anthropic). (required).</param>
+        /// <param name="modelId">The model identifier as recognized by the AI provider (e.g., gpt-4o, claude-sonnet-4-20250514). (required).</param>
         public ModelDto(int providerId = default, string providerTitle = default, string modelId = default)
         {
             // to ensure "providerTitle" is required (not null)
@@ -54,8 +54,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets ProviderId
+        /// The unique identifier of the AI provider that offers this model.
         /// </summary>
+        /// <value>The unique identifier of the AI provider that offers this model.</value>
         /*
         <example>1234</example>
         */
@@ -63,8 +64,9 @@ namespace DocSpace.API.SDK.Model
         public int ProviderId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProviderTitle
+        /// The human-readable display name of the AI provider (e.g., OpenAI, Anthropic).
         /// </summary>
+        /// <value>The human-readable display name of the AI provider (e.g., OpenAI, Anthropic).</value>
         /*
         <example>some text</example>
         */
@@ -72,8 +74,9 @@ namespace DocSpace.API.SDK.Model
         public string ProviderTitle { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModelId
+        /// The model identifier as recognized by the AI provider (e.g., gpt-4o, claude-sonnet-4-20250514).
         /// </summary>
+        /// <value>The model identifier as recognized by the AI provider (e.g., gpt-4o, claude-sonnet-4-20250514).</value>
         /*
         <example>some text</example>
         */

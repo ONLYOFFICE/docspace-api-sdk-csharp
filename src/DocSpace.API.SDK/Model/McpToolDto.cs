@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// McpToolDto
+    /// Represents a single tool exposed by an MCP server, along with its enabled or disabled state within a room.
     /// </summary>
     [DataContract(Name = "McpToolDto")]
     public partial class McpToolDto : IValidatableObject
@@ -33,8 +33,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="McpToolDto" /> class.
         /// </summary>
-        /// <param name="name">name (required).</param>
-        /// <param name="enabled">enabled.</param>
+        /// <param name="name">Name of the tool as reported by the MCP server. (required).</param>
+        /// <param name="enabled">Indicates whether this tool is enabled (true) or disabled (false) for use in AI chat sessions within the room..</param>
         public McpToolDto(string name = default, bool enabled = default)
         {
             // to ensure "name" is required (not null)
@@ -47,8 +47,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of the tool as reported by the MCP server.
         /// </summary>
+        /// <value>Name of the tool as reported by the MCP server.</value>
         /*
         <example>John Doe</example>
         */
@@ -56,8 +57,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Enabled
+        /// Indicates whether this tool is enabled (true) or disabled (false) for use in AI chat sessions within the room.
         /// </summary>
+        /// <value>Indicates whether this tool is enabled (true) or disabled (false) for use in AI chat sessions within the room.</value>
         /*
         <example>true</example>
         */

@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// UpdateProviderBody
+    /// Parameters for updating an AI provider&#39;s configuration.
     /// </summary>
     [DataContract(Name = "UpdateProviderBody")]
     public partial class UpdateProviderBody : IValidatableObject
@@ -28,9 +28,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateProviderBody" /> class.
         /// </summary>
-        /// <param name="title">title.</param>
-        /// <param name="url">url.</param>
-        /// <param name="key">key.</param>
+        /// <param name="title">The new display title for the AI provider. If null, the title is not changed..</param>
+        /// <param name="url">The new API endpoint URL for the AI provider. If null, the URL is not changed..</param>
+        /// <param name="key">The new authentication API key for the AI provider. If null, the key is not changed..</param>
         public UpdateProviderBody(string title = default, string url = default, string key = default)
         {
             this.Title = title;
@@ -39,8 +39,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// The new display title for the AI provider. If null, the title is not changed.
         /// </summary>
+        /// <value>The new display title for the AI provider. If null, the title is not changed.</value>
         /*
         <example>SampleFile</example>
         */
@@ -48,8 +49,9 @@ namespace DocSpace.API.SDK.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets Url
+        /// The new API endpoint URL for the AI provider. If null, the URL is not changed.
         /// </summary>
+        /// <value>The new API endpoint URL for the AI provider. If null, the URL is not changed.</value>
         /*
         <example>some text</example>
         */
@@ -57,8 +59,9 @@ namespace DocSpace.API.SDK.Model
         public string Url { get; set; }
 
         /// <summary>
-        /// Gets or Sets Key
+        /// The new authentication API key for the AI provider. If null, the key is not changed.
         /// </summary>
+        /// <value>The new authentication API key for the AI provider. If null, the key is not changed.</value>
         /*
         <example>some text</example>
         */

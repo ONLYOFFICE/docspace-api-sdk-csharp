@@ -648,9 +648,14 @@ paths:
       - AI / Agents
   /api/2.0/ai/rooms/{roomId}/chats:
     get:
+      description: "Returns a paginated list of AI chat sessions that belong to the\
+        \ current user within the specified room.\r\nSupports pagination via the startIndex\
+        \ and count query parameters. The total number of chats is included in the\
+        \ response metadata."
       operationId: getChats
       parameters:
-      - explode: false
+      - description: The identifier of the room whose AI chat sessions are to be listed.
+        explode: false
         in: path
         name: roomId
         required: true
@@ -659,7 +664,9 @@ paths:
           format: int32
           type: integer
         style: simple
-      - explode: true
+      - description: The number of items to skip before returning results (zero-based
+          offset). Defaults to 0.
+        explode: true
         in: query
         name: startIndex
         required: false
@@ -668,7 +675,8 @@ paths:
           format: int32
           type: integer
         style: form
-      - explode: true
+      - description: The maximum number of items to return per page. Defaults to 100.
+        explode: true
         in: query
         name: count
         required: false
@@ -683,7 +691,11 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ChatArrayWrapper"
-          description: OK
+          description: Paginated list of chat sessions in the room
+        "403":
+          description: You don't have enough permission to access chats in this room
+        "404":
+          description: The room with the specified ID was not found
         "401":
           description: Unauthorized
       security:
@@ -699,12 +711,21 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get AI chats in a room
       tags:
       - AI / Chat
     post:
+      description: "Creates a new AI chat session within the specified room and sends\
+        \ the initial message to the configured AI provider.\r\nThe response is delivered\
+        \ as a Server-Sent Events (SSE) stream containing completion chunks (text\
+        \ deltas, tool calls, tool results, and message lifecycle events)\r\nwith\
+        \ periodic keep-alive pings every 5 seconds. File references can be included\
+        \ as context for the AI model."
       operationId: startNewChat
       parameters:
-      - explode: false
+      - description: The identifier of the room in which to create the new AI chat
+          session.
+        explode: false
         in: path
         name: roomId
         required: true
@@ -718,10 +739,19 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/StartNewChatBody"
+        description: The initial message and optional file attachments.
         required: true
       responses:
         "200":
-          description: OK
+          description: SSE stream of ChatCompletion events (text/event-stream)
+        "400":
+          description: The message is empty or one or more file attachments could
+            not be processed
+        "403":
+          description: You don't have enough permission to access the chat in this
+            room
+        "404":
+          description: The specified room or AI provider was not found
         "401":
           description: Unauthorized
       security:
@@ -737,13 +767,21 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Start a new AI chat
       tags:
       - AI / Chat
   /api/2.0/ai/chats/{chatId}/messages:
     get:
+      description: "Returns a paginated list of messages from an AI chat session owned\
+        \ by the current user.\r\nEach message includes its role (user or assistant),\
+        \ content blocks (text, tool calls, attachments), and timestamp.\r\nSupports\
+        \ pagination via the startIndex and count query parameters. The total number\
+        \ of messages is included in the response metadata."
       operationId: getMessages
       parameters:
-      - explode: false
+      - description: The unique identifier of the AI chat session whose messages are
+          to be listed.
+        explode: false
         in: path
         name: chatId
         required: true
@@ -752,7 +790,9 @@ paths:
           format: uuid
           type: string
         style: simple
-      - explode: true
+      - description: The number of items to skip before returning results (zero-based
+          offset). Defaults to 0.
+        explode: true
         in: query
         name: startIndex
         required: false
@@ -761,7 +801,8 @@ paths:
           format: int32
           type: integer
         style: form
-      - explode: true
+      - description: The maximum number of items to return per page. Defaults to 100.
+        explode: true
         in: query
         name: count
         required: false
@@ -776,7 +817,10 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/MessageArrayWrapper"
-          description: OK
+          description: Paginated list of messages in the chat
+        "404":
+          description: The chat with the specified ID was not found or does not belong
+            to the current user
         "401":
           description: Unauthorized
       security:
@@ -792,12 +836,19 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get messages of an AI chat
       tags:
       - AI / Chat
     post:
+      description: "Appends a new user message to an existing chat session and streams\
+        \ the AI assistant's response.\r\nThe full conversation history of the chat\
+        \ is sent to the AI provider to maintain context.\r\nThe response is delivered\
+        \ as a Server-Sent Events (SSE) stream with periodic keep-alive pings.\r\n\
+        File references can optionally be attached to provide additional context."
       operationId: continueChat
       parameters:
-      - explode: false
+      - description: The unique identifier of the existing AI chat session to continue.
+        explode: false
         in: path
         name: chatId
         required: true
@@ -811,10 +862,19 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ContinueChatBody"
+        description: The message and optional file attachments.
         required: true
       responses:
         "200":
-          description: OK
+          description: SSE stream of ChatCompletion events (text/event-stream)
+        "400":
+          description: The message is empty or one or more file attachments could
+            not be processed
+        "403":
+          description: You don't have enough permission to access the chat in this
+            room
+        "404":
+          description: "The specified chat, room, or AI provider was not found"
         "401":
           description: Unauthorized
       security:
@@ -830,13 +890,18 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Send a message to an existing AI chat
       tags:
       - AI / Chat
   /api/2.0/ai/chats/{chatId}:
     delete:
+      description: "Permanently deletes an AI chat session along with all of its messages.\r\
+        \nOnly the chat owner can delete their own chat sessions. This action cannot\
+        \ be undone."
       operationId: deleteChat
       parameters:
-      - explode: false
+      - description: The unique identifier of the AI chat session to delete.
+        explode: false
         in: path
         name: chatId
         required: true
@@ -846,8 +911,11 @@ paths:
           type: string
         style: simple
       responses:
-        "200":
-          description: OK
+        "204":
+          description: The chat was successfully deleted
+        "404":
+          description: The chat with the specified ID was not found or does not belong
+            to the current user
         "401":
           description: Unauthorized
       security:
@@ -863,12 +931,17 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Delete an AI chat
       tags:
       - AI / Chat
     get:
+      description: "Retrieves the metadata of a single AI chat session, including\
+        \ its title, creation date, and the user who created it.\r\nOnly the chat\
+        \ owner can access their own chat sessions."
       operationId: getChat
       parameters:
-      - explode: false
+      - description: The unique identifier of the AI chat session to retrieve.
+        explode: false
         in: path
         name: chatId
         required: true
@@ -883,7 +956,10 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ChatWrapper"
-          description: OK
+          description: Chat session details
+        "404":
+          description: The chat with the specified ID was not found or does not belong
+            to the current user
         "401":
           description: Unauthorized
       security:
@@ -899,12 +975,16 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get an AI chat by ID
       tags:
       - AI / Chat
     put:
+      description: "Updates the display title of an existing AI chat session owned\
+        \ by the current user.\r\nThe new name must not exceed 255 characters."
       operationId: renameChat
       parameters:
-      - explode: false
+      - description: The unique identifier of the AI chat session to rename.
+        explode: false
         in: path
         name: chatId
         required: true
@@ -918,6 +998,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/RenameChatBody"
+        description: The new chat name.
         required: true
       responses:
         "200":
@@ -925,7 +1006,10 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ChatWrapper"
-          description: OK
+          description: Updated chat session details
+        "404":
+          description: The chat with the specified ID was not found or does not belong
+            to the current user
         "401":
           description: Unauthorized
       security:
@@ -941,13 +1025,18 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Rename an AI chat
       tags:
       - AI / Chat
   /api/2.0/ai/chats/{chatId}/messages/export:
     post:
+      description: "Exports the entire message history of an AI chat session and saves\
+        \ it as a document in the specified folder.\r\nThe exported file is created\
+        \ with the provided title. Only the chat owner can export their own chat sessions."
       operationId: exportChat
       parameters:
-      - explode: false
+      - description: The unique identifier of the AI chat session to export.
+        explode: false
         in: path
         name: chatId
         required: true
@@ -961,10 +1050,15 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ExportChatRequestBodyInteger"
+        description: The export parameters including destination folder and file title.
         required: true
       responses:
         "200":
-          description: OK
+          description: The chat messages were successfully exported to the specified
+            folder
+        "404":
+          description: The chat with the specified ID was not found or does not belong
+            to the current user
         "401":
           description: Unauthorized
       security:
@@ -980,13 +1074,20 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Export AI chat messages to a file
       tags:
       - AI / Chat
   /api/2.0/ai/chats/models:
     get:
+      description: "Returns the list of AI models available for chat conversations.\r\
+        \nOptionally filters the results to models from a specific provider when the\
+        \ provider query parameter is specified.\r\nEach model entry includes the\
+        \ provider ID, provider display name, and the model identifier."
       operationId: getChatModels
       parameters:
-      - explode: true
+      - description: "The optional AI provider identifier to filter models by. When\
+          \ set to 0, models from all providers are returned."
+        explode: true
         in: query
         name: provider
         required: false
@@ -1001,7 +1102,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ModelArrayWrapper"
-          description: OK
+          description: List of available AI models
         "401":
           description: Unauthorized
       security:
@@ -1017,13 +1118,22 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get available AI models
       tags:
       - AI / Chat
   /api/2.0/ai/chats/tool-permissions/{callId}/decision:
     post:
+      description: "Provides the user's approval or denial decision for a pending\
+        \ MCP (Model Context Protocol) tool execution request.\r\nWhen an AI assistant\
+        \ attempts to invoke an external tool that requires explicit user consent,\r\
+        \nthe client receives a permission prompt via the SSE stream. This endpoint\
+        \ is used to submit the user's decision\r\nso that the AI chat session can\
+        \ proceed accordingly."
       operationId: providePermission
       parameters:
-      - explode: false
+      - description: The unique identifier of the pending tool execution call awaiting
+          a permission decision.
+        explode: false
         in: path
         name: callId
         required: true
@@ -1036,10 +1146,11 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ToolDecisionRequestBody"
+        description: The permission decision parameters.
         required: true
       responses:
         "200":
-          description: OK
+          description: The permission decision was successfully recorded
         "401":
           description: Unauthorized
       security:
@@ -1055,13 +1166,18 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Submit a tool execution permission decision
       tags:
       - AI / Chat
   /api/2.0/ai/rooms/{roomId}/chats/config:
     get:
+      description: "Retrieves the current user's personal AI chat preferences for\
+        \ the specified room,\r\nincluding whether web search is enabled for AI-assisted\
+        \ responses."
       operationId: getUserChatsSettings
       parameters:
-      - explode: false
+      - description: The identifier of the room whose chat settings are to be retrieved.
+        explode: false
         in: path
         name: roomId
         required: true
@@ -1076,7 +1192,11 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/UserChatSettingsWrapper"
-          description: OK
+          description: Current user chat settings
+        "403":
+          description: You don't have enough permission to access chats in this room
+        "404":
+          description: The room with the specified ID was not found
         "401":
           description: Unauthorized
       security:
@@ -1092,12 +1212,17 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get user chat settings for a room
       tags:
       - AI / Chat
     put:
+      description: "Saves the current user's personal AI chat preferences for the\
+        \ specified room.\r\nCurrently supports toggling the web search capability,\
+        \ which allows the AI assistant to search the internet when generating responses."
       operationId: setUserChatsSettings
       parameters:
-      - explode: false
+      - description: The identifier of the room whose chat settings are to be updated.
+        explode: false
         in: path
         name: roomId
         required: true
@@ -1111,6 +1236,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/SetUserChatSettingsRequestBody"
+        description: The chat settings to apply.
         required: true
       responses:
         "200":
@@ -1118,7 +1244,11 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/UserChatSettingsWrapper"
-          description: OK
+          description: Updated user chat settings
+        "403":
+          description: You don't have enough permission to access chats in this room
+        "404":
+          description: The room with the specified ID was not found
         "401":
           description: Unauthorized
       security:
@@ -1134,20 +1264,28 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Update user chat settings for a room
       tags:
       - AI / Chat
   /api/2.0/ai/servers:
     delete:
+      description: "Permanently removes one or more MCP servers from the current tenant\
+        \ by their IDs.\r\nAll room associations and connection data for the deleted\
+        \ servers are also cleaned up.\r\nThis action is irreversible. Requires DocSpace\
+        \ administrator privileges."
       operationId: deleteServer
       requestBody:
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/DeleteServersRequestBody"
+        description: Server identifiers to delete.
         required: true
       responses:
-        "200":
-          description: OK
+        "204":
+          description: MCP servers were successfully deleted
+        "403":
+          description: You don't have permission to manage MCP servers
         "401":
           description: Unauthorized
       security:
@@ -1163,12 +1301,21 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Delete MCP servers
       tags:
       - AI / MCP
     get:
+      description: "Returns a paginated list of all MCP servers registered for the\
+        \ current tenant, including both\r\nenabled and disabled servers. Each entry\
+        \ contains the full configuration (endpoint, headers,\r\nicon, type, and status).\
+        \ Supports pagination via the startIndex and count query parameters.\r\nThe\
+        \ total number of servers is included in the response metadata.\r\nRequires\
+        \ DocSpace administrator privileges."
       operationId: getServers
       parameters:
-      - explode: true
+      - description: The number of items to skip before returning results (zero-based
+          offset). Defaults to 0.
+        explode: true
         in: query
         name: startIndex
         required: false
@@ -1177,7 +1324,8 @@ paths:
           format: int32
           type: integer
         style: form
-      - explode: true
+      - description: The maximum number of items to return per page. Defaults to 100.
+        explode: true
         in: query
         name: count
         required: false
@@ -1192,7 +1340,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/McpServerArrayWrapper"
-          description: OK
+          description: Paginated list of all registered MCP servers
+        "403":
+          description: You don't have permission to manage MCP servers
         "401":
           description: Unauthorized
       security:
@@ -1208,15 +1358,23 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get all MCP servers
       tags:
       - AI / MCP
     post:
+      description: "Registers a new custom MCP (Model Context Protocol) server for\
+        \ the current tenant.\r\nThe system validates the server name (only letters,\
+        \ numbers, underscores, and hyphens are allowed),\r\nchecks that it is not\
+        \ reserved or already taken, and then attempts to connect to the provided\
+        \ endpoint\r\nto verify reachability and credentials before persisting the\
+        \ configuration.\r\nRequires DocSpace administrator privileges."
       operationId: addServer
       requestBody:
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/AddMcpServerRequestBody"
+        description: MCP server registration parameters.
         required: true
       responses:
         "200":
@@ -1224,7 +1382,12 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/McpServerWrapper"
-          description: OK
+          description: Newly registered MCP server configuration
+        "400":
+          description: "Invalid server name, reserved name, duplicate name, incorrect\
+            \ credentials, or invalid endpoint URL"
+        "403":
+          description: You don't have permission to manage MCP servers
         "401":
           description: Unauthorized
       security:
@@ -1240,13 +1403,19 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Register a custom MCP server
       tags:
       - AI / MCP
   /api/2.0/ai/servers/{id}:
     get:
+      description: "Retrieves a summary view of a single MCP server by its unique\
+        \ identifier, including its name,\r\ntype, enabled state, and icon. This endpoint\
+        \ returns a compact representation without\r\nsensitive details such as endpoint\
+        \ URL or authentication headers.\r\nRequires DocSpace administrator privileges."
       operationId: getServer
       parameters:
-      - explode: false
+      - description: Unique identifier of the MCP server to retrieve.
+        explode: false
         in: path
         name: id
         required: true
@@ -1261,7 +1430,11 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/McpServerShortWrapper"
-          description: OK
+          description: MCP server summary information
+        "403":
+          description: You don't have permission to manage MCP servers
+        "404":
+          description: The MCP server with the specified ID was not found
         "401":
           description: Unauthorized
       security:
@@ -1277,12 +1450,20 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get an MCP server by ID
       tags:
       - AI / MCP
     put:
+      description: "Updates the configuration of an existing custom MCP server identified\
+        \ by its unique ID.\r\nAny combination of fields (name, description, endpoint,\
+        \ headers, icon) can be updated in a single request.\r\nIf the endpoint or\
+        \ headers are changed, the system re-validates connectivity by attempting\
+        \ to reach\r\nthe new endpoint before saving. Name uniqueness and format rules\
+        \ are enforced on every update.\r\nRequires DocSpace administrator privileges."
       operationId: updateServer
       parameters:
-      - explode: false
+      - description: Unique identifier of the MCP server to update.
+        explode: false
         in: path
         name: id
         required: true
@@ -1296,6 +1477,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/UpdateServerRequestBody"
+        description: Updated server configuration fields.
         required: true
       responses:
         "200":
@@ -1303,7 +1485,14 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/McpServerWrapper"
-          description: OK
+          description: Updated MCP server configuration
+        "400":
+          description: "Invalid server name, reserved name, duplicate name, incorrect\
+            \ credentials, or invalid endpoint URL"
+        "403":
+          description: You don't have permission to manage MCP servers
+        "404":
+          description: The MCP server with the specified ID was not found
         "401":
           description: Unauthorized
       security:
@@ -1319,13 +1508,20 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Update a custom MCP server
       tags:
       - AI / MCP
   /api/2.0/ai/servers/{id}/status:
     put:
+      description: "Toggles the enabled/disabled state of an MCP server. When a server\
+        \ is disabled, it becomes\r\nunavailable for assignment to rooms and will\
+        \ not be used during AI chat sessions.\r\nEnabling a previously disabled server\
+        \ restores its availability across the tenant.\r\nRequires DocSpace administrator\
+        \ privileges."
       operationId: setServerStatus
       parameters:
-      - explode: false
+      - description: Unique identifier of the MCP server whose status is being changed.
+        explode: false
         in: path
         name: id
         required: true
@@ -1339,6 +1535,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/SetServerStatusRequestBody"
+        description: New status value.
         required: true
       responses:
         "200":
@@ -1346,7 +1543,11 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/McpServerWrapper"
-          description: OK
+          description: MCP server with the updated status
+        "403":
+          description: You don't have permission to manage MCP servers
+        "404":
+          description: The MCP server with the specified ID was not found
         "401":
           description: Unauthorized
       security:
@@ -1362,13 +1563,22 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Enable or disable an MCP server
       tags:
       - AI / MCP
   /api/2.0/ai/servers/available:
     get:
+      description: "Returns a paginated list of MCP servers that are currently active\
+        \ (enabled) and available for\r\nassignment to rooms. Only servers in the\
+        \ enabled state are included. Each entry contains a compact\r\nsummary with\
+        \ the server name, type, icon, and status. Supports pagination via startIndex\
+        \ and count.\r\nThe total count of available servers is included in the response\
+        \ metadata."
       operationId: getAvailableServers
       parameters:
-      - explode: true
+      - description: The number of items to skip before returning results (zero-based
+          offset). Defaults to 0.
+        explode: true
         in: query
         name: startIndex
         required: false
@@ -1377,7 +1587,8 @@ paths:
           format: int32
           type: integer
         style: form
-      - explode: true
+      - description: The maximum number of items to return per page. Defaults to 100.
+        explode: true
         in: query
         name: count
         required: false
@@ -1392,7 +1603,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/McpServerShortArrayWrapper"
-          description: OK
+          description: Paginated list of active MCP servers available for room assignment
         "401":
           description: Unauthorized
       security:
@@ -1408,13 +1619,19 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get available MCP servers
       tags:
       - AI / MCP
   /api/2.0/ai/rooms/{roomId}/servers:
     delete:
+      description: "Detaches one or more MCP servers from the specified room. After\
+        \ removal, the servers will no longer\r\nbe available in AI chat sessions\
+        \ within this room. Existing connections and tool configurations for\r\nthe\
+        \ removed servers are also cleaned up. Requires room edit permissions."
       operationId: deleteRoomServers
       parameters:
-      - explode: false
+      - description: Identifier of the room from which MCP servers will be removed.
+        explode: false
         in: path
         name: roomId
         required: true
@@ -1428,10 +1645,15 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/DeleteRoomServersRequestBody"
+        description: Server identifiers to remove.
         required: true
       responses:
-        "200":
-          description: OK
+        "204":
+          description: MCP servers were successfully removed from the room
+        "403":
+          description: You don't have enough permission to perform the operation
+        "404":
+          description: The room with the specified ID was not found
         "401":
           description: Unauthorized
       security:
@@ -1447,12 +1669,18 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Remove MCP servers from a room
       tags:
       - AI / MCP
     get:
+      description: "Returns the list of MCP servers currently assigned to the specified\
+        \ room along with their connection\r\nstatuses for the current user. For OAuth-based\
+        \ servers, the connection status reflects whether the\r\ncurrent user has\
+        \ completed authorization. Requires access to the room's AI chat."
       operationId: getRoomServers
       parameters:
-      - explode: false
+      - description: Identifier of the room whose assigned MCP servers are being retrieved.
+        explode: false
         in: path
         name: roomId
         required: true
@@ -1467,7 +1695,11 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/McpServerStatusArrayWrapper"
-          description: OK
+          description: List of MCP server statuses in the room
+        "403":
+          description: You don't have enough permission to perform the operation
+        "404":
+          description: The room with the specified ID was not found
         "401":
           description: Unauthorized
       security:
@@ -1483,12 +1715,19 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get MCP servers assigned to a room
       tags:
       - AI / MCP
     post:
+      description: "Associates one or more MCP servers with a specific room, making\
+        \ them available for AI chat sessions\r\nwithin that room. A maximum of 5\
+        \ MCP servers can be assigned to a single room. If OAuth-based servers\r\n\
+        are included, each room member will need to individually authorize their connection.\r\
+        \nRequires room edit permissions."
       operationId: addRoomServers
       parameters:
-      - explode: false
+      - description: Identifier of the room to which MCP servers will be assigned.
+        explode: false
         in: path
         name: roomId
         required: true
@@ -1502,6 +1741,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/AddRoomServersRequestBody"
+        description: Server identifiers to assign.
         required: true
       responses:
         "200":
@@ -1509,7 +1749,13 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/McpServerStatusArrayWrapper"
-          description: OK
+          description: List of MCP server statuses after assignment
+        "400":
+          description: The maximum number of servers per room has been exceeded
+        "403":
+          description: You don't have enough permission to perform the operation
+        "404":
+          description: The room with the specified ID was not found
         "401":
           description: Unauthorized
       security:
@@ -1525,13 +1771,19 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Assign MCP servers to a room
       tags:
       - AI / MCP
   /api/2.0/ai/rooms/{roomId}/servers/{serverId}/tools:
     get:
+      description: "Retrieves the full list of tools exposed by an MCP server within\
+        \ the context of a specific room,\r\nalong with each tool's enabled or disabled\
+        \ state. Disabled tools will not be invoked during\r\nAI chat sessions in\
+        \ this room. Requires access to the room's AI chat."
       operationId: getTools
       parameters:
-      - explode: false
+      - description: Identifier of the room containing the MCP server.
+        explode: false
         in: path
         name: roomId
         required: true
@@ -1540,7 +1792,8 @@ paths:
           format: int32
           type: integer
         style: simple
-      - explode: false
+      - description: Unique identifier of the MCP server whose tools are being retrieved.
+        explode: false
         in: path
         name: serverId
         required: true
@@ -1555,7 +1808,11 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/McpToolArrayWrapper"
-          description: OK
+          description: List of tools with their enabled/disabled states
+        "403":
+          description: You don't have enough permission to perform the operation
+        "404":
+          description: The room or MCP server was not found
         "401":
           description: Unauthorized
       security:
@@ -1571,12 +1828,19 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get MCP server tools in a room
       tags:
       - AI / MCP
     put:
+      description: "Updates the set of disabled tools for an MCP server within a specific\
+        \ room. Pass a list of tool names\r\nthat should be disabled — all other tools\
+        \ exposed by the server will remain enabled. This allows\r\nroom administrators\
+        \ to restrict which MCP capabilities are available during AI chat sessions.\r\
+        \nRequires room edit permissions."
       operationId: setTools
       parameters:
-      - explode: false
+      - description: Identifier of the room containing the MCP server.
+        explode: false
         in: path
         name: roomId
         required: true
@@ -1585,7 +1849,8 @@ paths:
           format: int32
           type: integer
         style: simple
-      - explode: false
+      - description: Unique identifier of the MCP server whose tools are being configured.
+        explode: false
         in: path
         name: serverId
         required: true
@@ -1599,6 +1864,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/SetMcpToolsRequestBody"
+        description: Tool configuration parameters.
         required: true
       responses:
         "200":
@@ -1606,7 +1872,11 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/McpToolArrayWrapper"
-          description: OK
+          description: Complete list of tools with their enabled/disabled states
+        "403":
+          description: You don't have enough permission to perform the operation
+        "404":
+          description: The room or MCP server was not found
         "401":
           description: Unauthorized
       security:
@@ -1622,13 +1892,20 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Configure MCP server tools in a room
       tags:
       - AI / MCP
   /api/2.0/ai/rooms/{roomId}/servers/{serverId}/connect:
     post:
+      description: "Completes the OAuth authorization flow for an MCP server within\
+        \ a specific room on behalf of the\r\ncurrent user. The authorization code\
+        \ obtained from the OAuth provider must be passed in the request body.\r\n\
+        Upon successful token exchange, the system verifies connectivity to the server\
+        \ and stores\r\nthe credentials for the current user. Requires room edit permissions."
       operationId: connectServer
       parameters:
-      - explode: false
+      - description: Identifier of the room containing the MCP server.
+        explode: false
         in: path
         name: roomId
         required: true
@@ -1637,7 +1914,8 @@ paths:
           format: int32
           type: integer
         style: simple
-      - explode: false
+      - description: Unique identifier of the MCP server to connect.
+        explode: false
         in: path
         name: serverId
         required: true
@@ -1651,6 +1929,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ConnectServerRequestBody"
+        description: OAuth authorization parameters.
         required: true
       responses:
         "200":
@@ -1658,7 +1937,13 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/McpServerStatusWrapper"
-          description: OK
+          description: MCP server connection status after authorization
+        "400":
+          description: The provided authorization code is invalid
+        "403":
+          description: You don't have enough permission to perform the operation
+        "404":
+          description: The room or MCP server connection was not found
         "401":
           description: Unauthorized
       security:
@@ -1674,13 +1959,20 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Connect an OAuth-based MCP server in a room
       tags:
       - AI / MCP
   /api/2.0/ai/rooms/{roomId}/servers/{serverId}/disconnect:
     post:
+      description: "Revokes the current user's OAuth connection to an MCP server within\
+        \ the specified room. After\r\ndisconnection, the server's tools will no longer\
+        \ be available to this user in AI chat sessions\r\nuntil they re-authorize.\
+        \ Other room members' connections are not affected.\r\nRequires room edit\
+        \ permissions."
       operationId: disconnectServer
       parameters:
-      - explode: false
+      - description: Identifier of the room containing the MCP server.
+        explode: false
         in: path
         name: roomId
         required: true
@@ -1689,7 +1981,8 @@ paths:
           format: int32
           type: integer
         style: simple
-      - explode: false
+      - description: Unique identifier of the MCP server to disconnect from.
+        explode: false
         in: path
         name: serverId
         required: true
@@ -1704,7 +1997,11 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/McpServerStatusWrapper"
-          description: OK
+          description: MCP server connection status after disconnection
+        "403":
+          description: You don't have enough permission to perform the operation
+        "404":
+          description: The room or MCP server connection was not found
         "401":
           description: Unauthorized
       security:
@@ -1720,13 +2017,20 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Disconnect an MCP server in a room
       tags:
       - AI / MCP
   /api/2.0/ai/messages/{messageId}/export:
     post:
+      description: "Exports a specific AI chat message as a document into the specified\
+        \ folder. The system verifies that the message exists\r\nand belongs to a\
+        \ chat accessible by the current user, then publishes an asynchronous export\
+        \ task to the event bus.\r\nThe exported document will be created in the target\
+        \ folder with the given title once the background task completes."
       operationId: exportMessage
       parameters:
-      - explode: false
+      - description: The unique identifier of the AI chat message to export.
+        explode: false
         in: path
         name: messageId
         required: true
@@ -1740,10 +2044,17 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ExportMessageRequestBodyInteger"
+        description: The export parameters including destination folder and file title.
         required: true
       responses:
         "200":
-          description: OK
+          description: The message export task has been successfully queued for background
+            processing
+        "400":
+          description: The message identifier is invalid (must be greater than 0)
+        "404":
+          description: The specified message was not found or the current user does
+            not have access to it
         "401":
           description: Unauthorized
       security:
@@ -1759,10 +2070,14 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Export a single AI message to a document
       tags:
       - AI / Messages
   /api/2.0/ai/providers:
     delete:
+      description: "Permanently deletes one or more AI providers by their identifiers.\r\
+        \nAll specified providers are removed from the current tenant. This action\
+        \ cannot be undone."
       operationId: deleteProviders
       requestBody:
         content:
@@ -1770,8 +2085,10 @@ paths:
             schema:
               $ref: "#/components/schemas/RemoveProviderRequestDto"
       responses:
-        "200":
-          description: OK
+        "204":
+          description: The providers were successfully deleted
+        "403":
+          description: You don't have enough permission to manage providers
         "401":
           description: Unauthorized
       security:
@@ -1787,12 +2104,18 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Delete AI providers
       tags:
       - AI / Providers
     get:
+      description: "Returns a paginated list of AI providers configured for the current\
+        \ tenant.\r\nSupports pagination via the startIndex and count query parameters.\
+        \ The total number of providers is included in the response metadata."
       operationId: getProviders
       parameters:
-      - explode: true
+      - description: The number of items to skip before returning results (zero-based
+          offset). Defaults to 0.
+        explode: true
         in: query
         name: startIndex
         required: false
@@ -1801,7 +2124,8 @@ paths:
           format: int32
           type: integer
         style: form
-      - explode: true
+      - description: The maximum number of items to return per page. Defaults to 100.
+        explode: true
         in: query
         name: count
         required: false
@@ -1816,7 +2140,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AiProviderArrayWrapper"
-          description: OK
+          description: Paginated list of AI providers
         "401":
           description: Unauthorized
       security:
@@ -1832,9 +2156,14 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get AI providers
       tags:
       - AI / Providers
     post:
+      description: "Registers a new AI provider for the current tenant by specifying\
+        \ its type, display title, API endpoint URL, and authentication key.\r\nThe\
+        \ provider becomes available for AI chat conversations after creation. This\
+        \ action is rate-limited."
       operationId: addProvider
       requestBody:
         content:
@@ -1847,7 +2176,9 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AiProviderWrapper"
-          description: OK
+          description: Created AI provider details
+        "403":
+          description: You don't have enough permission to manage providers
         "401":
           description: Unauthorized
       security:
@@ -1863,13 +2194,18 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Add an AI provider
       tags:
       - AI / Providers
   /api/2.0/ai/providers/{id}:
     put:
+      description: "Updates the configuration of an existing AI provider, including\
+        \ its display title, API endpoint URL, and authentication key.\r\nOnly the\
+        \ fields provided in the request body will be updated. This action is rate-limited."
       operationId: updateProvider
       parameters:
-      - explode: false
+      - description: The identifier of the AI provider to update.
+        explode: false
         in: path
         name: id
         required: true
@@ -1883,6 +2219,7 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/UpdateProviderBody"
+        description: The AI provider configuration parameters to update.
         required: true
       responses:
         "200":
@@ -1890,7 +2227,11 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AiProviderWrapper"
-          description: OK
+          description: Updated AI provider details
+        "403":
+          description: You don't have enough permission to manage providers
+        "404":
+          description: The provider with the specified ID was not found
         "401":
           description: Unauthorized
       security:
@@ -1906,10 +2247,14 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Update an AI provider
       tags:
       - AI / Providers
   /api/2.0/ai/providers/available:
     get:
+      description: "Returns the list of AI provider types that are available for configuration\
+        \ on the current instance.\r\nEach entry includes the provider type identifier\
+        \ and the default API endpoint URL."
       operationId: getAvailableProviders
       responses:
         "200":
@@ -1917,7 +2262,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ProviderSettingsArrayWrapper"
-          description: OK
+          description: List of available AI provider types
         "401":
           description: Unauthorized
       security:
@@ -1933,10 +2278,13 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get available AI provider types
       tags:
       - AI / Providers
   /api/2.0/ai/providers/default:
     get:
+      description: "Returns the default AI provider and model configured for the current\
+        \ tenant.\r\nReturns null if the tenant does not have any registered providers."
       operationId: getDefaultProvider
       responses:
         "200":
@@ -1960,10 +2308,13 @@ paths:
         - read
         - write
       - OpenId: []
-      summary: Returns the default AI provider for the current tenant.
+      summary: Get the default AI provider
       tags:
       - AI / Providers
     put:
+      description: "Sets the default AI provider and model for the current tenant.\r\
+        \nThe specified provider and model will be used as the default for all new\
+        \ AI chat sessions within the tenant."
       operationId: setDefaultProvider
       requestBody:
         content:
@@ -1996,11 +2347,14 @@ paths:
         - read
         - write
       - OpenId: []
-      summary: Sets the default AI provider for the current tenant.
+      summary: Set the default AI provider
       tags:
       - AI / Providers
   /api/2.0/ai/config/web-search:
     get:
+      description: "Retrieves the current web search integration settings for AI chat\
+        \ sessions,\r\nincluding whether web search is enabled, the configured search\
+        \ engine type, and whether the API key needs to be reset."
       operationId: getWebSearchSettings
       responses:
         "200":
@@ -2008,7 +2362,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/WebSearchSettingsWrapper"
-          description: OK
+          description: Current web search settings
         "401":
           description: Unauthorized
       security:
@@ -2024,15 +2378,21 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get web search settings
       tags:
       - AI / Settings
     put:
+      description: "Configures the web search integration for AI chat sessions at\
+        \ the portal level.\r\nAllows enabling or disabling web search, selecting\
+        \ the search engine type, and providing the API key for the chosen engine.\r\
+        \nOnly portal administrators can modify these settings."
       operationId: setWebSearchSettings
       requestBody:
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/SetWebSearchSettingsRequestBody"
+        description: The web search configuration parameters.
         required: true
       responses:
         "200":
@@ -2040,7 +2400,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/WebSearchSettingsWrapper"
-          description: OK
+          description: Updated web search settings
         "401":
           description: Unauthorized
       security:
@@ -2056,10 +2416,14 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Update web search settings
       tags:
       - AI / Settings
   /api/2.0/ai/config/vectorization:
     get:
+      description: "Retrieves the current embedding provider settings used for document\
+        \ vectorization,\r\nincluding the configured provider type and whether the\
+        \ API key needs to be reset."
       operationId: getVectorizationSettings
       responses:
         "200":
@@ -2067,7 +2431,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/VectorizationSettingsWrapper"
-          description: OK
+          description: Current vectorization settings
         "401":
           description: Unauthorized
       security:
@@ -2083,15 +2447,22 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get vectorization settings
       tags:
       - AI / Settings
     put:
+      description: "Configures the embedding provider used for document vectorization\
+        \ at the portal level.\r\nVectorization enables semantic search and knowledge\
+        \ retrieval capabilities in AI chat sessions.\r\nAllows selecting the embedding\
+        \ provider type and providing the API key for the chosen provider.\r\nOnly\
+        \ portal administrators can modify these settings."
       operationId: setVectorizationSettings
       requestBody:
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/SetEmbeddingConfigRequestBody"
+        description: The embedding provider configuration parameters.
         required: true
       responses:
         "200":
@@ -2099,7 +2470,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/VectorizationSettingsWrapper"
-          description: OK
+          description: Updated vectorization settings
         "401":
           description: Unauthorized
       security:
@@ -2115,10 +2486,14 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Update vectorization settings
       tags:
       - AI / Settings
   /api/2.0/ai/config:
     get:
+      description: "Retrieves the combined AI configuration for the current portal,\
+        \ including the status of web search,\r\nvectorization, and AI readiness,\
+        \ along with tool names and the portal MCP server identifier."
       operationId: getAiSettings
       responses:
         "200":
@@ -2126,7 +2501,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AiSettingsWrapper"
-          description: OK
+          description: Current AI settings
         "401":
           description: Unauthorized
       security:
@@ -2142,20 +2517,26 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Get AI settings
       tags:
       - AI / Settings
   /api/2.0/ai/vectorization/tasks:
     post:
+      description: "Submits the specified files for vectorization. Each file is processed\
+        \ asynchronously by the configured embedding provider\r\nand indexed for semantic\
+        \ search in AI chat sessions. Only files accessible to the current user can\
+        \ be vectorized."
       operationId: startTask
       requestBody:
         content:
           application/json:
             schema:
               $ref: "#/components/schemas/VectorizationStartRequestBody"
+        description: The vectorization parameters including file identifiers.
         required: true
       responses:
         "200":
-          description: OK
+          description: The vectorization task was successfully submitted
         "401":
           description: Unauthorized
       security:
@@ -2171,6 +2552,7 @@ paths:
         - read
         - write
       - OpenId: []
+      summary: Start a vectorization task
       tags:
       - AI / Vectorization
   /api/2.0/backup/getbackupschedule:
@@ -2340,6 +2722,35 @@ paths:
         - write
       - OpenId: []
       summary: Start the backup
+      tags:
+      - Backup
+  /api/2.0/backup/cancelbackup:
+    post:
+      description: Cancel current backup.
+      operationId: cancelBackup
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BooleanWrapper"
+          description: "Boolean value: true if the operation is successful"
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Cancel current backup
       tags:
       - Backup
   /api/2.0/backup/getbackupprogress:
@@ -14106,7 +14517,7 @@ paths:
                 $ref: "#/components/schemas/EmployeeFullWrapper"
           description: Detailed profile information
         "400":
-          description: Incorect UserId
+          description: Incorrect UserId
         "404":
           description: User not found
         "401":
@@ -14256,6 +14667,8 @@ paths:
               schema:
                 $ref: "#/components/schemas/EmployeeFullArrayWrapper"
           description: List of users with the detailed information
+        "400":
+          description: Incorrect UserIds
         "403":
           description: No permissions to perform this action or users are not suspended
         "409":
@@ -24309,39 +24722,50 @@ components:
   schemas:
     AddMcpServerRequestBody:
       additionalProperties: false
+      description: Parameters for creating a new custom MCP server.
       example:
         headers:
         - key: some text
           value: some text
-        endpoint: some text
-        name: John Doe
+        endpoint: https://mcp.example.com/sse
+        name: my-custom-server
         icon: some text
-        description: some text
+        description: Custom MCP server for project management tools
       properties:
         name:
-          example: John Doe
+          description: "Unique display name for the server. Only letters, numbers,\
+            \ underscores, and hyphens are allowed. Maximum 128 characters."
+          example: my-custom-server
           maxLength: 128
           nullable: true
           type: string
         description:
-          example: some text
+          description: Human-readable description of the server's purpose and capabilities.
+            Maximum 255 characters.
+          example: Custom MCP server for project management tools
           maxLength: 255
           nullable: true
           type: string
         endpoint:
-          example: some text
+          description: "Base URL of the MCP server endpoint. Must be a valid, reachable\
+            \ URL. The system will verify connectivity during registration."
+          example: https://mcp.example.com/sse
           format: uri
           nullable: true
           type: string
         headers:
           additionalProperties:
             type: string
+          description: "Optional HTTP headers to include with every request to the\
+            \ MCP server (e.g., authentication tokens or API keys)."
           example:
           - key: some text
             value: some text
           nullable: true
           type: object
         icon:
+          description: Optional Base64-encoded icon image for the server. Used as
+            the visual identifier in the UI.
           example: some text
           nullable: true
           type: string
@@ -24352,11 +24776,14 @@ components:
       type: object
     AddRoomServersRequestBody:
       additionalProperties: false
+      description: Parameters specifying which MCP servers to assign to the room.
       example:
         servers:
         - 75a5f745-f697-4418-b38d-0fe0d277e258
       properties:
         servers:
+          description: Set of unique identifiers of MCP servers to associate with
+            the room. A maximum of 5 servers can be assigned per room.
           example:
           - 75a5f745-f697-4418-b38d-0fe0d277e258
           items:
@@ -24656,6 +25083,7 @@ components:
       type: object
     AiProviderDto:
       additionalProperties: false
+      description: AI provider details.
       example:
         modifiedOn:
           utcTime: 2008-04-10T06:30:00+04:00
@@ -24671,16 +25099,19 @@ components:
         url: some text
       properties:
         id:
+          description: AI provider identifier.
           example: 1
           format: int32
           type: integer
         title:
+          description: AI provider display title.
           example: SampleFile
           nullable: true
           type: string
         type:
           $ref: "#/components/schemas/ProviderType"
         url:
+          description: API endpoint URL for the AI provider.
           example: some text
           nullable: true
           type: string
@@ -24689,9 +25120,12 @@ components:
         modifiedOn:
           $ref: "#/components/schemas/ApiDateTime"
         needReset:
+          description: Indicates whether the provider's API key needs to be reset.
           example: true
           type: boolean
         isDefault:
+          description: Indicates whether this provider is the default provider for
+            the tenant.
           example: true
           type: boolean
       required:
@@ -24742,59 +25176,96 @@ components:
     AiSettingsDto:
       additionalProperties: false
       example:
-        webSearchToolName: some text
-        vectorizationNeedReset: true
-        vectorizationEnabled: true
+        generateFormToolName: some text
+        generateDocxToolName: some text
         aiReady: true
         aiReadyNeedReset: true
         portalMcpServerId: 75a5f745-f697-4418-b38d-0fe0d277e258
         webSearchNeedReset: true
         webSearchEnabled: true
+        generatePresentationToolName: some text
+        webSearchToolName: some text
+        vectorizationNeedReset: true
+        vectorizationEnabled: true
         webCrawlingToolName: some text
         embeddingModel: some text
         knowledgeSearchToolName: some text
       properties:
         webSearchEnabled:
+          description: Indicates whether web search is enabled for AI chat sessions.
           example: true
           type: boolean
         webSearchNeedReset:
+          description: Indicates whether the web search API key needs to be reconfigured.
           example: true
           type: boolean
         vectorizationEnabled:
+          description: Indicates whether document vectorization is enabled.
           example: true
           type: boolean
         vectorizationNeedReset:
+          description: Indicates whether the embedding provider API key needs to be
+            reconfigured.
           example: true
           type: boolean
         aiReady:
+          description: Indicates whether the AI subsystem is fully configured and
+            operational.
           example: true
           type: boolean
         aiReadyNeedReset:
+          description: Indicates whether the AI provider API key needs to be reconfigured.
           example: true
           type: boolean
         portalMcpServerId:
+          description: "The unique identifier of the portal-level MCP server, if configured."
           example: 75a5f745-f697-4418-b38d-0fe0d277e258
           format: uuid
           nullable: true
           type: string
         embeddingModel:
+          description: The name of the embedding model used for document vectorization.
           example: some text
           nullable: true
           type: string
         knowledgeSearchToolName:
+          description: The tool name used by the AI assistant for knowledge base search.
           example: some text
           nullable: true
           type: string
         webSearchToolName:
+          description: The tool name used by the AI assistant for web search.
           example: some text
           nullable: true
           type: string
         webCrawlingToolName:
+          description: The tool name used by the AI assistant for web page crawling.
+          example: some text
+          nullable: true
+          type: string
+        generateDocxToolName:
+          description: The tool name used by the AI to launch docx creation in the
+            editor.
+          example: some text
+          nullable: true
+          type: string
+        generateFormToolName:
+          description: The tool name used by the AI assistant to launch form creation
+            in the editor.
+          example: some text
+          nullable: true
+          type: string
+        generatePresentationToolName:
+          description: The tool name used by the AI assistant to launch presentation
+            creation in the editor.
           example: some text
           nullable: true
           type: string
       required:
       - embeddingModel
+      - generateDocxToolName
+      - generateFormToolName
+      - generatePresentationToolName
       - knowledgeSearchToolName
       - webCrawlingToolName
       - webSearchToolName
@@ -24802,14 +25273,17 @@ components:
     AiSettingsWrapper:
       example:
         response:
-          webSearchToolName: some text
-          vectorizationNeedReset: true
-          vectorizationEnabled: true
+          generateFormToolName: some text
+          generateDocxToolName: some text
           aiReady: true
           aiReadyNeedReset: true
           portalMcpServerId: 75a5f745-f697-4418-b38d-0fe0d277e258
           webSearchNeedReset: true
           webSearchEnabled: true
+          generatePresentationToolName: some text
+          webSearchToolName: some text
+          vectorizationNeedReset: true
+          vectorizationEnabled: true
           webCrawlingToolName: some text
           embeddingModel: some text
           knowledgeSearchToolName: some text
@@ -24953,10 +25427,12 @@ components:
           timeZoneOffset: 00:00:00
       properties:
         id:
+          description: The unique identifier of the AI chat session.
           example: 00000000-0000-0000-0000-000000000000
           format: uuid
           type: string
         title:
+          description: The display title of the chat session.
           example: SampleFile
           nullable: true
           type: string
@@ -25042,10 +25518,13 @@ components:
       type: object
     ConnectServerRequestBody:
       additionalProperties: false
+      description: Parameters for completing an OAuth connection to an MCP server.
       example:
         code: some text
       properties:
         code:
+          description: OAuth authorization code received from the provider's redirect.
+            Used to exchange for access and refresh tokens.
           example: some text
           nullable: true
           type: string
@@ -25054,22 +25533,21 @@ components:
       type: object
     ContinueChatBody:
       additionalProperties: false
+      description: Parameters for continuing an AI chat session.
       example:
-        contextFolderId: 1234
         files:
         - 1234
         - 1234
         message: some text
       properties:
         message:
+          description: The user message to append to the conversation.
           example: some text
           nullable: true
           type: string
-        contextFolderId:
-          example: 1234
-          format: int32
-          type: integer
         files:
+          description: The optional collection of file identifiers to attach as context
+            for the AI model.
           items:
             $ref: "#/components/schemas/ContinueChatBody_files_inner"
           nullable: true
@@ -25079,6 +25557,7 @@ components:
       type: object
     CreateAgentRequestDto:
       additionalProperties: false
+      description: Request to create a new AI agent room.
       example:
         private: true
         watermark:
@@ -25196,6 +25675,7 @@ components:
       type: object
     CreateProviderRequestDto:
       additionalProperties: false
+      description: Request parameters for creating a new AI provider.
       example:
         type: 0
         title: SampleFile
@@ -25205,14 +25685,18 @@ components:
         type:
           $ref: "#/components/schemas/ProviderType"
         title:
+          description: The display title for the AI provider.
           example: SampleFile
           nullable: true
           type: string
         url:
+          description: The API endpoint URL for the AI provider. Required for OpenAiCompatible
+            type; optional for other types that have default URLs.
           example: some text
           nullable: true
           type: string
         key:
+          description: The authentication API key for the AI provider.
           example: some text
           nullable: true
           type: string
@@ -25291,11 +25775,15 @@ components:
       type: object
     DeleteRoomServersRequestBody:
       additionalProperties: false
+      description: Parameters specifying which MCP servers to detach from the room.
       example:
         servers:
         - 75a5f745-f697-4418-b38d-0fe0d277e258
       properties:
         servers:
+          description: Set of unique identifiers of MCP servers to remove from the
+            room. Associated connections and tool configurations will also be cleaned
+            up.
           example:
           - 75a5f745-f697-4418-b38d-0fe0d277e258
           items:
@@ -25309,11 +25797,14 @@ components:
       type: object
     DeleteServersRequestBody:
       additionalProperties: false
+      description: Parameters specifying which MCP servers to delete.
       example:
         servers:
         - 75a5f745-f697-4418-b38d-0fe0d277e258
       properties:
         servers:
+          description: Set of unique identifiers of the MCP servers to permanently
+            remove. All room associations and connection data will also be deleted.
           example:
           - 75a5f745-f697-4418-b38d-0fe0d277e258
           items:
@@ -25381,7 +25872,8 @@ components:
           format: uuid
           type: string
         displayName:
-          description: The user display name.
+          description: The HTML-encoded user's display name formatted according to
+            the default format for the current culture.
           example: Mike Zanyatski
           nullable: true
           type: string
@@ -25437,15 +25929,19 @@ components:
       type: integer
     ExportChatRequestBodyInteger:
       additionalProperties: false
+      description: Parameters for exporting an AI chat session to a document.
       example:
         title: SampleFile
         folderId: 1
       properties:
         folderId:
+          description: The identifier of the destination folder where the exported
+            document will be saved.
           example: 1
           format: int32
           type: integer
         title:
+          description: The file name (without extension) to use for the exported document.
           example: SampleFile
           nullable: true
           type: string
@@ -25455,15 +25951,19 @@ components:
       type: object
     ExportMessageRequestBodyInteger:
       additionalProperties: false
+      description: Parameters for exporting an AI chat message to a document.
       example:
         title: SampleFile
         folderId: 1
       properties:
         folderId:
+          description: The identifier of the destination folder where the exported
+            document will be saved.
           example: 1
           format: int32
           type: integer
         title:
+          description: The file name (without extension) to use for the exported document.
           example: SampleFile
           nullable: true
           type: string
@@ -28408,14 +28908,14 @@ components:
           description: some text
           id: 00000000-0000-0000-0000-000000000000
           enabled: true
-        count: 6
+        count: 0
         links:
         - action: action
           href: href
         - action: action
           href: href
-        status: 1
-        statusCode: 5
+        status: 6
+        statusCode: 1
       properties:
         response:
           items:
@@ -28437,6 +28937,8 @@ components:
       type: object
     McpServerDto:
       additionalProperties: false
+      description: "Full MCP server configuration, including connection details and\
+        \ authentication headers. Returned for administrator-level operations."
       example:
         headers:
         - key: some text
@@ -28455,18 +28957,22 @@ components:
         enabled: true
       properties:
         id:
+          description: Unique identifier of the MCP server.
           example: 00000000-0000-0000-0000-000000000000
           format: uuid
           type: string
         name:
+          description: Display name of the MCP server.
           example: John Doe
           nullable: true
           type: string
         description:
+          description: Human-readable description of the server's purpose and capabilities.
           example: some text
           nullable: true
           type: string
         endpoint:
+          description: Base URL of the MCP server endpoint.
           example: some text
           nullable: true
           type: string
@@ -28475,17 +28981,23 @@ components:
         headers:
           additionalProperties:
             type: string
+          description: "HTTP headers sent with every request to the server (e.g.,\
+            \ authentication tokens)."
           example:
           - key: some text
             value: some text
           nullable: true
           type: object
         enabled:
+          description: Indicates whether the server is currently enabled and available
+            for room assignment.
           example: true
           type: boolean
         icon:
           $ref: "#/components/schemas/Icon"
         needReset:
+          description: Indicates whether the server requires a configuration reset
+            due to connectivity or credential issues.
           example: true
           type: boolean
       type: object
@@ -28541,6 +29053,8 @@ components:
       type: object
     McpServerShortDto:
       additionalProperties: false
+      description: Compact MCP server summary without sensitive details like endpoint
+        URL or authentication headers.
       example:
         needReset: true
         serverType: 0
@@ -28554,21 +29068,27 @@ components:
         enabled: true
       properties:
         id:
+          description: Unique identifier of the MCP server.
           example: 00000000-0000-0000-0000-000000000000
           format: uuid
           type: string
         name:
+          description: Display name of the MCP server.
           example: John Doe
           nullable: true
           type: string
         serverType:
           $ref: "#/components/schemas/ServerType"
         enabled:
+          description: Indicates whether the server is currently enabled and available
+            for room assignment.
           example: true
           type: boolean
         icon:
           $ref: "#/components/schemas/Icon"
         needReset:
+          description: Indicates whether the server requires a configuration reset
+            due to connectivity or credential issues.
           example: true
           type: boolean
       type: object
@@ -28585,14 +29105,14 @@ components:
             icon24: some text
           id: 00000000-0000-0000-0000-000000000000
           enabled: true
-        count: 6
+        count: 0
         links:
         - action: action
           href: href
         - action: action
           href: href
-        status: 1
-        statusCode: 5
+        status: 6
+        statusCode: 1
       properties:
         response:
           $ref: "#/components/schemas/McpServerShortDto"
@@ -28633,14 +29153,14 @@ components:
             icon32: some text
             icon24: some text
           id: 00000000-0000-0000-0000-000000000000
-        count: 6
+        count: 0
         links:
         - action: action
           href: href
         - action: action
           href: href
-        status: 1
-        statusCode: 5
+        status: 6
+        statusCode: 1
       properties:
         response:
           items:
@@ -28662,6 +29182,8 @@ components:
       type: object
     McpServerStatusDto:
       additionalProperties: false
+      description: "MCP server status within a room, reflecting the current user's\
+        \ connection state for OAuth-based servers."
       example:
         connected: true
         needReset: true
@@ -28675,21 +29197,28 @@ components:
         id: 00000000-0000-0000-0000-000000000000
       properties:
         id:
+          description: Unique identifier of the MCP server.
           example: 00000000-0000-0000-0000-000000000000
           format: uuid
           type: string
         name:
+          description: Display name of the MCP server.
           example: John Doe
           nullable: true
           type: string
         serverType:
           $ref: "#/components/schemas/ServerType"
         connected:
+          description: Indicates whether the current user has an active connection
+            to this server. For direct-connection servers this is always true; for
+            OAuth-based servers it reflects whether the user has completed authorization.
           example: true
           type: boolean
         icon:
           $ref: "#/components/schemas/Icon"
         needReset:
+          description: Indicates whether the server requires a configuration reset
+            due to connectivity or credential issues.
           example: true
           type: boolean
       required:
@@ -28812,15 +29341,20 @@ components:
       type: object
     McpToolDto:
       additionalProperties: false
+      description: "Represents a single tool exposed by an MCP server, along with\
+        \ its enabled or disabled state within a room."
       example:
         name: John Doe
         enabled: true
       properties:
         name:
+          description: Name of the tool as reported by the MCP server.
           example: John Doe
           nullable: true
           type: string
         enabled:
+          description: Indicates whether this tool is enabled (true) or disabled (false)
+            for use in AI chat sessions within the room.
           example: true
           type: boolean
       required:
@@ -28886,6 +29420,7 @@ components:
       - ToolContentDto
       - AttachmentContentDto
     MessageContentType:
+      description: The type of content block within a chat message.
       enum:
       - 0
       - 1
@@ -28905,11 +29440,14 @@ components:
           timeZoneOffset: 00:00:00
       properties:
         id:
+          description: The unique identifier of the message.
           format: int64
           type: integer
         role:
           $ref: "#/components/schemas/Role"
         contents:
+          description: "The ordered collection of content blocks that make up the\
+            \ message body (text, tool calls, or attachments)."
           items:
             $ref: "#/components/schemas/MessageContentDto"
           nullable: true
@@ -28961,14 +29499,19 @@ components:
         providerTitle: some text
       properties:
         providerId:
+          description: The unique identifier of the AI provider that offers this model.
           example: 1234
           format: int32
           type: integer
         providerTitle:
+          description: "The human-readable display name of the AI provider (e.g.,\
+            \ OpenAI, Anthropic)."
           example: some text
           nullable: true
           type: string
         modelId:
+          description: "The model identifier as recognized by the AI provider (e.g.,\
+            \ gpt-4o, claude-sonnet-4-20250514)."
           example: some text
           nullable: true
           type: string
@@ -30361,6 +30904,7 @@ components:
       type: object
     ProviderSettingsDto:
       additionalProperties: false
+      description: Available AI provider type settings.
       example:
         type: 0
         url: some text
@@ -30368,6 +30912,7 @@ components:
         type:
           $ref: "#/components/schemas/ProviderType"
         url:
+          description: Default API endpoint URL for the provider type.
           example: some text
           nullable: true
           type: string
@@ -30401,11 +30946,13 @@ components:
       - Custom
     RemoveProviderRequestDto:
       additionalProperties: false
+      description: Request parameters for deleting one or more AI providers.
       example:
         ids:
         - 1234
       properties:
         ids:
+          description: The set of AI provider identifiers to delete.
           example:
           - 1234
           items:
@@ -30419,10 +30966,12 @@ components:
       type: object
     RenameChatBody:
       additionalProperties: false
+      description: Parameters for renaming an AI chat session.
       example:
         name: John Doe
       properties:
         name:
+          description: The new display name for the chat session (maximum 255 characters).
           example: John Doe
           maxLength: 255
           nullable: true
@@ -30498,13 +31047,19 @@ components:
       - VirtualDataRoom
       - AiRoom
     ServerType:
+      description: "[0 - Custom, 1 - DocSpace, 2 - Github, 3 - Box]"
       enum:
       - 0
       - 1
       - 2
       - 3
-      format: int32
+      example: 0
       type: integer
+      x-enum-varnames:
+      - Custom
+      - DocSpace
+      - Github
+      - Box
     SetDefaultProviderRequestDto:
       additionalProperties: false
       description: Request parameters for setting the default AI provider.
@@ -30528,6 +31083,7 @@ components:
       type: object
     SetEmbeddingConfigRequestBody:
       additionalProperties: false
+      description: Parameters for configuring the embedding provider.
       example:
         type: 0
         key: some text
@@ -30535,17 +31091,23 @@ components:
         type:
           $ref: "#/components/schemas/EmbeddingProviderType"
         key:
+          description: The API key for the selected embedding provider. Pass null
+            to keep the existing key unchanged.
           example: some text
           nullable: true
           type: string
       type: object
     SetMcpToolsRequestBody:
       additionalProperties: false
+      description: Parameters for updating the disabled tools list of an MCP server
+        in a room.
       example:
         disabledTools:
         - some text
       properties:
         disabledTools:
+          description: List of tool names to disable. Tools not included in this list
+            will remain enabled. Pass an empty list to enable all tools.
           example:
           - some text
           items:
@@ -30557,36 +31119,46 @@ components:
       type: object
     SetServerStatusRequestBody:
       additionalProperties: false
+      description: Parameters for toggling the MCP server status.
       example:
         enabled: true
       properties:
         enabled:
+          description: "Set to true to enable the server (making it available for\
+            \ room assignment), or false to disable it."
           example: true
           type: boolean
       type: object
     SetUserChatSettingsRequestBody:
       additionalProperties: false
+      description: Parameters for updating user chat settings.
       example:
         webSearchEnabled: true
       properties:
         webSearchEnabled:
+          description: Indicates whether the AI assistant is allowed to perform web
+            searches when generating responses.
           example: true
           nullable: true
           type: boolean
       type: object
     SetWebSearchSettingsRequestBody:
       additionalProperties: false
+      description: Parameters for configuring web search settings.
       example:
         type: 0
         enabled: true
         key: some text
       properties:
         enabled:
+          description: Indicates whether web search is enabled for AI chat sessions.
           example: true
           type: boolean
         type:
           $ref: "#/components/schemas/EngineType"
         key:
+          description: The API key for the selected web search engine. Pass null to
+            keep the existing key unchanged.
           example: some text
           nullable: true
           type: string
@@ -30603,23 +31175,21 @@ components:
       - Descending
     StartNewChatBody:
       additionalProperties: false
+      description: Parameters for starting a new AI chat session.
       example:
-        contextFolderId: 1234
         files:
         - 1234
         - 1234
         message: some text
       properties:
         message:
+          description: The initial user message to send to the AI assistant.
           example: some text
           nullable: true
           type: string
-        contextFolderId:
-          example: 1234
-          format: int32
-          nullable: true
-          type: integer
         files:
+          description: The optional collection of file identifiers to attach as context
+            for the AI model.
           items:
             $ref: "#/components/schemas/ContinueChatBody_files_inner"
           nullable: true
@@ -30639,6 +31209,7 @@ components:
       - Member
     ToolDecisionRequestBody:
       additionalProperties: false
+      description: Parameters for the tool execution permission decision.
       example:
         decision: 0
       properties:
@@ -30654,20 +31225,27 @@ components:
       type: integer
     UpdateProviderBody:
       additionalProperties: false
+      description: Parameters for updating an AI provider's configuration.
       example:
         title: SampleFile
         url: some text
         key: some text
       properties:
         title:
+          description: "The new display title for the AI provider. If null, the title\
+            \ is not changed."
           example: SampleFile
           nullable: true
           type: string
         url:
+          description: "The new API endpoint URL for the AI provider. If null, the\
+            \ URL is not changed."
           example: some text
           nullable: true
           type: string
         key:
+          description: "The new authentication API key for the AI provider. If null,\
+            \ the key is not changed."
           example: some text
           nullable: true
           type: string
@@ -30802,6 +31380,8 @@ components:
       type: object
     UpdateServerRequestBody:
       additionalProperties: false
+      description: Parameters for updating an existing MCP server. All fields are
+        optional — only provided fields will be modified.
       example:
         headers:
         - key: some text
@@ -30813,16 +31393,22 @@ components:
         description: some text
       properties:
         name:
+          description: "New display name for the server. Only letters, numbers, underscores,\
+            \ and hyphens are allowed. Maximum 128 characters."
           example: John Doe
           maxLength: 128
           nullable: true
           type: string
         description:
+          description: New human-readable description of the server's purpose. Maximum
+            255 characters.
           example: some text
           maxLength: 255
           nullable: true
           type: string
         endpoint:
+          description: "New base URL of the MCP server endpoint. If changed, the system\
+            \ will re-verify connectivity before saving."
           example: some text
           format: uri
           nullable: true
@@ -30830,15 +31416,21 @@ components:
         headers:
           additionalProperties:
             type: string
+          description: "New HTTP headers to include with every request. If changed\
+            \ alongside the endpoint, connectivity is re-verified."
           example:
           - key: some text
             value: some text
           nullable: true
           type: object
         updateIcon:
+          description: "Set to true to update the server icon. When true, the Icon\
+            \ field value (or null to remove) will be applied."
           example: true
           type: boolean
         icon:
+          description: "New Base64-encoded icon image for the server, or null to remove\
+            \ the existing icon. Only applied when UpdateIcon is true."
           example: some text
           nullable: true
           type: string
@@ -30849,6 +31441,8 @@ components:
         webSearchEnabled: true
       properties:
         webSearchEnabled:
+          description: Indicates whether the AI assistant is allowed to perform web
+            searches when generating responses in this room.
           example: true
           type: boolean
       type: object
@@ -30890,6 +31484,8 @@ components:
         type:
           $ref: "#/components/schemas/EmbeddingProviderType"
         needReset:
+          description: Indicates whether the embedding provider API key needs to be
+            reconfigured.
           example: true
           type: boolean
       type: object
@@ -30925,11 +31521,13 @@ components:
       type: object
     VectorizationStartRequestBody:
       additionalProperties: false
+      description: Parameters for submitting files for vectorization.
       example:
         files:
         - 1234
       properties:
         files:
+          description: The set of file identifiers to submit for vectorization.
           example:
           - 1234
           items:
@@ -31070,11 +31668,13 @@ components:
         enabled: true
       properties:
         enabled:
+          description: Indicates whether web search is currently enabled.
           example: true
           type: boolean
         type:
           $ref: "#/components/schemas/EngineType"
         needReset:
+          description: Indicates whether the web search API key needs to be reconfigured.
           example: true
           type: boolean
       type: object
@@ -31231,6 +31831,7 @@ components:
         backupProgressEnum: 0
         taskId: some text
         isCompleted: true
+        status: 0
       properties:
         isCompleted:
           example: true
@@ -31257,6 +31858,8 @@ components:
           type: integer
         backupProgressEnum:
           $ref: "#/components/schemas/BackupProgressEnum"
+        status:
+          $ref: "#/components/schemas/DistributedTaskStatus"
         taskId:
           example: some text
           nullable: true
@@ -31285,6 +31888,7 @@ components:
           backupProgressEnum: 0
           taskId: some text
           isCompleted: true
+          status: 0
         count: 0
         links:
         - action: action
@@ -32704,6 +33308,9 @@ components:
         documentType: some text
         editorUrl: some text
         quotaExceededScope: 0
+        generationToolCallState:
+          parameters: "{}"
+          toolName: some text
         document:
           referenceData:
             instanceId: "1"
@@ -33042,6 +33649,8 @@ components:
           type: string
         quotaExceededScope:
           $ref: "#/components/schemas/QuotaScope"
+        generationToolCallState:
+          $ref: "#/components/schemas/EditorToolCallStateDto"
       required:
       - document
       - documentType
@@ -33056,6 +33665,9 @@ components:
           documentType: some text
           editorUrl: some text
           quotaExceededScope: 0
+          generationToolCallState:
+            parameters: "{}"
+            toolName: some text
           document:
             referenceData:
               instanceId: "1"
@@ -35329,6 +35941,40 @@ components:
       - lang
       - mode
       - user
+      type: object
+    EditorToolCallParametersDto:
+      additionalProperties: false
+      description: The editor tool call parameters.
+      type: object
+      x-derived: true
+      x-derived-types:
+      - GenerateDocxToolCallParametersDto
+      - GenerateFormToolCallParametersDto
+      - GeneratePresentationToolCallParametersDto
+    EditorToolCallStateDto:
+      additionalProperties: false
+      description: The editor tool call state. Used to run the agent flow in the editor.
+      example:
+        parameters: "{}"
+        toolName: some text
+      properties:
+        toolName:
+          description: The tool name.
+          example: some text
+          nullable: true
+          type: string
+        parameters:
+          additionalProperties: false
+          description: The editor tool call parameters.
+          type: object
+          x-derived: true
+          x-derived-types:
+          - GenerateDocxToolCallParametersDto
+          - GenerateFormToolCallParametersDto
+          - GeneratePresentationToolCallParametersDto
+      required:
+      - parameters
+      - toolName
       type: object
     EditorType:
       description: "[0 - Desktop, 1 - Mobile, 2 - Embedded]"
@@ -43752,65 +44398,68 @@ components:
         \ created, 5123 - Folder external link updated, 5124 - Folder external link\
         \ deleted, 5125 - Backup completed, 5126 - Backup failed, 5127 - Scheduled\
         \ backup started, 5128 - Scheduled backup completed, 5129 - Scheduled backup\
-        \ failed, 5150 - Form started to fill, 5151 - Form partially filled, 5152\
-        \ - Form completely filled, 5153 - Form stopped, 5154 - AI agent created,\
-        \ 5155 - AI agent renamed, 5156 - AI agent deleted, 5157 - MCP server added\
-        \ to AI agent, 5158 - MCP server deleted from AI agent, 5159 - Room change\
-        \ owner, 5201 - File saved, user quota exceeded, 5202 - File not saved due\
-        \ to user quota exceeded, 5203 - File saved, room quota exceeded, 5204 - File\
-        \ not saved due to room quota exceeded, 5501 - Ldap enabled, 5502 - Ldap disabled,\
-        \ 5503 - LDAP synchronization completed, 6000 - Language settings updated,\
-        \ 6001 - Time zone settings updated, 6002 - Dns settings updated, 6003 - Trusted\
-        \ mail domain settings updated, 6004 - Password strength settings updated,\
-        \ 6005 - Two factor authentication settings updated, 6006 - Administrator\
-        \ message settings updated, 6007 - Default start page settings updated, 6008\
-        \ - Products list updated, 6009 - Administrator added, 6010 - Administrator\
-        \ opened full access, 6011 - Administrator deleted, 6012 - Users opened product\
-        \ access, 6013 - Groups opened product access, 6014 - Product access opened,\
-        \ 6015 - Product access restricted, 6016 - Product added administrator, 6017\
-        \ - Product deleted administrator, 6018 - Greeting settings updated, 6019\
-        \ - Team template changed, 6020 - Color theme changed, 6021 - Owner sent change\
-        \ owner instructions, 6022 - Owner updated, 6023 - Owner sent portal deactivation\
-        \ instructions, 6024 - Owner sent portal delete instructions, 6025 - Portal\
-        \ deactivated, 6026 - Portal deleted, 6027 - Login history report downloaded,\
-        \ 6028 - Audit trail report downloaded, 6029 - SSO enabled, 6030 - SSO disabled,\
-        \ 6031 - Portal access settings updated, 6032 - Cookie settings updated, 6033\
-        \ - Mail service settings updated, 6034 - Custom navigation settings updated,\
-        \ 6035 - Audit settings updated, 6036 - Two factor authentication disabled,\
-        \ 6037 - Two factor authentication enabled by sms, 6038 - Two factor authentication\
-        \ enabled by tfa app, 6039 - Portal renamed, 6040 - Quota per room changed,\
-        \ 6041 - Quota per room disabled, 6042 - Quota per user changed, 6043 - Quota\
-        \ per user disabled, 6044 - Quota per portal changed, 6045 - Quota per portal\
-        \ disabled, 6046 - Form submit, 6047 - Form opened for filling, 6048 - Custom\
-        \ quota per room default, 6049 - Custom quota per room changed, 6050 - Custom\
-        \ quota per room disabled, 6051 - Custom quota per user default, 6052 - Custom\
-        \ quota per user changed, 6053 - Custom quota per user disabled, 6054 - DevTools\
-        \ access settings changed, 6055 - Webhook created, 6056 - Webhook updated,\
-        \ 6057 - Webhook deleted, 6058 - Created api key, 6059 - Update api key, 6060\
-        \ - Deleted User api key, 6061 - Customer wallet topped up, 6062 - Customer\
-        \ operation performed, 6063 - Customer operations report downloaded, 6064\
-        \ - Customer wallet top up settings updated, 6065 - Customer subscription\
-        \ updated, 6066 - Promotional banners visibility settings changed, 6067 -\
-        \ Customer wallet services settings updated, 6068 - Quota per AI agent changed,\
-        \ 6069 - Quota per AI agent disabled, 6070 - Custom quota per AI agent default,\
-        \ 6071 - Custom quota per AI agent changed, 6072 - Custom quota per AI agent\
-        \ disabled, 6073 - AI provider created, 6074 - AI provider updated, 6075 -\
-        \ AI provider deleted, 6076 - MCP server created, 6077 - MCP server updated,\
-        \ 6078 - MCP server enabled, 6079 - MCP server disabled, 6080 - MCP server\
-        \ deleted, 6081 - WebSearch settings configured, 6082 - WebSearch settings\
-        \ reset, 6083 - Vectorization settings configured, 6084 - Vectorization settings\
-        \ reset, 6085 - Webplugin uploaded, 6086 - Webplugin updated, 6087 - Webplugin\
-        \ deleted, 6088 - Whitelabel settings logo text updated, 6089 - Whitelabel\
-        \ settings logos updated, 6090 - Whitelabel company settings updated, 6091\
-        \ - Whitelabel additional settings updated, 6092 - Whitelabel mail settings\
-        \ updated, 6093 - Invitation settings updated, 6094 - IP restrictions settings\
-        \ updated, 6095 - Login settings updated, 6096 - AI default provider set,\
-        \ 7000 - Contact admin mail sent, 7001 - Room invite link used, 7002 - User\
-        \ created and added to room, 7003 - Guest created and added to room, 7004\
-        \ - Contact sales mail sent, 9901 - Create client, 9902 - Update client, 9903\
-        \ - Regenerate secret, 9904 - Delete client, 9905 - Change client activation,\
-        \ 9906 - Change client visibility, 9907 - Revoke user client, 9908 - Generate\
-        \ authorization code token, 9909 - Generate personal access token, -1 - None]"
+        \ failed, 5130 - Scheduled backup deleted, 5131 - Backup cancelled, 5132 -\
+        \ Restore started, 5133 - Restore cancelled, 5150 - Form started to fill,\
+        \ 5151 - Form partially filled, 5152 - Form completely filled, 5153 - Form\
+        \ stopped, 5154 - AI agent created, 5155 - AI agent renamed, 5156 - AI agent\
+        \ deleted, 5157 - MCP server added to AI agent, 5158 - MCP server deleted\
+        \ from AI agent, 5159 - Room change owner, 5160 - Documents default templates\
+        \ settings updated, 5201 - File saved, user quota exceeded, 5202 - File not\
+        \ saved due to user quota exceeded, 5203 - File saved, room quota exceeded,\
+        \ 5204 - File not saved due to room quota exceeded, 5501 - Ldap enabled, 5502\
+        \ - Ldap disabled, 5503 - LDAP synchronization completed, 6000 - Language\
+        \ settings updated, 6001 - Time zone settings updated, 6002 - Dns settings\
+        \ updated, 6003 - Trusted mail domain settings updated, 6004 - Password strength\
+        \ settings updated, 6005 - Two factor authentication settings updated, 6006\
+        \ - Administrator message settings updated, 6007 - Default start page settings\
+        \ updated, 6008 - Products list updated, 6009 - Administrator added, 6010\
+        \ - Administrator opened full access, 6011 - Administrator deleted, 6012 -\
+        \ Users opened product access, 6013 - Groups opened product access, 6014 -\
+        \ Product access opened, 6015 - Product access restricted, 6016 - Product\
+        \ added administrator, 6017 - Product deleted administrator, 6018 - Greeting\
+        \ settings updated, 6019 - Team template changed, 6020 - Color theme changed,\
+        \ 6021 - Owner sent change owner instructions, 6022 - Owner updated, 6023\
+        \ - Owner sent portal deactivation instructions, 6024 - Owner sent portal\
+        \ delete instructions, 6025 - Portal deactivated, 6026 - Portal deleted, 6027\
+        \ - Login history report downloaded, 6028 - Audit trail report downloaded,\
+        \ 6029 - SSO enabled, 6030 - SSO disabled, 6031 - Portal access settings updated,\
+        \ 6032 - Cookie settings updated, 6033 - Mail service settings updated, 6034\
+        \ - Custom navigation settings updated, 6035 - Audit settings updated, 6036\
+        \ - Two factor authentication disabled, 6037 - Two factor authentication enabled\
+        \ by sms, 6038 - Two factor authentication enabled by tfa app, 6039 - Portal\
+        \ renamed, 6040 - Quota per room changed, 6041 - Quota per room disabled,\
+        \ 6042 - Quota per user changed, 6043 - Quota per user disabled, 6044 - Quota\
+        \ per portal changed, 6045 - Quota per portal disabled, 6046 - Form submit,\
+        \ 6047 - Form opened for filling, 6048 - Custom quota per room default, 6049\
+        \ - Custom quota per room changed, 6050 - Custom quota per room disabled,\
+        \ 6051 - Custom quota per user default, 6052 - Custom quota per user changed,\
+        \ 6053 - Custom quota per user disabled, 6054 - DevTools access settings changed,\
+        \ 6055 - Webhook created, 6056 - Webhook updated, 6057 - Webhook deleted,\
+        \ 6058 - Created api key, 6059 - Update api key, 6060 - Deleted User api key,\
+        \ 6061 - Customer wallet topped up, 6062 - Customer operation performed, 6063\
+        \ - Customer operations report downloaded, 6064 - Customer wallet top up settings\
+        \ updated, 6065 - Customer subscription updated, 6066 - Promotional banners\
+        \ visibility settings changed, 6067 - Customer wallet services settings updated,\
+        \ 6068 - Quota per AI agent changed, 6069 - Quota per AI agent disabled, 6070\
+        \ - Custom quota per AI agent default, 6071 - Custom quota per AI agent changed,\
+        \ 6072 - Custom quota per AI agent disabled, 6073 - AI provider created, 6074\
+        \ - AI provider updated, 6075 - AI provider deleted, 6076 - MCP server created,\
+        \ 6077 - MCP server updated, 6078 - MCP server enabled, 6079 - MCP server\
+        \ disabled, 6080 - MCP server deleted, 6081 - WebSearch settings configured,\
+        \ 6082 - WebSearch settings reset, 6083 - Vectorization settings configured,\
+        \ 6084 - Vectorization settings reset, 6085 - Webplugin uploaded, 6086 - Webplugin\
+        \ updated, 6087 - Webplugin deleted, 6088 - Whitelabel settings logo text\
+        \ updated, 6089 - Whitelabel settings logos updated, 6090 - Whitelabel company\
+        \ settings updated, 6091 - Whitelabel additional settings updated, 6092 -\
+        \ Whitelabel mail settings updated, 6093 - Invitation settings updated, 6094\
+        \ - IP restrictions settings updated, 6095 - Login settings updated, 6096\
+        \ - AI default provider set, 7000 - Contact admin mail sent, 7001 - Room invite\
+        \ link used, 7002 - User created and added to room, 7003 - Guest created and\
+        \ added to room, 7004 - Contact sales mail sent, 9901 - Create client, 9902\
+        \ - Update client, 9903 - Regenerate secret, 9904 - Delete client, 9905 -\
+        \ Change client activation, 9906 - Change client visibility, 9907 - Revoke\
+        \ user client, 9908 - Generate authorization code token, 9909 - Generate personal\
+        \ access token, -1 - None]"
       enum:
       - 1000
       - 1001
@@ -44009,6 +44658,10 @@ components:
       - 5127
       - 5128
       - 5129
+      - 5130
+      - 5131
+      - 5132
+      - 5133
       - 5150
       - 5151
       - 5152
@@ -44019,6 +44672,7 @@ components:
       - 5157
       - 5158
       - 5159
+      - 5160
       - 5201
       - 5202
       - 5203
@@ -44338,6 +44992,10 @@ components:
       - ScheduledBackupStarted
       - ScheduledBackupCompleted
       - ScheduledBackupFailed
+      - ScheduledBackupDeleted
+      - BackupCancelled
+      - RestoreStarted
+      - RestoreCancelled
       - FormStartedToFill
       - FormPartiallyFilled
       - FormCompletelyFilled
@@ -44348,6 +45006,7 @@ components:
       - AddedServerToAgent
       - DeletedServerFromAgent
       - RoomChangeOwner
+      - DocumentsDefaultTemplatesSettingsUpdated
       - FileSavedButUserQuotaExceeded
       - FileNotSavedDueToUserQuota
       - FileSavedButRoomQuotaExceeded
@@ -60929,6 +61588,7 @@ components:
         lifetime: true
         trial: true
         sso: true
+        automationApi: true
         thirdParty: true
         features: some text
         countRoomAdmin: 1234
@@ -61111,6 +61771,10 @@ components:
           type: boolean
         lifetime:
           description: Specifies if the license has the lifetime settings or not.
+          example: true
+          type: boolean
+        automationApi:
+          description: Specifies if the Automation API is available or not.
           example: true
           type: boolean
         custom:
@@ -61384,6 +62048,7 @@ components:
           lifetime: true
           trial: true
           sso: true
+          automationApi: true
           thirdParty: true
           features: some text
           countRoomAdmin: 1234

@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// RemoveProviderRequestDto
+    /// Request parameters for deleting one or more AI providers.
     /// </summary>
     [DataContract(Name = "RemoveProviderRequestDto")]
     public partial class RemoveProviderRequestDto : IValidatableObject
@@ -33,7 +33,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RemoveProviderRequestDto" /> class.
         /// </summary>
-        /// <param name="ids">ids (required).</param>
+        /// <param name="ids">The set of AI provider identifiers to delete. (required).</param>
         public RemoveProviderRequestDto(List<int> ids = default)
         {
             // to ensure "ids" is required (not null)
@@ -45,8 +45,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Ids
+        /// The set of AI provider identifiers to delete.
         /// </summary>
+        /// <value>The set of AI provider identifiers to delete.</value>
         /*
         <example>[1234]</example>
         */

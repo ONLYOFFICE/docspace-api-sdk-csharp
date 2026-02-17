@@ -30,7 +30,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an ai agent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createAgentRequestDto"> (optional)</param>
+        /// <param name="createAgentRequestDto">Request to create a new AI agent room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-agent/">REST API Reference for CreateAgent Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         FolderIntegerWrapper CreateAgent(CreateAgentRequestDto? createAgentRequestDto = default);
@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an ai agent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createAgentRequestDto"> (optional)</param>
+        /// <param name="createAgentRequestDto">Request to create a new AI agent room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-agent/">REST API Reference for CreateAgent Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> CreateAgentWithHttpInfo(CreateAgentRequestDto? createAgentRequestDto = default);
@@ -245,7 +245,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an ai agent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createAgentRequestDto"> (optional)</param>
+        /// <param name="createAgentRequestDto">Request to create a new AI agent room. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-agent/">REST API Reference for CreateAgent Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -258,7 +258,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an ai agent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createAgentRequestDto"> (optional)</param>
+        /// <param name="createAgentRequestDto">Request to create a new AI agent room. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-agent/">REST API Reference for CreateAgent Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
@@ -695,7 +695,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an ai agent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createAgentRequestDto"> (optional)</param>
+        /// <param name="createAgentRequestDto">Request to create a new AI agent room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-agent/">REST API Reference for CreateAgent Operation</seealso>
         /// <returns>FolderIntegerWrapper</returns>
         public FolderIntegerWrapper CreateAgent(CreateAgentRequestDto? createAgentRequestDto = default)
@@ -711,7 +711,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an ai agent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createAgentRequestDto"> (optional)</param>
+        /// <param name="createAgentRequestDto">Request to create a new AI agent room. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-agent/">REST API Reference for CreateAgent Operation</seealso>
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         public ApiResponse<FolderIntegerWrapper> CreateAgentWithHttpInfo(CreateAgentRequestDto? createAgentRequestDto = default)
@@ -784,7 +784,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an ai agent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createAgentRequestDto"> (optional)</param>
+        /// <param name="createAgentRequestDto">Request to create a new AI agent room. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-agent/">REST API Reference for CreateAgent Operation</seealso>
         /// <returns>Task of FolderIntegerWrapper</returns>
@@ -801,7 +801,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Creates an ai agent.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createAgentRequestDto"> (optional)</param>
+        /// <param name="createAgentRequestDto">Request to create a new AI agent room. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-agent/">REST API Reference for CreateAgent Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>

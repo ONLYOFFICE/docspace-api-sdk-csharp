@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.ToolDecisionRequestBody
+Parameters for the tool execution permission decision.
 
 ## Properties
 

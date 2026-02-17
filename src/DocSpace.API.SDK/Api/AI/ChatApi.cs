@@ -24,262 +24,298 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Synchronous Operations
         /// <summary>
-        /// 
+        /// Send a message to an existing AI chat
         /// </summary>
+        /// <remarks>
+        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="continueChatBody"></param>
+        /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
+        /// <param name="continueChatBody">The message and optional file attachments.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-chat/">REST API Reference for ContinueChat Operation</seealso>
         /// <returns></returns>
         void ContinueChat(Guid chatId, ContinueChatBody continueChatBody);
 
         /// <summary>
-        /// 
+        /// Send a message to an existing AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="continueChatBody"></param>
+        /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
+        /// <param name="continueChatBody">The message and optional file attachments.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-chat/">REST API Reference for ContinueChat Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ContinueChatWithHttpInfo(Guid chatId, ContinueChatBody continueChatBody);
         /// <summary>
-        /// 
+        /// Delete an AI chat
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes an AI chat session along with all of its messages.  Only the chat owner can delete their own chat sessions. This action cannot be undone.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to delete.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-chat/">REST API Reference for DeleteChat Operation</seealso>
         /// <returns></returns>
         void DeleteChat(Guid chatId);
 
         /// <summary>
-        /// 
+        /// Delete an AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently deletes an AI chat session along with all of its messages.  Only the chat owner can delete their own chat sessions. This action cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to delete.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-chat/">REST API Reference for DeleteChat Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteChatWithHttpInfo(Guid chatId);
         /// <summary>
-        /// 
+        /// Export AI chat messages to a file
         /// </summary>
+        /// <remarks>
+        /// Exports the entire message history of an AI chat session and saves it as a document in the specified folder.  The exported file is created with the provided title. Only the chat owner can export their own chat sessions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="exportChatRequestBodyInteger"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
+        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns></returns>
         void ExportChat(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger);
 
         /// <summary>
-        /// 
+        /// Export AI chat messages to a file
         /// </summary>
         /// <remarks>
-        /// 
+        /// Exports the entire message history of an AI chat session and saves it as a document in the specified folder.  The exported file is created with the provided title. Only the chat owner can export their own chat sessions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="exportChatRequestBodyInteger"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
+        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ExportChatWithHttpInfo(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger);
         /// <summary>
-        /// 
+        /// Get an AI chat by ID
         /// </summary>
+        /// <remarks>
+        /// Retrieves the metadata of a single AI chat session, including its title, creation date, and the user who created it.  Only the chat owner can access their own chat sessions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to retrieve.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat/">REST API Reference for GetChat Operation</seealso>
         /// <returns>ChatWrapper</returns>
         ChatWrapper GetChat(Guid chatId);
 
         /// <summary>
-        /// 
+        /// Get an AI chat by ID
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the metadata of a single AI chat session, including its title, creation date, and the user who created it.  Only the chat owner can access their own chat sessions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to retrieve.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat/">REST API Reference for GetChat Operation</seealso>
         /// <returns>ApiResponse of ChatWrapper</returns>
         ApiResponse<ChatWrapper> GetChatWithHttpInfo(Guid chatId);
         /// <summary>
-        /// 
+        /// Get available AI models
         /// </summary>
+        /// <remarks>
+        /// Returns the list of AI models available for chat conversations.  Optionally filters the results to models from a specific provider when the provider query parameter is specified.  Each model entry includes the provider ID, provider display name, and the model identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider"> (optional)</param>
+        /// <param name="provider">The optional AI provider identifier to filter models by. When set to 0, models from all providers are returned. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat-models/">REST API Reference for GetChatModels Operation</seealso>
         /// <returns>ModelArrayWrapper</returns>
         ModelArrayWrapper GetChatModels(int? provider = default);
 
         /// <summary>
-        /// 
+        /// Get available AI models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the list of AI models available for chat conversations.  Optionally filters the results to models from a specific provider when the provider query parameter is specified.  Each model entry includes the provider ID, provider display name, and the model identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider"> (optional)</param>
+        /// <param name="provider">The optional AI provider identifier to filter models by. When set to 0, models from all providers are returned. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat-models/">REST API Reference for GetChatModels Operation</seealso>
         /// <returns>ApiResponse of ModelArrayWrapper</returns>
         ApiResponse<ModelArrayWrapper> GetChatModelsWithHttpInfo(int? provider = default);
         /// <summary>
-        /// 
+        /// Get AI chats in a room
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of AI chat sessions that belong to the current user within the specified room.  Supports pagination via the startIndex and count query parameters. The total number of chats is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="roomId">The identifier of the room whose AI chat sessions are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chats/">REST API Reference for GetChats Operation</seealso>
         /// <returns>ChatArrayWrapper</returns>
         ChatArrayWrapper GetChats(int roomId, int? startIndex = default, int? count = default);
 
         /// <summary>
-        /// 
+        /// Get AI chats in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of AI chat sessions that belong to the current user within the specified room.  Supports pagination via the startIndex and count query parameters. The total number of chats is included in the response metadata.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="roomId">The identifier of the room whose AI chat sessions are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chats/">REST API Reference for GetChats Operation</seealso>
         /// <returns>ApiResponse of ChatArrayWrapper</returns>
         ApiResponse<ChatArrayWrapper> GetChatsWithHttpInfo(int roomId, int? startIndex = default, int? count = default);
         /// <summary>
-        /// 
+        /// Get messages of an AI chat
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of messages from an AI chat session owned by the current user.  Each message includes its role (user or assistant), content blocks (text, tool calls, attachments), and timestamp.  Supports pagination via the startIndex and count query parameters. The total number of messages is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="chatId">The unique identifier of the AI chat session whose messages are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-messages/">REST API Reference for GetMessages Operation</seealso>
         /// <returns>MessageArrayWrapper</returns>
         MessageArrayWrapper GetMessages(Guid chatId, int? startIndex = default, int? count = default);
 
         /// <summary>
-        /// 
+        /// Get messages of an AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of messages from an AI chat session owned by the current user.  Each message includes its role (user or assistant), content blocks (text, tool calls, attachments), and timestamp.  Supports pagination via the startIndex and count query parameters. The total number of messages is included in the response metadata.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="chatId">The unique identifier of the AI chat session whose messages are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-messages/">REST API Reference for GetMessages Operation</seealso>
         /// <returns>ApiResponse of MessageArrayWrapper</returns>
         ApiResponse<MessageArrayWrapper> GetMessagesWithHttpInfo(Guid chatId, int? startIndex = default, int? count = default);
         /// <summary>
-        /// 
+        /// Get user chat settings for a room
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-chats-settings/">REST API Reference for GetUserChatsSettings Operation</seealso>
         /// <returns>UserChatSettingsWrapper</returns>
         UserChatSettingsWrapper GetUserChatsSettings(int roomId);
 
         /// <summary>
-        /// 
+        /// Get user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-chats-settings/">REST API Reference for GetUserChatsSettings Operation</seealso>
         /// <returns>ApiResponse of UserChatSettingsWrapper</returns>
         ApiResponse<UserChatSettingsWrapper> GetUserChatsSettingsWithHttpInfo(int roomId);
         /// <summary>
-        /// 
+        /// Submit a tool execution permission decision
         /// </summary>
+        /// <remarks>
+        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="callId"></param>
-        /// <param name="toolDecisionRequestBody"></param>
+        /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
+        /// <param name="toolDecisionRequestBody">The permission decision parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/provide-permission/">REST API Reference for ProvidePermission Operation</seealso>
         /// <returns></returns>
         void ProvidePermission(string callId, ToolDecisionRequestBody toolDecisionRequestBody);
 
         /// <summary>
-        /// 
+        /// Submit a tool execution permission decision
         /// </summary>
         /// <remarks>
-        /// 
+        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="callId"></param>
-        /// <param name="toolDecisionRequestBody"></param>
+        /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
+        /// <param name="toolDecisionRequestBody">The permission decision parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/provide-permission/">REST API Reference for ProvidePermission Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ProvidePermissionWithHttpInfo(string callId, ToolDecisionRequestBody toolDecisionRequestBody);
         /// <summary>
-        /// 
+        /// Rename an AI chat
         /// </summary>
+        /// <remarks>
+        /// Updates the display title of an existing AI chat session owned by the current user.  The new name must not exceed 255 characters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="renameChatBody"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to rename.</param>
+        /// <param name="renameChatBody">The new chat name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-chat/">REST API Reference for RenameChat Operation</seealso>
         /// <returns>ChatWrapper</returns>
         ChatWrapper RenameChat(Guid chatId, RenameChatBody renameChatBody);
 
         /// <summary>
-        /// 
+        /// Rename an AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the display title of an existing AI chat session owned by the current user.  The new name must not exceed 255 characters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="renameChatBody"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to rename.</param>
+        /// <param name="renameChatBody">The new chat name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-chat/">REST API Reference for RenameChat Operation</seealso>
         /// <returns>ApiResponse of ChatWrapper</returns>
         ApiResponse<ChatWrapper> RenameChatWithHttpInfo(Guid chatId, RenameChatBody renameChatBody);
         /// <summary>
-        /// 
+        /// Update user chat settings for a room
         /// </summary>
+        /// <remarks>
+        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="setUserChatSettingsRequestBody"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
+        /// <param name="setUserChatSettingsRequestBody">The chat settings to apply.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-user-chats-settings/">REST API Reference for SetUserChatsSettings Operation</seealso>
         /// <returns>UserChatSettingsWrapper</returns>
         UserChatSettingsWrapper SetUserChatsSettings(int roomId, SetUserChatSettingsRequestBody setUserChatSettingsRequestBody);
 
         /// <summary>
-        /// 
+        /// Update user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="setUserChatSettingsRequestBody"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
+        /// <param name="setUserChatSettingsRequestBody">The chat settings to apply.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-user-chats-settings/">REST API Reference for SetUserChatsSettings Operation</seealso>
         /// <returns>ApiResponse of UserChatSettingsWrapper</returns>
         ApiResponse<UserChatSettingsWrapper> SetUserChatsSettingsWithHttpInfo(int roomId, SetUserChatSettingsRequestBody setUserChatSettingsRequestBody);
         /// <summary>
-        /// 
+        /// Start a new AI chat
         /// </summary>
+        /// <remarks>
+        /// Creates a new AI chat session within the specified room and sends the initial message to the configured AI provider.  The response is delivered as a Server-Sent Events (SSE) stream containing completion chunks (text deltas, tool calls, tool results, and message lifecycle events)  with periodic keep-alive pings every 5 seconds. File references can be included as context for the AI model.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startNewChatBody"></param>
+        /// <param name="roomId">The identifier of the room in which to create the new AI chat session.</param>
+        /// <param name="startNewChatBody">The initial message and optional file attachments.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-new-chat/">REST API Reference for StartNewChat Operation</seealso>
         /// <returns></returns>
         void StartNewChat(int roomId, StartNewChatBody startNewChatBody);
 
         /// <summary>
-        /// 
+        /// Start a new AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a new AI chat session within the specified room and sends the initial message to the configured AI provider.  The response is delivered as a Server-Sent Events (SSE) stream containing completion chunks (text deltas, tool calls, tool results, and message lifecycle events)  with periodic keep-alive pings every 5 seconds. File references can be included as context for the AI model.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startNewChatBody"></param>
+        /// <param name="roomId">The identifier of the room in which to create the new AI chat session.</param>
+        /// <param name="startNewChatBody">The initial message and optional file attachments.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-new-chat/">REST API Reference for StartNewChat Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> StartNewChatWithHttpInfo(int roomId, StartNewChatBody startNewChatBody);
@@ -293,321 +329,321 @@ namespace DocSpace.API.SDK.Api.AI
     {
         #region Asynchronous Operations
         /// <summary>
-        /// 
+        /// Send a message to an existing AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="continueChatBody"></param>
+        /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
+        /// <param name="continueChatBody">The message and optional file attachments.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-chat/">REST API Reference for ContinueChat Operation</seealso>
         /// <returns>Task of void</returns>
         Task ContinueChatAsync(Guid chatId, ContinueChatBody continueChatBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Send a message to an existing AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="continueChatBody"></param>
+        /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
+        /// <param name="continueChatBody">The message and optional file attachments.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-chat/">REST API Reference for ContinueChat Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> ContinueChatWithHttpInfoAsync(Guid chatId, ContinueChatBody continueChatBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Delete an AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently deletes an AI chat session along with all of its messages.  Only the chat owner can delete their own chat sessions. This action cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-chat/">REST API Reference for DeleteChat Operation</seealso>
         /// <returns>Task of void</returns>
         Task DeleteChatAsync(Guid chatId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Delete an AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Permanently deletes an AI chat session along with all of its messages.  Only the chat owner can delete their own chat sessions. This action cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-chat/">REST API Reference for DeleteChat Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> DeleteChatWithHttpInfoAsync(Guid chatId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Export AI chat messages to a file
         /// </summary>
         /// <remarks>
-        /// 
+        /// Exports the entire message history of an AI chat session and saves it as a document in the specified folder.  The exported file is created with the provided title. Only the chat owner can export their own chat sessions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="exportChatRequestBodyInteger"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
+        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns>Task of void</returns>
         Task ExportChatAsync(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Export AI chat messages to a file
         /// </summary>
         /// <remarks>
-        /// 
+        /// Exports the entire message history of an AI chat session and saves it as a document in the specified folder.  The exported file is created with the provided title. Only the chat owner can export their own chat sessions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="exportChatRequestBodyInteger"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
+        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> ExportChatWithHttpInfoAsync(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get an AI chat by ID
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the metadata of a single AI chat session, including its title, creation date, and the user who created it.  Only the chat owner can access their own chat sessions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to retrieve.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat/">REST API Reference for GetChat Operation</seealso>
         /// <returns>Task of ChatWrapper</returns>
         Task<ChatWrapper> GetChatAsync(Guid chatId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get an AI chat by ID
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the metadata of a single AI chat session, including its title, creation date, and the user who created it.  Only the chat owner can access their own chat sessions.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to retrieve.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat/">REST API Reference for GetChat Operation</seealso>
         /// <returns>Task of ApiResponse (ChatWrapper)</returns>
         Task<ApiResponse<ChatWrapper>> GetChatWithHttpInfoAsync(Guid chatId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get available AI models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the list of AI models available for chat conversations.  Optionally filters the results to models from a specific provider when the provider query parameter is specified.  Each model entry includes the provider ID, provider display name, and the model identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider"> (optional)</param>
+        /// <param name="provider">The optional AI provider identifier to filter models by. When set to 0, models from all providers are returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat-models/">REST API Reference for GetChatModels Operation</seealso>
         /// <returns>Task of ModelArrayWrapper</returns>
         Task<ModelArrayWrapper> GetChatModelsAsync(int? provider = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get available AI models
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns the list of AI models available for chat conversations.  Optionally filters the results to models from a specific provider when the provider query parameter is specified.  Each model entry includes the provider ID, provider display name, and the model identifier.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider"> (optional)</param>
+        /// <param name="provider">The optional AI provider identifier to filter models by. When set to 0, models from all providers are returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat-models/">REST API Reference for GetChatModels Operation</seealso>
         /// <returns>Task of ApiResponse (ModelArrayWrapper)</returns>
         Task<ApiResponse<ModelArrayWrapper>> GetChatModelsWithHttpInfoAsync(int? provider = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get AI chats in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of AI chat sessions that belong to the current user within the specified room.  Supports pagination via the startIndex and count query parameters. The total number of chats is included in the response metadata.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="roomId">The identifier of the room whose AI chat sessions are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chats/">REST API Reference for GetChats Operation</seealso>
         /// <returns>Task of ChatArrayWrapper</returns>
         Task<ChatArrayWrapper> GetChatsAsync(int roomId, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get AI chats in a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of AI chat sessions that belong to the current user within the specified room.  Supports pagination via the startIndex and count query parameters. The total number of chats is included in the response metadata.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="roomId">The identifier of the room whose AI chat sessions are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chats/">REST API Reference for GetChats Operation</seealso>
         /// <returns>Task of ApiResponse (ChatArrayWrapper)</returns>
         Task<ApiResponse<ChatArrayWrapper>> GetChatsWithHttpInfoAsync(int roomId, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get messages of an AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of messages from an AI chat session owned by the current user.  Each message includes its role (user or assistant), content blocks (text, tool calls, attachments), and timestamp.  Supports pagination via the startIndex and count query parameters. The total number of messages is included in the response metadata.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="chatId">The unique identifier of the AI chat session whose messages are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-messages/">REST API Reference for GetMessages Operation</seealso>
         /// <returns>Task of MessageArrayWrapper</returns>
         Task<MessageArrayWrapper> GetMessagesAsync(Guid chatId, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get messages of an AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Returns a paginated list of messages from an AI chat session owned by the current user.  Each message includes its role (user or assistant), content blocks (text, tool calls, attachments), and timestamp.  Supports pagination via the startIndex and count query parameters. The total number of messages is included in the response metadata.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="chatId">The unique identifier of the AI chat session whose messages are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-messages/">REST API Reference for GetMessages Operation</seealso>
         /// <returns>Task of ApiResponse (MessageArrayWrapper)</returns>
         Task<ApiResponse<MessageArrayWrapper>> GetMessagesWithHttpInfoAsync(Guid chatId, int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Get user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-chats-settings/">REST API Reference for GetUserChatsSettings Operation</seealso>
         /// <returns>Task of UserChatSettingsWrapper</returns>
         Task<UserChatSettingsWrapper> GetUserChatsSettingsAsync(int roomId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Get user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-chats-settings/">REST API Reference for GetUserChatsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (UserChatSettingsWrapper)</returns>
         Task<ApiResponse<UserChatSettingsWrapper>> GetUserChatsSettingsWithHttpInfoAsync(int roomId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Submit a tool execution permission decision
         /// </summary>
         /// <remarks>
-        /// 
+        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="callId"></param>
-        /// <param name="toolDecisionRequestBody"></param>
+        /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
+        /// <param name="toolDecisionRequestBody">The permission decision parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/provide-permission/">REST API Reference for ProvidePermission Operation</seealso>
         /// <returns>Task of void</returns>
         Task ProvidePermissionAsync(string callId, ToolDecisionRequestBody toolDecisionRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Submit a tool execution permission decision
         /// </summary>
         /// <remarks>
-        /// 
+        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="callId"></param>
-        /// <param name="toolDecisionRequestBody"></param>
+        /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
+        /// <param name="toolDecisionRequestBody">The permission decision parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/provide-permission/">REST API Reference for ProvidePermission Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> ProvidePermissionWithHttpInfoAsync(string callId, ToolDecisionRequestBody toolDecisionRequestBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Rename an AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the display title of an existing AI chat session owned by the current user.  The new name must not exceed 255 characters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="renameChatBody"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to rename.</param>
+        /// <param name="renameChatBody">The new chat name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-chat/">REST API Reference for RenameChat Operation</seealso>
         /// <returns>Task of ChatWrapper</returns>
         Task<ChatWrapper> RenameChatAsync(Guid chatId, RenameChatBody renameChatBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Rename an AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Updates the display title of an existing AI chat session owned by the current user.  The new name must not exceed 255 characters.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="renameChatBody"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to rename.</param>
+        /// <param name="renameChatBody">The new chat name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-chat/">REST API Reference for RenameChat Operation</seealso>
         /// <returns>Task of ApiResponse (ChatWrapper)</returns>
         Task<ApiResponse<ChatWrapper>> RenameChatWithHttpInfoAsync(Guid chatId, RenameChatBody renameChatBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Update user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="setUserChatSettingsRequestBody"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
+        /// <param name="setUserChatSettingsRequestBody">The chat settings to apply.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-user-chats-settings/">REST API Reference for SetUserChatsSettings Operation</seealso>
         /// <returns>Task of UserChatSettingsWrapper</returns>
         Task<UserChatSettingsWrapper> SetUserChatsSettingsAsync(int roomId, SetUserChatSettingsRequestBody setUserChatSettingsRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Update user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// 
+        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="setUserChatSettingsRequestBody"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
+        /// <param name="setUserChatSettingsRequestBody">The chat settings to apply.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-user-chats-settings/">REST API Reference for SetUserChatsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (UserChatSettingsWrapper)</returns>
         Task<ApiResponse<UserChatSettingsWrapper>> SetUserChatsSettingsWithHttpInfoAsync(int roomId, SetUserChatSettingsRequestBody setUserChatSettingsRequestBody, CancellationToken cancellationToken = default);
         /// <summary>
-        /// 
+        /// Start a new AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a new AI chat session within the specified room and sends the initial message to the configured AI provider.  The response is delivered as a Server-Sent Events (SSE) stream containing completion chunks (text deltas, tool calls, tool results, and message lifecycle events)  with periodic keep-alive pings every 5 seconds. File references can be included as context for the AI model.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startNewChatBody"></param>
+        /// <param name="roomId">The identifier of the room in which to create the new AI chat session.</param>
+        /// <param name="startNewChatBody">The initial message and optional file attachments.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-new-chat/">REST API Reference for StartNewChat Operation</seealso>
         /// <returns>Task of void</returns>
         Task StartNewChatAsync(int roomId, StartNewChatBody startNewChatBody, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// 
+        /// Start a new AI chat
         /// </summary>
         /// <remarks>
-        /// 
+        /// Creates a new AI chat session within the specified room and sends the initial message to the configured AI provider.  The response is delivered as a Server-Sent Events (SSE) stream containing completion chunks (text deltas, tool calls, tool results, and message lifecycle events)  with periodic keep-alive pings every 5 seconds. File references can be included as context for the AI model.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startNewChatBody"></param>
+        /// <param name="roomId">The identifier of the room in which to create the new AI chat session.</param>
+        /// <param name="startNewChatBody">The initial message and optional file attachments.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-new-chat/">REST API Reference for StartNewChat Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -828,11 +864,14 @@ namespace DocSpace.API.SDK.Api.AI
 
         
         /// <summary>
-        /// 
+        /// Send a message to an existing AI chat
         /// </summary>
+        /// <remarks>
+        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="continueChatBody"></param>
+        /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
+        /// <param name="continueChatBody">The message and optional file attachments.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-chat/">REST API Reference for ContinueChat Operation</seealso>
         /// <returns></returns>
         public void ContinueChat(Guid chatId, ContinueChatBody continueChatBody)
@@ -841,11 +880,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Send a message to an existing AI chat
         /// </summary>
+        /// <remarks>
+        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="continueChatBody"></param>
+        /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
+        /// <param name="continueChatBody">The message and optional file attachments.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-chat/">REST API Reference for ContinueChat Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> ContinueChatWithHttpInfo(Guid chatId, ContinueChatBody continueChatBody)
@@ -917,11 +959,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Send a message to an existing AI chat
         /// </summary>
+        /// <remarks>
+        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="continueChatBody"></param>
+        /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
+        /// <param name="continueChatBody">The message and optional file attachments.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-chat/">REST API Reference for ContinueChat Operation</seealso>
         /// <returns>Task of void</returns>
@@ -931,11 +976,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Send a message to an existing AI chat
         /// </summary>
+        /// <remarks>
+        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="continueChatBody"></param>
+        /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
+        /// <param name="continueChatBody">The message and optional file attachments.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/continue-chat/">REST API Reference for ContinueChat Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1010,10 +1058,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Delete an AI chat
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes an AI chat session along with all of its messages.  Only the chat owner can delete their own chat sessions. This action cannot be undone.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to delete.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-chat/">REST API Reference for DeleteChat Operation</seealso>
         /// <returns></returns>
         public void DeleteChat(Guid chatId)
@@ -1022,10 +1073,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Delete an AI chat
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes an AI chat session along with all of its messages.  Only the chat owner can delete their own chat sessions. This action cannot be undone.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to delete.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-chat/">REST API Reference for DeleteChat Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> DeleteChatWithHttpInfo(Guid chatId)
@@ -1092,10 +1146,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Delete an AI chat
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes an AI chat session along with all of its messages.  Only the chat owner can delete their own chat sessions. This action cannot be undone.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-chat/">REST API Reference for DeleteChat Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1105,10 +1162,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Delete an AI chat
         /// </summary>
+        /// <remarks>
+        /// Permanently deletes an AI chat session along with all of its messages.  Only the chat owner can delete their own chat sessions. This action cannot be undone.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to delete.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-chat/">REST API Reference for DeleteChat Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1178,11 +1238,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Export AI chat messages to a file
         /// </summary>
+        /// <remarks>
+        /// Exports the entire message history of an AI chat session and saves it as a document in the specified folder.  The exported file is created with the provided title. Only the chat owner can export their own chat sessions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="exportChatRequestBodyInteger"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
+        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns></returns>
         public void ExportChat(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger)
@@ -1191,11 +1254,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Export AI chat messages to a file
         /// </summary>
+        /// <remarks>
+        /// Exports the entire message history of an AI chat session and saves it as a document in the specified folder.  The exported file is created with the provided title. Only the chat owner can export their own chat sessions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="exportChatRequestBodyInteger"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
+        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> ExportChatWithHttpInfo(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger)
@@ -1267,11 +1333,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Export AI chat messages to a file
         /// </summary>
+        /// <remarks>
+        /// Exports the entire message history of an AI chat session and saves it as a document in the specified folder.  The exported file is created with the provided title. Only the chat owner can export their own chat sessions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="exportChatRequestBodyInteger"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
+        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1281,11 +1350,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Export AI chat messages to a file
         /// </summary>
+        /// <remarks>
+        /// Exports the entire message history of an AI chat session and saves it as a document in the specified folder.  The exported file is created with the provided title. Only the chat owner can export their own chat sessions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="exportChatRequestBodyInteger"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
+        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -1360,10 +1432,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get an AI chat by ID
         /// </summary>
+        /// <remarks>
+        /// Retrieves the metadata of a single AI chat session, including its title, creation date, and the user who created it.  Only the chat owner can access their own chat sessions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to retrieve.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat/">REST API Reference for GetChat Operation</seealso>
         /// <returns>ChatWrapper</returns>
         public ChatWrapper GetChat(Guid chatId)
@@ -1373,10 +1448,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get an AI chat by ID
         /// </summary>
+        /// <remarks>
+        /// Retrieves the metadata of a single AI chat session, including its title, creation date, and the user who created it.  Only the chat owner can access their own chat sessions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to retrieve.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat/">REST API Reference for GetChat Operation</seealso>
         /// <returns>ApiResponse of ChatWrapper</returns>
         public ApiResponse<ChatWrapper> GetChatWithHttpInfo(Guid chatId)
@@ -1443,10 +1521,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get an AI chat by ID
         /// </summary>
+        /// <remarks>
+        /// Retrieves the metadata of a single AI chat session, including its title, creation date, and the user who created it.  Only the chat owner can access their own chat sessions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to retrieve.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat/">REST API Reference for GetChat Operation</seealso>
         /// <returns>Task of ChatWrapper</returns>
@@ -1457,10 +1538,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get an AI chat by ID
         /// </summary>
+        /// <remarks>
+        /// Retrieves the metadata of a single AI chat session, including its title, creation date, and the user who created it.  Only the chat owner can access their own chat sessions.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to retrieve.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat/">REST API Reference for GetChat Operation</seealso>
         /// <returns>Task of ApiResponse (ChatWrapper)</returns>
@@ -1530,10 +1614,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get available AI models
         /// </summary>
+        /// <remarks>
+        /// Returns the list of AI models available for chat conversations.  Optionally filters the results to models from a specific provider when the provider query parameter is specified.  Each model entry includes the provider ID, provider display name, and the model identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider"> (optional)</param>
+        /// <param name="provider">The optional AI provider identifier to filter models by. When set to 0, models from all providers are returned. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat-models/">REST API Reference for GetChatModels Operation</seealso>
         /// <returns>ModelArrayWrapper</returns>
         public ModelArrayWrapper GetChatModels(int? provider = default)
@@ -1543,10 +1630,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get available AI models
         /// </summary>
+        /// <remarks>
+        /// Returns the list of AI models available for chat conversations.  Optionally filters the results to models from a specific provider when the provider query parameter is specified.  Each model entry includes the provider ID, provider display name, and the model identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider"> (optional)</param>
+        /// <param name="provider">The optional AI provider identifier to filter models by. When set to 0, models from all providers are returned. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat-models/">REST API Reference for GetChatModels Operation</seealso>
         /// <returns>ApiResponse of ModelArrayWrapper</returns>
         public ApiResponse<ModelArrayWrapper> GetChatModelsWithHttpInfo(int? provider = default)
@@ -1616,10 +1706,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get available AI models
         /// </summary>
+        /// <remarks>
+        /// Returns the list of AI models available for chat conversations.  Optionally filters the results to models from a specific provider when the provider query parameter is specified.  Each model entry includes the provider ID, provider display name, and the model identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider"> (optional)</param>
+        /// <param name="provider">The optional AI provider identifier to filter models by. When set to 0, models from all providers are returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat-models/">REST API Reference for GetChatModels Operation</seealso>
         /// <returns>Task of ModelArrayWrapper</returns>
@@ -1630,10 +1723,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get available AI models
         /// </summary>
+        /// <remarks>
+        /// Returns the list of AI models available for chat conversations.  Optionally filters the results to models from a specific provider when the provider query parameter is specified.  Each model entry includes the provider ID, provider display name, and the model identifier.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="provider"> (optional)</param>
+        /// <param name="provider">The optional AI provider identifier to filter models by. When set to 0, models from all providers are returned. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chat-models/">REST API Reference for GetChatModels Operation</seealso>
         /// <returns>Task of ApiResponse (ModelArrayWrapper)</returns>
@@ -1706,12 +1802,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get AI chats in a room
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of AI chat sessions that belong to the current user within the specified room.  Supports pagination via the startIndex and count query parameters. The total number of chats is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="roomId">The identifier of the room whose AI chat sessions are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chats/">REST API Reference for GetChats Operation</seealso>
         /// <returns>ChatArrayWrapper</returns>
         public ChatArrayWrapper GetChats(int roomId, int? startIndex = default, int? count = default)
@@ -1721,12 +1820,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get AI chats in a room
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of AI chat sessions that belong to the current user within the specified room.  Supports pagination via the startIndex and count query parameters. The total number of chats is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="roomId">The identifier of the room whose AI chat sessions are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chats/">REST API Reference for GetChats Operation</seealso>
         /// <returns>ApiResponse of ChatArrayWrapper</returns>
         public ApiResponse<ChatArrayWrapper> GetChatsWithHttpInfo(int roomId, int? startIndex = default, int? count = default)
@@ -1801,12 +1903,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get AI chats in a room
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of AI chat sessions that belong to the current user within the specified room.  Supports pagination via the startIndex and count query parameters. The total number of chats is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="roomId">The identifier of the room whose AI chat sessions are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chats/">REST API Reference for GetChats Operation</seealso>
         /// <returns>Task of ChatArrayWrapper</returns>
@@ -1817,12 +1922,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get AI chats in a room
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of AI chat sessions that belong to the current user within the specified room.  Supports pagination via the startIndex and count query parameters. The total number of chats is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="roomId">The identifier of the room whose AI chat sessions are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-chats/">REST API Reference for GetChats Operation</seealso>
         /// <returns>Task of ApiResponse (ChatArrayWrapper)</returns>
@@ -1900,12 +2008,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get messages of an AI chat
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of messages from an AI chat session owned by the current user.  Each message includes its role (user or assistant), content blocks (text, tool calls, attachments), and timestamp.  Supports pagination via the startIndex and count query parameters. The total number of messages is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="chatId">The unique identifier of the AI chat session whose messages are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-messages/">REST API Reference for GetMessages Operation</seealso>
         /// <returns>MessageArrayWrapper</returns>
         public MessageArrayWrapper GetMessages(Guid chatId, int? startIndex = default, int? count = default)
@@ -1915,12 +2026,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get messages of an AI chat
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of messages from an AI chat session owned by the current user.  Each message includes its role (user or assistant), content blocks (text, tool calls, attachments), and timestamp.  Supports pagination via the startIndex and count query parameters. The total number of messages is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="chatId">The unique identifier of the AI chat session whose messages are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-messages/">REST API Reference for GetMessages Operation</seealso>
         /// <returns>ApiResponse of MessageArrayWrapper</returns>
         public ApiResponse<MessageArrayWrapper> GetMessagesWithHttpInfo(Guid chatId, int? startIndex = default, int? count = default)
@@ -1995,12 +2109,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get messages of an AI chat
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of messages from an AI chat session owned by the current user.  Each message includes its role (user or assistant), content blocks (text, tool calls, attachments), and timestamp.  Supports pagination via the startIndex and count query parameters. The total number of messages is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="chatId">The unique identifier of the AI chat session whose messages are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-messages/">REST API Reference for GetMessages Operation</seealso>
         /// <returns>Task of MessageArrayWrapper</returns>
@@ -2011,12 +2128,15 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get messages of an AI chat
         /// </summary>
+        /// <remarks>
+        /// Returns a paginated list of messages from an AI chat session owned by the current user.  Each message includes its role (user or assistant), content blocks (text, tool calls, attachments), and timestamp.  Supports pagination via the startIndex and count query parameters. The total number of messages is included in the response metadata.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="startIndex"> (optional)</param>
-        /// <param name="count"> (optional)</param>
+        /// <param name="chatId">The unique identifier of the AI chat session whose messages are to be listed.</param>
+        /// <param name="startIndex">The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional)</param>
+        /// <param name="count">The maximum number of items to return per page. Defaults to 100. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-messages/">REST API Reference for GetMessages Operation</seealso>
         /// <returns>Task of ApiResponse (MessageArrayWrapper)</returns>
@@ -2094,10 +2214,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get user chat settings for a room
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-chats-settings/">REST API Reference for GetUserChatsSettings Operation</seealso>
         /// <returns>UserChatSettingsWrapper</returns>
         public UserChatSettingsWrapper GetUserChatsSettings(int roomId)
@@ -2107,10 +2230,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get user chat settings for a room
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-chats-settings/">REST API Reference for GetUserChatsSettings Operation</seealso>
         /// <returns>ApiResponse of UserChatSettingsWrapper</returns>
         public ApiResponse<UserChatSettingsWrapper> GetUserChatsSettingsWithHttpInfo(int roomId)
@@ -2177,10 +2303,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get user chat settings for a room
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-chats-settings/">REST API Reference for GetUserChatsSettings Operation</seealso>
         /// <returns>Task of UserChatSettingsWrapper</returns>
@@ -2191,10 +2320,13 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Get user chat settings for a room
         /// </summary>
+        /// <remarks>
+        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-user-chats-settings/">REST API Reference for GetUserChatsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (UserChatSettingsWrapper)</returns>
@@ -2264,11 +2396,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Submit a tool execution permission decision
         /// </summary>
+        /// <remarks>
+        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="callId"></param>
-        /// <param name="toolDecisionRequestBody"></param>
+        /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
+        /// <param name="toolDecisionRequestBody">The permission decision parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/provide-permission/">REST API Reference for ProvidePermission Operation</seealso>
         /// <returns></returns>
         public void ProvidePermission(string callId, ToolDecisionRequestBody toolDecisionRequestBody)
@@ -2277,11 +2412,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Submit a tool execution permission decision
         /// </summary>
+        /// <remarks>
+        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="callId"></param>
-        /// <param name="toolDecisionRequestBody"></param>
+        /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
+        /// <param name="toolDecisionRequestBody">The permission decision parameters.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/provide-permission/">REST API Reference for ProvidePermission Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> ProvidePermissionWithHttpInfo(string callId, ToolDecisionRequestBody toolDecisionRequestBody)
@@ -2357,11 +2495,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Submit a tool execution permission decision
         /// </summary>
+        /// <remarks>
+        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="callId"></param>
-        /// <param name="toolDecisionRequestBody"></param>
+        /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
+        /// <param name="toolDecisionRequestBody">The permission decision parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/provide-permission/">REST API Reference for ProvidePermission Operation</seealso>
         /// <returns>Task of void</returns>
@@ -2371,11 +2512,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Submit a tool execution permission decision
         /// </summary>
+        /// <remarks>
+        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="callId"></param>
-        /// <param name="toolDecisionRequestBody"></param>
+        /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
+        /// <param name="toolDecisionRequestBody">The permission decision parameters.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/provide-permission/">REST API Reference for ProvidePermission Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -2454,11 +2598,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Rename an AI chat
         /// </summary>
+        /// <remarks>
+        /// Updates the display title of an existing AI chat session owned by the current user.  The new name must not exceed 255 characters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="renameChatBody"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to rename.</param>
+        /// <param name="renameChatBody">The new chat name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-chat/">REST API Reference for RenameChat Operation</seealso>
         /// <returns>ChatWrapper</returns>
         public ChatWrapper RenameChat(Guid chatId, RenameChatBody renameChatBody)
@@ -2468,11 +2615,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Rename an AI chat
         /// </summary>
+        /// <remarks>
+        /// Updates the display title of an existing AI chat session owned by the current user.  The new name must not exceed 255 characters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="renameChatBody"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to rename.</param>
+        /// <param name="renameChatBody">The new chat name.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-chat/">REST API Reference for RenameChat Operation</seealso>
         /// <returns>ApiResponse of ChatWrapper</returns>
         public ApiResponse<ChatWrapper> RenameChatWithHttpInfo(Guid chatId, RenameChatBody renameChatBody)
@@ -2544,11 +2694,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Rename an AI chat
         /// </summary>
+        /// <remarks>
+        /// Updates the display title of an existing AI chat session owned by the current user.  The new name must not exceed 255 characters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="renameChatBody"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to rename.</param>
+        /// <param name="renameChatBody">The new chat name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-chat/">REST API Reference for RenameChat Operation</seealso>
         /// <returns>Task of ChatWrapper</returns>
@@ -2559,11 +2712,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Rename an AI chat
         /// </summary>
+        /// <remarks>
+        /// Updates the display title of an existing AI chat session owned by the current user.  The new name must not exceed 255 characters.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="chatId"></param>
-        /// <param name="renameChatBody"></param>
+        /// <param name="chatId">The unique identifier of the AI chat session to rename.</param>
+        /// <param name="renameChatBody">The new chat name.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-chat/">REST API Reference for RenameChat Operation</seealso>
         /// <returns>Task of ApiResponse (ChatWrapper)</returns>
@@ -2638,11 +2794,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update user chat settings for a room
         /// </summary>
+        /// <remarks>
+        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="setUserChatSettingsRequestBody"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
+        /// <param name="setUserChatSettingsRequestBody">The chat settings to apply.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-user-chats-settings/">REST API Reference for SetUserChatsSettings Operation</seealso>
         /// <returns>UserChatSettingsWrapper</returns>
         public UserChatSettingsWrapper SetUserChatsSettings(int roomId, SetUserChatSettingsRequestBody setUserChatSettingsRequestBody)
@@ -2652,11 +2811,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update user chat settings for a room
         /// </summary>
+        /// <remarks>
+        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="setUserChatSettingsRequestBody"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
+        /// <param name="setUserChatSettingsRequestBody">The chat settings to apply.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-user-chats-settings/">REST API Reference for SetUserChatsSettings Operation</seealso>
         /// <returns>ApiResponse of UserChatSettingsWrapper</returns>
         public ApiResponse<UserChatSettingsWrapper> SetUserChatsSettingsWithHttpInfo(int roomId, SetUserChatSettingsRequestBody setUserChatSettingsRequestBody)
@@ -2728,11 +2890,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update user chat settings for a room
         /// </summary>
+        /// <remarks>
+        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="setUserChatSettingsRequestBody"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
+        /// <param name="setUserChatSettingsRequestBody">The chat settings to apply.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-user-chats-settings/">REST API Reference for SetUserChatsSettings Operation</seealso>
         /// <returns>Task of UserChatSettingsWrapper</returns>
@@ -2743,11 +2908,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Update user chat settings for a room
         /// </summary>
+        /// <remarks>
+        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="setUserChatSettingsRequestBody"></param>
+        /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
+        /// <param name="setUserChatSettingsRequestBody">The chat settings to apply.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-user-chats-settings/">REST API Reference for SetUserChatsSettings Operation</seealso>
         /// <returns>Task of ApiResponse (UserChatSettingsWrapper)</returns>
@@ -2822,11 +2990,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Start a new AI chat
         /// </summary>
+        /// <remarks>
+        /// Creates a new AI chat session within the specified room and sends the initial message to the configured AI provider.  The response is delivered as a Server-Sent Events (SSE) stream containing completion chunks (text deltas, tool calls, tool results, and message lifecycle events)  with periodic keep-alive pings every 5 seconds. File references can be included as context for the AI model.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startNewChatBody"></param>
+        /// <param name="roomId">The identifier of the room in which to create the new AI chat session.</param>
+        /// <param name="startNewChatBody">The initial message and optional file attachments.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-new-chat/">REST API Reference for StartNewChat Operation</seealso>
         /// <returns></returns>
         public void StartNewChat(int roomId, StartNewChatBody startNewChatBody)
@@ -2835,11 +3006,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Start a new AI chat
         /// </summary>
+        /// <remarks>
+        /// Creates a new AI chat session within the specified room and sends the initial message to the configured AI provider.  The response is delivered as a Server-Sent Events (SSE) stream containing completion chunks (text deltas, tool calls, tool results, and message lifecycle events)  with periodic keep-alive pings every 5 seconds. File references can be included as context for the AI model.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startNewChatBody"></param>
+        /// <param name="roomId">The identifier of the room in which to create the new AI chat session.</param>
+        /// <param name="startNewChatBody">The initial message and optional file attachments.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-new-chat/">REST API Reference for StartNewChat Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> StartNewChatWithHttpInfo(int roomId, StartNewChatBody startNewChatBody)
@@ -2911,11 +3085,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Start a new AI chat
         /// </summary>
+        /// <remarks>
+        /// Creates a new AI chat session within the specified room and sends the initial message to the configured AI provider.  The response is delivered as a Server-Sent Events (SSE) stream containing completion chunks (text deltas, tool calls, tool results, and message lifecycle events)  with periodic keep-alive pings every 5 seconds. File references can be included as context for the AI model.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startNewChatBody"></param>
+        /// <param name="roomId">The identifier of the room in which to create the new AI chat session.</param>
+        /// <param name="startNewChatBody">The initial message and optional file attachments.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-new-chat/">REST API Reference for StartNewChat Operation</seealso>
         /// <returns>Task of void</returns>
@@ -2925,11 +3102,14 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
-        /// 
+        /// Start a new AI chat
         /// </summary>
+        /// <remarks>
+        /// Creates a new AI chat session within the specified room and sends the initial message to the configured AI provider.  The response is delivered as a Server-Sent Events (SSE) stream containing completion chunks (text deltas, tool calls, tool results, and message lifecycle events)  with periodic keep-alive pings every 5 seconds. File references can be included as context for the AI model.
+        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roomId"></param>
-        /// <param name="startNewChatBody"></param>
+        /// <param name="roomId">The identifier of the room in which to create the new AI chat session.</param>
+        /// <param name="startNewChatBody">The initial message and optional file attachments.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-new-chat/">REST API Reference for StartNewChat Operation</seealso>
         /// <returns>Task of ApiResponse</returns>

@@ -19,29 +19,30 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Defines ServerType
+    /// [0 - Custom, 1 - DocSpace, 2 - Github, 3 - Box]
     /// </summary>
+    /// <value>[0 - Custom, 1 - DocSpace, 2 - Github, 3 - Box]</value>
     public enum ServerType
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum Custom for value: 0
         /// </summary>
-        NUMBER_0 = 0,
+        Custom = 0,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum DocSpace for value: 1
         /// </summary>
-        NUMBER_1 = 1,
+        DocSpace = 1,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum Github for value: 2
         /// </summary>
-        NUMBER_2 = 2,
+        Github = 2,
 
         /// <summary>
-        /// Enum NUMBER_3 for value: 3
+        /// Enum Box for value: 3
         /// </summary>
-        NUMBER_3 = 3
+        Box = 3
     }
 
 }

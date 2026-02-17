@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ContinueChatBody
+    /// Parameters for continuing an AI chat session.
     /// </summary>
     [DataContract(Name = "ContinueChatBody")]
     public partial class ContinueChatBody : IValidatableObject
@@ -33,10 +33,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ContinueChatBody" /> class.
         /// </summary>
-        /// <param name="message">message (required).</param>
-        /// <param name="contextFolderId">contextFolderId.</param>
-        /// <param name="files">files.</param>
-        public ContinueChatBody(string message = default, int contextFolderId = default, List<ContinueChatBodyFilesInner> files = default)
+        /// <param name="message">The user message to append to the conversation. (required).</param>
+        /// <param name="files">The optional collection of file identifiers to attach as context for the AI model..</param>
+        public ContinueChatBody(string message = default, List<ContinueChatBodyFilesInner> files = default)
         {
             // to ensure "message" is required (not null)
             if (message == null)
@@ -44,13 +43,13 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("message is a required property for ContinueChatBody and cannot be null");
             }
             this.Message = message;
-            this.ContextFolderId = contextFolderId;
             this.Files = files;
         }
 
         /// <summary>
-        /// Gets or Sets Message
+        /// The user message to append to the conversation.
         /// </summary>
+        /// <value>The user message to append to the conversation.</value>
         /*
         <example>some text</example>
         */
@@ -58,17 +57,9 @@ namespace DocSpace.API.SDK.Model
         public string Message { get; set; }
 
         /// <summary>
-        /// Gets or Sets ContextFolderId
+        /// The optional collection of file identifiers to attach as context for the AI model.
         /// </summary>
-        /*
-        <example>1234</example>
-        */
-        [DataMember(Name = "contextFolderId", EmitDefaultValue = false)]
-        public int ContextFolderId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Files
-        /// </summary>
+        /// <value>The optional collection of file identifiers to attach as context for the AI model.</value>
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<ContinueChatBodyFilesInner> Files { get; set; }
 
@@ -81,7 +72,6 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class ContinueChatBody {\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  ContextFolderId: ").Append(ContextFolderId).Append("\n");
             sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// CreateProviderRequestDto
+    /// Request parameters for creating a new AI provider.
     /// </summary>
     [DataContract(Name = "CreateProviderRequestDto")]
     public partial class CreateProviderRequestDto : IValidatableObject
@@ -40,9 +40,9 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="CreateProviderRequestDto" /> class.
         /// </summary>
         /// <param name="type">type.</param>
-        /// <param name="title">title (required).</param>
-        /// <param name="url">url.</param>
-        /// <param name="key">key (required).</param>
+        /// <param name="title">The display title for the AI provider. (required).</param>
+        /// <param name="url">The API endpoint URL for the AI provider. Required for OpenAiCompatible type; optional for other types that have default URLs..</param>
+        /// <param name="key">The authentication API key for the AI provider. (required).</param>
         public CreateProviderRequestDto(ProviderType? type = default, string title = default, string url = default, string key = default)
         {
             // to ensure "title" is required (not null)
@@ -62,8 +62,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// The display title for the AI provider.
         /// </summary>
+        /// <value>The display title for the AI provider.</value>
         /*
         <example>SampleFile</example>
         */
@@ -71,8 +72,9 @@ namespace DocSpace.API.SDK.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets Url
+        /// The API endpoint URL for the AI provider. Required for OpenAiCompatible type; optional for other types that have default URLs.
         /// </summary>
+        /// <value>The API endpoint URL for the AI provider. Required for OpenAiCompatible type; optional for other types that have default URLs.</value>
         /*
         <example>some text</example>
         */
@@ -80,8 +82,9 @@ namespace DocSpace.API.SDK.Model
         public string Url { get; set; }
 
         /// <summary>
-        /// Gets or Sets Key
+        /// The authentication API key for the AI provider.
         /// </summary>
+        /// <value>The authentication API key for the AI provider.</value>
         /*
         <example>some text</example>
         */

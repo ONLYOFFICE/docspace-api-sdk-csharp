@@ -4,13 +4,13 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ExportMessage**](#exportmessage) | **POST** /api/2.0/ai/messages/{messageId}/export |  |
+| [**ExportMessage**](#exportmessage) | **POST** /api/2.0/ai/messages/{messageId}/export | Export a single AI message to a document |
 
 <a id="exportmessage"></a>
 # **ExportMessage**
 > void ExportMessage (int messageId, ExportMessageRequestBodyInteger exportMessageRequestBodyInteger)
 
-
+Exports a specific AI chat message as a document into the specified folder. The system verifies that the message exists  and belongs to a chat accessible by the current user, then publishes an asynchronous export task to the event bus.  The exported document will be created in the target folder with the given title once the background task completes.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/export-message/).
 
@@ -18,8 +18,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **messageId** | **int** |  |  |
-| **exportMessageRequestBodyInteger** | [**ExportMessageRequestBodyInteger**](ExportMessageRequestBodyInteger.md) |  |  |
+| **messageId** | **int** | The unique identifier of the AI chat message to export. |  |
+| **exportMessageRequestBodyInteger** | [**ExportMessageRequestBodyInteger**](ExportMessageRequestBodyInteger.md) | The export parameters including destination folder and file title. |  |
 
 ### Return type
 
@@ -66,11 +66,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MessagesApi(httpClient, config, httpClientHandler);
-            var messageId = 1234;  // int | 
-            var exportMessageRequestBodyInteger = new ExportMessageRequestBodyInteger(); // ExportMessageRequestBodyInteger | 
+            var messageId = 1234;  // int | The unique identifier of the AI chat message to export.
+            var exportMessageRequestBodyInteger = new ExportMessageRequestBodyInteger(); // ExportMessageRequestBodyInteger | The export parameters including destination folder and file title.
 
             try
             {
+                // Export a single AI message to a document
                 apiInstance.ExportMessage(messageId, exportMessageRequestBodyInteger);
             }
             catch (ApiException  e)
@@ -90,6 +91,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
+    // Export a single AI message to a document
     apiInstance.ExportMessageWithHttpInfo(messageId, exportMessageRequestBodyInteger);
 }
 catch (ApiException e)
@@ -109,7 +111,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | OK |  -  |
+| **200** | The message export task has been successfully queued for background processing |  -  |
+| **400** | The message identifier is invalid (must be greater than 0) |  -  |
+| **404** | The specified message was not found or the current user does not have access to it |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

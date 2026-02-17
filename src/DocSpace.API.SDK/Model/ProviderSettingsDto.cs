@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ProviderSettingsDto
+    /// Available AI provider type settings.
     /// </summary>
     [DataContract(Name = "ProviderSettingsDto")]
     public partial class ProviderSettingsDto : IValidatableObject
@@ -40,7 +40,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ProviderSettingsDto" /> class.
         /// </summary>
         /// <param name="type">type.</param>
-        /// <param name="url">url (required).</param>
+        /// <param name="url">Default API endpoint URL for the provider type. (required).</param>
         public ProviderSettingsDto(ProviderType? type = default, string url = default)
         {
             // to ensure "url" is required (not null)
@@ -53,8 +53,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Url
+        /// Default API endpoint URL for the provider type.
         /// </summary>
+        /// <value>Default API endpoint URL for the provider type.</value>
         /*
         <example>some text</example>
         */

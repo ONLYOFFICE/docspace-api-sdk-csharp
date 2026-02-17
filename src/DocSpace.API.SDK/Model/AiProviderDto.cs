@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiProviderDto
+    /// AI provider details.
     /// </summary>
     [DataContract(Name = "AiProviderDto")]
     public partial class AiProviderDto : IValidatableObject
@@ -39,14 +39,14 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiProviderDto" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="title">title (required).</param>
+        /// <param name="id">AI provider identifier..</param>
+        /// <param name="title">AI provider display title. (required).</param>
         /// <param name="type">type.</param>
-        /// <param name="url">url.</param>
+        /// <param name="url">API endpoint URL for the AI provider..</param>
         /// <param name="createdOn">createdOn (required).</param>
         /// <param name="modifiedOn">modifiedOn (required).</param>
-        /// <param name="needReset">needReset.</param>
-        /// <param name="isDefault">isDefault.</param>
+        /// <param name="needReset">Indicates whether the provider&#39;s API key needs to be reset..</param>
+        /// <param name="isDefault">Indicates whether this provider is the default provider for the tenant..</param>
         public AiProviderDto(int id = default, string title = default, ProviderType? type = default, string url = default, ApiDateTime createdOn = default, ApiDateTime modifiedOn = default, bool needReset = default, bool isDefault = default)
         {
             // to ensure "title" is required (not null)
@@ -75,8 +75,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// AI provider identifier.
         /// </summary>
+        /// <value>AI provider identifier.</value>
         /*
         <example>1</example>
         */
@@ -84,8 +85,9 @@ namespace DocSpace.API.SDK.Model
         public int Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// AI provider display title.
         /// </summary>
+        /// <value>AI provider display title.</value>
         /*
         <example>SampleFile</example>
         */
@@ -93,8 +95,9 @@ namespace DocSpace.API.SDK.Model
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets Url
+        /// API endpoint URL for the AI provider.
         /// </summary>
+        /// <value>API endpoint URL for the AI provider.</value>
         /*
         <example>some text</example>
         */
@@ -114,8 +117,9 @@ namespace DocSpace.API.SDK.Model
         public ApiDateTime ModifiedOn { get; set; }
 
         /// <summary>
-        /// Gets or Sets NeedReset
+        /// Indicates whether the provider&#39;s API key needs to be reset.
         /// </summary>
+        /// <value>Indicates whether the provider&#39;s API key needs to be reset.</value>
         /*
         <example>true</example>
         */
@@ -123,8 +127,9 @@ namespace DocSpace.API.SDK.Model
         public bool NeedReset { get; set; }
 
         /// <summary>
-        /// Gets or Sets IsDefault
+        /// Indicates whether this provider is the default provider for the tenant.
         /// </summary>
+        /// <value>Indicates whether this provider is the default provider for the tenant.</value>
         /*
         <example>true</example>
         */

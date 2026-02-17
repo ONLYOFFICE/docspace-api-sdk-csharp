@@ -29,7 +29,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="EmployeeDto" /> class.
         /// </summary>
         /// <param name="id">The user ID..</param>
-        /// <param name="displayName">The user display name..</param>
+        /// <param name="displayName">The HTML-encoded user&#39;s display name formatted according to the default format for the current culture..</param>
         /// <param name="title">The user title..</param>
         /// <param name="avatar">The user avatar..</param>
         /// <param name="avatarOriginal">The user original size avatar..</param>
@@ -62,9 +62,9 @@ namespace DocSpace.API.SDK.Model
         public Guid Id { get; set; }
 
         /// <summary>
-        /// The user display name.
+        /// The HTML-encoded user&#39;s display name formatted according to the default format for the current culture.
         /// </summary>
-        /// <value>The user display name.</value>
+        /// <value>The HTML-encoded user&#39;s display name formatted according to the default format for the current culture.</value>
         /*
         <example>Mike Zanyatski</example>
         */

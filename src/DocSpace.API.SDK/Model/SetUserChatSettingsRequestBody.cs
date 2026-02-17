@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// SetUserChatSettingsRequestBody
+    /// Parameters for updating user chat settings.
     /// </summary>
     [DataContract(Name = "SetUserChatSettingsRequestBody")]
     public partial class SetUserChatSettingsRequestBody : IValidatableObject
@@ -28,15 +28,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetUserChatSettingsRequestBody" /> class.
         /// </summary>
-        /// <param name="webSearchEnabled">webSearchEnabled.</param>
+        /// <param name="webSearchEnabled">Indicates whether the AI assistant is allowed to perform web searches when generating responses..</param>
         public SetUserChatSettingsRequestBody(bool? webSearchEnabled = default)
         {
             this.WebSearchEnabled = webSearchEnabled;
         }
 
         /// <summary>
-        /// Gets or Sets WebSearchEnabled
+        /// Indicates whether the AI assistant is allowed to perform web searches when generating responses.
         /// </summary>
+        /// <value>Indicates whether the AI assistant is allowed to perform web searches when generating responses.</value>
         /*
         <example>true</example>
         */

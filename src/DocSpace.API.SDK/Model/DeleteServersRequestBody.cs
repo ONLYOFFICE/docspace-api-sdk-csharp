@@ -19,7 +19,7 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// DeleteServersRequestBody
+    /// Parameters specifying which MCP servers to delete.
     /// </summary>
     [DataContract(Name = "DeleteServersRequestBody")]
     public partial class DeleteServersRequestBody : IValidatableObject
@@ -33,7 +33,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteServersRequestBody" /> class.
         /// </summary>
-        /// <param name="servers">servers (required).</param>
+        /// <param name="servers">Set of unique identifiers of the MCP servers to permanently remove. All room associations and connection data will also be deleted. (required).</param>
         public DeleteServersRequestBody(List<Guid> servers = default)
         {
             // to ensure "servers" is required (not null)
@@ -45,8 +45,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Servers
+        /// Set of unique identifiers of the MCP servers to permanently remove. All room associations and connection data will also be deleted.
         /// </summary>
+        /// <value>Set of unique identifiers of the MCP servers to permanently remove. All room associations and connection data will also be deleted.</value>
         /*
         <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
         */

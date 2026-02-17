@@ -25,7 +25,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createAgentRequestDto** | [**CreateAgentRequestDto?**](CreateAgentRequestDto.md) |  | [optional]  |
+| **createAgentRequestDto** | [**CreateAgentRequestDto?**](CreateAgentRequestDto.md) | Request to create a new AI agent room. | [optional]  |
 
 ### Return type
 
@@ -72,7 +72,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var createAgentRequestDto = new CreateAgentRequestDto?(); // CreateAgentRequestDto? |  (optional) 
+            var createAgentRequestDto = new CreateAgentRequestDto?(); // CreateAgentRequestDto? | Request to create a new AI agent room. (optional) 
 
             try
             {
