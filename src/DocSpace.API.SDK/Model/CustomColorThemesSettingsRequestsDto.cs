@@ -30,7 +30,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="theme">theme.</param>
         /// <param name="selected">Specifies the optional value indicating the selected custom color theme..</param>
-        public CustomColorThemesSettingsRequestsDto(CustomColorThemesSettingsItem theme = default, int? selected = default)
+        public CustomColorThemesSettingsRequestsDto(CustomColorThemesSettingsItem theme = default, int selected = default)
         {
             this.Theme = theme;
             this.Selected = selected;
@@ -49,8 +49,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "selected", EmitDefaultValue = true)]
-        public int? Selected { get; set; }
+        [DataMember(Name = "selected", EmitDefaultValue = false)]
+        public int Selected { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

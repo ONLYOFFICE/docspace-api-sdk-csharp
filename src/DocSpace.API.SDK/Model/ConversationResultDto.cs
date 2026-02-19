@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="operation">operation (required).</param>
         /// <param name="progress">The conversion operation progress. (required).</param>
         /// <param name="source">The source file for the conversion..</param>
-        /// <param name="result">The resulting file after the conversion..</param>
+        /// <param name="result">result.</param>
         /// <param name="error">The conversion operation error message..</param>
         /// <param name="processed">Specifies if the conversion operation is processed or not..</param>
         public ConversationResultDto(string id = default, FileOperationType operation = default, int progress = default, string source = default, Object result = default, string error = default, string processed = default)
@@ -89,13 +89,12 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "source", EmitDefaultValue = true)]
+        [DataMember(Name = "source", EmitDefaultValue = false)]
         public string Source { get; set; }
 
         /// <summary>
-        /// The resulting file after the conversion.
+        /// Gets or Sets Result
         /// </summary>
-        /// <value>The resulting file after the conversion.</value>
         [DataMember(Name = "result", EmitDefaultValue = true)]
         public Object Result { get; set; }
 
@@ -106,7 +105,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "error", EmitDefaultValue = true)]
+        [DataMember(Name = "error", EmitDefaultValue = false)]
         public string Error { get; set; }
 
         /// <summary>
@@ -116,7 +115,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "processed", EmitDefaultValue = true)]
+        [DataMember(Name = "processed", EmitDefaultValue = false)]
         public string Processed { get; set; }
 
         /// <summary>

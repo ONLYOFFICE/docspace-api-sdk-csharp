@@ -6,9 +6,9 @@ Request to create a new AI agent room.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **string** | The room name. | 
-**Quota** | **long?** | The room quota. | [optional] 
-**Indexing** | **bool?** | Specifies whether to create a room with indexing. | [optional] 
-**DenyDownload** | **bool?** | Specifies whether to deny downloads from the room. | [optional] 
+**Quota** | **long** | The room quota. | [optional] 
+**Indexing** | **bool** | Specifies whether to create a room with indexing. | [optional] 
+**DenyDownload** | **bool** | Specifies whether to deny downloads from the room. | [optional] 
 **Lifetime** | [**RoomDataLifetimeDto**](RoomDataLifetimeDto.md) |  | [optional] 
 **Watermark** | [**WatermarkRequestDto**](WatermarkRequestDto.md) |  | [optional] 
 **Logo** | [**LogoRequest**](LogoRequest.md) |  | [optional] 

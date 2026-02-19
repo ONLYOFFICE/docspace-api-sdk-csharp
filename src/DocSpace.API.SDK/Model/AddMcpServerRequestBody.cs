@@ -97,9 +97,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Optional HTTP headers to include with every request to the MCP server (e.g., authentication tokens or API keys).</value>
         /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
+        <example>[{key&#x3D;some text, value&#x3D;some text}]</example>
         */
-        [DataMember(Name = "headers", EmitDefaultValue = true)]
+        [DataMember(Name = "headers", EmitDefaultValue = false)]
         public Dictionary<string, string> Headers { get; set; }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "icon", EmitDefaultValue = true)]
+        [DataMember(Name = "icon", EmitDefaultValue = false)]
         public string Icon { get; set; }
 
         /// <summary>

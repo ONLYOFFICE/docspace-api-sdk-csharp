@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="customerTitle">The customer title..</param>
         /// <param name="providerId">The provider ID..</param>
         /// <param name="providerKey">The provider key..</param>
-        public ThirdPartyParams(AuthData authData = default, bool corporate = default, bool roomsStorage = default, string customerTitle = default, int? providerId = default, string providerKey = default)
+        public ThirdPartyParams(AuthData authData = default, bool corporate = default, bool roomsStorage = default, string customerTitle = default, int providerId = default, string providerKey = default)
         {
             this.AuthData = authData;
             this.Corporate = corporate;
@@ -77,7 +77,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "customer_title", EmitDefaultValue = true)]
+        [DataMember(Name = "customer_title", EmitDefaultValue = false)]
         public string CustomerTitle { get; set; }
 
         /// <summary>
@@ -87,8 +87,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "provider_id", EmitDefaultValue = true)]
-        public int? ProviderId { get; set; }
+        [DataMember(Name = "provider_id", EmitDefaultValue = false)]
+        public int ProviderId { get; set; }
 
         /// <summary>
         /// The provider key.
@@ -97,7 +97,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "provider_key", EmitDefaultValue = true)]
+        [DataMember(Name = "provider_key", EmitDefaultValue = false)]
         public string ProviderKey { get; set; }
 
         /// <summary>

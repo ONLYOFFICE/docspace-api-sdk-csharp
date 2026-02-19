@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "recaptchaResponse", EmitDefaultValue = true)]
+        [DataMember(Name = "recaptchaResponse", EmitDefaultValue = false)]
         public string RecaptchaResponse { get; set; }
 
         /// <summary>

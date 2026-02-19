@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// The collection of sharing parameters.
         /// </summary>
         /// <value>The collection of sharing parameters.</value>
-        [DataMember(Name = "share", EmitDefaultValue = true)]
+        [DataMember(Name = "share", EmitDefaultValue = false)]
         public List<FileShareParams> Share { get; set; }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "sharingMessage", EmitDefaultValue = true)]
+        [DataMember(Name = "sharingMessage", EmitDefaultValue = false)]
         public string SharingMessage { get; set; }
 
         /// <summary>

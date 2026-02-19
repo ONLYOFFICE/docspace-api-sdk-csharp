@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// A list of sub-accounts.
         /// </summary>
         /// <value>A list of sub-accounts.</value>
-        [DataMember(Name = "subAccounts", EmitDefaultValue = true)]
+        [DataMember(Name = "subAccounts", EmitDefaultValue = false)]
         public List<SubAccount> SubAccounts { get; set; }
 
         /// <summary>

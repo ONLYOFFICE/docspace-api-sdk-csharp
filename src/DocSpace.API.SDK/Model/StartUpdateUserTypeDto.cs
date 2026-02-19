@@ -37,7 +37,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="type">type.</param>
         /// <param name="userId">The user ID..</param>
         /// <param name="reassignUserId">The user ID to reassign..</param>
-        public StartUpdateUserTypeDto(EmployeeType? type = default, Guid userId = default, Guid? reassignUserId = default)
+        public StartUpdateUserTypeDto(EmployeeType? type = default, Guid userId = default, Guid reassignUserId = default)
         {
             this.Type = type;
             this.UserId = userId;
@@ -61,8 +61,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
         */
-        [DataMember(Name = "reassignUserId", EmitDefaultValue = true)]
-        public Guid? ReassignUserId { get; set; }
+        [DataMember(Name = "reassignUserId", EmitDefaultValue = false)]
+        public Guid ReassignUserId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -63,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "culture", EmitDefaultValue = true)]
+        [DataMember(Name = "culture", EmitDefaultValue = false)]
         public string Culture { get; set; }
 
         /// <summary>

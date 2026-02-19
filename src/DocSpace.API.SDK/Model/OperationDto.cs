@@ -67,7 +67,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "service", EmitDefaultValue = true)]
+        [DataMember(Name = "service", EmitDefaultValue = false)]
         public string Service { get; set; }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "description", EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "details", EmitDefaultValue = true)]
+        [DataMember(Name = "details", EmitDefaultValue = false)]
         public string Details { get; set; }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "serviceUnit", EmitDefaultValue = true)]
+        [DataMember(Name = "serviceUnit", EmitDefaultValue = false)]
         public string ServiceUnit { get; set; }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "currency", EmitDefaultValue = true)]
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
         public string Currency { get; set; }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "participantName", EmitDefaultValue = true)]
+        [DataMember(Name = "participantName", EmitDefaultValue = false)]
         public string ParticipantName { get; set; }
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "participantDisplayName", EmitDefaultValue = true)]
+        [DataMember(Name = "participantDisplayName", EmitDefaultValue = false)]
         public string ParticipantDisplayName { get; set; }
 
         /// <summary>

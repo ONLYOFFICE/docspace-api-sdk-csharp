@@ -28,9 +28,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PluginsConfig" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        public PluginsConfig()
+        /// <param name="pluginsData">The array of absolute URLs to the plugin configuration files..</param>
+        public PluginsConfig(List<string> pluginsData = default)
         {
+            this.PluginsData = pluginsData;
         }
 
         /// <summary>
@@ -38,19 +39,11 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The array of absolute URLs to the plugin configuration files.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "pluginsData", EmitDefaultValue = true)]
-        public List<string> PluginsData { get; private set; }
+        [DataMember(Name = "pluginsData", EmitDefaultValue = false)]
+        public List<string> PluginsData { get; set; }
 
-        /// <summary>
-        /// Returns false as PluginsData should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializePluginsData()
-        {
-            return false;
-        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

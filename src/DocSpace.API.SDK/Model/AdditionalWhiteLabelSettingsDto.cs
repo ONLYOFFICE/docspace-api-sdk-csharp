@@ -29,7 +29,10 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AdditionalWhiteLabelSettingsDto" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected AdditionalWhiteLabelSettingsDto() { }
+        protected AdditionalWhiteLabelSettingsDto()
+        {
+            this.AdditionalProperties = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref="AdditionalWhiteLabelSettingsDto" /> class.
         /// </summary>
@@ -49,6 +52,7 @@ namespace DocSpace.API.SDK.Model
             this.VideoGuidesEnabled = videoGuidesEnabled;
             this.LicenseAgreementsEnabled = licenseAgreementsEnabled;
             this.IsDefault = isDefault;
+            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -122,6 +126,12 @@ namespace DocSpace.API.SDK.Model
         public bool IsDefault { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [System.Text.Json.Serialization.JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -136,6 +146,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  VideoGuidesEnabled: ").Append(VideoGuidesEnabled).Append("\n");
             sb.Append("  LicenseAgreementsEnabled: ").Append(LicenseAgreementsEnabled).Append("\n");
             sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

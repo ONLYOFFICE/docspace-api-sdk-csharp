@@ -76,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John</example>
         */
-        [DataMember(Name = "firstName", EmitDefaultValue = true)]
+        [DataMember(Name = "firstName", EmitDefaultValue = false)]
         public string FirstName { get; set; }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Doe</example>
         */
-        [DataMember(Name = "lastName", EmitDefaultValue = true)]
+        [DataMember(Name = "lastName", EmitDefaultValue = false)]
         public string LastName { get; set; }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>example@onlyoffice.com</example>
         */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
+        [DataMember(Name = "email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "passwordHash", EmitDefaultValue = true)]
+        [DataMember(Name = "passwordHash", EmitDefaultValue = false)]
         public string PasswordHash { get; set; }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "culture", EmitDefaultValue = true)]
+        [DataMember(Name = "culture", EmitDefaultValue = false)]
         public string Culture { get; set; }
 
         /// <summary>

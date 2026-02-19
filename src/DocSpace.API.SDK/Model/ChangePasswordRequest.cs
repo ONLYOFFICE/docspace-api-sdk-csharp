@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>P@ssw0rd123</example>
         */
-        [DataMember(Name = "password", EmitDefaultValue = true)]
+        [DataMember(Name = "password", EmitDefaultValue = false)]
         public string Password { get; set; }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "passwordHash", EmitDefaultValue = true)]
+        [DataMember(Name = "passwordHash", EmitDefaultValue = false)]
         public string PasswordHash { get; set; }
 
         /// <summary>

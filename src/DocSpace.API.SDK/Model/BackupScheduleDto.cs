@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="backupsStored">The maximum number of the stored backup copies..</param>
         /// <param name="cronParams">cronParams.</param>
         /// <param name="dump">Specifies if a dump will be created or not..</param>
-        public BackupScheduleDto(BackupStorageType? storageType = default, List<ItemKeyValuePairObjectObject> storageParams = default, int? backupsStored = default, Cron cronParams = default, bool dump = default)
+        public BackupScheduleDto(BackupStorageType? storageType = default, List<ItemKeyValuePairObjectObject> storageParams = default, int backupsStored = default, Cron cronParams = default, bool dump = default)
         {
             this.StorageType = storageType;
             this.StorageParams = storageParams;
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// The backup storage parameters.
         /// </summary>
         /// <value>The backup storage parameters.</value>
-        [DataMember(Name = "storageParams", EmitDefaultValue = true)]
+        [DataMember(Name = "storageParams", EmitDefaultValue = false)]
         public List<ItemKeyValuePairObjectObject> StorageParams { get; set; }
 
         /// <summary>
@@ -62,8 +62,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "backupsStored", EmitDefaultValue = true)]
-        public int? BackupsStored { get; set; }
+        [DataMember(Name = "backupsStored", EmitDefaultValue = false)]
+        public int BackupsStored { get; set; }
 
         /// <summary>
         /// Gets or Sets CronParams

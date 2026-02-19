@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Token** | **string** | The authentication token. | [optional] 
 **CustomerTitle** | **string** | The customer title. | 
 **ProviderKey** | **string** | The provider key. | 
-**ProviderId** | **int?** | The provider ID. | [optional] 
+**ProviderId** | **int** | The provider ID. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

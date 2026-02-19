@@ -29,15 +29,17 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ContentDisposition" /> class.
         /// </summary>
         /// <param name="dispositionType">dispositionType.</param>
+        /// <param name="parameters">parameters.</param>
         /// <param name="fileName">fileName.</param>
         /// <param name="creationDate">creationDate.</param>
         /// <param name="modificationDate">modificationDate.</param>
         /// <param name="inline">inline.</param>
         /// <param name="readDate">readDate.</param>
         /// <param name="size">size.</param>
-        public ContentDisposition(string dispositionType = default, string fileName = default, DateTime creationDate = default, DateTime modificationDate = default, bool inline = default, DateTime readDate = default, long size = default)
+        public ContentDisposition(string dispositionType = default, List<Object> parameters = default, string fileName = default, DateTime creationDate = default, DateTime modificationDate = default, bool inline = default, DateTime readDate = default, long size = default)
         {
             this.DispositionType = dispositionType;
+            this.Parameters = parameters;
             this.FileName = fileName;
             this.CreationDate = creationDate;
             this.ModificationDate = modificationDate;
@@ -52,37 +54,29 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "dispositionType", EmitDefaultValue = true)]
+        [DataMember(Name = "dispositionType", EmitDefaultValue = false)]
         public string DispositionType { get; set; }
 
         /// <summary>
         /// Gets or Sets Parameters
         /// </summary>
-        [DataMember(Name = "parameters", EmitDefaultValue = true)]
-        public List<Object> Parameters { get; private set; }
+        [DataMember(Name = "parameters", EmitDefaultValue = false)]
+        public List<Object> Parameters { get; set; }
 
-        /// <summary>
-        /// Returns false as Parameters should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeParameters()
-        {
-            return false;
-        }
         /// <summary>
         /// Gets or Sets FileName
         /// </summary>
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileName", EmitDefaultValue = true)]
+        [DataMember(Name = "fileName", EmitDefaultValue = false)]
         public string FileName { get; set; }
 
         /// <summary>
         /// Gets or Sets CreationDate
         /// </summary>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "creationDate", EmitDefaultValue = false)]
         public DateTime CreationDate { get; set; }
@@ -91,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets ModificationDate
         /// </summary>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "modificationDate", EmitDefaultValue = false)]
         public DateTime ModificationDate { get; set; }
@@ -109,7 +103,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets ReadDate
         /// </summary>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "readDate", EmitDefaultValue = false)]
         public DateTime ReadDate { get; set; }

@@ -39,9 +39,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of allowed domains in the Content Security Policy (CSP).</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "domains", EmitDefaultValue = true)]
+        [DataMember(Name = "domains", EmitDefaultValue = false)]
         public List<string> Domains { get; set; }
 
         /// <summary>

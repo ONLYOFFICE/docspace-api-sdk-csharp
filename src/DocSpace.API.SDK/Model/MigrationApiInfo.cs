@@ -72,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "migratorName", EmitDefaultValue = true)]
+        [DataMember(Name = "migratorName", EmitDefaultValue = false)]
         public string MigratorName { get; set; }
 
         /// <summary>
@@ -81,40 +81,40 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "operation", EmitDefaultValue = true)]
+        [DataMember(Name = "operation", EmitDefaultValue = false)]
         public string Operation { get; set; }
 
         /// <summary>
         /// Gets or Sets FailedArchives
         /// </summary>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "failedArchives", EmitDefaultValue = true)]
+        [DataMember(Name = "failedArchives", EmitDefaultValue = false)]
         public List<string> FailedArchives { get; set; }
 
         /// <summary>
         /// Gets or Sets Users
         /// </summary>
-        [DataMember(Name = "users", EmitDefaultValue = true)]
+        [DataMember(Name = "users", EmitDefaultValue = false)]
         public List<MigratingApiUser> Users { get; set; }
 
         /// <summary>
         /// Gets or Sets WithoutEmailUsers
         /// </summary>
-        [DataMember(Name = "withoutEmailUsers", EmitDefaultValue = true)]
+        [DataMember(Name = "withoutEmailUsers", EmitDefaultValue = false)]
         public List<MigratingApiUser> WithoutEmailUsers { get; set; }
 
         /// <summary>
         /// Gets or Sets ExistUsers
         /// </summary>
-        [DataMember(Name = "existUsers", EmitDefaultValue = true)]
+        [DataMember(Name = "existUsers", EmitDefaultValue = false)]
         public List<MigratingApiUser> ExistUsers { get; set; }
 
         /// <summary>
         /// Gets or Sets Groups
         /// </summary>
-        [DataMember(Name = "groups", EmitDefaultValue = true)]
+        [DataMember(Name = "groups", EmitDefaultValue = false)]
         public List<MigratingApiGroup> Groups { get; set; }
 
         /// <summary>
@@ -193,18 +193,18 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets Files
         /// </summary>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "files", EmitDefaultValue = true)]
+        [DataMember(Name = "files", EmitDefaultValue = false)]
         public List<string> Files { get; set; }
 
         /// <summary>
         /// Gets or Sets Errors
         /// </summary>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "errors", EmitDefaultValue = true)]
+        [DataMember(Name = "errors", EmitDefaultValue = false)]
         public List<string> Errors { get; set; }
 
         /// <summary>

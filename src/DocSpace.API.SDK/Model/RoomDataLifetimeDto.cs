@@ -38,7 +38,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="period">period.</param>
         /// <param name="value">Specifies the time period value of the room data lifetime..</param>
         /// <param name="enabled">Specifies whether the room data lifetime setting is enabled or not..</param>
-        public RoomDataLifetimeDto(bool deletePermanently = default, RoomDataLifetimePeriod? period = default, int? value = default, bool? enabled = default)
+        public RoomDataLifetimeDto(bool deletePermanently = default, RoomDataLifetimePeriod? period = default, int value = default, bool enabled = default)
         {
             this.DeletePermanently = deletePermanently;
             this.Period = period;
@@ -63,8 +63,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "value", EmitDefaultValue = true)]
-        public int? Value { get; set; }
+        [DataMember(Name = "value", EmitDefaultValue = false)]
+        public int Value { get; set; }
 
         /// <summary>
         /// Specifies whether the room data lifetime setting is enabled or not.
@@ -74,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
-        public bool? Enabled { get; set; }
+        public bool Enabled { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -108,14 +108,14 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Value (int?) maximum
-            if (this.Value > (int?)999)
+            // Value (int) maximum
+            if (this.Value > (int)999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, must be a value less than or equal to 999.", new [] { "Value" });
             }
 
-            // Value (int?) minimum
-            if (this.Value < (int?)1)
+            // Value (int) minimum
+            if (this.Value < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, must be a value greater than or equal to 1.", new [] { "Value" });
             }

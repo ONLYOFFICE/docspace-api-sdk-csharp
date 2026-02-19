@@ -80,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets CreatedOn
         /// </summary>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "createdOn", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreatedOn { get; set; }
@@ -89,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets ExpiresOn
         /// </summary>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "expiresOn", IsRequired = true, EmitDefaultValue = true)]
         public DateTime ExpiresOn { get; set; }

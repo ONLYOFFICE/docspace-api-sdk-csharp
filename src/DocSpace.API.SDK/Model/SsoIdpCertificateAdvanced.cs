@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "verifyAlgorithm", EmitDefaultValue = true)]
+        [DataMember(Name = "verifyAlgorithm", EmitDefaultValue = false)]
         public string VerifyAlgorithm { get; set; }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "decryptAlgorithm", EmitDefaultValue = true)]
+        [DataMember(Name = "decryptAlgorithm", EmitDefaultValue = false)]
         public string DecryptAlgorithm { get; set; }
 
         /// <summary>

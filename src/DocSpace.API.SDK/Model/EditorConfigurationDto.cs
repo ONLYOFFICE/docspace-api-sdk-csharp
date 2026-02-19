@@ -85,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "callbackUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "callbackUrl", EmitDefaultValue = false)]
         public string CallbackUrl { get; set; }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "createUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "createUrl", EmitDefaultValue = false)]
         public string CreateUrl { get; set; }
 
         /// <summary>
@@ -162,14 +162,14 @@ namespace DocSpace.API.SDK.Model
         /// The recent configuration of the editor.
         /// </summary>
         /// <value>The recent configuration of the editor.</value>
-        [DataMember(Name = "recent", EmitDefaultValue = true)]
+        [DataMember(Name = "recent", EmitDefaultValue = false)]
         public List<RecentConfig> Recent { get; set; }
 
         /// <summary>
         /// The templates of the editor configuration.
         /// </summary>
         /// <value>The templates of the editor configuration.</value>
-        [DataMember(Name = "templates", EmitDefaultValue = true)]
+        [DataMember(Name = "templates", EmitDefaultValue = false)]
         public List<TemplatesConfig> Templates { get; set; }
 
         /// <summary>

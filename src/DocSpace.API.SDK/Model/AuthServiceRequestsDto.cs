@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John Doe</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>SampleFile</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "description", EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "instruction", EmitDefaultValue = true)]
+        [DataMember(Name = "instruction", EmitDefaultValue = false)]
         public string Instruction { get; set; }
 
         /// <summary>
@@ -110,7 +110,7 @@ namespace DocSpace.API.SDK.Model
         /// The collection of authorization keys associated with the authorization service.
         /// </summary>
         /// <value>The collection of authorization keys associated with the authorization service.</value>
-        [DataMember(Name = "props", EmitDefaultValue = true)]
+        [DataMember(Name = "props", EmitDefaultValue = false)]
         public List<AuthKey> Props { get; set; }
 
         /// <summary>

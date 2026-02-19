@@ -45,9 +45,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of user IDs to add to the group.</value>
         /*
-        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
+        <example>[75a5f745-f697-4418-b38d-0fe0d277e258]</example>
         */
-        [DataMember(Name = "membersToAdd", EmitDefaultValue = true)]
+        [DataMember(Name = "membersToAdd", EmitDefaultValue = false)]
         public List<Guid> MembersToAdd { get; set; }
 
         /// <summary>
@@ -55,9 +55,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of user IDs to remove from the group.</value>
         /*
-        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
+        <example>[75a5f745-f697-4418-b38d-0fe0d277e258]</example>
         */
-        [DataMember(Name = "membersToRemove", EmitDefaultValue = true)]
+        [DataMember(Name = "membersToRemove", EmitDefaultValue = false)]
         public List<Guid> MembersToRemove { get; set; }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "groupName", EmitDefaultValue = true)]
+        [DataMember(Name = "groupName", EmitDefaultValue = false)]
         public string GroupName { get; set; }
 
         /// <summary>

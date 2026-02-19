@@ -50,6 +50,9 @@ namespace DocSpace.API.SDK.Model
         /// The unique identifier of the message.
         /// </summary>
         /// <value>The unique identifier of the message.</value>
+        /*
+        <example>00000000-0000-0000-0000-000000000000</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public long Id { get; set; }
 
@@ -57,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// The ordered collection of content blocks that make up the message body (text, tool calls, or attachments).
         /// </summary>
         /// <value>The ordered collection of content blocks that make up the message body (text, tool calls, or attachments).</value>
-        [DataMember(Name = "contents", EmitDefaultValue = true)]
+        [DataMember(Name = "contents", EmitDefaultValue = false)]
         public List<MessageContentDto> Contents { get; set; }
 
         /// <summary>

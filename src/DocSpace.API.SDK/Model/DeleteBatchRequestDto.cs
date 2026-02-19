@@ -44,14 +44,14 @@ namespace DocSpace.API.SDK.Model
         /// The list of folder IDs to be deleted.
         /// </summary>
         /// <value>The list of folder IDs to be deleted.</value>
-        [DataMember(Name = "folderIds", EmitDefaultValue = true)]
+        [DataMember(Name = "folderIds", EmitDefaultValue = false)]
         public List<DeleteBatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to be deleted.
         /// </summary>
         /// <value>The list of file IDs to be deleted.</value>
-        [DataMember(Name = "fileIds", EmitDefaultValue = true)]
+        [DataMember(Name = "fileIds", EmitDefaultValue = false)]
         public List<DeleteBatchRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>

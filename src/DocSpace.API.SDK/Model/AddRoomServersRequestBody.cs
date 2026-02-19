@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Set of unique identifiers of MCP servers to associate with the room. A maximum of 5 servers can be assigned per room.</value>
         /*
-        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
+        <example>[75a5f745-f697-4418-b38d-0fe0d277e258]</example>
         */
         [DataMember(Name = "servers", IsRequired = true, EmitDefaultValue = true)]
         public List<Guid> Servers { get; set; }

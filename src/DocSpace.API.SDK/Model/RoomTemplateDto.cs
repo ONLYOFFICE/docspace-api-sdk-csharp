@@ -44,7 +44,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="color">The color of the room template..</param>
         /// <param name="cover">The cover of the room template..</param>
         /// <param name="quota">Room quota.</param>
-        public RoomTemplateDto(int roomId = default, string title = default, LogoRequest logo = default, bool copyLogo = default, List<string> share = default, List<Guid> groups = default, bool @public = default, List<string> tags = default, string color = default, string cover = default, long? quota = default)
+        public RoomTemplateDto(int roomId = default, string title = default, LogoRequest logo = default, bool copyLogo = default, List<string> share = default, List<Guid> groups = default, bool @public = default, List<string> tags = default, string color = default, string cover = default, long quota = default)
         {
             this.RoomId = roomId;
             this.Title = title;
@@ -76,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>SampleFile</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -100,9 +100,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of email addresses of users with whom to share a room.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "share", EmitDefaultValue = true)]
+        [DataMember(Name = "share", EmitDefaultValue = false)]
         public List<string> Share { get; set; }
 
         /// <summary>
@@ -110,9 +110,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of groups with whom to share a room.</value>
         /*
-        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
+        <example>[75a5f745-f697-4418-b38d-0fe0d277e258]</example>
         */
-        [DataMember(Name = "groups", EmitDefaultValue = true)]
+        [DataMember(Name = "groups", EmitDefaultValue = false)]
         public List<Guid> Groups { get; set; }
 
         /// <summary>
@@ -130,9 +130,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of tags.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "tags", EmitDefaultValue = true)]
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "color", EmitDefaultValue = true)]
+        [DataMember(Name = "color", EmitDefaultValue = false)]
         public string Color { get; set; }
 
         /// <summary>
@@ -152,7 +152,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "cover", EmitDefaultValue = true)]
+        [DataMember(Name = "cover", EmitDefaultValue = false)]
         public string Cover { get; set; }
 
         /// <summary>
@@ -162,8 +162,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "quota", EmitDefaultValue = true)]
-        public long? Quota { get; set; }
+        [DataMember(Name = "quota", EmitDefaultValue = false)]
+        public long Quota { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

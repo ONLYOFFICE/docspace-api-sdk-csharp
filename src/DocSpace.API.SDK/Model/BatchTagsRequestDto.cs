@@ -39,9 +39,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tag names.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "names", EmitDefaultValue = true)]
+        [DataMember(Name = "names", EmitDefaultValue = false)]
         public List<string> Names { get; set; }
 
         /// <summary>

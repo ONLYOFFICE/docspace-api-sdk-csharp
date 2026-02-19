@@ -115,7 +115,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "user", EmitDefaultValue = true)]
+        [DataMember(Name = "user", EmitDefaultValue = false)]
         public string User { get; set; }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "action", EmitDefaultValue = true)]
+        [DataMember(Name = "action", EmitDefaultValue = false)]
         public string Action { get; set; }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "ip", EmitDefaultValue = true)]
+        [DataMember(Name = "ip", EmitDefaultValue = false)]
         public string Ip { get; set; }
 
         /// <summary>
@@ -155,7 +155,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "country", EmitDefaultValue = true)]
+        [DataMember(Name = "country", EmitDefaultValue = false)]
         public string Country { get; set; }
 
         /// <summary>
@@ -165,7 +165,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "city", EmitDefaultValue = true)]
+        [DataMember(Name = "city", EmitDefaultValue = false)]
         public string City { get; set; }
 
         /// <summary>
@@ -175,7 +175,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "browser", EmitDefaultValue = true)]
+        [DataMember(Name = "browser", EmitDefaultValue = false)]
         public string Browser { get; set; }
 
         /// <summary>
@@ -185,7 +185,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "platform", EmitDefaultValue = true)]
+        [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 
         /// <summary>
@@ -195,7 +195,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "page", EmitDefaultValue = true)]
+        [DataMember(Name = "page", EmitDefaultValue = false)]
         public string Page { get; set; }
 
         /// <summary>
@@ -203,16 +203,16 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of target objects affected by the audit event (e.g., document ID, user account).</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "target", EmitDefaultValue = true)]
+        [DataMember(Name = "target", EmitDefaultValue = false)]
         public List<string> Target { get; set; }
 
         /// <summary>
         /// The list of audit entry types (e.g., Folder, User, File).
         /// </summary>
         /// <value>The list of audit entry types (e.g., Folder, User, File).</value>
-        [DataMember(Name = "entries", EmitDefaultValue = true)]
+        [DataMember(Name = "entries", EmitDefaultValue = false)]
         public List<EntryType> Entries { get; set; }
 
         /// <summary>
@@ -222,7 +222,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "context", EmitDefaultValue = true)]
+        [DataMember(Name = "context", EmitDefaultValue = false)]
         public string Context { get; set; }
 
         /// <summary>

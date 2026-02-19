@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="createDate">The date and time when the user account was created..</param>
         /// <param name="createdBy">The ID of the user who created the current user account..</param>
         /// <param name="spam">Specifies if tips, updates and offers are allowed to be sent to the user or not..</param>
-        public UserInfo(Guid id = default, string firstName = default, string lastName = default, string userName = default, DateTime? birthDate = default, bool? sex = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, DateTime? terminatedDate = default, string title = default, DateTime? workFromDate = default, string email = default, string contacts = default, List<string> contactsList = default, string location = default, string notes = default, bool removed = default, DateTime lastModified = default, int tenantId = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, string sid = default, long ldapQouta = default, string ssoNameId = default, string ssoSessionId = default, DateTime createDate = default, Guid? createdBy = default, bool? spam = default)
+        public UserInfo(Guid id = default, string firstName = default, string lastName = default, string userName = default, DateTime birthDate = default, bool sex = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, DateTime terminatedDate = default, string title = default, DateTime workFromDate = default, string email = default, string contacts = default, List<string> contactsList = default, string location = default, string notes = default, bool removed = default, DateTime lastModified = default, int tenantId = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, string sid = default, long ldapQouta = default, string ssoNameId = default, string ssoSessionId = default, DateTime createDate = default, Guid createdBy = default, bool spam = default)
         {
             this.Id = id;
             this.FirstName = firstName;
@@ -125,7 +125,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John</example>
         */
-        [DataMember(Name = "firstName", EmitDefaultValue = true)]
+        [DataMember(Name = "firstName", EmitDefaultValue = false)]
         public string FirstName { get; set; }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Doe</example>
         */
-        [DataMember(Name = "lastName", EmitDefaultValue = true)]
+        [DataMember(Name = "lastName", EmitDefaultValue = false)]
         public string LastName { get; set; }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "userName", EmitDefaultValue = true)]
+        [DataMember(Name = "userName", EmitDefaultValue = false)]
         public string UserName { get; set; }
 
         /// <summary>
@@ -153,10 +153,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user birthday.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
-        [DataMember(Name = "birthDate", EmitDefaultValue = true)]
-        public DateTime? BirthDate { get; set; }
+        [DataMember(Name = "birthDate", EmitDefaultValue = false)]
+        public DateTime BirthDate { get; set; }
 
         /// <summary>
         /// The user sex (male or female).
@@ -166,17 +166,17 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "sex", EmitDefaultValue = true)]
-        public bool? Sex { get; set; }
+        public bool Sex { get; set; }
 
         /// <summary>
         /// The date and time when the user account was terminated.
         /// </summary>
         /// <value>The date and time when the user account was terminated.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
-        [DataMember(Name = "terminatedDate", EmitDefaultValue = true)]
-        public DateTime? TerminatedDate { get; set; }
+        [DataMember(Name = "terminatedDate", EmitDefaultValue = false)]
+        public DateTime TerminatedDate { get; set; }
 
         /// <summary>
         /// The user title.
@@ -185,7 +185,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>SampleFile</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -193,10 +193,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user registration date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
-        [DataMember(Name = "workFromDate", EmitDefaultValue = true)]
-        public DateTime? WorkFromDate { get; set; }
+        [DataMember(Name = "workFromDate", EmitDefaultValue = false)]
+        public DateTime WorkFromDate { get; set; }
 
         /// <summary>
         /// The user email address.
@@ -205,7 +205,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>example@onlyoffice.com</example>
         */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
+        [DataMember(Name = "email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
         /// <summary>
@@ -215,7 +215,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "contacts", EmitDefaultValue = true)]
+        [DataMember(Name = "contacts", EmitDefaultValue = false)]
         public string Contacts { get; set; }
 
         /// <summary>
@@ -223,9 +223,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of user contacts.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "contactsList", EmitDefaultValue = true)]
+        [DataMember(Name = "contactsList", EmitDefaultValue = false)]
         public List<string> ContactsList { get; set; }
 
         /// <summary>
@@ -235,7 +235,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>001 Schroeder Run, New Tabithaport, Colombia</example>
         */
-        [DataMember(Name = "location", EmitDefaultValue = true)]
+        [DataMember(Name = "location", EmitDefaultValue = false)]
         public string Location { get; set; }
 
         /// <summary>
@@ -245,7 +245,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "notes", EmitDefaultValue = true)]
+        [DataMember(Name = "notes", EmitDefaultValue = false)]
         public string Notes { get; set; }
 
         /// <summary>
@@ -263,7 +263,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the user account was last modified.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
@@ -303,7 +303,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "cultureName", EmitDefaultValue = true)]
+        [DataMember(Name = "cultureName", EmitDefaultValue = false)]
         public string CultureName { get; set; }
 
         /// <summary>
@@ -313,7 +313,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "mobilePhone", EmitDefaultValue = true)]
+        [DataMember(Name = "mobilePhone", EmitDefaultValue = false)]
         public string MobilePhone { get; set; }
 
         /// <summary>
@@ -323,7 +323,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "sid", EmitDefaultValue = true)]
+        [DataMember(Name = "sid", EmitDefaultValue = false)]
         public string Sid { get; set; }
 
         /// <summary>
@@ -343,7 +343,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "ssoNameId", EmitDefaultValue = true)]
+        [DataMember(Name = "ssoNameId", EmitDefaultValue = false)]
         public string SsoNameId { get; set; }
 
         /// <summary>
@@ -353,7 +353,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "ssoSessionId", EmitDefaultValue = true)]
+        [DataMember(Name = "ssoSessionId", EmitDefaultValue = false)]
         public string SsoSessionId { get; set; }
 
         /// <summary>
@@ -361,7 +361,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the user account was created.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "createDate", EmitDefaultValue = false)]
         public DateTime CreateDate { get; set; }
@@ -373,8 +373,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
         */
-        [DataMember(Name = "createdBy", EmitDefaultValue = true)]
-        public Guid? CreatedBy { get; set; }
+        [DataMember(Name = "createdBy", EmitDefaultValue = false)]
+        public Guid CreatedBy { get; set; }
 
         /// <summary>
         /// Specifies if tips, updates and offers are allowed to be sent to the user or not.
@@ -384,7 +384,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "spam", EmitDefaultValue = true)]
-        public bool? Spam { get; set; }
+        public bool Spam { get; set; }
 
         /// <summary>
         /// Gets or Sets CheckActivation

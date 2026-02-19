@@ -178,8 +178,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/">REST API Reference for CreateRoomTag Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper CreateRoomTag(CreateTagRequestDto? createTagRequestDto = default);
+        /// <returns>StringWrapper</returns>
+        StringWrapper CreateRoomTag(CreateTagRequestDto? createTagRequestDto = default);
 
         /// <summary>
         /// Create a room tag
@@ -190,8 +190,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/">REST API Reference for CreateRoomTag Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> CreateRoomTagWithHttpInfo(CreateTagRequestDto? createTagRequestDto = default);
+        /// <returns>ApiResponse of StringWrapper</returns>
+        ApiResponse<StringWrapper> CreateRoomTagWithHttpInfo(CreateTagRequestDto? createTagRequestDto = default);
         /// <summary>
         /// Start creating room template
         /// </summary>
@@ -244,7 +244,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Delete the custom room tags
         /// </summary>
         /// <remarks>
-        /// Deletes a bunch of custom room tags specified in the request.
+        /// Deletes a bunch of custom tags specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
@@ -256,7 +256,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Delete the custom room tags
         /// </summary>
         /// <remarks>
-        /// Deletes a bunch of custom room tags specified in the request.
+        /// Deletes a bunch of custom tags specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
@@ -528,7 +528,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Get the room tags
         /// </summary>
         /// <remarks>
-        /// Returns a list of custom room tags.
+        /// Returns a list of custom tags.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
@@ -542,7 +542,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Get the room tags
         /// </summary>
         /// <remarks>
-        /// Returns a list of custom room tags.
+        /// Returns a list of custom tags.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
@@ -594,9 +594,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
+        /// <param name="groupId">The group ID (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default);
 
         /// <summary>
         /// Get rooms
@@ -620,9 +621,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
+        /// <param name="groupId">The group ID (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default);
         /// <summary>
         /// Get the room new items
         /// </summary>
@@ -667,6 +669,29 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
         /// <returns>ApiResponse of FileShareWrapper</returns>
         ApiResponse<FileShareWrapper> GetRoomsPrimaryExternalLinkWithHttpInfo(int id);
+        /// <summary>
+        /// Has tag links
+        /// </summary>
+        /// <remarks>
+        /// Checks if a specific custom tag has linked items.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagName"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
+        /// <returns>BooleanWrapper</returns>
+        BooleanWrapper HasTagLinks(string tagName);
+
+        /// <summary>
+        /// Has tag links
+        /// </summary>
+        /// <remarks>
+        /// Checks if a specific custom tag has linked items.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagName"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        ApiResponse<BooleanWrapper> HasTagLinksWithHttpInfo(string tagName);
         /// <summary>
         /// Pin a room
         /// </summary>
@@ -929,6 +954,29 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> UpdateRoomWithHttpInfo(int id, UpdateRoomRequest updateRoomRequest);
         /// <summary>
+        /// Update tag
+        /// </summary>
+        /// <remarks>
+        /// Updates the name of a custom tag.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateTagRequestDto">The request parameters for creating a tag. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room-tag/">REST API Reference for UpdateRoomTag Operation</seealso>
+        /// <returns>StringWrapper</returns>
+        StringWrapper UpdateRoomTag(UpdateTagRequestDto? updateTagRequestDto = default);
+
+        /// <summary>
+        /// Update tag
+        /// </summary>
+        /// <remarks>
+        /// Updates the name of a custom tag.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateTagRequestDto">The request parameters for creating a tag. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room-tag/">REST API Reference for UpdateRoomTag Operation</seealso>
+        /// <returns>ApiResponse of StringWrapper</returns>
+        ApiResponse<StringWrapper> UpdateRoomTagWithHttpInfo(UpdateTagRequestDto? updateTagRequestDto = default);
+        /// <summary>
         /// Upload a room logo image
         /// </summary>
         /// <remarks>
@@ -1128,8 +1176,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/">REST API Reference for CreateRoomTag Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> CreateRoomTagAsync(CreateTagRequestDto? createTagRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of StringWrapper</returns>
+        Task<StringWrapper> CreateRoomTagAsync(CreateTagRequestDto? createTagRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create a room tag
@@ -1141,8 +1189,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/">REST API Reference for CreateRoomTag Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> CreateRoomTagWithHttpInfoAsync(CreateTagRequestDto? createTagRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (StringWrapper)</returns>
+        Task<ApiResponse<StringWrapper>> CreateRoomTagWithHttpInfoAsync(CreateTagRequestDto? createTagRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Start creating room template
         /// </summary>
@@ -1199,7 +1247,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Delete the custom room tags
         /// </summary>
         /// <remarks>
-        /// Deletes a bunch of custom room tags specified in the request.
+        /// Deletes a bunch of custom tags specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
@@ -1212,7 +1260,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Delete the custom room tags
         /// </summary>
         /// <remarks>
-        /// Deletes a bunch of custom room tags specified in the request.
+        /// Deletes a bunch of custom tags specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
@@ -1507,7 +1555,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Get the room tags
         /// </summary>
         /// <remarks>
-        /// Returns a list of custom room tags.
+        /// Returns a list of custom tags.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
@@ -1522,7 +1570,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Get the room tags
         /// </summary>
         /// <remarks>
-        /// Returns a list of custom room tags.
+        /// Returns a list of custom tags.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
@@ -1577,10 +1625,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
+        /// <param name="groupId">The group ID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get rooms
@@ -1604,10 +1653,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
+        /// <param name="groupId">The group ID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the room new items
         /// </summary>
@@ -1656,6 +1706,31 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-primary-external-link/">REST API Reference for GetRoomsPrimaryExternalLink Operation</seealso>
         /// <returns>Task of ApiResponse (FileShareWrapper)</returns>
         Task<ApiResponse<FileShareWrapper>> GetRoomsPrimaryExternalLinkWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Has tag links
+        /// </summary>
+        /// <remarks>
+        /// Checks if a specific custom tag has linked items.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagName"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
+        /// <returns>Task of BooleanWrapper</returns>
+        Task<BooleanWrapper> HasTagLinksAsync(string tagName, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Has tag links
+        /// </summary>
+        /// <remarks>
+        /// Checks if a specific custom tag has linked items.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagName"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        Task<ApiResponse<BooleanWrapper>> HasTagLinksWithHttpInfoAsync(string tagName, CancellationToken cancellationToken = default);
         /// <summary>
         /// Pin a room
         /// </summary>
@@ -1939,6 +2014,31 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room/">REST API Reference for UpdateRoom Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         Task<ApiResponse<FolderIntegerWrapper>> UpdateRoomWithHttpInfoAsync(int id, UpdateRoomRequest updateRoomRequest, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update tag
+        /// </summary>
+        /// <remarks>
+        /// Updates the name of a custom tag.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateTagRequestDto">The request parameters for creating a tag. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room-tag/">REST API Reference for UpdateRoomTag Operation</seealso>
+        /// <returns>Task of StringWrapper</returns>
+        Task<StringWrapper> UpdateRoomTagAsync(UpdateTagRequestDto? updateTagRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Update tag
+        /// </summary>
+        /// <remarks>
+        /// Updates the name of a custom tag.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateTagRequestDto">The request parameters for creating a tag. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room-tag/">REST API Reference for UpdateRoomTag Operation</seealso>
+        /// <returns>Task of ApiResponse (StringWrapper)</returns>
+        Task<ApiResponse<StringWrapper>> UpdateRoomTagWithHttpInfoAsync(UpdateTagRequestDto? updateTagRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload a room logo image
         /// </summary>
@@ -3333,8 +3433,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/">REST API Reference for CreateRoomTag Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper CreateRoomTag(CreateTagRequestDto? createTagRequestDto = default)
+        /// <returns>StringWrapper</returns>
+        public StringWrapper CreateRoomTag(CreateTagRequestDto? createTagRequestDto = default)
         {
             var localVarResponse = CreateRoomTagWithHttpInfo(createTagRequestDto);
             return localVarResponse.Data;
@@ -3349,8 +3449,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/">REST API Reference for CreateRoomTag Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> CreateRoomTagWithHttpInfo(CreateTagRequestDto? createTagRequestDto = default)
+        /// <returns>ApiResponse of StringWrapper</returns>
+        public ApiResponse<StringWrapper> CreateRoomTagWithHttpInfo(CreateTagRequestDto? createTagRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3399,7 +3499,7 @@ namespace DocSpace.API.SDK.Api.Rooms
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ObjectWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<StringWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3423,8 +3523,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/">REST API Reference for CreateRoomTag Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> CreateRoomTagAsync(CreateTagRequestDto? createTagRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of StringWrapper</returns>
+        public async Task<StringWrapper> CreateRoomTagAsync(CreateTagRequestDto? createTagRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateRoomTagWithHttpInfoAsync(createTagRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3440,8 +3540,8 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="createTagRequestDto">The request parameters for creating a tag. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-room-tag/">REST API Reference for CreateRoomTag Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> CreateRoomTagWithHttpInfoAsync(CreateTagRequestDto? createTagRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (StringWrapper)</returns>
+        public async Task<ApiResponse<StringWrapper>> CreateRoomTagWithHttpInfoAsync(CreateTagRequestDto? createTagRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3492,7 +3592,7 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ObjectWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<StringWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -3896,7 +3996,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Delete the custom room tags
         /// </summary>
         /// <remarks>
-        /// Deletes a bunch of custom room tags specified in the request.
+        /// Deletes a bunch of custom tags specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
@@ -3911,7 +4011,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Delete the custom room tags
         /// </summary>
         /// <remarks>
-        /// Deletes a bunch of custom room tags specified in the request.
+        /// Deletes a bunch of custom tags specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
@@ -3984,7 +4084,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Delete the custom room tags
         /// </summary>
         /// <remarks>
-        /// Deletes a bunch of custom room tags specified in the request.
+        /// Deletes a bunch of custom tags specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
@@ -4000,7 +4100,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Delete the custom room tags
         /// </summary>
         /// <remarks>
-        /// Deletes a bunch of custom room tags specified in the request.
+        /// Deletes a bunch of custom tags specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="batchTagsRequestDto">The parameters for managing room tags. (optional)</param>
@@ -6080,7 +6180,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Get the room tags
         /// </summary>
         /// <remarks>
-        /// Returns a list of custom room tags.
+        /// Returns a list of custom tags.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
@@ -6098,7 +6198,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Get the room tags
         /// </summary>
         /// <remarks>
-        /// Returns a list of custom room tags.
+        /// Returns a list of custom tags.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
@@ -6188,7 +6288,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Get the room tags
         /// </summary>
         /// <remarks>
-        /// Returns a list of custom room tags.
+        /// Returns a list of custom tags.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
@@ -6207,7 +6307,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Get the room tags
         /// </summary>
         /// <remarks>
-        /// Returns a list of custom room tags.
+        /// Returns a list of custom tags.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="count">Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional)</param>
@@ -6490,11 +6590,12 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
+        /// <param name="groupId">The group ID (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default)
         {
-            var localVarResponse = GetRoomsFolderWithHttpInfo(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue);
+            var localVarResponse = GetRoomsFolderWithHttpInfo(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
             return localVarResponse.Data;
         }
 
@@ -6520,9 +6621,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
+        /// <param name="groupId">The group ID (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6595,6 +6697,10 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (filterValue != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+            if (groupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "groupId", groupId));
             }
             if (_fields != null)
             {
@@ -6669,12 +6775,13 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
+        /// <param name="groupId">The group ID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetRoomsFolderWithHttpInfoAsync(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRoomsFolderWithHttpInfoAsync(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6700,10 +6807,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
         /// <param name="sortOrder">The order in which the results are sorted. (optional)</param>
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
+        /// <param name="groupId">The group ID (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, string? subjectId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6778,6 +6886,10 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (filterValue != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "filterValue", filterValue));
+            }
+            if (groupId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "groupId", groupId));
             }
 
             // authentication (Basic) required
@@ -7176,6 +7288,196 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetRoomsPrimaryExternalLink", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Has tag links
+        /// </summary>
+        /// <remarks>
+        /// Checks if a specific custom tag has linked items.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagName"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
+        /// <returns>BooleanWrapper</returns>
+        public BooleanWrapper HasTagLinks(string tagName)
+        {
+            var localVarResponse = HasTagLinksWithHttpInfo(tagName);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Has tag links
+        /// </summary>
+        /// <remarks>
+        /// Checks if a specific custom tag has linked items.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagName"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        public ApiResponse<BooleanWrapper> HasTagLinksWithHttpInfo(string tagName)
+        {
+            // verify the required parameter 'tagName' is set
+            if (tagName == null)
+                throw new ApiException(400, "Missing required parameter 'tagName' when calling RoomsApi->HasTagLinks");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("tagName", ClientUtils.ParameterToString(tagName)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<BooleanWrapper>("/api/2.0/files/tags/{tagName}/haslinks", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("HasTagLinks", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Has tag links
+        /// </summary>
+        /// <remarks>
+        /// Checks if a specific custom tag has linked items.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagName"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
+        /// <returns>Task of BooleanWrapper</returns>
+        public async Task<BooleanWrapper> HasTagLinksAsync(string tagName, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await HasTagLinksWithHttpInfoAsync(tagName, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Has tag links
+        /// </summary>
+        /// <remarks>
+        /// Checks if a specific custom tag has linked items.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tagName"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        public async Task<ApiResponse<BooleanWrapper>> HasTagLinksWithHttpInfoAsync(string tagName, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'tagName' is set
+            if (tagName == null)
+                throw new ApiException(400, "Missing required parameter 'tagName' when calling RoomsApi->HasTagLinks");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("tagName", ClientUtils.ParameterToString(tagName)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<BooleanWrapper>("/api/2.0/files/tags/{tagName}/haslinks", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("HasTagLinks", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -9228,6 +9530,188 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("UpdateRoom", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update tag
+        /// </summary>
+        /// <remarks>
+        /// Updates the name of a custom tag.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateTagRequestDto">The request parameters for creating a tag. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room-tag/">REST API Reference for UpdateRoomTag Operation</seealso>
+        /// <returns>StringWrapper</returns>
+        public StringWrapper UpdateRoomTag(UpdateTagRequestDto? updateTagRequestDto = default)
+        {
+            var localVarResponse = UpdateRoomTagWithHttpInfo(updateTagRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update tag
+        /// </summary>
+        /// <remarks>
+        /// Updates the name of a custom tag.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateTagRequestDto">The request parameters for creating a tag. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room-tag/">REST API Reference for UpdateRoomTag Operation</seealso>
+        /// <returns>ApiResponse of StringWrapper</returns>
+        public ApiResponse<StringWrapper> UpdateRoomTagWithHttpInfo(UpdateTagRequestDto? updateTagRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (updateTagRequestDto != null) localVarRequestOptions.Data = updateTagRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<StringWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("UpdateRoomTag", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update tag
+        /// </summary>
+        /// <remarks>
+        /// Updates the name of a custom tag.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateTagRequestDto">The request parameters for creating a tag. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room-tag/">REST API Reference for UpdateRoomTag Operation</seealso>
+        /// <returns>Task of StringWrapper</returns>
+        public async Task<StringWrapper> UpdateRoomTagAsync(UpdateTagRequestDto? updateTagRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await UpdateRoomTagWithHttpInfoAsync(updateTagRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update tag
+        /// </summary>
+        /// <remarks>
+        /// Updates the name of a custom tag.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="updateTagRequestDto">The request parameters for creating a tag. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-room-tag/">REST API Reference for UpdateRoomTag Operation</seealso>
+        /// <returns>Task of ApiResponse (StringWrapper)</returns>
+        public async Task<ApiResponse<StringWrapper>> UpdateRoomTagWithHttpInfoAsync(UpdateTagRequestDto? updateTagRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (updateTagRequestDto != null) localVarRequestOptions.Data = updateTagRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<StringWrapper>("/api/2.0/files/tags", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("UpdateRoomTag", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

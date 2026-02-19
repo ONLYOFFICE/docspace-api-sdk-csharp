@@ -41,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of user IDs.</value>
         /*
-        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
+        <example>[75a5f745-f697-4418-b38d-0fe0d277e258]</example>
         */
-        [DataMember(Name = "userIds", EmitDefaultValue = true)]
+        [DataMember(Name = "userIds", EmitDefaultValue = false)]
         public List<Guid> UserIds { get; set; }
 
         /// <summary>

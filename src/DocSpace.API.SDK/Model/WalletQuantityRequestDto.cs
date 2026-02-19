@@ -36,7 +36,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="quantity">The mapping of item identifiers to their respective quantities in the payment..</param>
         /// <param name="productQuantityType">productQuantityType.</param>
-        public WalletQuantityRequestDto(Dictionary<string, int?> quantity = default, ProductQuantityType? productQuantityType = default)
+        public WalletQuantityRequestDto(Dictionary<string, int> quantity = default, ProductQuantityType? productQuantityType = default)
         {
             this.Quantity = quantity;
             this.ProductQuantityType = productQuantityType;
@@ -47,10 +47,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The mapping of item identifiers to their respective quantities in the payment.</value>
         /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:1234}]</example>
+        <example>[{key&#x3D;some text, value&#x3D;1234}]</example>
         */
-        [DataMember(Name = "quantity", EmitDefaultValue = true)]
-        public Dictionary<string, int?> Quantity { get; set; }
+        [DataMember(Name = "quantity", EmitDefaultValue = false)]
+        public Dictionary<string, int> Quantity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **StorageType** | **BackupStorageType** |  | 
 **StorageParams** | **Dictionary&lt;string, string&gt;** |  | 
 **CronParams** | [**CronParams**](CronParams.md) |  | 
-**BackupsStored** | **int?** |  | [optional] 
+**BackupsStored** | **int** |  | [optional] 
 **LastBackupTime** | **DateTime** |  | 
 **Dump** | **bool** |  | 
 

@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="docServiceSignatureSecret">The signature secret of the ONLYOFFICE Docs..</param>
         /// <param name="docServiceSignatureHeader">The signature header of the ONLYOFFICE Docs..</param>
         /// <param name="docServiceSslVerification">Specifies if the SSL verification of the ONLYOFFICE Docs is enabled or not..</param>
-        public CheckDocServiceUrlRequestDto(string docServiceUrl = default, string docServiceUrlInternal = default, string docServiceUrlPortal = default, string docServiceSignatureSecret = default, string docServiceSignatureHeader = default, bool? docServiceSslVerification = default)
+        public CheckDocServiceUrlRequestDto(string docServiceUrl = default, string docServiceUrlInternal = default, string docServiceUrlPortal = default, string docServiceSignatureSecret = default, string docServiceSignatureHeader = default, bool docServiceSslVerification = default)
         {
             // to ensure "docServiceUrl" is required (not null)
             if (docServiceUrl == null)
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "docServiceUrlInternal", EmitDefaultValue = true)]
+        [DataMember(Name = "docServiceUrlInternal", EmitDefaultValue = false)]
         public string DocServiceUrlInternal { get; set; }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "docServiceUrlPortal", EmitDefaultValue = true)]
+        [DataMember(Name = "docServiceUrlPortal", EmitDefaultValue = false)]
         public string DocServiceUrlPortal { get; set; }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "docServiceSignatureSecret", EmitDefaultValue = true)]
+        [DataMember(Name = "docServiceSignatureSecret", EmitDefaultValue = false)]
         public string DocServiceSignatureSecret { get; set; }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "docServiceSignatureHeader", EmitDefaultValue = true)]
+        [DataMember(Name = "docServiceSignatureHeader", EmitDefaultValue = false)]
         public string DocServiceSignatureHeader { get; set; }
 
         /// <summary>
@@ -112,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "docServiceSslVerification", EmitDefaultValue = true)]
-        public bool? DocServiceSslVerification { get; set; }
+        public bool DocServiceSslVerification { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

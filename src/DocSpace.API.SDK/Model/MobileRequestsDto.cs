@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "mobilePhone", EmitDefaultValue = true)]
+        [DataMember(Name = "mobilePhone", EmitDefaultValue = false)]
         public string MobilePhone { get; set; }
 
         /// <summary>

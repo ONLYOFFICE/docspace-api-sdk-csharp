@@ -29,7 +29,10 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="CompanyWhiteLabelSettingsDto" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CompanyWhiteLabelSettingsDto() { }
+        protected CompanyWhiteLabelSettingsDto()
+        {
+            this.AdditionalProperties = new Dictionary<string, object>();
+        }
         /// <summary>
         /// Initializes a new instance of the <see cref="CompanyWhiteLabelSettingsDto" /> class.
         /// </summary>
@@ -76,6 +79,7 @@ namespace DocSpace.API.SDK.Model
             this.IsLicensor = isLicensor;
             this.HideAbout = hideAbout;
             this.IsDefault = isDefault;
+            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -159,6 +163,12 @@ namespace DocSpace.API.SDK.Model
         public bool IsDefault { get; set; }
 
         /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [System.Text.Json.Serialization.JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -174,6 +184,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  IsLicensor: ").Append(IsLicensor).Append("\n");
             sb.Append("  HideAbout: ").Append(HideAbout).Append("\n");
             sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

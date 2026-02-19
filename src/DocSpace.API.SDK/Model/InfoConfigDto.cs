@@ -40,7 +40,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="sharingSettings">The sharing settings of the file..</param>
         /// <param name="type">type.</param>
         /// <param name="uploaded">The uploaded file..</param>
-        public InfoConfigDto(bool? favorite = default, string folder = default, string owner = default, List<AceShortWrapper> sharingSettings = default, EditorType? type = default, string uploaded = default)
+        public InfoConfigDto(bool favorite = default, string folder = default, string owner = default, List<AceShortWrapper> sharingSettings = default, EditorType? type = default, string uploaded = default)
         {
             this.Favorite = favorite;
             this.Folder = folder;
@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "favorite", EmitDefaultValue = true)]
-        public bool? Favorite { get; set; }
+        public bool Favorite { get; set; }
 
         /// <summary>
         /// The folder of the file.
@@ -67,7 +67,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "folder", EmitDefaultValue = true)]
+        [DataMember(Name = "folder", EmitDefaultValue = false)]
         public string Folder { get; set; }
 
         /// <summary>
@@ -77,14 +77,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "owner", EmitDefaultValue = true)]
+        [DataMember(Name = "owner", EmitDefaultValue = false)]
         public string Owner { get; set; }
 
         /// <summary>
         /// The sharing settings of the file.
         /// </summary>
         /// <value>The sharing settings of the file.</value>
-        [DataMember(Name = "sharingSettings", EmitDefaultValue = true)]
+        [DataMember(Name = "sharingSettings", EmitDefaultValue = false)]
         public List<AceShortWrapper> SharingSettings { get; set; }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "uploaded", EmitDefaultValue = true)]
+        [DataMember(Name = "uploaded", EmitDefaultValue = false)]
         public string Uploaded { get; set; }
 
         /// <summary>

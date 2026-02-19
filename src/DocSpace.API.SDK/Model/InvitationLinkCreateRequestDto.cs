@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="employeeType">employeeType (required).</param>
         /// <param name="expiration">The expiration date of the invitation link..</param>
         /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
-        public InvitationLinkCreateRequestDto(EmployeeType employeeType = default, DateTime? expiration = default, int? maxUseCount = default)
+        public InvitationLinkCreateRequestDto(EmployeeType employeeType = default, DateTime expiration = default, int maxUseCount = default)
         {
             this.EmployeeType = employeeType;
             this.Expiration = expiration;
@@ -54,10 +54,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The expiration date of the invitation link.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
-        [DataMember(Name = "expiration", EmitDefaultValue = true)]
-        public DateTime? Expiration { get; set; }
+        [DataMember(Name = "expiration", EmitDefaultValue = false)]
+        public DateTime Expiration { get; set; }
 
         /// <summary>
         /// The maximum number of times the invitation link can be used.
@@ -66,8 +66,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
-        public int? MaxUseCount { get; set; }
+        [DataMember(Name = "maxUseCount", EmitDefaultValue = false)]
+        public int MaxUseCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -100,14 +100,14 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // MaxUseCount (int?) maximum
-            if (this.MaxUseCount > (int?)1000)
+            // MaxUseCount (int) maximum
+            if (this.MaxUseCount > (int)1000)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxUseCount, must be a value less than or equal to 1000.", new [] { "MaxUseCount" });
             }
 
-            // MaxUseCount (int?) minimum
-            if (this.MaxUseCount < (int?)1)
+            // MaxUseCount (int) minimum
+            if (this.MaxUseCount < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxUseCount, must be a value greater than or equal to 1.", new [] { "MaxUseCount" });
             }

@@ -39,9 +39,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of file titles.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "filesTitle", EmitDefaultValue = true)]
+        [DataMember(Name = "filesTitle", EmitDefaultValue = false)]
         public List<string> FilesTitle { get; set; }
 
         /// <summary>

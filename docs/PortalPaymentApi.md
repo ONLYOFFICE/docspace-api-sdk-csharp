@@ -771,8 +771,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var startDate = 2008-04-10T06:30+04:00;  // DateTime? | The report start date. (optional) 
-            var endDate = 2008-04-10T06:30+04:00;  // DateTime? | The report end date. (optional) 
+            var startDate = 2008-04-10T06:30:00.0000000+04:00;  // DateTime? | The report start date. (optional) 
+            var endDate = 2008-04-10T06:30:00.0000000+04:00;  // DateTime? | The report end date. (optional) 
             var participantName = some text;  // string? | The participant name. (optional) 
             var credit = true;  // bool? | Specifies whether to include credit operations in the report. The default value is true. (optional) 
             var debit = true;  // bool? | Specifies whether to include debit operations in the report. The default value is true. (optional) 

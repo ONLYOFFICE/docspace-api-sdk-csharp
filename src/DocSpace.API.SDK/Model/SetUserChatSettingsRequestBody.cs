@@ -29,7 +29,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="SetUserChatSettingsRequestBody" /> class.
         /// </summary>
         /// <param name="webSearchEnabled">Indicates whether the AI assistant is allowed to perform web searches when generating responses..</param>
-        public SetUserChatSettingsRequestBody(bool? webSearchEnabled = default)
+        public SetUserChatSettingsRequestBody(bool webSearchEnabled = default)
         {
             this.WebSearchEnabled = webSearchEnabled;
         }
@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "webSearchEnabled", EmitDefaultValue = true)]
-        public bool? WebSearchEnabled { get; set; }
+        public bool WebSearchEnabled { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

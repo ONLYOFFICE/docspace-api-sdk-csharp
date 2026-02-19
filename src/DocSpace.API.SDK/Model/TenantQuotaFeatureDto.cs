@@ -31,7 +31,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="id">The ID of the tenant quota feature..</param>
         /// <param name="title">The title of the tenant quota feature..</param>
         /// <param name="image">The image URL of the tenant quota feature..</param>
-        /// <param name="value">The value of the tenant quota feature..</param>
+        /// <param name="value">value.</param>
         /// <param name="type">The type of the tenant quota feature..</param>
         /// <param name="used">used.</param>
         /// <param name="priceTitle">The price title of the tenant quota feature..</param>
@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>SampleFile</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -73,13 +73,12 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "image", EmitDefaultValue = true)]
+        [DataMember(Name = "image", EmitDefaultValue = false)]
         public string Image { get; set; }
 
         /// <summary>
-        /// The value of the tenant quota feature.
+        /// Gets or Sets Value
         /// </summary>
-        /// <value>The value of the tenant quota feature.</value>
         [DataMember(Name = "value", EmitDefaultValue = true)]
         public Object Value { get; set; }
 
@@ -90,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "type", EmitDefaultValue = true)]
+        [DataMember(Name = "type", EmitDefaultValue = false)]
         public string Type { get; set; }
 
         /// <summary>
@@ -106,7 +105,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "priceTitle", EmitDefaultValue = true)]
+        [DataMember(Name = "priceTitle", EmitDefaultValue = false)]
         public string PriceTitle { get; set; }
 
         /// <summary>

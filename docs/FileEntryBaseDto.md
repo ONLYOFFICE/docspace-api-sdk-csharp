@@ -20,11 +20,11 @@ Name | Type | Description | Notes
 **RootFolderType** | **FolderType** |  | [optional] 
 **ParentRoomType** | **FolderType** |  | [optional] 
 **UpdatedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
-**ProviderItem** | **bool?** | Specifies if the file entry provider is specified or not. | [optional] 
+**ProviderItem** | **bool** | Specifies if the file entry provider is specified or not. | [optional] 
 **ProviderKey** | **string** | The provider key of the file entry. | [optional] 
-**ProviderId** | **int?** | The provider ID of the file entry. | [optional] 
+**ProviderId** | **int** | The provider ID of the file entry. | [optional] 
 **Order** | **string** | The order of the file entry. | [optional] 
-**IsFavorite** | **bool?** | Specifies if the file is a favorite or not. | [optional] 
+**IsFavorite** | **bool** | Specifies if the file is a favorite or not. | [optional] 
 **FileEntryType** | **FileEntryType** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

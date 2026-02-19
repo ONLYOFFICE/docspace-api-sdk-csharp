@@ -56,14 +56,14 @@ namespace DocSpace.API.SDK.Model
         /// The list of folder IDs to be copied/moved.
         /// </summary>
         /// <value>The list of folder IDs to be copied/moved.</value>
-        [DataMember(Name = "folderIds", EmitDefaultValue = true)]
+        [DataMember(Name = "folderIds", EmitDefaultValue = false)]
         public List<BatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to be copied/moved.
         /// </summary>
         /// <value>The list of file IDs to be copied/moved.</value>
-        [DataMember(Name = "fileIds", EmitDefaultValue = true)]
+        [DataMember(Name = "fileIds", EmitDefaultValue = false)]
         public List<BatchRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>

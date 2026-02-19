@@ -980,8 +980,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
-            var from = 2008-04-10T06:30+04:00;  // DateTime? | The from date. (optional) 
-            var to = 2008-04-10T06:30+04:00;  // DateTime? | The to date. (optional) 
+            var from = 2008-04-10T06:30:00.0000000+04:00;  // DateTime? | The from date. (optional) 
+            var to = 2008-04-10T06:30:00.0000000+04:00;  // DateTime? | The to date. (optional) 
             var paid = true;  // bool? | Specifies if the backups are paid or not. (optional) 
 
             try

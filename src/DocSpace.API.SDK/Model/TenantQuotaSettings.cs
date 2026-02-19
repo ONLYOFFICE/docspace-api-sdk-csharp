@@ -32,7 +32,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="quota">The tenant quota..</param>
         /// <param name="lastRecalculateDate">The date of the last tenant quota recalculation..</param>
         /// <param name="lastModified">lastModified.</param>
-        public TenantQuotaSettings(bool enableQuota = default, long quota = default, DateTime? lastRecalculateDate = default, DateTime lastModified = default)
+        public TenantQuotaSettings(bool enableQuota = default, long quota = default, DateTime lastRecalculateDate = default, DateTime lastModified = default)
         {
             this.EnableQuota = enableQuota;
             this.Quota = quota;
@@ -65,16 +65,16 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date of the last tenant quota recalculation.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
-        [DataMember(Name = "lastRecalculateDate", EmitDefaultValue = true)]
-        public DateTime? LastRecalculateDate { get; set; }
+        [DataMember(Name = "lastRecalculateDate", EmitDefaultValue = false)]
+        public DateTime LastRecalculateDate { get; set; }
 
         /// <summary>
         /// Gets or Sets LastModified
         /// </summary>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }

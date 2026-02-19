@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "entityId", EmitDefaultValue = true)]
+        [DataMember(Name = "entityId", EmitDefaultValue = false)]
         public string EntityId { get; set; }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "ssoUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "ssoUrl", EmitDefaultValue = false)]
         public string SsoUrl { get; set; }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "ssoBinding", EmitDefaultValue = true)]
+        [DataMember(Name = "ssoBinding", EmitDefaultValue = false)]
         public string SsoBinding { get; set; }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "sloUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "sloUrl", EmitDefaultValue = false)]
         public string SloUrl { get; set; }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "sloBinding", EmitDefaultValue = true)]
+        [DataMember(Name = "sloBinding", EmitDefaultValue = false)]
         public string SloBinding { get; set; }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "nameIdFormat", EmitDefaultValue = true)]
+        [DataMember(Name = "nameIdFormat", EmitDefaultValue = false)]
         public string NameIdFormat { get; set; }
 
         /// <summary>

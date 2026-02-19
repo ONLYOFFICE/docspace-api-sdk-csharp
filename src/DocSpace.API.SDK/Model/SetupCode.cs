@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "account", EmitDefaultValue = true)]
+        [DataMember(Name = "account", EmitDefaultValue = false)]
         public string Account { get; private set; }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "manualEntryKey", EmitDefaultValue = true)]
+        [DataMember(Name = "manualEntryKey", EmitDefaultValue = false)]
         public string ManualEntryKey { get; private set; }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "qrCodeSetupImageUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "qrCodeSetupImageUrl", EmitDefaultValue = false)]
         public string QrCodeSetupImageUrl { get; private set; }
 
         /// <summary>

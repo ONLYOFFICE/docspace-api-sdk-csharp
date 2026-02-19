@@ -73,9 +73,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of user and group identifiers granted access to the module.</value>
         /*
-        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
+        <example>[75a5f745-f697-4418-b38d-0fe0d277e258]</example>
         */
-        [DataMember(Name = "subjects", EmitDefaultValue = true)]
+        [DataMember(Name = "subjects", EmitDefaultValue = false)]
         public List<Guid> Subjects { get; set; }
 
         /// <summary>

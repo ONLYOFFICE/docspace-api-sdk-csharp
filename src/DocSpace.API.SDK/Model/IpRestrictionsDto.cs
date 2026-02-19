@@ -35,7 +35,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="ipRestrictions">The list of IP restriction addresses. (required).</param>
         /// <param name="enable">Specifies whether to enable IP restrictions or not..</param>
-        public IpRestrictionsDto(List<IpRestrictionBase> ipRestrictions = default, bool? enable = default)
+        public IpRestrictionsDto(List<IpRestrictionBase> ipRestrictions = default, bool enable = default)
         {
             // to ensure "ipRestrictions" is required (not null)
             if (ipRestrictions == null)
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "enable", EmitDefaultValue = true)]
-        public bool? Enable { get; set; }
+        public bool Enable { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

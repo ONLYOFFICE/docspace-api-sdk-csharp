@@ -59,21 +59,21 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>{some-random-guid}</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = false)]
         public string Id { get; set; }
 
         /// <summary>
         /// The error message if the SMTP operation encountered issues.
         /// </summary>
         /// <value>The error message if the SMTP operation encountered issues.</value>
-        [DataMember(Name = "error", EmitDefaultValue = true)]
+        [DataMember(Name = "error", EmitDefaultValue = false)]
         public string Error { get; set; }
 
         /// <summary>
         /// The current state of the SMTP operation.
         /// </summary>
         /// <value>The current state of the SMTP operation.</value>
-        [DataMember(Name = "status", EmitDefaultValue = true)]
+        [DataMember(Name = "status", EmitDefaultValue = false)]
         public string Status { get; set; }
 
         /// <summary>

@@ -60,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// The optional collection of file identifiers to attach as context for the AI model.
         /// </summary>
         /// <value>The optional collection of file identifiers to attach as context for the AI model.</value>
-        [DataMember(Name = "files", EmitDefaultValue = true)]
+        [DataMember(Name = "files", EmitDefaultValue = false)]
         public List<ContinueChatBodyFilesInner> Files { get; set; }
 
         /// <summary>

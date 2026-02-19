@@ -62,6 +62,7 @@ Name | Type | Description | Notes
 **MaxUploadThreadCount** | **int** | The maximum number of upload threads. | [optional] 
 **ChunkUploadSize** | **long** | The size of a large file that is uploaded in chunks. | [optional] 
 **OpenEditorInSameTab** | **bool** | Specifies whether to open the editor in the same tab or not. | [optional] 
+**OrganizeRoomsGrouping** | **bool** | Specifies whether the grouping of rooms is enabled or not. | [optional] 
 **ExtsFilesVectorized** | **List&lt;string&gt;** | List of extensions available for vectorization | [optional] 
 **MaxVectorizationFileSize** | **long** | The maximum file size for vectorization | [optional] 
 

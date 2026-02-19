@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>abcde12345</example>
         */
-        [DataMember(Name = "token", EmitDefaultValue = true)]
+        [DataMember(Name = "token", EmitDefaultValue = false)]
         public string Token { get; set; }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The token expiration time.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "expires", EmitDefaultValue = false)]
         public DateTime Expires { get; set; }
@@ -80,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /// The phone number.
         /// </summary>
         /// <value>The phone number.</value>
-        [DataMember(Name = "phoneNoise", EmitDefaultValue = true)]
+        [DataMember(Name = "phoneNoise", EmitDefaultValue = false)]
         public string PhoneNoise { get; set; }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace DocSpace.API.SDK.Model
         /// The two-factor authentication key.
         /// </summary>
         /// <value>The two-factor authentication key.</value>
-        [DataMember(Name = "tfaKey", EmitDefaultValue = true)]
+        [DataMember(Name = "tfaKey", EmitDefaultValue = false)]
         public string TfaKey { get; set; }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "confirmUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "confirmUrl", EmitDefaultValue = false)]
         public string ConfirmUrl { get; set; }
 
         /// <summary>

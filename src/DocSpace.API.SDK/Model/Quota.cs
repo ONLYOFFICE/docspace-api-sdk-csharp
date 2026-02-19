@@ -40,7 +40,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="dueDate">The quota due date..</param>
         /// <param name="nextQuantity">The quota next quantity..</param>
         /// <param name="state">state.</param>
-        public Quota(int id = default, int quantity = default, bool wallet = default, DateTime? dueDate = default, int? nextQuantity = default, QuotaState? state = default)
+        public Quota(int id = default, int quantity = default, bool wallet = default, DateTime dueDate = default, int nextQuantity = default, QuotaState? state = default)
         {
             this.Id = id;
             this.Quantity = quantity;
@@ -85,10 +85,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The quota due date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
-        [DataMember(Name = "dueDate", EmitDefaultValue = true)]
-        public DateTime? DueDate { get; set; }
+        [DataMember(Name = "dueDate", EmitDefaultValue = false)]
+        public DateTime DueDate { get; set; }
 
         /// <summary>
         /// The quota next quantity.
@@ -97,8 +97,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "nextQuantity", EmitDefaultValue = true)]
-        public int? NextQuantity { get; set; }
+        [DataMember(Name = "nextQuantity", EmitDefaultValue = false)]
+        public int NextQuantity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

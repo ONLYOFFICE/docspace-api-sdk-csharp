@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **EntityId** | **string** | The unique identifier of the shared entity. | [optional] 
 **EntityTitle** | **string** | The title of the shared entity. | [optional] 
 **EntityType** | **FileEntryType** |  | [optional] 
-**IsRoom** | **bool?** | Indicates whether the entity represents a room. | [optional] 
+**IsRoom** | **bool** | Indicates whether the entity represents a room. | [optional] 
 **Shared** | **bool** | Specifies whether to share the external data or not. | 
 **LinkId** | **Guid** | The link ID of the external data. | 
 **IsAuthenticated** | **bool** | Specifies whether the user is authenticated or not. | 

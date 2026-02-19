@@ -79,7 +79,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>SampleFile</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "providerKey", EmitDefaultValue = true)]
+        [DataMember(Name = "providerKey", EmitDefaultValue = false)]
         public string ProviderKey { get; set; }
 
         /// <summary>

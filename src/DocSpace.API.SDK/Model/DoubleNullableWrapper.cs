@@ -33,7 +33,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="links">links.</param>
         /// <param name="status">status.</param>
         /// <param name="statusCode">statusCode.</param>
-        public DoubleNullableWrapper(decimal? response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public DoubleNullableWrapper(decimal response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -45,8 +45,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets Response
         /// </summary>
-        [DataMember(Name = "response", EmitDefaultValue = true)]
-        public decimal? Response { get; set; }
+        [DataMember(Name = "response", EmitDefaultValue = false)]
+        public decimal Response { get; set; }
 
         /// <summary>
         /// Gets or Sets Count

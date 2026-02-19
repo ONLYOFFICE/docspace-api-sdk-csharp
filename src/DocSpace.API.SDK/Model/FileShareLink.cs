@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="requestToken">The token for validating access requests..</param>
         /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
         /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>
-        public FileShareLink(Guid id = default, string title = default, string shareLink = default, ApiDateTime expirationDate = default, LinkType? linkType = default, string password = default, bool? denyDownload = default, bool? isExpired = default, bool primary = default, bool? @internal = default, string requestToken = default, int? maxUseCount = default, int? currentUseCount = default)
+        public FileShareLink(Guid id = default, string title = default, string shareLink = default, ApiDateTime expirationDate = default, LinkType? linkType = default, string password = default, bool denyDownload = default, bool isExpired = default, bool primary = default, bool @internal = default, string requestToken = default, int maxUseCount = default, int currentUseCount = default)
         {
             this.Id = id;
             this.Title = title;
@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>SampleFile</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "shareLink", EmitDefaultValue = true)]
+        [DataMember(Name = "shareLink", EmitDefaultValue = false)]
         public string ShareLink { get; set; }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>P@ssw0rd123</example>
         */
-        [DataMember(Name = "password", EmitDefaultValue = true)]
+        [DataMember(Name = "password", EmitDefaultValue = false)]
         public string Password { get; set; }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
-        public bool? DenyDownload { get; set; }
+        public bool DenyDownload { get; set; }
 
         /// <summary>
         /// Indicates whether the shared link has expired.
@@ -128,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isExpired", EmitDefaultValue = true)]
-        public bool? IsExpired { get; set; }
+        public bool IsExpired { get; set; }
 
         /// <summary>
         /// Indicates whether this is the primary shared link.
@@ -148,7 +148,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "internal", EmitDefaultValue = true)]
-        public bool? Internal { get; set; }
+        public bool Internal { get; set; }
 
         /// <summary>
         /// The token for validating access requests.
@@ -157,7 +157,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "requestToken", EmitDefaultValue = true)]
+        [DataMember(Name = "requestToken", EmitDefaultValue = false)]
         public string RequestToken { get; set; }
 
         /// <summary>
@@ -167,8 +167,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
-        public int? MaxUseCount { get; set; }
+        [DataMember(Name = "maxUseCount", EmitDefaultValue = false)]
+        public int MaxUseCount { get; set; }
 
         /// <summary>
         /// The current number of times the invitation link has been used.
@@ -177,8 +177,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "currentUseCount", EmitDefaultValue = true)]
-        public int? CurrentUseCount { get; set; }
+        [DataMember(Name = "currentUseCount", EmitDefaultValue = false)]
+        public int CurrentUseCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "relativePath", EmitDefaultValue = true)]
+        [DataMember(Name = "relativePath", EmitDefaultValue = false)]
         public string RelativePath { get; set; }
 
         /// <summary>

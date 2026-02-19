@@ -79,7 +79,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tariff due date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "dueDate", IsRequired = true, EmitDefaultValue = true)]
         public DateTime DueDate { get; set; }
@@ -89,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tariff delay due date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "delayDueDate", EmitDefaultValue = false)]
         public DateTime DelayDueDate { get; set; }
@@ -99,7 +99,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tariff license date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "licenseDate", EmitDefaultValue = false)]
         public DateTime LicenseDate { get; set; }
@@ -111,7 +111,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "customerId", EmitDefaultValue = true)]
+        [DataMember(Name = "customerId", EmitDefaultValue = false)]
         public string CustomerId { get; set; }
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of overdue tariff quotas.
         /// </summary>
         /// <value>The list of overdue tariff quotas.</value>
-        [DataMember(Name = "overdueQuotas", EmitDefaultValue = true)]
+        [DataMember(Name = "overdueQuotas", EmitDefaultValue = false)]
         public List<Quota> OverdueQuotas { get; set; }
 
         /// <summary>

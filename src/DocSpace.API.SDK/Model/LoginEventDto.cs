@@ -87,7 +87,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "user", EmitDefaultValue = true)]
+        [DataMember(Name = "user", EmitDefaultValue = false)]
         public string User { get; set; }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "login", EmitDefaultValue = true)]
+        [DataMember(Name = "login", EmitDefaultValue = false)]
         public string Login { get; set; }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "action", EmitDefaultValue = true)]
+        [DataMember(Name = "action", EmitDefaultValue = false)]
         public string Action { get; set; }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "ip", EmitDefaultValue = true)]
+        [DataMember(Name = "ip", EmitDefaultValue = false)]
         public string Ip { get; set; }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "country", EmitDefaultValue = true)]
+        [DataMember(Name = "country", EmitDefaultValue = false)]
         public string Country { get; set; }
 
         /// <summary>
@@ -147,7 +147,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "city", EmitDefaultValue = true)]
+        [DataMember(Name = "city", EmitDefaultValue = false)]
         public string City { get; set; }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "browser", EmitDefaultValue = true)]
+        [DataMember(Name = "browser", EmitDefaultValue = false)]
         public string Browser { get; set; }
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "platform", EmitDefaultValue = true)]
+        [DataMember(Name = "platform", EmitDefaultValue = false)]
         public string Platform { get; set; }
 
         /// <summary>
@@ -177,7 +177,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "page", EmitDefaultValue = true)]
+        [DataMember(Name = "page", EmitDefaultValue = false)]
         public string Page { get; set; }
 
         /// <summary>

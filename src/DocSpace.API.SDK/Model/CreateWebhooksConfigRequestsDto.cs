@@ -94,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "secretKey", EmitDefaultValue = true)]
+        [DataMember(Name = "secretKey", EmitDefaultValue = false)]
         public string SecretKey { get; set; }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "targetId", EmitDefaultValue = true)]
+        [DataMember(Name = "targetId", EmitDefaultValue = false)]
         public string TargetId { get; set; }
 
         /// <summary>

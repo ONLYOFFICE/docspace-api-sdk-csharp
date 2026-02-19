@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="color">The room color..</param>
         /// <param name="cover">The room cover..</param>
         /// <param name="chatSettings">chatSettings.</param>
-        public UpdateRoomRequest(string title = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, ChatSettings chatSettings = default)
+        public UpdateRoomRequest(string title = default, long quota = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, ChatSettings chatSettings = default)
         {
             this.Title = title;
             this.Quota = quota;
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>SampleFile</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -71,8 +71,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "quota", EmitDefaultValue = true)]
-        public long? Quota { get; set; }
+        [DataMember(Name = "quota", EmitDefaultValue = false)]
+        public long Quota { get; set; }
 
         /// <summary>
         /// Specifies whether to create a third-party room with indexing.
@@ -82,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "indexing", EmitDefaultValue = true)]
-        public bool? Indexing { get; set; }
+        public bool Indexing { get; set; }
 
         /// <summary>
         /// Specifies whether to deny downloads from the third-party room.
@@ -92,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
-        public bool? DenyDownload { get; set; }
+        public bool DenyDownload { get; set; }
 
         /// <summary>
         /// Gets or Sets Lifetime
@@ -117,9 +117,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tags.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "tags", EmitDefaultValue = true)]
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "color", EmitDefaultValue = true)]
+        [DataMember(Name = "color", EmitDefaultValue = false)]
         public string Color { get; set; }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "cover", EmitDefaultValue = true)]
+        [DataMember(Name = "cover", EmitDefaultValue = false)]
         public string Cover { get; set; }
 
         /// <summary>

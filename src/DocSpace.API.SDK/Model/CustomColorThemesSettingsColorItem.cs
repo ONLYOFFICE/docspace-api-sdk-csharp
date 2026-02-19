@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>#4781D1</example>
         */
-        [DataMember(Name = "accent", EmitDefaultValue = true)]
+        [DataMember(Name = "accent", EmitDefaultValue = false)]
         public string Accent { get; set; }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>#5299E0</example>
         */
-        [DataMember(Name = "buttons", EmitDefaultValue = true)]
+        [DataMember(Name = "buttons", EmitDefaultValue = false)]
         public string Buttons { get; set; }
 
         /// <summary>

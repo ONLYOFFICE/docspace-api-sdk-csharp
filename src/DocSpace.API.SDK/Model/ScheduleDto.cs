@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="backupsStored">backupsStored.</param>
         /// <param name="lastBackupTime">lastBackupTime (required).</param>
         /// <param name="dump">dump (required).</param>
-        public ScheduleDto(BackupStorageType storageType = default, Dictionary<string, string> storageParams = default, CronParams cronParams = default, int? backupsStored = default, DateTime lastBackupTime = default, bool dump = default)
+        public ScheduleDto(BackupStorageType storageType = default, Dictionary<string, string> storageParams = default, CronParams cronParams = default, int backupsStored = default, DateTime lastBackupTime = default, bool dump = default)
         {
             this.StorageType = storageType;
             // to ensure "storageParams" is required (not null)
@@ -69,7 +69,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets StorageParams
         /// </summary>
         /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
+        <example>[{key&#x3D;some text, value&#x3D;some text}]</example>
         */
         [DataMember(Name = "storageParams", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, string> StorageParams { get; set; }
@@ -86,14 +86,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "backupsStored", EmitDefaultValue = true)]
-        public int? BackupsStored { get; set; }
+        [DataMember(Name = "backupsStored", EmitDefaultValue = false)]
+        public int BackupsStored { get; set; }
 
         /// <summary>
         /// Gets or Sets LastBackupTime
         /// </summary>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "lastBackupTime", IsRequired = true, EmitDefaultValue = true)]
         public DateTime LastBackupTime { get; set; }

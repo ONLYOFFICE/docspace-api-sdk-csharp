@@ -44,23 +44,23 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "module", EmitDefaultValue = true)]
+        [DataMember(Name = "module", EmitDefaultValue = false)]
         public string Module { get; set; }
 
         /// <summary>
         /// Gets or Sets Props
         /// </summary>
         /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
+        <example>[{key&#x3D;some text, value&#x3D;some text}]</example>
         */
-        [DataMember(Name = "props", EmitDefaultValue = true)]
+        [DataMember(Name = "props", EmitDefaultValue = false)]
         public Dictionary<string, string> Props { get; set; }
 
         /// <summary>
         /// Gets or Sets LastModified
         /// </summary>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }

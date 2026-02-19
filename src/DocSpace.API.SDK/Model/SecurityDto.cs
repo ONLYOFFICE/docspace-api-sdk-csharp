@@ -49,21 +49,21 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>{00000000-0000-0000-0000-000000000000}</example>
         */
-        [DataMember(Name = "webItemId", EmitDefaultValue = true)]
+        [DataMember(Name = "webItemId", EmitDefaultValue = false)]
         public string WebItemId { get; set; }
 
         /// <summary>
         /// The list of users with the access to the module.
         /// </summary>
         /// <value>The list of users with the access to the module.</value>
-        [DataMember(Name = "users", EmitDefaultValue = true)]
+        [DataMember(Name = "users", EmitDefaultValue = false)]
         public List<EmployeeDto> Users { get; set; }
 
         /// <summary>
         /// The list of groups with the access to the module.
         /// </summary>
         /// <value>The list of groups with the access to the module.</value>
-        [DataMember(Name = "groups", EmitDefaultValue = true)]
+        [DataMember(Name = "groups", EmitDefaultValue = false)]
         public List<GroupSummaryDto> Groups { get; set; }
 
         /// <summary>

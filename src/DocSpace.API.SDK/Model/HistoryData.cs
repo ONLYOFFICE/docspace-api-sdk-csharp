@@ -40,7 +40,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "initiatorName", EmitDefaultValue = true)]
+        [DataMember(Name = "initiatorName", EmitDefaultValue = false)]
         public string InitiatorName { get; private set; }
 
         /// <summary>

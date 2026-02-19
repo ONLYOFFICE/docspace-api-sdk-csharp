@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>List of tool names to disable. Tools not included in this list will remain enabled. Pass an empty list to enable all tools.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
         [DataMember(Name = "disabledTools", IsRequired = true, EmitDefaultValue = true)]
         public List<string> DisabledTools { get; set; }

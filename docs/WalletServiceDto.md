@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **RoomsQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) |  | [optional] 
 **AiAgentsQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) |  | [optional] 
 **TenantCustomQuota** | [**TenantQuotaSettings**](TenantQuotaSettings.md) |  | [optional] 
-**DueDate** | **DateTime?** | The due date. | [optional] 
+**DueDate** | **DateTime** | The due date. | [optional] 
 **InnerServices** | [**List&lt;QuotaDto&gt;**](QuotaDto.md) | The list of inner services. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

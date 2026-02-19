@@ -167,7 +167,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "minDocSpaceVersion", EmitDefaultValue = true)]
+        [DataMember(Name = "minDocSpaceVersion", EmitDefaultValue = false)]
         public string MinDocSpaceVersion { get; set; }
 
         /// <summary>
@@ -251,7 +251,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the web plugin was created.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "createOn", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreateOn { get; set; }
@@ -311,9 +311,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The web plugin localized name.</value>
         /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
+        <example>[{key&#x3D;some text, value&#x3D;some text}]</example>
         */
-        [DataMember(Name = "nameLocale", EmitDefaultValue = true)]
+        [DataMember(Name = "nameLocale", EmitDefaultValue = false)]
         public Dictionary<string, string> NameLocale { get; set; }
 
         /// <summary>
@@ -321,9 +321,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The web plugin localized description.</value>
         /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
+        <example>[{key&#x3D;some text, value&#x3D;some text}]</example>
         */
-        [DataMember(Name = "descriptionLocale", EmitDefaultValue = true)]
+        [DataMember(Name = "descriptionLocale", EmitDefaultValue = false)]
         public Dictionary<string, string> DescriptionLocale { get; set; }
 
         /// <summary>

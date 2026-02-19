@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Response** | **decimal?** |  | [optional] 
+**Response** | **decimal** |  | [optional] 
 **Count** | **int** |  | [optional] 
 **Links** | [**List&lt;GetPortalPrices200ResponseLinksInner&gt;**](GetPortalPrices200ResponseLinksInner.md) |  | [optional] 
 **Status** | **int** |  | [optional] 

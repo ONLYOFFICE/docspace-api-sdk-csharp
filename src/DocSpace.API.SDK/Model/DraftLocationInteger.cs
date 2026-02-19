@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "folderTitle", EmitDefaultValue = true)]
+        [DataMember(Name = "folderTitle", EmitDefaultValue = false)]
         public string FolderTitle { get; set; }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileTitle", EmitDefaultValue = true)]
+        [DataMember(Name = "fileTitle", EmitDefaultValue = false)]
         public string FileTitle { get; set; }
 
         /// <summary>

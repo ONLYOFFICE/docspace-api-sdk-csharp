@@ -42,21 +42,21 @@ namespace DocSpace.API.SDK.Model
         /// The list of folder IDs to be downloaded.
         /// </summary>
         /// <value>The list of folder IDs to be downloaded.</value>
-        [DataMember(Name = "folderIds", EmitDefaultValue = true)]
+        [DataMember(Name = "folderIds", EmitDefaultValue = false)]
         public List<DownloadRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to be downloaded.
         /// </summary>
         /// <value>The list of file IDs to be downloaded.</value>
-        [DataMember(Name = "fileIds", EmitDefaultValue = true)]
+        [DataMember(Name = "fileIds", EmitDefaultValue = false)]
         public List<DownloadRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
         /// The list of file IDs which will be converted.
         /// </summary>
         /// <value>The list of file IDs which will be converted.</value>
-        [DataMember(Name = "fileConvertIds", EmitDefaultValue = true)]
+        [DataMember(Name = "fileConvertIds", EmitDefaultValue = false)]
         public List<DownloadRequestItemDto> FileConvertIds { get; set; }
 
         /// <summary>

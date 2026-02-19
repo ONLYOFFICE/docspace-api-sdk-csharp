@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "domain", EmitDefaultValue = true)]
+        [DataMember(Name = "domain", EmitDefaultValue = false)]
         public string Domain { get; set; }
 
         /// <summary>
@@ -51,9 +51,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The external resource entries.</value>
         /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
+        <example>[{key&#x3D;some text, value&#x3D;some text}]</example>
         */
-        [DataMember(Name = "entries", EmitDefaultValue = true)]
+        [DataMember(Name = "entries", EmitDefaultValue = false)]
         public Dictionary<string, string> Entries { get; set; }
 
         /// <summary>

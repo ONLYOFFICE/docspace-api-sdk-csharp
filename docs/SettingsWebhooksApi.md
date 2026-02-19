@@ -520,8 +520,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebhooksApi(httpClient, config, httpClientHandler);
-            var deliveryFrom = 2008-04-10T06:30+04:00;  // DateTime? | The delivery start time for filtering webhook logs. (optional) 
-            var deliveryTo = 2008-04-10T06:30+04:00;  // DateTime? | The delivery end time for filtering webhook logs. (optional) 
+            var deliveryFrom = 2008-04-10T06:30:00.0000000+04:00;  // DateTime? | The delivery start time for filtering webhook logs. (optional) 
+            var deliveryTo = 2008-04-10T06:30:00.0000000+04:00;  // DateTime? | The delivery end time for filtering webhook logs. (optional) 
             var hookUri = some text;  // string? | The destination URL where webhooks are delivered. (optional) 
             var configId = 1234;  // int? | The webhook configuration identifier. (optional) 
             var eventId = 1234;  // int? | The unique identifier of the event that triggered the webhook. (optional) 

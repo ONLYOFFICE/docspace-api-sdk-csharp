@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The last modified date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }

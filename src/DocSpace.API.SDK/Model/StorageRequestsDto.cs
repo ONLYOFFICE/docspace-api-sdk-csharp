@@ -60,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of configuration key-value pairs for the storage module.
         /// </summary>
         /// <value>The list of configuration key-value pairs for the storage module.</value>
-        [DataMember(Name = "props", EmitDefaultValue = true)]
+        [DataMember(Name = "props", EmitDefaultValue = false)]
         public List<ItemKeyValuePairStringString> Props { get; set; }
 
         /// <summary>

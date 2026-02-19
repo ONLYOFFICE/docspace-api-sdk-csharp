@@ -67,7 +67,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "appName", EmitDefaultValue = true)]
+        [DataMember(Name = "appName", EmitDefaultValue = false)]
         public string AppName { get; set; }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>SampleFile</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "link", EmitDefaultValue = true)]
+        [DataMember(Name = "link", EmitDefaultValue = false)]
         public string Link { get; set; }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "iconUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "iconUrl", EmitDefaultValue = false)]
         public string IconUrl { get; set; }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "imageUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "imageUrl", EmitDefaultValue = false)]
         public string ImageUrl { get; set; }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "helpUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "helpUrl", EmitDefaultValue = false)]
         public string HelpUrl { get; set; }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "description", EmitDefaultValue = true)]
+        [DataMember(Name = "description", EmitDefaultValue = false)]
         public string Description { get; set; }
 
         /// <summary>

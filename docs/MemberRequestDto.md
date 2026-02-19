@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **PasswordHash** | **string** | The user password hash. | [optional] 
 **Email** | **string** | The user email address. | [optional] 
 **Type** | **EmployeeType** |  | [optional] 
-**IsUser** | **bool?** | Specifies if this is a guest or a user. | [optional] 
+**IsUser** | **bool** | Specifies if this is a guest or a user. | [optional] 
 **FirstName** | **string** | The user first name. | [optional] 
 **LastName** | **string** | The user last name. | [optional] 
 **Department** | **List&lt;Guid&gt;** | The list of the user departments IDs. | [optional] 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **Key** | **string** | The user key. | [optional] 
 **CultureName** | **string** | The user culture code. | [optional] 
 **Target** | **Guid** | The user target ID. | [optional] 
-**Spam** | **bool?** | Specifies if tips, updates and offers are allowed to be sent to the user or not. | [optional] 
+**Spam** | **bool** | Specifies if tips, updates and offers are allowed to be sent to the user or not. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

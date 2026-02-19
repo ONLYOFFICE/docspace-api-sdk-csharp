@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Tags** | **List&lt;string&gt;** | The collection of tags. | [optional] 
 **Color** | **string** | The color of the room template. | [optional] 
 **Cover** | **string** | The cover of the room template. | [optional] 
-**Quota** | **long?** | Room quota | [optional] 
+**Quota** | **long** | Room quota | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

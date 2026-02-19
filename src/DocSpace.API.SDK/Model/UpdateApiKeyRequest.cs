@@ -31,7 +31,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="name">The new name for the API key..</param>
         /// <param name="permissions">The new list of permissions for the API key..</param>
         /// <param name="isActive">Indicates whether the API key should be active or not..</param>
-        public UpdateApiKeyRequest(string name = default, List<string> permissions = default, bool? isActive = default)
+        public UpdateApiKeyRequest(string name = default, List<string> permissions = default, bool isActive = default)
         {
             this.Name = name;
             this.Permissions = permissions;
@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John Doe</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -53,9 +53,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The new list of permissions for the API key.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "permissions", EmitDefaultValue = true)]
+        [DataMember(Name = "permissions", EmitDefaultValue = false)]
         public List<string> Permissions { get; set; }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isActive", EmitDefaultValue = true)]
-        public bool? IsActive { get; set; }
+        public bool IsActive { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

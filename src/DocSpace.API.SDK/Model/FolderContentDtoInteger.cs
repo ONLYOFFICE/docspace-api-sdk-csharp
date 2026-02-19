@@ -36,7 +36,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="files">The list of files in the folder..</param>
         /// <param name="folders">The list of folders in the folder..</param>
         /// <param name="current">current.</param>
-        /// <param name="pathParts">The folder path. (required).</param>
+        /// <param name="pathParts">pathParts (required).</param>
         /// <param name="startIndex">The folder start index..</param>
         /// <param name="count">The number of folder elements..</param>
         /// <param name="total">The total number of elements in the folder. (required).</param>
@@ -62,14 +62,14 @@ namespace DocSpace.API.SDK.Model
         /// The list of files in the folder.
         /// </summary>
         /// <value>The list of files in the folder.</value>
-        [DataMember(Name = "files", EmitDefaultValue = true)]
+        [DataMember(Name = "files", EmitDefaultValue = false)]
         public List<FileEntryBaseDto> Files { get; set; }
 
         /// <summary>
         /// The list of folders in the folder.
         /// </summary>
         /// <value>The list of folders in the folder.</value>
-        [DataMember(Name = "folders", EmitDefaultValue = true)]
+        [DataMember(Name = "folders", EmitDefaultValue = false)]
         public List<FileEntryBaseDto> Folders { get; set; }
 
         /// <summary>
@@ -79,12 +79,8 @@ namespace DocSpace.API.SDK.Model
         public FolderDtoInteger Current { get; set; }
 
         /// <summary>
-        /// The folder path.
+        /// Gets or Sets PathParts
         /// </summary>
-        /// <value>The folder path.</value>
-        /*
-        <example>{key &#x3D; &quot;Key&quot;, path &#x3D; &quot;//path//to//folder&quot;}</example>
-        */
         [DataMember(Name = "pathParts", IsRequired = true, EmitDefaultValue = true)]
         public Object PathParts { get; set; }
 

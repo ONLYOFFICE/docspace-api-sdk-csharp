@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "reviewDisplay", EmitDefaultValue = true)]
+        [DataMember(Name = "reviewDisplay", EmitDefaultValue = false)]
         public string ReviewDisplay { get; private set; }
 
         /// <summary>

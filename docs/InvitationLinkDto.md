@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **EmployeeType** | **EmployeeType** |  | 
 **Expiration** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **IsExpired** | **bool** | Indicates whether the invitation link has expired. | [optional] 
-**MaxUseCount** | **int?** | The maximum number of times the invitation link can be used. | [optional] 
+**MaxUseCount** | **int** | The maximum number of times the invitation link can be used. | [optional] 
 **CurrentUseCount** | **int** | The current number of times the invitation link has been used. | [optional] 
 **Url** | **string** | The URL of the invitation link. | [optional] 
 

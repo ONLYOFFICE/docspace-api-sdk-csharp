@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "roleName", EmitDefaultValue = true)]
+        [DataMember(Name = "roleName", EmitDefaultValue = false)]
         public string RoleName { get; set; }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "roleColor", EmitDefaultValue = true)]
+        [DataMember(Name = "roleColor", EmitDefaultValue = false)]
         public string RoleColor { get; set; }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the role was opened.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "openedAt", EmitDefaultValue = false)]
         public DateTime OpenedAt { get; set; }
@@ -123,7 +123,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the role was submitted.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "submissionDate", EmitDefaultValue = false)]
         public DateTime SubmissionDate { get; set; }

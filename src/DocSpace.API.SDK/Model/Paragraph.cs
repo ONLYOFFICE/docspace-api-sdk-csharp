@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of text runs from the paragraph.
         /// </summary>
         /// <value>The list of text runs from the paragraph.</value>
-        [DataMember(Name = "runs", EmitDefaultValue = true)]
+        [DataMember(Name = "runs", EmitDefaultValue = false)]
         public List<Run> Runs { get; set; }
 
         /// <summary>

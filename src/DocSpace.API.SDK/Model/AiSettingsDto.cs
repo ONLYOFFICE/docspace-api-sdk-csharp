@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="generateDocxToolName">The tool name used by the AI to launch docx creation in the editor. (required).</param>
         /// <param name="generateFormToolName">The tool name used by the AI assistant to launch form creation in the editor. (required).</param>
         /// <param name="generatePresentationToolName">The tool name used by the AI assistant to launch presentation creation in the editor. (required).</param>
-        public AiSettingsDto(bool webSearchEnabled = default, bool webSearchNeedReset = default, bool vectorizationEnabled = default, bool vectorizationNeedReset = default, bool aiReady = default, bool aiReadyNeedReset = default, Guid? portalMcpServerId = default, string embeddingModel = default, string knowledgeSearchToolName = default, string webSearchToolName = default, string webCrawlingToolName = default, string generateDocxToolName = default, string generateFormToolName = default, string generatePresentationToolName = default)
+        public AiSettingsDto(bool webSearchEnabled = default, bool webSearchNeedReset = default, bool vectorizationEnabled = default, bool vectorizationNeedReset = default, bool aiReady = default, bool aiReadyNeedReset = default, Guid portalMcpServerId = default, string embeddingModel = default, string knowledgeSearchToolName = default, string webSearchToolName = default, string webCrawlingToolName = default, string generateDocxToolName = default, string generateFormToolName = default, string generatePresentationToolName = default)
         {
             // to ensure "embeddingModel" is required (not null)
             if (embeddingModel == null)
@@ -167,8 +167,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
         */
-        [DataMember(Name = "portalMcpServerId", EmitDefaultValue = true)]
-        public Guid? PortalMcpServerId { get; set; }
+        [DataMember(Name = "portalMcpServerId", EmitDefaultValue = false)]
+        public Guid PortalMcpServerId { get; set; }
 
         /// <summary>
         /// The name of the embedding model used for document vectorization.

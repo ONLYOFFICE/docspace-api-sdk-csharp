@@ -138,21 +138,21 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "url", EmitDefaultValue = true)]
+        [DataMember(Name = "url", EmitDefaultValue = false)]
         public string Url { get; set; }
 
         /// <summary>
         /// The list of files of the file operation.
         /// </summary>
         /// <value>The list of files of the file operation.</value>
-        [DataMember(Name = "files", EmitDefaultValue = true)]
+        [DataMember(Name = "files", EmitDefaultValue = false)]
         public List<FileEntryBaseDto> Files { get; set; }
 
         /// <summary>
         /// The list of folders of the file operation.
         /// </summary>
         /// <value>The list of folders of the file operation.</value>
-        [DataMember(Name = "folders", EmitDefaultValue = true)]
+        [DataMember(Name = "folders", EmitDefaultValue = false)]
         public List<FileEntryBaseDto> Folders { get; set; }
 
         /// <summary>

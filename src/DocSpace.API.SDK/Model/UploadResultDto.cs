@@ -29,7 +29,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="UploadResultDto" /> class.
         /// </summary>
         /// <param name="success">Specifies if the upload operation is successful or not..</param>
-        /// <param name="data">The uploaded data..</param>
+        /// <param name="data">data.</param>
         /// <param name="message">The message sent after the successful upload operation..</param>
         public UploadResultDto(bool success = default, Object data = default, string message = default)
         {
@@ -49,9 +49,8 @@ namespace DocSpace.API.SDK.Model
         public bool Success { get; set; }
 
         /// <summary>
-        /// The uploaded data.
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>The uploaded data.</value>
         [DataMember(Name = "data", EmitDefaultValue = true)]
         public Object Data { get; set; }
 
@@ -62,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "message", EmitDefaultValue = true)]
+        [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>

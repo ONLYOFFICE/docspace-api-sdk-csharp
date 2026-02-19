@@ -32,12 +32,14 @@ namespace DocSpace.API.SDK.Model
         /// <param name="charSet">charSet.</param>
         /// <param name="mediaType">mediaType.</param>
         /// <param name="name">name.</param>
-        public ContentType(string boundary = default, string charSet = default, string mediaType = default, string name = default)
+        /// <param name="parameters">parameters.</param>
+        public ContentType(string boundary = default, string charSet = default, string mediaType = default, string name = default, List<Object> parameters = default)
         {
             this.Boundary = boundary;
             this.CharSet = charSet;
             this.MediaType = mediaType;
             this.Name = name;
+            this.Parameters = parameters;
         }
 
         /// <summary>
@@ -46,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "boundary", EmitDefaultValue = true)]
+        [DataMember(Name = "boundary", EmitDefaultValue = false)]
         public string Boundary { get; set; }
 
         /// <summary>
@@ -55,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "charSet", EmitDefaultValue = true)]
+        [DataMember(Name = "charSet", EmitDefaultValue = false)]
         public string CharSet { get; set; }
 
         /// <summary>
@@ -64,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "mediaType", EmitDefaultValue = true)]
+        [DataMember(Name = "mediaType", EmitDefaultValue = false)]
         public string MediaType { get; set; }
 
         /// <summary>
@@ -73,23 +75,15 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John Doe</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Parameters
         /// </summary>
-        [DataMember(Name = "parameters", EmitDefaultValue = true)]
-        public List<Object> Parameters { get; private set; }
+        [DataMember(Name = "parameters", EmitDefaultValue = false)]
+        public List<Object> Parameters { get; set; }
 
-        /// <summary>
-        /// Returns false as Parameters should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeParameters()
-        {
-            return false;
-        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

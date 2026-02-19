@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "isoCountryCode", EmitDefaultValue = true)]
+        [DataMember(Name = "isoCountryCode", EmitDefaultValue = false)]
         public string IsoCountryCode { get; set; }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "isoCurrencySymbol", EmitDefaultValue = true)]
+        [DataMember(Name = "isoCurrencySymbol", EmitDefaultValue = false)]
         public string IsoCurrencySymbol { get; set; }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "currencyNativeName", EmitDefaultValue = true)]
+        [DataMember(Name = "currencyNativeName", EmitDefaultValue = false)]
         public string CurrencyNativeName { get; set; }
 
         /// <summary>

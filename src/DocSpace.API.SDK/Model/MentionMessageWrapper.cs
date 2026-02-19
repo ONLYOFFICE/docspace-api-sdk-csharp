@@ -49,9 +49,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>A list of emails that will receive the mention message.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "emails", EmitDefaultValue = true)]
+        [DataMember(Name = "emails", EmitDefaultValue = false)]
         public List<string> Emails { get; set; }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "message", EmitDefaultValue = true)]
+        [DataMember(Name = "message", EmitDefaultValue = false)]
         public string Message { get; set; }
 
         /// <summary>

@@ -31,7 +31,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="email">The email address to confirm the user&#39;s identity..</param>
         /// <param name="first">Specifies whether this is the first access to the user&#39;s account..</param>
         /// <param name="key">The unique confirmation key for validating user identity..</param>
-        public ConfirmData(string email = default, bool? first = default, string key = default)
+        public ConfirmData(string email = default, bool first = default, string key = default)
         {
             this.Email = email;
             this.First = first;
@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>example@onlyoffice.com</example>
         */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
+        [DataMember(Name = "email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "first", EmitDefaultValue = true)]
-        public bool? First { get; set; }
+        public bool First { get; set; }
 
         /// <summary>
         /// The unique confirmation key for validating user identity.
@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "key", EmitDefaultValue = true)]
+        [DataMember(Name = "key", EmitDefaultValue = false)]
         public string Key { get; set; }
 
         /// <summary>

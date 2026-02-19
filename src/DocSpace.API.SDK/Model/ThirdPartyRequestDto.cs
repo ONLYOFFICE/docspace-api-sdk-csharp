@@ -40,7 +40,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="customerTitle">The customer title. (required).</param>
         /// <param name="providerKey">The provider key. (required).</param>
         /// <param name="providerId">The provider ID..</param>
-        public ThirdPartyRequestDto(string url = default, string login = default, string password = default, string token = default, string customerTitle = default, string providerKey = default, int? providerId = default)
+        public ThirdPartyRequestDto(string url = default, string login = default, string password = default, string token = default, string customerTitle = default, string providerKey = default, int providerId = default)
         {
             // to ensure "customerTitle" is required (not null)
             if (customerTitle == null)
@@ -68,7 +68,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "url", EmitDefaultValue = true)]
+        [DataMember(Name = "url", EmitDefaultValue = false)]
         public string Url { get; set; }
 
         /// <summary>
@@ -78,7 +78,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "login", EmitDefaultValue = true)]
+        [DataMember(Name = "login", EmitDefaultValue = false)]
         public string Login { get; set; }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>P@ssw0rd123</example>
         */
-        [DataMember(Name = "password", EmitDefaultValue = true)]
+        [DataMember(Name = "password", EmitDefaultValue = false)]
         public string Password { get; set; }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "token", EmitDefaultValue = true)]
+        [DataMember(Name = "token", EmitDefaultValue = false)]
         public string Token { get; set; }
 
         /// <summary>
@@ -128,8 +128,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "providerId", EmitDefaultValue = true)]
-        public int? ProviderId { get; set; }
+        [DataMember(Name = "providerId", EmitDefaultValue = false)]
+        public int ProviderId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -125,7 +125,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "color", EmitDefaultValue = true)]
+        [DataMember(Name = "color", EmitDefaultValue = false)]
         public string Color { get; set; }
 
         /// <summary>
@@ -135,7 +135,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "cover", EmitDefaultValue = true)]
+        [DataMember(Name = "cover", EmitDefaultValue = false)]
         public string Cover { get; set; }
 
         /// <summary>
@@ -143,9 +143,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tags of the third-party room.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "tags", EmitDefaultValue = true)]
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>

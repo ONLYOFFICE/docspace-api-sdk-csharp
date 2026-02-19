@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="type">type.</param>
         /// <param name="first">Specifies whether it is the first time account access or not..</param>
         /// <param name="roomId">The room ID..</param>
-        public EmailValidationKeyModel(string key = default, EmployeeType? emplType = default, string email = default, string encEmail = default, Guid? uiD = default, ConfirmType? type = default, string first = default, string roomId = default)
+        public EmailValidationKeyModel(string key = default, EmployeeType? emplType = default, string email = default, string encEmail = default, Guid uiD = default, ConfirmType? type = default, string first = default, string roomId = default)
         {
             this.Key = key;
             this.EmplType = emplType;
@@ -67,7 +67,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "key", EmitDefaultValue = true)]
+        [DataMember(Name = "key", EmitDefaultValue = false)]
         public string Key { get; set; }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>example@onlyoffice.com</example>
         */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
+        [DataMember(Name = "email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "encEmail", EmitDefaultValue = true)]
+        [DataMember(Name = "encEmail", EmitDefaultValue = false)]
         public string EncEmail { get; set; }
 
         /// <summary>
@@ -97,8 +97,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
         */
-        [DataMember(Name = "uiD", EmitDefaultValue = true)]
-        public Guid? UiD { get; set; }
+        [DataMember(Name = "uiD", EmitDefaultValue = false)]
+        public Guid UiD { get; set; }
 
         /// <summary>
         /// Specifies whether it is the first time account access or not.
@@ -107,7 +107,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "first", EmitDefaultValue = true)]
+        [DataMember(Name = "first", EmitDefaultValue = false)]
         public string First { get; set; }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "roomId", EmitDefaultValue = true)]
+        [DataMember(Name = "roomId", EmitDefaultValue = false)]
         public string RoomId { get; set; }
 
         /// <summary>

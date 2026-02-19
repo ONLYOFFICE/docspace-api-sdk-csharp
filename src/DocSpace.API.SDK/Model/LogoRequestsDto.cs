@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "light", EmitDefaultValue = true)]
+        [DataMember(Name = "light", EmitDefaultValue = false)]
         public string Light { get; set; }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "dark", EmitDefaultValue = true)]
+        [DataMember(Name = "dark", EmitDefaultValue = false)]
         public string Dark { get; set; }
 
         /// <summary>

@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="@private">Specifies whether the room to be created is private or not..</param>
         /// <param name="share">The collection of sharing parameters..</param>
         /// <param name="chatSettings">chatSettings.</param>
-        public CreateRoomRequestDto(string title = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, RoomType roomType = default, bool @private = default, List<FileShareParams> share = default, ChatSettings chatSettings = default)
+        public CreateRoomRequestDto(string title = default, long quota = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, RoomType roomType = default, bool @private = default, List<FileShareParams> share = default, ChatSettings chatSettings = default)
         {
             // to ensure "title" is required (not null)
             if (title == null)
@@ -93,8 +93,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "quota", EmitDefaultValue = true)]
-        public long? Quota { get; set; }
+        [DataMember(Name = "quota", EmitDefaultValue = false)]
+        public long Quota { get; set; }
 
         /// <summary>
         /// Specifies whether to create a room with indexing.
@@ -104,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "indexing", EmitDefaultValue = true)]
-        public bool? Indexing { get; set; }
+        public bool Indexing { get; set; }
 
         /// <summary>
         /// Specifies whether to deny downloads from the room.
@@ -114,7 +114,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
-        public bool? DenyDownload { get; set; }
+        public bool DenyDownload { get; set; }
 
         /// <summary>
         /// Gets or Sets Lifetime
@@ -139,9 +139,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tags.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[some text]</example>
         */
-        [DataMember(Name = "tags", EmitDefaultValue = true)]
+        [DataMember(Name = "tags", EmitDefaultValue = false)]
         public List<string> Tags { get; set; }
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "color", EmitDefaultValue = true)]
+        [DataMember(Name = "color", EmitDefaultValue = false)]
         public string Color { get; set; }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "cover", EmitDefaultValue = true)]
+        [DataMember(Name = "cover", EmitDefaultValue = false)]
         public string Cover { get; set; }
 
         /// <summary>
@@ -178,7 +178,7 @@ namespace DocSpace.API.SDK.Model
         /// The collection of sharing parameters.
         /// </summary>
         /// <value>The collection of sharing parameters.</value>
-        [DataMember(Name = "share", EmitDefaultValue = true)]
+        [DataMember(Name = "share", EmitDefaultValue = false)]
         public List<FileShareParams> Share { get; set; }
 
         /// <summary>

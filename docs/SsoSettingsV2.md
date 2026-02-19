@@ -6,7 +6,7 @@ The SSO portal settings.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **LastModified** | **DateTime** |  | [optional] 
-**EnableSso** | **bool?** | Specifies if the SSO settings are enabled or not. | [optional] 
+**EnableSso** | **bool** | Specifies if the SSO settings are enabled or not. | [optional] 
 **IdpSettings** | [**SsoIdpSettings**](SsoIdpSettings.md) |  | [optional] 
 **IdpCertificates** | [**List&lt;SsoCertificate&gt;**](SsoCertificate.md) | The list of the IdP certificates. | [optional] 
 **IdpCertificateAdvanced** | [**SsoIdpCertificateAdvanced**](SsoIdpCertificateAdvanced.md) |  | [optional] 

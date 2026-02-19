@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Item name</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = true)]
+        [DataMember(Name = "name", EmitDefaultValue = false)]
         public string Name { get; set; }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Item icon path</example>
         */
-        [DataMember(Name = "icon", EmitDefaultValue = true)]
+        [DataMember(Name = "icon", EmitDefaultValue = false)]
         public string Icon { get; set; }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>0 Byte</example>
         */
-        [DataMember(Name = "size", EmitDefaultValue = true)]
+        [DataMember(Name = "size", EmitDefaultValue = false)]
         public string Size { get; set; }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Item url</example>
         */
-        [DataMember(Name = "url", EmitDefaultValue = true)]
+        [DataMember(Name = "url", EmitDefaultValue = false)]
         public string Url { get; set; }
 
         /// <summary>

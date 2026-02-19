@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Customer** | [**CustomerConfigDto**](CustomerConfigDto.md) |  | [optional] 
 **Anonymous** | [**AnonymousConfigDto**](AnonymousConfigDto.md) |  | [optional] 
 **Feedback** | [**FeedbackConfig**](FeedbackConfig.md) |  | [optional] 
-**Forcesave** | **bool?** | Specifies if the customization should be force saved. | [optional] 
+**Forcesave** | **bool** | Specifies if the customization should be force saved. | [optional] 
 **Goback** | [**GobackConfig**](GobackConfig.md) |  | [optional] 
 **Review** | [**ReviewConfig**](ReviewConfig.md) |  | [optional] 
 **Logo** | [**LogoConfigDto**](LogoConfigDto.md) |  | [optional] 

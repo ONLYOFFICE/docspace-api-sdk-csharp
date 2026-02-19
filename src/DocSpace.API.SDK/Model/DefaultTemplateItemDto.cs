@@ -38,7 +38,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="fileTitle">Title of a default template.</param>
         /// <param name="lastModified">Last modified date of a default template.</param>
         /// <param name="viewUrl">View url of a default template.</param>
-        public DefaultTemplateItemDto(int? selectedFile = default, string fileExtension = default, string fileTitle = default, DateTime? lastModified = default, string viewUrl = default)
+        public DefaultTemplateItemDto(int selectedFile = default, string fileExtension = default, string fileTitle = default, DateTime lastModified = default, string viewUrl = default)
         {
             // to ensure "fileExtension" is required (not null)
             if (fileExtension == null)
@@ -59,8 +59,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "selectedFile", EmitDefaultValue = true)]
-        public int? SelectedFile { get; set; }
+        [DataMember(Name = "selectedFile", EmitDefaultValue = false)]
+        public int SelectedFile { get; set; }
 
         /// <summary>
         /// Extension of a default template
@@ -79,7 +79,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileTitle", EmitDefaultValue = true)]
+        [DataMember(Name = "fileTitle", EmitDefaultValue = false)]
         public string FileTitle { get; set; }
 
         /// <summary>
@@ -87,10 +87,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Last modified date of a default template</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
-        [DataMember(Name = "lastModified", EmitDefaultValue = true)]
-        public DateTime? LastModified { get; set; }
+        [DataMember(Name = "lastModified", EmitDefaultValue = false)]
+        public DateTime LastModified { get; set; }
 
         /// <summary>
         /// View url of a default template
@@ -99,7 +99,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "viewUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "viewUrl", EmitDefaultValue = false)]
         public string ViewUrl { get; set; }
 
         /// <summary>

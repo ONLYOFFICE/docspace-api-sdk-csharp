@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Files** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of files in the folder. | [optional] 
 **Folders** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of folders in the folder. | [optional] 
 **Current** | [**FolderDtoInteger**](FolderDtoInteger.md) |  | [optional] 
-**PathParts** | **Object** | The folder path. | 
+**PathParts** | **Object** |  | 
 **StartIndex** | **int** | The folder start index. | [optional] 
 **Count** | **int** | The number of folder elements. | [optional] 
 **Total** | **int** | The total number of elements in the folder. | 

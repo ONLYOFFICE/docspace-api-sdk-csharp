@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="imageUrl">The path to the temporary image file..</param>
         /// <param name="imageHeight">The watermark image height..</param>
         /// <param name="imageWidth">The watermark image width..</param>
-        public WatermarkRequestDto(bool? enabled = default, WatermarkAdditions? additions = default, string text = default, int rotate = default, int imageScale = default, string imageUrl = default, double imageHeight = default, double imageWidth = default)
+        public WatermarkRequestDto(bool enabled = default, WatermarkAdditions? additions = default, string text = default, int rotate = default, int imageScale = default, string imageUrl = default, double imageHeight = default, double imageWidth = default)
         {
             this.Enabled = enabled;
             this.Additions = additions;
@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "enabled", EmitDefaultValue = true)]
-        public bool? Enabled { get; set; }
+        public bool Enabled { get; set; }
 
         /// <summary>
         /// The watermark text.
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "text", EmitDefaultValue = true)]
+        [DataMember(Name = "text", EmitDefaultValue = false)]
         public string Text { get; set; }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "imageUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "imageUrl", EmitDefaultValue = false)]
         public string ImageUrl { get; set; }
 
         /// <summary>

@@ -44,7 +44,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="percentage">The progress percentage of the document building process. (required).</param>
         /// <param name="isCompleted">Specifies whether the document building process is completed or not. (required).</param>
         /// <param name="status">status (required).</param>
-        /// <param name="resultFileId">The result file ID. (required).</param>
+        /// <param name="resultFileId">resultFileId (required).</param>
         /// <param name="resultFileName">The result file name. (required).</param>
         /// <param name="resultFileUrl">The result file URL. (required).</param>
         public DocumentBuilderTaskDto(string id = default, string error = default, int percentage = default, bool isCompleted = default, DistributedTaskStatus status = default, Object resultFileId = default, string resultFileName = default, string resultFileUrl = default)
@@ -125,9 +125,8 @@ namespace DocSpace.API.SDK.Model
         public bool IsCompleted { get; set; }
 
         /// <summary>
-        /// The result file ID.
+        /// Gets or Sets ResultFileId
         /// </summary>
-        /// <value>The result file ID.</value>
         [DataMember(Name = "resultFileId", IsRequired = true, EmitDefaultValue = true)]
         public Object ResultFileId { get; set; }
 

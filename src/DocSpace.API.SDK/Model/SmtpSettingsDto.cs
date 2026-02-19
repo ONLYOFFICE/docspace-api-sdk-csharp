@@ -38,7 +38,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="enableAuth">Specifies whether the authentication is enabled or not..</param>
         /// <param name="useNtlm">Specifies whether to use NTLM or not..</param>
         /// <param name="isDefaultSettings">Specifies if the current settings are default or not..</param>
-        public SmtpSettingsDto(string host = default, int? port = default, string senderAddress = default, string senderDisplayName = default, string credentialsUserName = default, string credentialsUserPassword = default, bool enableSSL = default, bool enableAuth = default, bool useNtlm = default, bool isDefaultSettings = default)
+        public SmtpSettingsDto(string host = default, int port = default, string senderAddress = default, string senderDisplayName = default, string credentialsUserName = default, string credentialsUserPassword = default, bool enableSSL = default, bool enableAuth = default, bool useNtlm = default, bool isDefaultSettings = default)
         {
             this.Host = host;
             this.Port = port;
@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>mail.example.com</example>
         */
-        [DataMember(Name = "host", EmitDefaultValue = true)]
+        [DataMember(Name = "host", EmitDefaultValue = false)]
         public string Host { get; set; }
 
         /// <summary>
@@ -69,8 +69,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>25</example>
         */
-        [DataMember(Name = "port", EmitDefaultValue = true)]
-        public int? Port { get; set; }
+        [DataMember(Name = "port", EmitDefaultValue = false)]
+        public int Port { get; set; }
 
         /// <summary>
         /// The sender address.
@@ -79,7 +79,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>notify@example.com</example>
         */
-        [DataMember(Name = "senderAddress", EmitDefaultValue = true)]
+        [DataMember(Name = "senderAddress", EmitDefaultValue = false)]
         public string SenderAddress { get; set; }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Postman</example>
         */
-        [DataMember(Name = "senderDisplayName", EmitDefaultValue = true)]
+        [DataMember(Name = "senderDisplayName", EmitDefaultValue = false)]
         public string SenderDisplayName { get; set; }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>notify@example.com</example>
         */
-        [DataMember(Name = "credentialsUserName", EmitDefaultValue = true)]
+        [DataMember(Name = "credentialsUserName", EmitDefaultValue = false)]
         public string CredentialsUserName { get; set; }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>{password}</example>
         */
-        [DataMember(Name = "credentialsUserPassword", EmitDefaultValue = true)]
+        [DataMember(Name = "credentialsUserPassword", EmitDefaultValue = false)]
         public string CredentialsUserPassword { get; set; }
 
         /// <summary>
@@ -202,14 +202,14 @@ namespace DocSpace.API.SDK.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Host, length must be greater than 0.", new [] { "Host" });
             }
 
-            // Port (int?) maximum
-            if (this.Port > (int?)65535)
+            // Port (int) maximum
+            if (this.Port > (int)65535)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Port, must be a value less than or equal to 65535.", new [] { "Port" });
             }
 
-            // Port (int?) minimum
-            if (this.Port < (int?)1)
+            // Port (int) minimum
+            if (this.Port < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Port, must be a value greater than or equal to 1.", new [] { "Port" });
             }

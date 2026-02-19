@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="cultureName">The user culture code..</param>
         /// <param name="target">The user target ID..</param>
         /// <param name="spam">Specifies if tips, updates and offers are allowed to be sent to the user or not..</param>
-        public MemberRequestDto(string password = default, string passwordHash = default, string email = default, EmployeeType? type = default, bool? isUser = default, string firstName = default, string lastName = default, List<Guid> department = default, string title = default, string location = default, SexEnum? sex = default, ApiDateTime birthday = default, ApiDateTime worksfrom = default, string comment = default, List<Contact> contacts = default, string files = default, bool fromInviteLink = default, string key = default, string cultureName = default, Guid target = default, bool? spam = default)
+        public MemberRequestDto(string password = default, string passwordHash = default, string email = default, EmployeeType? type = default, bool isUser = default, string firstName = default, string lastName = default, List<Guid> department = default, string title = default, string location = default, SexEnum? sex = default, ApiDateTime birthday = default, ApiDateTime worksfrom = default, string comment = default, List<Contact> contacts = default, string files = default, bool fromInviteLink = default, string key = default, string cultureName = default, Guid target = default, bool spam = default)
         {
             this.Password = password;
             this.PasswordHash = passwordHash;
@@ -93,7 +93,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>P@ssw0rd123</example>
         */
-        [DataMember(Name = "password", EmitDefaultValue = true)]
+        [DataMember(Name = "password", EmitDefaultValue = false)]
         public string Password { get; set; }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "passwordHash", EmitDefaultValue = true)]
+        [DataMember(Name = "passwordHash", EmitDefaultValue = false)]
         public string PasswordHash { get; set; }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>example@onlyoffice.com</example>
         */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
+        [DataMember(Name = "email", EmitDefaultValue = false)]
         public string Email { get; set; }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isUser", EmitDefaultValue = true)]
-        public bool? IsUser { get; set; }
+        public bool IsUser { get; set; }
 
         /// <summary>
         /// The user first name.
@@ -133,7 +133,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John</example>
         */
-        [DataMember(Name = "firstName", EmitDefaultValue = true)]
+        [DataMember(Name = "firstName", EmitDefaultValue = false)]
         public string FirstName { get; set; }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Doe</example>
         */
-        [DataMember(Name = "lastName", EmitDefaultValue = true)]
+        [DataMember(Name = "lastName", EmitDefaultValue = false)]
         public string LastName { get; set; }
 
         /// <summary>
@@ -151,9 +151,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the user departments IDs.</value>
         /*
-        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
+        <example>[75a5f745-f697-4418-b38d-0fe0d277e258]</example>
         */
-        [DataMember(Name = "department", EmitDefaultValue = true)]
+        [DataMember(Name = "department", EmitDefaultValue = false)]
         public List<Guid> Department { get; set; }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>SampleFile</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = false)]
         public string Title { get; set; }
 
         /// <summary>
@@ -173,7 +173,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>001 Schroeder Run, New Tabithaport, Colombia</example>
         */
-        [DataMember(Name = "location", EmitDefaultValue = true)]
+        [DataMember(Name = "location", EmitDefaultValue = false)]
         public string Location { get; set; }
 
         /// <summary>
@@ -195,14 +195,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "comment", EmitDefaultValue = true)]
+        [DataMember(Name = "comment", EmitDefaultValue = false)]
         public string Comment { get; set; }
 
         /// <summary>
         /// The list of the user contacts.
         /// </summary>
         /// <value>The list of the user contacts.</value>
-        [DataMember(Name = "contacts", EmitDefaultValue = true)]
+        [DataMember(Name = "contacts", EmitDefaultValue = false)]
         public List<Contact> Contacts { get; set; }
 
         /// <summary>
@@ -212,7 +212,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "files", EmitDefaultValue = true)]
+        [DataMember(Name = "files", EmitDefaultValue = false)]
         public string Files { get; set; }
 
         /// <summary>
@@ -232,7 +232,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "key", EmitDefaultValue = true)]
+        [DataMember(Name = "key", EmitDefaultValue = false)]
         public string Key { get; set; }
 
         /// <summary>
@@ -242,7 +242,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "cultureName", EmitDefaultValue = true)]
+        [DataMember(Name = "cultureName", EmitDefaultValue = false)]
         public string CultureName { get; set; }
 
         /// <summary>
@@ -263,7 +263,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "spam", EmitDefaultValue = true)]
-        public bool? Spam { get; set; }
+        public bool Spam { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

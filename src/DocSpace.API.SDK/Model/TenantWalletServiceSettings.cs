@@ -66,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of the enabled wallet services.
         /// </summary>
         /// <value>The list of the enabled wallet services.</value>
-        [DataMember(Name = "enabledServices", EmitDefaultValue = true)]
+        [DataMember(Name = "enabledServices", EmitDefaultValue = false)]
         public List<TenantWalletServiceSettings.EnabledServicesEnum> EnabledServices { get; set; }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the wallet services settings were last modified.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }

@@ -40,7 +40,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="hideAuthPage">Specifies if the authentication page will be hidden or not..</param>
         /// <param name="usersType">The user type..</param>
         /// <param name="disableEmailVerification">Specifies if the email verification is disabled or not..</param>
-        public SsoSettingsV2(DateTime lastModified = default, bool? enableSso = default, SsoIdpSettings idpSettings = default, List<SsoCertificate> idpCertificates = default, SsoIdpCertificateAdvanced idpCertificateAdvanced = default, string spLoginLabel = default, List<SsoCertificate> spCertificates = default, SsoSpCertificateAdvanced spCertificateAdvanced = default, SsoFieldMapping fieldMapping = default, bool hideAuthPage = default, int usersType = default, bool disableEmailVerification = default)
+        public SsoSettingsV2(DateTime lastModified = default, bool enableSso = default, SsoIdpSettings idpSettings = default, List<SsoCertificate> idpCertificates = default, SsoIdpCertificateAdvanced idpCertificateAdvanced = default, string spLoginLabel = default, List<SsoCertificate> spCertificates = default, SsoSpCertificateAdvanced spCertificateAdvanced = default, SsoFieldMapping fieldMapping = default, bool hideAuthPage = default, int usersType = default, bool disableEmailVerification = default)
         {
             this.LastModified = lastModified;
             this.EnableSso = enableSso;
@@ -60,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets LastModified
         /// </summary>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2008-04-10T06:30:00.0000000+04:00</example>
         */
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
@@ -73,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "enableSso", EmitDefaultValue = true)]
-        public bool? EnableSso { get; set; }
+        public bool EnableSso { get; set; }
 
         /// <summary>
         /// Gets or Sets IdpSettings
@@ -85,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of the IdP certificates.
         /// </summary>
         /// <value>The list of the IdP certificates.</value>
-        [DataMember(Name = "idpCertificates", EmitDefaultValue = true)]
+        [DataMember(Name = "idpCertificates", EmitDefaultValue = false)]
         public List<SsoCertificate> IdpCertificates { get; set; }
 
         /// <summary>
@@ -101,14 +101,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "spLoginLabel", EmitDefaultValue = true)]
+        [DataMember(Name = "spLoginLabel", EmitDefaultValue = false)]
         public string SpLoginLabel { get; set; }
 
         /// <summary>
         /// The list of the SP certificates.
         /// </summary>
         /// <value>The list of the SP certificates.</value>
-        [DataMember(Name = "spCertificates", EmitDefaultValue = true)]
+        [DataMember(Name = "spCertificates", EmitDefaultValue = false)]
         public List<SsoCertificate> SpCertificates { get; set; }
 
         /// <summary>

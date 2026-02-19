@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "embedUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "embedUrl", EmitDefaultValue = false)]
         public string EmbedUrl { get; set; }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "saveUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "saveUrl", EmitDefaultValue = false)]
         public string SaveUrl { get; private set; }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "shareLinkParam", EmitDefaultValue = true)]
+        [DataMember(Name = "shareLinkParam", EmitDefaultValue = false)]
         public string ShareLinkParam { get; set; }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "shareUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "shareUrl", EmitDefaultValue = false)]
         public string ShareUrl { get; set; }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "toolbarDocked", EmitDefaultValue = true)]
+        [DataMember(Name = "toolbarDocked", EmitDefaultValue = false)]
         public string ToolbarDocked { get; private set; }
 
         /// <summary>
