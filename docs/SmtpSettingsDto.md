@@ -6,7 +6,7 @@ The SMTP settings parameters.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Host** | **string** | The SMTP host. | [optional] 
-**Port** | **int** | The SMTP port. | [optional] 
+**Port** | **int?** | The SMTP port. | [optional] 
 **SenderAddress** | **string** | The sender address. | [optional] 
 **SenderDisplayName** | **string** | The sender display name. | [optional] 
 **CredentialsUserName** | **string** | The credentials username. | [optional] 

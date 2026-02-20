@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "providerTitle", EmitDefaultValue = false)]
+        [DataMember(Name = "providerTitle", EmitDefaultValue = true)]
         public string ProviderTitle { get; set; }
 
         /// <summary>

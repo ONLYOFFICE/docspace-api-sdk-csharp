@@ -50,6 +50,11 @@ namespace DocSpace.API.SDK.Model
         PrimaryExternalLink = 8,
 
         /// <summary>
+        /// Enum Link for value: 15
+        /// </summary>
+        Link = 15,
+
+        /// <summary>
         /// Enum User for value: 16
         /// </summary>
         User = 16,

@@ -19,19 +19,20 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Defines EngineType
+    /// [0 - None, 1 - Exa]
     /// </summary>
+    /// <value>[0 - None, 1 - Exa]</value>
     public enum EngineType
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum None for value: 0
         /// </summary>
-        NUMBER_0 = 0,
+        None = 0,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum Exa for value: 1
         /// </summary>
-        NUMBER_1 = 1
+        Exa = 1
     }
 
 }

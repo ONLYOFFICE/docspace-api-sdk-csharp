@@ -99,7 +99,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The allowed origins for the client.</value>
         /*
-        <example>[http://allowed.origin]</example>
+        <example>[&quot;http://allowed.origin&quot;]</example>
         */
         [DataMember(Name = "allowed_origins", EmitDefaultValue = false)]
         public List<string> AllowedOrigins { get; set; }

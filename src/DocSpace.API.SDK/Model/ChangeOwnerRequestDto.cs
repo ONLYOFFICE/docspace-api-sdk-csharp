@@ -47,14 +47,14 @@ namespace DocSpace.API.SDK.Model
         /// The list of folder IDs to change the owner.
         /// </summary>
         /// <value>The list of folder IDs to change the owner.</value>
-        [DataMember(Name = "folderIds", EmitDefaultValue = false)]
+        [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<BatchRequestDtoAllOfFileIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs to change the owner.
         /// </summary>
         /// <value>The list of file IDs to change the owner.</value>
-        [DataMember(Name = "fileIds", EmitDefaultValue = false)]
+        [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<BatchRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>

@@ -63,9 +63,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of IP addresses that bypass TFA verification.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "trustedIps", EmitDefaultValue = false)]
+        [DataMember(Name = "trustedIps", EmitDefaultValue = true)]
         public List<string> TrustedIps { get; set; }
 
         /// <summary>
@@ -73,9 +73,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of user IDs for whom TFA is mandatory.</value>
         /*
-        <example>[75a5f745-f697-4418-b38d-0fe0d277e258]</example>
+        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
         */
-        [DataMember(Name = "mandatoryUsers", EmitDefaultValue = false)]
+        [DataMember(Name = "mandatoryUsers", EmitDefaultValue = true)]
         public List<Guid> MandatoryUsers { get; set; }
 
         /// <summary>
@@ -83,9 +83,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list group IDs whose members must use TFA.</value>
         /*
-        <example>[75a5f745-f697-4418-b38d-0fe0d277e258]</example>
+        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
         */
-        [DataMember(Name = "mandatoryGroups", EmitDefaultValue = false)]
+        [DataMember(Name = "mandatoryGroups", EmitDefaultValue = true)]
         public List<Guid> MandatoryGroups { get; set; }
 
         /// <summary>

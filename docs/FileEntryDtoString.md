@@ -20,11 +20,11 @@ Name | Type | Description | Notes
 **RootFolderType** | **FolderType** |  | [optional] 
 **ParentRoomType** | **FolderType** |  | [optional] 
 **UpdatedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
-**ProviderItem** | **bool** | Specifies if the file entry provider is specified or not. | [optional] 
+**ProviderItem** | **bool?** | Specifies if the file entry provider is specified or not. | [optional] 
 **ProviderKey** | **string** | The provider key of the file entry. | [optional] 
-**ProviderId** | **int** | The provider ID of the file entry. | [optional] 
+**ProviderId** | **int?** | The provider ID of the file entry. | [optional] 
 **Order** | **string** | The order of the file entry. | [optional] 
-**IsFavorite** | **bool** | Specifies if the file is a favorite or not. | [optional] 
+**IsFavorite** | **bool?** | Specifies if the file is a favorite or not. | [optional] 
 **FileEntryType** | **FileEntryType** |  | [optional] 
 **Id** | **string** | The file entry ID. | [optional] 
 **RootFolderId** | **string** | The root folder ID of the file entry. | [optional] 
@@ -37,9 +37,9 @@ Name | Type | Description | Notes
 **Security** | [**FileEntryDtoIntegerAllOfSecurity**](FileEntryDtoIntegerAllOfSecurity.md) |  | [optional] 
 **AvailableShareRights** | [**FileEntryDtoIntegerAllOfAvailableShareRights**](FileEntryDtoIntegerAllOfAvailableShareRights.md) |  | [optional] 
 **RequestToken** | **string** | The request token of the file entry. | [optional] 
-**External** | **bool** | Specifies if the folder can be accessed via an external link or not. | [optional] 
+**External** | **bool?** | Specifies if the folder can be accessed via an external link or not. | [optional] 
 **ExpirationDate** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
-**IsLinkExpired** | **bool** | Indicates whether the shareable link associated with the file or folder has expired. | [optional] 
+**IsLinkExpired** | **bool?** | Indicates whether the shareable link associated with the file or folder has expired. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

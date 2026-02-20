@@ -86,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "lng", EmitDefaultValue = false)]
+        [DataMember(Name = "lng", EmitDefaultValue = true)]
         public string Lng { get; set; }
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "timeZone", EmitDefaultValue = false)]
+        [DataMember(Name = "timeZone", EmitDefaultValue = true)]
         public string @TimeZone { get; set; }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "amiId", EmitDefaultValue = false)]
+        [DataMember(Name = "amiId", EmitDefaultValue = true)]
         public string AmiId { get; set; }
 
         /// <summary>

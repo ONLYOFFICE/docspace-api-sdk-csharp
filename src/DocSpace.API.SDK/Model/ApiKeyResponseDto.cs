@@ -109,7 +109,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "keyPostfix", EmitDefaultValue = false)]
+        [DataMember(Name = "keyPostfix", EmitDefaultValue = true)]
         public string KeyPostfix { get; set; }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of permissions granted to the API key.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
         [DataMember(Name = "permissions", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Permissions { get; set; }

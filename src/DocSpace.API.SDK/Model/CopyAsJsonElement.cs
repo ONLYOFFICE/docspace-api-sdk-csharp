@@ -90,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>P@ssw0rd123</example>
         */
-        [DataMember(Name = "password", EmitDefaultValue = false)]
+        [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>

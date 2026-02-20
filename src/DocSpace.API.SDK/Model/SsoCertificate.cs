@@ -63,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "crt", EmitDefaultValue = false)]
+        [DataMember(Name = "crt", EmitDefaultValue = true)]
         public string Crt { get; set; }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "key", EmitDefaultValue = false)]
+        [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "action", EmitDefaultValue = false)]
+        [DataMember(Name = "action", EmitDefaultValue = true)]
         public string Action { get; set; }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "domainName", EmitDefaultValue = false)]
+        [DataMember(Name = "domainName", EmitDefaultValue = true)]
         public string DomainName { get; set; }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The certificate start date.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
         [DataMember(Name = "startDate", EmitDefaultValue = false)]
         public DateTime StartDate { get; set; }
@@ -111,7 +111,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The certificate expiration date.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
         [DataMember(Name = "expiredDate", EmitDefaultValue = false)]
         public DateTime ExpiredDate { get; set; }

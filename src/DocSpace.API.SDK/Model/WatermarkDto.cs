@@ -35,10 +35,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="WatermarkDto" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected WatermarkDto()
-        {
-            this.AdditionalProperties = new Dictionary<string, object>();
-        }
+        protected WatermarkDto() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="WatermarkDto" /> class.
         /// </summary>
@@ -58,7 +55,6 @@ namespace DocSpace.API.SDK.Model
             this.ImageWidth = imageWidth;
             this.Text = text;
             this.ImageUrl = imageUrl;
-            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -68,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "text", EmitDefaultValue = false)]
+        [DataMember(Name = "text", EmitDefaultValue = true)]
         public string Text { get; set; }
 
         /// <summary>
@@ -98,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "imageUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "imageUrl", EmitDefaultValue = true)]
         public string ImageUrl { get; set; }
 
         /// <summary>
@@ -122,12 +118,6 @@ namespace DocSpace.API.SDK.Model
         public double ImageWidth { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [System.Text.Json.Serialization.JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -142,7 +132,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ImageUrl: ").Append(ImageUrl).Append("\n");
             sb.Append("  ImageHeight: ").Append(ImageHeight).Append("\n");
             sb.Append("  ImageWidth: ").Append(ImageWidth).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

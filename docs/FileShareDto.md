@@ -6,7 +6,7 @@ The file sharing information and access rights.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Access** | **FileShare** |  | [optional] 
-**SharedTo** | **Object** |  | [optional] 
+**SharedTo** | **Object** | The user who has the access to the specified file. | [optional] 
 **SharedToUser** | [**EmployeeFullDto**](EmployeeFullDto.md) |  | [optional] 
 **SharedToGroup** | [**GroupSummaryDto**](GroupSummaryDto.md) |  | [optional] 
 **SharedLink** | [**FileShareLink**](FileShareLink.md) |  | [optional] 

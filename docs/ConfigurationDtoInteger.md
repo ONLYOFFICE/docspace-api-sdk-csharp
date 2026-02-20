@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **Type** | **string** | The platform type. | [optional] 
 **File** | [**FileDtoInteger**](FileDtoInteger.md) |  | 
 **ErrorMessage** | **string** | The error message. | [optional] 
-**StartFilling** | **bool** | Specifies if the file filling has started or not. | [optional] 
-**FillingStatus** | **bool** | The file filling status. | [optional] 
+**StartFilling** | **bool?** | Specifies if the file filling has started or not. | [optional] 
+**FillingStatus** | **bool?** | The file filling status. | [optional] 
 **StartFillingMode** | **StartFillingMode** |  | [optional] 
 **FillingSessionId** | **string** | The file filling session ID. | [optional] 
 **QuotaExceededScope** | **QuotaScope** |  | [optional] 

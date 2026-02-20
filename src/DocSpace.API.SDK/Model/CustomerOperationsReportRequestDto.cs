@@ -33,7 +33,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="participantName">The participant name..</param>
         /// <param name="credit">Specifies whether to include credit operations in the report..</param>
         /// <param name="debit">Specifies whether to include debit operations in the report..</param>
-        public CustomerOperationsReportRequestDto(DateTime startDate = default, DateTime endDate = default, string participantName = default, bool credit = default, bool debit = default)
+        public CustomerOperationsReportRequestDto(DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default)
         {
             this.StartDate = startDate;
             this.EndDate = endDate;
@@ -47,20 +47,20 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The report start date.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "startDate", EmitDefaultValue = false)]
-        public DateTime StartDate { get; set; }
+        [DataMember(Name = "startDate", EmitDefaultValue = true)]
+        public DateTime? StartDate { get; set; }
 
         /// <summary>
         /// The report end date.
         /// </summary>
         /// <value>The report end date.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "endDate", EmitDefaultValue = false)]
-        public DateTime EndDate { get; set; }
+        [DataMember(Name = "endDate", EmitDefaultValue = true)]
+        public DateTime? EndDate { get; set; }
 
         /// <summary>
         /// The participant name.
@@ -69,7 +69,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "participantName", EmitDefaultValue = false)]
+        [DataMember(Name = "participantName", EmitDefaultValue = true)]
         public string ParticipantName { get; set; }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "credit", EmitDefaultValue = true)]
-        public bool Credit { get; set; }
+        public bool? Credit { get; set; }
 
         /// <summary>
         /// Specifies whether to include debit operations in the report.
@@ -90,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "debit", EmitDefaultValue = true)]
-        public bool Debit { get; set; }
+        public bool? Debit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

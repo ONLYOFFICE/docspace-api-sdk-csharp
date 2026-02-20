@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ContentDisposition** | [**ContentDisposition**](ContentDisposition.md) |  | [optional] 
 **Files** | [**List&lt;FileParameter&gt;**](FileParameter.md) | The list of files when specified as multipart/form-data. | [optional] 
 **CreateNewIfExist** | **bool** | Specifies whether to create the new file if it already exists or not. | [optional] 
-**StoreOriginalFileFlag** | **bool** | Specifies whether to upload documents in the original formats as well or not. | [optional] 
+**StoreOriginalFileFlag** | **bool?** | Specifies whether to upload documents in the original formats as well or not. | [optional] 
 **KeepConvertStatus** | **bool** | Specifies whether to keep the file converting status or not. | [optional] 
 **Stream** | [**FileParameter**](FileParameter.md) | The request input stream. | [optional] 
 

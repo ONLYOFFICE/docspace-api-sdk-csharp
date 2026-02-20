@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.Location
-The location context of the request.
+[1 - Room, 2 - Documents, 3 - Link]
 
 ## Properties
 

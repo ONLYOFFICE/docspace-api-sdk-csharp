@@ -86,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="aiToolsGemini3ProOutput">Specifies whether the Gemini 3 Pro output tokens is enabled as a subservice of AI tools.</param>
         /// <param name="aiToolsGemini3FlashInput">Specifies whether the Gemini 3 Flash input tokens is enabled as a subservice of AI tools.</param>
         /// <param name="aiToolsGemini3FlashOutput">Specifies whether the Gemini 3 Flash output tokens is enabled as a subservice of AI tools.</param>
-        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, string serviceGroup = default, bool visible = default, bool wallet = default, DateTime dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool automationApi = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default, bool aiTools = default, bool aiToolsWebSearch = default, bool aiToolsWebFetch = default, bool aiToolsEmbedding = default, bool aiToolsDeepseek31Input = default, bool aiToolsDeepseek31Output = default, bool aiToolsClaude45Input = default, bool aiToolsClaude45Output = default, bool aiToolsGPT5Input = default, bool aiToolsGPT5Output = default, bool aiToolsDeepseek32Input = default, bool aiToolsDeepseek32Output = default, bool aiToolsGPT52Input = default, bool aiToolsGPT52Output = default, bool aiToolsGemini3ProInput = default, bool aiToolsGemini3ProOutput = default, bool aiToolsGemini3FlashInput = default, bool aiToolsGemini3FlashOutput = default)
+        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, string serviceGroup = default, bool visible = default, bool wallet = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool automationApi = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default, bool aiTools = default, bool aiToolsWebSearch = default, bool aiToolsWebFetch = default, bool aiToolsEmbedding = default, bool aiToolsDeepseek31Input = default, bool aiToolsDeepseek31Output = default, bool aiToolsClaude45Input = default, bool aiToolsClaude45Output = default, bool aiToolsGPT5Input = default, bool aiToolsGPT5Output = default, bool aiToolsDeepseek32Input = default, bool aiToolsDeepseek32Output = default, bool aiToolsGPT52Input = default, bool aiToolsGPT52Output = default, bool aiToolsGemini3ProInput = default, bool aiToolsGemini3ProOutput = default, bool aiToolsGemini3FlashInput = default, bool aiToolsGemini3FlashOutput = default)
         {
             this.TenantId = tenantId;
             this.Name = name;
@@ -146,7 +146,6 @@ namespace DocSpace.API.SDK.Model
             this.AiToolsGemini3ProOutput = aiToolsGemini3ProOutput;
             this.AiToolsGemini3FlashInput = aiToolsGemini3FlashInput;
             this.AiToolsGemini3FlashOutput = aiToolsGemini3FlashOutput;
-            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -166,7 +165,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Default</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -186,7 +185,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "priceCurrencySymbol", EmitDefaultValue = false)]
+        [DataMember(Name = "priceCurrencySymbol", EmitDefaultValue = true)]
         public string PriceCurrencySymbol { get; set; }
 
         /// <summary>
@@ -196,7 +195,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "priceISOCurrencySymbol", EmitDefaultValue = false)]
+        [DataMember(Name = "priceISOCurrencySymbol", EmitDefaultValue = true)]
         public string PriceISOCurrencySymbol { get; set; }
 
         /// <summary>
@@ -206,7 +205,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "productId", EmitDefaultValue = false)]
+        [DataMember(Name = "productId", EmitDefaultValue = true)]
         public string ProductId { get; set; }
 
         /// <summary>
@@ -216,7 +215,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "serviceName", EmitDefaultValue = false)]
+        [DataMember(Name = "serviceName", EmitDefaultValue = true)]
         public string ServiceName { get; set; }
 
         /// <summary>
@@ -226,7 +225,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "serviceGroup", EmitDefaultValue = false)]
+        [DataMember(Name = "serviceGroup", EmitDefaultValue = true)]
         public string ServiceGroup { get; set; }
 
         /// <summary>
@@ -254,10 +253,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The quota due date.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "dueDate", EmitDefaultValue = false)]
-        public DateTime DueDate { get; set; }
+        [DataMember(Name = "dueDate", EmitDefaultValue = true)]
+        public DateTime? DueDate { get; set; }
 
         /// <summary>
         /// The tenant quota features.
@@ -266,7 +265,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "features", EmitDefaultValue = false)]
+        [DataMember(Name = "features", EmitDefaultValue = true)]
         public string Features { get; set; }
 
         /// <summary>
@@ -730,12 +729,6 @@ namespace DocSpace.API.SDK.Model
         public bool AiToolsGemini3FlashOutput { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [System.Text.Json.Serialization.JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -801,7 +794,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  AiToolsGemini3ProOutput: ").Append(AiToolsGemini3ProOutput).Append("\n");
             sb.Append("  AiToolsGemini3FlashInput: ").Append(AiToolsGemini3FlashInput).Append("\n");
             sb.Append("  AiToolsGemini3FlashOutput: ").Append(AiToolsGemini3FlashOutput).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

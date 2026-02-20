@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="members">The list of group members..</param>
         /// <param name="shared">Specifies whether the group can be shared or not..</param>
         /// <param name="membersCount">The number of group members..</param>
-        public GroupDto(string name = default, Guid parent = default, Guid category = default, Guid id = default, bool isLDAP = default, bool isSystem = default, EmployeeFullDto manager = default, List<EmployeeFullDto> members = default, bool shared = default, int membersCount = default)
+        public GroupDto(string name = default, Guid? parent = default, Guid category = default, Guid id = default, bool isLDAP = default, bool? isSystem = default, EmployeeFullDto manager = default, List<EmployeeFullDto> members = default, bool? shared = default, int membersCount = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -79,8 +79,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
         */
-        [DataMember(Name = "parent", EmitDefaultValue = false)]
-        public Guid Parent { get; set; }
+        [DataMember(Name = "parent", EmitDefaultValue = true)]
+        public Guid? Parent { get; set; }
 
         /// <summary>
         /// The group category ID.
@@ -120,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isSystem", EmitDefaultValue = true)]
-        public bool IsSystem { get; set; }
+        public bool? IsSystem { get; set; }
 
         /// <summary>
         /// Gets or Sets Manager
@@ -132,7 +132,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of group members.
         /// </summary>
         /// <value>The list of group members.</value>
-        [DataMember(Name = "members", EmitDefaultValue = false)]
+        [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<EmployeeFullDto> Members { get; set; }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "shared", EmitDefaultValue = true)]
-        public bool Shared { get; set; }
+        public bool? Shared { get; set; }
 
         /// <summary>
         /// The number of group members.

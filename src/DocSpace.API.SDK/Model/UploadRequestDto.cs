@@ -36,7 +36,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="storeOriginalFileFlag">Specifies whether to upload documents in the original formats as well or not..</param>
         /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not..</param>
         /// <param name="stream">The request input stream..</param>
-        public UploadRequestDto(FileParameter file = default, ContentType contentType = default, ContentDisposition contentDisposition = default, List<FileParameter> files = default, bool createNewIfExist = default, bool storeOriginalFileFlag = default, bool keepConvertStatus = default, FileParameter stream = default)
+        public UploadRequestDto(FileParameter file = default, ContentType contentType = default, ContentDisposition contentDisposition = default, List<FileParameter> files = default, bool createNewIfExist = default, bool? storeOriginalFileFlag = default, bool keepConvertStatus = default, FileParameter stream = default)
         {
             this.File = file;
             this.ContentType = contentType;
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// The file to be uploaded.
         /// </summary>
         /// <value>The file to be uploaded.</value>
-        [DataMember(Name = "file", EmitDefaultValue = false)]
+        [DataMember(Name = "file", EmitDefaultValue = true)]
         public FileParameter File { get; set; }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of files when specified as multipart/form-data.
         /// </summary>
         /// <value>The list of files when specified as multipart/form-data.</value>
-        [DataMember(Name = "files", EmitDefaultValue = false)]
+        [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<FileParameter> Files { get; set; }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "storeOriginalFileFlag", EmitDefaultValue = true)]
-        public bool StoreOriginalFileFlag { get; set; }
+        public bool? StoreOriginalFileFlag { get; set; }
 
         /// <summary>
         /// Specifies whether to keep the file converting status or not.
@@ -108,7 +108,7 @@ namespace DocSpace.API.SDK.Model
         /// The request input stream.
         /// </summary>
         /// <value>The request input stream.</value>
-        [DataMember(Name = "stream", EmitDefaultValue = false)]
+        [DataMember(Name = "stream", EmitDefaultValue = true)]
         public FileParameter Stream { get; set; }
 
         /// <summary>

@@ -44,7 +44,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "groupName", EmitDefaultValue = false)]
+        [DataMember(Name = "groupName", EmitDefaultValue = true)]
         public string GroupName { get; set; }
 
         /// <summary>
@@ -53,16 +53,16 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "moduleName", EmitDefaultValue = false)]
+        [DataMember(Name = "moduleName", EmitDefaultValue = true)]
         public string ModuleName { get; set; }
 
         /// <summary>
         /// Gets or Sets UserUidList
         /// </summary>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "userUidList", EmitDefaultValue = false)]
+        [DataMember(Name = "userUidList", EmitDefaultValue = true)]
         public List<string> UserUidList { get; set; }
 
         /// <summary>

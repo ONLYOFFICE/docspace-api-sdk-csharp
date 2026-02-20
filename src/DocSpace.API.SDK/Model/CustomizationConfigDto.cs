@@ -39,7 +39,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="mentionShare">Specifies if the share should be mentioned..</param>
         /// <param name="submitForm">submitForm.</param>
         /// <param name="startFillingForm">startFillingForm.</param>
-        public CustomizationConfigDto(bool about = default, CustomerConfigDto customer = default, AnonymousConfigDto anonymous = default, FeedbackConfig feedback = default, bool forcesave = default, GobackConfig goback = default, ReviewConfig review = default, LogoConfigDto logo = default, bool mentionShare = default, SubmitForm submitForm = default, StartFillingForm startFillingForm = default)
+        public CustomizationConfigDto(bool about = default, CustomerConfigDto customer = default, AnonymousConfigDto anonymous = default, FeedbackConfig feedback = default, bool? forcesave = default, GobackConfig goback = default, ReviewConfig review = default, LogoConfigDto logo = default, bool mentionShare = default, SubmitForm submitForm = default, StartFillingForm startFillingForm = default)
         {
             this.About = about;
             this.Customer = customer;
@@ -90,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "forcesave", EmitDefaultValue = true)]
-        public bool Forcesave { get; set; }
+        public bool? Forcesave { get; set; }
 
         /// <summary>
         /// Gets or Sets Goback

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **ServiceGroup** | **string** | The service group. | [optional] 
 **Visible** | **bool** | Specifies if the tenant quota is visible or not. | [optional] 
 **Wallet** | **bool** | Specifies if the tenant quota applies to the wallet or not | [optional] 
-**DueDate** | **DateTime** | The quota due date. | [optional] 
+**DueDate** | **DateTime?** | The quota due date. | [optional] 
 **Features** | **string** | The tenant quota features. | [optional] 
 **MaxFileSize** | **long** | The tenant maximum file size. | [optional] 
 **MaxTotalSize** | **long** | The tenant maximum total size. | [optional] 

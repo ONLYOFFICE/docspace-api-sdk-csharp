@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// The collection of invitation parameters.
         /// </summary>
         /// <value>The collection of invitation parameters.</value>
-        [DataMember(Name = "invitations", EmitDefaultValue = false)]
+        [DataMember(Name = "invitations", EmitDefaultValue = true)]
         public List<RoomInvitation> Invitations { get; set; }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "message", EmitDefaultValue = false)]
+        [DataMember(Name = "message", EmitDefaultValue = true)]
         public string Message { get; set; }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "culture", EmitDefaultValue = false)]
+        [DataMember(Name = "culture", EmitDefaultValue = true)]
         public string Culture { get; set; }
 
         /// <summary>

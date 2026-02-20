@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John Doe</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of rooms in the group.
         /// </summary>
         /// <value>The list of rooms in the group.</value>
-        [DataMember(Name = "rooms", EmitDefaultValue = false)]
+        [DataMember(Name = "rooms", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Rooms { get; set; }
 
         /// <summary>

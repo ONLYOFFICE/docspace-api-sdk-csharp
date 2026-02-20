@@ -70,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="expired">Specifies if an external link to the folder is expired or not..</param>
         /// <param name="chatSettings">chatSettings.</param>
         /// <param name="rootRoomType">rootRoomType.</param>
-        public FolderDtoInteger(int parentId = default, int filesCount = default, int foldersCount = default, bool isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool inRoom = default, long quotaLimit = default, bool isCustomQuota = default, long usedSpace = default, bool passwordProtected = default, bool expired = default, ChatSettings chatSettings = default, RoomType? rootRoomType = default)
+        public FolderDtoInteger(int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? passwordProtected = default, bool? expired = default, ChatSettings chatSettings = default, RoomType? rootRoomType = default)
         {
             this.ParentId = parentId;
             this.FilesCount = filesCount;
@@ -136,7 +136,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isShareable", EmitDefaultValue = true)]
-        public bool IsShareable { get; set; }
+        public bool? IsShareable { get; set; }
 
         /// <summary>
         /// The new element index in the folder.
@@ -163,9 +163,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tags of the folder.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "tags", EmitDefaultValue = false)]
+        [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
@@ -234,7 +234,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "inRoom", EmitDefaultValue = true)]
-        public bool InRoom { get; set; }
+        public bool? InRoom { get; set; }
 
         /// <summary>
         /// The folder quota limit.
@@ -243,8 +243,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "quotaLimit", EmitDefaultValue = false)]
-        public long QuotaLimit { get; set; }
+        [DataMember(Name = "quotaLimit", EmitDefaultValue = true)]
+        public long? QuotaLimit { get; set; }
 
         /// <summary>
         /// Specifies if the folder room has a custom quota or not.
@@ -254,7 +254,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isCustomQuota", EmitDefaultValue = true)]
-        public bool IsCustomQuota { get; set; }
+        public bool? IsCustomQuota { get; set; }
 
         /// <summary>
         /// How much folder space is used (counter).
@@ -263,8 +263,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "usedSpace", EmitDefaultValue = false)]
-        public long UsedSpace { get; set; }
+        [DataMember(Name = "usedSpace", EmitDefaultValue = true)]
+        public long? UsedSpace { get; set; }
 
         /// <summary>
         /// Specifies if the folder is password protected or not.
@@ -274,7 +274,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "passwordProtected", EmitDefaultValue = true)]
-        public bool PasswordProtected { get; set; }
+        public bool? PasswordProtected { get; set; }
 
         /// <summary>
         /// Specifies if an external link to the folder is expired or not.
@@ -285,7 +285,7 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "expired", EmitDefaultValue = true)]
         [Obsolete]
-        public bool Expired { get; set; }
+        public bool? Expired { get; set; }
 
         /// <summary>
         /// Gets or Sets ChatSettings

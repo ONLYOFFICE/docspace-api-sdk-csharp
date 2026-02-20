@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="external">Specifies if the folder can be accessed via an external link or not..</param>
         /// <param name="expirationDate">expirationDate.</param>
         /// <param name="isLinkExpired">Indicates whether the shareable link associated with the file or folder has expired..</param>
-        public FileEntryDtoString(string id = default, string rootFolderId = default, string originId = default, string originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileEntryDtoIntegerAllOfShareSettings shareSettings = default, FileEntryDtoIntegerAllOfSecurity security = default, FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights = default, string requestToken = default, bool external = default, ApiDateTime expirationDate = default, bool isLinkExpired = default)
+        public FileEntryDtoString(string id = default, string rootFolderId = default, string originId = default, string originRoomId = default, string originTitle = default, string originRoomTitle = default, bool canShare = default, FileEntryDtoIntegerAllOfShareSettings shareSettings = default, FileEntryDtoIntegerAllOfSecurity security = default, FileEntryDtoIntegerAllOfAvailableShareRights availableShareRights = default, string requestToken = default, bool? external = default, ApiDateTime expirationDate = default, bool? isLinkExpired = default)
         {
             this.Id = id;
             this.RootFolderId = rootFolderId;
@@ -58,7 +58,6 @@ namespace DocSpace.API.SDK.Model
             this.External = external;
             this.ExpirationDate = expirationDate;
             this.IsLinkExpired = isLinkExpired;
-            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -68,7 +67,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>10</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -78,7 +77,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "rootFolderId", EmitDefaultValue = false)]
+        [DataMember(Name = "rootFolderId", EmitDefaultValue = true)]
         public string RootFolderId { get; set; }
 
         /// <summary>
@@ -88,7 +87,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "originId", EmitDefaultValue = false)]
+        [DataMember(Name = "originId", EmitDefaultValue = true)]
         public string OriginId { get; set; }
 
         /// <summary>
@@ -98,7 +97,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "originRoomId", EmitDefaultValue = false)]
+        [DataMember(Name = "originRoomId", EmitDefaultValue = true)]
         public string OriginRoomId { get; set; }
 
         /// <summary>
@@ -108,7 +107,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "originTitle", EmitDefaultValue = false)]
+        [DataMember(Name = "originTitle", EmitDefaultValue = true)]
         public string OriginTitle { get; set; }
 
         /// <summary>
@@ -118,7 +117,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "originRoomTitle", EmitDefaultValue = false)]
+        [DataMember(Name = "originRoomTitle", EmitDefaultValue = true)]
         public string OriginRoomTitle { get; set; }
 
         /// <summary>
@@ -134,19 +133,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets ShareSettings
         /// </summary>
-        [DataMember(Name = "shareSettings", EmitDefaultValue = false)]
+        [DataMember(Name = "shareSettings", EmitDefaultValue = true)]
         public FileEntryDtoIntegerAllOfShareSettings ShareSettings { get; set; }
 
         /// <summary>
         /// Gets or Sets Security
         /// </summary>
-        [DataMember(Name = "security", EmitDefaultValue = false)]
+        [DataMember(Name = "security", EmitDefaultValue = true)]
         public FileEntryDtoIntegerAllOfSecurity Security { get; set; }
 
         /// <summary>
         /// Gets or Sets AvailableShareRights
         /// </summary>
-        [DataMember(Name = "availableShareRights", EmitDefaultValue = false)]
+        [DataMember(Name = "availableShareRights", EmitDefaultValue = true)]
         public FileEntryDtoIntegerAllOfAvailableShareRights AvailableShareRights { get; set; }
 
         /// <summary>
@@ -156,7 +155,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "requestToken", EmitDefaultValue = false)]
+        [DataMember(Name = "requestToken", EmitDefaultValue = true)]
         public string RequestToken { get; set; }
 
         /// <summary>
@@ -167,7 +166,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "external", EmitDefaultValue = true)]
-        public bool External { get; set; }
+        public bool? External { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpirationDate
@@ -183,13 +182,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isLinkExpired", EmitDefaultValue = true)]
-        public bool IsLinkExpired { get; set; }
-
-        /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [System.Text.Json.Serialization.JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
+        public bool? IsLinkExpired { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -213,7 +206,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  External: ").Append(External).Append("\n");
             sb.Append("  ExpirationDate: ").Append(ExpirationDate).Append("\n");
             sb.Append("  IsLinkExpired: ").Append(IsLinkExpired).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

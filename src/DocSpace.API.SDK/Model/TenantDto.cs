@@ -99,7 +99,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "affiliateId", EmitDefaultValue = false)]
+        [DataMember(Name = "affiliateId", EmitDefaultValue = true)]
         public string AffiliateId { get; set; }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "tenantAlias", EmitDefaultValue = false)]
+        [DataMember(Name = "tenantAlias", EmitDefaultValue = true)]
         public string TenantAlias { get; set; }
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "campaign", EmitDefaultValue = false)]
+        [DataMember(Name = "campaign", EmitDefaultValue = true)]
         public string Campaign { get; set; }
 
         /// <summary>
@@ -137,7 +137,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant creation date and time.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
         [DataMember(Name = "creationDateTime", EmitDefaultValue = false)]
         public DateTime CreationDateTime { get; private set; }
@@ -157,7 +157,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "hostedRegion", EmitDefaultValue = false)]
+        [DataMember(Name = "hostedRegion", EmitDefaultValue = true)]
         public string HostedRegion { get; set; }
 
         /// <summary>
@@ -185,7 +185,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "language", EmitDefaultValue = false)]
+        [DataMember(Name = "language", EmitDefaultValue = true)]
         public string Language { get; set; }
 
         /// <summary>
@@ -193,7 +193,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the tenant was last modified.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
@@ -205,7 +205,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "mappedDomain", EmitDefaultValue = false)]
+        [DataMember(Name = "mappedDomain", EmitDefaultValue = true)]
         public string MappedDomain { get; set; }
 
         /// <summary>
@@ -215,7 +215,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John Doe</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -235,7 +235,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "paymentId", EmitDefaultValue = false)]
+        [DataMember(Name = "paymentId", EmitDefaultValue = true)]
         public string PaymentId { get; set; }
 
         /// <summary>
@@ -253,7 +253,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the tenant status was changed.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
         [DataMember(Name = "statusChangeDate", EmitDefaultValue = false)]
         public DateTime StatusChangeDate { get; private set; }
@@ -273,7 +273,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "timeZone", EmitDefaultValue = false)]
+        [DataMember(Name = "timeZone", EmitDefaultValue = true)]
         public string @TimeZone { get; set; }
 
         /// <summary>
@@ -281,9 +281,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tenant trusted domains.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "trustedDomains", EmitDefaultValue = false)]
+        [DataMember(Name = "trustedDomains", EmitDefaultValue = true)]
         public List<string> TrustedDomains { get; set; }
 
         /// <summary>
@@ -293,7 +293,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "trustedDomainsRaw", EmitDefaultValue = false)]
+        [DataMember(Name = "trustedDomainsRaw", EmitDefaultValue = true)]
         public string TrustedDomainsRaw { get; set; }
 
         /// <summary>
@@ -311,7 +311,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the tenant version was changed.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
         [DataMember(Name = "versionChanged", EmitDefaultValue = false)]
         public DateTime VersionChanged { get; set; }
@@ -323,7 +323,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "region", EmitDefaultValue = false)]
+        [DataMember(Name = "region", EmitDefaultValue = true)]
         public string Region { get; set; }
 
         /// <summary>

@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "signingAlgorithm", EmitDefaultValue = false)]
+        [DataMember(Name = "signingAlgorithm", EmitDefaultValue = true)]
         public string SigningAlgorithm { get; set; }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "encryptAlgorithm", EmitDefaultValue = false)]
+        [DataMember(Name = "encryptAlgorithm", EmitDefaultValue = true)]
         public string EncryptAlgorithm { get; set; }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "decryptAlgorithm", EmitDefaultValue = false)]
+        [DataMember(Name = "decryptAlgorithm", EmitDefaultValue = true)]
         public string DecryptAlgorithm { get; set; }
 
         /// <summary>

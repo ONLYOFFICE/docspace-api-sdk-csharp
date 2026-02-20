@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.EmbeddingProviderType
+[0 - None, 1 - OpenAi, 2 - OpenRouter]
 
 ## Properties
 

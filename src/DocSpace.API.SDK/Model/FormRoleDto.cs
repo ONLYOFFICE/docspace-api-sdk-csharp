@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "roleColor", EmitDefaultValue = false)]
+        [DataMember(Name = "roleColor", EmitDefaultValue = true)]
         public string RoleColor { get; set; }
 
         /// <summary>
@@ -121,9 +121,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The role history.</value>
         /*
-        <example>[{key&#x3D;1234, value&#x3D;2008-04-10T06:30:00.0000000+04:00}]</example>
+        <example>[{&quot;key&quot;:1234,&quot;value&quot;:&quot;2008-04-10T06:30:00.0000000+04:00&quot;}]</example>
         */
-        [DataMember(Name = "history", EmitDefaultValue = false)]
+        [DataMember(Name = "history", EmitDefaultValue = true)]
         public Dictionary<string, DateTime> History { get; set; }
 
         /// <summary>

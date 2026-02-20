@@ -19,54 +19,55 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Defines ProviderType
+    /// [0 - PortalAi, 1 - OpenAi, 2 - TogetherAi, 3 - OpenAiCompatible, 4 - Anthropic, 5 - OpenRouter, 6 - DeepSeek, 7 - XAi, 8 - GoogleAi]
     /// </summary>
+    /// <value>[0 - PortalAi, 1 - OpenAi, 2 - TogetherAi, 3 - OpenAiCompatible, 4 - Anthropic, 5 - OpenRouter, 6 - DeepSeek, 7 - XAi, 8 - GoogleAi]</value>
     public enum ProviderType
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum PortalAi for value: 0
         /// </summary>
-        NUMBER_0 = 0,
+        PortalAi = 0,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum OpenAi for value: 1
         /// </summary>
-        NUMBER_1 = 1,
+        OpenAi = 1,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum TogetherAi for value: 2
         /// </summary>
-        NUMBER_2 = 2,
+        TogetherAi = 2,
 
         /// <summary>
-        /// Enum NUMBER_3 for value: 3
+        /// Enum OpenAiCompatible for value: 3
         /// </summary>
-        NUMBER_3 = 3,
+        OpenAiCompatible = 3,
 
         /// <summary>
-        /// Enum NUMBER_4 for value: 4
+        /// Enum Anthropic for value: 4
         /// </summary>
-        NUMBER_4 = 4,
+        Anthropic = 4,
 
         /// <summary>
-        /// Enum NUMBER_5 for value: 5
+        /// Enum OpenRouter for value: 5
         /// </summary>
-        NUMBER_5 = 5,
+        OpenRouter = 5,
 
         /// <summary>
-        /// Enum NUMBER_6 for value: 6
+        /// Enum DeepSeek for value: 6
         /// </summary>
-        NUMBER_6 = 6,
+        DeepSeek = 6,
 
         /// <summary>
-        /// Enum NUMBER_7 for value: 7
+        /// Enum XAi for value: 7
         /// </summary>
-        NUMBER_7 = 7,
+        XAi = 7,
 
         /// <summary>
-        /// Enum NUMBER_8 for value: 8
+        /// Enum GoogleAi for value: 8
         /// </summary>
-        NUMBER_8 = 8
+        GoogleAi = 8
     }
 
 }

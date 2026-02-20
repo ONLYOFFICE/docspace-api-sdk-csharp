@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.EngineType
+[0 - None, 1 - Exa]
 
 ## Properties
 

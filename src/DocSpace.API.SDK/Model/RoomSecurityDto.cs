@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of room members.
         /// </summary>
         /// <value>The list of room members.</value>
-        [DataMember(Name = "members", EmitDefaultValue = false)]
+        [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<FileShareDto> Members { get; set; }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "warning", EmitDefaultValue = false)]
+        [DataMember(Name = "warning", EmitDefaultValue = true)]
         public string Warning { get; set; }
 
         /// <summary>

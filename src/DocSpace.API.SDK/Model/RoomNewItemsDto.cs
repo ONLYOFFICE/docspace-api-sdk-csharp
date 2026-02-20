@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of file entry items.
         /// </summary>
         /// <value>The list of file entry items.</value>
-        [DataMember(Name = "items", EmitDefaultValue = false)]
+        [DataMember(Name = "items", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Items { get; set; }
 
         /// <summary>

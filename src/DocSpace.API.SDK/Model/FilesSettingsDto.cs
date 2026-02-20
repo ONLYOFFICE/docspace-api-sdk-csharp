@@ -216,7 +216,6 @@ namespace DocSpace.API.SDK.Model
             this.OrganizeRoomsGrouping = organizeRoomsGrouping;
             this.ExtsFilesVectorized = extsFilesVectorized;
             this.MaxVectorizationFileSize = maxVectorizationFileSize;
-            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -224,9 +223,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the viewed images.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsImagePreviewed", EmitDefaultValue = false)]
+        [DataMember(Name = "extsImagePreviewed", EmitDefaultValue = true)]
         public List<string> ExtsImagePreviewed { get; set; }
 
         /// <summary>
@@ -234,9 +233,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the viewed media files.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsMediaPreviewed", EmitDefaultValue = false)]
+        [DataMember(Name = "extsMediaPreviewed", EmitDefaultValue = true)]
         public List<string> ExtsMediaPreviewed { get; set; }
 
         /// <summary>
@@ -244,9 +243,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the viewed files.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsWebPreviewed", EmitDefaultValue = false)]
+        [DataMember(Name = "extsWebPreviewed", EmitDefaultValue = true)]
         public List<string> ExtsWebPreviewed { get; set; }
 
         /// <summary>
@@ -254,9 +253,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the edited files.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsWebEdited", EmitDefaultValue = false)]
+        [DataMember(Name = "extsWebEdited", EmitDefaultValue = true)]
         public List<string> ExtsWebEdited { get; set; }
 
         /// <summary>
@@ -264,9 +263,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the encrypted files.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsWebEncrypt", EmitDefaultValue = false)]
+        [DataMember(Name = "extsWebEncrypt", EmitDefaultValue = true)]
         public List<string> ExtsWebEncrypt { get; set; }
 
         /// <summary>
@@ -274,9 +273,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the reviewed files.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsWebReviewed", EmitDefaultValue = false)]
+        [DataMember(Name = "extsWebReviewed", EmitDefaultValue = true)]
         public List<string> ExtsWebReviewed { get; set; }
 
         /// <summary>
@@ -284,9 +283,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the custom filter files.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsWebCustomFilterEditing", EmitDefaultValue = false)]
+        [DataMember(Name = "extsWebCustomFilterEditing", EmitDefaultValue = true)]
         public List<string> ExtsWebCustomFilterEditing { get; set; }
 
         /// <summary>
@@ -294,9 +293,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the files that are restricted for editing.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsWebRestrictedEditing", EmitDefaultValue = false)]
+        [DataMember(Name = "extsWebRestrictedEditing", EmitDefaultValue = true)]
         public List<string> ExtsWebRestrictedEditing { get; set; }
 
         /// <summary>
@@ -304,9 +303,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the commented files.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsWebCommented", EmitDefaultValue = false)]
+        [DataMember(Name = "extsWebCommented", EmitDefaultValue = true)]
         public List<string> ExtsWebCommented { get; set; }
 
         /// <summary>
@@ -314,9 +313,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the template files.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsWebTemplate", EmitDefaultValue = false)]
+        [DataMember(Name = "extsWebTemplate", EmitDefaultValue = true)]
         public List<string> ExtsWebTemplate { get; set; }
 
         /// <summary>
@@ -324,9 +323,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the files that must be converted.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsMustConvert", EmitDefaultValue = false)]
+        [DataMember(Name = "extsMustConvert", EmitDefaultValue = true)]
         public List<string> ExtsMustConvert { get; set; }
 
         /// <summary>
@@ -334,9 +333,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the convertible extensions.</value>
         /*
-        <example>[{key&#x3D;some text, value&#x3D;[some text]}]</example>
+        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:[&quot;some text&quot;]}]</example>
         */
-        [DataMember(Name = "extsConvertible", EmitDefaultValue = false)]
+        [DataMember(Name = "extsConvertible", EmitDefaultValue = true)]
         public Dictionary<string, List<string>> ExtsConvertible { get; set; }
 
         /// <summary>
@@ -344,9 +343,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the uploadable extensions.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsUploadable", EmitDefaultValue = false)]
+        [DataMember(Name = "extsUploadable", EmitDefaultValue = true)]
         public List<string> ExtsUploadable { get; set; }
 
         /// <summary>
@@ -354,9 +353,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the archive files.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsArchive", EmitDefaultValue = false)]
+        [DataMember(Name = "extsArchive", EmitDefaultValue = true)]
         public List<string> ExtsArchive { get; set; }
 
         /// <summary>
@@ -364,9 +363,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the video extensions.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsVideo", EmitDefaultValue = false)]
+        [DataMember(Name = "extsVideo", EmitDefaultValue = true)]
         public List<string> ExtsVideo { get; set; }
 
         /// <summary>
@@ -374,9 +373,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the audio extensions.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsAudio", EmitDefaultValue = false)]
+        [DataMember(Name = "extsAudio", EmitDefaultValue = true)]
         public List<string> ExtsAudio { get; set; }
 
         /// <summary>
@@ -384,9 +383,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the image extensions.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsImage", EmitDefaultValue = false)]
+        [DataMember(Name = "extsImage", EmitDefaultValue = true)]
         public List<string> ExtsImage { get; set; }
 
         /// <summary>
@@ -394,9 +393,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the spreadsheet extensions.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsSpreadsheet", EmitDefaultValue = false)]
+        [DataMember(Name = "extsSpreadsheet", EmitDefaultValue = true)]
         public List<string> ExtsSpreadsheet { get; set; }
 
         /// <summary>
@@ -404,9 +403,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the presentation extensions.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsPresentation", EmitDefaultValue = false)]
+        [DataMember(Name = "extsPresentation", EmitDefaultValue = true)]
         public List<string> ExtsPresentation { get; set; }
 
         /// <summary>
@@ -414,9 +413,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the text document extensions.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsDocument", EmitDefaultValue = false)]
+        [DataMember(Name = "extsDocument", EmitDefaultValue = true)]
         public List<string> ExtsDocument { get; set; }
 
         /// <summary>
@@ -424,15 +423,15 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the diagram extensions.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsDiagram", EmitDefaultValue = false)]
+        [DataMember(Name = "extsDiagram", EmitDefaultValue = true)]
         public List<string> ExtsDiagram { get; set; }
 
         /// <summary>
         /// Gets or Sets InternalFormats
         /// </summary>
-        [DataMember(Name = "internalFormats", EmitDefaultValue = false)]
+        [DataMember(Name = "internalFormats", EmitDefaultValue = true)]
         public FilesSettingsDtoInternalFormats InternalFormats { get; set; }
 
         /// <summary>
@@ -442,7 +441,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "masterFormExtension", EmitDefaultValue = false)]
+        [DataMember(Name = "masterFormExtension", EmitDefaultValue = true)]
         public string MasterFormExtension { get; set; }
 
         /// <summary>
@@ -452,7 +451,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "paramVersion", EmitDefaultValue = false)]
+        [DataMember(Name = "paramVersion", EmitDefaultValue = true)]
         public string ParamVersion { get; set; }
 
         /// <summary>
@@ -462,7 +461,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "paramOutType", EmitDefaultValue = false)]
+        [DataMember(Name = "paramOutType", EmitDefaultValue = true)]
         public string ParamOutType { get; set; }
 
         /// <summary>
@@ -472,7 +471,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileDownloadUrlString", EmitDefaultValue = false)]
+        [DataMember(Name = "fileDownloadUrlString", EmitDefaultValue = true)]
         public string FileDownloadUrlString { get; set; }
 
         /// <summary>
@@ -482,7 +481,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileWebViewerUrlString", EmitDefaultValue = false)]
+        [DataMember(Name = "fileWebViewerUrlString", EmitDefaultValue = true)]
         public string FileWebViewerUrlString { get; set; }
 
         /// <summary>
@@ -492,7 +491,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileWebViewerExternalUrlString", EmitDefaultValue = false)]
+        [DataMember(Name = "fileWebViewerExternalUrlString", EmitDefaultValue = true)]
         public string FileWebViewerExternalUrlString { get; set; }
 
         /// <summary>
@@ -502,7 +501,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileWebEditorUrlString", EmitDefaultValue = false)]
+        [DataMember(Name = "fileWebEditorUrlString", EmitDefaultValue = true)]
         public string FileWebEditorUrlString { get; set; }
 
         /// <summary>
@@ -512,7 +511,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileWebEditorExternalUrlString", EmitDefaultValue = false)]
+        [DataMember(Name = "fileWebEditorExternalUrlString", EmitDefaultValue = true)]
         public string FileWebEditorExternalUrlString { get; set; }
 
         /// <summary>
@@ -522,7 +521,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileRedirectPreviewUrlString", EmitDefaultValue = false)]
+        [DataMember(Name = "fileRedirectPreviewUrlString", EmitDefaultValue = true)]
         public string FileRedirectPreviewUrlString { get; set; }
 
         /// <summary>
@@ -532,7 +531,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileThumbnailUrlString", EmitDefaultValue = false)]
+        [DataMember(Name = "fileThumbnailUrlString", EmitDefaultValue = true)]
         public string FileThumbnailUrlString { get; set; }
 
         /// <summary>
@@ -741,7 +740,7 @@ namespace DocSpace.API.SDK.Model
         /// The default access rights in sharing settings.
         /// </summary>
         /// <value>The default access rights in sharing settings.</value>
-        [DataMember(Name = "defaultSharingAccessRights", EmitDefaultValue = false)]
+        [DataMember(Name = "defaultSharingAccessRights", EmitDefaultValue = true)]
         public List<FilesSettingsDto.DefaultSharingAccessRightsEnum> DefaultSharingAccessRights { get; set; }
 
         /// <summary>
@@ -789,9 +788,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>List of extensions available for vectorization</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "extsFilesVectorized", EmitDefaultValue = false)]
+        [DataMember(Name = "extsFilesVectorized", EmitDefaultValue = true)]
         public List<string> ExtsFilesVectorized { get; set; }
 
         /// <summary>
@@ -803,12 +802,6 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "maxVectorizationFileSize", EmitDefaultValue = false)]
         public long MaxVectorizationFileSize { get; set; }
-
-        /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [System.Text.Json.Serialization.JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -878,7 +871,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  OrganizeRoomsGrouping: ").Append(OrganizeRoomsGrouping).Append("\n");
             sb.Append("  ExtsFilesVectorized: ").Append(ExtsFilesVectorized).Append("\n");
             sb.Append("  MaxVectorizationFileSize: ").Append(MaxVectorizationFileSize).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

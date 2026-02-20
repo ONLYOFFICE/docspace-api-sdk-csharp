@@ -37,7 +37,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="period">period.</param>
         /// <param name="hour">The time of the day to start the backup process..</param>
         /// <param name="day">The day of the week to start the backup process..</param>
-        public Cron(BackupPeriod? period = default, int hour = default, int day = default)
+        public Cron(BackupPeriod? period = default, int hour = default, int? day = default)
         {
             this.Period = period;
             this.Hour = hour;
@@ -61,8 +61,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>0</example>
         */
-        [DataMember(Name = "day", EmitDefaultValue = false)]
-        public int Day { get; set; }
+        [DataMember(Name = "day", EmitDefaultValue = true)]
+        public int? Day { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

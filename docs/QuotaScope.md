@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.QuotaScope
-The quota scope.
+[0 - User, 1 - Room, 2 - Tenant]
 
 ## Properties
 

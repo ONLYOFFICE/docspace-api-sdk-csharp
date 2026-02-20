@@ -46,21 +46,21 @@ namespace DocSpace.API.SDK.Model
         /// The list of the shared folder IDs.
         /// </summary>
         /// <value>The list of the shared folder IDs.</value>
-        [DataMember(Name = "folderIds", EmitDefaultValue = false)]
+        [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of the shared file IDs.
         /// </summary>
         /// <value>The list of the shared file IDs.</value>
-        [DataMember(Name = "fileIds", EmitDefaultValue = false)]
+        [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>
         /// The collection of sharing parameters.
         /// </summary>
         /// <value>The collection of sharing parameters.</value>
-        [DataMember(Name = "share", EmitDefaultValue = false)]
+        [DataMember(Name = "share", EmitDefaultValue = true)]
         public List<FileShareParams> Share { get; set; }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "sharingMessage", EmitDefaultValue = false)]
+        [DataMember(Name = "sharingMessage", EmitDefaultValue = true)]
         public string SharingMessage { get; set; }
 
         /// <summary>

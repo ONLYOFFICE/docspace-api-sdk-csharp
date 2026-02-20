@@ -73,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="order">The order of the file entry..</param>
         /// <param name="isFavorite">Specifies if the file is a favorite or not..</param>
         /// <param name="fileEntryType">fileEntryType.</param>
-        public FileEntryBaseDto(string title = default, FileShare? access = default, EmployeeDto sharedBy = default, EmployeeDto ownedBy = default, bool shared = default, bool sharedForUser = default, bool parentShared = default, string shortWebUrl = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool providerItem = default, string providerKey = default, int providerId = default, string order = default, bool isFavorite = default, FileEntryType? fileEntryType = default)
+        public FileEntryBaseDto(string title = default, FileShare? access = default, EmployeeDto sharedBy = default, EmployeeDto ownedBy = default, bool shared = default, bool sharedForUser = default, bool parentShared = default, string shortWebUrl = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, bool? isFavorite = default, FileEntryType? fileEntryType = default)
         {
             this.Title = title;
             this.Access = access;
@@ -105,7 +105,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Some titile.txt/ Some title</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = false)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "shortWebUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "shortWebUrl", EmitDefaultValue = true)]
         public string ShortWebUrl { get; set; }
 
         /// <summary>
@@ -198,7 +198,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "providerItem", EmitDefaultValue = true)]
-        public bool ProviderItem { get; set; }
+        public bool? ProviderItem { get; set; }
 
         /// <summary>
         /// The provider key of the file entry.
@@ -207,7 +207,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "providerKey", EmitDefaultValue = false)]
+        [DataMember(Name = "providerKey", EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
 
         /// <summary>
@@ -217,8 +217,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "providerId", EmitDefaultValue = false)]
-        public int ProviderId { get; set; }
+        [DataMember(Name = "providerId", EmitDefaultValue = true)]
+        public int? ProviderId { get; set; }
 
         /// <summary>
         /// The order of the file entry.
@@ -227,7 +227,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "order", EmitDefaultValue = false)]
+        [DataMember(Name = "order", EmitDefaultValue = true)]
         public string Order { get; set; }
 
         /// <summary>
@@ -238,7 +238,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isFavorite", EmitDefaultValue = true)]
-        public bool IsFavorite { get; set; }
+        public bool? IsFavorite { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -31,7 +31,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="enableQuota">Specifies if the quota is enabled for the tenant entity or not..</param>
         /// <param name="defaultQuota">The default quota of the tenant entity..</param>
         /// <param name="lastRecalculateDate">The date of the last quota recalculation..</param>
-        public TenantEntityQuotaSettings(bool enableQuota = default, long defaultQuota = default, DateTime lastRecalculateDate = default)
+        public TenantEntityQuotaSettings(bool enableQuota = default, long defaultQuota = default, DateTime? lastRecalculateDate = default)
         {
             this.EnableQuota = enableQuota;
             this.DefaultQuota = defaultQuota;
@@ -63,10 +63,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date of the last quota recalculation.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "lastRecalculateDate", EmitDefaultValue = false)]
-        public DateTime LastRecalculateDate { get; set; }
+        [DataMember(Name = "lastRecalculateDate", EmitDefaultValue = true)]
+        public DateTime? LastRecalculateDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

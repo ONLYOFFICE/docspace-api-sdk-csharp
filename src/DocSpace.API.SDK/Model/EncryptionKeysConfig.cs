@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "cryptoEngineId", EmitDefaultValue = false)]
+        [DataMember(Name = "cryptoEngineId", EmitDefaultValue = true)]
         public string CryptoEngineId { get; private set; }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "privateKeyEnc", EmitDefaultValue = false)]
+        [DataMember(Name = "privateKeyEnc", EmitDefaultValue = true)]
         public string PrivateKeyEnc { get; set; }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "publicKey", EmitDefaultValue = false)]
+        [DataMember(Name = "publicKey", EmitDefaultValue = true)]
         public string PublicKey { get; set; }
 
         /// <summary>

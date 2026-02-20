@@ -70,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "token", EmitDefaultValue = false)]
+        [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>

@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "feedbackAndSupportUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "feedbackAndSupportUrl", EmitDefaultValue = true)]
         public string FeedbackAndSupportUrl { get; set; }
 
         /// <summary>

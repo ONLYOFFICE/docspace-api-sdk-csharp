@@ -40,14 +40,14 @@ namespace DocSpace.API.SDK.Model
         /// The list of folder IDs.
         /// </summary>
         /// <value>The list of folder IDs.</value>
-        [DataMember(Name = "folderIds", EmitDefaultValue = false)]
+        [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs.
         /// </summary>
         /// <value>The list of file IDs.</value>
-        [DataMember(Name = "fileIds", EmitDefaultValue = false)]
+        [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>

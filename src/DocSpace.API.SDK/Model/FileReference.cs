@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "error", EmitDefaultValue = false)]
+        [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "path", EmitDefaultValue = false)]
+        [DataMember(Name = "path", EmitDefaultValue = true)]
         public string Path { get; set; }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "url", EmitDefaultValue = false)]
+        [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileType", EmitDefaultValue = false)]
+        [DataMember(Name = "fileType", EmitDefaultValue = true)]
         public string FileType { get; set; }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "key", EmitDefaultValue = false)]
+        [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "link", EmitDefaultValue = false)]
+        [DataMember(Name = "link", EmitDefaultValue = true)]
         public string Link { get; set; }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "token", EmitDefaultValue = false)]
+        [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>

@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of active connection items.
         /// </summary>
         /// <value>The list of active connection items.</value>
-        [DataMember(Name = "items", EmitDefaultValue = false)]
+        [DataMember(Name = "items", EmitDefaultValue = true)]
         public List<ActiveConnectionsItemDto> Items { get; set; }
 
         /// <summary>

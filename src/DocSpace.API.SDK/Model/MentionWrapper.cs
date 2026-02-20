@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>example@onlyoffice.com</example>
         */
-        [DataMember(Name = "email", EmitDefaultValue = false)]
+        [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; private set; }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; private set; }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "image", EmitDefaultValue = false)]
+        [DataMember(Name = "image", EmitDefaultValue = true)]
         public string Image { get; private set; }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John Doe</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; private set; }
 
         /// <summary>

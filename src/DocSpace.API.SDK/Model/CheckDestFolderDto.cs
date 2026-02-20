@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of files in the destination folder.
         /// </summary>
         /// <value>The list of files in the destination folder.</value>
-        [DataMember(Name = "files", EmitDefaultValue = false)]
+        [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Files { get; set; }
 
         /// <summary>

@@ -40,7 +40,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "regex", EmitDefaultValue = false)]
+        [DataMember(Name = "regex", EmitDefaultValue = true)]
         public string Regex { get; private set; }
 
         /// <summary>

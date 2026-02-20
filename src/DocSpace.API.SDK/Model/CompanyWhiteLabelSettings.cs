@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "companyName", EmitDefaultValue = false)]
+        [DataMember(Name = "companyName", EmitDefaultValue = true)]
         public string CompanyName { get; set; }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "site", EmitDefaultValue = false)]
+        [DataMember(Name = "site", EmitDefaultValue = true)]
         public string Site { get; set; }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>example@onlyoffice.com</example>
         */
-        [DataMember(Name = "email", EmitDefaultValue = false)]
+        [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "address", EmitDefaultValue = false)]
+        [DataMember(Name = "address", EmitDefaultValue = true)]
         public string Address { get; set; }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "phone", EmitDefaultValue = false)]
+        [DataMember(Name = "phone", EmitDefaultValue = true)]
         public string Phone { get; set; }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets LastModified
         /// </summary>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }

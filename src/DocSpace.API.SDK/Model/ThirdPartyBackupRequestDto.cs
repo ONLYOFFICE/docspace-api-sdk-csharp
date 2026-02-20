@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "url", EmitDefaultValue = false)]
+        [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "login", EmitDefaultValue = false)]
+        [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; set; }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>P@ssw0rd123</example>
         */
-        [DataMember(Name = "password", EmitDefaultValue = false)]
+        [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "token", EmitDefaultValue = false)]
+        [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "customerTitle", EmitDefaultValue = false)]
+        [DataMember(Name = "customerTitle", EmitDefaultValue = true)]
         public string CustomerTitle { get; set; }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "providerKey", EmitDefaultValue = false)]
+        [DataMember(Name = "providerKey", EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
 
         /// <summary>

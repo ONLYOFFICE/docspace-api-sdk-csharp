@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Set of unique identifiers of MCP servers to remove from the room. Associated connections and tool configurations will also be cleaned up.</value>
         /*
-        <example>[75a5f745-f697-4418-b38d-0fe0d277e258]</example>
+        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
         */
         [DataMember(Name = "servers", IsRequired = true, EmitDefaultValue = true)]
         public List<Guid> Servers { get; set; }

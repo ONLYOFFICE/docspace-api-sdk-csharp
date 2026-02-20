@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="aiAgentsQuota">aiAgentsQuota.</param>
         /// <param name="tenantCustomQuota">tenantCustomQuota.</param>
         /// <param name="dueDate">The due date..</param>
-        public QuotaDto(int id = default, string title = default, PriceDto price = default, bool nonProfit = default, bool free = default, bool trial = default, List<TenantQuotaFeatureDto> features = default, TenantEntityQuotaSettings usersQuota = default, TenantEntityQuotaSettings roomsQuota = default, TenantEntityQuotaSettings aiAgentsQuota = default, TenantQuotaSettings tenantCustomQuota = default, DateTime dueDate = default)
+        public QuotaDto(int id = default, string title = default, PriceDto price = default, bool nonProfit = default, bool free = default, bool trial = default, List<TenantQuotaFeatureDto> features = default, TenantEntityQuotaSettings usersQuota = default, TenantEntityQuotaSettings roomsQuota = default, TenantEntityQuotaSettings aiAgentsQuota = default, TenantQuotaSettings tenantCustomQuota = default, DateTime? dueDate = default)
         {
             this.Id = id;
             // to ensure "title" is required (not null)
@@ -168,10 +168,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The due date.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "dueDate", EmitDefaultValue = false)]
-        public DateTime DueDate { get; set; }
+        [DataMember(Name = "dueDate", EmitDefaultValue = true)]
+        public DateTime? DueDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

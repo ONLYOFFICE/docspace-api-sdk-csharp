@@ -86,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "error", EmitDefaultValue = false)]
+        [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "warning", EmitDefaultValue = false)]
+        [DataMember(Name = "warning", EmitDefaultValue = true)]
         public string Warning { get; set; }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "link", EmitDefaultValue = false)]
+        [DataMember(Name = "link", EmitDefaultValue = true)]
         public string Link { get; set; }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "taskId", EmitDefaultValue = false)]
+        [DataMember(Name = "taskId", EmitDefaultValue = true)]
         public string TaskId { get; set; }
 
         /// <summary>

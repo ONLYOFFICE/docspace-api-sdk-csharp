@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the form was created.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
         [DataMember(Name = "createOn", EmitDefaultValue = false)]
         public DateTime CreateOn { get; set; }
@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of forms data.
         /// </summary>
         /// <value>The list of forms data.</value>
-        [DataMember(Name = "formsData", EmitDefaultValue = false)]
+        [DataMember(Name = "formsData", EmitDefaultValue = true)]
         public List<FormsItemData> FormsData { get; set; }
 
         /// <summary>

@@ -90,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "culture", EmitDefaultValue = false)]
+        [DataMember(Name = "culture", EmitDefaultValue = true)]
         public string Culture { get; set; }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "recaptchaResponse", EmitDefaultValue = false)]
+        [DataMember(Name = "recaptchaResponse", EmitDefaultValue = true)]
         public string RecaptchaResponse { get; set; }
 
         /// <summary>

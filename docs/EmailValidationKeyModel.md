@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **EmplType** | **EmployeeType** |  | [optional] 
 **Email** | **string** | The email address. | [optional] 
 **EncEmail** | **string** | The encrypted email address. | [optional] 
-**UiD** | **Guid** | The user ID. | [optional] 
+**UiD** | **Guid?** | The user ID. | [optional] 
 **Type** | **ConfirmType** |  | [optional] 
 **First** | **string** | Specifies whether it is the first time account access or not. | [optional] 
 **RoomId** | **string** | The room ID. | [optional] 

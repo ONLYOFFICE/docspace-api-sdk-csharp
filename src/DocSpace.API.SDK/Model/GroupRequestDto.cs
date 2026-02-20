@@ -48,9 +48,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of group member IDs.</value>
         /*
-        <example>[75a5f745-f697-4418-b38d-0fe0d277e258]</example>
+        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
         */
-        [DataMember(Name = "members", EmitDefaultValue = false)]
+        [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<Guid> Members { get; set; }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "groupName", EmitDefaultValue = false)]
+        [DataMember(Name = "groupName", EmitDefaultValue = true)]
         public string GroupName { get; set; }
 
         /// <summary>

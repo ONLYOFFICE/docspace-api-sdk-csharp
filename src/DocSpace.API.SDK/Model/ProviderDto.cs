@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John Doe</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "key", EmitDefaultValue = false)]
+        [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "redirectUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "redirectUrl", EmitDefaultValue = true)]
         public string RedirectUrl { get; set; }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "clientId", EmitDefaultValue = false)]
+        [DataMember(Name = "clientId", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 
         /// <summary>

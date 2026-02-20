@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of inner services.
         /// </summary>
         /// <value>The list of inner services.</value>
-        [DataMember(Name = "innerServices", EmitDefaultValue = false)]
+        [DataMember(Name = "innerServices", EmitDefaultValue = true)]
         public List<QuotaDto> InnerServices { get; set; }
 
         /// <summary>

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **ResponseHeaders** | **string** | The webhook response headers. | [optional] 
 **ResponsePayload** | **string** | The webhook response payload. | [optional] 
 **Status** | **int** | The webhook status. | [optional] 
-**Delivery** | **DateTime** | The webhook delivery time. | [optional] 
+**Delivery** | **DateTime?** | The webhook delivery time. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -59,14 +59,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>[1234]</example>
         */
-        [DataMember(Name = "path", EmitDefaultValue = false)]
+        [DataMember(Name = "path", EmitDefaultValue = true)]
         public List<int> Path { get; set; }
 
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
         [DataMember(Name = "created", EmitDefaultValue = false)]
         public DateTime Created { get; set; }
@@ -75,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets Expired
         /// </summary>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
         [DataMember(Name = "expired", EmitDefaultValue = false)]
         public DateTime Expired { get; set; }
@@ -86,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>001 Schroeder Run, New Tabithaport, Colombia</example>
         */
-        [DataMember(Name = "location", EmitDefaultValue = false)]
+        [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
 
         /// <summary>

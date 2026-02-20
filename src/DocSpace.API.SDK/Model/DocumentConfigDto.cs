@@ -63,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fileType", EmitDefaultValue = false)]
+        [DataMember(Name = "fileType", EmitDefaultValue = true)]
         public string FileType { get; set; }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "key", EmitDefaultValue = false)]
+        [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "sharedLinkParam", EmitDefaultValue = false)]
+        [DataMember(Name = "sharedLinkParam", EmitDefaultValue = true)]
         public string SharedLinkParam { get; set; }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "sharedLinkKey", EmitDefaultValue = false)]
+        [DataMember(Name = "sharedLinkKey", EmitDefaultValue = true)]
         public string SharedLinkKey { get; set; }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>SampleFile</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = false)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "url", EmitDefaultValue = false)]
+        [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>

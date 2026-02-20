@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="lifetime">lifetime.</param>
         /// <param name="watermark">watermark.</param>
         /// <param name="@private">Specifies whether the room to be created is private or not..</param>
-        public CreateRoomFromTemplateDto(int templateId = default, string title = default, LogoRequest logo = default, bool copyLogo = default, List<string> tags = default, string color = default, string cover = default, long quota = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, bool @private = default)
+        public CreateRoomFromTemplateDto(int templateId = default, string title = default, LogoRequest logo = default, bool copyLogo = default, List<string> tags = default, string color = default, string cover = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, bool? @private = default)
         {
             this.TemplateId = templateId;
             // to ensure "title" is required (not null)
@@ -109,9 +109,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of tags.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "tags", EmitDefaultValue = false)]
+        [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "color", EmitDefaultValue = false)]
+        [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "cover", EmitDefaultValue = false)]
+        [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
 
         /// <summary>
@@ -141,8 +141,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "quota", EmitDefaultValue = false)]
-        public long Quota { get; set; }
+        [DataMember(Name = "quota", EmitDefaultValue = true)]
+        public long? Quota { get; set; }
 
         /// <summary>
         /// Specifies whether to create a room with indexing.
@@ -152,7 +152,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "indexing", EmitDefaultValue = true)]
-        public bool Indexing { get; set; }
+        public bool? Indexing { get; set; }
 
         /// <summary>
         /// Specifies whether to deny downloads from the room.
@@ -162,7 +162,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
-        public bool DenyDownload { get; set; }
+        public bool? DenyDownload { get; set; }
 
         /// <summary>
         /// Gets or Sets Lifetime
@@ -184,7 +184,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "private", EmitDefaultValue = true)]
-        public bool Private { get; set; }
+        public bool? Private { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

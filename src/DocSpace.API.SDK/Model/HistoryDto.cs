@@ -107,7 +107,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of related history.
         /// </summary>
         /// <value>The list of related history.</value>
-        [DataMember(Name = "related", EmitDefaultValue = false)]
+        [DataMember(Name = "related", EmitDefaultValue = true)]
         public List<HistoryDto> Related { get; set; }
 
         /// <summary>

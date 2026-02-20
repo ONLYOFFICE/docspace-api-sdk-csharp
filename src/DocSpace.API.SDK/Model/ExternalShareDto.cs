@@ -64,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="linkId">The link ID of the external data. (required).</param>
         /// <param name="isAuthenticated">Specifies whether the user is authenticated or not. (required).</param>
         /// <param name="isRoomMember">The room ID of the external data..</param>
-        public ExternalShareDto(Status status = default, string id = default, string title = default, FileEntryType? type = default, int tenantId = default, string entityId = default, string entityTitle = default, FileEntryType? entityType = default, bool isRoom = default, bool shared = default, Guid linkId = default, bool isAuthenticated = default, bool isRoomMember = default)
+        public ExternalShareDto(Status status = default, string id = default, string title = default, FileEntryType? type = default, int tenantId = default, string entityId = default, string entityTitle = default, FileEntryType? entityType = default, bool? isRoom = default, bool shared = default, Guid linkId = default, bool isAuthenticated = default, bool isRoomMember = default)
         {
             this.Status = status;
             // to ensure "id" is required (not null)
@@ -128,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "entityId", EmitDefaultValue = false)]
+        [DataMember(Name = "entityId", EmitDefaultValue = true)]
         public string EntityId { get; set; }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "entityTitle", EmitDefaultValue = false)]
+        [DataMember(Name = "entityTitle", EmitDefaultValue = true)]
         public string EntityTitle { get; set; }
 
         /// <summary>
@@ -149,7 +149,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isRoom", EmitDefaultValue = true)]
-        public bool IsRoom { get; set; }
+        public bool? IsRoom { get; set; }
 
         /// <summary>
         /// Specifies whether to share the external data or not.

@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "serializedProfile", EmitDefaultValue = false)]
+        [DataMember(Name = "serializedProfile", EmitDefaultValue = true)]
         public string SerializedProfile { get; set; }
 
         /// <summary>

@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="FileShareDto" /> class.
         /// </summary>
         /// <param name="access">access.</param>
-        /// <param name="sharedTo">sharedTo.</param>
+        /// <param name="sharedTo">The user who has the access to the specified file..</param>
         /// <param name="sharedToUser">sharedToUser.</param>
         /// <param name="sharedToGroup">sharedToGroup.</param>
         /// <param name="sharedLink">sharedLink.</param>
@@ -76,9 +76,11 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets SharedTo
+        /// The user who has the access to the specified file.
         /// </summary>
+        /// <value>The user who has the access to the specified file.</value>
         [DataMember(Name = "sharedTo", EmitDefaultValue = true)]
+        [Obsolete]
         public Object SharedTo { get; set; }
 
         /// <summary>

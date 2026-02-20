@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.RegStatus
-The registration Telegram status.
+[]
 
 ## Properties
 

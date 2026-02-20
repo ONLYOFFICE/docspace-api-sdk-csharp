@@ -5,7 +5,7 @@ The request parameters for adding watermarks.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | **bool** | Specifies whether watermarks are on or off. | [optional] 
+**Enabled** | **bool?** | Specifies whether watermarks are on or off. | [optional] 
 **Additions** | **WatermarkAdditions** |  | [optional] 
 **Text** | **string** | The watermark text. | [optional] 
 **Rotate** | **int** | The watermark text and image rotate angle. | [optional] 

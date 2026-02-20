@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "tmpFile", EmitDefaultValue = false)]
+        [DataMember(Name = "tmpFile", EmitDefaultValue = true)]
         public string TmpFile { get; set; }
 
         /// <summary>

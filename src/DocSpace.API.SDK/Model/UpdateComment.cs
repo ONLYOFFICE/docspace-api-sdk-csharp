@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "comment", EmitDefaultValue = false)]
+        [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
 
         /// <summary>

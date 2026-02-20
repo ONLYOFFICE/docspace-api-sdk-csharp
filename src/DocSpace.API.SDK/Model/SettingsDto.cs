@@ -53,10 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="SettingsDto" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SettingsDto()
-        {
-            this.AdditionalProperties = new Dictionary<string, object>();
-        }
+        protected SettingsDto() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="SettingsDto" /> class.
         /// </summary>
@@ -103,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="logoText">The white label logo text..</param>
         /// <param name="externalResources">externalResources.</param>
         /// <param name="defaultFolderType">defaultFolderType.</param>
-        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool enabledJoin = default, bool enableAdmMess = default, bool thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, string userNameRegex = default, int invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default, FolderType? defaultFolderType = default)
+        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default, FolderType? defaultFolderType = default)
         {
             // to ensure "culture" is required (not null)
             if (culture == null)
@@ -163,7 +160,6 @@ namespace DocSpace.API.SDK.Model
             this.LogoText = logoText;
             this.ExternalResources = externalResources;
             this.DefaultFolderType = defaultFolderType;
-            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -173,7 +169,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>UTC</example>
         */
-        [DataMember(Name = "timezone", EmitDefaultValue = false)]
+        [DataMember(Name = "timezone", EmitDefaultValue = true)]
         public string Timezone { get; set; }
 
         /// <summary>
@@ -183,7 +179,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>mydomain.com</example>
         */
-        [DataMember(Name = "trustedDomains", EmitDefaultValue = false)]
+        [DataMember(Name = "trustedDomains", EmitDefaultValue = true)]
         public List<string> TrustedDomains { get; set; }
 
         /// <summary>
@@ -223,7 +219,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Web Office Applications</example>
         */
-        [DataMember(Name = "greetingSettings", EmitDefaultValue = false)]
+        [DataMember(Name = "greetingSettings", EmitDefaultValue = true)]
         public string GreetingSettings { get; set; }
 
         /// <summary>
@@ -243,7 +239,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "nameSchemaId", EmitDefaultValue = false)]
+        [DataMember(Name = "nameSchemaId", EmitDefaultValue = true)]
         public string NameSchemaId { get; set; }
 
         /// <summary>
@@ -254,7 +250,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "enabledJoin", EmitDefaultValue = true)]
-        public bool EnabledJoin { get; set; }
+        public bool? EnabledJoin { get; set; }
 
         /// <summary>
         /// Specifies if a user can send a message to the administrator when accessing the DocSpace portal or not.
@@ -264,7 +260,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "enableAdmMess", EmitDefaultValue = true)]
-        public bool EnableAdmMess { get; set; }
+        public bool? EnableAdmMess { get; set; }
 
         /// <summary>
         /// Specifies if a user can connect third-party providers to the portal or not.
@@ -274,7 +270,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "thirdpartyEnable", EmitDefaultValue = true)]
-        public bool ThirdpartyEnable { get; set; }
+        public bool? ThirdpartyEnable { get; set; }
 
         /// <summary>
         /// Specifies if this portal is a DocSpace portal or not.
@@ -323,7 +319,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "wizardToken", EmitDefaultValue = false)]
+        [DataMember(Name = "wizardToken", EmitDefaultValue = true)]
         public string WizardToken { get; set; }
 
         /// <summary>
@@ -345,7 +341,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "version", EmitDefaultValue = false)]
+        [DataMember(Name = "version", EmitDefaultValue = true)]
         public string @Version { get; set; }
 
         /// <summary>
@@ -355,7 +351,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "recaptchaPublicKey", EmitDefaultValue = false)]
+        [DataMember(Name = "recaptchaPublicKey", EmitDefaultValue = true)]
         public string RecaptchaPublicKey { get; set; }
 
         /// <summary>
@@ -375,7 +371,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "socketUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "socketUrl", EmitDefaultValue = true)]
         public string SocketUrl { get; set; }
 
         /// <summary>
@@ -385,7 +381,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "tenantAlias", EmitDefaultValue = false)]
+        [DataMember(Name = "tenantAlias", EmitDefaultValue = true)]
         public string TenantAlias { get; set; }
 
         /// <summary>
@@ -411,7 +407,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "zendeskKey", EmitDefaultValue = false)]
+        [DataMember(Name = "zendeskKey", EmitDefaultValue = true)]
         public string ZendeskKey { get; set; }
 
         /// <summary>
@@ -421,7 +417,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "tagManagerId", EmitDefaultValue = false)]
+        [DataMember(Name = "tagManagerId", EmitDefaultValue = true)]
         public string TagManagerId { get; set; }
 
         /// <summary>
@@ -471,7 +467,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "userNameRegex", EmitDefaultValue = false)]
+        [DataMember(Name = "userNameRegex", EmitDefaultValue = true)]
         public string UserNameRegex { get; set; }
 
         /// <summary>
@@ -481,8 +477,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "invitationLimit", EmitDefaultValue = false)]
-        public int InvitationLimit { get; set; }
+        [DataMember(Name = "invitationLimit", EmitDefaultValue = true)]
+        public int? InvitationLimit { get; set; }
 
         /// <summary>
         /// Gets or Sets Plugins
@@ -519,7 +515,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "logoText", EmitDefaultValue = false)]
+        [DataMember(Name = "logoText", EmitDefaultValue = true)]
         public string LogoText { get; set; }
 
         /// <summary>
@@ -527,12 +523,6 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "externalResources", EmitDefaultValue = false)]
         public CultureSpecificExternalResources ExternalResources { get; set; }
-
-        /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [System.Text.Json.Serialization.JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -585,7 +575,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  LogoText: ").Append(LogoText).Append("\n");
             sb.Append("  ExternalResources: ").Append(ExternalResources).Append("\n");
             sb.Append("  DefaultFolderType: ").Append(DefaultFolderType).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

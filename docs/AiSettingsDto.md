@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **VectorizationNeedReset** | **bool** | Indicates whether the embedding provider API key needs to be reconfigured. | [optional] 
 **AiReady** | **bool** | Indicates whether the AI subsystem is fully configured and operational. | [optional] 
 **AiReadyNeedReset** | **bool** | Indicates whether the AI provider API key needs to be reconfigured. | [optional] 
-**PortalMcpServerId** | **Guid** | The unique identifier of the portal-level MCP server, if configured. | [optional] 
+**PortalMcpServerId** | **Guid?** | The unique identifier of the portal-level MCP server, if configured. | [optional] 
 **EmbeddingModel** | **string** | The name of the embedding model used for document vectorization. | 
 **KnowledgeSearchToolName** | **string** | The tool name used by the AI assistant for knowledge base search. | 
 **WebSearchToolName** | **string** | The tool name used by the AI assistant for web search. | 

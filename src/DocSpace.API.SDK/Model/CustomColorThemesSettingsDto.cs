@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of the custom color themes.
         /// </summary>
         /// <value>The list of the custom color themes.</value>
-        [DataMember(Name = "themes", EmitDefaultValue = false)]
+        [DataMember(Name = "themes", EmitDefaultValue = true)]
         public List<CustomColorThemesSettingsItem> Themes { get; set; }
 
         /// <summary>

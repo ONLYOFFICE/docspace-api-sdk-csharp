@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "files", EmitDefaultValue = false)]
+        [DataMember(Name = "files", EmitDefaultValue = true)]
         public string Files { get; set; }
 
         /// <summary>

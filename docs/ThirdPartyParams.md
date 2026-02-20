@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Corporate** | **bool** | Specifies if this is a corporate account or not. | [optional] 
 **RoomsStorage** | **bool** | Specifies if this is a room storage or not. | [optional] 
 **CustomerTitle** | **string** | The customer title. | [optional] 
-**ProviderId** | **int** | The provider ID. | [optional] 
+**ProviderId** | **int?** | The provider ID. | [optional] 
 **ProviderKey** | **string** | The provider key. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

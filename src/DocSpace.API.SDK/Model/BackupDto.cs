@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// The backup storage parameters.
         /// </summary>
         /// <value>The backup storage parameters.</value>
-        [DataMember(Name = "storageParams", EmitDefaultValue = false)]
+        [DataMember(Name = "storageParams", EmitDefaultValue = true)]
         public List<ItemKeyValuePairObjectObject> StorageParams { get; set; }
 
         /// <summary>

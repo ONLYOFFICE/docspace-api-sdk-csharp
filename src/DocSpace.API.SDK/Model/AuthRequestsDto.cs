@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "userName", EmitDefaultValue = false)]
+        [DataMember(Name = "userName", EmitDefaultValue = true)]
         public string UserName { get; set; }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>P@ssw0rd123</example>
         */
-        [DataMember(Name = "password", EmitDefaultValue = false)]
+        [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "passwordHash", EmitDefaultValue = false)]
+        [DataMember(Name = "passwordHash", EmitDefaultValue = true)]
         public string PasswordHash { get; set; }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "provider", EmitDefaultValue = false)]
+        [DataMember(Name = "provider", EmitDefaultValue = true)]
         public string Provider { get; set; }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "accessToken", EmitDefaultValue = false)]
+        [DataMember(Name = "accessToken", EmitDefaultValue = true)]
         public string AccessToken { get; set; }
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "serializedProfile", EmitDefaultValue = false)]
+        [DataMember(Name = "serializedProfile", EmitDefaultValue = true)]
         public string SerializedProfile { get; set; }
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "code", EmitDefaultValue = false)]
+        [DataMember(Name = "code", EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "codeOAuth", EmitDefaultValue = false)]
+        [DataMember(Name = "codeOAuth", EmitDefaultValue = true)]
         public string CodeOAuth { get; set; }
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "recaptchaResponse", EmitDefaultValue = false)]
+        [DataMember(Name = "recaptchaResponse", EmitDefaultValue = true)]
         public string RecaptchaResponse { get; set; }
 
         /// <summary>
@@ -177,7 +177,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "culture", EmitDefaultValue = false)]
+        [DataMember(Name = "culture", EmitDefaultValue = true)]
         public string Culture { get; set; }
 
         /// <summary>

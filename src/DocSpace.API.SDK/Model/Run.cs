@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>[1234]</example>
         */
-        [DataMember(Name = "fill", EmitDefaultValue = false)]
+        [DataMember(Name = "fill", EmitDefaultValue = true)]
         public List<int> Fill { get; set; }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "text", EmitDefaultValue = false)]
+        [DataMember(Name = "text", EmitDefaultValue = true)]
         public string Text { get; set; }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "font-size", EmitDefaultValue = false)]
+        [DataMember(Name = "font-size", EmitDefaultValue = true)]
         public string FontSize { get; set; }
 
         /// <summary>

@@ -28,8 +28,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetPortalPrices200ResponseLinksInner" /> class.
         /// </summary>
-        /// <param name="href">href.</param>
-        /// <param name="action">action.</param>
+        /// <param name="href">URL of the link.</param>
+        /// <param name="action">Action associated with the link.</param>
         public GetPortalPrices200ResponseLinksInner(string href = default, string action = default)
         {
             this.Href = href;
@@ -37,14 +37,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Href
+        /// URL of the link
         /// </summary>
+        /// <value>URL of the link</value>
         [DataMember(Name = "href", EmitDefaultValue = false)]
         public string Href { get; set; }
 
         /// <summary>
-        /// Gets or Sets Action
+        /// Action associated with the link
         /// </summary>
+        /// <value>Action associated with the link</value>
         [DataMember(Name = "action", EmitDefaultValue = false)]
         public string Action { get; set; }
 

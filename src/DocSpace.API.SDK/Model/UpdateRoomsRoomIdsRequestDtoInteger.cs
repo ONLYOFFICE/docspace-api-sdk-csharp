@@ -38,7 +38,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of room IDs.
         /// </summary>
         /// <value>The list of room IDs.</value>
-        [DataMember(Name = "roomIds", EmitDefaultValue = false)]
+        [DataMember(Name = "roomIds", EmitDefaultValue = true)]
         public List<ContinueChatBodyFilesInner> RoomIds { get; set; }
 
         /// <summary>

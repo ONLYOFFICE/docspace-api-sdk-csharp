@@ -19,24 +19,25 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Defines EmbeddingProviderType
+    /// [0 - None, 1 - OpenAi, 2 - OpenRouter]
     /// </summary>
+    /// <value>[0 - None, 1 - OpenAi, 2 - OpenRouter]</value>
     public enum EmbeddingProviderType
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum None for value: 0
         /// </summary>
-        NUMBER_0 = 0,
+        None = 0,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum OpenAi for value: 1
         /// </summary>
-        NUMBER_1 = 1,
+        OpenAi = 1,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum OpenRouter for value: 2
         /// </summary>
-        NUMBER_2 = 2
+        OpenRouter = 2
     }
 
 }

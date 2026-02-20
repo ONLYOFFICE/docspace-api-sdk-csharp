@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>example@onlyoffice.com</example>
         */
-        [DataMember(Name = "email", EmitDefaultValue = false)]
+        [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "encEmail", EmitDefaultValue = false)]
+        [DataMember(Name = "encEmail", EmitDefaultValue = true)]
         public string EncEmail { get; set; }
 
         /// <summary>

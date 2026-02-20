@@ -42,14 +42,14 @@ namespace DocSpace.API.SDK.Model
         /// The list of room IDs to add to the group.
         /// </summary>
         /// <value>The list of room IDs to add to the group.</value>
-        [DataMember(Name = "roomsToAdd", EmitDefaultValue = false)]
+        [DataMember(Name = "roomsToAdd", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> RoomsToAdd { get; set; }
 
         /// <summary>
         /// The list of room IDs to remove from the group.
         /// </summary>
         /// <value>The list of room IDs to remove from the group.</value>
-        [DataMember(Name = "roomsToRemove", EmitDefaultValue = false)]
+        [DataMember(Name = "roomsToRemove", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> RoomsToRemove { get; set; }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "groupName", EmitDefaultValue = false)]
+        [DataMember(Name = "groupName", EmitDefaultValue = true)]
         public string GroupName { get; set; }
 
         /// <summary>

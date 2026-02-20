@@ -29,10 +29,10 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ICompressWrapper" /> class.
         /// </summary>
         /// <param name="response">The archiving class unification interface..</param>
-        /// <param name="count">count.</param>
-        /// <param name="links">links.</param>
-        /// <param name="status">status.</param>
-        /// <param name="statusCode">statusCode.</param>
+        /// <param name="count">The total number of items in the response.</param>
+        /// <param name="links">List of links related to the response.</param>
+        /// <param name="status">HTTP status code of the response.</param>
+        /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
         public ICompressWrapper(Object response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
@@ -50,26 +50,30 @@ namespace DocSpace.API.SDK.Model
         public Object Response { get; set; }
 
         /// <summary>
-        /// Gets or Sets Count
+        /// The total number of items in the response
         /// </summary>
+        /// <value>The total number of items in the response</value>
         [DataMember(Name = "count", EmitDefaultValue = false)]
         public int Count { get; set; }
 
         /// <summary>
-        /// Gets or Sets Links
+        /// List of links related to the response
         /// </summary>
+        /// <value>List of links related to the response</value>
         [DataMember(Name = "links", EmitDefaultValue = false)]
         public List<GetPortalPrices200ResponseLinksInner> Links { get; set; }
 
         /// <summary>
-        /// Gets or Sets Status
+        /// HTTP status code of the response
         /// </summary>
+        /// <value>HTTP status code of the response</value>
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public int Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets StatusCode
+        /// HTTP status code of the response (duplicate of status)
         /// </summary>
+        /// <value>HTTP status code of the response (duplicate of status)</value>
         [DataMember(Name = "statusCode", EmitDefaultValue = false)]
         public int StatusCode { get; set; }
 

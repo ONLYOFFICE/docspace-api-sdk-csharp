@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of CSP domains.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
         [DataMember(Name = "domains", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Domains { get; set; }

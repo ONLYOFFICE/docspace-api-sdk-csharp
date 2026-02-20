@@ -29,10 +29,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="RoomFromTemplateStatusDto" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected RoomFromTemplateStatusDto()
-        {
-            this.AdditionalProperties = new Dictionary<string, object>();
-        }
+        protected RoomFromTemplateStatusDto() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="RoomFromTemplateStatusDto" /> class.
         /// </summary>
@@ -51,7 +48,6 @@ namespace DocSpace.API.SDK.Model
             }
             this.Error = error;
             this.IsCompleted = isCompleted;
-            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -95,12 +91,6 @@ namespace DocSpace.API.SDK.Model
         public bool IsCompleted { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [System.Text.Json.Serialization.JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -112,7 +102,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Progress: ").Append(Progress).Append("\n");
             sb.Append("  Error: ").Append(Error).Append("\n");
             sb.Append("  IsCompleted: ").Append(IsCompleted).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -5,7 +5,7 @@ The price parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **double** | The price value. | [optional] 
+**Value** | **double?** | The price value. | [optional] 
 **CurrencySymbol** | **string** | The currency symbol. | [optional] 
 **IsoCurrencySymbol** | **string** | The three-character ISO 4217 currency symbol. | [optional] 
 

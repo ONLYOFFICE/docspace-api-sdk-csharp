@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "image", EmitDefaultValue = false)]
+        [DataMember(Name = "image", EmitDefaultValue = true)]
         public string Image { get; set; }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "imageDark", EmitDefaultValue = false)]
+        [DataMember(Name = "imageDark", EmitDefaultValue = true)]
         public string ImageDark { get; set; }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "imageLight", EmitDefaultValue = false)]
+        [DataMember(Name = "imageLight", EmitDefaultValue = true)]
         public string ImageLight { get; set; }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "imageEmbedded", EmitDefaultValue = false)]
+        [DataMember(Name = "imageEmbedded", EmitDefaultValue = true)]
         public string ImageEmbedded { get; set; }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "url", EmitDefaultValue = false)]
+        [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>

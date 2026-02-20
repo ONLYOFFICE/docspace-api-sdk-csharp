@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1</example>
         */
-        [DataMember(Name = "id", EmitDefaultValue = false)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John Doe</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "image", EmitDefaultValue = false)]
+        [DataMember(Name = "image", EmitDefaultValue = true)]
         public string Image { get; set; }
 
         /// <summary>
@@ -77,9 +77,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Roles</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "roles", EmitDefaultValue = false)]
+        [DataMember(Name = "roles", EmitDefaultValue = true)]
         public List<string> Roles { get; set; }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "customerId", EmitDefaultValue = false)]
+        [DataMember(Name = "customerId", EmitDefaultValue = true)]
         public string CustomerId { get; set; }
 
         /// <summary>

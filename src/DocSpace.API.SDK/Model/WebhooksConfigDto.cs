@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="lastFailureOn">The date and time of the webhook last failure..</param>
         /// <param name="lastFailureContent">The webhook last failure content..</param>
         /// <param name="lastSuccessOn">The date and time of the webhook last success..</param>
-        public WebhooksConfigDto(int id = default, string name = default, string uri = default, bool enabled = default, bool ssl = default, WebhookTrigger? triggers = default, string targetId = default, EmployeeDto createdBy = default, DateTime createdOn = default, EmployeeDto modifiedBy = default, DateTime modifiedOn = default, DateTime lastFailureOn = default, string lastFailureContent = default, DateTime lastSuccessOn = default)
+        public WebhooksConfigDto(int id = default, string name = default, string uri = default, bool enabled = default, bool ssl = default, WebhookTrigger? triggers = default, string targetId = default, EmployeeDto createdBy = default, DateTime? createdOn = default, EmployeeDto modifiedBy = default, DateTime? modifiedOn = default, DateTime? lastFailureOn = default, string lastFailureContent = default, DateTime? lastSuccessOn = default)
         {
             this.Id = id;
             this.Name = name;
@@ -88,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John Doe</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "uri", EmitDefaultValue = false)]
+        [DataMember(Name = "uri", EmitDefaultValue = true)]
         public string Uri { get; set; }
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "targetId", EmitDefaultValue = false)]
+        [DataMember(Name = "targetId", EmitDefaultValue = true)]
         public string TargetId { get; set; }
 
         /// <summary>
@@ -142,10 +142,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the webhook was created.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "createdOn", EmitDefaultValue = false)]
-        public DateTime CreatedOn { get; set; }
+        [DataMember(Name = "createdOn", EmitDefaultValue = true)]
+        public DateTime? CreatedOn { get; set; }
 
         /// <summary>
         /// Gets or Sets ModifiedBy
@@ -158,20 +158,20 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the webhook was modified.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "modifiedOn", EmitDefaultValue = false)]
-        public DateTime ModifiedOn { get; set; }
+        [DataMember(Name = "modifiedOn", EmitDefaultValue = true)]
+        public DateTime? ModifiedOn { get; set; }
 
         /// <summary>
         /// The date and time of the webhook last failure.
         /// </summary>
         /// <value>The date and time of the webhook last failure.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "lastFailureOn", EmitDefaultValue = false)]
-        public DateTime LastFailureOn { get; set; }
+        [DataMember(Name = "lastFailureOn", EmitDefaultValue = true)]
+        public DateTime? LastFailureOn { get; set; }
 
         /// <summary>
         /// The webhook last failure content.
@@ -180,7 +180,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "lastFailureContent", EmitDefaultValue = false)]
+        [DataMember(Name = "lastFailureContent", EmitDefaultValue = true)]
         public string LastFailureContent { get; set; }
 
         /// <summary>
@@ -188,10 +188,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time of the webhook last success.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "lastSuccessOn", EmitDefaultValue = false)]
-        public DateTime LastSuccessOn { get; set; }
+        [DataMember(Name = "lastSuccessOn", EmitDefaultValue = true)]
+        public DateTime? LastSuccessOn { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

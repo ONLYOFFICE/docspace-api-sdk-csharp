@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// A collection of operations.
         /// </summary>
         /// <value>A collection of operations.</value>
-        [DataMember(Name = "collection", EmitDefaultValue = false)]
+        [DataMember(Name = "collection", EmitDefaultValue = true)]
         public List<OperationDto> Collection { get; set; }
 
         /// <summary>

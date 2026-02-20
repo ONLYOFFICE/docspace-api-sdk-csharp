@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Id** | **string** | The ID of the tenant quota feature. | [optional] 
 **Title** | **string** | The title of the tenant quota feature. | [optional] 
 **Image** | **string** | The image URL of the tenant quota feature. | [optional] 
-**Value** | **Object** |  | [optional] 
+**Value** | **Object** | The value of the tenant quota feature. | [optional] 
 **Type** | **string** | The type of the tenant quota feature. | [optional] 
 **Used** | [**FeatureUsedDto**](FeatureUsedDto.md) |  | [optional] 
 **PriceTitle** | **string** | The price title of the tenant quota feature. | [optional] 

@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "icon", EmitDefaultValue = false)]
+        [DataMember(Name = "icon", EmitDefaultValue = true)]
         public string Icon { get; set; }
 
         /// <summary>

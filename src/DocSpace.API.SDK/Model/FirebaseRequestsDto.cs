@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "firebaseDeviceToken", EmitDefaultValue = false)]
+        [DataMember(Name = "firebaseDeviceToken", EmitDefaultValue = true)]
         public string FirebaseDeviceToken { get; set; }
 
         /// <summary>

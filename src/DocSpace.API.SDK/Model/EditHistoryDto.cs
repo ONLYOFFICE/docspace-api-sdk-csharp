@@ -67,7 +67,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "key", EmitDefaultValue = false)]
+        [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
@@ -109,14 +109,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "changesHistory", EmitDefaultValue = false)]
+        [DataMember(Name = "changesHistory", EmitDefaultValue = true)]
         public string ChangesHistory { get; set; }
 
         /// <summary>
         /// The list of file history changes.
         /// </summary>
         /// <value>The list of file history changes.</value>
-        [DataMember(Name = "changes", EmitDefaultValue = false)]
+        [DataMember(Name = "changes", EmitDefaultValue = true)]
         public List<EditHistoryChangesWrapper> Changes { get; set; }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "serverVersion", EmitDefaultValue = false)]
+        [DataMember(Name = "serverVersion", EmitDefaultValue = true)]
         public string ServerVersion { get; set; }
 
         /// <summary>

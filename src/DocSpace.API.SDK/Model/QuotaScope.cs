@@ -19,25 +19,25 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The quota scope.
+    /// [0 - User, 1 - Room, 2 - Tenant]
     /// </summary>
-    /// <value>The quota scope.</value>
+    /// <value>[0 - User, 1 - Room, 2 - Tenant]</value>
     public enum QuotaScope
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum User for value: 0
         /// </summary>
-        NUMBER_0 = 0,
+        User = 0,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum Room for value: 1
         /// </summary>
-        NUMBER_1 = 1,
+        Room = 1,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum Tenant for value: 2
         /// </summary>
-        NUMBER_2 = 2
+        Tenant = 2
     }
 
 }

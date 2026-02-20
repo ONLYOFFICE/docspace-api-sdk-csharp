@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="responsePayload">The webhook response payload..</param>
         /// <param name="status">The webhook status..</param>
         /// <param name="delivery">The webhook delivery time..</param>
-        public WebhooksLogDto(int id = default, string configName = default, WebhookTrigger? trigger = default, DateTime creationTime = default, string method = default, string route = default, string requestHeaders = default, string requestPayload = default, string responseHeaders = default, string responsePayload = default, int status = default, DateTime delivery = default)
+        public WebhooksLogDto(int id = default, string configName = default, WebhookTrigger? trigger = default, DateTime creationTime = default, string method = default, string route = default, string requestHeaders = default, string requestPayload = default, string responseHeaders = default, string responsePayload = default, int status = default, DateTime? delivery = default)
         {
             this.Id = id;
             this.ConfigName = configName;
@@ -84,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "configName", EmitDefaultValue = false)]
+        [DataMember(Name = "configName", EmitDefaultValue = true)]
         public string ConfigName { get; set; }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook creation time.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
         [DataMember(Name = "creationTime", EmitDefaultValue = false)]
         public DateTime CreationTime { get; set; }
@@ -104,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "method", EmitDefaultValue = false)]
+        [DataMember(Name = "method", EmitDefaultValue = true)]
         public string Method { get; set; }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "route", EmitDefaultValue = false)]
+        [DataMember(Name = "route", EmitDefaultValue = true)]
         public string Route { get; set; }
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "requestHeaders", EmitDefaultValue = false)]
+        [DataMember(Name = "requestHeaders", EmitDefaultValue = true)]
         public string RequestHeaders { get; set; }
 
         /// <summary>
@@ -134,7 +134,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "requestPayload", EmitDefaultValue = false)]
+        [DataMember(Name = "requestPayload", EmitDefaultValue = true)]
         public string RequestPayload { get; set; }
 
         /// <summary>
@@ -144,7 +144,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "responseHeaders", EmitDefaultValue = false)]
+        [DataMember(Name = "responseHeaders", EmitDefaultValue = true)]
         public string ResponseHeaders { get; set; }
 
         /// <summary>
@@ -154,7 +154,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "responsePayload", EmitDefaultValue = false)]
+        [DataMember(Name = "responsePayload", EmitDefaultValue = true)]
         public string ResponsePayload { get; set; }
 
         /// <summary>
@@ -172,10 +172,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook delivery time.</value>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
-        [DataMember(Name = "delivery", EmitDefaultValue = false)]
-        public DateTime Delivery { get; set; }
+        [DataMember(Name = "delivery", EmitDefaultValue = true)]
+        public DateTime? Delivery { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

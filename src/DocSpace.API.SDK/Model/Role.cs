@@ -19,19 +19,20 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Defines Role
+    /// [0 - User, 1 - Assistant]
     /// </summary>
+    /// <value>[0 - User, 1 - Assistant]</value>
     public enum Role
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum User for value: 0
         /// </summary>
-        NUMBER_0 = 0,
+        User = 0,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum Assistant for value: 1
         /// </summary>
-        NUMBER_1 = 1
+        Assistant = 1
     }
 
 }

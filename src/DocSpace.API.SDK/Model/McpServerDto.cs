@@ -73,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John Doe</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "description", EmitDefaultValue = false)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "endpoint", EmitDefaultValue = false)]
+        [DataMember(Name = "endpoint", EmitDefaultValue = true)]
         public string Endpoint { get; set; }
 
         /// <summary>
@@ -101,9 +101,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>HTTP headers sent with every request to the server (e.g., authentication tokens).</value>
         /*
-        <example>[{key&#x3D;some text, value&#x3D;some text}]</example>
+        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
         */
-        [DataMember(Name = "headers", EmitDefaultValue = false)]
+        [DataMember(Name = "headers", EmitDefaultValue = true)]
         public Dictionary<string, string> Headers { get; set; }
 
         /// <summary>

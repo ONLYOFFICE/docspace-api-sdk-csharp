@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StorageType** | **BackupStorageType** |  | [optional] 
 **StorageParams** | [**List&lt;ItemKeyValuePairObjectObject&gt;**](ItemKeyValuePairObjectObject.md) | The backup storage parameters. | [optional] 
-**BackupsStored** | **int** | The maximum number of the stored backup copies. | [optional] 
+**BackupsStored** | **int?** | The maximum number of the stored backup copies. | [optional] 
 **CronParams** | [**Cron**](Cron.md) |  | [optional] 
 **Dump** | **bool** | Specifies if a dump will be created or not. | [optional] 
 

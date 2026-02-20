@@ -58,9 +58,6 @@ namespace DocSpace.API.SDK.Model
         /// The user ID.
         /// </summary>
         /// <value>The user ID.</value>
-        /*
-        <example>{00000000-0000-0000-0000-000000000000}</example>
-        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
@@ -71,7 +68,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Mike Zanyatski</example>
         */
-        [DataMember(Name = "displayName", EmitDefaultValue = false)]
+        [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
 
         /// <summary>
@@ -81,7 +78,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Manager</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = false)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
@@ -91,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "avatar", EmitDefaultValue = false)]
+        [DataMember(Name = "avatar", EmitDefaultValue = true)]
         public string Avatar { get; set; }
 
         /// <summary>
@@ -101,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "avatarOriginal", EmitDefaultValue = false)]
+        [DataMember(Name = "avatarOriginal", EmitDefaultValue = true)]
         public string AvatarOriginal { get; set; }
 
         /// <summary>
@@ -111,7 +108,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "avatarMax", EmitDefaultValue = false)]
+        [DataMember(Name = "avatarMax", EmitDefaultValue = true)]
         public string AvatarMax { get; set; }
 
         /// <summary>
@@ -121,7 +118,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "avatarMedium", EmitDefaultValue = false)]
+        [DataMember(Name = "avatarMedium", EmitDefaultValue = true)]
         public string AvatarMedium { get; set; }
 
         /// <summary>
@@ -131,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>url to small avatar</example>
         */
-        [DataMember(Name = "avatarSmall", EmitDefaultValue = false)]
+        [DataMember(Name = "avatarSmall", EmitDefaultValue = true)]
         public string AvatarSmall { get; set; }
 
         /// <summary>
@@ -141,7 +138,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "profileUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "profileUrl", EmitDefaultValue = true)]
         public string ProfileUrl { get; set; }
 
         /// <summary>

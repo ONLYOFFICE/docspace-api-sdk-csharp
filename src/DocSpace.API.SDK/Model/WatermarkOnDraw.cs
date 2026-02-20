@@ -44,7 +44,6 @@ namespace DocSpace.API.SDK.Model
             this.Rotate = rotate;
             this.Transparent = transparent;
             this.Paragraphs = paragraphs;
-            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -74,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>[1234]</example>
         */
-        [DataMember(Name = "margins", EmitDefaultValue = false)]
+        [DataMember(Name = "margins", EmitDefaultValue = true)]
         public List<int> Margins { get; set; }
 
         /// <summary>
@@ -84,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "fill", EmitDefaultValue = false)]
+        [DataMember(Name = "fill", EmitDefaultValue = true)]
         public string Fill { get; set; }
 
         /// <summary>
@@ -111,14 +110,8 @@ namespace DocSpace.API.SDK.Model
         /// The list of paragraphs of the watermark.
         /// </summary>
         /// <value>The list of paragraphs of the watermark.</value>
-        [DataMember(Name = "paragraphs", EmitDefaultValue = false)]
+        [DataMember(Name = "paragraphs", EmitDefaultValue = true)]
         public List<Paragraph> Paragraphs { get; set; }
-
-        /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [System.Text.Json.Serialization.JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,7 +128,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Rotate: ").Append(Rotate).Append("\n");
             sb.Append("  Transparent: ").Append(Transparent).Append("\n");
             sb.Append("  Paragraphs: ").Append(Paragraphs).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -94,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "path", EmitDefaultValue = false)]
+        [DataMember(Name = "path", EmitDefaultValue = true)]
         public string Path { get; set; }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "link", EmitDefaultValue = false)]
+        [DataMember(Name = "link", EmitDefaultValue = true)]
         public string Link { get; set; }
 
         /// <summary>

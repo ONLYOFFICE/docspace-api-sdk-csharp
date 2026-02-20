@@ -39,9 +39,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The mapping of item identifiers to their respective quantities in the payment.</value>
         /*
-        <example>[{key&#x3D;some text, value&#x3D;1234}]</example>
+        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:1234}]</example>
         */
-        [DataMember(Name = "quantity", EmitDefaultValue = false)]
+        [DataMember(Name = "quantity", EmitDefaultValue = true)]
         public Dictionary<string, int> Quantity { get; set; }
 
         /// <summary>

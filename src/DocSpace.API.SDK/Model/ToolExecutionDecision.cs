@@ -19,24 +19,25 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Defines ToolExecutionDecision
+    /// [0 - Allow, 1 - AlwaysAllow, 2 - Deny]
     /// </summary>
+    /// <value>[0 - Allow, 1 - AlwaysAllow, 2 - Deny]</value>
     public enum ToolExecutionDecision
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum Allow for value: 0
         /// </summary>
-        NUMBER_0 = 0,
+        Allow = 0,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum AlwaysAllow for value: 1
         /// </summary>
-        NUMBER_1 = 1,
+        AlwaysAllow = 1,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum Deny for value: 2
         /// </summary>
-        NUMBER_2 = 2
+        Deny = 2
     }
 
 }

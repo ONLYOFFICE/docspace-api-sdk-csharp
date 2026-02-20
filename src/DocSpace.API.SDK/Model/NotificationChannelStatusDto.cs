@@ -38,7 +38,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of notification channels.
         /// </summary>
         /// <value>The list of notification channels.</value>
-        [DataMember(Name = "channels", EmitDefaultValue = false)]
+        [DataMember(Name = "channels", EmitDefaultValue = true)]
         public List<NotificationChannelDto> Channels { get; set; }
 
         /// <summary>

@@ -43,14 +43,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "logoText", EmitDefaultValue = false)]
+        [DataMember(Name = "logoText", EmitDefaultValue = true)]
         public string LogoText { get; set; }
 
         /// <summary>
         /// The white label tenant IDs with their logos (light or dark).
         /// </summary>
         /// <value>The white label tenant IDs with their logos (light or dark).</value>
-        [DataMember(Name = "logo", EmitDefaultValue = false)]
+        [DataMember(Name = "logo", EmitDefaultValue = true)]
         public List<ItemKeyValuePairStringLogoRequestsDto> Logo { get; set; }
 
         /// <summary>

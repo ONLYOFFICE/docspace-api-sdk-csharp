@@ -36,7 +36,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="name">The API key name. (required).</param>
         /// <param name="permissions">The list of permissions granted to the API key..</param>
         /// <param name="expiresInDays">The number of days until the API key expires (null for no expiration)..</param>
-        public CreateApiKeyRequestDto(string name = default, List<string> permissions = default, int expiresInDays = default)
+        public CreateApiKeyRequestDto(string name = default, List<string> permissions = default, int? expiresInDays = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -63,9 +63,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of permissions granted to the API key.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
-        [DataMember(Name = "permissions", EmitDefaultValue = false)]
+        [DataMember(Name = "permissions", EmitDefaultValue = true)]
         public List<string> Permissions { get; set; }
 
         /// <summary>
@@ -75,8 +75,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "expiresInDays", EmitDefaultValue = false)]
-        public int ExpiresInDays { get; set; }
+        [DataMember(Name = "expiresInDays", EmitDefaultValue = true)]
+        public int? ExpiresInDays { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -121,14 +121,14 @@ namespace DocSpace.API.SDK.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
             }
 
-            // ExpiresInDays (int) maximum
-            if (this.ExpiresInDays > (int)365)
+            // ExpiresInDays (int?) maximum
+            if (this.ExpiresInDays > (int?)365)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpiresInDays, must be a value less than or equal to 365.", new [] { "ExpiresInDays" });
             }
 
-            // ExpiresInDays (int) minimum
-            if (this.ExpiresInDays < (int)1)
+            // ExpiresInDays (int?) minimum
+            if (this.ExpiresInDays < (int?)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExpiresInDays, must be a value greater than or equal to 1.", new [] { "ExpiresInDays" });
             }

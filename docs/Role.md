@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.Role
+[0 - User, 1 - Assistant]
 
 ## Properties
 

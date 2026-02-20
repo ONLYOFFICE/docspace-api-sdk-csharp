@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>default_user_photo_size_1280-1280.png</example>
         */
-        [DataMember(Name = "original", EmitDefaultValue = false)]
+        [DataMember(Name = "original", EmitDefaultValue = true)]
         public string Original { get; set; }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>default_user_photo_size_360-360.png</example>
         */
-        [DataMember(Name = "retina", EmitDefaultValue = false)]
+        [DataMember(Name = "retina", EmitDefaultValue = true)]
         public string Retina { get; set; }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>default_user_photo_size_200-200.png</example>
         */
-        [DataMember(Name = "max", EmitDefaultValue = false)]
+        [DataMember(Name = "max", EmitDefaultValue = true)]
         public string Max { get; set; }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>default_user_photo_size_82-82.png</example>
         */
-        [DataMember(Name = "big", EmitDefaultValue = false)]
+        [DataMember(Name = "big", EmitDefaultValue = true)]
         public string Big { get; set; }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>default_user_photo_size_48-48.png</example>
         */
-        [DataMember(Name = "medium", EmitDefaultValue = false)]
+        [DataMember(Name = "medium", EmitDefaultValue = true)]
         public string Medium { get; set; }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>default_user_photo_size_32-32.png</example>
         */
-        [DataMember(Name = "small", EmitDefaultValue = false)]
+        [DataMember(Name = "small", EmitDefaultValue = true)]
         public string Small { get; set; }
 
         /// <summary>

@@ -93,7 +93,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>P@ssw0rd123</example>
         */
-        [DataMember(Name = "password", EmitDefaultValue = false)]
+        [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "outputType", EmitDefaultValue = false)]
+        [DataMember(Name = "outputType", EmitDefaultValue = true)]
         public string OutputType { get; set; }
 
         /// <summary>

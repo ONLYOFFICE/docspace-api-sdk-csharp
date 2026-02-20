@@ -19,25 +19,25 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The registration Telegram status.
+    /// []
     /// </summary>
-    /// <value>The registration Telegram status.</value>
+    /// <value>[]</value>
     public enum RegStatus
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum unlinked for value: 0
         /// </summary>
-        NUMBER_0 = 0,
+        unlinked = 0,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum linked for value: 1
         /// </summary>
-        NUMBER_1 = 1,
+        linked = 1,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum linking for value: 2
         /// </summary>
-        NUMBER_2 = 2
+        linking = 2
     }
 
 }

@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "user", EmitDefaultValue = false)]
+        [DataMember(Name = "user", EmitDefaultValue = true)]
         public string User { get; set; }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "permissions", EmitDefaultValue = false)]
+        [DataMember(Name = "permissions", EmitDefaultValue = true)]
         public string Permissions { get; set; }
 
         /// <summary>

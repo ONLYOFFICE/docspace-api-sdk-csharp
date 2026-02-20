@@ -73,7 +73,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "changesUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "changesUrl", EmitDefaultValue = true)]
         public string ChangesUrl { get; set; }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "token", EmitDefaultValue = false)]
+        [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
 
         /// <summary>

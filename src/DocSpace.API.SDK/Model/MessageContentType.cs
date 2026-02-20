@@ -19,25 +19,25 @@
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The type of content block within a chat message.
+    /// []
     /// </summary>
-    /// <value>The type of content block within a chat message.</value>
+    /// <value>[]</value>
     public enum MessageContentType
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum Text for value: 0
         /// </summary>
-        NUMBER_0 = 0,
+        Text = 0,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum Tool for value: 1
         /// </summary>
-        NUMBER_1 = 1,
+        Tool = 1,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum Attachment for value: 2
         /// </summary>
-        NUMBER_2 = 2
+        Attachment = 2
     }
 
 }

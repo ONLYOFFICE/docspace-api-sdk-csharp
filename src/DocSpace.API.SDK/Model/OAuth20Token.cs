@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "access_token", EmitDefaultValue = false)]
+        [DataMember(Name = "access_token", EmitDefaultValue = true)]
         public string AccessToken { get; set; }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "refresh_token", EmitDefaultValue = false)]
+        [DataMember(Name = "refresh_token", EmitDefaultValue = true)]
         public string RefreshToken { get; set; }
 
         /// <summary>
@@ -79,7 +79,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "client_id", EmitDefaultValue = false)]
+        [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "client_secret", EmitDefaultValue = false)]
+        [DataMember(Name = "client_secret", EmitDefaultValue = true)]
         public string ClientSecret { get; set; }
 
         /// <summary>
@@ -97,14 +97,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "redirect_uri", EmitDefaultValue = false)]
+        [DataMember(Name = "redirect_uri", EmitDefaultValue = true)]
         public string RedirectUri { get; set; }
 
         /// <summary>
         /// Gets or Sets Timestamp
         /// </summary>
         /*
-        <example>2008-04-10T06:30:00.0000000+04:00</example>
+        <example>2008-04-10T06:30+04:00</example>
         */
         [DataMember(Name = "timestamp", EmitDefaultValue = false)]
         public DateTime Timestamp { get; set; }

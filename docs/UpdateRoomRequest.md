@@ -6,9 +6,9 @@ The request parameters for updating a room.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Title** | **string** | The room title. | [optional] 
-**Quota** | **long** | The room quota. | [optional] 
-**Indexing** | **bool** | Specifies whether to create a third-party room with indexing. | [optional] 
-**DenyDownload** | **bool** | Specifies whether to deny downloads from the third-party room. | [optional] 
+**Quota** | **long?** | The room quota. | [optional] 
+**Indexing** | **bool?** | Specifies whether to create a third-party room with indexing. | [optional] 
+**DenyDownload** | **bool?** | Specifies whether to deny downloads from the third-party room. | [optional] 
 **Lifetime** | [**RoomDataLifetimeDto**](RoomDataLifetimeDto.md) |  | [optional] 
 **Watermark** | [**WatermarkRequestDto**](WatermarkRequestDto.md) |  | [optional] 
 **Logo** | [**LogoRequest**](LogoRequest.md) |  | [optional] 

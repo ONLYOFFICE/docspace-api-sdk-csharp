@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "backUrl", EmitDefaultValue = false)]
+        [DataMember(Name = "backUrl", EmitDefaultValue = true)]
         public string BackUrl { get; set; }
 
         /// <summary>
@@ -51,9 +51,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The payment quantity.</value>
         /*
-        <example>[{key&#x3D;some text, value&#x3D;1234}]</example>
+        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:1234}]</example>
         */
-        [DataMember(Name = "quantity", EmitDefaultValue = false)]
+        [DataMember(Name = "quantity", EmitDefaultValue = true)]
         public Dictionary<string, int> Quantity { get; set; }
 
         /// <summary>

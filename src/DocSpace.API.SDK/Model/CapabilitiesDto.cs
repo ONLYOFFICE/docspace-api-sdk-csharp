@@ -83,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "ldapDomain", EmitDefaultValue = false)]
+        [DataMember(Name = "ldapDomain", EmitDefaultValue = true)]
         public string LdapDomain { get; set; }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of providers.</value>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
         [DataMember(Name = "providers", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Providers { get; set; }

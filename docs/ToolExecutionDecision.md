@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.ToolExecutionDecision
+[0 - Allow, 1 - AlwaysAllow, 2 - Deny]
 
 ## Properties
 

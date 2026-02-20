@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "documentSha256", EmitDefaultValue = false)]
+        [DataMember(Name = "documentSha256", EmitDefaultValue = true)]
         public string DocumentSha256 { get; set; }
 
         /// <summary>

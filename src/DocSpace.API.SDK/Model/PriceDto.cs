@@ -31,7 +31,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="value">The price value..</param>
         /// <param name="currencySymbol">The currency symbol..</param>
         /// <param name="isoCurrencySymbol">The three-character ISO 4217 currency symbol..</param>
-        public PriceDto(double value = default, string currencySymbol = default, string isoCurrencySymbol = default)
+        public PriceDto(double? value = default, string currencySymbol = default, string isoCurrencySymbol = default)
         {
             this.Value = value;
             this.CurrencySymbol = currencySymbol;
@@ -45,8 +45,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>10</example>
         */
-        [DataMember(Name = "value", EmitDefaultValue = false)]
-        public double Value { get; set; }
+        [DataMember(Name = "value", EmitDefaultValue = true)]
+        public double? Value { get; set; }
 
         /// <summary>
         /// The currency symbol.
@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "currencySymbol", EmitDefaultValue = false)]
+        [DataMember(Name = "currencySymbol", EmitDefaultValue = true)]
         public string CurrencySymbol { get; set; }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "isoCurrencySymbol", EmitDefaultValue = false)]
+        [DataMember(Name = "isoCurrencySymbol", EmitDefaultValue = true)]
         public string IsoCurrencySymbol { get; set; }
 
         /// <summary>

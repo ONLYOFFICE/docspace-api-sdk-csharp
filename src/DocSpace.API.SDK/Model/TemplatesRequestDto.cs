@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>[1234]</example>
         */
-        [DataMember(Name = "fileIds", EmitDefaultValue = false)]
+        [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<int> FileIds { get; set; }
 
         /// <summary>

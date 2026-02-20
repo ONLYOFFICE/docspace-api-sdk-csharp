@@ -40,14 +40,14 @@ namespace DocSpace.API.SDK.Model
         /// The list of folder IDs of the base batch request.
         /// </summary>
         /// <value>The list of folder IDs of the base batch request.</value>
-        [DataMember(Name = "folderIds", EmitDefaultValue = false)]
+        [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<BaseBatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
         /// <summary>
         /// The list of file IDs of the base batch request.
         /// </summary>
         /// <value>The list of file IDs of the base batch request.</value>
-        [DataMember(Name = "fileIds", EmitDefaultValue = false)]
+        [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<BaseBatchRequestDtoAllOfFileIds> FileIds { get; set; }
 
         /// <summary>

@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "partnerId", EmitDefaultValue = false)]
+        [DataMember(Name = "partnerId", EmitDefaultValue = true)]
         public string PartnerId { get; set; }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "affiliateId", EmitDefaultValue = false)]
+        [DataMember(Name = "affiliateId", EmitDefaultValue = true)]
         public string AffiliateId { get; set; }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "campaign", EmitDefaultValue = false)]
+        [DataMember(Name = "campaign", EmitDefaultValue = true)]
         public string Campaign { get; set; }
 
         /// <summary>

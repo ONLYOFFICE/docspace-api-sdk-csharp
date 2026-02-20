@@ -89,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="registrationDate">registrationDate.</param>
         /// <param name="hasPersonalFolder">Specifies if the user has a personal folder or not..</param>
         /// <param name="tfaAppEnabled">Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app..</param>
-        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, ApiDateTime birthday = default, string sex = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, ApiDateTime workFrom = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long quotaLimit = default, double usedSpace = default, bool shared = default, bool isCustomQuota = default, int loginEventId = default, double authCookieLifetime = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool hasPersonalFolder = default, bool tfaAppEnabled = default)
+        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, ApiDateTime birthday = default, string sex = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, ApiDateTime workFrom = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, double? authCookieLifetime = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool? hasPersonalFolder = default, bool? tfaAppEnabled = default)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
@@ -128,7 +128,6 @@ namespace DocSpace.API.SDK.Model
             this.RegistrationDate = registrationDate;
             this.HasPersonalFolder = hasPersonalFolder;
             this.TfaAppEnabled = tfaAppEnabled;
-            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -138,7 +137,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Mike</example>
         */
-        [DataMember(Name = "firstName", EmitDefaultValue = false)]
+        [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
 
         /// <summary>
@@ -148,7 +147,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Zanyatski</example>
         */
-        [DataMember(Name = "lastName", EmitDefaultValue = false)]
+        [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
 
         /// <summary>
@@ -158,7 +157,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Mike.Zanyatski</example>
         */
-        [DataMember(Name = "userName", EmitDefaultValue = false)]
+        [DataMember(Name = "userName", EmitDefaultValue = true)]
         public string UserName { get; set; }
 
         /// <summary>
@@ -168,14 +167,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>my@gmail.com</example>
         */
-        [DataMember(Name = "email", EmitDefaultValue = false)]
+        [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The list of user contacts.
         /// </summary>
         /// <value>The list of user contacts.</value>
-        [DataMember(Name = "contacts", EmitDefaultValue = false)]
+        [DataMember(Name = "contacts", EmitDefaultValue = true)]
         public List<Contact> Contacts { get; set; }
 
         /// <summary>
@@ -191,7 +190,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>male</example>
         */
-        [DataMember(Name = "sex", EmitDefaultValue = false)]
+        [DataMember(Name = "sex", EmitDefaultValue = true)]
         public string Sex { get; set; }
 
         /// <summary>
@@ -207,7 +206,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Marketing</example>
         */
-        [DataMember(Name = "department", EmitDefaultValue = false)]
+        [DataMember(Name = "department", EmitDefaultValue = true)]
         public string Department { get; set; }
 
         /// <summary>
@@ -220,7 +219,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of user groups.
         /// </summary>
         /// <value>The list of user groups.</value>
-        [DataMember(Name = "groups", EmitDefaultValue = false)]
+        [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<GroupSummaryDto> Groups { get; set; }
 
         /// <summary>
@@ -230,7 +229,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Palo Alto</example>
         */
-        [DataMember(Name = "location", EmitDefaultValue = false)]
+        [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
 
         /// <summary>
@@ -240,7 +239,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Notes to worker</example>
         */
-        [DataMember(Name = "notes", EmitDefaultValue = false)]
+        [DataMember(Name = "notes", EmitDefaultValue = true)]
         public string Notes { get; set; }
 
         /// <summary>
@@ -280,7 +279,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>[&quot;projects&quot;, &quot;crm&quot;]</example>
         */
-        [DataMember(Name = "listAdminModules", EmitDefaultValue = false)]
+        [DataMember(Name = "listAdminModules", EmitDefaultValue = true)]
         public List<string> ListAdminModules { get; set; }
 
         /// <summary>
@@ -320,7 +319,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>en-EN</example>
         */
-        [DataMember(Name = "cultureName", EmitDefaultValue = false)]
+        [DataMember(Name = "cultureName", EmitDefaultValue = true)]
         public string CultureName { get; set; }
 
         /// <summary>
@@ -330,7 +329,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "mobilePhone", EmitDefaultValue = false)]
+        [DataMember(Name = "mobilePhone", EmitDefaultValue = true)]
         public string MobilePhone { get; set; }
 
         /// <summary>
@@ -350,8 +349,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "quotaLimit", EmitDefaultValue = false)]
-        public long QuotaLimit { get; set; }
+        [DataMember(Name = "quotaLimit", EmitDefaultValue = true)]
+        public long? QuotaLimit { get; set; }
 
         /// <summary>
         /// The portal used space of the user.
@@ -360,8 +359,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>12345</example>
         */
-        [DataMember(Name = "usedSpace", EmitDefaultValue = false)]
-        public double UsedSpace { get; set; }
+        [DataMember(Name = "usedSpace", EmitDefaultValue = true)]
+        public double? UsedSpace { get; set; }
 
         /// <summary>
         /// Specifies if the user has access rights.
@@ -371,7 +370,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "shared", EmitDefaultValue = true)]
-        public bool Shared { get; set; }
+        public bool? Shared { get; set; }
 
         /// <summary>
         /// Specifies if the user has a custom quota or not.
@@ -381,7 +380,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isCustomQuota", EmitDefaultValue = true)]
-        public bool IsCustomQuota { get; set; }
+        public bool? IsCustomQuota { get; set; }
 
         /// <summary>
         /// The current login event ID.
@@ -390,8 +389,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "loginEventId", EmitDefaultValue = false)]
-        public int LoginEventId { get; set; }
+        [DataMember(Name = "loginEventId", EmitDefaultValue = true)]
+        public int? LoginEventId { get; set; }
 
         /// <summary>
         /// The auth cookie lifetime in seconds.
@@ -400,8 +399,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>-8.5</example>
         */
-        [DataMember(Name = "authCookieLifetime", EmitDefaultValue = false)]
-        public double AuthCookieLifetime { get; set; }
+        [DataMember(Name = "authCookieLifetime", EmitDefaultValue = true)]
+        public double? AuthCookieLifetime { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedBy
@@ -423,7 +422,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "hasPersonalFolder", EmitDefaultValue = true)]
-        public bool HasPersonalFolder { get; set; }
+        public bool? HasPersonalFolder { get; set; }
 
         /// <summary>
         /// Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app.
@@ -433,13 +432,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "tfaAppEnabled", EmitDefaultValue = true)]
-        public bool TfaAppEnabled { get; set; }
-
-        /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [System.Text.Json.Serialization.JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
+        public bool? TfaAppEnabled { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -486,7 +479,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  RegistrationDate: ").Append(RegistrationDate).Append("\n");
             sb.Append("  HasPersonalFolder: ").Append(HasPersonalFolder).Append("\n");
             sb.Append("  TfaAppEnabled: ").Append(TfaAppEnabled).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

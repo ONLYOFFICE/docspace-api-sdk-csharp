@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>GTalk</example>
         */
-        [DataMember(Name = "type", EmitDefaultValue = false)]
+        [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>my@gmail.com</example>
         */
-        [DataMember(Name = "value", EmitDefaultValue = false)]
+        [DataMember(Name = "value", EmitDefaultValue = true)]
         public string Value { get; set; }
 
         /// <summary>

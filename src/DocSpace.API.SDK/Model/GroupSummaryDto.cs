@@ -37,7 +37,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="name">The group name. (required).</param>
         /// <param name="manager">The group manager..</param>
         /// <param name="isSystem">Indicates whether the group is a system group..</param>
-        public GroupSummaryDto(Guid id = default, string name = default, string manager = default, bool isSystem = default)
+        public GroupSummaryDto(Guid id = default, string name = default, string manager = default, bool? isSystem = default)
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -54,9 +54,6 @@ namespace DocSpace.API.SDK.Model
         /// The group ID.
         /// </summary>
         /// <value>The group ID.</value>
-        /*
-        <example>{00000000-0000-0000-0000-000000000000}</example>
-        */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
 
@@ -77,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Jake.Zazhitski</example>
         */
-        [DataMember(Name = "manager", EmitDefaultValue = false)]
+        [DataMember(Name = "manager", EmitDefaultValue = true)]
         public string Manager { get; set; }
 
         /// <summary>
@@ -88,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isSystem", EmitDefaultValue = true)]
-        public bool IsSystem { get; set; }
+        public bool? IsSystem { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

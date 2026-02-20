@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /// The list of storage authentication keys.
         /// </summary>
         /// <value>The list of storage authentication keys.</value>
-        [DataMember(Name = "properties", EmitDefaultValue = false)]
+        [DataMember(Name = "properties", EmitDefaultValue = true)]
         public List<AuthKey> Properties { get; set; }
 
         /// <summary>

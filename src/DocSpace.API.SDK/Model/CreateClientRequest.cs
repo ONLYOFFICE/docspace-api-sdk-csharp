@@ -106,7 +106,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The client scopes.</value>
         /*
-        <example>[read, write]</example>
+        <example>[&quot;read&quot;,&quot;write&quot;]</example>
         */
         [DataMember(Name = "scopes", EmitDefaultValue = false)]
         public List<string> Scopes { get; set; }
@@ -166,7 +166,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of allowed redirect URIs.</value>
         /*
-        <example>[http://example.com/redirect]</example>
+        <example>[&quot;http://example.com/redirect&quot;]</example>
         */
         [DataMember(Name = "redirect_uris", IsRequired = true, EmitDefaultValue = true)]
         public List<string> RedirectUris { get; set; }
@@ -176,7 +176,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of allowed CORS origins.</value>
         /*
-        <example>[http://example.com]</example>
+        <example>[&quot;http://example.com&quot;]</example>
         */
         [DataMember(Name = "allowed_origins", IsRequired = true, EmitDefaultValue = true)]
         public List<string> AllowedOrigins { get; set; }

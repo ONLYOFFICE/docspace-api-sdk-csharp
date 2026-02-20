@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DispositionType** | **string** |  | [optional] 
-**Parameters** | **List&lt;Object&gt;** |  | [optional] 
+**Parameters** | **List&lt;Object&gt;** |  | [optional] [readonly] 
 **FileName** | **string** |  | [optional] 
 **CreationDate** | **DateTime** |  | [optional] 
 **ModificationDate** | **DateTime** |  | [optional] 

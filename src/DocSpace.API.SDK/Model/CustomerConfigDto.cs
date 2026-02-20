@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "address", EmitDefaultValue = false)]
+        [DataMember(Name = "address", EmitDefaultValue = true)]
         public string Address { get; set; }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "logo", EmitDefaultValue = false)]
+        [DataMember(Name = "logo", EmitDefaultValue = true)]
         public string Logo { get; set; }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "logoDark", EmitDefaultValue = false)]
+        [DataMember(Name = "logoDark", EmitDefaultValue = true)]
         public string LogoDark { get; set; }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "mail", EmitDefaultValue = false)]
+        [DataMember(Name = "mail", EmitDefaultValue = true)]
         public string Mail { get; set; }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>John Doe</example>
         */
-        [DataMember(Name = "name", EmitDefaultValue = false)]
+        [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "www", EmitDefaultValue = false)]
+        [DataMember(Name = "www", EmitDefaultValue = true)]
         public string Www { get; set; }
 
         /// <summary>

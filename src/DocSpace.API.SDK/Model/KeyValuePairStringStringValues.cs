@@ -42,14 +42,14 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "key", EmitDefaultValue = false)]
+        [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
         /// Gets or Sets Value
         /// </summary>
         /*
-        <example>[some text]</example>
+        <example>[&quot;some text&quot;]</example>
         */
         [DataMember(Name = "value", EmitDefaultValue = false)]
         public List<string> Value { get; set; }

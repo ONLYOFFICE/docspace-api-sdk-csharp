@@ -35,7 +35,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="application">The Firebase application..</param>
         /// <param name="isSubscribed">Specifies if the user is subscribed to the push notifications or not..</param>
         /// <param name="tenant">tenant.</param>
-        public FireBaseUser(int id = default, Guid userId = default, int tenantId = default, string firebaseDeviceToken = default, string application = default, bool isSubscribed = default, DbTenant tenant = default)
+        public FireBaseUser(int id = default, Guid userId = default, int tenantId = default, string firebaseDeviceToken = default, string application = default, bool? isSubscribed = default, DbTenant tenant = default)
         {
             this.Id = id;
             this.UserId = userId;
@@ -83,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "firebaseDeviceToken", EmitDefaultValue = false)]
+        [DataMember(Name = "firebaseDeviceToken", EmitDefaultValue = true)]
         public string FirebaseDeviceToken { get; set; }
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>some text</example>
         */
-        [DataMember(Name = "application", EmitDefaultValue = false)]
+        [DataMember(Name = "application", EmitDefaultValue = true)]
         public string Application { get; set; }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "isSubscribed", EmitDefaultValue = true)]
-        public bool IsSubscribed { get; set; }
+        public bool? IsSubscribed { get; set; }
 
         /// <summary>
         /// Gets or Sets Tenant

@@ -5,7 +5,7 @@ The information config parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Favorite** | **bool** | Specifies if the file is favorite or not. | [optional] 
+**Favorite** | **bool?** | Specifies if the file is favorite or not. | [optional] 
 **Folder** | **string** | The folder of the file. | [optional] 
 **Owner** | **string** | The file owner. | [optional] 
 **SharingSettings** | [**List&lt;AceShortWrapper&gt;**](AceShortWrapper.md) | The sharing settings of the file. | [optional] 

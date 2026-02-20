@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Percentage** | **int** | The progress percentage of the document building process. | 
 **IsCompleted** | **bool** | Specifies whether the document building process is completed or not. | 
 **Status** | **DistributedTaskStatus** |  | 
-**ResultFileId** | **Object** |  | 
+**ResultFileId** | **Object** | The result file ID. | 
 **ResultFileName** | **string** | The result file name. | 
 **ResultFileUrl** | **string** | The result file URL. | 
 

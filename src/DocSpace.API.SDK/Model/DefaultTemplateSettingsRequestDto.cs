@@ -35,7 +35,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="selectedFile">File id to replace template with (or null to use default template).</param>
         /// <param name="fileExtension">File extension of a template to replace (required).</param>
-        public DefaultTemplateSettingsRequestDto(int selectedFile = default, string fileExtension = default)
+        public DefaultTemplateSettingsRequestDto(int? selectedFile = default, string fileExtension = default)
         {
             // to ensure "fileExtension" is required (not null)
             if (fileExtension == null)
@@ -53,8 +53,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>1234</example>
         */
-        [DataMember(Name = "selectedFile", EmitDefaultValue = false)]
-        public int SelectedFile { get; set; }
+        [DataMember(Name = "selectedFile", EmitDefaultValue = true)]
+        public int? SelectedFile { get; set; }
 
         /// <summary>
         /// File extension of a template to replace
