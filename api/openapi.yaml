@@ -72,6 +72,9 @@ tags:
 - description: Operations for working with rooms.
   name: Rooms
   x-displayName: Rooms
+- description: Operations for managing groups within rooms.
+  name: Rooms / Groups
+  x-displayName: Groups
 - description: "APIs for managing OAuth2 authorization, including authorization and\
     \ consent."
   name: OAuth 2.0 / Authorization
@@ -3081,274 +3084,6 @@ paths:
       summary: Get the backup service state
       tags:
       - Backup
-  /api/2.0/files/group:
-    get:
-      description: Returns a list of all room groups for the current user.
-      operationId: getRoomGroups
-      parameters:
-      - description: The group unique identifier.
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          example: 1
-          format: int32
-          type: integer
-        style: simple
-      - description: Whether to include group members.
-        explode: true
-        in: query
-        name: includeMembers
-        required: false
-        schema:
-          example: true
-          type: boolean
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/RoomGroupArrayWrapper"
-          description: OK
-        "401":
-          description: Unauthorized
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: List room groups
-      tags:
-      - files
-    post:
-      description: "Creates a new room group with the specified name, icon, and list\
-        \ of rooms."
-      operationId: addRoomGroup
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/RoomGroupRequestDto"
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/RoomGroupWrapper"
-          description: OK
-        "401":
-          description: Unauthorized
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: Add a new room group
-      tags:
-      - files
-  /api/2.0/files/group/{id}:
-    delete:
-      description: Deletes the specified room group.
-      operationId: deleteRoomGroup
-      parameters:
-      - description: The group unique identifier.
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          example: 1
-          format: int32
-          type: integer
-        style: simple
-      - description: Whether to include group members.
-        explode: true
-        in: query
-        name: includeMembers
-        required: false
-        schema:
-          example: true
-          type: boolean
-        style: form
-      responses:
-        "200":
-          description: OK
-        "401":
-          description: Unauthorized
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: Delete group
-      tags:
-      - files
-    get:
-      description: Returns detailed information about a room group.
-      operationId: getRoomGroupInfo
-      parameters:
-      - description: The group unique identifier.
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          example: 1
-          format: int32
-          type: integer
-        style: simple
-      - description: Whether to include group members.
-        explode: true
-        in: query
-        name: includeMembers
-        required: false
-        schema:
-          example: true
-          type: boolean
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/RoomGroupWrapper"
-          description: OK
-        "401":
-          description: Unauthorized
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: Get room group info
-      tags:
-      - files
-    put:
-      description: Updates room group properties and adds or removes rooms.
-      operationId: updateRoomGroup
-      parameters:
-      - description: The group ID.
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          example: 1
-          format: int32
-          type: integer
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/UpdateRoomGroupRequest"
-        description: The request for updating a group.
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/RoomGroupWrapper"
-          description: OK
-        "401":
-          description: Unauthorized
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: Update room group
-      tags:
-      - files
-  /api/2.0/files/group/{id}/icon:
-    post:
-      description: Changes the icon of an existing room group.
-      operationId: changeRoomGroupIcon
-      parameters:
-      - description: Group id
-        explode: false
-        in: path
-        name: id
-        required: true
-        schema:
-          example: 1
-          format: int32
-          type: integer
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/IconRequest"
-        description: Icon update data.
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/RoomGroupWrapper"
-          description: OK
-        "401":
-          description: Unauthorized
-      security:
-      - asc_auth_key:
-        - read
-        - write
-      - Bearer: []
-      - ApiKeyBearer:
-        - read
-        - write
-      - Basic: []
-      - OAuth2:
-        - read
-        - write
-      - OpenId: []
-      summary: Change group icon
-      tags:
-      - files
   /api/2.0/files/file/{fileId}/saveediting:
     put:
       description: Saves edits to a file with the ID specified in the request.
@@ -12046,6 +11781,274 @@ paths:
       summary: Get the room new items
       tags:
       - Rooms
+  /api/2.0/files/group:
+    get:
+      description: Returns a list of all room groups for the current user.
+      operationId: getRoomGroups
+      parameters:
+      - description: The group unique identifier.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 1
+          format: int32
+          type: integer
+        style: simple
+      - description: Whether to include group members.
+        explode: true
+        in: query
+        name: includeMembers
+        required: false
+        schema:
+          example: true
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoomGroupArrayWrapper"
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: List room groups
+      tags:
+      - Rooms / Groups
+    post:
+      description: "Creates a new room group with the specified name, icon, and list\
+        \ of rooms."
+      operationId: addRoomGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RoomGroupRequestDto"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoomGroupWrapper"
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Add a new room group
+      tags:
+      - Rooms / Groups
+  /api/2.0/files/group/{id}:
+    delete:
+      description: Deletes the specified room group.
+      operationId: deleteRoomGroup
+      parameters:
+      - description: The group unique identifier.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 1
+          format: int32
+          type: integer
+        style: simple
+      - description: Whether to include group members.
+        explode: true
+        in: query
+        name: includeMembers
+        required: false
+        schema:
+          example: true
+          type: boolean
+        style: form
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Delete group
+      tags:
+      - Rooms / Groups
+    get:
+      description: Returns detailed information about a room group.
+      operationId: getRoomGroupInfo
+      parameters:
+      - description: The group unique identifier.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 1
+          format: int32
+          type: integer
+        style: simple
+      - description: Whether to include group members.
+        explode: true
+        in: query
+        name: includeMembers
+        required: false
+        schema:
+          example: true
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoomGroupWrapper"
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Get room group info
+      tags:
+      - Rooms / Groups
+    put:
+      description: Updates room group properties and adds or removes rooms.
+      operationId: updateRoomGroup
+      parameters:
+      - description: The group ID.
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 1
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateRoomGroupRequest"
+        description: The request for updating a group.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoomGroupWrapper"
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Update room group
+      tags:
+      - Rooms / Groups
+  /api/2.0/files/group/{id}/icon:
+    post:
+      description: Changes the icon of an existing room group.
+      operationId: changeRoomGroupIcon
+      parameters:
+      - description: Group id
+        explode: false
+        in: path
+        name: id
+        required: true
+        schema:
+          example: 1
+          format: int32
+          type: integer
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/IconRequest"
+        description: Icon update data.
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoomGroupWrapper"
+          description: OK
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Change group icon
+      tags:
+      - Rooms / Groups
   /oauth2/authorize:
     get:
       description: Initiates the OAuth2 authorization flow.
@@ -67362,6 +67365,7 @@ x-tagGroups:
 - name: Rooms
   tags:
   - Rooms
+  - Rooms / Groups
 - name: OAuth 2.0
   tags:
   - OAuth 2.0 / Authorization

@@ -632,39 +632,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td colspan="3" style="text-align: center;"><strong>FilesApi</strong></td>
       </tr>
       <tr>
-        <td><a href="docs/FilesApi.md#addroomgroup"><strong>AddRoomGroup</strong></a></td>
-        <td><strong>POST</strong> /api/2.0/files/group</td>
-        <td>Add a new room group</td>
-      </tr>
-      <tr>
-        <td><a href="docs/FilesApi.md#changeroomgroupicon"><strong>ChangeRoomGroupIcon</strong></a></td>
-        <td><strong>POST</strong> /api/2.0/files/group/{id}/icon</td>
-        <td>Change group icon</td>
-      </tr>
-      <tr>
-        <td><a href="docs/FilesApi.md#deleteroomgroup"><strong>DeleteRoomGroup</strong></a></td>
-        <td><strong>DELETE</strong> /api/2.0/files/group/{id}</td>
-        <td>Delete group</td>
-      </tr>
-      <tr>
-        <td><a href="docs/FilesApi.md#getroomgroupinfo"><strong>GetRoomGroupInfo</strong></a></td>
-        <td><strong>GET</strong> /api/2.0/files/group/{id}</td>
-        <td>Get room group info</td>
-      </tr>
-      <tr>
-        <td><a href="docs/FilesApi.md#getroomgroups"><strong>GetRoomGroups</strong></a></td>
-        <td><strong>GET</strong> /api/2.0/files/group</td>
-        <td>List room groups</td>
-      </tr>
-      <tr>
-        <td><a href="docs/FilesApi.md#updateroomgroup"><strong>UpdateRoomGroup</strong></a></td>
-        <td><strong>PUT</strong> /api/2.0/files/group/{id}</td>
-        <td>Update room group</td>
-      </tr>
-    <tr>
-        <td colspan="3" style="text-align: center;"><strong>FilesApi</strong></td>
-      </tr>
-      <tr>
         <td><a href="docs/FilesFilesApi.md#addfiletorecent"><strong>AddFileToRecent</strong></a></td>
         <td><strong>POST</strong> /api/2.0/files/file/{fileId}/recent</td>
         <td>Add a file to the Recent section</td>
@@ -2515,6 +2482,39 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/RoomsApi.md#uploadroomlogo"><strong>UploadRoomLogo</strong></a></td>
         <td><strong>POST</strong> /api/2.0/files/logos</td>
         <td>Upload a room logo image</td>
+      </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;"><strong>GroupsApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsGroupsApi.md#addroomgroup"><strong>AddRoomGroup</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/group</td>
+        <td>Add a new room group</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsGroupsApi.md#changeroomgroupicon"><strong>ChangeRoomGroupIcon</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/group/{id}/icon</td>
+        <td>Change group icon</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsGroupsApi.md#deleteroomgroup"><strong>DeleteRoomGroup</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/files/group/{id}</td>
+        <td>Delete group</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsGroupsApi.md#getroomgroupinfo"><strong>GetRoomGroupInfo</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/group/{id}</td>
+        <td>Get room group info</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsGroupsApi.md#getroomgroups"><strong>GetRoomGroups</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/group</td>
+        <td>List room groups</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsGroupsApi.md#updateroomgroup"><strong>UpdateRoomGroup</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/files/group/{id}</td>
+        <td>Update room group</td>
       </tr>
     </tbody>
   </table>
