@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -51,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The name of the authorization service.</value>
         /*
-        <example>John Doe</example>
+        <example>google</example>
         */
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
@@ -61,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user-friendly display title of the authorization service.</value>
         /*
-        <example>SampleFile</example>
+        <example>Google</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -71,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The brief description of the authorization service.</value>
         /*
-        <example>some text</example>
+        <example>Google OAuth authentication</example>
         */
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
@@ -81,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The detailed instructions for configuring or using the authorization service.</value>
         /*
-        <example>some text</example>
+        <example>Configure your Google OAuth credentials</example>
         */
         [DataMember(Name = "instruction", EmitDefaultValue = true)]
         public string Instruction { get; set; }
@@ -101,7 +114,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether the authorization service is paid or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "paid", EmitDefaultValue = true)]
         public bool Paid { get; set; }
@@ -110,6 +123,9 @@ namespace DocSpace.API.SDK.Model
         /// The collection of authorization keys associated with the authorization service.
         /// </summary>
         /// <value>The collection of authorization keys associated with the authorization service.</value>
+        /*
+        <example>[{&quot;name&quot;:&quot;key&quot;,&quot;value&quot;:&quot;value&quot;}]</example>
+        */
         [DataMember(Name = "props", EmitDefaultValue = true)]
         public List<AuthKey> Props { get; set; }
 
@@ -138,7 +154,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

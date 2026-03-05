@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -49,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>New display name for the server. Only letters, numbers, underscores, and hyphens are allowed. Maximum 128 characters.</value>
         /*
-        <example>John Doe</example>
+        <example>Updated MCP Server</example>
         */
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
@@ -59,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>New human-readable description of the server&#39;s purpose. Maximum 255 characters.</value>
         /*
-        <example>some text</example>
+        <example>Updated server description</example>
         */
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description { get; set; }
@@ -69,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>New base URL of the MCP server endpoint. If changed, the system will re-verify connectivity before saving.</value>
         /*
-        <example>some text</example>
+        <example>https://mcp.example.com/sse</example>
         */
         [DataMember(Name = "endpoint", EmitDefaultValue = true)]
         public string Endpoint { get; set; }
@@ -79,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>New HTTP headers to include with every request. If changed alongside the endpoint, connectivity is re-verified.</value>
         /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
+        <example>{&quot;Authorization&quot;:&quot;Bearer token123&quot;}</example>
         */
         [DataMember(Name = "headers", EmitDefaultValue = true)]
         public Dictionary<string, string> Headers { get; set; }
@@ -99,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>New Base64-encoded icon image for the server, or null to remove the existing icon. Only applied when UpdateIcon is true.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/icon.png</example>
         */
         [DataMember(Name = "icon", EmitDefaultValue = true)]
         public string Icon { get; set; }
@@ -128,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

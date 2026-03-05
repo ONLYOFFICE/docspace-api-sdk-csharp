@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -83,7 +96,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The company name.</value>
         /*
-        <example>some text</example>
+        <example>Acme Corporation</example>
         */
         [DataMember(Name = "companyName", IsRequired = true, EmitDefaultValue = true)]
         public string CompanyName { get; set; }
@@ -93,7 +106,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The company site.</value>
         /*
-        <example>some text</example>
+        <example>https://www.example.com</example>
         */
         [DataMember(Name = "site", IsRequired = true, EmitDefaultValue = true)]
         public string Site { get; set; }
@@ -103,7 +116,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The company email address.</value>
         /*
-        <example>example@onlyoffice.com</example>
+        <example>contact@example.com</example>
         */
         [DataMember(Name = "email", IsRequired = true, EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -113,7 +126,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The company address.</value>
         /*
-        <example>some text</example>
+        <example>123 Business St, New York, NY 10001</example>
         */
         [DataMember(Name = "address", IsRequired = true, EmitDefaultValue = true)]
         public string Address { get; set; }
@@ -123,7 +136,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The company phone number.</value>
         /*
-        <example>some text</example>
+        <example>+1-800-555-0123</example>
         */
         [DataMember(Name = "phone", IsRequired = true, EmitDefaultValue = true)]
         public string Phone { get; set; }
@@ -133,7 +146,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if a company is a licensor or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isLicensor", IsRequired = true, EmitDefaultValue = true)]
         public bool IsLicensor { get; set; }
@@ -143,7 +156,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the About page is visible or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "hideAbout", IsRequired = true, EmitDefaultValue = true)]
         public bool HideAbout { get; set; }
@@ -184,7 +197,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

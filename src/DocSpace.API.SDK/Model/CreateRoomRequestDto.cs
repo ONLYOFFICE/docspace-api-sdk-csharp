@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -81,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room name.</value>
         /*
-        <example>SampleFile</example>
+        <example>My Room</example>
         */
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -91,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room quota.</value>
         /*
-        <example>1234</example>
+        <example>1073741824</example>
         */
         [DataMember(Name = "quota", EmitDefaultValue = true)]
         public long? Quota { get; set; }
@@ -111,7 +124,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to deny downloads from the room.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool? DenyDownload { get; set; }
@@ -139,7 +152,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tags.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[&quot;tag1&quot;,&quot;tag2&quot;,&quot;tag3&quot;]</example>
         */
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
@@ -149,7 +162,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room color.</value>
         /*
-        <example>some text</example>
+        <example>#FF0000</example>
         */
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
@@ -159,7 +172,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room cover.</value>
         /*
-        <example>some text</example>
+        <example>cover1.jpg</example>
         */
         [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
@@ -169,7 +182,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether the room to be created is private or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "private", EmitDefaultValue = true)]
         public bool Private { get; set; }
@@ -178,6 +191,9 @@ namespace DocSpace.API.SDK.Model
         /// The collection of sharing parameters.
         /// </summary>
         /// <value>The collection of sharing parameters.</value>
+        /*
+        <example>[{&quot;shareTo&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;access&quot;:1}]</example>
+        */
         [DataMember(Name = "share", EmitDefaultValue = true)]
         public List<FileShareParams> Share { get; set; }
 
@@ -219,7 +235,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -55,10 +55,10 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ThirdPartyAccountsApi(httpClient, config, httpClientHandler);
-            var inviteView = true;  // bool? | Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. (optional) 
-            var settingsView = true;  // bool? | Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). (optional) 
-            var clientCallback = some text;  // string? | The method that is called after authentication. (optional) 
-            var fromOnly = some text;  // string? | The provider name if a response is required only from this provider. (optional) 
+            var inviteView = false;  // bool? | Specifies whether to return providers that are available for invitation links, i.e. the user can login or register through these providers. (optional) 
+            var settingsView = false;  // bool? | Specifies whether to display the provider settings in a pop-up window (true) or redirect them to the desktop application (false). (optional) 
+            var clientCallback = onAuthCallback;  // string? | The method that is called after authentication. (optional) 
+            var fromOnly = Google;  // string? | The provider name if a response is required only from this provider. (optional) 
 
             try
             {
@@ -375,7 +375,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ThirdPartyAccountsApi(httpClient, config, httpClientHandler);
-            var provider = some text;  // string? | The provider name. (optional) 
+            var provider = Google;  // string? | The provider name. (optional) 
 
             try
             {

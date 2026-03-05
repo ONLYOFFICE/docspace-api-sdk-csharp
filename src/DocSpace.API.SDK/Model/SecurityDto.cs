@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -47,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The module ID.</value>
         /*
-        <example>{00000000-0000-0000-0000-000000000000}</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "webItemId", EmitDefaultValue = true)]
         public string WebItemId { get; set; }
@@ -56,6 +69,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of users with the access to the module.
         /// </summary>
         /// <value>The list of users with the access to the module.</value>
+        /*
+        <example>[{&quot;displayName&quot;:&quot;John Doe&quot;}]</example>
+        */
         [DataMember(Name = "users", EmitDefaultValue = true)]
         public List<EmployeeDto> Users { get; set; }
 
@@ -63,6 +79,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of groups with the access to the module.
         /// </summary>
         /// <value>The list of groups with the access to the module.</value>
+        /*
+        <example>[{&quot;id&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;name&quot;:&quot;Administrators&quot;}]</example>
+        */
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<GroupSummaryDto> Groups { get; set; }
 
@@ -81,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the module is a subitem or not.</value>
         /*
-        <example>false</example>
+        <example>true</example>
         */
         [DataMember(Name = "isSubItem", EmitDefaultValue = true)]
         public bool IsSubItem { get; set; }
@@ -109,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -94,7 +107,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user email address.</value>
         /*
-        <example>example@onlyoffice.com</example>
+        <example>john.doe@example.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -104,7 +117,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user password hash.</value>
         /*
-        <example>some text</example>
+        <example>$2a$10$abcdefghijklmnopqrstuv</example>
         */
         [DataMember(Name = "passwordHash", EmitDefaultValue = true)]
         public string PasswordHash { get; set; }
@@ -114,7 +127,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user link key.</value>
         /*
-        <example>some text</example>
+        <example>invite_key_123456</example>
         */
         [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
         public string Key { get; set; }
@@ -124,7 +137,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user culture code.</value>
         /*
-        <example>some text</example>
+        <example>en-US</example>
         */
         [DataMember(Name = "culture", EmitDefaultValue = true)]
         public string Culture { get; set; }
@@ -134,7 +147,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The third-party profile in the serialized format</value>
         /*
-        <example>some text</example>
+        <example>{&quot;provider&quot;:&quot;Google&quot;,&quot;id&quot;:&quot;123456&quot;}</example>
         */
         [DataMember(Name = "serializedProfile", IsRequired = true, EmitDefaultValue = true)]
         public string SerializedProfile { get; set; }
@@ -165,7 +178,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

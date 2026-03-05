@@ -182,7 +182,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ApiKeysApi(httpClient, config, httpClientHandler);
-            var keyId = "keyId_example";  // Guid | The API key ID.
+            var keyId = 00000000-0000-0000-0000-000000000000;  // Guid | The API key ID.
 
             try
             {
@@ -616,7 +616,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ApiKeysApi(httpClient, config, httpClientHandler);
-            var keyId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The unique identifier of the API key to update.
+            var keyId = 00000000-0000-0000-0000-000000000000;  // Guid | The unique identifier of the API key to update.
             var updateApiKeyRequest = new UpdateApiKeyRequest(); // UpdateApiKeyRequest | The request parameters for updating an existing API key.
 
             try

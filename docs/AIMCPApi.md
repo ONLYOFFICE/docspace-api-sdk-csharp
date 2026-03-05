@@ -79,7 +79,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | Identifier of the room to which MCP servers will be assigned.
+            var roomId = 42;  // int | Identifier of the room to which MCP servers will be assigned.
             var addRoomServersRequestBody = new AddRoomServersRequestBody(); // AddRoomServersRequestBody | Server identifiers to assign.
 
             try
@@ -264,7 +264,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 |------|------|-------------|-------|
 | **roomId** | **int** | Identifier of the room containing the MCP server. |  |
 | **serverId** | **Guid** | Unique identifier of the MCP server to connect. |  |
-| **connectServerRequestBody** | [**ConnectServerRequestBody**](ConnectServerRequestBody.md) | OAuth authorization parameters. |  |
+| **connectServerRequestBody** | [**ConnectServerRequestBody**](ConnectServerRequestBody.md) | The request body containing additional data necessary for connecting to the server,  such as authentication or operation-specific information. |  |
 
 ### Return type
 
@@ -311,9 +311,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | Identifier of the room containing the MCP server.
-            var serverId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | Unique identifier of the MCP server to connect.
-            var connectServerRequestBody = new ConnectServerRequestBody(); // ConnectServerRequestBody | OAuth authorization parameters.
+            var roomId = 42;  // int | Identifier of the room containing the MCP server.
+            var serverId = 00000000-0000-0000-0000-000000000000;  // Guid | Unique identifier of the MCP server to connect.
+            var connectServerRequestBody = new ConnectServerRequestBody(); // ConnectServerRequestBody | The request body containing additional data necessary for connecting to the server,  such as authentication or operation-specific information.
 
             try
             {
@@ -429,7 +429,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | Identifier of the room from which MCP servers will be removed.
+            var roomId = 42;  // int | Identifier of the room from which MCP servers will be removed.
             var deleteRoomServersRequestBody = new DeleteRoomServersRequestBody(); // DeleteRoomServersRequestBody | Server identifiers to remove.
 
             try
@@ -650,8 +650,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | Identifier of the room containing the MCP server.
-            var serverId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | Unique identifier of the MCP server to disconnect from.
+            var roomId = 42;  // int | Identifier of the room containing the MCP server.
+            var serverId = 00000000-0000-0000-0000-000000000000;  // Guid | Unique identifier of the MCP server to disconnect from.
 
             try
             {
@@ -766,8 +766,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var startIndex = 1234;  // int? | The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional) 
-            var count = 1234;  // int? | The maximum number of items to return per page. Defaults to 100. (optional) 
+            var startIndex = 0;  // int? | The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional) 
+            var count = 100;  // int? | The maximum number of items to return per page. Defaults to 100. (optional) 
 
             try
             {
@@ -879,7 +879,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | Identifier of the room whose assigned MCP servers are being retrieved.
+            var roomId = 42;  // int | Identifier of the room whose assigned MCP servers are being retrieved.
 
             try
             {
@@ -1108,8 +1108,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var startIndex = 1234;  // int? | The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional) 
-            var count = 1234;  // int? | The maximum number of items to return per page. Defaults to 100. (optional) 
+            var startIndex = 0;  // int? | The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional) 
+            var count = 100;  // int? | The maximum number of items to return per page. Defaults to 100. (optional) 
 
             try
             {
@@ -1223,8 +1223,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | Identifier of the room containing the MCP server.
-            var serverId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | Unique identifier of the MCP server whose tools are being retrieved.
+            var roomId = 42;  // int | Identifier of the room containing the MCP server.
+            var serverId = 00000000-0000-0000-0000-000000000000;  // Guid | Unique identifier of the MCP server whose tools are being retrieved.
 
             try
             {
@@ -1456,8 +1456,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MCPApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | Identifier of the room containing the MCP server.
-            var serverId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | Unique identifier of the MCP server whose tools are being configured.
+            var roomId = 42;  // int | Identifier of the room containing the MCP server.
+            var serverId = 00000000-0000-0000-0000-000000000000;  // Guid | Unique identifier of the MCP server whose tools are being configured.
             var setMcpToolsRequestBody = new SetMcpToolsRequestBody(); // SetMcpToolsRequestBody | Tool configuration parameters.
 
             try

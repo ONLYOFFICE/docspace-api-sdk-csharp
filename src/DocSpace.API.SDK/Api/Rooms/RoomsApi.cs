@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Rooms
@@ -676,10 +683,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName"></param>
+        /// <param name="tagName2"></param>
+        /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
         /// <returns>BooleanWrapper</returns>
-        BooleanWrapper HasTagLinks(string tagName);
+        BooleanWrapper HasTagLinks(string tagName2, string? tagName = default);
 
         /// <summary>
         /// Has tag links
@@ -688,10 +696,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName"></param>
+        /// <param name="tagName2"></param>
+        /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        ApiResponse<BooleanWrapper> HasTagLinksWithHttpInfo(string tagName);
+        ApiResponse<BooleanWrapper> HasTagLinksWithHttpInfo(string tagName2, string? tagName = default);
         /// <summary>
         /// Pin a room
         /// </summary>
@@ -1713,11 +1722,12 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName"></param>
+        /// <param name="tagName2"></param>
+        /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
-        Task<BooleanWrapper> HasTagLinksAsync(string tagName, CancellationToken cancellationToken = default);
+        Task<BooleanWrapper> HasTagLinksAsync(string tagName2, string? tagName = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Has tag links
@@ -1726,11 +1736,12 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName"></param>
+        /// <param name="tagName2"></param>
+        /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        Task<ApiResponse<BooleanWrapper>> HasTagLinksWithHttpInfoAsync(string tagName, CancellationToken cancellationToken = default);
+        Task<ApiResponse<BooleanWrapper>> HasTagLinksWithHttpInfoAsync(string tagName2, string? tagName = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Pin a room
         /// </summary>
@@ -7304,12 +7315,13 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName"></param>
+        /// <param name="tagName2"></param>
+        /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
         /// <returns>BooleanWrapper</returns>
-        public BooleanWrapper HasTagLinks(string tagName)
+        public BooleanWrapper HasTagLinks(string tagName2, string? tagName = default)
         {
-            var localVarResponse = HasTagLinksWithHttpInfo(tagName);
+            var localVarResponse = HasTagLinksWithHttpInfo(tagName2, tagName);
             return localVarResponse.Data;
         }
 
@@ -7320,14 +7332,15 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName"></param>
+        /// <param name="tagName2"></param>
+        /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
-        public ApiResponse<BooleanWrapper> HasTagLinksWithHttpInfo(string tagName)
+        public ApiResponse<BooleanWrapper> HasTagLinksWithHttpInfo(string tagName2, string? tagName = default)
         {
-            // verify the required parameter 'tagName' is set
-            if (tagName == null)
-                throw new ApiException(400, "Missing required parameter 'tagName' when calling RoomsApi->HasTagLinks");
+            // verify the required parameter 'tagName2' is set
+            if (tagName2 == null)
+                throw new ApiException(400, "Missing required parameter 'tagName2' when calling RoomsApi->HasTagLinks");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -7342,7 +7355,11 @@ namespace DocSpace.API.SDK.Api.Rooms
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("tagName", ClientUtils.ParameterToString(tagName)); // path parameter
+            localVarRequestOptions.PathParameters.Add("tagName", ClientUtils.ParameterToString(tagName2)); // path parameter
+            if (tagName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "tagName", tagName));
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -7397,13 +7414,14 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName"></param>
+        /// <param name="tagName2"></param>
+        /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
         /// <returns>Task of BooleanWrapper</returns>
-        public async Task<BooleanWrapper> HasTagLinksAsync(string tagName, CancellationToken cancellationToken = default)
+        public async Task<BooleanWrapper> HasTagLinksAsync(string tagName2, string? tagName = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await HasTagLinksWithHttpInfoAsync(tagName, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await HasTagLinksWithHttpInfoAsync(tagName2, tagName, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7414,15 +7432,16 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Checks if a specific custom tag has linked items.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="tagName"></param>
+        /// <param name="tagName2"></param>
+        /// <param name="tagName">Represents the name of a tag (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/has-tag-links/">REST API Reference for HasTagLinks Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async Task<ApiResponse<BooleanWrapper>> HasTagLinksWithHttpInfoAsync(string tagName, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<BooleanWrapper>> HasTagLinksWithHttpInfoAsync(string tagName2, string? tagName = default, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'tagName' is set
-            if (tagName == null)
-                throw new ApiException(400, "Missing required parameter 'tagName' when calling RoomsApi->HasTagLinks");
+            // verify the required parameter 'tagName2' is set
+            if (tagName2 == null)
+                throw new ApiException(400, "Missing required parameter 'tagName2' when calling RoomsApi->HasTagLinks");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -7438,7 +7457,11 @@ namespace DocSpace.API.SDK.Api.Rooms
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("tagName", ClientUtils.ParameterToString(tagName)); // path parameter
+            localVarRequestOptions.PathParameters.Add("tagName", ClientUtils.ParameterToString(tagName2)); // path parameter
+            if (tagName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "tagName", tagName));
+            }
 
             // authentication (Basic) required
             // http basic authentication required

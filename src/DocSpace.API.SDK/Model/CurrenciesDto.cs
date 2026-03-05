@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -43,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The ISO country code.</value>
         /*
-        <example>some text</example>
+        <example>US</example>
         */
         [DataMember(Name = "isoCountryCode", EmitDefaultValue = true)]
         public string IsoCountryCode { get; set; }
@@ -53,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The ISO currency symbol.</value>
         /*
-        <example>some text</example>
+        <example>USD</example>
         */
         [DataMember(Name = "isoCurrencySymbol", EmitDefaultValue = true)]
         public string IsoCurrencySymbol { get; set; }
@@ -63,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The currency native name.</value>
         /*
-        <example>some text</example>
+        <example>Example Name</example>
         */
         [DataMember(Name = "currencyNativeName", EmitDefaultValue = true)]
         public string CurrencyNativeName { get; set; }
@@ -89,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

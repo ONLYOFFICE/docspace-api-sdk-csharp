@@ -63,7 +63,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var key = some text;  // string | The unique document identifier.
+            var key = doc_key_123;  // string | The unique document identifier.
             var externalShareRequestParam = new ExternalShareRequestParam(); // ExternalShareRequestParam | The external data share request parameters.
 
             try
@@ -274,7 +274,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var key = some text;  // string | The unique key of the external shared data.
+            var key = doc_key_123;  // string | The unique key of the external shared data.
             var fileId = 1;  // string? | The unique document identifier. (optional) 
             var folderId = 1;  // string? | The unique folder identifier. (optional) 
 
@@ -389,9 +389,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The file unique identifier.
-            var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
-            var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
+            var id = 10;  // int | The file unique identifier.
+            var count = 25;  // int? | The number of items to retrieve in the request. (optional) 
+            var startIndex = 0;  // int? | The starting index for the query results. (optional) 
 
             try
             {
@@ -505,9 +505,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The folder unique identifier.
-            var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
-            var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
+            var id = 10;  // int | The folder unique identifier.
+            var count = 25;  // int? | The number of items to retrieve in the request. (optional) 
+            var startIndex = 0;  // int? | The starting index for the query results. (optional) 
 
             try
             {
@@ -624,10 +624,10 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file ID.
-            var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID.
-            var count = 1234;  // int? | The number of items to be retrieved in the current query. (optional) 
-            var startIndex = 1234;  // int? | The starting index for the query result set. (optional) 
-            var filterValue = some text;  // string? | The filter value used for searching or querying group members based on text input. (optional) 
+            var groupId = 00000000-0000-0000-0000-000000000000;  // Guid | The group ID.
+            var count = 25;  // int? | The number of items to be retrieved in the current query. (optional) 
+            var startIndex = 0;  // int? | The starting index for the query result set. (optional) 
+            var filterValue = My Document;  // string? | The filter value used for searching or querying group members based on text input. (optional) 
 
             try
             {
@@ -744,10 +744,10 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
             var folderId = 1;  // int | The folder ID.
-            var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID.
-            var count = 1234;  // int? | The number of items to be retrieved in the current query. (optional) 
-            var startIndex = 1234;  // int? | The starting index for the query result set. (optional) 
-            var filterValue = some text;  // string? | The filter value used for searching or querying group members based on text input. (optional) 
+            var groupId = 00000000-0000-0000-0000-000000000000;  // Guid | The group ID.
+            var count = 25;  // int? | The number of items to be retrieved in the current query. (optional) 
+            var startIndex = 0;  // int? | The starting index for the query result set. (optional) 
+            var filterValue = My Document;  // string? | The filter value used for searching or querying group members based on text input. (optional) 
 
             try
             {
@@ -1196,7 +1196,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SharingApi(httpClient, config, httpClientHandler);
-            var fileId = 1;  // int | The file ID with the mention message.
+            var fileId = 56;  // int | The file ID with the mention message.
             var mentionMessageWrapper = new MentionMessageWrapper?(); // MentionMessageWrapper? | The mention message. (optional) 
 
             try

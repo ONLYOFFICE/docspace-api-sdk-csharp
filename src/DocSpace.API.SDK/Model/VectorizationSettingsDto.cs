@@ -12,14 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// VectorizationSettingsDto
+    /// The vectorization settings.
     /// </summary>
     [DataContract(Name = "VectorizationSettingsDto")]
     public partial class VectorizationSettingsDto : IValidatableObject
@@ -47,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Indicates whether the embedding provider API key needs to be reconfigured.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "needReset", EmitDefaultValue = true)]
         public bool NeedReset { get; set; }
@@ -72,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

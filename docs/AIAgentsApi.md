@@ -185,7 +185,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The room ID.
+            var id = 10;  // int | The room ID.
             var deleteRoomRequest = new DeleteRoomRequest(); // DeleteRoomRequest | The parameters for deleting a room.
 
             try
@@ -420,17 +420,17 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var subjectId = some text;  // string? | The filter by user ID. (optional) 
-            var withoutTags = true;  // bool? | Specifies whether to search by tags or not. (optional) 
-            var tags = some text;  // string? | The tags in the serialized format. (optional) 
-            var excludeSubject = true;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
+            var subjectId = 00000000-0000-0000-0000-000000000000;  // string? | The filter by user ID. (optional) 
+            var withoutTags = false;  // bool? | Specifies whether to search by tags or not. (optional) 
+            var tags = ai,assistant;  // string? | The tags in the serialized format. (optional) 
+            var excludeSubject = false;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
             var subjectFilter = new SubjectFilter?(); // SubjectFilter? | The filter by user (Owner - 0, Member - 1). (optional) 
             var quotaFilter = new QuotaFilter?(); // QuotaFilter? | The filter by quota (All - 0, Default - 1, Custom - 2). (optional) 
-            var count = 1234;  // int? | Specifies the maximum number of items to retrieve. (optional) 
-            var startIndex = 1234;  // int? | The index from which to start retrieving the room content. (optional) 
-            var sortBy = some text;  // string? | Specifies the field by which the room content should be sorted. (optional) 
+            var count = 25;  // int? | Specifies the maximum number of items to retrieve. (optional) 
+            var startIndex = 0;  // int? | The index from which to start retrieving the room content. (optional) 
+            var sortBy = DateAndTime;  // string? | Specifies the field by which the room content should be sorted. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterValue = some text;  // string? | The text filter value used to refine search or query operations. (optional) 
+            var filterValue = my agent;  // string? | The text filter value used to refine search or query operations. (optional) 
 
             try
             {
@@ -762,7 +762,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The room ID.
+            var id = 56;  // int | The room ID.
             var updateRoomRequest = new UpdateRoomRequest(); // UpdateRoomRequest | The request parameters for updating a room.
 
             try

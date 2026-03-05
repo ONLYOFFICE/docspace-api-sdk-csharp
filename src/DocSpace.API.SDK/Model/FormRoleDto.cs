@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -69,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The role name.</value>
         /*
-        <example>some text</example>
+        <example>Approver</example>
         */
         [DataMember(Name = "roleName", IsRequired = true, EmitDefaultValue = true)]
         public string RoleName { get; set; }
@@ -79,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The role color.</value>
         /*
-        <example>some text</example>
+        <example>#FF5733</example>
         */
         [DataMember(Name = "roleColor", EmitDefaultValue = true)]
         public string RoleColor { get; set; }
@@ -95,7 +108,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The role sequence.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "sequence", IsRequired = true, EmitDefaultValue = true)]
         public int Sequence { get; set; }
@@ -105,7 +118,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the role is submitted.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "submitted", IsRequired = true, EmitDefaultValue = true)]
         public bool Submitted { get; set; }
@@ -121,7 +134,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The role history.</value>
         /*
-        <example>[{&quot;key&quot;:1234,&quot;value&quot;:&quot;2008-04-10T06:30:00.0000000+04:00&quot;}]</example>
+        <example>{&quot;0&quot;:&quot;2025-01-15T10:30:00Z&quot;}</example>
         */
         [DataMember(Name = "history", EmitDefaultValue = true)]
         public Dictionary<string, DateTime> History { get; set; }
@@ -152,7 +165,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

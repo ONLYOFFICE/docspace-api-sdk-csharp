@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -34,8 +47,9 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="StartNewChatBody" /> class.
         /// </summary>
         /// <param name="message">The initial user message to send to the AI assistant. (required).</param>
-        /// <param name="files">The optional collection of file identifiers to attach as context for the AI model..</param>
-        public StartNewChatBody(string message = default, List<ContinueChatBodyFilesInner> files = default)
+        /// <param name="contextFolderId">The optional collection of file identifiers to attach as context for the AI model..</param>
+        /// <param name="files">The list of attached files..</param>
+        public StartNewChatBody(string message = default, int? contextFolderId = default, List<ContinueChatBodyFilesInner> files = default)
         {
             // to ensure "message" is required (not null)
             if (message == null)
@@ -43,6 +57,7 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("message is a required property for StartNewChatBody and cannot be null");
             }
             this.Message = message;
+            this.ContextFolderId = contextFolderId;
             this.Files = files;
         }
 
@@ -51,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The initial user message to send to the AI assistant.</value>
         /*
-        <example>some text</example>
+        <example>Hello, can you help me with this document?</example>
         */
         [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public string Message { get; set; }
@@ -60,6 +75,19 @@ namespace DocSpace.API.SDK.Model
         /// The optional collection of file identifiers to attach as context for the AI model.
         /// </summary>
         /// <value>The optional collection of file identifiers to attach as context for the AI model.</value>
+        /*
+        <example>123</example>
+        */
+        [DataMember(Name = "contextFolderId", EmitDefaultValue = true)]
+        public int? ContextFolderId { get; set; }
+
+        /// <summary>
+        /// The list of attached files.
+        /// </summary>
+        /// <value>The list of attached files.</value>
+        /*
+        <example>[{&quot;id&quot;:1,&quot;type&quot;:&quot;file&quot;}]</example>
+        */
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<ContinueChatBodyFilesInner> Files { get; set; }
 
@@ -72,6 +100,7 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class StartNewChatBody {\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  ContextFolderId: ").Append(ContextFolderId).Append("\n");
             sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -83,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -12,37 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using Newtonsoft.Json.Converters;
 
 namespace DocSpace.API.SDK.Client
 {
     /// <summary>
     /// Formatter for 'date' openapi formats ss defined by full-date - RFC3339
+    /// see https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#data-types
     /// </summary>
-    public class OpenAPIDateConverter : JsonConverter<DateTime>
+    public class OpenAPIDateConverter : IsoDateTimeConverter
     {
-        private const string DateFormat = "yyyy-MM-dd";
-
         /// <summary>
-        /// Reads and converts the JSON to type DateTime.
+        /// Initializes a new instance of the <see cref="OpenAPIDateConverter" /> class.
         /// </summary>
-        public override DateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public OpenAPIDateConverter()
         {
-            if (reader.TokenType != JsonTokenType.String)
-                throw new JsonException();
-            
-            var dateString = reader.GetString();
-            if (DateTime.TryParseExact(dateString, DateFormat, null, System.Globalization.DateTimeStyles.None, out var date))
-                return date;
-                
-            throw new JsonException($"Unable to parse date. Expected format: {DateFormat}");
-        }
-
-        /// <summary>
-        /// Writes a DateTime value to JSON.
-        /// </summary>
-        public override void Write(Utf8JsonWriter writer, DateTime value, JsonSerializerOptions options)
-        {
-            writer.WriteStringValue(value.ToString(DateFormat));
+            // full-date   = date-fullyear "-" date-month "-" date-mday
+            DateTimeFormat = "yyyy-MM-dd";
         }
     }
 }

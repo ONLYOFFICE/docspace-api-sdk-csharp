@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -83,7 +96,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The callback URL of the editor.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/callback</example>
         */
         [DataMember(Name = "callbackUrl", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
@@ -99,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The creation URL of the editor.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/create</example>
         */
         [DataMember(Name = "createUrl", EmitDefaultValue = true)]
         public string CreateUrl { get; set; }
@@ -127,7 +140,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The language of the editor configuration.</value>
         /*
-        <example>some text</example>
+        <example>en-US</example>
         */
         [DataMember(Name = "lang", IsRequired = true, EmitDefaultValue = true)]
         public string Lang { get; set; }
@@ -137,7 +150,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The mode of the editor configuration.</value>
         /*
-        <example>some text</example>
+        <example>edit</example>
         */
         [DataMember(Name = "mode", IsRequired = true, EmitDefaultValue = true)]
         public string Mode { get; set; }
@@ -209,7 +222,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

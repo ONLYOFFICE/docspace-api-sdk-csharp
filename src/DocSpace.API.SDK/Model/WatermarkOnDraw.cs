@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -51,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Defines the watermark width measured in millimeters.</value>
         /*
-        <example>-8.5</example>
+        <example>150</example>
         */
         [DataMember(Name = "width", EmitDefaultValue = false)]
         public double Width { get; set; }
@@ -61,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Defines the watermark height measured in millimeters.</value>
         /*
-        <example>-8.5</example>
+        <example>100</example>
         */
         [DataMember(Name = "height", EmitDefaultValue = false)]
         public double Height { get; set; }
@@ -71,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Defines the watermark margins measured in millimeters.</value>
         /*
-        <example>[1234]</example>
+        <example>[10,10,10,10]</example>
         */
         [DataMember(Name = "margins", EmitDefaultValue = true)]
         public List<int> Margins { get; set; }
@@ -81,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Defines the watermark fill color.</value>
         /*
-        <example>some text</example>
+        <example>#FF0000</example>
         */
         [DataMember(Name = "fill", EmitDefaultValue = true)]
         public string Fill { get; set; }
@@ -91,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Defines the watermark rotation angle.</value>
         /*
-        <example>1234</example>
+        <example>45</example>
         */
         [DataMember(Name = "rotate", EmitDefaultValue = false)]
         public int Rotate { get; set; }
@@ -101,7 +114,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Defines the watermark transparency percentage.</value>
         /*
-        <example>-8.5</example>
+        <example>0.4</example>
         */
         [DataMember(Name = "transparent", EmitDefaultValue = false)]
         public double Transparent { get; set; }
@@ -110,6 +123,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of paragraphs of the watermark.
         /// </summary>
         /// <value>The list of paragraphs of the watermark.</value>
+        /*
+        <example>[{&quot;align&quot;:2,&quot;runs&quot;:[{&quot;fill&quot;:[124,124,124],&quot;text&quot;:&quot;CONFIDENTIAL&quot;,&quot;fontSize&quot;:26}]}]</example>
+        */
         [DataMember(Name = "paragraphs", EmitDefaultValue = true)]
         public List<Paragraph> Paragraphs { get; set; }
 
@@ -138,7 +154,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

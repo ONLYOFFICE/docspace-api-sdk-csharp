@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -58,7 +71,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The expiration date of the invitation link.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-01-15T10:30Z</example>
         */
         [DataMember(Name = "expiration", EmitDefaultValue = true)]
         public DateTime? Expiration { get; set; }
@@ -68,7 +81,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The maximum number of times the invitation link can be used.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
         public int? MaxUseCount { get; set; }
@@ -94,7 +107,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -1574,7 +1574,7 @@ catch (ApiException e)
 
 <a id="getfilesmodule"></a>
 # **GetFilesModule**
-> ModuleWrapper GetFilesModule ()
+> BooleanWrapper GetFilesModule ()
 
 Returns the information about the Documents module.
 
@@ -1584,7 +1584,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**ModuleWrapper**](ModuleWrapper.md)
+[**BooleanWrapper**](BooleanWrapper.md)
 
 ### Authorization
 
@@ -1631,7 +1631,7 @@ namespace Example
             try
             {
                 // Get the Documents information
-                ModuleWrapper result = apiInstance.GetFilesModule();
+                BooleanWrapper result = apiInstance.GetFilesModule();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1652,7 +1652,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the Documents information
-    ApiResponse<ModuleWrapper> response = apiInstance.GetFilesModuleWithHttpInfo();
+    ApiResponse<BooleanWrapper> response = apiInstance.GetFilesModuleWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1883,7 +1883,7 @@ catch (ApiException e)
 
 <a id="hideconfirmconvert"></a>
 # **HideConfirmConvert**
-> ModuleWrapper HideConfirmConvert (HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = null)
+> BooleanWrapper HideConfirmConvert (HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = null)
 
 Hides the confirmation dialog for saving the file copy in the original format when converting a file.
 
@@ -1897,7 +1897,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**ModuleWrapper**](ModuleWrapper.md)
+[**BooleanWrapper**](BooleanWrapper.md)
 
 ### Authorization
 
@@ -1945,7 +1945,7 @@ namespace Example
             try
             {
                 // Hide the confirmation dialog when converting
-                ModuleWrapper result = apiInstance.HideConfirmConvert(hideConfirmConvertRequestDto);
+                BooleanWrapper result = apiInstance.HideConfirmConvert(hideConfirmConvertRequestDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1966,7 +1966,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Hide the confirmation dialog when converting
-    ApiResponse<ModuleWrapper> response = apiInstance.HideConfirmConvertWithHttpInfo(hideConfirmConvertRequestDto);
+    ApiResponse<BooleanWrapper> response = apiInstance.HideConfirmConvertWithHttpInfo(hideConfirmConvertRequestDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3052,7 +3052,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
-            var fileExtension = .txt;  // string | File extension of a template to replace
+            var fileExtension = .docx;  // string | File extension of a template to replace
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter | File to replace template with
 
             try

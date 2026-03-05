@@ -72,7 +72,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ThirdPartyIntegrationApi(httpClient, config, httpClientHandler);
-            var providerId = 1234;  // int | The provider ID.
+            var providerId = 1;  // int | The provider ID.
 
             try
             {
@@ -184,7 +184,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ThirdPartyIntegrationApi(httpClient, config, httpClientHandler);
-            var excludewebdav = true;  // bool? | Specifies whether WebDAV resources should be excluded from the result.. (optional) 
+            var excludewebdav = false;  // bool? | Specifies whether WebDAV resources should be excluded from the result.. (optional) 
 
             try
             {

@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -53,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file title for text or HTML file.</value>
         /*
-        <example>SampleFile</example>
+        <example>Document.txt</example>
         */
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -63,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The text or HTML file contents.</value>
         /*
-        <example>some text</example>
+        <example>This is the file content</example>
         */
         [DataMember(Name = "content", EmitDefaultValue = true)]
         public string Content { get; set; }
@@ -73,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to create a new text or HTML file if it exists or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "createNewIfExist", EmitDefaultValue = true)]
         public bool CreateNewIfExist { get; set; }
@@ -99,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

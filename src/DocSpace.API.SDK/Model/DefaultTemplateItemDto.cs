@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -57,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>File id to use as a default template</value>
         /*
-        <example>1234</example>
+        <example>123</example>
         */
         [DataMember(Name = "selectedFile", EmitDefaultValue = true)]
         public int? SelectedFile { get; set; }
@@ -67,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Extension of a default template</value>
         /*
-        <example>.txt</example>
+        <example>.docx</example>
         */
         [DataMember(Name = "fileExtension", IsRequired = true, EmitDefaultValue = true)]
         public string FileExtension { get; set; }
@@ -77,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Title of a default template</value>
         /*
-        <example>some text</example>
+        <example>Default Template</example>
         */
         [DataMember(Name = "fileTitle", EmitDefaultValue = true)]
         public string FileTitle { get; set; }
@@ -86,9 +99,6 @@ namespace DocSpace.API.SDK.Model
         /// Last modified date of a default template
         /// </summary>
         /// <value>Last modified date of a default template</value>
-        /*
-        <example>2008-04-10T06:30+04:00</example>
-        */
         [DataMember(Name = "lastModified", EmitDefaultValue = true)]
         public DateTime? LastModified { get; set; }
 
@@ -97,7 +107,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>View url of a default template</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/template/view</example>
         */
         [DataMember(Name = "viewUrl", EmitDefaultValue = true)]
         public string ViewUrl { get; set; }
@@ -125,7 +135,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

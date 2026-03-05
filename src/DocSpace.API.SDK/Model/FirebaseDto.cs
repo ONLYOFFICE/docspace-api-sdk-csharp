@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -98,7 +111,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The Firebase API key.</value>
         /*
-        <example>some text</example>
+        <example>AIzaSyDxK9L3j4H8mN2pQ5rS6tU7vW8xY9zA1bC</example>
         */
         [DataMember(Name = "apiKey", IsRequired = true, EmitDefaultValue = true)]
         public string ApiKey { get; set; }
@@ -108,7 +121,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The Firebase authentication domain.</value>
         /*
-        <example>some text</example>
+        <example>myapp-12345.firebaseapp.com</example>
         */
         [DataMember(Name = "authDomain", IsRequired = true, EmitDefaultValue = true)]
         public string AuthDomain { get; set; }
@@ -118,7 +131,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The Firebase project ID.</value>
         /*
-        <example>some text</example>
+        <example>myapp-12345</example>
         */
         [DataMember(Name = "projectId", IsRequired = true, EmitDefaultValue = true)]
         public string ProjectId { get; set; }
@@ -128,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The Firebase storage bucket.</value>
         /*
-        <example>some text</example>
+        <example>myapp-12345.appspot.com</example>
         */
         [DataMember(Name = "storageBucket", IsRequired = true, EmitDefaultValue = true)]
         public string StorageBucket { get; set; }
@@ -138,7 +151,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The Firebase messaging sender ID.</value>
         /*
-        <example>some text</example>
+        <example>123456789012</example>
         */
         [DataMember(Name = "messagingSenderId", IsRequired = true, EmitDefaultValue = true)]
         public string MessagingSenderId { get; set; }
@@ -148,7 +161,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The Firebase application ID.</value>
         /*
-        <example>some text</example>
+        <example>1:123456789012:web:a1b2c3d4e5f6g7h8</example>
         */
         [DataMember(Name = "appId", IsRequired = true, EmitDefaultValue = true)]
         public string AppId { get; set; }
@@ -158,7 +171,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The Firebase measurement ID.</value>
         /*
-        <example>some text</example>
+        <example>G-ABCD123456</example>
         */
         [DataMember(Name = "measurementId", IsRequired = true, EmitDefaultValue = true)]
         public string MeasurementId { get; set; }
@@ -168,7 +181,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The Firebase database URL.</value>
         /*
-        <example>some text</example>
+        <example>https://myapp-12345.firebaseio.com</example>
         */
         [DataMember(Name = "databaseURL", IsRequired = true, EmitDefaultValue = true)]
         public string DatabaseURL { get; set; }
@@ -199,7 +212,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

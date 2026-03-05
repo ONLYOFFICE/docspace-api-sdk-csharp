@@ -12,14 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// UploadSessionResponseDtoInteger
+    /// The upload session response parameters.
     /// </summary>
     [DataContract(Name = "UploadSessionResponseDtoInteger")]
     public partial class UploadSessionResponseDtoInteger : IValidatableObject
@@ -28,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UploadSessionResponseDtoInteger" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="folderId">folderId.</param>
-        /// <param name="version">version.</param>
-        /// <param name="title">title.</param>
-        /// <param name="providerKey">providerKey.</param>
-        /// <param name="uploaded">uploaded.</param>
+        /// <param name="id">The upload session ID..</param>
+        /// <param name="folderId">The folder ID where the file is being uploaded..</param>
+        /// <param name="version">The file version number..</param>
+        /// <param name="title">The file title..</param>
+        /// <param name="providerKey">The third-party provider key..</param>
+        /// <param name="uploaded">Specifies whether the file has been uploaded..</param>
         /// <param name="file">file.</param>
         public UploadSessionResponseDtoInteger(int id = default, int folderId = default, int version = default, string title = default, string providerKey = default, bool uploaded = default, FileDtoInteger file = default)
         {
@@ -47,17 +60,19 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The upload session ID.
         /// </summary>
+        /// <value>The upload session ID.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets FolderId
+        /// The folder ID where the file is being uploaded.
         /// </summary>
+        /// <value>The folder ID where the file is being uploaded.</value>
         /*
         <example>1</example>
         */
@@ -65,37 +80,41 @@ namespace DocSpace.API.SDK.Model
         public int FolderId { get; set; }
 
         /// <summary>
-        /// Gets or Sets @Version
+        /// The file version number.
         /// </summary>
+        /// <value>The file version number.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public int @Version { get; set; }
 
         /// <summary>
-        /// Gets or Sets Title
+        /// The file title.
         /// </summary>
+        /// <value>The file title.</value>
         /*
-        <example>SampleFile</example>
+        <example>My Document.docx</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProviderKey
+        /// The third-party provider key.
         /// </summary>
+        /// <value>The third-party provider key.</value>
         /*
-        <example>some text</example>
+        <example>Google</example>
         */
         [DataMember(Name = "providerKey", EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
 
         /// <summary>
-        /// Gets or Sets Uploaded
+        /// Specifies whether the file has been uploaded.
         /// </summary>
+        /// <value>Specifies whether the file has been uploaded.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "uploaded", EmitDefaultValue = true)]
         public bool Uploaded { get; set; }
@@ -131,7 +150,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

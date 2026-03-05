@@ -13,6 +13,16 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+
 namespace DocSpace.API.SDK.Client
 {
     /// <summary>
@@ -122,7 +132,7 @@ namespace DocSpace.API.SDK.Client
         /// <returns>Serialized string.</returns>
         public static string Serialize(object obj)
         {
-            return obj != null ? JsonSerializer.Serialize(obj) : null;
+            return obj != null ? Newtonsoft.Json.JsonConvert.SerializeObject(obj) : null;
         }
 
         /// <summary>

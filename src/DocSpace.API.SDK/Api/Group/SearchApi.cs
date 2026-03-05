@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Group

@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.MessageDto
+The chat message information.
 
 ## Properties
 

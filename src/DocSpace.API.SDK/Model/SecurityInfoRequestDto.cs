@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -46,6 +59,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of the shared folder IDs.
         /// </summary>
         /// <value>The list of the shared folder IDs.</value>
+        /*
+        <example>[1,2,3]</example>
+        */
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> FolderIds { get; set; }
 
@@ -53,6 +69,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of the shared file IDs.
         /// </summary>
         /// <value>The list of the shared file IDs.</value>
+        /*
+        <example>[1,2,3]</example>
+        */
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<DuplicateRequestDtoAllOfFileIds> FileIds { get; set; }
 
@@ -60,6 +79,9 @@ namespace DocSpace.API.SDK.Model
         /// The collection of sharing parameters.
         /// </summary>
         /// <value>The collection of sharing parameters.</value>
+        /*
+        <example>[{&quot;shareTo&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;access&quot;:1}]</example>
+        */
         [DataMember(Name = "share", EmitDefaultValue = true)]
         public List<FileShareParams> Share { get; set; }
 
@@ -78,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The message to send when notifying about the shared file.</value>
         /*
-        <example>some text</example>
+        <example>You have been granted access to the file</example>
         */
         [DataMember(Name = "sharingMessage", EmitDefaultValue = true)]
         public string SharingMessage { get; set; }
@@ -106,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

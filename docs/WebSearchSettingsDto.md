@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.WebSearchSettingsDto
+The web search settings.
 
 ## Properties
 

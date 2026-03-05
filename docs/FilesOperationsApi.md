@@ -41,8 +41,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **sessionId** | **string** |  |  |
-| **folderId** | **int** |  |  |
+| **sessionId** | **string** | The session ID. |  |
+| **folderId** | **int** | The folder ID. |  |
 
 ### Return type
 
@@ -89,8 +89,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
-            var sessionId = some text;  // string | 
-            var folderId = 1;  // int | 
+            var sessionId = session-123-abc;  // string | The session ID.
+            var folderId = 1;  // int | The folder ID.
 
             try
             {
@@ -409,7 +409,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file ID to check conversion status.
-            var start = true;  // bool? | Specifies whether a conversion operation is started or not. (optional) 
+            var start = false;  // bool? | Specifies whether a conversion operation is started or not. (optional) 
 
             try
             {
@@ -1539,7 +1539,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
-            var single = true;  // bool? | Specifies whether to return only the current operation (optional) 
+            var single = false;  // bool? | Specifies whether to return only the current operation (optional) 
 
             try
             {
@@ -1604,8 +1604,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** |  |  |
-| **sessionId** | **string** |  |  |
+| **folderId** | **int** | The folder ID. |  |
+| **sessionId** | **string** | The session ID. |  |
 
 ### Return type
 
@@ -1652,8 +1652,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
-            var folderId = 1;  // int | 
-            var sessionId = some text;  // string | 
+            var folderId = 1;  // int | The folder ID.
+            var sessionId = doc_key_123;  // string | The session ID.
 
             try
             {
@@ -1749,7 +1749,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
-            var id = 1;  // string? | The ID of the file operation. (optional) 
+            var id = operation-123-abc;  // string? | The ID of the file operation. (optional) 
 
             try
             {
@@ -1845,8 +1845,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
-            var operationType = (FileOperationType) "0";  // FileOperationType | Specifies the type of file operation to be retrieved.
-            var id = 1;  // string? | The ID of the file operation. (optional) 
+            var operationType = 0;  // FileOperationType | Specifies the type of file operation to be retrieved.
+            var id = operation-123-abc;  // string? | The ID of the file operation. (optional) 
 
             try
             {
@@ -2280,7 +2280,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
-            var id = 1;  // string | The operation unique identifier.
+            var id = some-operation-id;  // string | The operation unique identifier.
 
             try
             {
@@ -2458,10 +2458,10 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** |  |  |
-| **sessionId** | **string** |  |  |
-| **chunkNumber** | **int?** |  | [optional]  |
-| **file** | **FileParameter?****FileParameter?** |  | [optional]  |
+| **folderId** | **int** | The folder ID. |  |
+| **sessionId** | **string** | The upload session ID. |  |
+| **chunkNumber** | **int?** | The chunk number. | [optional]  |
+| **file** | **FileParameter?****FileParameter?** | The file chunk to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file chunk content from the HTTP request form for chunked upload operations.  The file chunk is accessed via the IFormFile interface which provides access to the chunk content and length. | [optional]  |
 
 ### Return type
 
@@ -2508,10 +2508,10 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
-            var folderId = 1;  // int | 
-            var sessionId = some text;  // string | 
-            var chunkNumber = 1234;  // int? |  (optional) 
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? |  (optional) 
+            var folderId = 1;  // int | The folder ID.
+            var sessionId = session_abc123;  // string | The upload session ID.
+            var chunkNumber = 1;  // int? | The chunk number. (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | The file chunk to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file chunk content from the HTTP request form for chunked upload operations.  The file chunk is accessed via the IFormFile interface which provides access to the chunk content and length. (optional) 
 
             try
             {
@@ -2576,9 +2576,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **folderId** | **int** |  |  |
-| **sessionId** | **string** |  |  |
-| **file** | **FileParameter?****FileParameter?** |  | [optional]  |
+| **folderId** | **int** | The folder ID. |  |
+| **sessionId** | **string** | The upload session ID. |  |
+| **file** | **FileParameter?****FileParameter?** | The file to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file content from the HTTP request form.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. | [optional]  |
 
 ### Return type
 
@@ -2625,9 +2625,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new OperationsApi(httpClient, config, httpClientHandler);
-            var folderId = 1;  // int | 
-            var sessionId = some text;  // string | 
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? |  (optional) 
+            var folderId = 1;  // int | The folder ID.
+            var sessionId = session_abc123;  // string | The upload session ID.
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | The file to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file content from the HTTP request form.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional) 
 
             try
             {

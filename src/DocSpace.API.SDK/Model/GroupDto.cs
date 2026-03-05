@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -67,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The group name.</value>
         /*
-        <example>John Doe</example>
+        <example>Marketing Team</example>
         */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
@@ -77,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The parent group ID.</value>
         /*
-        <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "parent", EmitDefaultValue = true)]
         public Guid? Parent { get; set; }
@@ -87,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The group category ID.</value>
         /*
-        <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "category", IsRequired = true, EmitDefaultValue = true)]
         public Guid Category { get; set; }
@@ -107,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the LDAP settings are enabled for the group or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isLDAP", IsRequired = true, EmitDefaultValue = true)]
         public bool IsLDAP { get; set; }
@@ -117,7 +130,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Indicates whether the group is a system group.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isSystem", EmitDefaultValue = true)]
         public bool? IsSystem { get; set; }
@@ -132,6 +145,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of group members.
         /// </summary>
         /// <value>The list of group members.</value>
+        /*
+        <example>[{&quot;displayName&quot;:&quot;John Doe&quot;}]</example>
+        */
         [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<EmployeeFullDto> Members { get; set; }
 
@@ -140,7 +156,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether the group can be shared or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "shared", EmitDefaultValue = true)]
         public bool? Shared { get; set; }
@@ -150,7 +166,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The number of group members.</value>
         /*
-        <example>1234</example>
+        <example>0</example>
         */
         [DataMember(Name = "membersCount", EmitDefaultValue = false)]
         public int MembersCount { get; set; }
@@ -183,7 +199,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

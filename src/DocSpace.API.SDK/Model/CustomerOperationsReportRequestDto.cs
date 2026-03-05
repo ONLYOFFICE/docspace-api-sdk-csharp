@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -47,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The report start date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-01-01T00:00Z</example>
         */
         [DataMember(Name = "startDate", EmitDefaultValue = true)]
         public DateTime? StartDate { get; set; }
@@ -57,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The report end date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-01-31T23:59:59Z</example>
         */
         [DataMember(Name = "endDate", EmitDefaultValue = true)]
         public DateTime? EndDate { get; set; }
@@ -67,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The participant name.</value>
         /*
-        <example>some text</example>
+        <example>ACME Corp</example>
         */
         [DataMember(Name = "participantName", EmitDefaultValue = true)]
         public string ParticipantName { get; set; }
@@ -87,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to include debit operations in the report.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "debit", EmitDefaultValue = true)]
         public bool? Debit { get; set; }
@@ -115,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

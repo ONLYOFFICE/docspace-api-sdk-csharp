@@ -190,7 +190,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
-            var userid = 1;  // string | The user ID.
+            var userid = 00000000-0000-0000-0000-000000000000;  // string | The user ID.
 
             try
             {
@@ -419,13 +419,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
-            var count = 1234;  // int? | The maximum number of items to be retrieved in the response. (optional) 
-            var startIndex = 1234;  // int? | The zero-based index of the first item to be retrieved in a filtered result set. (optional) 
-            var filterBy = some text;  // string? | Specifies the filter criteria for user-related queries. (optional) 
-            var sortBy = some text;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
+            var count = 25;  // int? | The maximum number of items to be retrieved in the response. (optional) 
+            var startIndex = 0;  // int? | The zero-based index of the first item to be retrieved in a filtered result set. (optional) 
+            var filterBy = displayName;  // string? | Specifies the filter criteria for user-related queries. (optional) 
+            var sortBy = displayName;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterSeparator = some text;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
-            var filterValue = some text;  // string? | The text value used as an additional filter criterion for profiles retrieval. (optional) 
+            var filterSeparator = ,;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
+            var filterValue = John;  // string? | The text value used as an additional filter criterion for profiles retrieval. (optional) 
 
             try
             {
@@ -646,9 +646,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
-            var email = example@onlyoffice.com;  // string? | The user email address. (optional) 
-            var encemail = some text;  // string? | The user encrypted email address. (optional) 
-            var culture = some text;  // string? | Culture (optional) 
+            var email = john.doe@example.com;  // string? | The user email address. (optional) 
+            var encemail = encrypted_email_string;  // string? | The user encrypted email address. (optional) 
+            var culture = en-US;  // string? | Culture (optional) 
 
             try
             {
@@ -761,7 +761,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
-            var userid = 1;  // string | The user ID.
+            var userid = 00000000-0000-0000-0000-000000000000;  // string | The user ID.
 
             try
             {
@@ -1326,7 +1326,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
-            var userid = 1;  // string | The user ID.
+            var userid = 00000000-0000-0000-0000-000000000000;  // string | The user ID.
             var updateMemberRequestDto = new UpdateMemberRequestDto(); // UpdateMemberRequestDto | The request parameters for updating the user information.
 
             try
@@ -1443,7 +1443,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
-            var userid = 1;  // string | The user ID.
+            var userid = 00000000-0000-0000-0000-000000000000;  // string | The user ID.
             var culture = new Culture?(); // Culture? | The culture name parameters. (optional) 
 
             try

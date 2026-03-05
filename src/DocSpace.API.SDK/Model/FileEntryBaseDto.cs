@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -103,7 +116,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file entry title.</value>
         /*
-        <example>Some titile.txt/ Some title</example>
+        <example>Some title.txt</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -145,7 +158,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Indicates whether the parent entity is shared.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "parentShared", EmitDefaultValue = true)]
         public bool ParentShared { get; set; }
@@ -155,7 +168,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The short Web URL.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/s/abc123</example>
         */
         [DataMember(Name = "shortWebUrl", EmitDefaultValue = true)]
         public string ShortWebUrl { get; set; }
@@ -195,7 +208,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the file entry provider is specified or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "providerItem", EmitDefaultValue = true)]
         public bool? ProviderItem { get; set; }
@@ -205,7 +218,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The provider key of the file entry.</value>
         /*
-        <example>some text</example>
+        <example>google-drive</example>
         */
         [DataMember(Name = "providerKey", EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
@@ -215,7 +228,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The provider ID of the file entry.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "providerId", EmitDefaultValue = true)]
         public int? ProviderId { get; set; }
@@ -225,7 +238,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The order of the file entry.</value>
         /*
-        <example>some text</example>
+        <example>1</example>
         */
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public string Order { get; set; }
@@ -235,7 +248,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the file is a favorite or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isFavorite", EmitDefaultValue = true)]
         public bool? IsFavorite { get; set; }
@@ -279,7 +292,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

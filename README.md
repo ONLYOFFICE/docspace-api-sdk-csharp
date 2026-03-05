@@ -3854,8 +3854,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.MobileRequestsDto](docs/MobileRequestsDto.md)
  - [Model.ModelArrayWrapper](docs/ModelArrayWrapper.md)
  - [Model.ModelDto](docs/ModelDto.md)
- - [Model.Module](docs/Module.md)
- - [Model.ModuleWrapper](docs/ModuleWrapper.md)
  - [Model.MultiSizeLogoCover](docs/MultiSizeLogoCover.md)
  - [Model.NewItemsAgentNewItemsArrayWrapper](docs/NewItemsAgentNewItemsArrayWrapper.md)
  - [Model.NewItemsDtoAgentNewItemsDto](docs/NewItemsDtoAgentNewItemsDto.md)

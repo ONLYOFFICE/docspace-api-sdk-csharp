@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -35,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="phone">The company phone number..</param>
         /// <param name="isLicensor">Specifies if a company is a licensor or not..</param>
         /// <param name="hideAbout">Specifies if the About page is visible or not.</param>
-        /// <param name="lastModified">lastModified.</param>
+        /// <param name="lastModified">The timestamp indicating when the settings were last modified..</param>
         public CompanyWhiteLabelSettings(string companyName = default, string site = default, string email = default, string address = default, string phone = default, bool isLicensor = default, bool hideAbout = default, DateTime lastModified = default)
         {
             this.CompanyName = companyName;
@@ -53,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The company name.</value>
         /*
-        <example>some text</example>
+        <example>ONLYOFFICE</example>
         */
         [DataMember(Name = "companyName", EmitDefaultValue = true)]
         public string CompanyName { get; set; }
@@ -63,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The company site.</value>
         /*
-        <example>some text</example>
+        <example>https://www.onlyoffice.com</example>
         */
         [DataMember(Name = "site", EmitDefaultValue = true)]
         public string Site { get; set; }
@@ -73,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The company email address.</value>
         /*
-        <example>example@onlyoffice.com</example>
+        <example>support@onlyoffice.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -83,7 +96,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The company address.</value>
         /*
-        <example>some text</example>
+        <example>Lubanas st. 125a-25</example>
         */
         [DataMember(Name = "address", EmitDefaultValue = true)]
         public string Address { get; set; }
@@ -93,7 +106,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The company phone number.</value>
         /*
-        <example>some text</example>
+        <example>+7 843 2271372</example>
         */
         [DataMember(Name = "phone", EmitDefaultValue = true)]
         public string Phone { get; set; }
@@ -113,16 +126,17 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the About page is visible or not</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "hideAbout", EmitDefaultValue = true)]
         public bool HideAbout { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastModified
+        /// The timestamp indicating when the settings were last modified.
         /// </summary>
+        /// <value>The timestamp indicating when the settings were last modified.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>1990-01-01T00:00Z</example>
         */
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
@@ -153,7 +167,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

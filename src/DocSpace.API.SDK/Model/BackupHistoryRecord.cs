@@ -12,14 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// BackupHistoryRecord
+    /// The backup history parameters.
     /// </summary>
     [DataContract(Name = "BackupHistoryRecord")]
     public partial class BackupHistoryRecord : IValidatableObject
@@ -39,11 +52,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupHistoryRecord" /> class.
         /// </summary>
-        /// <param name="id">id (required).</param>
-        /// <param name="fileName">fileName (required).</param>
+        /// <param name="id">The backup ID. (required).</param>
+        /// <param name="fileName">The backup file name. (required).</param>
         /// <param name="storageType">storageType (required).</param>
-        /// <param name="createdOn">createdOn (required).</param>
-        /// <param name="expiresOn">expiresOn (required).</param>
+        /// <param name="createdOn">The backup creation date. (required).</param>
+        /// <param name="expiresOn">The backup expiration date. (required).</param>
         public BackupHistoryRecord(Guid id = default, string fileName = default, BackupStorageType storageType = default, DateTime createdOn = default, DateTime expiresOn = default)
         {
             this.Id = id;
@@ -59,8 +72,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The backup ID.
         /// </summary>
+        /// <value>The backup ID.</value>
         /*
         <example>00000000-0000-0000-0000-000000000000</example>
         */
@@ -68,28 +82,31 @@ namespace DocSpace.API.SDK.Model
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets FileName
+        /// The backup file name.
         /// </summary>
+        /// <value>The backup file name.</value>
         /*
-        <example>some text</example>
+        <example>tenant-backup</example>
         */
         [DataMember(Name = "fileName", IsRequired = true, EmitDefaultValue = true)]
         public string FileName { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreatedOn
+        /// The backup creation date.
         /// </summary>
+        /// <value>The backup creation date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2026-03-01T02:15Z</example>
         */
         [DataMember(Name = "createdOn", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreatedOn { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExpiresOn
+        /// The backup expiration date.
         /// </summary>
+        /// <value>The backup expiration date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2026-03-31T02:15Z</example>
         */
         [DataMember(Name = "expiresOn", IsRequired = true, EmitDefaultValue = true)]
         public DateTime ExpiresOn { get; set; }
@@ -117,7 +134,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -153,7 +166,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant ID.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "tenantId", EmitDefaultValue = false)]
         public int TenantId { get; set; }
@@ -173,7 +186,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant price.</value>
         /*
-        <example>10</example>
+        <example>10.0</example>
         */
         [DataMember(Name = "price", EmitDefaultValue = false)]
         public double Price { get; set; }
@@ -183,7 +196,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant price currency symbol.</value>
         /*
-        <example>some text</example>
+        <example>$</example>
         */
         [DataMember(Name = "priceCurrencySymbol", EmitDefaultValue = true)]
         public string PriceCurrencySymbol { get; set; }
@@ -193,7 +206,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant price three-character ISO 4217 currency symbol.</value>
         /*
-        <example>some text</example>
+        <example>USD</example>
         */
         [DataMember(Name = "priceISOCurrencySymbol", EmitDefaultValue = true)]
         public string PriceISOCurrencySymbol { get; set; }
@@ -203,7 +216,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant product ID.</value>
         /*
-        <example>1</example>
+        <example>64</example>
         */
         [DataMember(Name = "productId", EmitDefaultValue = true)]
         public string ProductId { get; set; }
@@ -213,7 +226,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The service name.</value>
         /*
-        <example>some text</example>
+        <example>space</example>
         */
         [DataMember(Name = "serviceName", EmitDefaultValue = true)]
         public string ServiceName { get; set; }
@@ -223,7 +236,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The service group.</value>
         /*
-        <example>some text</example>
+        <example>ai</example>
         */
         [DataMember(Name = "serviceGroup", EmitDefaultValue = true)]
         public string ServiceGroup { get; set; }
@@ -252,9 +265,6 @@ namespace DocSpace.API.SDK.Model
         /// The quota due date.
         /// </summary>
         /// <value>The quota due date.</value>
-        /*
-        <example>2008-04-10T06:30+04:00</example>
-        */
         [DataMember(Name = "dueDate", EmitDefaultValue = true)]
         public DateTime? DueDate { get; set; }
 
@@ -263,7 +273,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant quota features.</value>
         /*
-        <example>some text</example>
+        <example>audit,ldap,sso</example>
         */
         [DataMember(Name = "features", EmitDefaultValue = true)]
         public string Features { get; set; }
@@ -273,7 +283,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant maximum file size.</value>
         /*
-        <example>26214400</example>
+        <example>25000000</example>
         */
         [DataMember(Name = "maxFileSize", EmitDefaultValue = false)]
         public long MaxFileSize { get; set; }
@@ -283,7 +293,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant maximum total size.</value>
         /*
-        <example>9223372036854775807</example>
+        <example>25000000000</example>
         */
         [DataMember(Name = "maxTotalSize", EmitDefaultValue = false)]
         public long MaxTotalSize { get; set; }
@@ -293,7 +303,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The number of portal users.</value>
         /*
-        <example>1234</example>
+        <example>100</example>
         */
         [DataMember(Name = "countUser", EmitDefaultValue = false)]
         public int CountUser { get; set; }
@@ -303,7 +313,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The number of portal room administrators.</value>
         /*
-        <example>1234</example>
+        <example>10</example>
         */
         [DataMember(Name = "countRoomAdmin", EmitDefaultValue = false)]
         public int CountRoomAdmin { get; set; }
@@ -313,7 +323,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The number of room users.</value>
         /*
-        <example>1234</example>
+        <example>50</example>
         */
         [DataMember(Name = "usersInRoom", EmitDefaultValue = false)]
         public int UsersInRoom { get; set; }
@@ -323,7 +333,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The number of rooms.</value>
         /*
-        <example>1234</example>
+        <example>500</example>
         */
         [DataMember(Name = "countRoom", EmitDefaultValue = false)]
         public int CountRoom { get; set; }
@@ -333,7 +343,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the tenant quota is nonprofit or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "nonProfit", EmitDefaultValue = true)]
         public bool NonProfit { get; set; }
@@ -343,7 +353,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the tenant quota is trial or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "trial", EmitDefaultValue = true)]
         public bool Trial { get; set; }
@@ -353,7 +363,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the tenant quota is free or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "free", EmitDefaultValue = true)]
         public bool Free { get; set; }
@@ -363,7 +373,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the tenant quota is updated or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "update", EmitDefaultValue = true)]
         public bool Update { get; set; }
@@ -443,7 +453,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the license has the lifetime settings or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "lifetime", EmitDefaultValue = true)]
         public bool Lifetime { get; set; }
@@ -463,7 +473,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the custom domain URL is available or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "custom", EmitDefaultValue = true)]
         public bool Custom { get; set; }
@@ -523,7 +533,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The number of free backups within a month.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "countFreeBackup", EmitDefaultValue = false)]
         public int CountFreeBackup { get; set; }
@@ -543,7 +553,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The number of AI agents.</value>
         /*
-        <example>1234</example>
+        <example>5</example>
         */
         [DataMember(Name = "countAIAgent", EmitDefaultValue = false)]
         public int CountAIAgent { get; set; }
@@ -804,7 +814,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

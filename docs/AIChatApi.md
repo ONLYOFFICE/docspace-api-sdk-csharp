@@ -77,7 +77,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ChatApi(httpClient, config, httpClientHandler);
-            var chatId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The unique identifier of the existing AI chat session to continue.
+            var chatId = 00000000-0000-0000-0000-000000000000;  // Guid | The unique identifier of the existing AI chat session to continue.
             var continueChatBody = new ContinueChatBody(); // ContinueChatBody | The message and optional file attachments.
 
             try
@@ -189,7 +189,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ChatApi(httpClient, config, httpClientHandler);
-            var chatId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The unique identifier of the AI chat session to delete.
+            var chatId = 00000000-0000-0000-0000-000000000000;  // Guid | The unique identifier of the AI chat session to delete.
 
             try
             {
@@ -299,7 +299,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ChatApi(httpClient, config, httpClientHandler);
-            var chatId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The unique identifier of the AI chat session to export.
+            var chatId = 00000000-0000-0000-0000-000000000000;  // Guid | The unique identifier of the AI chat session to export.
             var exportChatRequestBodyInteger = new ExportChatRequestBodyInteger(); // ExportChatRequestBodyInteger | The export parameters including destination folder and file title.
 
             try
@@ -409,7 +409,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ChatApi(httpClient, config, httpClientHandler);
-            var chatId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The unique identifier of the AI chat session to retrieve.
+            var chatId = 00000000-0000-0000-0000-000000000000;  // Guid | The unique identifier of the AI chat session to retrieve.
 
             try
             {
@@ -522,7 +522,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ChatApi(httpClient, config, httpClientHandler);
-            var provider = 1234;  // int? | The optional AI provider identifier to filter models by. When set to 0, models from all providers are returned. (optional) 
+            var provider = 1;  // int? | The optional AI provider identifier to filter models by. When set to 0, models from all providers are returned. (optional) 
 
             try
             {
@@ -636,9 +636,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ChatApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | The identifier of the room whose AI chat sessions are to be listed.
-            var startIndex = 1234;  // int? | The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional) 
-            var count = 1234;  // int? | The maximum number of items to return per page. Defaults to 100. (optional) 
+            var roomId = 42;  // int | The identifier of the room whose AI chat sessions are to be listed.
+            var startIndex = 0;  // int? | The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional) 
+            var count = 100;  // int? | The maximum number of items to return per page. Defaults to 100. (optional) 
 
             try
             {
@@ -754,9 +754,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ChatApi(httpClient, config, httpClientHandler);
-            var chatId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The unique identifier of the AI chat session whose messages are to be listed.
-            var startIndex = 1234;  // int? | The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional) 
-            var count = 1234;  // int? | The maximum number of items to return per page. Defaults to 100. (optional) 
+            var chatId = 00000000-0000-0000-0000-000000000000;  // Guid | The unique identifier of the AI chat session whose messages are to be listed.
+            var startIndex = 0;  // int? | The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional) 
+            var count = 100;  // int? | The maximum number of items to return per page. Defaults to 100. (optional) 
 
             try
             {
@@ -869,7 +869,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ChatApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | The identifier of the room whose chat settings are to be retrieved.
+            var roomId = 42;  // int | The identifier of the room whose chat settings are to be retrieved.
 
             try
             {
@@ -984,7 +984,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ChatApi(httpClient, config, httpClientHandler);
-            var callId = some text;  // string | The unique identifier of the pending tool execution call awaiting a permission decision.
+            var callId = call_abc123;  // string | The unique identifier of the pending tool execution call awaiting a permission decision.
             var toolDecisionRequestBody = new ToolDecisionRequestBody(); // ToolDecisionRequestBody | The permission decision parameters.
 
             try
@@ -1094,7 +1094,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ChatApi(httpClient, config, httpClientHandler);
-            var chatId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The unique identifier of the AI chat session to rename.
+            var chatId = 00000000-0000-0000-0000-000000000000;  // Guid | The unique identifier of the AI chat session to rename.
             var renameChatBody = new RenameChatBody(); // RenameChatBody | The new chat name.
 
             try
@@ -1209,7 +1209,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ChatApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | The identifier of the room whose chat settings are to be updated.
+            var roomId = 42;  // int | The identifier of the room whose chat settings are to be updated.
             var setUserChatSettingsRequestBody = new SetUserChatSettingsRequestBody(); // SetUserChatSettingsRequestBody | The chat settings to apply.
 
             try
@@ -1325,7 +1325,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ChatApi(httpClient, config, httpClientHandler);
-            var roomId = 1;  // int | The identifier of the room in which to create the new AI chat session.
+            var roomId = 42;  // int | The identifier of the room in which to create the new AI chat session.
             var startNewChatBody = new StartNewChatBody(); // StartNewChatBody | The initial message and optional file attachments.
 
             try

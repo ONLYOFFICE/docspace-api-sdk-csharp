@@ -69,7 +69,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
-            var @system = true;  // bool? | Specifies whether to load the system plugins or not. (optional) 
+            var @system = false;  // bool? | Specifies whether to load the system plugins or not. (optional) 
 
             try
             {
@@ -183,7 +183,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
-            var name = John Doe;  // string | The web plugin name.
+            var name = example-plugin;  // string | The web plugin name.
 
             try
             {
@@ -292,7 +292,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
-            var name = John Doe;  // string | The web plugin name.
+            var name = example-plugin;  // string | The web plugin name.
 
             try
             {
@@ -519,7 +519,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WebpluginsApi(httpClient, config, httpClientHandler);
-            var name = John Doe;  // string | The web plugin name.
+            var name = example-plugin;  // string | The web plugin name.
             var webPluginRequests = new WebPluginRequests(); // WebPluginRequests | The configuration settings for the web plugin instance.
 
             try

@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.AI
@@ -80,7 +87,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">Identifier of the room containing the MCP server.</param>
         /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
-        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
+        /// <param name="connectServerRequestBody">The request body containing additional data necessary for connecting to the server,  such as authentication or operation-specific information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>McpServerStatusWrapper</returns>
         McpServerStatusWrapper ConnectServer(int roomId, Guid serverId, ConnectServerRequestBody connectServerRequestBody);
@@ -94,7 +101,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">Identifier of the room containing the MCP server.</param>
         /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
-        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
+        /// <param name="connectServerRequestBody">The request body containing additional data necessary for connecting to the server,  such as authentication or operation-specific information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>ApiResponse of McpServerStatusWrapper</returns>
         ApiResponse<McpServerStatusWrapper> ConnectServerWithHttpInfo(int roomId, Guid serverId, ConnectServerRequestBody connectServerRequestBody);
@@ -439,7 +446,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">Identifier of the room containing the MCP server.</param>
         /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
-        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
+        /// <param name="connectServerRequestBody">The request body containing additional data necessary for connecting to the server,  such as authentication or operation-specific information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>Task of McpServerStatusWrapper</returns>
@@ -454,7 +461,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">Identifier of the room containing the MCP server.</param>
         /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
-        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
+        /// <param name="connectServerRequestBody">The request body containing additional data necessary for connecting to the server,  such as authentication or operation-specific information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerStatusWrapper)</returns>
@@ -1375,7 +1382,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">Identifier of the room containing the MCP server.</param>
         /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
-        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
+        /// <param name="connectServerRequestBody">The request body containing additional data necessary for connecting to the server,  such as authentication or operation-specific information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>McpServerStatusWrapper</returns>
         public McpServerStatusWrapper ConnectServer(int roomId, Guid serverId, ConnectServerRequestBody connectServerRequestBody)
@@ -1393,7 +1400,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">Identifier of the room containing the MCP server.</param>
         /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
-        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
+        /// <param name="connectServerRequestBody">The request body containing additional data necessary for connecting to the server,  such as authentication or operation-specific information.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>ApiResponse of McpServerStatusWrapper</returns>
         public ApiResponse<McpServerStatusWrapper> ConnectServerWithHttpInfo(int roomId, Guid serverId, ConnectServerRequestBody connectServerRequestBody)
@@ -1474,7 +1481,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">Identifier of the room containing the MCP server.</param>
         /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
-        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
+        /// <param name="connectServerRequestBody">The request body containing additional data necessary for connecting to the server,  such as authentication or operation-specific information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>Task of McpServerStatusWrapper</returns>
@@ -1493,7 +1500,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">Identifier of the room containing the MCP server.</param>
         /// <param name="serverId">Unique identifier of the MCP server to connect.</param>
-        /// <param name="connectServerRequestBody">OAuth authorization parameters.</param>
+        /// <param name="connectServerRequestBody">The request body containing additional data necessary for connecting to the server,  such as authentication or operation-specific information.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/connect-server/">REST API Reference for ConnectServer Operation</seealso>
         /// <returns>Task of ApiResponse (McpServerStatusWrapper)</returns>

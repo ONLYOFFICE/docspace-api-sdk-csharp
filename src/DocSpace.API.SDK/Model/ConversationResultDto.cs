@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -67,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The conversion operation ID.</value>
         /*
-        <example>1</example>
+        <example>12345</example>
         */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
@@ -77,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The conversion operation progress.</value>
         /*
-        <example>1234</example>
+        <example>50</example>
         */
         [DataMember(Name = "progress", IsRequired = true, EmitDefaultValue = true)]
         public int Progress { get; set; }
@@ -87,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The source file for the conversion.</value>
         /*
-        <example>some text</example>
+        <example>document.docx</example>
         */
         [DataMember(Name = "source", EmitDefaultValue = true)]
         public string Source { get; set; }
@@ -96,6 +109,9 @@ namespace DocSpace.API.SDK.Model
         /// The resulting file after the conversion.
         /// </summary>
         /// <value>The resulting file after the conversion.</value>
+        /*
+        <example>{&quot;id&quot;:10,&quot;title&quot;:&quot;converted_file.pdf&quot;}</example>
+        */
         [DataMember(Name = "result", EmitDefaultValue = true)]
         public Object Result { get; set; }
 
@@ -104,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The conversion operation error message.</value>
         /*
-        <example>some text</example>
+        <example>Conversion failed</example>
         */
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
@@ -114,7 +130,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the conversion operation is processed or not.</value>
         /*
-        <example>some text</example>
+        <example>true</example>
         */
         [DataMember(Name = "processed", EmitDefaultValue = true)]
         public string Processed { get; set; }
@@ -144,7 +160,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

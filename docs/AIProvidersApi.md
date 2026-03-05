@@ -508,8 +508,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ProvidersApi(httpClient, config, httpClientHandler);
-            var startIndex = 1234;  // int? | The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional) 
-            var count = 1234;  // int? | The maximum number of items to return per page. Defaults to 100. (optional) 
+            var startIndex = 0;  // int? | The number of items to skip before returning results (zero-based offset). Defaults to 0. (optional) 
+            var count = 100;  // int? | The maximum number of items to return per page. Defaults to 100. (optional) 
 
             try
             {

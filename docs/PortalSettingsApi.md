@@ -388,7 +388,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
-            var virtualPath = some text;  // string? | The virtual path for the portal resource access. (optional) 
+            var virtualPath = /portal/documents;  // string? | The virtual path for the portal resource access. (optional) 
 
             try
             {

@@ -297,7 +297,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The group unique identifier.
+            var id = 10;  // int | The group unique identifier.
             var includeMembers = true;  // bool? | Whether to include group members. (optional) 
 
             try
@@ -407,7 +407,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The group unique identifier.
+            var id = 10;  // int | The group unique identifier.
             var includeMembers = true;  // bool? | Whether to include group members. (optional) 
 
             try
@@ -521,7 +521,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupsApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The group unique identifier.
+            var id = 10;  // int | The group unique identifier.
             var includeMembers = true;  // bool? | Whether to include group members. (optional) 
 
             try

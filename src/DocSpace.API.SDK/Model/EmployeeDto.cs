@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -58,6 +71,9 @@ namespace DocSpace.API.SDK.Model
         /// The user ID.
         /// </summary>
         /// <value>The user ID.</value>
+        /*
+        <example>00000000-0000-0000-0000-000000000000</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
@@ -86,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user avatar.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/avatar.jpg</example>
         */
         [DataMember(Name = "avatar", EmitDefaultValue = true)]
         public string Avatar { get; set; }
@@ -96,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user original size avatar.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/avatar_original.jpg</example>
         */
         [DataMember(Name = "avatarOriginal", EmitDefaultValue = true)]
         public string AvatarOriginal { get; set; }
@@ -106,7 +122,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user maximum size avatar.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/avatar_max.jpg</example>
         */
         [DataMember(Name = "avatarMax", EmitDefaultValue = true)]
         public string AvatarMax { get; set; }
@@ -116,7 +132,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user medium size avatar.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/avatar_medium.jpg</example>
         */
         [DataMember(Name = "avatarMedium", EmitDefaultValue = true)]
         public string AvatarMedium { get; set; }
@@ -126,7 +142,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user small size avatar.</value>
         /*
-        <example>url to small avatar</example>
+        <example>https://example.com/avatar_small.jpg</example>
         */
         [DataMember(Name = "avatarSmall", EmitDefaultValue = true)]
         public string AvatarSmall { get; set; }
@@ -136,7 +152,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user profile URL.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/profile/user123</example>
         */
         [DataMember(Name = "profileUrl", EmitDefaultValue = true)]
         public string ProfileUrl { get; set; }
@@ -156,7 +172,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user is anonymous or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isAnonim", EmitDefaultValue = true)]
         public bool IsAnonim { get; set; }
@@ -190,7 +206,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

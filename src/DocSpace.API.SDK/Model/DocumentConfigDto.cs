@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -61,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file type of the document.</value>
         /*
-        <example>some text</example>
+        <example>docx</example>
         */
         [DataMember(Name = "fileType", EmitDefaultValue = true)]
         public string FileType { get; set; }
@@ -77,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the documnet is linked for current user.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isLinkedForMe", EmitDefaultValue = true)]
         public bool IsLinkedForMe { get; set; }
@@ -87,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document key.</value>
         /*
-        <example>some text</example>
+        <example>doc-key-123-abc</example>
         */
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
@@ -103,7 +116,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The shared link parameter of the document.</value>
         /*
-        <example>some text</example>
+        <example>share-param-123</example>
         */
         [DataMember(Name = "sharedLinkParam", EmitDefaultValue = true)]
         public string SharedLinkParam { get; set; }
@@ -113,7 +126,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The shared link key of the document.</value>
         /*
-        <example>some text</example>
+        <example>share-key-abc</example>
         */
         [DataMember(Name = "sharedLinkKey", EmitDefaultValue = true)]
         public string SharedLinkKey { get; set; }
@@ -129,7 +142,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document title.</value>
         /*
-        <example>SampleFile</example>
+        <example>Document Title</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -139,7 +152,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document url.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/documents/doc.docx</example>
         */
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
@@ -149,7 +162,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Indicates whether this is a form.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isForm", EmitDefaultValue = true)]
         public bool IsForm { get; set; }
@@ -190,7 +203,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -89,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The Document Builder task ID.</value>
         /*
-        <example>1</example>
+        <example>task-123-456</example>
         */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
@@ -99,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The error message occurred during the document building process.</value>
         /*
-        <example>some text</example>
+        <example>Build failed</example>
         */
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
@@ -109,7 +122,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The progress percentage of the document building process.</value>
         /*
-        <example>1234</example>
+        <example>75</example>
         */
         [DataMember(Name = "percentage", IsRequired = true, EmitDefaultValue = true)]
         public int Percentage { get; set; }
@@ -119,7 +132,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether the document building process is completed or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]
         public bool IsCompleted { get; set; }
@@ -128,6 +141,9 @@ namespace DocSpace.API.SDK.Model
         /// The result file ID.
         /// </summary>
         /// <value>The result file ID.</value>
+        /*
+        <example>123</example>
+        */
         [DataMember(Name = "resultFileId", IsRequired = true, EmitDefaultValue = true)]
         public Object ResultFileId { get; set; }
 
@@ -136,7 +152,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The result file name.</value>
         /*
-        <example>some text</example>
+        <example>result.docx</example>
         */
         [DataMember(Name = "resultFileName", IsRequired = true, EmitDefaultValue = true)]
         public string ResultFileName { get; set; }
@@ -146,7 +162,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The result file URL.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/files/result.docx</example>
         */
         [DataMember(Name = "resultFileUrl", IsRequired = true, EmitDefaultValue = true)]
         public string ResultFileUrl { get; set; }
@@ -177,7 +193,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

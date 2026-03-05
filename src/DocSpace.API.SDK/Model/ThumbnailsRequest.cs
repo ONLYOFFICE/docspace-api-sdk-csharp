@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -47,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The path to the temporary thumbnail file.</value>
         /*
-        <example>some text</example>
+        <example>/tmp/photo_temp_123.jpg</example>
         */
         [DataMember(Name = "tmpFile", EmitDefaultValue = true)]
         public string TmpFile { get; set; }
@@ -57,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The thumbnail horizontal coordinate.</value>
         /*
-        <example>1234</example>
+        <example>100</example>
         */
         [DataMember(Name = "x", EmitDefaultValue = false)]
         public int X { get; set; }
@@ -67,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The thumbnail vertical coordinate.</value>
         /*
-        <example>1234</example>
+        <example>50</example>
         */
         [DataMember(Name = "y", EmitDefaultValue = false)]
         public int Y { get; set; }
@@ -76,6 +89,9 @@ namespace DocSpace.API.SDK.Model
         /// The thumbnail width.
         /// </summary>
         /// <value>The thumbnail width.</value>
+        /*
+        <example>200</example>
+        */
         [DataMember(Name = "width", EmitDefaultValue = false)]
         public int Width { get; set; }
 
@@ -83,6 +99,9 @@ namespace DocSpace.API.SDK.Model
         /// The thumbnail height.
         /// </summary>
         /// <value>The thumbnail height.</value>
+        /*
+        <example>200</example>
+        */
         [DataMember(Name = "height", EmitDefaultValue = false)]
         public int Height { get; set; }
 
@@ -109,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

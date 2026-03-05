@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Files
@@ -3885,11 +3892,25 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (fromDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
+                if (fromDate.UtcTime != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", fromDate.UtcTime));
+                }
+                if (fromDate.TimeZoneOffset != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", fromDate.TimeZoneOffset));
+                }
             }
             if (toDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+                if (toDate.UtcTime != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", toDate.UtcTime));
+                }
+                if (toDate.TimeZoneOffset != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", toDate.TimeZoneOffset));
+                }
             }
             if (count != null)
             {
@@ -7925,7 +7946,38 @@ namespace DocSpace.API.SDK.Api.Files
 
             if (inDto != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+                if (inDto.File != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "file", inDto.File));
+                }
+                if (inDto.ContentType != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contentType", inDto.ContentType));
+                }
+                if (inDto.ContentDisposition != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "contentDisposition", inDto.ContentDisposition));
+                }
+                if (inDto.Files != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "files", inDto.Files));
+                }
+                if (inDto.CreateNewIfExist != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "createNewIfExist", inDto.CreateNewIfExist));
+                }
+                if (inDto.StoreOriginalFileFlag != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "storeOriginalFileFlag", inDto.StoreOriginalFileFlag));
+                }
+                if (inDto.KeepConvertStatus != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "keepConvertStatus", inDto.KeepConvertStatus));
+                }
+                if (inDto.Stream != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "stream", inDto.Stream));
+                }
             }
 
             // authentication (Basic) required

@@ -12,9 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
+using System.Reflection;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -117,12 +131,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonSerializer.Serialize(ActualInstance, new JsonSerializerOptions
-            {
-                WriteIndented = true,
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-            });
+            return JsonConvert.SerializeObject(ActualInstance, DeleteBatchRequestDtoAllOfFileIds.SerializerSettings);
         }
 
         /// <summary>
@@ -141,11 +150,7 @@ namespace DocSpace.API.SDK.Model
 
             try
             {
-                newDeleteBatchRequestDtoAllOfFileIds = new DeleteBatchRequestDtoAllOfFileIds(JsonSerializer.Deserialize<int>(jsonString, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true,
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-                }));
+                newDeleteBatchRequestDtoAllOfFileIds = new DeleteBatchRequestDtoAllOfFileIds(JsonConvert.DeserializeObject<int>(jsonString, DeleteBatchRequestDtoAllOfFileIds.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newDeleteBatchRequestDtoAllOfFileIds;
             }
@@ -157,11 +162,7 @@ namespace DocSpace.API.SDK.Model
 
             try
             {
-                newDeleteBatchRequestDtoAllOfFileIds = new DeleteBatchRequestDtoAllOfFileIds(JsonSerializer.Deserialize<string>(jsonString, new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true,
-                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
-                }));
+                newDeleteBatchRequestDtoAllOfFileIds = new DeleteBatchRequestDtoAllOfFileIds(JsonConvert.DeserializeObject<string>(jsonString, DeleteBatchRequestDtoAllOfFileIds.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newDeleteBatchRequestDtoAllOfFileIds;
             }
@@ -189,35 +190,53 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// Custom JSON converter for DeleteBatchRequestDtoAllOfFileIds
     /// </summary>
-    public class DeleteBatchRequestDtoAllOfFileIdsJsonConverter : JsonConverter<DeleteBatchRequestDtoAllOfFileIds>
+    public class DeleteBatchRequestDtoAllOfFileIdsJsonConverter : JsonConverter
     {
         /// <summary>
         /// To write the JSON string
         /// </summary>
         /// <param name="writer">JSON writer</param>
         /// <param name="value">Object to be converted into a JSON string</param>
-        /// <param name="options">JSON Serializer options</param>
-        public override void Write(Utf8JsonWriter  writer, DeleteBatchRequestDtoAllOfFileIds value, JsonSerializerOptions options)
+        /// <param name="serializer">JSON Serializer</param>
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue(value.ToJson());
+            writer.WriteRawValue((string)(typeof(DeleteBatchRequestDtoAllOfFileIds).GetMethod("ToJson").Invoke(value, null)));
         }
 
         /// <summary>
         /// To convert a JSON string into an object
         /// </summary>
         /// <param name="reader">JSON reader</param>
-        /// <param name="typeToConvert">Object type</param>
-        /// <param name="options">JSON Serializer options</param>
+        /// <param name="objectType">Object type</param>
+        /// <param name="existingValue">Existing value</param>
+        /// <param name="serializer">JSON Serializer</param>
         /// <returns>The object converted from the JSON string</returns>
-        public override DeleteBatchRequestDtoAllOfFileIds Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            using (JsonDocument document = JsonDocument.ParseValue(ref reader))
+            switch(reader.TokenType) 
             {
-                var jsonString = document.RootElement.GetRawText();
-                return DeleteBatchRequestDtoAllOfFileIds.FromJson(jsonString);
+                case JsonToken.Integer: 
+                    return new DeleteBatchRequestDtoAllOfFileIds(Convert.ToInt32(reader.Value));
+                case JsonToken.String: 
+                    return new DeleteBatchRequestDtoAllOfFileIds(Convert.ToString(reader.Value));
+                case JsonToken.StartObject:
+                    return DeleteBatchRequestDtoAllOfFileIds.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return DeleteBatchRequestDtoAllOfFileIds.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
             }
         }
 
+        /// <summary>
+        /// Check if the object can be converted
+        /// </summary>
+        /// <param name="objectType">Object type</param>
+        /// <returns>True if the object can be converted</returns>
+        public override bool CanConvert(Type objectType)
+        {
+            return false;
+        }
     }
 
 }

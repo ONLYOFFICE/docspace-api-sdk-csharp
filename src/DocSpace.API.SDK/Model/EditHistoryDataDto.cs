@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -71,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The URL address of the file with the document changes data.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/changes</example>
         */
         [DataMember(Name = "changesUrl", EmitDefaultValue = true)]
         public string ChangesUrl { get; set; }
@@ -81,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document identifier used to unambiguously identify the document file.</value>
         /*
-        <example>some text</example>
+        <example>doc1</example>
         */
         [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
         public string Key { get; set; }
@@ -97,7 +110,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The encrypted signature added to the parameter in the form of a token.</value>
         /*
-        <example>some text</example>
+        <example>token</example>
         */
         [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
@@ -107,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The URL address of the current document version.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/file.docx</example>
         */
         [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
@@ -117,7 +130,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document version number.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public int @Version { get; set; }
@@ -127,7 +140,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document extension.</value>
         /*
-        <example>some text</example>
+        <example>docx</example>
         */
         [DataMember(Name = "fileType", IsRequired = true, EmitDefaultValue = true)]
         public string FileType { get; set; }
@@ -157,7 +170,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

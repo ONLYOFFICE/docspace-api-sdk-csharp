@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -55,9 +68,6 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets AspectRatio
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "aspectRatio", EmitDefaultValue = true)]
         public bool AspectRatio { get; private set; }
 
@@ -72,18 +82,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets FillArea
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "fillArea", EmitDefaultValue = true)]
         public bool FillArea { get; set; }
 
         /// <summary>
         /// Gets or Sets Greater
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "greater", EmitDefaultValue = true)]
         public bool Greater { get; set; }
 
@@ -96,36 +100,24 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets IgnoreAspectRatio
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "ignoreAspectRatio", EmitDefaultValue = true)]
         public bool IgnoreAspectRatio { get; set; }
 
         /// <summary>
         /// Gets or Sets IsPercentage
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "isPercentage", EmitDefaultValue = true)]
         public bool IsPercentage { get; set; }
 
         /// <summary>
         /// Gets or Sets Less
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "less", EmitDefaultValue = true)]
         public bool Less { get; set; }
 
         /// <summary>
         /// Gets or Sets LimitPixels
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "limitPixels", EmitDefaultValue = true)]
         public bool LimitPixels { get; set; }
 
@@ -138,18 +130,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets X
         /// </summary>
-        /*
-        <example>1234</example>
-        */
         [DataMember(Name = "x", EmitDefaultValue = false)]
         public int X { get; set; }
 
         /// <summary>
         /// Gets or Sets Y
         /// </summary>
-        /*
-        <example>1234</example>
-        */
         [DataMember(Name = "y", EmitDefaultValue = false)]
         public int Y { get; set; }
 
@@ -182,7 +168,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

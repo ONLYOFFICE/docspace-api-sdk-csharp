@@ -71,11 +71,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The group ID.
-            var excludeShared = true;  // bool? | Specifies whether to exclude the group sharing settings from the response. (optional) 
-            var count = 1234;  // int? | The number of groups to retrieve in the request. (optional) 
-            var startIndex = 1234;  // int? | The starting index from which to begin retrieving groups with their sharing settings. (optional) 
-            var filterValue = some text;  // string? | The text used as a filter for retrieving groups with their sharing settings. (optional) 
+            var id = 56;  // int | The group ID.
+            var excludeShared = false;  // bool? | Specifies whether to exclude the group sharing settings from the response. (optional) 
+            var count = 25;  // int? | The number of groups to retrieve in the request. (optional) 
+            var startIndex = 0;  // int? | The starting index from which to begin retrieving groups with their sharing settings. (optional) 
+            var filterValue = John;  // string? | The text used as a filter for retrieving groups with their sharing settings. (optional) 
 
             try
             {
@@ -192,11 +192,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The group ID.
-            var excludeShared = true;  // bool? | Specifies whether to exclude the group sharing settings from the response. (optional) 
-            var count = 1234;  // int? | The number of groups to retrieve in the request. (optional) 
-            var startIndex = 1234;  // int? | The starting index from which to begin retrieving groups with their sharing settings. (optional) 
-            var filterValue = some text;  // string? | The text used as a filter for retrieving groups with their sharing settings. (optional) 
+            var id = 56;  // int | The group ID.
+            var excludeShared = false;  // bool? | Specifies whether to exclude the group sharing settings from the response. (optional) 
+            var count = 25;  // int? | The number of groups to retrieve in the request. (optional) 
+            var startIndex = 0;  // int? | The starting index from which to begin retrieving groups with their sharing settings. (optional) 
+            var filterValue = John;  // string? | The text used as a filter for retrieving groups with their sharing settings. (optional) 
 
             try
             {
@@ -313,11 +313,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The group ID.
-            var excludeShared = true;  // bool? | Specifies whether to exclude the group sharing settings from the response. (optional) 
-            var count = 1234;  // int? | The number of groups to retrieve in the request. (optional) 
-            var startIndex = 1234;  // int? | The starting index from which to begin retrieving groups with their sharing settings. (optional) 
-            var filterValue = some text;  // string? | The text used as a filter for retrieving groups with their sharing settings. (optional) 
+            var id = 56;  // int | The group ID.
+            var excludeShared = false;  // bool? | Specifies whether to exclude the group sharing settings from the response. (optional) 
+            var count = 25;  // int? | The number of groups to retrieve in the request. (optional) 
+            var startIndex = 0;  // int? | The starting index from which to begin retrieving groups with their sharing settings. (optional) 
+            var filterValue = John;  // string? | The text used as a filter for retrieving groups with their sharing settings. (optional) 
 
             try
             {

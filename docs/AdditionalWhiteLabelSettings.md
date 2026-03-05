@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **UserForumEnabled** | **bool** | Specifies if the user forum is available or not. | [optional] 
 **VideoGuidesEnabled** | **bool** | Specifies if the Video Guides link is available or not. | [optional] 
 **LicenseAgreementsEnabled** | **bool** | Specifies if the License Agreements link is available or not. | [optional] 
-**LastModified** | **DateTime** |  | [optional] 
+**LastModified** | **DateTime** | The timestamp indicating when the settings were last modified. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

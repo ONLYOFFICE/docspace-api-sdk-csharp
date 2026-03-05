@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.ChatDto
+The chat session information.
 
 ## Properties
 

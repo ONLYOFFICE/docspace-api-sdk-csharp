@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -75,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user ID.</value>
         /*
-        <example>1</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "userId", EmitDefaultValue = true)]
         public string UserId { get; set; }
@@ -85,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to disable a user or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "disable", EmitDefaultValue = true)]
         public bool? Disable { get; set; }
@@ -95,7 +108,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user email address.</value>
         /*
-        <example>example@onlyoffice.com</example>
+        <example>john.doe@example.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -135,7 +148,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the user departments.</value>
         /*
-        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
+        <example>[&quot;00000000-0000-0000-0000-000000000000&quot;]</example>
         */
         [DataMember(Name = "department", EmitDefaultValue = true)]
         public List<Guid> Department { get; set; }
@@ -145,7 +158,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user title.</value>
         /*
-        <example>SampleFile</example>
+        <example>Manager</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -155,7 +168,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user location.</value>
         /*
-        <example>001 Schroeder Run, New Tabithaport, Colombia</example>
+        <example>New York</example>
         */
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
@@ -177,7 +190,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user comment.</value>
         /*
-        <example>some text</example>
+        <example>User comment</example>
         */
         [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
@@ -186,6 +199,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of the user contacts.
         /// </summary>
         /// <value>The list of the user contacts.</value>
+        /*
+        <example>[{&quot;type&quot;:&quot;email&quot;,&quot;value&quot;:&quot;john.doe@example.com&quot;}]</example>
+        */
         [DataMember(Name = "contacts", EmitDefaultValue = true)]
         public List<Contact> Contacts { get; set; }
 
@@ -194,7 +210,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user avatar photo URL.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/avatar.jpg</example>
         */
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public string Files { get; set; }
@@ -204,7 +220,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if tips, updates and offers are allowed to be sent to the user or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "spam", EmitDefaultValue = true)]
         public bool? Spam { get; set; }
@@ -243,7 +259,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -46,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file version of the form draft.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public int @Version { get; set; }
@@ -56,7 +69,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The action with the form draft.</value>
         /*
-        <example>some text</example>
+        <example>view</example>
         */
         [DataMember(Name = "action", EmitDefaultValue = true)]
         public string Action { get; set; }
@@ -66,7 +79,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to request the form for viewing or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "requestView", EmitDefaultValue = true)]
         public bool RequestView { get; private set; }
@@ -84,7 +97,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to request an embedded form or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "requestEmbedded", EmitDefaultValue = true)]
         public bool RequestEmbedded { get; private set; }
@@ -119,7 +132,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

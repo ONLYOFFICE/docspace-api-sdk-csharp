@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -177,7 +190,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the trusted domains.</value>
         /*
-        <example>mydomain.com</example>
+        <example>[&quot;mydomain.com&quot;,&quot;mydomain1.com&quot;]</example>
         */
         [DataMember(Name = "trustedDomains", EmitDefaultValue = true)]
         public List<string> TrustedDomains { get; set; }
@@ -197,7 +210,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The UTC offset in the TimeSpan format.</value>
         /*
-        <example>-8.5</example>
+        <example>-08:30:00</example>
         */
         [DataMember(Name = "utcOffset", EmitDefaultValue = false)]
         public string UtcOffset { get; set; }
@@ -227,7 +240,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The owner ID.</value>
         /*
-        <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "ownerId", EmitDefaultValue = false)]
         public Guid OwnerId { get; set; }
@@ -237,7 +250,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The team template ID.</value>
         /*
-        <example>some text</example>
+        <example>default</example>
         */
         [DataMember(Name = "nameSchemaId", EmitDefaultValue = true)]
         public string NameSchemaId { get; set; }
@@ -307,7 +320,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The base domain.</value>
         /*
-        <example>some text</example>
+        <example>example.com</example>
         */
         [DataMember(Name = "baseDomain", IsRequired = true, EmitDefaultValue = true)]
         public string BaseDomain { get; set; }
@@ -317,7 +330,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The wizard token.</value>
         /*
-        <example>some text</example>
+        <example>dGhpc2lzYXRva2Vu...</example>
         */
         [DataMember(Name = "wizardToken", EmitDefaultValue = true)]
         public string WizardToken { get; set; }
@@ -339,7 +352,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The portal version.</value>
         /*
-        <example>some text</example>
+        <example>12.5.0</example>
         */
         [DataMember(Name = "version", EmitDefaultValue = true)]
         public string @Version { get; set; }
@@ -349,7 +362,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The ReCAPTCHA public key.</value>
         /*
-        <example>some text</example>
+        <example>abc123def456</example>
         */
         [DataMember(Name = "recaptchaPublicKey", EmitDefaultValue = true)]
         public string RecaptchaPublicKey { get; set; }
@@ -369,7 +382,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The socket URL.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com</example>
         */
         [DataMember(Name = "socketUrl", EmitDefaultValue = true)]
         public string SocketUrl { get; set; }
@@ -379,7 +392,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant alias.</value>
         /*
-        <example>some text</example>
+        <example>mycompany</example>
         */
         [DataMember(Name = "tenantAlias", EmitDefaultValue = true)]
         public string TenantAlias { get; set; }
@@ -405,7 +418,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The Zendesk key.</value>
         /*
-        <example>some text</example>
+        <example>abc123def456</example>
         */
         [DataMember(Name = "zendeskKey", EmitDefaultValue = true)]
         public string ZendeskKey { get; set; }
@@ -415,7 +428,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tag manager ID.</value>
         /*
-        <example>some text</example>
+        <example>GTM-XXXXXX</example>
         */
         [DataMember(Name = "tagManagerId", EmitDefaultValue = true)]
         public string TagManagerId { get; set; }
@@ -465,7 +478,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user name validation regex.</value>
         /*
-        <example>some text</example>
+        <example>^[a-zA-Z0-9_]{3,20}$</example>
         */
         [DataMember(Name = "userNameRegex", EmitDefaultValue = true)]
         public string UserNameRegex { get; set; }
@@ -475,7 +488,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The maximum number of invitations to the portal.</value>
         /*
-        <example>1234</example>
+        <example>10</example>
         */
         [DataMember(Name = "invitationLimit", EmitDefaultValue = true)]
         public int? InvitationLimit { get; set; }
@@ -503,7 +516,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The maximum image upload size.</value>
         /*
-        <example>1234</example>
+        <example>10485760</example>
         */
         [DataMember(Name = "maxImageUploadSize", EmitDefaultValue = false)]
         public long MaxImageUploadSize { get; set; }
@@ -513,7 +526,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The white label logo text.</value>
         /*
-        <example>some text</example>
+        <example>Company Name</example>
         */
         [DataMember(Name = "logoText", EmitDefaultValue = true)]
         public string LogoText { get; set; }
@@ -585,7 +598,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

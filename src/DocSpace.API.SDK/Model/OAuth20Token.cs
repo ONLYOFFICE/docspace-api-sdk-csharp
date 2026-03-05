@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -49,72 +62,48 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets AccessToken
         /// </summary>
-        /*
-        <example>some text</example>
-        */
         [DataMember(Name = "access_token", EmitDefaultValue = true)]
         public string AccessToken { get; set; }
 
         /// <summary>
         /// Gets or Sets RefreshToken
         /// </summary>
-        /*
-        <example>some text</example>
-        */
         [DataMember(Name = "refresh_token", EmitDefaultValue = true)]
         public string RefreshToken { get; set; }
 
         /// <summary>
         /// Gets or Sets ExpiresIn
         /// </summary>
-        /*
-        <example>1234</example>
-        */
         [DataMember(Name = "expires_in", EmitDefaultValue = false)]
         public long ExpiresIn { get; set; }
 
         /// <summary>
         /// Gets or Sets ClientId
         /// </summary>
-        /*
-        <example>some text</example>
-        */
         [DataMember(Name = "client_id", EmitDefaultValue = true)]
         public string ClientId { get; set; }
 
         /// <summary>
         /// Gets or Sets ClientSecret
         /// </summary>
-        /*
-        <example>some text</example>
-        */
         [DataMember(Name = "client_secret", EmitDefaultValue = true)]
         public string ClientSecret { get; set; }
 
         /// <summary>
         /// Gets or Sets RedirectUri
         /// </summary>
-        /*
-        <example>some text</example>
-        */
         [DataMember(Name = "redirect_uri", EmitDefaultValue = true)]
         public string RedirectUri { get; set; }
 
         /// <summary>
         /// Gets or Sets Timestamp
         /// </summary>
-        /*
-        <example>2008-04-10T06:30+04:00</example>
-        */
         [DataMember(Name = "timestamp", EmitDefaultValue = false)]
         public DateTime Timestamp { get; set; }
 
         /// <summary>
         /// Gets or Sets IsExpired
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "isExpired", EmitDefaultValue = true)]
         public bool IsExpired { get; private set; }
 
@@ -152,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

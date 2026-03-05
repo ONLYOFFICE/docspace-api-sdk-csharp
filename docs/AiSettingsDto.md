@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.AiSettingsDto
+The AI module settings.
 
 ## Properties
 

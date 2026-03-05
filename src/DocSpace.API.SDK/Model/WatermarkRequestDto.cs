@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -69,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The watermark text.</value>
         /*
-        <example>some text</example>
+        <example>Confidential</example>
         */
         [DataMember(Name = "text", EmitDefaultValue = true)]
         public string Text { get; set; }
@@ -79,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The watermark text and image rotate angle.</value>
         /*
-        <example>1234</example>
+        <example>-45</example>
         */
         [DataMember(Name = "rotate", EmitDefaultValue = false)]
         public int Rotate { get; set; }
@@ -89,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The watermark image scale.</value>
         /*
-        <example>1234</example>
+        <example>100</example>
         */
         [DataMember(Name = "imageScale", EmitDefaultValue = false)]
         public int ImageScale { get; set; }
@@ -99,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The path to the temporary image file.</value>
         /*
-        <example>some text</example>
+        <example>/tmp/watermark.png</example>
         */
         [DataMember(Name = "imageUrl", EmitDefaultValue = true)]
         public string ImageUrl { get; set; }
@@ -109,7 +122,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The watermark image height.</value>
         /*
-        <example>-8.5</example>
+        <example>100.0</example>
         */
         [DataMember(Name = "imageHeight", EmitDefaultValue = false)]
         public double ImageHeight { get; set; }
@@ -119,7 +132,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The watermark image width.</value>
         /*
-        <example>-8.5</example>
+        <example>200.0</example>
         */
         [DataMember(Name = "imageWidth", EmitDefaultValue = false)]
         public double ImageWidth { get; set; }
@@ -150,7 +163,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

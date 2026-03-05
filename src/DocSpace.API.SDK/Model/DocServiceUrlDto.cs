@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -95,7 +108,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The version of the document service.</value>
         /*
-        <example>some text</example>
+        <example>8.0.1</example>
         */
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public string @Version { get; set; }
@@ -105,7 +118,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document service URL API.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/api</example>
         */
         [DataMember(Name = "docServiceUrlApi", IsRequired = true, EmitDefaultValue = true)]
         public string DocServiceUrlApi { get; set; }
@@ -115,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document service URL.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/docservice</example>
         */
         [DataMember(Name = "docServiceUrl", IsRequired = true, EmitDefaultValue = true)]
         public string DocServiceUrl { get; set; }
@@ -125,7 +138,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The URL used to preload the document service scripts.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/preload</example>
         */
         [DataMember(Name = "docServicePreloadUrl", IsRequired = true, EmitDefaultValue = true)]
         public string DocServicePreloadUrl { get; set; }
@@ -135,7 +148,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The internal document service URL.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/internal</example>
         */
         [DataMember(Name = "docServiceUrlInternal", IsRequired = true, EmitDefaultValue = true)]
         public string DocServiceUrlInternal { get; set; }
@@ -145,7 +158,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document service portal URL.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/portal</example>
         */
         [DataMember(Name = "docServicePortalUrl", IsRequired = true, EmitDefaultValue = true)]
         public string DocServicePortalUrl { get; set; }
@@ -155,7 +168,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document service signature header.</value>
         /*
-        <example>some text</example>
+        <example>Authorization</example>
         */
         [DataMember(Name = "docServiceSignatureHeader", IsRequired = true, EmitDefaultValue = true)]
         public string DocServiceSignatureHeader { get; set; }
@@ -207,7 +220,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

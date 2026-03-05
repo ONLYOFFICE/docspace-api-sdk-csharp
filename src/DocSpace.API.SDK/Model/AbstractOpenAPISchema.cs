@@ -13,6 +13,10 @@
 // limitations under the License.
 
 
+using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
@@ -23,26 +27,34 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         ///  Custom JSON serializer
         /// </summary>
-        static public readonly JsonSerializerOptions SerializerOptions = new JsonSerializerOptions
+        static public readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
         {
             // OpenAPI generated types generally hide default constructors.
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-            Converters = {
-                new JsonStringEnumConverter(JsonNamingPolicy.CamelCase)
+            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+            MissingMemberHandling = MissingMemberHandling.Error,
+            ContractResolver = new DefaultContractResolver
+            {
+                NamingStrategy = new CamelCaseNamingStrategy
+                {
+                    OverrideSpecifiedNames = false
+                }
             }
         };
 
         /// <summary>
         ///  Custom JSON serializer for objects with additional properties
         /// </summary>
-        static public readonly JsonSerializerOptions AdditionalPropertiesSerializerOptions = new JsonSerializerOptions
+        static public readonly JsonSerializerSettings AdditionalPropertiesSerializerSettings = new JsonSerializerSettings
         {
             // OpenAPI generated types generally hide default constructors.
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            DefaultIgnoreCondition = JsonIgnoreCondition.Never,
-            Converters = {
-                new JsonStringEnumConverter(JsonNamingPolicy.CamelCase)
+            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+            MissingMemberHandling = MissingMemberHandling.Ignore,
+            ContractResolver = new DefaultContractResolver
+            {
+                NamingStrategy = new CamelCaseNamingStrategy
+                {
+                    OverrideSpecifiedNames = false
+                }
             }
         };
 

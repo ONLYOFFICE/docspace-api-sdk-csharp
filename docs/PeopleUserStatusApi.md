@@ -74,14 +74,14 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UserStatusApi(httpClient, config, httpClientHandler);
-            var status = (EmployeeStatus) "1";  // EmployeeStatus | The user status.
-            var filterBy = some text;  // string? | Specifies the criteria used to filter the profiles in the request. (optional) 
-            var count = 1234;  // int? | The maximum number of user profiles to retrieve. (optional) 
-            var startIndex = 1234;  // int? | The starting index for retrieving data in a paginated request. (optional) 
-            var sortBy = some text;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
+            var status = 1;  // EmployeeStatus | The user status.
+            var filterBy = displayName;  // string? | Specifies the criteria used to filter the profiles in the request. (optional) 
+            var count = 25;  // int? | The maximum number of user profiles to retrieve. (optional) 
+            var startIndex = 0;  // int? | The starting index for retrieving data in a paginated request. (optional) 
+            var sortBy = displayName;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterSeparator = some text;  // string? | Represents the separator used to split multiple filter criteria in a query string. (optional) 
-            var filterValue = some text;  // string? | A string value representing additional filter criteria used in query parameters. (optional) 
+            var filterSeparator = ,;  // string? | Represents the separator used to split multiple filter criteria in a query string. (optional) 
+            var filterValue = John;  // string? | A string value representing additional filter criteria used in query parameters. (optional) 
 
             try
             {
@@ -194,7 +194,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UserStatusApi(httpClient, config, httpClientHandler);
-            var activationstatus = (EmployeeActivationStatus) "0";  // EmployeeActivationStatus | The new user activation status.
+            var activationstatus = 1;  // EmployeeActivationStatus | The new user activation status.
             var updateMembersRequestDto = new UpdateMembersRequestDto(); // UpdateMembersRequestDto | The request parameters for updating the user information.
 
             try
@@ -308,7 +308,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UserStatusApi(httpClient, config, httpClientHandler);
-            var status = (EmployeeStatus) "1";  // EmployeeStatus | The new user status.
+            var status = 1;  // EmployeeStatus | The new user status.
             var updateMembersRequestDto = new UpdateMembersRequestDto(); // UpdateMembersRequestDto | The request parameters for updating the user information.
 
             try

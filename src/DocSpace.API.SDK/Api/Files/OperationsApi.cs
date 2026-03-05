@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Files
@@ -30,8 +37,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sessionId"></param>
-        /// <param name="folderId"></param>
+        /// <param name="sessionId">The session ID.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
         /// <returns></returns>
         void AbortUploadSession(string sessionId, int folderId);
@@ -43,8 +50,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sessionId"></param>
-        /// <param name="folderId"></param>
+        /// <param name="sessionId">The session ID.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> AbortUploadSessionWithHttpInfo(string sessionId, int folderId);
@@ -362,8 +369,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The session ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
         /// <returns>UploadSessionResponseIntegerWrapper</returns>
         UploadSessionResponseIntegerWrapper FinalizeSession(int folderId, string sessionId);
@@ -375,8 +382,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The session ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
         /// <returns>ApiResponse of UploadSessionResponseIntegerWrapper</returns>
         ApiResponse<UploadSessionResponseIntegerWrapper> FinalizeSessionWithHttpInfo(int folderId, string sessionId);
@@ -554,10 +561,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="chunkNumber"> (optional)</param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="chunkNumber">The chunk number. (optional)</param>
+        /// <param name="file">The file chunk to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file chunk content from the HTTP request form for chunked upload operations.  The file chunk is accessed via the IFormFile interface which provides access to the chunk content and length. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
         /// <returns>ChunkedUploadSessionResponseIntegerWrapper</returns>
         ChunkedUploadSessionResponseIntegerWrapper UploadAsyncSession(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
@@ -569,10 +576,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="chunkNumber"> (optional)</param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="chunkNumber">The chunk number. (optional)</param>
+        /// <param name="file">The file chunk to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file chunk content from the HTTP request form for chunked upload operations.  The file chunk is accessed via the IFormFile interface which provides access to the chunk content and length. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
         /// <returns>ApiResponse of ChunkedUploadSessionResponseIntegerWrapper</returns>
         ApiResponse<ChunkedUploadSessionResponseIntegerWrapper> UploadAsyncSessionWithHttpInfo(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default);
@@ -583,9 +590,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="file">The file to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file content from the HTTP request form.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
         /// <returns>UploadSessionResponseIntegerWrapper</returns>
         UploadSessionResponseIntegerWrapper UploadSession(int folderId, string sessionId, FileParameter? file = default);
@@ -597,9 +604,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="file">The file to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file content from the HTTP request form.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
         /// <returns>ApiResponse of UploadSessionResponseIntegerWrapper</returns>
         ApiResponse<UploadSessionResponseIntegerWrapper> UploadSessionWithHttpInfo(int folderId, string sessionId, FileParameter? file = default);
@@ -619,8 +626,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sessionId"></param>
-        /// <param name="folderId"></param>
+        /// <param name="sessionId">The session ID.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
         /// <returns>Task of void</returns>
@@ -633,8 +640,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sessionId"></param>
-        /// <param name="folderId"></param>
+        /// <param name="sessionId">The session ID.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -979,8 +986,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The session ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
         /// <returns>Task of UploadSessionResponseIntegerWrapper</returns>
@@ -993,8 +1000,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The session ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
         /// <returns>Task of ApiResponse (UploadSessionResponseIntegerWrapper)</returns>
@@ -1187,10 +1194,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="chunkNumber"> (optional)</param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="chunkNumber">The chunk number. (optional)</param>
+        /// <param name="file">The file chunk to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file chunk content from the HTTP request form for chunked upload operations.  The file chunk is accessed via the IFormFile interface which provides access to the chunk content and length. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
         /// <returns>Task of ChunkedUploadSessionResponseIntegerWrapper</returns>
@@ -1203,10 +1210,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="chunkNumber"> (optional)</param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="chunkNumber">The chunk number. (optional)</param>
+        /// <param name="file">The file chunk to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file chunk content from the HTTP request form for chunked upload operations.  The file chunk is accessed via the IFormFile interface which provides access to the chunk content and length. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
         /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseIntegerWrapper)</returns>
@@ -1218,9 +1225,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="file">The file to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file content from the HTTP request form.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
         /// <returns>Task of UploadSessionResponseIntegerWrapper</returns>
@@ -1233,9 +1240,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="file">The file to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file content from the HTTP request form.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
         /// <returns>Task of ApiResponse (UploadSessionResponseIntegerWrapper)</returns>
@@ -1462,8 +1469,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sessionId"></param>
-        /// <param name="folderId"></param>
+        /// <param name="sessionId">The session ID.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
         /// <returns></returns>
         public void AbortUploadSession(string sessionId, int folderId)
@@ -1478,8 +1485,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sessionId"></param>
-        /// <param name="folderId"></param>
+        /// <param name="sessionId">The session ID.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> AbortUploadSessionWithHttpInfo(string sessionId, int folderId)
@@ -1557,8 +1564,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sessionId"></param>
-        /// <param name="folderId"></param>
+        /// <param name="sessionId">The session ID.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
         /// <returns>Task of void</returns>
@@ -1574,8 +1581,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows users to cancel an ongoing upload session identified by the session ID.  Once the session is aborted, the associated resources will be cleaned up, and the session will no longer accept further uploads.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="sessionId"></param>
-        /// <param name="folderId"></param>
+        /// <param name="sessionId">The session ID.</param>
+        /// <param name="folderId">The folder ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/abort-upload-session/">REST API Reference for AbortUploadSession Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
@@ -4024,8 +4031,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The session ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
         /// <returns>UploadSessionResponseIntegerWrapper</returns>
         public UploadSessionResponseIntegerWrapper FinalizeSession(int folderId, string sessionId)
@@ -4041,8 +4048,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The session ID.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
         /// <returns>ApiResponse of UploadSessionResponseIntegerWrapper</returns>
         public ApiResponse<UploadSessionResponseIntegerWrapper> FinalizeSessionWithHttpInfo(int folderId, string sessionId)
@@ -4120,8 +4127,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The session ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
         /// <returns>Task of UploadSessionResponseIntegerWrapper</returns>
@@ -4138,8 +4145,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// Finalizes the upload session by processing the uploaded file chunks and marking the upload as complete.  This method consolidates chunked uploads into a complete file if required, sends notifications about the upload event,  and performs any additional cleanup or related actions, such as socket updates and webhook publishing.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The session ID.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/finalize-session/">REST API Reference for FinalizeSession Operation</seealso>
         /// <returns>Task of ApiResponse (UploadSessionResponseIntegerWrapper)</returns>
@@ -5360,10 +5367,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="chunkNumber"> (optional)</param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="chunkNumber">The chunk number. (optional)</param>
+        /// <param name="file">The file chunk to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file chunk content from the HTTP request form for chunked upload operations.  The file chunk is accessed via the IFormFile interface which provides access to the chunk content and length. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
         /// <returns>ChunkedUploadSessionResponseIntegerWrapper</returns>
         public ChunkedUploadSessionResponseIntegerWrapper UploadAsyncSession(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default)
@@ -5379,10 +5386,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="chunkNumber"> (optional)</param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="chunkNumber">The chunk number. (optional)</param>
+        /// <param name="file">The file chunk to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file chunk content from the HTTP request form for chunked upload operations.  The file chunk is accessed via the IFormFile interface which provides access to the chunk content and length. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
         /// <returns>ApiResponse of ChunkedUploadSessionResponseIntegerWrapper</returns>
         public ApiResponse<ChunkedUploadSessionResponseIntegerWrapper> UploadAsyncSessionWithHttpInfo(int folderId, string sessionId, int? chunkNumber = default, FileParameter? file = default)
@@ -5468,10 +5475,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="chunkNumber"> (optional)</param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="chunkNumber">The chunk number. (optional)</param>
+        /// <param name="file">The file chunk to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file chunk content from the HTTP request form for chunked upload operations.  The file chunk is accessed via the IFormFile interface which provides access to the chunk content and length. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
         /// <returns>Task of ChunkedUploadSessionResponseIntegerWrapper</returns>
@@ -5488,10 +5495,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows the caller to upload a specific chunk of a file to an ongoing upload session.  The session is identified by the session ID provided in the request. The chunk can be of any size  within the limits allowed during the session initialization. Each chunk must be uploaded in the  correct order for the server to process it appropriately.  The server updates the upload session status and stores the progress information after processing  each chunk. The updated session details are returned in the response.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="chunkNumber"> (optional)</param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="chunkNumber">The chunk number. (optional)</param>
+        /// <param name="file">The file chunk to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file chunk content from the HTTP request form for chunked upload operations.  The file chunk is accessed via the IFormFile interface which provides access to the chunk content and length. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-async-session/">REST API Reference for UploadAsyncSession Operation</seealso>
         /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseIntegerWrapper)</returns>
@@ -5580,9 +5587,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="file">The file to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file content from the HTTP request form.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
         /// <returns>UploadSessionResponseIntegerWrapper</returns>
         public UploadSessionResponseIntegerWrapper UploadSession(int folderId, string sessionId, FileParameter? file = default)
@@ -5598,9 +5605,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="file">The file to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file content from the HTTP request form.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
         /// <returns>ApiResponse of UploadSessionResponseIntegerWrapper</returns>
         public ApiResponse<UploadSessionResponseIntegerWrapper> UploadSessionWithHttpInfo(int folderId, string sessionId, FileParameter? file = default)
@@ -5682,9 +5689,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="file">The file to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file content from the HTTP request form.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
         /// <returns>Task of UploadSessionResponseIntegerWrapper</returns>
@@ -5701,9 +5708,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// This method allows continuing an interrupted or partially completed file upload session by uploading subsequent data chunks.  The server will validate each uploaded chunk, update the session state, and respond with the status of the current upload. Once  the total bytes uploaded match the total file size, the file upload process is finalized and related events are triggered.  If the file is newly uploaded, the server responds with a 201 Created status upon completion. If it overwrites an existing file,  versioning information is updated accordingly. The method also triggers associated webhooks and socket notifications to reflect  the updated file state.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="folderId"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="file"> (optional)</param>
+        /// <param name="folderId">The folder ID.</param>
+        /// <param name="sessionId">The upload session ID.</param>
+        /// <param name="file">The file to be uploaded as part of the multipart/form-data request.  This property represents the uploaded file content from the HTTP request form.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-session/">REST API Reference for UploadSession Operation</seealso>
         /// <returns>Task of ApiResponse (UploadSessionResponseIntegerWrapper)</returns>

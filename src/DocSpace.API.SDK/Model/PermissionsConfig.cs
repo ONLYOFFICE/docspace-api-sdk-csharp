@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -56,9 +69,6 @@ namespace DocSpace.API.SDK.Model
         /// Defines if the document can be commented or not.
         /// </summary>
         /// <value>Defines if the document can be commented or not.</value>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "comment", EmitDefaultValue = true)]
         public bool Comment { get; set; }
 
@@ -66,9 +76,6 @@ namespace DocSpace.API.SDK.Model
         /// Defines if the chat functionality is enabled in the document or not.
         /// </summary>
         /// <value>Defines if the chat functionality is enabled in the document or not.</value>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "chat", EmitDefaultValue = true)]
         public bool Chat { get; set; }
 
@@ -76,9 +83,6 @@ namespace DocSpace.API.SDK.Model
         /// Defines if the document can be downloaded or only viewed or edited online.
         /// </summary>
         /// <value>Defines if the document can be downloaded or only viewed or edited online.</value>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "download", EmitDefaultValue = true)]
         public bool Download { get; set; }
 
@@ -86,9 +90,6 @@ namespace DocSpace.API.SDK.Model
         /// Defines if the document can be edited or only viewed.
         /// </summary>
         /// <value>Defines if the document can be edited or only viewed.</value>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "edit", EmitDefaultValue = true)]
         public bool Edit { get; set; }
 
@@ -96,9 +97,6 @@ namespace DocSpace.API.SDK.Model
         /// Defines if the forms can be filled.
         /// </summary>
         /// <value>Defines if the forms can be filled.</value>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "fillForms", EmitDefaultValue = true)]
         public bool FillForms { get; set; }
 
@@ -106,9 +104,6 @@ namespace DocSpace.API.SDK.Model
         /// Defines if the filter can be applied globally (true) affecting all the other users,  or locally (false), i.e. for the current user only.
         /// </summary>
         /// <value>Defines if the filter can be applied globally (true) affecting all the other users,  or locally (false), i.e. for the current user only.</value>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "modifyFilter", EmitDefaultValue = true)]
         public bool ModifyFilter { get; set; }
 
@@ -116,9 +111,6 @@ namespace DocSpace.API.SDK.Model
         /// Defines if the Protection tab on the toolbar and the Protect button in the left menu are displayedor hidden.
         /// </summary>
         /// <value>Defines if the Protection tab on the toolbar and the Protect button in the left menu are displayedor hidden.</value>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "protect", EmitDefaultValue = true)]
         public bool Protect { get; set; }
 
@@ -126,9 +118,6 @@ namespace DocSpace.API.SDK.Model
         /// Defines if the document can be printed or not.
         /// </summary>
         /// <value>Defines if the document can be printed or not.</value>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "print", EmitDefaultValue = true)]
         public bool Print { get; set; }
 
@@ -136,9 +125,6 @@ namespace DocSpace.API.SDK.Model
         /// Defines if the document can be reviewed or not.
         /// </summary>
         /// <value>Defines if the document can be reviewed or not.</value>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "review", EmitDefaultValue = true)]
         public bool Review { get; set; }
 
@@ -146,9 +132,6 @@ namespace DocSpace.API.SDK.Model
         /// Defines if the content can be copied to the clipboard or not.
         /// </summary>
         /// <value>Defines if the content can be copied to the clipboard or not.</value>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "copy", EmitDefaultValue = true)]
         public bool Copy { get; set; }
 
@@ -180,7 +163,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

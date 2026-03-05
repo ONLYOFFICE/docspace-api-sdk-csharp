@@ -550,7 +550,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var folderId = 1;  // int | The folder ID to delete.
+            var folderId = 10;  // int | The folder ID to delete.
             var deleteFolder = new DeleteFolder(); // DeleteFolder | The parameters for deleting a folder.
 
             try
@@ -669,13 +669,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
+            var userIdOrGroupId = 00000000-0000-0000-0000-000000000000;  // Guid? | The user or group ID. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
-            var count = 1234;  // int? | The maximum number of items to retrieve in the request. (optional) 
-            var startIndex = 1234;  // int? | The zero-based index of the first item to retrieve in a paginated list. (optional) 
-            var sortBy = some text;  // string? | Specifies the field by which the folder content should be sorted. (optional) 
+            var count = 25;  // int? | The maximum number of items to retrieve in the request. (optional) 
+            var startIndex = 0;  // int? | The zero-based index of the first item to retrieve in a paginated list. (optional) 
+            var sortBy = DateAndTime;  // string? | Specifies the field by which the folder content should be sorted. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterValue = some text;  // string? | The text used as a filter or search criterion for folder content queries. (optional) 
+            var filterValue = My Document;  // string? | The text used as a filter or search criterion for folder content queries. (optional) 
 
             try
             {
@@ -992,21 +992,21 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
             var folderId = 1;  // int | The folder ID.
-            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
-            var sharedBy = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The identifier of the user who shared the folder or file. (optional) 
+            var userIdOrGroupId = 00000000-0000-0000-0000-000000000000;  // Guid? | The user or group ID. (optional) 
+            var sharedBy = 00000000-0000-0000-0000-000000000000;  // Guid? | The identifier of the user who shared the folder or file. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
             var roomId = 1;  // int? | The room ID. (optional) 
-            var excludeSubject = true;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
+            var excludeSubject = false;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
             var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders, or all elements from the specified folder. (optional) 
-            var extension = .txt;  // string? | Specifies whether to search for the specific file extension. (optional) 
+            var extension = .docx;  // string? | Specifies whether to search for the specific file extension. (optional) 
             var searchArea = new SearchArea?(); // SearchArea? | The search area. (optional) 
-            var formsItemKey = some text;  // string? | The forms item key. (optional) 
-            var formsItemType = some text;  // string? | The forms item type. (optional) 
-            var count = 1234;  // int? | The maximum number of items to retrieve in the request. (optional) 
-            var startIndex = 1234;  // int? | The zero-based index of the first item to retrieve in a paginated request. (optional) 
-            var sortBy = some text;  // string? | The property used for sorting the folder request results. (optional) 
+            var formsItemKey = doc_key_123;  // string? | The forms item key. (optional) 
+            var formsItemType = text;  // string? | The forms item type. (optional) 
+            var count = 25;  // int? | The maximum number of items to retrieve in the request. (optional) 
+            var startIndex = 0;  // int? | The zero-based index of the first item to retrieve in a paginated request. (optional) 
+            var sortBy = DateAndTime;  // string? | The property used for sorting the folder request results. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterValue = some text;  // string? | The text value used as a filter parameter for folder content queries. (optional) 
+            var filterValue = My Document;  // string? | The text value used as a filter parameter for folder content queries. (optional) 
             var location = new Location?(); // Location? | The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional) 
 
             try
@@ -1127,8 +1127,8 @@ namespace Example
             var folderId = 1;  // int | The folder ID of the history request.
             var fromDate = new ApiDateTime?(); // ApiDateTime? | The start date of the history request. (optional) 
             var toDate = new ApiDateTime?(); // ApiDateTime? | The end date of the history request. (optional) 
-            var count = 1234;  // int? | The number of records to retrieve for the folder history. (optional) 
-            var startIndex = 1234;  // int? | The starting index from which the history records are retrieved in the request. (optional) 
+            var count = 25;  // int? | The number of records to retrieve for the folder history. (optional) 
+            var startIndex = 0;  // int? | The starting index from which the history records are retrieved in the request. (optional) 
 
             try
             {
@@ -1548,9 +1548,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The folder unique identifier.
-            var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
-            var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
+            var id = 10;  // int | The folder unique identifier.
+            var count = 25;  // int? | The number of items to retrieve in the request. (optional) 
+            var startIndex = 0;  // int? | The starting index for the query results. (optional) 
 
             try
             {
@@ -1782,14 +1782,14 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
+            var userIdOrGroupId = 00000000-0000-0000-0000-000000000000;  // Guid? | The user or group ID. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
             var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements. (optional) 
-            var count = 1234;  // int? | The maximum number of items to retrieve in the response. (optional) 
-            var startIndex = 1234;  // int? | The starting position of the items to be retrieved. (optional) 
-            var sortBy = some text;  // string? | The property used to specify the sorting criteria for folder contents. (optional) 
+            var count = 25;  // int? | The maximum number of items to retrieve in the response. (optional) 
+            var startIndex = 0;  // int? | The starting position of the items to be retrieved. (optional) 
+            var sortBy = DateAndTime;  // string? | The property used to specify the sorting criteria for folder contents. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterValue = some text;  // string? | The text used for filtering or searching folder contents. (optional) 
+            var filterValue = My Document;  // string? | The text used for filtering or searching folder contents. (optional) 
 
             try
             {
@@ -2022,13 +2022,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
+            var userIdOrGroupId = 00000000-0000-0000-0000-000000000000;  // Guid? | The user or group ID. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
-            var count = 1234;  // int? | The maximum number of items to retrieve in the request. (optional) 
-            var startIndex = 1234;  // int? | The zero-based index of the first item to retrieve in a paginated list. (optional) 
-            var sortBy = some text;  // string? | Specifies the field by which the folder content should be sorted. (optional) 
+            var count = 25;  // int? | The maximum number of items to retrieve in the request. (optional) 
+            var startIndex = 0;  // int? | The zero-based index of the first item to retrieve in a paginated list. (optional) 
+            var sortBy = DateAndTime;  // string? | Specifies the field by which the folder content should be sorted. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterValue = some text;  // string? | The text used as a filter or search criterion for folder content queries. (optional) 
+            var filterValue = My Document;  // string? | The text used as a filter or search criterion for folder content queries. (optional) 
 
             try
             {
@@ -2152,17 +2152,17 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
+            var userIdOrGroupId = 00000000-0000-0000-0000-000000000000;  // Guid? | The user or group ID. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
-            var excludeSubject = true;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
+            var excludeSubject = false;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
             var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements. (optional) 
             var searchArea = new SearchArea?(); // SearchArea? | The search area. (optional) 
             var extension = new List<string>?(); // List<string>? | Specifies whether to search for a specific file extension in the Recent folder. (optional) 
-            var count = 1234;  // int? | The maximum number of items to return. (optional) 
-            var startIndex = 1234;  // int? | The starting position of the results to be returned in the query response. (optional) 
-            var sortBy = some text;  // string? | Specifies the sorting criteria for the folder request. (optional) 
+            var count = 25;  // int? | The maximum number of items to return. (optional) 
+            var startIndex = 0;  // int? | The starting position of the results to be returned in the query response. (optional) 
+            var sortBy = DateAndTime;  // string? | Specifies the sorting criteria for the folder request. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterValue = some text;  // string? | The text used for filtering or searching folder contents. (optional) 
+            var filterValue = My Document;  // string? | The text used for filtering or searching folder contents. (optional) 
 
             try
             {
@@ -2283,14 +2283,14 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
+            var userIdOrGroupId = 00000000-0000-0000-0000-000000000000;  // Guid? | The user or group ID. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
-            var withoutTrash = true;  // bool? | Specifies whether to return the Trash section or not. (optional) 
-            var count = 1234;  // int? | The maximum number of items to retrieve in the response. (optional) 
-            var startIndex = 1234;  // int? | The starting position of the items to be retrieved. (optional) 
-            var sortBy = some text;  // string? | Specifies the field by which the folder content should be sorted. (optional) 
+            var withoutTrash = false;  // bool? | Specifies whether to return the Trash section or not. (optional) 
+            var count = 25;  // int? | The maximum number of items to retrieve in the response. (optional) 
+            var startIndex = 0;  // int? | The starting position of the items to be retrieved. (optional) 
+            var sortBy = DateAndTime;  // string? | Specifies the field by which the folder content should be sorted. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterValue = some text;  // string? | The text used as a filter for searching or retrieving folder contents. (optional) 
+            var filterValue = My Document;  // string? | The text used as a filter for searching or retrieving folder contents. (optional) 
 
             try
             {
@@ -2411,14 +2411,14 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FoldersApi(httpClient, config, httpClientHandler);
-            var userIdOrGroupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The user or group ID. (optional) 
+            var userIdOrGroupId = 00000000-0000-0000-0000-000000000000;  // Guid? | The user or group ID. (optional) 
             var filterType = new FilterType?(); // FilterType? | The filter type. (optional) 
             var applyFilterOption = new ApplyFilterOption?(); // ApplyFilterOption? | Specifies whether to return only files, only folders or all elements. (optional) 
-            var count = 1234;  // int? | The maximum number of items to retrieve in the response. (optional) 
-            var startIndex = 1234;  // int? | The starting position of the items to be retrieved. (optional) 
-            var sortBy = some text;  // string? | The property used to specify the sorting criteria for folder contents. (optional) 
+            var count = 25;  // int? | The maximum number of items to retrieve in the response. (optional) 
+            var startIndex = 0;  // int? | The starting position of the items to be retrieved. (optional) 
+            var sortBy = DateAndTime;  // string? | The property used to specify the sorting criteria for folder contents. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterValue = some text;  // string? | The text used for filtering or searching folder contents. (optional) 
+            var filterValue = My Document;  // string? | The text used for filtering or searching folder contents. (optional) 
 
             try
             {

@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -75,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The root folder ID of the file entry.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "rootFolderId", EmitDefaultValue = false)]
         public int RootFolderId { get; set; }
@@ -85,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The origin ID of the file entry.</value>
         /*
-        <example>1234</example>
+        <example>12</example>
         */
         [DataMember(Name = "originId", EmitDefaultValue = false)]
         public int OriginId { get; set; }
@@ -95,7 +108,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The origin room ID of the file entry.</value>
         /*
-        <example>1234</example>
+        <example>22</example>
         */
         [DataMember(Name = "originRoomId", EmitDefaultValue = false)]
         public int OriginRoomId { get; set; }
@@ -105,7 +118,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The origin title of the file entry.</value>
         /*
-        <example>some text</example>
+        <example>Original Title</example>
         */
         [DataMember(Name = "originTitle", EmitDefaultValue = true)]
         public string OriginTitle { get; set; }
@@ -115,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The origin room title of the file entry.</value>
         /*
-        <example>some text</example>
+        <example>Original Room</example>
         */
         [DataMember(Name = "originRoomTitle", EmitDefaultValue = true)]
         public string OriginRoomTitle { get; set; }
@@ -153,7 +166,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The request token of the file entry.</value>
         /*
-        <example>some text</example>
+        <example>token-abc-123</example>
         */
         [DataMember(Name = "requestToken", EmitDefaultValue = true)]
         public string RequestToken { get; set; }
@@ -163,7 +176,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the folder can be accessed via an external link or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "external", EmitDefaultValue = true)]
         public bool? External { get; set; }
@@ -179,7 +192,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Indicates whether the shareable link associated with the file or folder has expired.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isLinkExpired", EmitDefaultValue = true)]
         public bool? IsLinkExpired { get; set; }
@@ -216,7 +229,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     
 

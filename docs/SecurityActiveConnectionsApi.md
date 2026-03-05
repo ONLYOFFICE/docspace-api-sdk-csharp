@@ -176,7 +176,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ActiveConnectionsApi(httpClient, config, httpClientHandler);
-            var loginEventId = 1;  // int | The ID of the specific login event.
+            var loginEventId = 12345;  // int | The ID of the specific login event.
 
             try
             {

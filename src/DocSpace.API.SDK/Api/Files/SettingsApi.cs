@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Files
@@ -347,8 +354,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
-        /// <returns>ModuleWrapper</returns>
-        ModuleWrapper GetFilesModule();
+        /// <returns>BooleanWrapper</returns>
+        BooleanWrapper GetFilesModule();
 
         /// <summary>
         /// Get the Documents information
@@ -358,8 +365,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
-        /// <returns>ApiResponse of ModuleWrapper</returns>
-        ApiResponse<ModuleWrapper> GetFilesModuleWithHttpInfo();
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        ApiResponse<BooleanWrapper> GetFilesModuleWithHttpInfo();
         /// <summary>
         /// Get file settings
         /// </summary>
@@ -413,8 +420,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
-        /// <returns>ModuleWrapper</returns>
-        ModuleWrapper HideConfirmConvert(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default);
+        /// <returns>BooleanWrapper</returns>
+        BooleanWrapper HideConfirmConvert(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default);
 
         /// <summary>
         /// Hide the confirmation dialog when converting
@@ -425,8 +432,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
-        /// <returns>ApiResponse of ModuleWrapper</returns>
-        ApiResponse<ModuleWrapper> HideConfirmConvertWithHttpInfo(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default);
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        ApiResponse<BooleanWrapper> HideConfirmConvertWithHttpInfo(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default);
         /// <summary>
         /// Hide confirmation dialog when changing room lifetime settings
         /// </summary>
@@ -1017,8 +1024,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
-        /// <returns>Task of ModuleWrapper</returns>
-        Task<ModuleWrapper> GetFilesModuleAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of BooleanWrapper</returns>
+        Task<BooleanWrapper> GetFilesModuleAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the Documents information
@@ -1029,8 +1036,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
-        /// <returns>Task of ApiResponse (ModuleWrapper)</returns>
-        Task<ApiResponse<ModuleWrapper>> GetFilesModuleWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        Task<ApiResponse<BooleanWrapper>> GetFilesModuleWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get file settings
         /// </summary>
@@ -1089,8 +1096,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
-        /// <returns>Task of ModuleWrapper</returns>
-        Task<ModuleWrapper> HideConfirmConvertAsync(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of BooleanWrapper</returns>
+        Task<BooleanWrapper> HideConfirmConvertAsync(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Hide the confirmation dialog when converting
@@ -1102,8 +1109,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
-        /// <returns>Task of ApiResponse (ModuleWrapper)</returns>
-        Task<ApiResponse<ModuleWrapper>> HideConfirmConvertWithHttpInfoAsync(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        Task<ApiResponse<BooleanWrapper>> HideConfirmConvertWithHttpInfoAsync(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Hide confirmation dialog when changing room lifetime settings
         /// </summary>
@@ -4051,8 +4058,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
-        /// <returns>ModuleWrapper</returns>
-        public ModuleWrapper GetFilesModule()
+        /// <returns>BooleanWrapper</returns>
+        public BooleanWrapper GetFilesModule()
         {
             var localVarResponse = GetFilesModuleWithHttpInfo();
             return localVarResponse.Data;
@@ -4066,8 +4073,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
-        /// <returns>ApiResponse of ModuleWrapper</returns>
-        public ApiResponse<ModuleWrapper> GetFilesModuleWithHttpInfo()
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        public ApiResponse<BooleanWrapper> GetFilesModuleWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4115,7 +4122,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ModuleWrapper>("/api/2.0/files/info", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<BooleanWrapper>("/api/2.0/files/info", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -4138,8 +4145,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
-        /// <returns>Task of ModuleWrapper</returns>
-        public async Task<ModuleWrapper> GetFilesModuleAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of BooleanWrapper</returns>
+        public async Task<BooleanWrapper> GetFilesModuleAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetFilesModuleWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4154,8 +4161,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-files-module/">REST API Reference for GetFilesModule Operation</seealso>
-        /// <returns>Task of ApiResponse (ModuleWrapper)</returns>
-        public async Task<ApiResponse<ModuleWrapper>> GetFilesModuleWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        public async Task<ApiResponse<BooleanWrapper>> GetFilesModuleWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4205,7 +4212,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ModuleWrapper>("/api/2.0/files/info", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<BooleanWrapper>("/api/2.0/files/info", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -4526,8 +4533,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
-        /// <returns>ModuleWrapper</returns>
-        public ModuleWrapper HideConfirmConvert(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default)
+        /// <returns>BooleanWrapper</returns>
+        public BooleanWrapper HideConfirmConvert(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default)
         {
             var localVarResponse = HideConfirmConvertWithHttpInfo(hideConfirmConvertRequestDto);
             return localVarResponse.Data;
@@ -4542,8 +4549,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
-        /// <returns>ApiResponse of ModuleWrapper</returns>
-        public ApiResponse<ModuleWrapper> HideConfirmConvertWithHttpInfo(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default)
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        public ApiResponse<BooleanWrapper> HideConfirmConvertWithHttpInfo(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4592,7 +4599,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<ModuleWrapper>("/api/2.0/files/hideconfirmconvert", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<BooleanWrapper>("/api/2.0/files/hideconfirmconvert", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -4616,8 +4623,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
-        /// <returns>Task of ModuleWrapper</returns>
-        public async Task<ModuleWrapper> HideConfirmConvertAsync(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of BooleanWrapper</returns>
+        public async Task<BooleanWrapper> HideConfirmConvertAsync(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await HideConfirmConvertWithHttpInfoAsync(hideConfirmConvertRequestDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -4633,8 +4640,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="hideConfirmConvertRequestDto">The request parameters for hiding the confirmation dialog when converting. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/hide-confirm-convert/">REST API Reference for HideConfirmConvert Operation</seealso>
-        /// <returns>Task of ApiResponse (ModuleWrapper)</returns>
-        public async Task<ApiResponse<ModuleWrapper>> HideConfirmConvertWithHttpInfoAsync(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        public async Task<ApiResponse<BooleanWrapper>> HideConfirmConvertWithHttpInfoAsync(HideConfirmConvertRequestDto? hideConfirmConvertRequestDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4685,7 +4692,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<ModuleWrapper>("/api/2.0/files/hideconfirmconvert", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<BooleanWrapper>("/api/2.0/files/hideconfirmconvert", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

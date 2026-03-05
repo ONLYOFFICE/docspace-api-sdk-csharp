@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -55,7 +68,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room ID.</value>
         /*
-        <example>1</example>
+        <example>456</example>
         */
         [DataMember(Name = "roomId", IsRequired = true, EmitDefaultValue = true)]
         public int RoomId { get; set; }
@@ -65,7 +78,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The progress of creating a room from the template.</value>
         /*
-        <example>-8.5</example>
+        <example>50.0</example>
         */
         [DataMember(Name = "progress", IsRequired = true, EmitDefaultValue = true)]
         public double Progress { get; set; }
@@ -75,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The error message that is sent when a room is not created successfully from the template.</value>
         /*
-        <example>some text</example>
+        <example>Room creation failed</example>
         */
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
@@ -85,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether the process of creating a room from the template is completed.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isCompleted", IsRequired = true, EmitDefaultValue = true)]
         public bool IsCompleted { get; set; }
@@ -112,7 +125,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

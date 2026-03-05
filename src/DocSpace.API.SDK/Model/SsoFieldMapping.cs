@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -49,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The first name.</value>
         /*
-        <example>John</example>
+        <example>givenName</example>
         */
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
@@ -59,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The last name.</value>
         /*
-        <example>Doe</example>
+        <example>sn</example>
         */
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
@@ -69,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The email address.</value>
         /*
-        <example>example@onlyoffice.com</example>
+        <example>sn@example.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -79,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The title.</value>
         /*
-        <example>SampleFile</example>
+        <example>SN</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -89,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The location.</value>
         /*
-        <example>001 Schroeder Run, New Tabithaport, Colombia</example>
+        <example>Location</example>
         */
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
@@ -99,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The phone number.</value>
         /*
-        <example>some text</example>
+        <example>+14155552671</example>
         */
         [DataMember(Name = "phone", EmitDefaultValue = true)]
         public string Phone { get; set; }
@@ -128,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

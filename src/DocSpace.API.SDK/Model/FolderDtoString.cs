@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -143,7 +156,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The new element index in the folder.</value>
         /*
-        <example>1234</example>
+        <example>0</example>
         */
         [DataMember(Name = "new", EmitDefaultValue = false)]
         public int New { get; set; }
@@ -153,7 +166,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the folder notifications are enabled or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "mute", EmitDefaultValue = true)]
         public bool Mute { get; set; }
@@ -163,7 +176,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tags of the folder.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[&quot;tag1&quot;,&quot;tag2&quot;]</example>
         */
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
@@ -179,7 +192,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the folder is pinned or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "pinned", EmitDefaultValue = true)]
         public bool Pinned { get; set; }
@@ -189,7 +202,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the folder is private or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "private", EmitDefaultValue = true)]
         public bool Private { get; set; }
@@ -209,7 +222,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the folder can be downloaded or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool DenyDownload { get; set; }
@@ -231,7 +244,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the folder is placed in the room or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "inRoom", EmitDefaultValue = true)]
         public bool? InRoom { get; set; }
@@ -241,7 +254,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The folder quota limit.</value>
         /*
-        <example>1234</example>
+        <example>1073741824</example>
         */
         [DataMember(Name = "quotaLimit", EmitDefaultValue = true)]
         public long? QuotaLimit { get; set; }
@@ -251,7 +264,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the folder room has a custom quota or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isCustomQuota", EmitDefaultValue = true)]
         public bool? IsCustomQuota { get; set; }
@@ -261,7 +274,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>How much folder space is used (counter).</value>
         /*
-        <example>1234</example>
+        <example>524288000</example>
         */
         [DataMember(Name = "usedSpace", EmitDefaultValue = true)]
         public long? UsedSpace { get; set; }
@@ -271,7 +284,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the folder is password protected or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "passwordProtected", EmitDefaultValue = true)]
         public bool? PasswordProtected { get; set; }
@@ -281,7 +294,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if an external link to the folder is expired or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "expired", EmitDefaultValue = true)]
         [Obsolete]
@@ -335,7 +348,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     
 

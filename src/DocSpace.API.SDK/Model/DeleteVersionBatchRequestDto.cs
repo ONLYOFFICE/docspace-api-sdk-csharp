@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -28,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteVersionBatchRequestDto" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
+        [JsonConstructor]
         protected DeleteVersionBatchRequestDto() { }
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteVersionBatchRequestDto" /> class.
@@ -53,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to delete a file after the editing session is finished or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]
         public bool DeleteAfter { get; set; }
@@ -73,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of file versions to be deleted.</value>
         /*
-        <example>[1234]</example>
+        <example>[1,2,3]</example>
         */
         [DataMember(Name = "versions", IsRequired = true, EmitDefaultValue = true)]
         public List<int> Versions { get; set; }
@@ -99,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     
 

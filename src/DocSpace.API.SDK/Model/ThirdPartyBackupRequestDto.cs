@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -49,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The connection URL for the sharepoint.</value>
         /*
-        <example>some text</example>
+        <example>https://sharepoint.example.com</example>
         */
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
@@ -59,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The login.</value>
         /*
-        <example>some text</example>
+        <example>admin</example>
         */
         [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; set; }
@@ -69,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The password.</value>
         /*
-        <example>P@ssw0rd123</example>
+        <example>P@ssw0rd</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
@@ -79,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The authentication token.</value>
         /*
-        <example>some text</example>
+        <example>abc123def456</example>
         */
         [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
@@ -89,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The customer title.</value>
         /*
-        <example>some text</example>
+        <example>My Cloud Storage</example>
         */
         [DataMember(Name = "customerTitle", EmitDefaultValue = true)]
         public string CustomerTitle { get; set; }
@@ -99,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The provider key.</value>
         /*
-        <example>some text</example>
+        <example>SharePoint</example>
         */
         [DataMember(Name = "providerKey", EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
@@ -128,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

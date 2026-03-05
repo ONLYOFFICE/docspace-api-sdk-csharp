@@ -297,7 +297,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UsersApi(httpClient, config, httpClientHandler);
-            var employeeType = (EmployeeType) "All";  // EmployeeType | The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).
+            var employeeType = 1;  // EmployeeType | The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).
 
             try
             {
@@ -409,7 +409,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UsersApi(httpClient, config, httpClientHandler);
-            var employeeType = (EmployeeType) "All";  // EmployeeType | The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).
+            var employeeType = 1;  // EmployeeType | The type of employee role for the invitation link (DocSpaceAdmin, RoomAdmin or User).
 
             try
             {
@@ -828,8 +828,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UsersApi(httpClient, config, httpClientHandler);
-            var userid = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The user ID to receive the congratulatory message.
-            var key = some text;  // string | The template identifier or email configuration key.
+            var userid = 00000000-0000-0000-0000-000000000000;  // Guid | The user ID to receive the congratulatory message.
+            var key = birthday;  // string | The template identifier or email configuration key.
 
             try
             {

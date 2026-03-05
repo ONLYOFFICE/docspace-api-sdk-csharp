@@ -406,7 +406,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UserTypeApi(httpClient, config, httpClientHandler);
-            var type = (EmployeeType) "All";  // EmployeeType | The new user type.
+            var type = 1;  // EmployeeType | The new user type.
             var updateMembersRequestDto = new UpdateMembersRequestDto(); // UpdateMembersRequestDto | The request parameters for updating the user information.
 
             try

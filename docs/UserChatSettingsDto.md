@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.UserChatSettingsDto
+The user chat settings.
 
 ## Properties
 

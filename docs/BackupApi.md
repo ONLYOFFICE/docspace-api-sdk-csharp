@@ -300,7 +300,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
-            var id = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The backup ID.
+            var id = 00000000-0000-0000-0000-000000000000;  // Guid | The backup ID.
 
             try
             {
@@ -980,9 +980,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
-            var from = 2008-04-10T06:30+04:00;  // DateTime? | The from date. (optional) 
-            var to = 2008-04-10T06:30+04:00;  // DateTime? | The to date. (optional) 
-            var paid = true;  // bool? | Specifies if the backups are paid or not. (optional) 
+            var from = 2025-01-01T00:00Z;  // DateTime? | The from date. (optional) 
+            var to = 2025-12-31T23:59:59Z;  // DateTime? | The to date. (optional) 
+            var paid = false;  // bool? | Specifies if the backups are paid or not. (optional) 
 
             try
             {
@@ -1187,7 +1187,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new BackupApi(httpClient, config, httpClientHandler);
-            var dump = true;  // bool? | Specifies if a dump will be created or not. (optional) 
+            var dump = false;  // bool? | Specifies if a dump will be created or not. (optional) 
 
             try
             {

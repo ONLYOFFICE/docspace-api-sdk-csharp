@@ -176,7 +176,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new NotificationsApi(httpClient, config, httpClientHandler);
-            var type = (NotificationType) "0";  // NotificationType | The type of notification to query, specified in the route.
+            var type = 0;  // NotificationType | The type of notification to query, specified in the route.
 
             try
             {

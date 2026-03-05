@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -43,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The name of the user the document will be shared with.</value>
         /*
-        <example>some text</example>
+        <example>John Doe</example>
         */
         [DataMember(Name = "user", EmitDefaultValue = true)]
         public string User { get; set; }
@@ -53,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The access rights for the user with the name above.  Can be Full Access, Read Only, or Deny Access.</value>
         /*
-        <example>some text</example>
+        <example>Full Access</example>
         */
         [DataMember(Name = "permissions", EmitDefaultValue = true)]
         public string Permissions { get; set; }
@@ -63,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to change the user icon to the link icon.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isLink", EmitDefaultValue = true)]
         public bool IsLink { get; set; }
@@ -89,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

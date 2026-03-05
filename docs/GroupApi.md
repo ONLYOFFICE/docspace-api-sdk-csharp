@@ -649,12 +649,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
             var userId = 00000000-0000-0000-0000-000000000000;  // Guid? | The user ID. (optional) 
-            var manager = true;  // bool? | Specifies if the user is a manager or not. (optional) 
-            var count = 1234;  // int? | The number of records to retrieve. (optional) 
-            var startIndex = 1234;  // int? | The starting index for paginated results. (optional) 
-            var sortBy = some text;  // string? | Specifies the property used to sort the query results. (optional) 
+            var manager = false;  // bool? | Specifies if the user is a manager or not. (optional) 
+            var count = 25;  // int? | The number of records to retrieve. (optional) 
+            var startIndex = 0;  // int? | The starting index for paginated results. (optional) 
+            var sortBy = displayName;  // string? | Specifies the property used to sort the query results. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterValue = some text;  // string? | The text used for filtering or searching group data. (optional) 
+            var filterValue = John;  // string? | The text used for filtering or searching group data. (optional) 
 
             try
             {
@@ -767,8 +767,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GroupApi(httpClient, config, httpClientHandler);
-            var fromId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID to move from.
-            var toId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid | The group ID to move to.
+            var fromId = 00000000-0000-0000-0000-000000000000;  // Guid | The group ID to move from.
+            var toId = 11111111-1111-1111-1111-111111111111;  // Guid | The group ID to move to.
 
             try
             {

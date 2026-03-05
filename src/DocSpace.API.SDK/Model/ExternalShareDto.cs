@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -96,7 +109,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The external data ID.</value>
         /*
-        <example>1</example>
+        <example>123</example>
         */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
@@ -106,7 +119,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The external data title.</value>
         /*
-        <example>SampleFile</example>
+        <example>Shared Document</example>
         */
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -116,7 +129,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant ID.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "tenantId", IsRequired = true, EmitDefaultValue = true)]
         public int TenantId { get; set; }
@@ -126,7 +139,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The unique identifier of the shared entity.</value>
         /*
-        <example>some text</example>
+        <example>456</example>
         */
         [DataMember(Name = "entityId", EmitDefaultValue = true)]
         public string EntityId { get; set; }
@@ -136,7 +149,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The title of the shared entity.</value>
         /*
-        <example>some text</example>
+        <example>Entity Title</example>
         */
         [DataMember(Name = "entityTitle", EmitDefaultValue = true)]
         public string EntityTitle { get; set; }
@@ -146,7 +159,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Indicates whether the entity represents a room.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isRoom", EmitDefaultValue = true)]
         public bool? IsRoom { get; set; }
@@ -166,7 +179,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The link ID of the external data.</value>
         /*
-        <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "linkId", IsRequired = true, EmitDefaultValue = true)]
         public Guid LinkId { get; set; }
@@ -186,7 +199,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room ID of the external data.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isRoomMember", EmitDefaultValue = true)]
         public bool IsRoomMember { get; set; }
@@ -222,7 +235,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

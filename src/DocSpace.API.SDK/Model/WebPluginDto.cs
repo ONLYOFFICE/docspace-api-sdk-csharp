@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -145,7 +158,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The web plugin name.</value>
         /*
-        <example>John Doe</example>
+        <example>Example Plugin</example>
         */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
@@ -155,7 +168,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The web plugin version.</value>
         /*
-        <example>some text</example>
+        <example>1.0.0</example>
         */
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
         public string @Version { get; set; }
@@ -165,7 +178,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The minimum version of DocSpace with which the plugin is guaranteed to work.</value>
         /*
-        <example>some text</example>
+        <example>12.0.0</example>
         */
         [DataMember(Name = "minDocSpaceVersion", EmitDefaultValue = true)]
         public string MinDocSpaceVersion { get; set; }
@@ -175,7 +188,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The web plugin description.</value>
         /*
-        <example>some text</example>
+        <example>A plugin that provides additional functionality</example>
         */
         [DataMember(Name = "description", IsRequired = true, EmitDefaultValue = true)]
         public string Description { get; set; }
@@ -185,7 +198,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The web plugin license.</value>
         /*
-        <example>some text</example>
+        <example>MIT</example>
         */
         [DataMember(Name = "license", IsRequired = true, EmitDefaultValue = true)]
         public string License { get; set; }
@@ -195,7 +208,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The web plugin author.</value>
         /*
-        <example>some text</example>
+        <example>ONLYOFFICE</example>
         */
         [DataMember(Name = "author", IsRequired = true, EmitDefaultValue = true)]
         public string Author { get; set; }
@@ -205,7 +218,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The web plugin home page URL.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com</example>
         */
         [DataMember(Name = "homePage", IsRequired = true, EmitDefaultValue = true)]
         public string HomePage { get; set; }
@@ -215,7 +228,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The name by which the web plugin is registered in the window object.</value>
         /*
-        <example>some text</example>
+        <example>examplePlugin</example>
         */
         [DataMember(Name = "pluginName", IsRequired = true, EmitDefaultValue = true)]
         public string PluginName { get; set; }
@@ -225,7 +238,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The web plugin scopes.</value>
         /*
-        <example>some text</example>
+        <example>Files,Rooms</example>
         */
         [DataMember(Name = "scopes", IsRequired = true, EmitDefaultValue = true)]
         public string Scopes { get; set; }
@@ -235,7 +248,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The web plugin image.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/image.png</example>
         */
         [DataMember(Name = "image", IsRequired = true, EmitDefaultValue = true)]
         public string Image { get; set; }
@@ -251,7 +264,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the web plugin was created.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-01-15T10:30Z</example>
         */
         [DataMember(Name = "createOn", IsRequired = true, EmitDefaultValue = true)]
         public DateTime CreateOn { get; set; }
@@ -271,7 +284,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the web plugin is system or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "system", IsRequired = true, EmitDefaultValue = true)]
         public bool System { get; set; }
@@ -281,7 +294,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The web plugin URL.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/plugin.js</example>
         */
         [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
         public string Url { get; set; }
@@ -291,7 +304,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The web plugin css URL.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/plugin.css</example>
         */
         [DataMember(Name = "cssUrl", IsRequired = true, EmitDefaultValue = true)]
         public string CssUrl { get; set; }
@@ -300,9 +313,6 @@ namespace DocSpace.API.SDK.Model
         /// The web plugin settings.
         /// </summary>
         /// <value>The web plugin settings.</value>
-        /*
-        <example>some text</example>
-        */
         [DataMember(Name = "settings", IsRequired = true, EmitDefaultValue = true)]
         public string Settings { get; set; }
 
@@ -310,9 +320,6 @@ namespace DocSpace.API.SDK.Model
         /// The web plugin localized name.
         /// </summary>
         /// <value>The web plugin localized name.</value>
-        /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
-        */
         [DataMember(Name = "nameLocale", EmitDefaultValue = true)]
         public Dictionary<string, string> NameLocale { get; set; }
 
@@ -320,9 +327,6 @@ namespace DocSpace.API.SDK.Model
         /// The web plugin localized description.
         /// </summary>
         /// <value>The web plugin localized description.</value>
-        /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
-        */
         [DataMember(Name = "descriptionLocale", EmitDefaultValue = true)]
         public Dictionary<string, string> DescriptionLocale { get; set; }
 
@@ -363,7 +367,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

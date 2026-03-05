@@ -426,7 +426,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var backUrl = some text;  // string? | The URL where the user will be redirected after completing the setup. (optional) 
+            var backUrl = https://example.com/setup/complete;  // string? | The URL where the user will be redirected after completing the setup. (optional) 
 
             try
             {
@@ -771,13 +771,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var startDate = 2008-04-10T06:30+04:00;  // DateTime? | The report start date. (optional) 
-            var endDate = 2008-04-10T06:30+04:00;  // DateTime? | The report end date. (optional) 
-            var participantName = some text;  // string? | The participant name. (optional) 
+            var startDate = 2024-01-01T00:00Z;  // DateTime? | The report start date. (optional) 
+            var endDate = 2024-01-31T23:59:59Z;  // DateTime? | The report end date. (optional) 
+            var participantName = ACME Corp;  // string? | The participant name. (optional) 
             var credit = true;  // bool? | Specifies whether to include credit operations in the report. The default value is true. (optional) 
             var debit = true;  // bool? | Specifies whether to include debit operations in the report. The default value is true. (optional) 
-            var offset = 1234;  // int? | The number of items to skip for pagination. The default value is 0. (optional) 
-            var limit = 1234;  // int? | The maximum number of items to return for pagination. The default value is 25. (optional) 
+            var offset = 0;  // int? | The number of items to skip for pagination. The default value is 0. (optional) 
+            var limit = 25;  // int? | The maximum number of items to return for pagination. The default value is 25. (optional) 
 
             try
             {
@@ -997,7 +997,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var backUrl = some text;  // string? | The URL where the user will be redirected after payment processing. (optional) 
+            var backUrl = https://example.com/payment/success;  // string? | The URL where the user will be redirected after payment processing. (optional) 
 
             try
             {
@@ -1878,7 +1878,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var service = (TenantWalletService) "-14";  // TenantWalletService | The wallet service type.
+            var service = Storage;  // TenantWalletService | The wallet service type.
 
             try
             {

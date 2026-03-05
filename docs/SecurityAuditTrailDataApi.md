@@ -189,16 +189,16 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuditTrailDataApi(httpClient, config, httpClientHandler);
-            var userId = 00000000-0000-0000-0000-000000000000;  // Guid? | The ID of the user who triggered the audit event. (optional) 
+            var userId = 00000000-0000-0000-0000-000000000001;  // Guid? | The ID of the user who triggered the audit event. (optional) 
             var moduleType = new LocationType?(); // LocationType? | The location where the audit event occurred. (optional) 
             var actionType = new ActionType?(); // ActionType? | The type of action performed in the audit event (e.g., Create, Update, Delete). (optional) 
             var action = new MessageAction?(); // MessageAction? | The specific action that occurred within the audit event. (optional) 
             var entryType = new EntryType?(); // EntryType? | The type of audit entry (e.g., Folder, User, File). (optional) 
-            var target = some text;  // string? | The target object affected by the audit event (e.g., document ID, user account). (optional) 
+            var target = document.docx;  // string? | The target object affected by the audit event (e.g., document ID, user account). (optional) 
             var from = new ApiDateTime?(); // ApiDateTime? | The starting date and time for filtering audit events. (optional) 
             var to = new ApiDateTime?(); // ApiDateTime? | The ending date and time for filtering audit events. (optional) 
-            var count = 1234;  // int? | The maximum number of audit event records to retrieve. (optional) 
-            var startIndex = 1234;  // int? | The index of the first audit event record to retrieve in a paged query. (optional) 
+            var count = 100;  // int? | The maximum number of audit event records to retrieve. (optional) 
+            var startIndex = 0;  // int? | The index of the first audit event record to retrieve in a paged query. (optional) 
 
             try
             {

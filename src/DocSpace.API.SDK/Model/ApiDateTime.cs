@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -22,7 +35,7 @@ namespace DocSpace.API.SDK.Model
     /// The API date and time parameters.
     /// </summary>
     [DataContract(Name = "ApiDateTime")]
-    [System.Text.Json.Serialization.JsonConverter(typeof(ApiDateTimeConverter))]
+    [JsonConverter(typeof(ApiDateTimeConverter))]
     public partial class ApiDateTime : IValidatableObject
     {
     
@@ -41,7 +54,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The time in UTC format.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2018-01-01T00:00Z</example>
         */
         [DataMember(Name = "utcTime", EmitDefaultValue = false)]
         public DateTime UtcTime { get; set; }
@@ -76,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -93,27 +106,28 @@ namespace DocSpace.API.SDK.Model
 
     public class ApiDateTimeConverter : JsonConverter<ApiDateTime>
     {
-        public override ApiDateTime Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override ApiDateTime ReadJson(JsonReader reader, Type objectType, ApiDateTime existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
-            var jsonString = reader.GetString();
+            if (reader.TokenType == JsonToken.Null)
+            {
+                return null;
+            }
 
-            if (DateTimeOffset.TryParse(jsonString, out var dateTimeOffset))
-            {
-                return new ApiDateTime
-                {
-                    UtcTime = dateTimeOffset.UtcDateTime,
-                    TimeZoneOffset = dateTimeOffset.Offset.ToString()
-                };
-            }
-            else
-            {
-                throw new JsonException($"Unable to parse datetime: {jsonString}");
-            }
+            var jsonString = reader.Value?.ToString();
+
+            return DateTimeOffset.TryParse(jsonString, out var dateTimeOffset) ? new ApiDateTime { UtcTime = dateTimeOffset.UtcDateTime, TimeZoneOffset = dateTimeOffset.Offset.ToString()}
+                : throw new JsonSerializationException($"Unable to parse datetime: {jsonString}");
         }
 
-        public override void Write(Utf8JsonWriter writer, ApiDateTime value, JsonSerializerOptions options)
+        public override void WriteJson(JsonWriter writer, ApiDateTime value, JsonSerializer serializer)
         {
-            writer.WriteStringValue(value.UtcTime.ToString("o"));
+            if (value == null)
+            {
+                writer.WriteNull();
+                return;
+            }
+
+            writer.WriteValue(value.UtcTime.ToString("o"));
         }
     }
 

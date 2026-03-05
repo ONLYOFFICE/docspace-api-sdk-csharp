@@ -668,7 +668,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file ID.
-            var fileSize = 1234;  // long? | The file size in bytes. (optional) 
+            var fileSize = 1024;  // long? | The file size in bytes. (optional) 
 
             try
             {
@@ -2108,7 +2108,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file ID.
-            var version = 1234;  // int? | The file version. (optional) 
+            var version = 1;  // int? | The file version. (optional) 
 
             try
             {
@@ -2321,8 +2321,8 @@ namespace Example
             var fileId = 1;  // int | The file ID of the history request.
             var fromDate = new ApiDateTime?(); // ApiDateTime? | The start date of the history. (optional) 
             var toDate = new ApiDateTime?(); // ApiDateTime? | The end date of the history. (optional) 
-            var count = 1234;  // int? | The number of history entries to retrieve for the file log. (optional) 
-            var startIndex = 1234;  // int? | The starting index for retrieving a subset of file history entries. (optional) 
+            var count = 25;  // int? | The number of history entries to retrieve for the file log. (optional) 
+            var startIndex = 0;  // int? | The starting index for retrieving a subset of file history entries. (optional) 
 
             try
             {
@@ -2422,7 +2422,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file ID.
-            var version = 1234;  // int? | The file version. (optional) 
+            var version = 1;  // int? | The file version. (optional) 
 
             try
             {
@@ -2535,9 +2535,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The file unique identifier.
-            var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
-            var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
+            var id = 10;  // int | The file unique identifier.
+            var count = 25;  // int? | The number of items to retrieve in the request. (optional) 
+            var startIndex = 0;  // int? | The starting index for the query results. (optional) 
 
             try
             {
@@ -2635,9 +2635,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The file unique identifier.
-            var count = 1234;  // int? | The number of items to retrieve in the request. (optional) 
-            var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
+            var id = 10;  // int | The file unique identifier.
+            var count = 25;  // int? | The number of items to retrieve in the request. (optional) 
+            var startIndex = 0;  // int? | The starting index for the query results. (optional) 
 
             try
             {
@@ -2828,7 +2828,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
-            var fillingSessionId = some text;  // string? | The form-filling session ID. (optional) 
+            var fillingSessionId = doc_key_123;  // string? | The form-filling session ID. (optional) 
 
             try
             {
@@ -3827,11 +3827,11 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file ID to open.
-            var version = 1234;  // int? | The file version to open. (optional) 
-            var view = true;  // bool? | Specifies if the document will be opened for viewing only or not. (optional) 
+            var version = 1;  // int? | The file version to open. (optional) 
+            var view = false;  // bool? | Specifies if the document will be opened for viewing only or not. (optional) 
             var editorType = new EditorType?(); // EditorType? | The editor type to open the file. (optional) 
-            var edit = true;  // bool? | Specifies if the document is opened in the editing mode or not. (optional) 
-            var fill = true;  // bool? | Specifies if the document is opened in the form-filling mode or not. (optional) 
+            var edit = false;  // bool? | Specifies if the document is opened in the editing mode or not. (optional) 
+            var fill = false;  // bool? | Specifies if the document is opened in the form-filling mode or not. (optional) 
 
             try
             {
@@ -3930,8 +3930,8 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file ID of the restore version.
-            var version = 1234;  // int? | The file version of the restore. (optional) 
-            var url = some text;  // string? | The file version URL of the restore. (optional) 
+            var version = 1;  // int? | The file version of the restore. (optional) 
+            var url = https://example.com;  // string? | The file version URL of the restore. (optional) 
 
             try
             {
@@ -3987,7 +3987,7 @@ catch (ApiException e)
 
 <a id="saveeditingfilefromform"></a>
 # **SaveEditingFileFromForm**
-> FileIntegerWrapper SaveEditingFileFromForm (int fileId, string? fileExtension = null, string? downloadUri = null, FileParameter? file = null, bool? forcesave = null)
+> FileIntegerWrapper SaveEditingFileFromForm (int fileId, string? downloadUri = null, string? fileExtension = null, FileParameter? file = null, bool? forcesave = null)
 
 Saves edits to a file with the ID specified in the request.
 
@@ -3998,9 +3998,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **fileId** | **int** | The editing file ID from the request. |  |
-| **fileExtension** | **string?** | The editing file extension from the request. | [optional]  |
 | **downloadUri** | **string?** | The URI to download the editing file. | [optional]  |
-| **file** | **FileParameter?****FileParameter?** | The request file stream. | [optional]  |
+| **fileExtension** | **string?** | The editing file extension from the request. | [optional]  |
+| **file** | **FileParameter?****FileParameter?** | The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. | [optional]  |
 | **forcesave** | **bool?** | Specifies whether to force save the file or not. | [optional]  |
 
 ### Return type
@@ -4049,15 +4049,15 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The editing file ID from the request.
+            var downloadUri = https://example.com/file.txt;  // string? | The URI to download the editing file. (optional) 
             var fileExtension = "fileExtension_example";  // string? | The editing file extension from the request. (optional) 
-            var downloadUri = "downloadUri_example";  // string? | The URI to download the editing file. (optional) 
-            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | The request file stream. (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional) 
             var forcesave = true;  // bool? | Specifies whether to force save the file or not. (optional) 
 
             try
             {
                 // Save file edits
-                FileIntegerWrapper result = apiInstance.SaveEditingFileFromForm(fileId, fileExtension, downloadUri, file, forcesave);
+                FileIntegerWrapper result = apiInstance.SaveEditingFileFromForm(fileId, downloadUri, fileExtension, file, forcesave);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -4078,7 +4078,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Save file edits
-    ApiResponse<FileIntegerWrapper> response = apiInstance.SaveEditingFileFromFormWithHttpInfo(fileId, fileExtension, downloadUri, file, forcesave);
+    ApiResponse<FileIntegerWrapper> response = apiInstance.SaveEditingFileFromFormWithHttpInfo(fileId, downloadUri, fileExtension, file, forcesave);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -5162,8 +5162,8 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file ID to track editing changes.
-            var tabId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The tab ID to track editing changes. (optional) 
-            var docKeyForTrack = some text;  // string? | The document key for tracking changes. (optional) 
+            var tabId = 00000000-0000-0000-0000-000000000000;  // Guid? | The tab ID to track editing changes. (optional) 
+            var docKeyForTrack = abc123;  // string? | The document key for tracking changes. (optional) 
             var isFinish = true;  // bool? | Specifies whether to finish file tracking or not. (optional) 
 
             try

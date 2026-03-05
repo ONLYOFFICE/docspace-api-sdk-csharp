@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -49,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The authentication login.</value>
         /*
-        <example>some text</example>
+        <example>user@example.com</example>
         */
         [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; set; }
@@ -59,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The authentication password.</value>
         /*
-        <example>P@ssw0rd123</example>
+        <example>p@ssw0rd!</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
@@ -69,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The authentication raw token.</value>
         /*
-        <example>some text</example>
+        <example>{&quot;access_token&quot;:&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...&quot;,&quot;expires_in&quot;:3600}</example>
         */
         [DataMember(Name = "rawToken", EmitDefaultValue = true)]
         public string RawToken { get; set; }
@@ -79,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The authentication URL.</value>
         /*
-        <example>some text</example>
+        <example>https://auth.example.com</example>
         */
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
@@ -89,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The authentication provider.</value>
         /*
-        <example>some text</example>
+        <example>OAuth2</example>
         */
         [DataMember(Name = "provider", EmitDefaultValue = true)]
         public string Provider { get; set; }
@@ -124,7 +137,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

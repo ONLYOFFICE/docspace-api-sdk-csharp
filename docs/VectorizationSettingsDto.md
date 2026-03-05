@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.VectorizationSettingsDto
+The vectorization settings.
 
 ## Properties
 

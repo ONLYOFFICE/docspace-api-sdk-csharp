@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Files
@@ -915,13 +922,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper SaveEditingFileFromForm(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default);
+        FileIntegerWrapper SaveEditingFileFromForm(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default);
 
         /// <summary>
         /// Save file edits
@@ -931,13 +938,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> SaveEditingFileFromFormWithHttpInfo(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default);
+        ApiResponse<FileIntegerWrapper> SaveEditingFileFromFormWithHttpInfo(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default);
         /// <summary>
         /// Save a file as PDF
         /// </summary>
@@ -2186,14 +2193,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        Task<FileIntegerWrapper> SaveEditingFileFromFormAsync(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default);
+        Task<FileIntegerWrapper> SaveEditingFileFromFormAsync(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save file edits
@@ -2203,14 +2210,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        Task<ApiResponse<FileIntegerWrapper>> SaveEditingFileFromFormWithHttpInfoAsync(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileIntegerWrapper>> SaveEditingFileFromFormWithHttpInfoAsync(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Save a file as PDF
         /// </summary>
@@ -6311,11 +6318,25 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (fromDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
+                if (fromDate.UtcTime != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", fromDate.UtcTime));
+                }
+                if (fromDate.TimeZoneOffset != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", fromDate.TimeZoneOffset));
+                }
             }
             if (toDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+                if (toDate.UtcTime != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", toDate.UtcTime));
+                }
+                if (toDate.TimeZoneOffset != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", toDate.TimeZoneOffset));
+                }
             }
             if (count != null)
             {
@@ -9043,15 +9064,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper SaveEditingFileFromForm(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default)
+        public FileIntegerWrapper SaveEditingFileFromForm(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default)
         {
-            var localVarResponse = SaveEditingFileFromFormWithHttpInfo(fileId, fileExtension, downloadUri, file, forcesave);
+            var localVarResponse = SaveEditingFileFromFormWithHttpInfo(fileId, downloadUri, fileExtension, file, forcesave);
             return localVarResponse.Data;
         }
 
@@ -9063,13 +9084,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public ApiResponse<FileIntegerWrapper> SaveEditingFileFromFormWithHttpInfo(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default)
+        public ApiResponse<FileIntegerWrapper> SaveEditingFileFromFormWithHttpInfo(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -9085,13 +9106,13 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (downloadUri != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "DownloadUri", downloadUri));
+            }
             if (fileExtension != null)
             {
                 localVarRequestOptions.FormParameters.Add("FileExtension",ClientUtils.ParameterToString(fileExtension)); // form parameter
-            }
-            if (downloadUri != null)
-            {
-                localVarRequestOptions.FormParameters.Add("DownloadUri",ClientUtils.ParameterToString(downloadUri)); // form parameter
             }
             if (file != null)
             {
@@ -9156,16 +9177,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async Task<FileIntegerWrapper> SaveEditingFileFromFormAsync(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default)
+        public async Task<FileIntegerWrapper> SaveEditingFileFromFormAsync(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SaveEditingFileFromFormWithHttpInfoAsync(fileId, fileExtension, downloadUri, file, forcesave, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SaveEditingFileFromFormWithHttpInfoAsync(fileId, downloadUri, fileExtension, file, forcesave, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9177,14 +9198,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async Task<ApiResponse<FileIntegerWrapper>> SaveEditingFileFromFormWithHttpInfoAsync(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileIntegerWrapper>> SaveEditingFileFromFormWithHttpInfoAsync(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -9201,13 +9222,13 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (downloadUri != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "DownloadUri", downloadUri));
+            }
             if (fileExtension != null)
             {
                 localVarRequestOptions.FormParameters.Add("FileExtension", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(fileExtension)); // form parameter
-            }
-            if (downloadUri != null)
-            {
-                localVarRequestOptions.FormParameters.Add("DownloadUri", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(downloadUri)); // form parameter
             }
             if (file != null)
             {

@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -44,6 +57,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of folder IDs to be deleted.
         /// </summary>
         /// <value>The list of folder IDs to be deleted.</value>
+        /*
+        <example>[1,2,3]</example>
+        */
         [DataMember(Name = "folderIds", EmitDefaultValue = true)]
         public List<DeleteBatchRequestDtoAllOfFolderIds> FolderIds { get; set; }
 
@@ -51,6 +67,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of file IDs to be deleted.
         /// </summary>
         /// <value>The list of file IDs to be deleted.</value>
+        /*
+        <example>[1,2,3]</example>
+        */
         [DataMember(Name = "fileIds", EmitDefaultValue = true)]
         public List<DeleteBatchRequestDtoAllOfFileIds> FileIds { get; set; }
 
@@ -59,7 +78,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to delete a file after the editing session is finished or not</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "deleteAfter", EmitDefaultValue = true)]
         public bool DeleteAfter { get; set; }
@@ -69,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to move a file to the \\Trash\\ folder or delete it immediately.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "immediately", EmitDefaultValue = true)]
         public bool Immediately { get; set; }
@@ -96,7 +115,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     
 

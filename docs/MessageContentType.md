@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.MessageContentType
-[]
+[0 - Text, 1 - Tool, 2 - Attachment]
 
 ## Properties
 

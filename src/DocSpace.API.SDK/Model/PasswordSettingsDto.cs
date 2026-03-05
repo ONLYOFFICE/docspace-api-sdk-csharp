@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -78,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The minimum number of characters required for valid passwords.</value>
         /*
-        <example>1234</example>
+        <example>8</example>
         */
         [DataMember(Name = "minLength", IsRequired = true, EmitDefaultValue = true)]
         public int MinLength { get; set; }
@@ -108,7 +121,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether the password should contain the special symbols or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "specSymbols", IsRequired = true, EmitDefaultValue = true)]
         public bool SpecSymbols { get; set; }
@@ -118,7 +131,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The allowed password characters in the regex string format.</value>
         /*
-        <example>some text</example>
+        <example>^[a-zA-Z0-9!@#$%^&amp;*()]+$</example>
         */
         [DataMember(Name = "allowedCharactersRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string AllowedCharactersRegexStr { get; set; }
@@ -128,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The password digits in the regex string format.</value>
         /*
-        <example>some text</example>
+        <example>(?&#x3D;.*\\d)</example>
         */
         [DataMember(Name = "digitsRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string DigitsRegexStr { get; set; }
@@ -138,7 +151,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The password uppercase letters in the regex string format.</value>
         /*
-        <example>some text</example>
+        <example>(?&#x3D;.*[A-Z])</example>
         */
         [DataMember(Name = "upperCaseRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string UpperCaseRegexStr { get; set; }
@@ -148,7 +161,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The passaword special symbols in the regex string format.</value>
         /*
-        <example>some text</example>
+        <example>(?&#x3D;.*[!@#$%^&amp;*()])</example>
         */
         [DataMember(Name = "specSymbolsRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string SpecSymbolsRegexStr { get; set; }
@@ -179,7 +192,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

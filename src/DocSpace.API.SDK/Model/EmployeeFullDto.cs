@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -174,6 +187,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of user contacts.
         /// </summary>
         /// <value>The list of user contacts.</value>
+        /*
+        <example>[{&quot;type&quot;:&quot;email&quot;,&quot;value&quot;:&quot;user@example.com&quot;}]</example>
+        */
         [DataMember(Name = "contacts", EmitDefaultValue = true)]
         public List<Contact> Contacts { get; set; }
 
@@ -219,6 +235,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of user groups.
         /// </summary>
         /// <value>The list of user groups.</value>
+        /*
+        <example>[{&quot;id&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;name&quot;:&quot;Marketing&quot;}]</example>
+        */
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<GroupSummaryDto> Groups { get; set; }
 
@@ -257,7 +276,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user is a room administrator or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isRoomAdmin", EmitDefaultValue = true)]
         public bool IsRoomAdmin { get; set; }
@@ -277,7 +296,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the administrator modules.</value>
         /*
-        <example>[&quot;projects&quot;, &quot;crm&quot;]</example>
+        <example>[&quot;projects&quot;,&quot;crm&quot;]</example>
         */
         [DataMember(Name = "listAdminModules", EmitDefaultValue = true)]
         public List<string> ListAdminModules { get; set; }
@@ -287,7 +306,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user is a portal owner or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isOwner", EmitDefaultValue = true)]
         public bool IsOwner { get; set; }
@@ -297,7 +316,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user is a portal visitor or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isVisitor", EmitDefaultValue = true)]
         public bool IsVisitor { get; set; }
@@ -307,7 +326,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user is a portal collaborator or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isCollaborator", EmitDefaultValue = true)]
         public bool IsCollaborator { get; set; }
@@ -327,7 +346,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user mobile phone number.</value>
         /*
-        <example>some text</example>
+        <example>+1 (555) 123-4567</example>
         */
         [DataMember(Name = "mobilePhone", EmitDefaultValue = true)]
         public string MobilePhone { get; set; }
@@ -347,7 +366,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user quota limit.</value>
         /*
-        <example>1234</example>
+        <example>1073741824</example>
         */
         [DataMember(Name = "quotaLimit", EmitDefaultValue = true)]
         public long? QuotaLimit { get; set; }
@@ -367,7 +386,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user has access rights.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "shared", EmitDefaultValue = true)]
         public bool? Shared { get; set; }
@@ -377,7 +396,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user has a custom quota or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isCustomQuota", EmitDefaultValue = true)]
         public bool? IsCustomQuota { get; set; }
@@ -387,7 +406,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The current login event ID.</value>
         /*
-        <example>1234</example>
+        <example>123</example>
         */
         [DataMember(Name = "loginEventId", EmitDefaultValue = true)]
         public int? LoginEventId { get; set; }
@@ -397,7 +416,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The auth cookie lifetime in seconds.</value>
         /*
-        <example>-8.5</example>
+        <example>3600</example>
         */
         [DataMember(Name = "authCookieLifetime", EmitDefaultValue = true)]
         public double? AuthCookieLifetime { get; set; }
@@ -429,7 +448,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "tfaAppEnabled", EmitDefaultValue = true)]
         public bool? TfaAppEnabled { get; set; }
@@ -489,7 +508,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     
 

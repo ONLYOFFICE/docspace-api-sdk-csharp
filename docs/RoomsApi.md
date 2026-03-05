@@ -1014,7 +1014,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 1;  // string | The ID of the folder in the third-party storage in which the contents of the room will be stored.
+            var id = folder-123-abc;  // string | The ID of the folder in the third-party storage in which the contents of the room will be stored.
             var createThirdPartyRoom = new CreateThirdPartyRoom(); // CreateThirdPartyRoom | The third-party room information.
 
             try
@@ -1237,7 +1237,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The room ID.
+            var id = 10;  // int | The room ID.
             var deleteRoomRequest = new DeleteRoomRequest(); // DeleteRoomRequest | The parameters for deleting a room.
 
             try
@@ -2337,9 +2337,9 @@ namespace Example
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
             var id = 1;  // int | The room ID.
             var filterType = new ShareFilterType?(); // ShareFilterType? | The filter type of the access rights. (optional) 
-            var count = 1234;  // int? | The number of items to be retrieved or processed. (optional) 
-            var startIndex = 1234;  // int? | The starting index of the items to retrieve in a paginated request. (optional) 
-            var filterValue = some text;  // string? | The text filter value used for filtering room security information. (optional) 
+            var count = 25;  // int? | The number of items to be retrieved or processed. (optional) 
+            var startIndex = 0;  // int? | The starting index of the items to retrieve in a paginated request. (optional) 
+            var filterValue = Sample filter;  // string? | The text filter value used for filtering room security information. (optional) 
 
             try
             {
@@ -2453,9 +2453,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var count = 1234;  // int? | Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional) 
-            var startIndex = 1234;  // int? | Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional) 
-            var filterValue = some text;  // string? | Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional) 
+            var count = 25;  // int? | Gets or sets the number of tag results to retrieve.  This property specifies the maximum amount of tag data to be included in the result set. (optional) 
+            var startIndex = 0;  // int? | Represents the starting index from which the tags' information will be retrieved.  This property is used to define the offset for pagination when retrieving a list of tags. It determines  the point in the data set from which the retrieval begins. (optional) 
+            var filterValue = My Document;  // string? | Gets or sets the text value used for searching tags.  This property is typically used as a filter value when retrieving tag information. (optional) 
 
             try
             {
@@ -2690,21 +2690,21 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
             var type = new List<RoomType>?(); // List<RoomType>? | The filter by room type. (optional) 
-            var subjectId = some text;  // string? | The filter by user ID. (optional) 
+            var subjectId = 00000000-0000-0000-0000-000000000000;  // string? | The filter by user ID. (optional) 
             var searchArea = new SearchArea?(); // SearchArea? | The room search area (Active, Archive, Any, Recent by links). (optional) 
-            var withoutTags = true;  // bool? | Specifies whether to search by tags or not. (optional) 
-            var tags = some text;  // string? | The tags in the serialized format. (optional) 
-            var excludeSubject = true;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
+            var withoutTags = false;  // bool? | Specifies whether to search by tags or not. (optional) 
+            var tags = tag1;  // string? | The tags in the serialized format. (optional) 
+            var excludeSubject = false;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
             var provider = new ProviderFilter?(); // ProviderFilter? | The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). (optional) 
             var subjectFilter = new SubjectFilter?(); // SubjectFilter? | The filter by user (Owner - 0, Member - 1). (optional) 
             var quotaFilter = new QuotaFilter?(); // QuotaFilter? | The filter by quota (All - 0, Default - 1, Custom - 2). (optional) 
             var storageFilter = new StorageFilter?(); // StorageFilter? | The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional) 
-            var count = 1234;  // int? | Specifies the maximum number of items to retrieve. (optional) 
-            var startIndex = 1234;  // int? | The index from which to start retrieving the room content. (optional) 
-            var sortBy = some text;  // string? | Specifies the field by which the room content should be sorted. (optional) 
+            var count = 25;  // int? | Specifies the maximum number of items to retrieve. (optional) 
+            var startIndex = 0;  // int? | The index from which to start retrieving the room content. (optional) 
+            var sortBy = DateAndTime;  // string? | Specifies the field by which the room content should be sorted. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterValue = some text;  // string? | The text filter value used to refine search or query operations. (optional) 
-            var groupId = 1234;  // int? | The group ID (optional) 
+            var filterValue = My Document;  // string? | The text filter value used to refine search or query operations. (optional) 
+            var groupId = 1;  // int? | The group ID (optional) 
 
             try
             {
@@ -2980,7 +2980,7 @@ catch (ApiException e)
 
 <a id="hastaglinks"></a>
 # **HasTagLinks**
-> BooleanWrapper HasTagLinks (string tagName)
+> BooleanWrapper HasTagLinks (string tagName2, string? tagName = null)
 
 Checks if a specific custom tag has linked items.
 
@@ -2990,7 +2990,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **tagName** | **string** |  |  |
+| **tagName2** | **string** |  |  |
+| **tagName** | **string?** | Represents the name of a tag | [optional]  |
 
 ### Return type
 
@@ -3037,12 +3038,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var tagName = "tagName_example";  // string | 
+            var tagName2 = "tagName_example";  // string | 
+            var tagName = tag1;  // string? | Represents the name of a tag (optional) 
 
             try
             {
                 // Has tag links
-                BooleanWrapper result = apiInstance.HasTagLinks(tagName);
+                BooleanWrapper result = apiInstance.HasTagLinks(tagName2, tagName);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3063,7 +3065,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Has tag links
-    ApiResponse<BooleanWrapper> response = apiInstance.HasTagLinksWithHttpInfo(tagName);
+    ApiResponse<BooleanWrapper> response = apiInstance.HasTagLinksWithHttpInfo(tagName2, tagName);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -4263,7 +4265,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var id = 1;  // int | The room ID.
+            var id = 56;  // int | The room ID.
             var updateRoomRequest = new UpdateRoomRequest(); // UpdateRoomRequest | The request parameters for updating a room.
 
             try

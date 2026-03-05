@@ -66,7 +66,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MessagesApi(httpClient, config, httpClientHandler);
-            var messageId = 1234;  // int | The unique identifier of the AI chat message to export.
+            var messageId = 1;  // int | The unique identifier of the AI chat message to export.
             var exportMessageRequestBodyInteger = new ExportMessageRequestBodyInteger(); // ExportMessageRequestBodyInteger | The export parameters including destination folder and file title.
 
             try

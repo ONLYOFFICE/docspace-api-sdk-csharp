@@ -12,14 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ChunkedUploadSessionResponseWrapperInteger
+    /// Represents a wrapper for the response of a chunked upload session operation.
     /// </summary>
     [DataContract(Name = "ChunkedUploadSessionResponseWrapperInteger")]
     public partial class ChunkedUploadSessionResponseWrapperInteger : IValidatableObject
@@ -28,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChunkedUploadSessionResponseWrapperInteger" /> class.
         /// </summary>
-        /// <param name="success">success.</param>
+        /// <param name="success">Gets or sets a value indicating whether the operation was successful..</param>
         /// <param name="data">data.</param>
         public ChunkedUploadSessionResponseWrapperInteger(bool success = default, ChunkedUploadSessionResponseInteger data = default)
         {
@@ -37,8 +50,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Success
+        /// Gets or sets a value indicating whether the operation was successful.
         /// </summary>
+        /// <value>Gets or sets a value indicating whether the operation was successful.</value>
         /*
         <example>true</example>
         */
@@ -71,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

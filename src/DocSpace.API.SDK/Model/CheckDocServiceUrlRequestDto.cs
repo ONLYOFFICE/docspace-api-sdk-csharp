@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -59,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The ONLYOFFICE Docs URL address.</value>
         /*
-        <example>some text</example>
+        <example>https://documentserver.example.com</example>
         */
         [DataMember(Name = "docServiceUrl", IsRequired = true, EmitDefaultValue = true)]
         public string DocServiceUrl { get; set; }
@@ -69,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The ONLYOFFICE Docs URL address in the local private network.</value>
         /*
-        <example>some text</example>
+        <example>https://documentserver-internal.example.com</example>
         */
         [DataMember(Name = "docServiceUrlInternal", EmitDefaultValue = true)]
         public string DocServiceUrlInternal { get; set; }
@@ -79,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The ONLYOFFICE Docs URL address.</value>
         /*
-        <example>some text</example>
+        <example>https://documentserver-portal.example.com</example>
         */
         [DataMember(Name = "docServiceUrlPortal", EmitDefaultValue = true)]
         public string DocServiceUrlPortal { get; set; }
@@ -89,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The signature secret of the ONLYOFFICE Docs.</value>
         /*
-        <example>some text</example>
+        <example>secret-key-123</example>
         */
         [DataMember(Name = "docServiceSignatureSecret", EmitDefaultValue = true)]
         public string DocServiceSignatureSecret { get; set; }
@@ -99,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The signature header of the ONLYOFFICE Docs.</value>
         /*
-        <example>some text</example>
+        <example>Authorization</example>
         */
         [DataMember(Name = "docServiceSignatureHeader", EmitDefaultValue = true)]
         public string DocServiceSignatureHeader { get; set; }
@@ -138,7 +151,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

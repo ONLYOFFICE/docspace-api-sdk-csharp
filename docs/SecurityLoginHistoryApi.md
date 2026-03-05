@@ -292,8 +292,8 @@ namespace Example
             var action = new MessageAction?(); // MessageAction? | The login-related action to filter events by. (optional) 
             var from = new ApiDateTime?(); // ApiDateTime? | The starting date and time for filtering login events. (optional) 
             var to = new ApiDateTime?(); // ApiDateTime? | The ending date and time for filtering login events. (optional) 
-            var count = 1234;  // int? | The number of login events to retrieve in the query. (optional) 
-            var startIndex = 1234;  // int? | The starting index for fetching a subset of login events from the query results. (optional) 
+            var count = 1;  // int? | The number of login events to retrieve in the query. (optional) 
+            var startIndex = 1;  // int? | The starting index for fetching a subset of login events from the query results. (optional) 
 
             try
             {

@@ -230,7 +230,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of users with the detailed information |  -  |
-| **402** | Failed to set quota per user. The entered value is greater than the total DocSpace storage |  -  |
+| **400** | The entered quota value is invalid or greater than the total storage size |  -  |
+| **403** | No permissions to perform this action |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

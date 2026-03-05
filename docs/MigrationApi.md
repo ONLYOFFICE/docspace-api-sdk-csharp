@@ -818,7 +818,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MigrationApi(httpClient, config, httpClientHandler);
-            var migratorName = some text;  // string | The migrator name extracted from the route parameters.
+            var migratorName = GoogleWorkspace;  // string | The migrator name extracted from the route parameters.
 
             try
             {

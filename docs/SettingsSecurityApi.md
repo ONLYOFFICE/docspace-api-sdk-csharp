@@ -514,7 +514,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SecurityApi(httpClient, config, httpClientHandler);
-            var id = 00000000-0000-0000-0000-000000000000;  // Guid | The ID extracted from the route parameters.
+            var id = "id_example";  // Guid | The ID extracted from the route parameters.
 
             try
             {

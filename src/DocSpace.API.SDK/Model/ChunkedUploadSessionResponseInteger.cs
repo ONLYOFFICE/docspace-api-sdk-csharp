@@ -12,14 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ChunkedUploadSessionResponseInteger
+    /// Represents the response returned from a chunked upload session.
     /// </summary>
     [DataContract(Name = "ChunkedUploadSessionResponseInteger")]
     public partial class ChunkedUploadSessionResponseInteger : IValidatableObject
@@ -28,12 +41,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChunkedUploadSessionResponseInteger" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
-        /// <param name="path">path.</param>
-        /// <param name="created">created.</param>
-        /// <param name="expired">expired.</param>
-        /// <param name="location">location.</param>
-        /// <param name="bytesTotal">bytesTotal.</param>
+        /// <param name="id">The unique identifier for the entity..</param>
+        /// <param name="path">Represents the hierarchical path of folders associated with a chunked upload session..</param>
+        /// <param name="created">The timestamp indicating when the chunked upload session was created..</param>
+        /// <param name="expired">The date and time when the chunked upload session is set to expire..</param>
+        /// <param name="location">Represents the URI or path of the chunked upload session&#39;s current location..</param>
+        /// <param name="bytesTotal">The total size, in bytes, of the file being uploaded in the chunked upload session..</param>
         public ChunkedUploadSessionResponseInteger(string id = default, List<int> path = default, DateTime created = default, DateTime expired = default, string location = default, long bytesTotal = default)
         {
             this.Id = id;
@@ -45,55 +58,61 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The unique identifier for the entity.
         /// </summary>
+        /// <value>The unique identifier for the entity.</value>
         /*
-        <example>1</example>
+        <example>0af4bc0d-9a9d-450c-a72b-f14d9ac55c89</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets Path
+        /// Represents the hierarchical path of folders associated with a chunked upload session.
         /// </summary>
+        /// <value>Represents the hierarchical path of folders associated with a chunked upload session.</value>
         /*
-        <example>[1234]</example>
+        <example>[&quot;123&quot;,&quot;456&quot;,&quot;789&quot;]</example>
         */
         [DataMember(Name = "path", EmitDefaultValue = true)]
         public List<int> Path { get; set; }
 
         /// <summary>
-        /// Gets or Sets Created
+        /// The timestamp indicating when the chunked upload session was created.
         /// </summary>
+        /// <value>The timestamp indicating when the chunked upload session was created.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-01-15T10:30Z</example>
         */
         [DataMember(Name = "created", EmitDefaultValue = false)]
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// Gets or Sets Expired
+        /// The date and time when the chunked upload session is set to expire.
         /// </summary>
+        /// <value>The date and time when the chunked upload session is set to expire.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-01-15T11:30Z</example>
         */
         [DataMember(Name = "expired", EmitDefaultValue = false)]
         public DateTime Expired { get; set; }
 
         /// <summary>
-        /// Gets or Sets Location
+        /// Represents the URI or path of the chunked upload session&#39;s current location.
         /// </summary>
+        /// <value>Represents the URI or path of the chunked upload session&#39;s current location.</value>
         /*
-        <example>001 Schroeder Run, New Tabithaport, Colombia</example>
+        <example>https://example.com/products/files/httphandlers/filehandler.ashx?action&#x3D;upload</example>
         */
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
 
         /// <summary>
-        /// Gets or Sets BytesTotal
+        /// The total size, in bytes, of the file being uploaded in the chunked upload session.
         /// </summary>
+        /// <value>The total size, in bytes, of the file being uploaded in the chunked upload session.</value>
         /*
-        <example>1234</example>
+        <example>10485760</example>
         */
         [DataMember(Name = "bytes_total", EmitDefaultValue = false)]
         public long BytesTotal { get; set; }
@@ -122,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

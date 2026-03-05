@@ -1,4 +1,5 @@
 # DocSpace.API.SDK.Model.ModelDto
+The AI model information.
 
 ## Properties
 

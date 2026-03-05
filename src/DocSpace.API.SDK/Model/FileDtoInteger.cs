@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -131,7 +144,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The folder ID where the file is located.</value>
         /*
-        <example>1</example>
+        <example>10</example>
         */
         [DataMember(Name = "folderId", EmitDefaultValue = false)]
         public int FolderId { get; set; }
@@ -171,7 +184,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The pure content length of the file.</value>
         /*
-        <example>1234</example>
+        <example>12345</example>
         */
         [DataMember(Name = "pureContentLength", EmitDefaultValue = true)]
         public long? PureContentLength { get; set; }
@@ -181,7 +194,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of users editing the file.</value>
         /*
-        <example>[{&quot;key&quot;:&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
+        <example>{&quot;00000000-0000-0000-0000-000000000000&quot;:&quot;John Doe&quot;}</example>
         */
         [DataMember(Name = "editingBy", EmitDefaultValue = true)]
         public Dictionary<string, string> EditingBy { get; set; }
@@ -211,7 +224,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The Web URL link to the file.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/files/document.docx</example>
         */
         [DataMember(Name = "webUrl", EmitDefaultValue = true)]
         public string WebUrl { get; set; }
@@ -231,7 +244,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The comment to the file.</value>
         /*
-        <example>some text</example>
+        <example>This is a comment</example>
         */
         [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
@@ -251,7 +264,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The thumbnail URL of the file.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/thumbnails/file.png</example>
         */
         [DataMember(Name = "thumbnailUrl", EmitDefaultValue = true)]
         public string ThumbnailUrl { get; set; }
@@ -261,7 +274,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the file is locked or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "locked", EmitDefaultValue = true)]
         public bool? Locked { get; set; }
@@ -271,7 +284,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user ID of the person who locked the file.</value>
         /*
-        <example>some text</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "lockedBy", EmitDefaultValue = true)]
         public string LockedBy { get; set; }
@@ -301,7 +314,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the Custom Filter editing mode is enabled for a file or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "customFilterEnabled", EmitDefaultValue = true)]
         public bool? CustomFilterEnabled { get; set; }
@@ -311,7 +324,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The name of the user who enabled a Custom Filter editing mode for a file.</value>
         /*
-        <example>some text</example>
+        <example>John Doe</example>
         */
         [DataMember(Name = "customFilterEnabledBy", EmitDefaultValue = true)]
         public string CustomFilterEnabledBy { get; set; }
@@ -331,7 +344,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The InProcess folder ID of the file.</value>
         /*
-        <example>1234</example>
+        <example>10</example>
         */
         [DataMember(Name = "inProcessFolderId", EmitDefaultValue = true)]
         public int? InProcessFolderId { get; set; }
@@ -341,7 +354,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The InProcess folder title of the file.</value>
         /*
-        <example>some text</example>
+        <example>In Process</example>
         */
         [DataMember(Name = "inProcessFolderTitle", EmitDefaultValue = true)]
         public string InProcessFolderTitle { get; set; }
@@ -426,7 +439,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     
 

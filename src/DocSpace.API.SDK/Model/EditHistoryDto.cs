@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -55,7 +68,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document ID.</value>
         /*
-        <example>1234</example>
+        <example>123</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
@@ -65,7 +78,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document identifier used to unambiguously identify the document file.</value>
         /*
-        <example>some text</example>
+        <example>doc-key-abc123</example>
         */
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
@@ -75,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document version number.</value>
         /*
-        <example>1234</example>
+        <example>2</example>
         */
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public int @Version { get; set; }
@@ -85,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document version group.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "versionGroup", EmitDefaultValue = false)]
         public int VersionGroup { get; set; }
@@ -107,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file history changes in the string format.</value>
         /*
-        <example>some text</example>
+        <example>Changes history text</example>
         */
         [DataMember(Name = "changesHistory", EmitDefaultValue = true)]
         public string ChangesHistory { get; set; }
@@ -116,6 +129,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of file history changes.
         /// </summary>
         /// <value>The list of file history changes.</value>
+        /*
+        <example>[{&quot;user&quot;:{&quot;id&quot;:&quot;123&quot;,&quot;name&quot;:&quot;John Doe&quot;},&quot;created&quot;:&quot;2021-01-01T00:00:00Z&quot;}]</example>
+        */
         [DataMember(Name = "changes", EmitDefaultValue = true)]
         public List<EditHistoryChangesWrapper> Changes { get; set; }
 
@@ -124,7 +140,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The current server version number.</value>
         /*
-        <example>some text</example>
+        <example>8.0.1</example>
         */
         [DataMember(Name = "serverVersion", EmitDefaultValue = true)]
         public string ServerVersion { get; set; }
@@ -156,7 +172,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

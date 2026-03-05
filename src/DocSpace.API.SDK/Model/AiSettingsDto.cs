@@ -12,14 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// AiSettingsDto
+    /// The AI module settings.
     /// </summary>
     [DataContract(Name = "AiSettingsDto")]
     public partial class AiSettingsDto : IValidatableObject
@@ -115,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Indicates whether the web search API key needs to be reconfigured.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "webSearchNeedReset", EmitDefaultValue = true)]
         public bool WebSearchNeedReset { get; set; }
@@ -135,7 +148,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Indicates whether the embedding provider API key needs to be reconfigured.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "vectorizationNeedReset", EmitDefaultValue = true)]
         public bool VectorizationNeedReset { get; set; }
@@ -155,7 +168,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Indicates whether the AI provider API key needs to be reconfigured.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "aiReadyNeedReset", EmitDefaultValue = true)]
         public bool AiReadyNeedReset { get; set; }
@@ -165,7 +178,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The unique identifier of the portal-level MCP server, if configured.</value>
         /*
-        <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "portalMcpServerId", EmitDefaultValue = true)]
         public Guid? PortalMcpServerId { get; set; }
@@ -175,7 +188,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The name of the embedding model used for document vectorization.</value>
         /*
-        <example>some text</example>
+        <example>text-embedding-3-small</example>
         */
         [DataMember(Name = "embeddingModel", IsRequired = true, EmitDefaultValue = true)]
         public string EmbeddingModel { get; set; }
@@ -185,7 +198,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tool name used by the AI assistant for knowledge base search.</value>
         /*
-        <example>some text</example>
+        <example>knowledge_search</example>
         */
         [DataMember(Name = "knowledgeSearchToolName", IsRequired = true, EmitDefaultValue = true)]
         public string KnowledgeSearchToolName { get; set; }
@@ -195,7 +208,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tool name used by the AI assistant for web search.</value>
         /*
-        <example>some text</example>
+        <example>web_search</example>
         */
         [DataMember(Name = "webSearchToolName", IsRequired = true, EmitDefaultValue = true)]
         public string WebSearchToolName { get; set; }
@@ -205,7 +218,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tool name used by the AI assistant for web page crawling.</value>
         /*
-        <example>some text</example>
+        <example>web_crawling</example>
         */
         [DataMember(Name = "webCrawlingToolName", IsRequired = true, EmitDefaultValue = true)]
         public string WebCrawlingToolName { get; set; }
@@ -215,7 +228,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tool name used by the AI to launch docx creation in the editor.</value>
         /*
-        <example>some text</example>
+        <example>generate_docx</example>
         */
         [DataMember(Name = "generateDocxToolName", IsRequired = true, EmitDefaultValue = true)]
         public string GenerateDocxToolName { get; set; }
@@ -225,7 +238,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tool name used by the AI assistant to launch form creation in the editor.</value>
         /*
-        <example>some text</example>
+        <example>generate_form</example>
         */
         [DataMember(Name = "generateFormToolName", IsRequired = true, EmitDefaultValue = true)]
         public string GenerateFormToolName { get; set; }
@@ -235,7 +248,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tool name used by the AI assistant to launch presentation creation in the editor.</value>
         /*
-        <example>some text</example>
+        <example>generate_presentation</example>
         */
         [DataMember(Name = "generatePresentationToolName", IsRequired = true, EmitDefaultValue = true)]
         public string GeneratePresentationToolName { get; set; }
@@ -272,7 +285,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
