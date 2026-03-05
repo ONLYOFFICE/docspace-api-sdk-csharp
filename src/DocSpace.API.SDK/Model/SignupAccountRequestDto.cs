@@ -53,14 +53,10 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="SignupAccountRequestDto" /> class.
         /// </summary>
         /// <param name="employeeType">employeeType.</param>
-        /// <param name="firstName">The user first name..</param>
-        /// <param name="lastName">The user last name..</param>
-        /// <param name="email">The user email address..</param>
-        /// <param name="passwordHash">The user password hash..</param>
         /// <param name="key">The user link key. (required).</param>
         /// <param name="culture">The user culture code..</param>
         /// <param name="serializedProfile">The third-party profile in the serialized format (required).</param>
-        public SignupAccountRequestDto(EmployeeType? employeeType = default, string firstName = default, string lastName = default, string email = default, string passwordHash = default, string key = default, string culture = default, string serializedProfile = default)
+        public SignupAccountRequestDto(EmployeeType? employeeType = default, string key = default, string culture = default, string serializedProfile = default)
         {
             // to ensure "key" is required (not null)
             if (key == null)
@@ -75,52 +71,8 @@ namespace DocSpace.API.SDK.Model
             }
             this.SerializedProfile = serializedProfile;
             this.EmployeeType = employeeType;
-            this.FirstName = firstName;
-            this.LastName = lastName;
-            this.Email = email;
-            this.PasswordHash = passwordHash;
             this.Culture = culture;
         }
-
-        /// <summary>
-        /// The user first name.
-        /// </summary>
-        /// <value>The user first name.</value>
-        /*
-        <example>John</example>
-        */
-        [DataMember(Name = "firstName", EmitDefaultValue = true)]
-        public string FirstName { get; set; }
-
-        /// <summary>
-        /// The user last name.
-        /// </summary>
-        /// <value>The user last name.</value>
-        /*
-        <example>Doe</example>
-        */
-        [DataMember(Name = "lastName", EmitDefaultValue = true)]
-        public string LastName { get; set; }
-
-        /// <summary>
-        /// The user email address.
-        /// </summary>
-        /// <value>The user email address.</value>
-        /*
-        <example>john.doe@example.com</example>
-        */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
-        public string Email { get; set; }
-
-        /// <summary>
-        /// The user password hash.
-        /// </summary>
-        /// <value>The user password hash.</value>
-        /*
-        <example>$2a$10$abcdefghijklmnopqrstuv</example>
-        */
-        [DataMember(Name = "passwordHash", EmitDefaultValue = true)]
-        public string PasswordHash { get; set; }
 
         /// <summary>
         /// The user link key.
@@ -161,10 +113,6 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class SignupAccountRequestDto {\n");
             sb.Append("  EmployeeType: ").Append(EmployeeType).Append("\n");
-            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
-            sb.Append("  PasswordHash: ").Append(PasswordHash).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Culture: ").Append(Culture).Append("\n");
             sb.Append("  SerializedProfile: ").Append(SerializedProfile).Append("\n");

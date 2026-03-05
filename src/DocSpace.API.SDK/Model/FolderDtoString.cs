@@ -83,7 +83,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="expired">Specifies if an external link to the folder is expired or not..</param>
         /// <param name="chatSettings">chatSettings.</param>
         /// <param name="rootRoomType">rootRoomType.</param>
-        public FolderDtoString(string parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? passwordProtected = default, bool? expired = default, ChatSettings chatSettings = default, RoomType? rootRoomType = default)
+        public FolderDtoString(string parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? passwordProtected = default, bool? expired = default, ChatSettingsDto chatSettings = default, RoomType? rootRoomType = default)
         {
             this.ParentId = parentId;
             this.FilesCount = filesCount;
@@ -304,7 +304,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets ChatSettings
         /// </summary>
         [DataMember(Name = "chatSettings", EmitDefaultValue = false)]
-        public ChatSettings ChatSettings { get; set; }
+        public ChatSettingsDto ChatSettings { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **FileExtension** | **string** | Extension of a default template | 
 **FileTitle** | **string** | Title of a default template | [optional] 
 **LastModified** | **DateTime?** | Last modified date of a default template | [optional] 
+**FileSize** | **long?** | Filesize (in bytes) of a default template | [optional] 
 **ViewUrl** | **string** | View url of a default template | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

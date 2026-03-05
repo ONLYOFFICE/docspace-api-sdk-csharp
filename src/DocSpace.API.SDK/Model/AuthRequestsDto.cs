@@ -53,14 +53,13 @@ namespace DocSpace.API.SDK.Model
         /// <param name="provider">The type of authentication provider (e.g., internal, Google, Azure)..</param>
         /// <param name="accessToken">The access token used for authentication with external providers..</param>
         /// <param name="serializedProfile">The serialized user profile data, if applicable..</param>
-        /// <param name="code">The code for two-factor authentication..</param>
         /// <param name="codeOAuth">The authorization code used for obtaining OAuth tokens..</param>
         /// <param name="session">Specifies whether the authentication is session-based..</param>
         /// <param name="confirmData">confirmData.</param>
         /// <param name="recaptchaType">recaptchaType.</param>
         /// <param name="recaptchaResponse">The user&#39;s response to the CAPTCHA challenge..</param>
         /// <param name="culture">The culture code for localization during authentication..</param>
-        public AuthRequestsDto(string userName = default, string password = default, string passwordHash = default, string provider = default, string accessToken = default, string serializedProfile = default, string code = default, string codeOAuth = default, bool session = default, ConfirmData confirmData = default, RecaptchaType? recaptchaType = default, string recaptchaResponse = default, string culture = default)
+        public AuthRequestsDto(string userName = default, string password = default, string passwordHash = default, string provider = default, string accessToken = default, string serializedProfile = default, string codeOAuth = default, bool session = default, ConfirmData confirmData = default, RecaptchaType? recaptchaType = default, string recaptchaResponse = default, string culture = default)
         {
             this.UserName = userName;
             this.Password = password;
@@ -68,7 +67,6 @@ namespace DocSpace.API.SDK.Model
             this.Provider = provider;
             this.AccessToken = accessToken;
             this.SerializedProfile = serializedProfile;
-            this.Code = code;
             this.CodeOAuth = codeOAuth;
             this.Session = session;
             this.ConfirmData = confirmData;
@@ -138,16 +136,6 @@ namespace DocSpace.API.SDK.Model
         public string SerializedProfile { get; set; }
 
         /// <summary>
-        /// The code for two-factor authentication.
-        /// </summary>
-        /// <value>The code for two-factor authentication.</value>
-        /*
-        <example>123456</example>
-        */
-        [DataMember(Name = "code", EmitDefaultValue = true)]
-        public string Code { get; set; }
-
-        /// <summary>
         /// The authorization code used for obtaining OAuth tokens.
         /// </summary>
         /// <value>The authorization code used for obtaining OAuth tokens.</value>
@@ -207,7 +195,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("  AccessToken: ").Append(AccessToken).Append("\n");
             sb.Append("  SerializedProfile: ").Append(SerializedProfile).Append("\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  CodeOAuth: ").Append(CodeOAuth).Append("\n");
             sb.Append("  Session: ").Append(Session).Append("\n");
             sb.Append("  ConfirmData: ").Append(ConfirmData).Append("\n");

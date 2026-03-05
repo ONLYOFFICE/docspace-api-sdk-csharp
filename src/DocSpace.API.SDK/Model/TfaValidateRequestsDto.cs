@@ -47,7 +47,8 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="TfaValidateRequestsDto" /> class.
         /// </summary>
         /// <param name="code">The verification code provided by the user. (required).</param>
-        public TfaValidateRequestsDto(string code = default)
+        /// <param name="session">Specifies whether the authentication is session-based..</param>
+        public TfaValidateRequestsDto(string code = default, bool session = default)
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -55,6 +56,7 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("code is a required property for TfaValidateRequestsDto and cannot be null");
             }
             this.Code = code;
+            this.Session = session;
         }
 
         /// <summary>
@@ -68,6 +70,16 @@ namespace DocSpace.API.SDK.Model
         public string Code { get; set; }
 
         /// <summary>
+        /// Specifies whether the authentication is session-based.
+        /// </summary>
+        /// <value>Specifies whether the authentication is session-based.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "session", EmitDefaultValue = true)]
+        public bool Session { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +88,7 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class TfaValidateRequestsDto {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Session: ").Append(Session).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

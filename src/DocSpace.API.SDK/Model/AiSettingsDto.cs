@@ -54,13 +54,14 @@ namespace DocSpace.API.SDK.Model
         /// <param name="aiReadyNeedReset">Indicates whether the AI provider API key needs to be reconfigured..</param>
         /// <param name="portalMcpServerId">The unique identifier of the portal-level MCP server, if configured..</param>
         /// <param name="embeddingModel">The name of the embedding model used for document vectorization. (required).</param>
+        /// <param name="modelAliases">Mapping of model identifiers to human-readable aliases. (required).</param>
         /// <param name="knowledgeSearchToolName">The tool name used by the AI assistant for knowledge base search. (required).</param>
         /// <param name="webSearchToolName">The tool name used by the AI assistant for web search. (required).</param>
         /// <param name="webCrawlingToolName">The tool name used by the AI assistant for web page crawling. (required).</param>
         /// <param name="generateDocxToolName">The tool name used by the AI to launch docx creation in the editor. (required).</param>
         /// <param name="generateFormToolName">The tool name used by the AI assistant to launch form creation in the editor. (required).</param>
         /// <param name="generatePresentationToolName">The tool name used by the AI assistant to launch presentation creation in the editor. (required).</param>
-        public AiSettingsDto(bool webSearchEnabled = default, bool webSearchNeedReset = default, bool vectorizationEnabled = default, bool vectorizationNeedReset = default, bool aiReady = default, bool aiReadyNeedReset = default, Guid? portalMcpServerId = default, string embeddingModel = default, string knowledgeSearchToolName = default, string webSearchToolName = default, string webCrawlingToolName = default, string generateDocxToolName = default, string generateFormToolName = default, string generatePresentationToolName = default)
+        public AiSettingsDto(bool webSearchEnabled = default, bool webSearchNeedReset = default, bool vectorizationEnabled = default, bool vectorizationNeedReset = default, bool aiReady = default, bool aiReadyNeedReset = default, Guid? portalMcpServerId = default, string embeddingModel = default, Dictionary<string, string> modelAliases = default, string knowledgeSearchToolName = default, string webSearchToolName = default, string webCrawlingToolName = default, string generateDocxToolName = default, string generateFormToolName = default, string generatePresentationToolName = default)
         {
             // to ensure "embeddingModel" is required (not null)
             if (embeddingModel == null)
@@ -68,6 +69,12 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("embeddingModel is a required property for AiSettingsDto and cannot be null");
             }
             this.EmbeddingModel = embeddingModel;
+            // to ensure "modelAliases" is required (not null)
+            if (modelAliases == null)
+            {
+                throw new ArgumentNullException("modelAliases is a required property for AiSettingsDto and cannot be null");
+            }
+            this.ModelAliases = modelAliases;
             // to ensure "knowledgeSearchToolName" is required (not null)
             if (knowledgeSearchToolName == null)
             {
@@ -194,6 +201,16 @@ namespace DocSpace.API.SDK.Model
         public string EmbeddingModel { get; set; }
 
         /// <summary>
+        /// Mapping of model identifiers to human-readable aliases.
+        /// </summary>
+        /// <value>Mapping of model identifiers to human-readable aliases.</value>
+        /*
+        <example>{&quot;gpt-5.2&quot;:&quot;GPT-5.2&quot;,&quot;claude-sonnet-4-20250514&quot;:&quot;Claude Sonnet 4&quot;}</example>
+        */
+        [DataMember(Name = "modelAliases", IsRequired = true, EmitDefaultValue = true)]
+        public Dictionary<string, string> ModelAliases { get; set; }
+
+        /// <summary>
         /// The tool name used by the AI assistant for knowledge base search.
         /// </summary>
         /// <value>The tool name used by the AI assistant for knowledge base search.</value>
@@ -269,6 +286,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  AiReadyNeedReset: ").Append(AiReadyNeedReset).Append("\n");
             sb.Append("  PortalMcpServerId: ").Append(PortalMcpServerId).Append("\n");
             sb.Append("  EmbeddingModel: ").Append(EmbeddingModel).Append("\n");
+            sb.Append("  ModelAliases: ").Append(ModelAliases).Append("\n");
             sb.Append("  KnowledgeSearchToolName: ").Append(KnowledgeSearchToolName).Append("\n");
             sb.Append("  WebSearchToolName: ").Append(WebSearchToolName).Append("\n");
             sb.Append("  WebCrawlingToolName: ").Append(WebCrawlingToolName).Append("\n");

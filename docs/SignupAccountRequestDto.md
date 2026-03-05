@@ -6,10 +6,6 @@ The request parameters for creating a third-party account.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EmployeeType** | **EmployeeType** |  | [optional] 
-**FirstName** | **string** | The user first name. | [optional] 
-**LastName** | **string** | The user last name. | [optional] 
-**Email** | **string** | The user email address. | [optional] 
-**PasswordHash** | **string** | The user password hash. | [optional] 
 **Key** | **string** | The user link key. | 
 **Culture** | **string** | The user culture code. | [optional] 
 **SerializedProfile** | **string** | The third-party profile in the serialized format | 

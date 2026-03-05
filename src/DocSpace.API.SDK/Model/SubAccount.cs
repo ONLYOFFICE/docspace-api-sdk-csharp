@@ -53,6 +53,9 @@ namespace DocSpace.API.SDK.Model
         /// The three-character ISO 4217 currency symbol of the sub-account.
         /// </summary>
         /// <value>The three-character ISO 4217 currency symbol of the sub-account.</value>
+        /*
+        <example>USD</example>
+        */
         [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
@@ -60,6 +63,9 @@ namespace DocSpace.API.SDK.Model
         /// The balance of the sub-account in the specified currency.
         /// </summary>
         /// <value>The balance of the sub-account in the specified currency.</value>
+        /*
+        <example>1500.75</example>
+        */
         [DataMember(Name = "amount", EmitDefaultValue = false)]
         public double Amount { get; set; }
 

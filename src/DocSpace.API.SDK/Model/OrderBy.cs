@@ -59,6 +59,9 @@ namespace DocSpace.API.SDK.Model
         /// Specifies if the order is ascending.
         /// </summary>
         /// <value>Specifies if the order is ascending.</value>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "is_asc", EmitDefaultValue = true)]
         public bool IsAsc { get; set; }
 

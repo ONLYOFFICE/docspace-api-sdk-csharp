@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="HistoryAction" /> class.
         /// </summary>
         /// <param name="id">id.</param>
-        /// <param name="key">key.</param>
+        /// <param name="key">The action performed on the file..</param>
         public HistoryAction(MessageAction? id = default, string key = default)
         {
             this.Id = id;
@@ -56,8 +56,12 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Key
+        /// The action performed on the file.
         /// </summary>
+        /// <value>The action performed on the file.</value>
+        /*
+        <example>fileUploaded</example>
+        */
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 

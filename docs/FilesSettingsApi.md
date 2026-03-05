@@ -25,6 +25,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**HideConfirmRoomLifetime**](#hideconfirmroomlifetime) | **PUT** /api/2.0/files/hideconfirmroomlifetime | Hide confirmation dialog when changing room lifetime settings |
 | [**IsAvailablePrivacyRoomSettings**](#isavailableprivacyroomsettings) | **GET** /api/2.0/files/@privacy/available | Check the Private Room availability |
 | [**KeepNewFileName**](#keepnewfilename) | **PUT** /api/2.0/files/keepnewfilename | Ask a new file name |
+| [**ResetDefaultTemplate**](#resetdefaulttemplate) | **DELETE** /api/2.0/files/settings/defaulttemplate | Reset the default template setting |
 | [**SetDefaultTemplate**](#setdefaulttemplate) | **PUT** /api/2.0/files/settings/defaulttemplate | Change the default template setting |
 | [**SetOpenEditorInSameTab**](#setopeneditorinsametab) | **PUT** /api/2.0/files/settings/openeditorinsametab | Open document in the same browser tab |
 | [**SetOrganizeRoomsGrouping**](#setorganizeroomsgrouping) | **PUT** /api/2.0/files/settings/organizegrouping | Organize rooms grouping |
@@ -1574,7 +1575,7 @@ catch (ApiException e)
 
 <a id="getfilesmodule"></a>
 # **GetFilesModule**
-> BooleanWrapper GetFilesModule ()
+> ModuleWrapper GetFilesModule ()
 
 Returns the information about the Documents module.
 
@@ -1584,7 +1585,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**BooleanWrapper**](BooleanWrapper.md)
+[**ModuleWrapper**](ModuleWrapper.md)
 
 ### Authorization
 
@@ -1631,7 +1632,7 @@ namespace Example
             try
             {
                 // Get the Documents information
-                BooleanWrapper result = apiInstance.GetFilesModule();
+                ModuleWrapper result = apiInstance.GetFilesModule();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1652,7 +1653,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the Documents information
-    ApiResponse<BooleanWrapper> response = apiInstance.GetFilesModuleWithHttpInfo();
+    ApiResponse<ModuleWrapper> response = apiInstance.GetFilesModuleWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2324,6 +2325,119 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="resetdefaulttemplate"></a>
+# **ResetDefaultTemplate**
+> DefaultTemplateSettingsWrapper ResetDefaultTemplate (DefaultTemplateSettingsResetRequestDto? defaultTemplateSettingsResetRequestDto = null)
+
+Resets the default template setting.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/reset-default-template/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **defaultTemplateSettingsResetRequestDto** | [**DefaultTemplateSettingsResetRequestDto?**](DefaultTemplateSettingsResetRequestDto.md) | Default templates settings reset request parameters. | [optional]  |
+
+### Return type
+
+[**DefaultTemplateSettingsWrapper**](DefaultTemplateSettingsWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class ResetDefaultTemplateExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new SettingsApi(httpClient, config, httpClientHandler);
+            var defaultTemplateSettingsResetRequestDto = new DefaultTemplateSettingsResetRequestDto?(); // DefaultTemplateSettingsResetRequestDto? | Default templates settings reset request parameters. (optional) 
+
+            try
+            {
+                // Reset the default template setting
+                DefaultTemplateSettingsWrapper result = apiInstance.ResetDefaultTemplate(defaultTemplateSettingsResetRequestDto);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling SettingsApi.ResetDefaultTemplate: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ResetDefaultTemplateWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Reset the default template setting
+    ApiResponse<DefaultTemplateSettingsWrapper> response = apiInstance.ResetDefaultTemplateWithHttpInfo(defaultTemplateSettingsResetRequestDto);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling SettingsApi.ResetDefaultTemplateWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | New default template settings |  -  |
+| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="setdefaulttemplate"></a>
 # **SetDefaultTemplate**
 > DefaultTemplateSettingsWrapper SetDefaultTemplate (DefaultTemplateSettingsRequestDto? defaultTemplateSettingsRequestDto = null)
@@ -2432,6 +2546,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New default template settings |  -  |
+| **400** | Incorrect or missing file |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -3102,6 +3217,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New default template settings |  -  |
+| **400** | Incorrect or missing file |  -  |
 | **403** | You don&#39;t have enough permission to perform the operation |  -  |
 | **401** | Unauthorized |  -  |
 

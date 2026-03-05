@@ -99,6 +99,30 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Data (string) maxLength
+            if (this.Data != null && this.Data.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Data, length must be less than 256.", new [] { "Data" });
+            }
+
+            // Data (string) minLength
+            if (this.Data != null && this.Data.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Data, length must be greater than 0.", new [] { "Data" });
+            }
+
+            // Type (string) maxLength
+            if (this.Type != null && this.Type.Length > 128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than 128.", new [] { "Type" });
+            }
+
+            // Type (string) minLength
+            if (this.Type != null && this.Type.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 0.", new [] { "Type" });
+            }
+
             yield break;
         }
 

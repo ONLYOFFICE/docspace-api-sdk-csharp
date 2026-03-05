@@ -32,9 +32,9 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - None, 1 - Share to fill out, 2 - Start filling]
+    /// [0 - None, 1 - Share to fill out, 2 - Start filling, 3 - Start filling form room]
     /// </summary>
-    /// <value>[0 - None, 1 - Share to fill out, 2 - Start filling]</value>
+    /// <value>[0 - None, 1 - Share to fill out, 2 - Start filling, 3 - Start filling form room]</value>
     public enum StartFillingMode
     {
         /// <summary>
@@ -50,7 +50,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum StartFilling for value: 2
         /// </summary>
-        StartFilling = 2
+        StartFilling = 2,
+
+        /// <summary>
+        /// Enum StartFillingFormRoom for value: 3
+        /// </summary>
+        StartFillingFormRoom = 3
     }
 
 }

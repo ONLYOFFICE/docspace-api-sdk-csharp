@@ -37,23 +37,61 @@ namespace DocSpace.API.SDK.Model
     [DataContract(Name = "CustomerOperationsReportRequestDto")]
     public partial class CustomerOperationsReportRequestDto : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets Types
+        /// </summary>
+        [DataMember(Name = "types", EmitDefaultValue = false)]
+        public OperationType? Types { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public OperationStatus? Status { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OrderType
+        /// </summary>
+        [DataMember(Name = "orderType", EmitDefaultValue = false)]
+        public OperationOrderType? OrderType { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerOperationsReportRequestDto" /> class.
         /// </summary>
+        /// <param name="serviceName">The service name..</param>
         /// <param name="startDate">The report start date..</param>
         /// <param name="endDate">The report end date..</param>
         /// <param name="participantName">The participant name..</param>
         /// <param name="credit">Specifies whether to include credit operations in the report..</param>
         /// <param name="debit">Specifies whether to include debit operations in the report..</param>
-        public CustomerOperationsReportRequestDto(DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default)
+        /// <param name="types">types.</param>
+        /// <param name="status">status.</param>
+        /// <param name="orderBy">The field to order by..</param>
+        /// <param name="orderType">orderType.</param>
+        public CustomerOperationsReportRequestDto(string serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string orderBy = default, OperationOrderType? orderType = default)
         {
+            this.ServiceName = serviceName;
             this.StartDate = startDate;
             this.EndDate = endDate;
             this.ParticipantName = participantName;
             this.Credit = credit;
             this.Debit = debit;
+            this.Types = types;
+            this.Status = status;
+            this.OrderBy = orderBy;
+            this.OrderType = orderType;
         }
+
+        /// <summary>
+        /// The service name.
+        /// </summary>
+        /// <value>The service name.</value>
+        /*
+        <example>aitools</example>
+        */
+        [DataMember(Name = "serviceName", EmitDefaultValue = true)]
+        public string ServiceName { get; set; }
 
         /// <summary>
         /// The report start date.
@@ -106,6 +144,16 @@ namespace DocSpace.API.SDK.Model
         public bool? Debit { get; set; }
 
         /// <summary>
+        /// The field to order by.
+        /// </summary>
+        /// <value>The field to order by.</value>
+        /*
+        <example>StartDate</example>
+        */
+        [DataMember(Name = "orderBy", EmitDefaultValue = true)]
+        public string OrderBy { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,11 +161,16 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CustomerOperationsReportRequestDto {\n");
+            sb.Append("  ServiceName: ").Append(ServiceName).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  ParticipantName: ").Append(ParticipantName).Append("\n");
             sb.Append("  Credit: ").Append(Credit).Append("\n");
             sb.Append("  Debit: ").Append(Debit).Append("\n");
+            sb.Append("  Types: ").Append(Types).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  OrderBy: ").Append(OrderBy).Append("\n");
+            sb.Append("  OrderType: ").Append(OrderType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

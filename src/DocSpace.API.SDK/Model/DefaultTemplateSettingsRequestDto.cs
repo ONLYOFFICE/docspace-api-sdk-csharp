@@ -46,28 +46,29 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultTemplateSettingsRequestDto" /> class.
         /// </summary>
-        /// <param name="selectedFile">File id to replace template with (or null to use default template).</param>
+        /// <param name="selectedFile">selectedFile (required).</param>
         /// <param name="fileExtension">File extension of a template to replace (required).</param>
-        public DefaultTemplateSettingsRequestDto(int? selectedFile = default, string fileExtension = default)
+        public DefaultTemplateSettingsRequestDto(DefaultTemplateSettingsRequestDtoSelectedFile selectedFile = default, string fileExtension = default)
         {
+            // to ensure "selectedFile" is required (not null)
+            if (selectedFile == null)
+            {
+                throw new ArgumentNullException("selectedFile is a required property for DefaultTemplateSettingsRequestDto and cannot be null");
+            }
+            this.SelectedFile = selectedFile;
             // to ensure "fileExtension" is required (not null)
             if (fileExtension == null)
             {
                 throw new ArgumentNullException("fileExtension is a required property for DefaultTemplateSettingsRequestDto and cannot be null");
             }
             this.FileExtension = fileExtension;
-            this.SelectedFile = selectedFile;
         }
 
         /// <summary>
-        /// File id to replace template with (or null to use default template)
+        /// Gets or Sets SelectedFile
         /// </summary>
-        /// <value>File id to replace template with (or null to use default template)</value>
-        /*
-        <example>1</example>
-        */
-        [DataMember(Name = "selectedFile", EmitDefaultValue = true)]
-        public int? SelectedFile { get; set; }
+        [DataMember(Name = "selectedFile", IsRequired = true, EmitDefaultValue = true)]
+        public DefaultTemplateSettingsRequestDtoSelectedFile SelectedFile { get; set; }
 
         /// <summary>
         /// File extension of a template to replace

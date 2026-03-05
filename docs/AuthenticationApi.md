@@ -113,7 +113,7 @@ catch (ApiException e)
 
 <a id="authenticatemefrombodywithcode"></a>
 # **AuthenticateMeFromBodyWithCode**
-> AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode (string code, AuthRequestsDto? authRequestsDto = null)
+> AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode (string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = null)
 
 Authenticates the current user by SMS or two-factor authentication code.
 
@@ -124,7 +124,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **code** | **string** |  |  |
-| **authRequestsDto** | [**AuthRequestsDto?**](AuthRequestsDto.md) | The parameters required for the user authentication requests. | [optional]  |
+| **authWithCodeRequestsDto** | [**AuthWithCodeRequestsDto?**](AuthWithCodeRequestsDto.md) | The parameters required for the user two-factor authentication requests. | [optional]  |
 
 ### Return type
 
@@ -156,12 +156,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AuthenticationApi(httpClient, config, httpClientHandler);
             var code = "code_example";  // string | 
-            var authRequestsDto = new AuthRequestsDto?(); // AuthRequestsDto? | The parameters required for the user authentication requests. (optional) 
+            var authWithCodeRequestsDto = new AuthWithCodeRequestsDto?(); // AuthWithCodeRequestsDto? | The parameters required for the user two-factor authentication requests. (optional) 
 
             try
             {
                 // Authenticate a user by code
-                AuthenticationTokenWrapper result = apiInstance.AuthenticateMeFromBodyWithCode(code, authRequestsDto);
+                AuthenticationTokenWrapper result = apiInstance.AuthenticateMeFromBodyWithCode(code, authWithCodeRequestsDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -182,7 +182,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Authenticate a user by code
-    ApiResponse<AuthenticationTokenWrapper> response = apiInstance.AuthenticateMeFromBodyWithCodeWithHttpInfo(code, authRequestsDto);
+    ApiResponse<AuthenticationTokenWrapper> response = apiInstance.AuthenticateMeFromBodyWithCodeWithHttpInfo(code, authWithCodeRequestsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

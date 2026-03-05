@@ -50,8 +50,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="fileExtension">Extension of a default template (required).</param>
         /// <param name="fileTitle">Title of a default template.</param>
         /// <param name="lastModified">Last modified date of a default template.</param>
+        /// <param name="fileSize">Filesize (in bytes) of a default template.</param>
         /// <param name="viewUrl">View url of a default template.</param>
-        public DefaultTemplateItemDto(int? selectedFile = default, string fileExtension = default, string fileTitle = default, DateTime? lastModified = default, string viewUrl = default)
+        public DefaultTemplateItemDto(int? selectedFile = default, string fileExtension = default, string fileTitle = default, DateTime? lastModified = default, long? fileSize = default, string viewUrl = default)
         {
             // to ensure "fileExtension" is required (not null)
             if (fileExtension == null)
@@ -62,6 +63,7 @@ namespace DocSpace.API.SDK.Model
             this.SelectedFile = selectedFile;
             this.FileTitle = fileTitle;
             this.LastModified = lastModified;
+            this.FileSize = fileSize;
             this.ViewUrl = viewUrl;
         }
 
@@ -103,6 +105,16 @@ namespace DocSpace.API.SDK.Model
         public DateTime? LastModified { get; set; }
 
         /// <summary>
+        /// Filesize (in bytes) of a default template
+        /// </summary>
+        /// <value>Filesize (in bytes) of a default template</value>
+        /*
+        <example>1024</example>
+        */
+        [DataMember(Name = "fileSize", EmitDefaultValue = true)]
+        public long? FileSize { get; set; }
+
+        /// <summary>
         /// View url of a default template
         /// </summary>
         /// <value>View url of a default template</value>
@@ -124,6 +136,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  FileExtension: ").Append(FileExtension).Append("\n");
             sb.Append("  FileTitle: ").Append(FileTitle).Append("\n");
             sb.Append("  LastModified: ").Append(LastModified).Append("\n");
+            sb.Append("  FileSize: ").Append(FileSize).Append("\n");
             sb.Append("  ViewUrl: ").Append(ViewUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

@@ -42,11 +42,19 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="Balance" /> class.
         /// </summary>
         /// <param name="accountNumber">The account number..</param>
+        /// <param name="subAccountNumber">The sub-account number..</param>
+        /// <param name="accountName">The account name..</param>
+        /// <param name="accountCurrency">The account currency..</param>
         /// <param name="subAccounts">A list of sub-accounts..</param>
-        public Balance(int accountNumber = default, List<SubAccount> subAccounts = default)
+        /// <param name="lastCredit">lastCredit.</param>
+        public Balance(int accountNumber = default, int subAccountNumber = default, string accountName = default, string accountCurrency = default, List<SubAccount> subAccounts = default, TransactionInfo lastCredit = default)
         {
             this.AccountNumber = accountNumber;
+            this.SubAccountNumber = subAccountNumber;
+            this.AccountName = accountName;
+            this.AccountCurrency = accountCurrency;
             this.SubAccounts = subAccounts;
+            this.LastCredit = lastCredit;
         }
 
         /// <summary>
@@ -60,6 +68,36 @@ namespace DocSpace.API.SDK.Model
         public int AccountNumber { get; set; }
 
         /// <summary>
+        /// The sub-account number.
+        /// </summary>
+        /// <value>The sub-account number.</value>
+        /*
+        <example>12345</example>
+        */
+        [DataMember(Name = "subAccountNumber", EmitDefaultValue = false)]
+        public int SubAccountNumber { get; set; }
+
+        /// <summary>
+        /// The account name.
+        /// </summary>
+        /// <value>The account name.</value>
+        /*
+        <example>aitools</example>
+        */
+        [DataMember(Name = "accountName", EmitDefaultValue = true)]
+        public string AccountName { get; set; }
+
+        /// <summary>
+        /// The account currency.
+        /// </summary>
+        /// <value>The account currency.</value>
+        /*
+        <example>USD</example>
+        */
+        [DataMember(Name = "accountCurrency", EmitDefaultValue = true)]
+        public string AccountCurrency { get; set; }
+
+        /// <summary>
         /// A list of sub-accounts.
         /// </summary>
         /// <value>A list of sub-accounts.</value>
@@ -70,6 +108,12 @@ namespace DocSpace.API.SDK.Model
         public List<SubAccount> SubAccounts { get; set; }
 
         /// <summary>
+        /// Gets or Sets LastCredit
+        /// </summary>
+        [DataMember(Name = "lastCredit", EmitDefaultValue = false)]
+        public TransactionInfo LastCredit { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -78,7 +122,11 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class Balance {\n");
             sb.Append("  AccountNumber: ").Append(AccountNumber).Append("\n");
+            sb.Append("  SubAccountNumber: ").Append(SubAccountNumber).Append("\n");
+            sb.Append("  AccountName: ").Append(AccountName).Append("\n");
+            sb.Append("  AccountCurrency: ").Append(AccountCurrency).Append("\n");
             sb.Append("  SubAccounts: ").Append(SubAccounts).Append("\n");
+            sb.Append("  LastCredit: ").Append(LastCredit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -41,9 +41,19 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchTagsRequestDto" /> class.
         /// </summary>
-        /// <param name="names">The list of tag names..</param>
+        [JsonConstructorAttribute]
+        protected BatchTagsRequestDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BatchTagsRequestDto" /> class.
+        /// </summary>
+        /// <param name="names">The list of tag names. (required).</param>
         public BatchTagsRequestDto(List<string> names = default)
         {
+            // to ensure "names" is required (not null)
+            if (names == null)
+            {
+                throw new ArgumentNullException("names is a required property for BatchTagsRequestDto and cannot be null");
+            }
             this.Names = names;
         }
 
@@ -54,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>[&quot;tag1&quot;,&quot;tag2&quot;,&quot;tag3&quot;]</example>
         */
-        [DataMember(Name = "names", EmitDefaultValue = true)]
+        [DataMember(Name = "names", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Names { get; set; }
 
         /// <summary>

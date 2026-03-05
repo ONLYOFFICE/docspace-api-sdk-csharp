@@ -697,6 +697,8 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Detailed profile information |  -  |
+| **400** | Incorrect email |  -  |
+| **403** | No permissions to perform this action |  -  |
 | **404** | User not found |  -  |
 | **401** | Unauthorized |  -  |
 

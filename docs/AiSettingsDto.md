@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **AiReadyNeedReset** | **bool** | Indicates whether the AI provider API key needs to be reconfigured. | [optional] 
 **PortalMcpServerId** | **Guid?** | The unique identifier of the portal-level MCP server, if configured. | [optional] 
 **EmbeddingModel** | **string** | The name of the embedding model used for document vectorization. | 
+**ModelAliases** | **Dictionary&lt;string, string&gt;** | Mapping of model identifiers to human-readable aliases. | 
 **KnowledgeSearchToolName** | **string** | The tool name used by the AI assistant for knowledge base search. | 
 **WebSearchToolName** | **string** | The tool name used by the AI assistant for web search. | 
 **WebCrawlingToolName** | **string** | The tool name used by the AI assistant for web page crawling. | 

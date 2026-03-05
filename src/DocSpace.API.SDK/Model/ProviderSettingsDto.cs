@@ -47,22 +47,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProviderSettingsDto" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ProviderSettingsDto() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ProviderSettingsDto" /> class.
-        /// </summary>
         /// <param name="type">type.</param>
-        /// <param name="url">Default API endpoint URL for the provider type. (required).</param>
+        /// <param name="url">Default API endpoint URL for the provider type..</param>
         public ProviderSettingsDto(ProviderType? type = default, string url = default)
         {
-            // to ensure "url" is required (not null)
-            if (url == null)
-            {
-                throw new ArgumentNullException("url is a required property for ProviderSettingsDto and cannot be null");
-            }
-            this.Url = url;
             this.Type = type;
+            this.Url = url;
         }
 
         /// <summary>
@@ -72,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>https://api.openai.com/v1</example>
         */
-        [DataMember(Name = "url", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
 
         /// <summary>

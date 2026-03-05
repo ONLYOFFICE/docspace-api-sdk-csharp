@@ -32,9 +32,9 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - Stop, 1 - Resume]
+    /// [0 - Stop, 1 - Resume, 2 - Start, 3 - Edit]
     /// </summary>
-    /// <value>[0 - Stop, 1 - Resume]</value>
+    /// <value>[0 - Stop, 1 - Resume, 2 - Start, 3 - Edit]</value>
     public enum FormFillingManageAction
     {
         /// <summary>
@@ -45,7 +45,17 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum Resume for value: 1
         /// </summary>
-        Resume = 1
+        Resume = 1,
+
+        /// <summary>
+        /// Enum Start for value: 2
+        /// </summary>
+        Start = 2,
+
+        /// <summary>
+        /// Enum Edit for value: 3
+        /// </summary>
+        Edit = 3
     }
 
 }

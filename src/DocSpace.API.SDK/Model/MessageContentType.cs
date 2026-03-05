@@ -50,7 +50,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum Attachment for value: 2
         /// </summary>
-        Attachment = 2
+        Attachment = 2,
+
+        /// <summary>
+        /// Enum Data for value: 3
+        /// </summary>
+        Data = 3
     }
 
 }

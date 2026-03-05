@@ -2183,6 +2183,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/AiProviderWrapper"
           description: Created AI provider details
+        "400":
+          description: Invalid connection data or provider with this name already
+            exists
         "403":
           description: You don't have enough permission to manage providers
         "401":
@@ -2234,6 +2237,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/AiProviderWrapper"
           description: Updated AI provider details
+        "400":
+          description: Invalid connection data or provider with this name already
+            exists
         "403":
           description: You don't have enough permission to manage providers
         "404":
@@ -8518,7 +8524,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BooleanWrapper"
+                $ref: "#/components/schemas/ModuleWrapper"
           description: "Module information: ID, product class name, title, description,\
             \ icon URL, large icon URL, start URL, primary or nor, help URL"
         "401":
@@ -9010,6 +9016,41 @@ paths:
       tags:
       - Files / Settings
   /api/2.0/files/settings/defaulttemplate:
+    delete:
+      description: Resets the default template setting.
+      operationId: resetDefaultTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DefaultTemplateSettingsResetRequestDto"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DefaultTemplateSettingsWrapper"
+          description: New default template settings
+        "403":
+          description: You don't have enough permission to perform the operation
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Reset the default template setting
+      tags:
+      - Files / Settings
     get:
       description: Returns the default template setting.
       operationId: getDefaultTemplates
@@ -9068,6 +9109,8 @@ paths:
               schema:
                 $ref: "#/components/schemas/DefaultTemplateSettingsWrapper"
           description: New default template settings
+        "400":
+          description: Incorrect or missing file
         "403":
           description: You don't have enough permission to perform the operation
         "401":
@@ -9103,6 +9146,8 @@ paths:
               schema:
                 $ref: "#/components/schemas/DefaultTemplateSettingsWrapper"
           description: New default template settings
+        "400":
+          description: Incorrect or missing file
         "403":
           description: You don't have enough permission to perform the operation
         "401":
@@ -9455,6 +9500,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/AceShortWrapperArrayWrapper"
           description: List of access rights information
+        "400":
+          description: The list of email addresses is empty
+        "403":
+          description: You don't have enough permission to perform the operation
+        "404":
+          description: The required file was not found
         "401":
           description: Unauthorized
       security:
@@ -14217,6 +14268,10 @@ paths:
               schema:
                 $ref: "#/components/schemas/EmployeeFullWrapper"
           description: Detailed profile information
+        "400":
+          description: Incorrect email
+        "403":
+          description: No permissions to perform this action
         "404":
           description: User not found
         "401":
@@ -17946,7 +18001,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AuthRequestsDto"
+              $ref: "#/components/schemas/AuthWithCodeRequestsDto"
       responses:
         "200":
           content:
@@ -18323,7 +18378,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PaymentUrlRequestsDto"
+              $ref: "#/components/schemas/PaymentUrlRequestDto"
       responses:
         "200":
           content:
@@ -18473,7 +18528,7 @@ paths:
         name: backUrl
         required: false
         schema:
-          example: https://example.com/payment/success
+          example: https://example.com
           type: string
         style: form
       responses:
@@ -18906,60 +18961,64 @@ paths:
       summary: Get the customer balance
       tags:
       - Portal / Payment
+  /api/2.0/portal/payment/customer/servicequota:
+    get:
+      description: Returns the service quota from the accounting service.
+      operationId: getCustomerServiceQuota
+      parameters:
+      - description: The service name.
+        explode: true
+        in: query
+        name: serviceName
+        required: false
+        schema:
+          example: aitools
+          type: string
+        style: form
+      - description: Specifies whether to refresh the payment information cache or
+          not.
+        explode: true
+        in: query
+        name: refresh
+        required: false
+        schema:
+          example: true
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BalanceWrapper"
+          description: The service quota
+        "403":
+          description: No permissions to perform this action
+        "404":
+          description: Service could not be found
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Get the service quota
+      tags:
+      - Portal / Payment
   /api/2.0/portal/payment/customer/operations:
     get:
       description: Returns the report of customer operations from the accounting service.
       operationId: getCustomerOperations
       parameters:
-      - description: The report start date.
-        explode: true
-        in: query
-        name: startDate
-        required: false
-        schema:
-          example: 2024-01-01T00:00:00Z
-          format: date-time
-          type: string
-        style: form
-      - description: The report end date.
-        explode: true
-        in: query
-        name: endDate
-        required: false
-        schema:
-          example: 2024-01-31T23:59:59Z
-          format: date-time
-          type: string
-        style: form
-      - description: The participant name.
-        explode: true
-        in: query
-        name: participantName
-        required: false
-        schema:
-          example: ACME Corp
-          type: string
-        style: form
-      - description: Specifies whether to include credit operations in the report.
-          The default value is true.
-        explode: true
-        in: query
-        name: credit
-        required: false
-        schema:
-          example: true
-          type: boolean
-        style: form
-      - description: Specifies whether to include debit operations in the report.
-          The default value is true.
-        explode: true
-        in: query
-        name: debit
-        required: false
-        schema:
-          example: true
-          type: boolean
-        style: form
       - description: The number of items to skip for pagination. The default value
           is 0.
         explode: true
@@ -18982,6 +19041,98 @@ paths:
           format: int32
           type: integer
         style: form
+      - description: The service name.
+        explode: true
+        in: query
+        name: ServiceName
+        required: false
+        schema:
+          example: aitools
+          type: string
+        style: form
+      - description: The report start date.
+        explode: true
+        in: query
+        name: StartDate
+        required: false
+        schema:
+          example: 2024-01-01T00:00:00Z
+          format: date-time
+          type: string
+        style: form
+      - description: The report end date.
+        explode: true
+        in: query
+        name: EndDate
+        required: false
+        schema:
+          example: 2024-01-31T23:59:59Z
+          format: date-time
+          type: string
+        style: form
+      - description: The participant name.
+        explode: true
+        in: query
+        name: ParticipantName
+        required: false
+        schema:
+          example: ACME Corp
+          type: string
+        style: form
+      - description: Specifies whether to include credit operations in the report.
+        explode: true
+        in: query
+        name: Credit
+        required: false
+        schema:
+          example: true
+          type: boolean
+        style: form
+      - description: Specifies whether to include debit operations in the report.
+        explode: true
+        in: query
+        name: Debit
+        required: false
+        schema:
+          example: false
+          type: boolean
+        style: form
+      - description: List of operation types to filter by.
+        example: Any
+        explode: true
+        in: query
+        name: Types
+        required: false
+        schema:
+          $ref: "#/components/schemas/OperationType"
+        style: form
+      - description: List of operation status to filter by.
+        example: Any
+        explode: true
+        in: query
+        name: Status
+        required: false
+        schema:
+          $ref: "#/components/schemas/OperationStatus"
+        style: form
+      - description: The field to order by.
+        explode: true
+        in: query
+        name: OrderBy
+        required: false
+        schema:
+          example: StartDate
+          type: string
+        style: form
+      - description: "Order direction: Ascending or Descending."
+        example: Descending
+        explode: true
+        in: query
+        name: OrderType
+        required: false
+        schema:
+          $ref: "#/components/schemas/OperationOrderType"
+        style: form
       responses:
         "200":
           content:
@@ -18991,6 +19142,8 @@ paths:
           description: The customer operations
         "403":
           description: No permissions to perform this action
+        "404":
+          description: Service could not be found
         "401":
           description: Unauthorized
       security:
@@ -19078,6 +19231,10 @@ paths:
               schema:
                 $ref: "#/components/schemas/DocumentBuilderTaskWrapper"
           description: Ok
+        "403":
+          description: No permissions to perform this action
+        "404":
+          description: Service could not be found
         "401":
           description: Unauthorized
       security:
@@ -19098,7 +19255,7 @@ paths:
       - Portal / Payment
   /api/2.0/portal/payment/topupsettings:
     get:
-      description: Returns the wallet auto top-up settings.
+      description: Returns the wallet auto top up settings for the current tenant.
       operationId: getTenantWalletSettings
       responses:
         "200":
@@ -19124,11 +19281,14 @@ paths:
         - read
         - write
       - OpenId: []
-      summary: Get wallet auto top-up settings
+      summary: Gets the tenant wallet auto top up settings
       tags:
       - Portal / Payment
     post:
-      description: Sets the wallet auto top-up settings.
+      description: "Updates the wallet auto top up settings for the current tenant.\r\
+        \nRequires the tariff service to be configured and the user to be authorized\
+        \ as a payer.\r\nReturns null if the tariff service is not configured or customer\
+        \ information/balance cannot be retrieved."
       operationId: setTenantWalletSettings
       requestBody:
         content:
@@ -19159,12 +19319,13 @@ paths:
         - read
         - write
       - OpenId: []
-      summary: Set wallet auto top-up settings
+      summary: Set the wallet auto top up settings
       tags:
       - Portal / Payment
   /api/2.0/portal/payment/servicessettings:
     get:
-      description: Returns the wallet services settings.
+      description: Retrieves configuration settings related to the wallet service
+        associated with the current tenant.
       operationId: getTenantWalletServiceSettings
       responses:
         "200":
@@ -19172,7 +19333,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/TenantWalletServiceSettingsWrapper"
-          description: The wallet services settings
+          description: The wallet service settings for the tenant
         "403":
           description: No permissions to perform this action
         "401":
@@ -19190,12 +19351,15 @@ paths:
         - read
         - write
       - OpenId: []
-      summary: Get wallet services settings
+      summary: Gets the wallet service settings for the tenant.
       tags:
       - Portal / Payment
   /api/2.0/portal/payment/servicestate:
     post:
-      description: Changes the wallet service state.
+      description: "Changes the state of a wallet service for the current tenant.\r\
+        \nRequires permission to edit portal settings and a configured tariff service.\r\
+        \nAdds or removes the specified service from the enabled services list based\
+        \ on the enabled flag."
       operationId: changeTenantWalletServiceState
       requestBody:
         content:
@@ -19208,7 +19372,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/TenantWalletServiceSettingsWrapper"
-          description: The wallet service settings
+          description: The updated tenant wallet service settings
         "403":
           description: No permissions to perform this action
         "401":
@@ -19226,7 +19390,155 @@ paths:
         - read
         - write
       - OpenId: []
-      summary: Change wallet service state
+      summary: Change tenant wallet service state
+      tags:
+      - Portal / Payment
+  /api/2.0/portal/payment/buywalletservice:
+    post:
+      description: "This method processes a payment for a wallet service using the\
+        \ configured payment method.\r\nRequires the tariff service to be configured\
+        \ and a valid payment method to be set for the customer.\r\nRate limiting\
+        \ is applied according to the payments API policy."
+      operationId: buyWalletService
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BuyWalletServiceRequestDto"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServicePaymentWrapper"
+          description: The service payment information
+        "403":
+          description: No permissions to perform this action
+        "404":
+          description: Service could not be found
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Purchases a wallet service with the specified quantity.
+      tags:
+      - Portal / Payment
+  /api/2.0/portal/payment/ai-prices:
+    get:
+      description: "Retrieves the pricing information for AI models including chat,\
+        \ embedding, and web search services.\r\nThe prices are returned in the configured\
+        \ currency and normalized per million tokens.\r\nRequires administrator permissions\
+        \ to access."
+      operationId: getAiPrices
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AiPricesResponseWrapper"
+          description: Prices for AI models
+        "403":
+          description: No permissions to perform this action
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Get AI model prices
+      tags:
+      - Portal / Payment
+  /api/2.0/portal/payment/ai-model/restrictions:
+    get:
+      description: "Returns the list of AI chat model IDs that are restricted (disabled)\
+        \ for the current tenant.\r\nRestricted models cannot be used for AI chat\
+        \ conversations by any user within the portal.\r\nOnly DocSpace administrators\
+        \ can access this endpoint."
+      operationId: getRestrictedAiModels
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RestrictedModelsResponseWrapper"
+          description: The list of restricted AI model IDs
+        "403":
+          description: No permissions to perform this action
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Get restricted AI models
+      tags:
+      - Portal / Payment
+    put:
+      description: "Overwrites the entire set of restricted AI model IDs for the current\
+        \ tenant.\r\nThe request body must contain the complete desired set — to add\
+        \ a restriction, include the new model alongside existing ones;\r\nto remove\
+        \ one, omit it. An empty set lifts all restrictions. Only the portal payer\
+        \ can perform this action."
+      operationId: setRestrictedAiModels
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SetRestrictedAiModelsRequestDto"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RestrictedModelsResponseWrapper"
+          description: The updated list of restricted AI model IDs
+        "403":
+          description: No permissions to perform this action
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Set restricted AI models
       tags:
       - Portal / Payment
   /api/2.0/portal/usedspace:
@@ -25716,6 +26028,9 @@ components:
       description: The AI module settings.
       example:
         generateFormToolName: generate_form
+        modelAliases:
+          gpt-5.2: GPT-5.2
+          claude-sonnet-4-20250514: Claude Sonnet 4
         generateDocxToolName: generate_docx
         aiReady: true
         aiReadyNeedReset: false
@@ -25767,6 +26082,15 @@ components:
           example: text-embedding-3-small
           nullable: true
           type: string
+        modelAliases:
+          additionalProperties:
+            type: string
+          description: Mapping of model identifiers to human-readable aliases.
+          example:
+            gpt-5.2: GPT-5.2
+            claude-sonnet-4-20250514: Claude Sonnet 4
+          nullable: true
+          type: object
         knowledgeSearchToolName:
           description: The tool name used by the AI assistant for knowledge base search.
           example: knowledge_search
@@ -25806,6 +26130,7 @@ components:
       - generateFormToolName
       - generatePresentationToolName
       - knowledgeSearchToolName
+      - modelAliases
       - webCrawlingToolName
       - webSearchToolName
       type: object
@@ -25813,6 +26138,9 @@ components:
       example:
         response:
           generateFormToolName: generate_form
+          modelAliases:
+            gpt-5.2: GPT-5.2
+            claude-sonnet-4-20250514: Claude Sonnet 4
           generateDocxToolName: generate_docx
           aiReady: true
           aiReadyNeedReset: false
@@ -25991,6 +26319,36 @@ components:
         createdBy:
           $ref: "#/components/schemas/EmployeeDto"
       type: object
+    ChatImageMultimodalSettingsDto:
+      additionalProperties: false
+      description: The image multimodal settings for the chat model.
+      example:
+        formats:
+        - .jpeg
+        - .gif
+      properties:
+        formats:
+          description: The supported image formats.
+          example:
+          - .jpeg
+          - .gif
+          items:
+            type: string
+          nullable: true
+          type: array
+      type: object
+    ChatMultimodalSettingsDto:
+      additionalProperties: false
+      description: The multimodal settings for the chat model.
+      example:
+        image:
+          formats:
+          - .jpeg
+          - .gif
+      properties:
+        image:
+          $ref: "#/components/schemas/ChatImageMultimodalSettingsDto"
+      type: object
     ChatSettings:
       additionalProperties: false
       description: The chat settings.
@@ -26017,6 +26375,49 @@ components:
           type: string
         internal:
           description: Specifies whether the provider is internal or not.
+          example: false
+          readOnly: true
+          type: boolean
+      type: object
+    ChatSettingsDto:
+      additionalProperties: false
+      description: The chat settings parameters.
+      example:
+        internal: false
+        modelId: gpt-5.2
+        providerId: 1
+        modelAlias: GPT-5.2
+        multimodal:
+          image:
+            formats:
+            - .jpeg
+            - .gif
+        prompt: You are a helpful assistant.
+      properties:
+        providerId:
+          description: The AI provider ID.
+          example: 1
+          format: int32
+          type: integer
+        modelId:
+          description: The AI model ID used for chat completions.
+          example: gpt-5.2
+          nullable: true
+          type: string
+        modelAlias:
+          description: The AI model display alias.
+          example: GPT-5.2
+          nullable: true
+          type: string
+        prompt:
+          description: The system prompt for the chat.
+          example: You are a helpful assistant.
+          nullable: true
+          type: string
+        multimodal:
+          $ref: "#/components/schemas/ChatMultimodalSettingsDto"
+        internal:
+          description: Indicates whether this is an internal AI gateway provider.
           example: false
           readOnly: true
           type: boolean
@@ -27163,9 +27564,15 @@ components:
           expired: false
           chatSettings:
             internal: false
-            modelId: gpt-4
+            modelId: gpt-5.2
             providerId: 1
-            prompt: Please analyze this document
+            modelAlias: GPT-5.2
+            multimodal:
+              image:
+                formats:
+                - .jpeg
+                - .gif
+            prompt: You are a helpful assistant.
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -27363,9 +27770,15 @@ components:
             expired: false
             chatSettings:
               internal: false
-              modelId: gpt-4
+              modelId: gpt-5.2
               providerId: 1
-              prompt: Please analyze this document
+              modelAlias: GPT-5.2
+              multimodal:
+                image:
+                  formats:
+                  - .jpeg
+                  - .gif
+              prompt: You are a helpful assistant.
             providerId: 1
             fileEntryType: 1
             isShareable: true
@@ -27549,7 +27962,7 @@ components:
             nullable: true
             type: boolean
           chatSettings:
-            $ref: "#/components/schemas/ChatSettings"
+            $ref: "#/components/schemas/ChatSettingsDto"
           rootRoomType:
             $ref: "#/components/schemas/RoomType"
         type: object
@@ -27648,9 +28061,15 @@ components:
         expired: false
         chatSettings:
           internal: false
-          modelId: gpt-4
+          modelId: gpt-5.2
           providerId: 1
-          prompt: Please analyze this document
+          modelAlias: GPT-5.2
+          multimodal:
+            image:
+              formats:
+              - .jpeg
+              - .gif
+          prompt: You are a helpful assistant.
         providerId: 1
         fileEntryType: 1
         isShareable: true
@@ -27787,9 +28206,15 @@ components:
           expired: false
           chatSettings:
             internal: false
-            modelId: gpt-4
+            modelId: gpt-5.2
             providerId: 1
-            prompt: Please analyze this document
+            modelAlias: GPT-5.2
+            multimodal:
+              image:
+                formats:
+                - .jpeg
+                - .gif
+            prompt: You are a helpful assistant.
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -27923,9 +28348,15 @@ components:
           expired: false
           chatSettings:
             internal: false
-            modelId: gpt-4
+            modelId: gpt-5.2
             providerId: 1
-            prompt: Please analyze this document
+            modelAlias: GPT-5.2
+            multimodal:
+              image:
+                formats:
+                - .jpeg
+                - .gif
+            prompt: You are a helpful assistant.
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -28093,9 +28524,15 @@ components:
           expired: false
           chatSettings:
             internal: false
-            modelId: gpt-4
+            modelId: gpt-5.2
             providerId: 1
-            prompt: Please analyze this document
+            modelAlias: GPT-5.2
+            multimodal:
+              image:
+                formats:
+                - .jpeg
+                - .gif
+            prompt: You are a helpful assistant.
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -28937,18 +29374,21 @@ components:
       - TextContentDto
       - ToolContentDto
       - AttachmentContentDto
+      - DataContentDto
     MessageContentType:
       description: "[0 - Text, 1 - Tool, 2 - Attachment]"
       enum:
       - 0
       - 1
       - 2
+      - 3
       example: 0
       type: integer
       x-enum-varnames:
       - Text
       - Tool
       - Attachment
+      - Data
     MessageDto:
       additionalProperties: false
       description: The chat message information.
@@ -30453,8 +30893,6 @@ components:
           example: https://api.openai.com/v1
           nullable: true
           type: string
-      required:
-      - url
       type: object
     ProviderType:
       description: "[0 - PortalAi, 1 - OpenAi, 2 - TogetherAi, 3 - OpenAiCompatible,\
@@ -31959,11 +32397,15 @@ components:
         data:
           description: The action data that will be scrolled to.
           example: section
+          maxLength: 256
+          minLength: 0
           nullable: true
           type: string
         type:
           description: The action type.
           example: scroll
+          maxLength: 128
+          minLength: 0
           nullable: true
           type: string
       type: object
@@ -32283,8 +32725,9 @@ components:
           - tag3
           items:
             type: string
-          nullable: true
           type: array
+      required:
+      - names
       type: object
     ChangeHistory:
       additionalProperties: false
@@ -32956,8 +33399,8 @@ components:
             isAnonim: false
           fileType: 0
           dimensions:
-            width: 6
-            height: 0
+            width: 10
+            height: 10
         editorConfig:
           coEditing:
             mode: 0
@@ -33306,8 +33749,8 @@ components:
               isAnonim: false
             fileType: 0
             dimensions:
-              width: 6
-              height: 0
+              width: 10
+              height: 10
           editorConfig:
             coEditing:
               mode: 0
@@ -34282,6 +34725,12 @@ components:
           format: date-time
           nullable: true
           type: string
+        fileSize:
+          description: Filesize (in bytes) of a default template
+          example: 1024
+          format: int64
+          nullable: true
+          type: integer
         viewUrl:
           description: View url of a default template
           example: http://localhost/template/view
@@ -34318,13 +34767,24 @@ components:
         fileExtension: .docx
       properties:
         selectedFile:
-          description: File id to replace template with (or null to use default template)
-          example: 1
-          format: int32
-          nullable: true
-          type: integer
+          $ref: "#/components/schemas/DefaultTemplateSettingsRequestDto_selectedFile"
         fileExtension:
           description: File extension of a template to replace
+          example: .docx
+          nullable: true
+          type: string
+      required:
+      - fileExtension
+      - selectedFile
+      type: object
+    DefaultTemplateSettingsResetRequestDto:
+      additionalProperties: false
+      description: Default templates settings reset request parameters.
+      example:
+        fileExtension: .docx
+      properties:
+        fileExtension:
+          description: File extension of a template to reset
           example: .docx
           nullable: true
           type: string
@@ -36225,8 +36685,8 @@ components:
           isAnonim: false
         fileType: 0
         dimensions:
-          width: 6
-          height: 0
+          width: 10
+          height: 10
     FileEntryBaseArrayWrapper:
       example:
         response:
@@ -36911,8 +37371,8 @@ components:
             isAnonim: false
           fileType: 0
           dimensions:
-            width: 6
-            height: 0
+            width: 10
+            height: 10
         - isLinkExpired: false
           formFillingStatus: 0
           originRoomId: 22
@@ -37041,8 +37501,8 @@ components:
             isAnonim: false
           fileType: 0
           dimensions:
-            width: 6
-            height: 0
+            width: 10
+            height: 10
         count: 0
         links:
         - action: action
@@ -37205,16 +37665,16 @@ components:
             isAnonim: false
           fileType: 0
           dimensions:
-            width: 6
-            height: 0
-        count: 1
+            width: 10
+            height: 10
+        count: 0
         links:
         - action: action
           href: href
         - action: action
           href: href
-        status: 5
-        statusCode: 5
+        status: 6
+        statusCode: 1
       properties:
         response:
           $ref: "#/components/schemas/FileDtoInteger"
@@ -39282,8 +39742,8 @@ components:
             isAnonim: false
           fileType: 0
           dimensions:
-            width: 6
-            height: 0
+            width: 10
+            height: 10
         originalForm:
           isLinkExpired: false
           formFillingStatus: 0
@@ -39413,8 +39873,8 @@ components:
             isAnonim: false
           fileType: 0
           dimensions:
-            width: 6
-            height: 0
+            width: 10
+            height: 10
         roomId: 123
       properties:
         formNumber:
@@ -39651,8 +40111,8 @@ components:
               isAnonim: false
             fileType: 0
             dimensions:
-              width: 6
-              height: 0
+              width: 10
+              height: 10
           originalForm:
             isLinkExpired: false
             formFillingStatus: 0
@@ -39783,8 +40243,8 @@ components:
               isAnonim: false
             fileType: 0
             dimensions:
-              width: 6
-              height: 0
+              width: 10
+              height: 10
           roomId: 123
         count: 0
         links:
@@ -39966,9 +40426,15 @@ components:
             expired: false
             chatSettings:
               internal: false
-              modelId: gpt-4
+              modelId: gpt-5.2
               providerId: 1
-              prompt: Please analyze this document
+              modelAlias: GPT-5.2
+              multimodal:
+                image:
+                  formats:
+                  - .jpeg
+                  - .gif
+              prompt: You are a helpful assistant.
             providerId: 1
             fileEntryType: 1
             isShareable: true
@@ -40114,9 +40580,15 @@ components:
             expired: false
             chatSettings:
               internal: false
-              modelId: gpt-4
+              modelId: gpt-5.2
               providerId: 1
-              prompt: Please analyze this document
+              modelAlias: GPT-5.2
+              multimodal:
+                image:
+                  formats:
+                  - .jpeg
+                  - .gif
+              prompt: You are a helpful assistant.
             providerId: 1
             fileEntryType: 1
             isShareable: true
@@ -40302,7 +40774,7 @@ components:
             nullable: true
             type: boolean
           chatSettings:
-            $ref: "#/components/schemas/ChatSettings"
+            $ref: "#/components/schemas/ChatSettingsDto"
           rootRoomType:
             $ref: "#/components/schemas/RoomType"
         type: object
@@ -40401,9 +40873,15 @@ components:
         expired: false
         chatSettings:
           internal: false
-          modelId: gpt-4
+          modelId: gpt-5.2
           providerId: 1
-          prompt: Please analyze this document
+          modelAlias: GPT-5.2
+          multimodal:
+            image:
+              formats:
+              - .jpeg
+              - .gif
+          prompt: You are a helpful assistant.
         providerId: 1
         fileEntryType: 1
         isShareable: true
@@ -40592,9 +41070,15 @@ components:
           expired: false
           chatSettings:
             internal: false
-            modelId: gpt-4
+            modelId: gpt-5.2
             providerId: 1
-            prompt: Please analyze this document
+            modelAlias: GPT-5.2
+            multimodal:
+              image:
+                formats:
+                - .jpeg
+                - .gif
+            prompt: You are a helpful assistant.
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -40728,9 +41212,15 @@ components:
           expired: false
           chatSettings:
             internal: false
-            modelId: gpt-4
+            modelId: gpt-5.2
             providerId: 1
-            prompt: Please analyze this document
+            modelAlias: GPT-5.2
+            multimodal:
+              image:
+                formats:
+                - .jpeg
+                - .gif
+            prompt: You are a helpful assistant.
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -40898,9 +41388,15 @@ components:
           expired: false
           chatSettings:
             internal: false
-            modelId: gpt-4
+            modelId: gpt-5.2
             providerId: 1
-            prompt: Please analyze this document
+            modelAlias: GPT-5.2
+            multimodal:
+              image:
+                formats:
+                - .jpeg
+                - .gif
+            prompt: You are a helpful assistant.
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -40971,15 +41467,19 @@ components:
           type: integer
       type: object
     FormFillingManageAction:
-      description: "[0 - Stop, 1 - Resume]"
+      description: "[0 - Stop, 1 - Resume, 2 - Start, 3 - Edit]"
       enum:
       - 0
       - 1
+      - 2
+      - 3
       example: 0
       type: integer
       x-enum-varnames:
       - Stop
       - Resume
+      - Start
+      - Edit
     FormFillingStatus:
       description: "[0 - None, 1 - Draft, 2 - You turn, 3 - In progress, 4 - Complete,\
         \ 5 - Stoped]"
@@ -42135,11 +42635,13 @@ components:
       description: The action performed on the file.
       example:
         id: 1000
-        key: key
+        key: fileUploaded
       properties:
         id:
           $ref: "#/components/schemas/MessageAction"
         key:
+          description: The action performed on the file.
+          example: fileUploaded
           nullable: true
           type: string
       type: object
@@ -42168,7 +42670,7 @@ components:
             isAnonim: false
           action:
             id: 1000
-            key: key
+            key: fileUploaded
           id: 123
         - date:
             utcTime: 2018-01-01T00:00:00Z
@@ -42192,7 +42694,7 @@ components:
             isAnonim: false
           action:
             id: 1000
-            key: key
+            key: fileUploaded
           id: 123
         count: 0
         links:
@@ -42282,7 +42784,7 @@ components:
           isAnonim: false
         action:
           id: 1000
-          key: key
+          key: fileUploaded
         id: 123
       properties:
         id:
@@ -43599,6 +44101,106 @@ components:
       x-enum-varnames:
       - NotActivated
       - Activated
+    Module:
+      additionalProperties: false
+      description: The module information.
+      example:
+        appName: files
+        isPrimary: true
+        imageUrl: https://example.com/image.png
+        link: https://example.com
+        helpUrl: https://example.com/help
+        description: File management
+        id: 00000000-0000-0000-0000-000000000000
+        iconUrl: https://example.com/icon.svg
+        title: Documents
+      properties:
+        id:
+          description: The module ID.
+          example: 00000000-0000-0000-0000-000000000000
+          format: uuid
+          type: string
+        appName:
+          description: The module product class name.
+          example: files
+          nullable: true
+          type: string
+        title:
+          description: The module product class name.
+          example: Documents
+          nullable: true
+          type: string
+        link:
+          description: The URL to the module start page.
+          example: https://example.com
+          nullable: true
+          type: string
+        iconUrl:
+          description: The module icon URL.
+          example: https://example.com/icon.svg
+          nullable: true
+          type: string
+        imageUrl:
+          description: The module large image URL.
+          example: https://example.com/image.png
+          nullable: true
+          type: string
+        helpUrl:
+          description: The module help URL.
+          example: https://example.com/help
+          nullable: true
+          type: string
+        description:
+          description: The module description.
+          example: File management
+          nullable: true
+          type: string
+        isPrimary:
+          description: Specifies if the module is primary or not.
+          example: true
+          type: boolean
+      type: object
+    ModuleWrapper:
+      example:
+        response:
+          appName: files
+          isPrimary: true
+          imageUrl: https://example.com/image.png
+          link: https://example.com
+          helpUrl: https://example.com/help
+          description: File management
+          id: 00000000-0000-0000-0000-000000000000
+          iconUrl: https://example.com/icon.svg
+          title: Documents
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/Module"
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
+      type: object
     MultiSizeLogoCover:
       additionalProperties: false
       example:
@@ -45653,6 +46255,7 @@ components:
       properties:
         is_asc:
           description: Specifies if the order is ascending.
+          example: true
           type: boolean
         property:
           $ref: "#/components/schemas/SortedByType"
@@ -45754,38 +46357,48 @@ components:
       properties:
         comment:
           description: Defines if the document can be commented or not.
+          example: true
           type: boolean
         chat:
           description: Defines if the chat functionality is enabled in the document
             or not.
+          example: true
           type: boolean
         download:
           description: Defines if the document can be downloaded or only viewed or
             edited online.
+          example: true
           type: boolean
         edit:
           description: Defines if the document can be edited or only viewed.
+          example: true
           type: boolean
         fillForms:
           description: Defines if the forms can be filled.
+          example: true
           type: boolean
         modifyFilter:
           description: "Defines if the filter can be applied globally (true) affecting\
             \ all the other users,\r\nor locally (false), i.e. for the current user\
             \ only."
+          example: true
           type: boolean
         protect:
           description: Defines if the Protection tab on the toolbar and the Protect
             button in the left menu are displayedor hidden.
+          example: true
           type: boolean
         print:
           description: Defines if the document can be printed or not.
+          example: true
           type: boolean
         review:
           description: Defines if the document can be reviewed or not.
+          example: true
           type: boolean
         copy:
           description: Defines if the content can be copied to the clipboard or not.
+          example: true
           type: boolean
       type: object
     PluginsConfig:
@@ -47166,14 +47779,22 @@ components:
       - Group
     Size:
       additionalProperties: false
+      description: Represents dimensions with width and height values.
       example:
-        width: 6
-        height: 0
+        width: 10
+        height: 10
       properties:
         height:
+          description: "Gets or sets the height dimension of an object, typically\
+            \ measured in pixels or other unit.\r\nIt defines the vertical size of\
+            \ the object."
+          example: 10
           format: int32
           type: integer
         width:
+          description: "Gets or sets the width dimension of an object, typically measured\
+            \ in pixels or other unit."
+          example: 10
           format: int32
           type: integer
       type: object
@@ -47236,17 +47857,20 @@ components:
           type: string
       type: object
     StartFillingMode:
-      description: "[0 - None, 1 - Share to fill out, 2 - Start filling]"
+      description: "[0 - None, 1 - Share to fill out, 2 - Start filling, 3 - Start\
+        \ filling form room]"
       enum:
       - 0
       - 1
       - 2
+      - 3
       example: 0
       type: integer
       x-enum-varnames:
       - None
       - ShareToFillOut
       - StartFilling
+      - StartFillingFormRoom
     Status:
       description: "[0 - Ok, 1 - Invalid, 2 - Expired, 3 - Required password, 4 -\
         \ Invalid password, 5 - External access denied]"
@@ -48020,8 +48644,8 @@ components:
             isAnonim: false
           fileType: 0
           dimensions:
-            width: 6
-            height: 0
+            width: 10
+            height: 10
         uploaded: false
         id: 1
         title: My Document.docx
@@ -48194,8 +48818,8 @@ components:
               isAnonim: false
             fileType: 0
             dimensions:
-              width: 6
-              height: 0
+              width: 10
+              height: 10
           uploaded: false
           id: 1
           title: My Document.docx
@@ -50797,38 +51421,13 @@ components:
       additionalProperties: false
       description: The request parameters for creating a third-party account.
       example:
-        firstName: John
-        lastName: Doe
         employeeType: All
         culture: en-US
         serializedProfile: "{\"provider\":\"Google\",\"id\":\"123456\"}"
-        email: john.doe@example.com
-        passwordHash: $2a$10$abcdefghijklmnopqrstuv
         key: invite_key_123456
       properties:
         employeeType:
           $ref: "#/components/schemas/EmployeeType"
-        firstName:
-          description: The user first name.
-          example: John
-          nullable: true
-          type: string
-        lastName:
-          description: The user last name.
-          example: Doe
-          nullable: true
-          type: string
-        email:
-          description: The user email address.
-          example: john.doe@example.com
-          format: email
-          nullable: true
-          type: string
-        passwordHash:
-          description: The user password hash.
-          example: $2a$10$abcdefghijklmnopqrstuv
-          nullable: true
-          type: string
         key:
           description: The user link key.
           example: invite_key_123456
@@ -51702,6 +52301,228 @@ components:
       - email
       - message
       type: object
+    AiChatModelPricing:
+      additionalProperties: false
+      example:
+        provider: provider
+        price:
+          completion: 6.027456183070403
+          prompt: 0.8008281904610115
+        alias: alias
+        id: id
+        ownedBy: ownedBy
+      properties:
+        id:
+          nullable: true
+          type: string
+        alias:
+          nullable: true
+          type: string
+        ownedBy:
+          nullable: true
+          type: string
+        provider:
+          nullable: true
+          type: string
+        price:
+          $ref: "#/components/schemas/AiChatPrice"
+      required:
+      - id
+      - price
+      type: object
+    AiChatPrice:
+      additionalProperties: false
+      example:
+        completion: 6.027456183070403
+        prompt: 0.8008281904610115
+      properties:
+        prompt:
+          format: double
+          type: number
+        completion:
+          format: double
+          type: number
+      type: object
+    AiEmbeddingModelPricing:
+      additionalProperties: false
+      example:
+        provider: provider
+        price:
+          prompt: 1.4658129805029452
+        alias: alias
+        id: id
+        ownedBy: ownedBy
+      properties:
+        id:
+          nullable: true
+          type: string
+        alias:
+          nullable: true
+          type: string
+        ownedBy:
+          nullable: true
+          type: string
+        provider:
+          nullable: true
+          type: string
+        price:
+          $ref: "#/components/schemas/AiEmbeddingPrice"
+      required:
+      - id
+      - price
+      type: object
+    AiEmbeddingPrice:
+      additionalProperties: false
+      example:
+        prompt: 1.4658129805029452
+      properties:
+        prompt:
+          format: double
+          type: number
+      type: object
+    AiPricesResponse:
+      additionalProperties: false
+      example:
+        webSearch:
+          search: 5.962133916683182
+          provider: provider
+          contents: 5.637376656633329
+        chat:
+        - provider: provider
+          price:
+            completion: 6.027456183070403
+            prompt: 0.8008281904610115
+          alias: alias
+          id: id
+          ownedBy: ownedBy
+        - provider: provider
+          price:
+            completion: 6.027456183070403
+            prompt: 0.8008281904610115
+          alias: alias
+          id: id
+          ownedBy: ownedBy
+        currency:
+          symbol: symbol
+          code: code
+        embedding:
+        - provider: provider
+          price:
+            prompt: 1.4658129805029452
+          alias: alias
+          id: id
+          ownedBy: ownedBy
+        - provider: provider
+          price:
+            prompt: 1.4658129805029452
+          alias: alias
+          id: id
+          ownedBy: ownedBy
+      properties:
+        chat:
+          items:
+            $ref: "#/components/schemas/AiChatModelPricing"
+          nullable: true
+          type: array
+        embedding:
+          items:
+            $ref: "#/components/schemas/AiEmbeddingModelPricing"
+          nullable: true
+          type: array
+        webSearch:
+          $ref: "#/components/schemas/AiWebSearchPricing"
+        currency:
+          $ref: "#/components/schemas/CurrencyInfo"
+      required:
+      - chat
+      - currency
+      - embedding
+      - webSearch
+      type: object
+    AiPricesResponseWrapper:
+      example:
+        response:
+          webSearch:
+            search: 5.962133916683182
+            provider: provider
+            contents: 5.637376656633329
+          chat:
+          - provider: provider
+            price:
+              completion: 6.027456183070403
+              prompt: 0.8008281904610115
+            alias: alias
+            id: id
+            ownedBy: ownedBy
+          - provider: provider
+            price:
+              completion: 6.027456183070403
+              prompt: 0.8008281904610115
+            alias: alias
+            id: id
+            ownedBy: ownedBy
+          currency:
+            symbol: symbol
+            code: code
+          embedding:
+          - provider: provider
+            price:
+              prompt: 1.4658129805029452
+            alias: alias
+            id: id
+            ownedBy: ownedBy
+          - provider: provider
+            price:
+              prompt: 1.4658129805029452
+            alias: alias
+            id: id
+            ownedBy: ownedBy
+        count: 2
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 7
+        statusCode: 9
+      properties:
+        response:
+          $ref: "#/components/schemas/AiPricesResponse"
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
+      type: object
+    AiWebSearchPricing:
+      additionalProperties: false
+      example:
+        search: 5.962133916683182
+        provider: provider
+        contents: 5.637376656633329
+      properties:
+        provider:
+          nullable: true
+          type: string
+        search:
+          format: double
+          type: number
+        contents:
+          format: double
+          type: number
+      type: object
     AuditEventArrayWrapper:
       example:
         response:
@@ -51927,14 +52748,6 @@ components:
       additionalProperties: false
       description: The parameters required for the user authentication requests.
       example:
-        code: "123456"
-        recaptchaResponse: 03AGdBq25...
-        session: true
-        userName: user@example.com
-        accessToken: ya29.a0AfH6SMBx...
-        serializedProfile: "{\"name\":\"John Doe\",\"email\":\"john@example.com\"}"
-        recaptchaType: 0
-        passwordHash: 5f4dcc3b5aa765d61d8327deb882cf99
         codeOAuth: 4/0AY0e-g7...
         password: SecurePassword123!
         provider: google
@@ -51942,7 +52755,14 @@ components:
           email: user@example.com
           first: true
           key: abc123def456
+        recaptchaResponse: 03AGdBq25...
+        session: true
         culture: en-US
+        userName: user@example.com
+        accessToken: ya29.a0AfH6SMBx...
+        serializedProfile: "{\"name\":\"John Doe\",\"email\":\"john@example.com\"}"
+        recaptchaType: 0
+        passwordHash: 5f4dcc3b5aa765d61d8327deb882cf99
       properties:
         userName:
           description: The username or email used for authentication.
@@ -51973,11 +52793,6 @@ components:
         serializedProfile:
           description: "The serialized user profile data, if applicable."
           example: "{\"name\":\"John Doe\",\"email\":\"john@example.com\"}"
-          nullable: true
-          type: string
-        code:
-          description: The code for two-factor authentication.
-          example: "123456"
           nullable: true
           type: string
         codeOAuth:
@@ -52111,6 +52926,36 @@ components:
           nullable: true
           type: array
       type: object
+    AuthWithCodeRequestsDto:
+      additionalProperties: false
+      allOf:
+      - $ref: "#/components/schemas/AuthRequestsDto"
+      - properties:
+          code:
+            description: The code for two-factor authentication.
+            example: "123456"
+            nullable: true
+            type: string
+        type: object
+      description: The parameters required for the user two-factor authentication
+        requests.
+      example:
+        code: "123456"
+        recaptchaResponse: 03AGdBq25...
+        session: true
+        userName: user@example.com
+        accessToken: ya29.a0AfH6SMBx...
+        serializedProfile: "{\"name\":\"John Doe\",\"email\":\"john@example.com\"}"
+        recaptchaType: 0
+        passwordHash: 5f4dcc3b5aa765d61d8327deb882cf99
+        codeOAuth: 4/0AY0e-g7...
+        password: SecurePassword123!
+        provider: google
+        confirmData:
+          email: user@example.com
+          first: true
+          key: abc123def456
+        culture: en-US
     AuthenticationTokenDto:
       additionalProperties: false
       description: The authentication token parameters.
@@ -52204,6 +53049,13 @@ components:
         subAccounts:
         - currency: USD
           amount: 1500.75
+        lastCredit:
+          date: 2024-01-15T10:30:00Z
+          amount: 1500.75
+          currency: USD
+        accountName: aitools
+        subAccountNumber: 12345
+        accountCurrency: USD
         accountNumber: 12345
       properties:
         accountNumber:
@@ -52211,6 +53063,21 @@ components:
           example: 12345
           format: int32
           type: integer
+        subAccountNumber:
+          description: The sub-account number.
+          example: 12345
+          format: int32
+          type: integer
+        accountName:
+          description: The account name.
+          example: aitools
+          nullable: true
+          type: string
+        accountCurrency:
+          description: The account currency.
+          example: USD
+          nullable: true
+          type: string
         subAccounts:
           description: A list of sub-accounts.
           example:
@@ -52220,6 +53087,8 @@ components:
             $ref: "#/components/schemas/SubAccount"
           nullable: true
           type: array
+        lastCredit:
+          $ref: "#/components/schemas/TransactionInfo"
       type: object
     BalanceWrapper:
       example:
@@ -52227,6 +53096,13 @@ components:
           subAccounts:
           - currency: USD
             amount: 1500.75
+          lastCredit:
+            date: 2024-01-15T10:30:00Z
+            amount: 1500.75
+            currency: USD
+          accountName: aitools
+          subAccountNumber: 12345
+          accountCurrency: USD
           accountNumber: 12345
         count: 0
         links:
@@ -52287,6 +53163,26 @@ components:
           type: object
         lastModified:
           format: date-time
+          type: string
+      type: object
+    BuyWalletServiceRequestDto:
+      additionalProperties: false
+      description: The request parameters for buying wallet service.
+      example:
+        quantity: 1
+        serviceName: aitools
+      properties:
+        quantity:
+          description: Number of services provided.
+          example: 1
+          format: int32
+          maximum: 999999
+          minimum: 1
+          type: integer
+        serviceName:
+          description: The service name.
+          example: aitools
+          nullable: true
           type: string
       type: object
     CapabilitiesDto:
@@ -52880,6 +53776,8 @@ components:
         targetId:
           description: Target ID
           example: 00000000-0000-0000-0000-000000000001
+          maxLength: 255
+          minLength: 0
           nullable: true
           type: string
       required:
@@ -53127,6 +54025,22 @@ components:
           nullable: true
           type: string
       type: object
+    CurrencyInfo:
+      additionalProperties: false
+      example:
+        symbol: symbol
+        code: code
+      properties:
+        code:
+          nullable: true
+          type: string
+        symbol:
+          nullable: true
+          type: string
+      required:
+      - code
+      - symbol
+      type: object
     CurrentLicenseInfo:
       additionalProperties: false
       description: The current license information.
@@ -53373,12 +54287,22 @@ components:
       additionalProperties: false
       description: The request parameters for generating a report on client operations.
       example:
+        orderType: 0
+        types: 0
         endDate: 2024-01-31T23:59:59Z
+        orderBy: StartDate
+        serviceName: aitools
         participantName: ACME Corp
         credit: true
         debit: false
         startDate: 2024-01-01T00:00:00Z
+        status: 0
       properties:
+        serviceName:
+          description: The service name.
+          example: aitools
+          nullable: true
+          type: string
         startDate:
           description: The report start date.
           example: 2024-01-01T00:00:00Z
@@ -53406,6 +54330,17 @@ components:
           example: false
           nullable: true
           type: boolean
+        types:
+          $ref: "#/components/schemas/OperationType"
+        status:
+          $ref: "#/components/schemas/OperationStatus"
+        orderBy:
+          description: The field to order by.
+          example: StartDate
+          nullable: true
+          type: string
+        orderType:
+          $ref: "#/components/schemas/OperationOrderType"
       type: object
     DbTenant:
       additionalProperties: false
@@ -55852,6 +56787,81 @@ components:
           nullable: true
           type: string
       type: object
+    OperationOrderType:
+      description: "[0 - Descending, 1 - Ascending]"
+      enum:
+      - 0
+      - 1
+      example: 0
+      type: integer
+      x-enum-varnames:
+      - Descending
+      - Ascending
+    OperationStatus:
+      description: "[0 - Any, 1 - Pending, 2 - Completed, 4 - Rejected, 8 - Canceled]"
+      enum:
+      - 0
+      - 1
+      - 2
+      - 4
+      - 8
+      example: 0
+      type: integer
+      x-enum-varnames:
+      - Any
+      - Pending
+      - Completed
+      - Rejected
+      - Canceled
+    OperationType:
+      description: "[0 - Any, 1 - Unknown, 2 - ServicePayment, 4 - PackagePayment,\
+        \ 8 - ServiceUsage, 16 - Deposit, 32 - ReceiveProviderInvoice, 64 - ProcessProviderInvoice,\
+        \ 128 - WriteOffServiceProfit, 256 - Profit, 512 - PartnerAccrual, 1024 -\
+        \ ProviderPayment, 2048 - PartnerPayment, 4096 - Refund, 8192 - BankDeposit,\
+        \ 16384 - BankWithdrawal, 32768 - GoodwillCredit, 65536 - WriteOffProfit,\
+        \ 131072 - WriteOffDifferenceCurrency]"
+      enum:
+      - 0
+      - 1
+      - 2
+      - 4
+      - 8
+      - 16
+      - 32
+      - 64
+      - 128
+      - 256
+      - 512
+      - 1024
+      - 2048
+      - 4096
+      - 8192
+      - 16384
+      - 32768
+      - 65536
+      - 131072
+      example: 0
+      type: integer
+      x-enum-varnames:
+      - Any
+      - Unknown
+      - ServicePayment
+      - PackagePayment
+      - ServiceUsage
+      - Deposit
+      - ReceiveProviderInvoice
+      - ProcessProviderInvoice
+      - WriteOffServiceProfit
+      - Profit
+      - PartnerAccrual
+      - ProviderPayment
+      - PartnerPayment
+      - Refund
+      - BankDeposit
+      - BankWithdrawal
+      - GoodwillCredit
+      - WriteOffProfit
+      - WriteOffDifferenceCurrency
     OwnerChangeInstructionsDto:
       additionalProperties: false
       description: The owner change instructions parameters.
@@ -56239,7 +57249,7 @@ components:
           format: int32
           type: integer
       type: object
-    PaymentUrlRequestsDto:
+    PaymentUrlRequestDto:
       additionalProperties: false
       description: The request parameters for the payment URL configuration with quantity
         information.
@@ -56821,6 +57831,56 @@ components:
           format: int32
           type: integer
       type: object
+    RestrictedModelsResponse:
+      additionalProperties: false
+      example:
+        models:
+        - models
+        - models
+      properties:
+        models:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - models
+      type: object
+    RestrictedModelsResponseWrapper:
+      example:
+        response:
+          models:
+          - models
+          - models
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/RestrictedModelsResponse"
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
+      type: object
     RoomsNotificationSettingsDto:
       additionalProperties: false
       description: The rooms notification settings.
@@ -57044,6 +58104,116 @@ components:
       required:
       - productId
       - userId
+      type: object
+    ServicePayment:
+      additionalProperties: false
+      description: Represents service payment information.
+      example:
+        amount: 1500.75
+        quantity: 10
+        endDate: 2024-01-15T10:30:00Z
+        operationId: 12345
+        currency: USD
+        subscriptionId: 12345
+        startDate: 2024-01-15T10:30:00Z
+      properties:
+        operationId:
+          description: The payment operation ID.
+          example: 12345
+          format: int32
+          type: integer
+        amount:
+          description: The balance of the sub-account in the specified currency.
+          example: 1500.75
+          format: double
+          type: number
+        currency:
+          description: The three-character ISO 4217 currency symbol.
+          example: USD
+          nullable: true
+          type: string
+        quantity:
+          description: Total quantity of operations.
+          example: 10
+          format: int32
+          type: integer
+        subscriptionId:
+          description: The subscription ID
+          example: 12345
+          format: int32
+          nullable: true
+          type: integer
+        startDate:
+          description: The subscription start date.
+          example: 2024-01-15T10:30:00Z
+          format: date-time
+          nullable: true
+          type: string
+        endDate:
+          description: The subscription end date.
+          example: 2024-01-15T10:30:00Z
+          format: date-time
+          nullable: true
+          type: string
+      type: object
+    ServicePaymentWrapper:
+      example:
+        response:
+          amount: 1500.75
+          quantity: 10
+          endDate: 2024-01-15T10:30:00Z
+          operationId: 12345
+          currency: USD
+          subscriptionId: 12345
+          startDate: 2024-01-15T10:30:00Z
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/ServicePayment"
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
+      type: object
+    SetRestrictedAiModelsRequestDto:
+      additionalProperties: false
+      description: The request parameters for setting restricted AI models.
+      example:
+        models:
+        - model1
+        - model2
+      properties:
+        models:
+          description: The set of restricted AI model IDs.
+          example:
+          - model1
+          - model2
+          items:
+            type: string
+          type: array
+          uniqueItems: true
+      required:
+      - models
       type: object
     SettingsDto:
       additionalProperties: false
@@ -58383,10 +59553,12 @@ components:
       properties:
         currency:
           description: The three-character ISO 4217 currency symbol of the sub-account.
+          example: USD
           nullable: true
           type: string
         amount:
           description: The balance of the sub-account in the specified currency.
+          example: 1500.75
           format: double
           type: number
       type: object
@@ -59081,59 +60253,42 @@ components:
         countFreeBackup: 1
         backup: true
         nonProfit: false
-        aiToolsGPT52Output: true
+        customization: true
         year: true
-        aiToolsClaude45Output: true
         dueDate: 2000-01-23T04:56:07.000+00:00
         branding: true
-        aiToolsClaude45Input: true
         lifetime: false
+        update: false
         trial: false
         sso: true
         automationApi: true
         thirdParty: true
         features: "audit,ldap,sso"
         countRoomAdmin: 10
-        aiToolsDeepseek32Output: true
         ldap: true
         price: 10.0
+        audit: true
         countRoom: 500
-        aiToolsDeepseek31Input: true
+        free: false
+        oauth: true
         maxTotalSize: 25000000000
         statistic: true
         visible: true
-        productId: "64"
-        aiToolsGPT52Input: true
-        aiToolsGemini3ProInput: true
-        priceISOCurrencySymbol: USD
-        aiTools: true
-        contentSearch: true
-        usersInRoom: 50
-        name: Default
-        aiToolsWebSearch: true
-        aiToolsGemini3FlashInput: true
-        customization: true
-        aiToolsDeepseek31Output: true
-        update: false
-        aiToolsGPT5Input: true
-        aiToolsEmbedding: true
-        audit: true
-        aiToolsWebFetch: true
-        free: false
-        oauth: true
-        aiToolsGemini3ProOutput: true
-        aiToolsGPT5Output: true
         wallet: true
+        productId: "64"
         restore: true
         countAIAgent: 5
         custom: false
         countUser: 100
         serviceGroup: ai
         maxFileSize: 25000000
+        priceISOCurrencySymbol: USD
         serviceName: space
-        aiToolsGemini3FlashOutput: true
-        aiToolsDeepseek32Input: true
+        aiTools: true
+        contentSearch: true
+        usersInRoom: 50
         tenantId: 1
+        name: Default
         priceCurrencySymbol: $
         docsEdition: true
       properties:
@@ -59309,7 +60464,7 @@ components:
           format: int32
           type: integer
         backup:
-          description: Specifies if the backup anabled as a wallet service or not.
+          description: Specifies if the backup enabled as a wallet service or not.
           example: true
           type: boolean
         countAIAgent:
@@ -59318,92 +60473,7 @@ components:
           format: int32
           type: integer
         aiTools:
-          description: Specifies if the AI tools anabled as a wallet service or not.
-          example: true
-          type: boolean
-        aiToolsWebSearch:
-          description: Specifies whether the web search is enabled as a subservice
-            of AI tools.
-          example: true
-          type: boolean
-        aiToolsWebFetch:
-          description: Specifies whether the web fetch is enabled as a subservice
-            of AI tools
-          example: true
-          type: boolean
-        aiToolsEmbedding:
-          description: Specifies whether the embedding is enabled as a subservice
-            of AI tools
-          example: true
-          type: boolean
-        aiToolsDeepseek31Input:
-          description: Specifies whether the Deepseek 3.1 input tokens is enabled
-            as a subservice of AI tools
-          example: true
-          type: boolean
-        aiToolsDeepseek31Output:
-          description: Specifies whether the Deepseek 3.1 output tokens is enabled
-            as a subservice of AI tools
-          example: true
-          type: boolean
-        aiToolsClaude45Input:
-          description: Specifies whether the Claude 4.5 input tokens is enabled as
-            a subservice of AI tools
-          example: true
-          type: boolean
-        aiToolsClaude45Output:
-          description: Specifies whether the Claude 4.5 output tokens is enabled as
-            a subservice of AI tools
-          example: true
-          type: boolean
-        aiToolsGPT5Input:
-          description: Specifies whether the GPT 5 input tokens is enabled as a subservice
-            of AI tools
-          example: true
-          type: boolean
-        aiToolsGPT5Output:
-          description: Specifies whether the GPT 5 output tokens is enabled as a subservice
-            of AI tools
-          example: true
-          type: boolean
-        aiToolsDeepseek32Input:
-          description: Specifies whether the Deepseek 3.2 input tokens is enabled
-            as a subservice of AI tools
-          example: true
-          type: boolean
-        aiToolsDeepseek32Output:
-          description: Specifies whether the Deepseek 3.2 output tokens is enabled
-            as a subservice of AI tools
-          example: true
-          type: boolean
-        aiToolsGPT52Input:
-          description: Specifies whether the GPT 5.2 input tokens is enabled as a
-            subservice of AI tools
-          example: true
-          type: boolean
-        aiToolsGPT52Output:
-          description: Specifies whether the GPT 5.2 output tokens is enabled as a
-            subservice of AI tools
-          example: true
-          type: boolean
-        aiToolsGemini3ProInput:
-          description: Specifies whether the Gemini 3 Pro input tokens is enabled
-            as a subservice of AI tools
-          example: true
-          type: boolean
-        aiToolsGemini3ProOutput:
-          description: Specifies whether the Gemini 3 Pro output tokens is enabled
-            as a subservice of AI tools
-          example: true
-          type: boolean
-        aiToolsGemini3FlashInput:
-          description: Specifies whether the Gemini 3 Flash input tokens is enabled
-            as a subservice of AI tools
-          example: true
-          type: boolean
-        aiToolsGemini3FlashOutput:
-          description: Specifies whether the Gemini 3 Flash output tokens is enabled
-            as a subservice of AI tools
+          description: Specifies if the AI tools enabled as a wallet service or not.
           example: true
           type: boolean
       type: object
@@ -59535,59 +60605,42 @@ components:
           countFreeBackup: 1
           backup: true
           nonProfit: false
-          aiToolsGPT52Output: true
+          customization: true
           year: true
-          aiToolsClaude45Output: true
           dueDate: 2000-01-23T04:56:07.000+00:00
           branding: true
-          aiToolsClaude45Input: true
           lifetime: false
+          update: false
           trial: false
           sso: true
           automationApi: true
           thirdParty: true
           features: "audit,ldap,sso"
           countRoomAdmin: 10
-          aiToolsDeepseek32Output: true
           ldap: true
           price: 10.0
+          audit: true
           countRoom: 500
-          aiToolsDeepseek31Input: true
+          free: false
+          oauth: true
           maxTotalSize: 25000000000
           statistic: true
           visible: true
-          productId: "64"
-          aiToolsGPT52Input: true
-          aiToolsGemini3ProInput: true
-          priceISOCurrencySymbol: USD
-          aiTools: true
-          contentSearch: true
-          usersInRoom: 50
-          name: Default
-          aiToolsWebSearch: true
-          aiToolsGemini3FlashInput: true
-          customization: true
-          aiToolsDeepseek31Output: true
-          update: false
-          aiToolsGPT5Input: true
-          aiToolsEmbedding: true
-          audit: true
-          aiToolsWebFetch: true
-          free: false
-          oauth: true
-          aiToolsGemini3ProOutput: true
-          aiToolsGPT5Output: true
           wallet: true
+          productId: "64"
           restore: true
           countAIAgent: 5
           custom: false
           countUser: 100
           serviceGroup: ai
           maxFileSize: 25000000
+          priceISOCurrencySymbol: USD
           serviceName: space
-          aiToolsGemini3FlashOutput: true
-          aiToolsDeepseek32Input: true
+          aiTools: true
+          contentSearch: true
+          usersInRoom: 50
           tenantId: 1
+          name: Default
           priceCurrencySymbol: $
           docsEdition: true
         count: 0
@@ -60225,12 +61278,17 @@ components:
         codes.
       example:
         code: "123456"
+        session: true
       properties:
         code:
           description: The verification code provided by the user.
           example: "123456"
           nullable: true
           type: string
+        session:
+          description: Specifies whether the authentication is session-based.
+          example: true
+          type: boolean
       required:
       - code
       type: object
@@ -60312,6 +61370,30 @@ components:
           example: USD
           nullable: true
           type: string
+      type: object
+    TransactionInfo:
+      additionalProperties: false
+      description: Represents information about the transaction applied to an account.
+      example:
+        date: 2024-01-15T10:30:00Z
+        amount: 1500.75
+        currency: USD
+      properties:
+        date:
+          description: The date and time when the credit transaction occurred.
+          example: 2024-01-15T10:30:00Z
+          format: date-time
+          type: string
+        currency:
+          description: The three-character ISO 4217 currency symbol of the transaction.
+          example: USD
+          nullable: true
+          type: string
+        amount:
+          description: Amount of the transaction.
+          example: 1500.75
+          format: double
+          type: number
       type: object
     TurnOnAdminMessageSettingsRequestDto:
       additionalProperties: false
@@ -61117,7 +62199,8 @@ components:
         \ 262144 - folder.deleted, 524288 - folder.restored, 1048576 - folder.copied,\
         \ 2097152 - folder.moved, 4194304 - room.created, 8388608 - room.updated,\
         \ 16777216 - room.archived, 33554432 - room.deleted, 67108864 - room.restored,\
-        \ 134217728 - room.copied]"
+        \ 134217728 - room.copied, 268435456 - form.submit, 536870912 - form.filled.out,\
+        \ 1073741824 - form.stopped]"
       enum:
       - 0
       - 1
@@ -61148,6 +62231,9 @@ components:
       - 33554432
       - 67108864
       - 134217728
+      - 268435456
+      - 536870912
+      - 1073741824
       example: 0
       type: integer
       x-enum-varnames:
@@ -61180,6 +62266,9 @@ components:
       - RoomDeleted
       - RoomRestored
       - RoomCopied
+      - FormSubmit
+      - FormFilledOut
+      - FormStopped
     WebhooksConfigDto:
       additionalProperties: false
       description: The webhook configuration parameters.
@@ -62532,6 +63621,14 @@ components:
         type: string
     CreateFileJsonElement_templateId:
       description: The template file ID for creation.
+      example: 1
+      oneOf:
+      - example: 1234
+        type: integer
+      - example: some text
+        type: string
+    DefaultTemplateSettingsRequestDto_selectedFile:
+      description: File id to replace template with
       example: 1
       oneOf:
       - example: 1234

@@ -5,7 +5,7 @@ Default templates settings request parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**SelectedFile** | **int?** | File id to replace template with (or null to use default template) | [optional] 
+**SelectedFile** | [**DefaultTemplateSettingsRequestDtoSelectedFile**](DefaultTemplateSettingsRequestDtoSelectedFile.md) |  | 
 **FileExtension** | **string** | File extension of a template to replace | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

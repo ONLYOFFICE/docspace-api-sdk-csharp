@@ -122,6 +122,18 @@ namespace DocSpace.API.SDK.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecretKey, length must be greater than 0.", new [] { "SecretKey" });
             }
 
+            // TargetId (string) maxLength
+            if (this.TargetId != null && this.TargetId.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TargetId, length must be less than 255.", new [] { "TargetId" });
+            }
+
+            // TargetId (string) minLength
+            if (this.TargetId != null && this.TargetId.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TargetId, length must be greater than 0.", new [] { "TargetId" });
+            }
+
             yield break;
         }
 
