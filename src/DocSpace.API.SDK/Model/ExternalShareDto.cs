@@ -65,8 +65,8 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ExternalShareDto" /> class.
         /// </summary>
         /// <param name="status">status (required).</param>
-        /// <param name="id">The external data ID. (required).</param>
-        /// <param name="title">The external data title. (required).</param>
+        /// <param name="id">The external data ID..</param>
+        /// <param name="title">The external data title..</param>
         /// <param name="type">type.</param>
         /// <param name="tenantId">The tenant ID. (required).</param>
         /// <param name="entityId">The unique identifier of the shared entity..</param>
@@ -80,22 +80,12 @@ namespace DocSpace.API.SDK.Model
         public ExternalShareDto(Status status = default, string id = default, string title = default, FileEntryType? type = default, int tenantId = default, string entityId = default, string entityTitle = default, FileEntryType? entityType = default, bool? isRoom = default, bool shared = default, Guid linkId = default, bool isAuthenticated = default, bool isRoomMember = default)
         {
             this.Status = status;
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new ArgumentNullException("id is a required property for ExternalShareDto and cannot be null");
-            }
-            this.Id = id;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for ExternalShareDto and cannot be null");
-            }
-            this.Title = title;
             this.TenantId = tenantId;
             this.Shared = shared;
             this.LinkId = linkId;
             this.IsAuthenticated = isAuthenticated;
+            this.Id = id;
+            this.Title = title;
             this.Type = type;
             this.EntityId = entityId;
             this.EntityTitle = entityTitle;
@@ -111,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>123</example>
         */
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "id", EmitDefaultValue = true)]
         public string Id { get; set; }
 
         /// <summary>
@@ -121,7 +111,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Shared Document</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>

@@ -35848,7 +35848,6 @@ components:
       required:
       - lang
       - mode
-      - user
       type: object
     EditorToolCallParametersDto:
       additionalProperties: false
@@ -36317,13 +36316,11 @@ components:
           example: false
           type: boolean
       required:
-      - id
       - isAuthenticated
       - linkId
       - shared
       - status
       - tenantId
-      - title
       type: object
     ExternalShareRequestParam:
       additionalProperties: false

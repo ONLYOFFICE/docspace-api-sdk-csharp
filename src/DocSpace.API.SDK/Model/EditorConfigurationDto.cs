@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="plugins">plugins.</param>
         /// <param name="recent">The recent configuration of the editor..</param>
         /// <param name="templates">The templates of the editor configuration..</param>
-        /// <param name="user">user (required).</param>
+        /// <param name="user">user.</param>
         public EditorConfigurationDto(string callbackUrl = default, CoEditingConfig coEditing = default, string createUrl = default, CustomizationConfigDto customization = default, EmbeddedConfig embedded = default, EncryptionKeysConfig encryptionKeys = default, string lang = default, string mode = default, bool modeWrite = default, PluginsConfig plugins = default, List<RecentConfig> recent = default, List<TemplatesConfig> templates = default, UserConfig user = default)
         {
             // to ensure "lang" is required (not null)
@@ -73,12 +73,6 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("mode is a required property for EditorConfigurationDto and cannot be null");
             }
             this.Mode = mode;
-            // to ensure "user" is required (not null)
-            if (user == null)
-            {
-                throw new ArgumentNullException("user is a required property for EditorConfigurationDto and cannot be null");
-            }
-            this.User = user;
             this.CallbackUrl = callbackUrl;
             this.CoEditing = coEditing;
             this.CreateUrl = createUrl;
@@ -89,6 +83,7 @@ namespace DocSpace.API.SDK.Model
             this.Plugins = plugins;
             this.Recent = recent;
             this.Templates = templates;
+            this.User = user;
         }
 
         /// <summary>
@@ -188,7 +183,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets User
         /// </summary>
-        [DataMember(Name = "user", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "user", EmitDefaultValue = false)]
         public UserConfig User { get; set; }
 
         /// <summary>
