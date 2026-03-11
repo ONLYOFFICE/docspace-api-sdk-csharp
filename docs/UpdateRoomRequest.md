@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **Color** | **string** | The room color. | [optional] 
 **Cover** | **string** | The room cover. | [optional] 
 **ChatSettings** | [**ChatSettings**](ChatSettings.md) |  | [optional] 
+**SendFormToExternalDB** | **bool?** | Specifies whether to send form data to external database. | [optional] 
+**SaveFormAsXLSX** | **bool?** | Specifies whether to save form data as XLSX file. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

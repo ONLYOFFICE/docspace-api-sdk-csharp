@@ -49,7 +49,11 @@ namespace DocSpace.API.SDK.Model
         /// <param name="name">The authorization key name. (required).</param>
         /// <param name="value">The authorization key value. (required).</param>
         /// <param name="title">The authorization key title..</param>
-        public AuthKey(string name = default, string value = default, string title = default)
+        /// <param name="type">The field type: text, password, select, toggle..</param>
+        /// <param name="options">The list of options for select type fields..</param>
+        /// <param name="dependsOn">The name of another key this field depends on for visibility..</param>
+        /// <param name="dependsOnValue">The value of ASC.Web.Studio.UserControls.Management.AuthKey.DependsOn key that makes this field visible..</param>
+        public AuthKey(string name = default, string value = default, string title = default, string type = default, List<string> options = default, string dependsOn = default, string dependsOnValue = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -64,6 +68,10 @@ namespace DocSpace.API.SDK.Model
             }
             this.Value = value;
             this.Title = title;
+            this.Type = type;
+            this.Options = options;
+            this.DependsOn = dependsOn;
+            this.DependsOnValue = dependsOnValue;
         }
 
         /// <summary>
@@ -97,6 +105,34 @@ namespace DocSpace.API.SDK.Model
         public string Title { get; set; }
 
         /// <summary>
+        /// The field type: text, password, select, toggle.
+        /// </summary>
+        /// <value>The field type: text, password, select, toggle.</value>
+        [DataMember(Name = "type", EmitDefaultValue = true)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// The list of options for select type fields.
+        /// </summary>
+        /// <value>The list of options for select type fields.</value>
+        [DataMember(Name = "options", EmitDefaultValue = true)]
+        public List<string> Options { get; set; }
+
+        /// <summary>
+        /// The name of another key this field depends on for visibility.
+        /// </summary>
+        /// <value>The name of another key this field depends on for visibility.</value>
+        [DataMember(Name = "dependsOn", EmitDefaultValue = true)]
+        public string DependsOn { get; set; }
+
+        /// <summary>
+        /// The value of ASC.Web.Studio.UserControls.Management.AuthKey.DependsOn key that makes this field visible.
+        /// </summary>
+        /// <value>The value of ASC.Web.Studio.UserControls.Management.AuthKey.DependsOn key that makes this field visible.</value>
+        [DataMember(Name = "dependsOnValue", EmitDefaultValue = true)]
+        public string DependsOnValue { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -107,6 +143,10 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Options: ").Append(Options).Append("\n");
+            sb.Append("  DependsOn: ").Append(DependsOn).Append("\n");
+            sb.Append("  DependsOnValue: ").Append(DependsOnValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

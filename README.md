@@ -717,6 +717,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Delete template files</td>
       </tr>
       <tr>
+        <td><a href="docs/FilesFilesApi.md#generatexlsx"><strong>GenerateXlsx</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/file/{fileId}/xlsx</td>
+        <td>Generate XLSX report</td>
+      </tr>
+      <tr>
         <td><a href="docs/FilesFilesApi.md#getallformroles"><strong>GetAllFormRoles</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/file/{fileId}/formroles</td>
         <td>Get form roles</td>
@@ -1757,6 +1762,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Add a user</td>
       </tr>
       <tr>
+        <td><a href="docs/PeopleProfilesApi.md#checkuserexistsbyemail"><strong>CheckUserExistsByEmail</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/people/exists</td>
+        <td>Check if a user exists by email</td>
+      </tr>
+      <tr>
         <td><a href="docs/PeopleProfilesApi.md#deletemember"><strong>DeleteMember</strong></a></td>
         <td><strong>DELETE</strong> /api/2.0/people/{userid}</td>
         <td>Delete a user</td>
@@ -2757,6 +2767,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><strong>POST</strong> /api/2.0/settings/authservice</td>
         <td>Save the authorization keys</td>
       </tr>
+      <tr>
+        <td><a href="docs/SettingsAuthorizationApi.md#testexternaldatabaseconnection"><strong>TestExternalDatabaseConnection</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/settings/authservice/externaldb/test</td>
+        <td>Test external database connection</td>
+      </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>BannersVisibilityApi</strong></td>
       </tr>
@@ -3589,6 +3604,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.ConfirmType](docs/ConfirmType.md)
  - [Model.ConfirmWrapper](docs/ConfirmWrapper.md)
  - [Model.ConnectServerRequestBody](docs/ConnectServerRequestBody.md)
+ - [Model.ConnectionTestResult](docs/ConnectionTestResult.md)
+ - [Model.ConnectionTestResultWrapper](docs/ConnectionTestResultWrapper.md)
  - [Model.Contact](docs/Contact.md)
  - [Model.ContentDisposition](docs/ContentDisposition.md)
  - [Model.ContentType](docs/ContentType.md)
@@ -3723,6 +3740,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.ExchangeToken200Response](docs/ExchangeToken200Response.md)
  - [Model.ExportChatRequestBodyInteger](docs/ExportChatRequestBodyInteger.md)
  - [Model.ExportMessageRequestBodyInteger](docs/ExportMessageRequestBodyInteger.md)
+ - [Model.ExternalDatabaseSettings](docs/ExternalDatabaseSettings.md)
  - [Model.ExternalShareDto](docs/ExternalShareDto.md)
  - [Model.ExternalShareRequestParam](docs/ExternalShareRequestParam.md)
  - [Model.ExternalShareWrapper](docs/ExternalShareWrapper.md)
@@ -3792,11 +3810,13 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.FormFillingManageAction](docs/FormFillingManageAction.md)
  - [Model.FormFillingStatus](docs/FormFillingStatus.md)
  - [Model.FormGalleryDto](docs/FormGalleryDto.md)
- - [Model.FormResultsArrayWrapper](docs/FormResultsArrayWrapper.md)
+ - [Model.FormMetadata](docs/FormMetadata.md)
  - [Model.FormResultsDto](docs/FormResultsDto.md)
  - [Model.FormRole](docs/FormRole.md)
  - [Model.FormRoleArrayWrapper](docs/FormRoleArrayWrapper.md)
  - [Model.FormRoleDto](docs/FormRoleDto.md)
+ - [Model.FormSubmissionsDto](docs/FormSubmissionsDto.md)
+ - [Model.FormSubmissionsWrapper](docs/FormSubmissionsWrapper.md)
  - [Model.FormsItemArrayWrapper](docs/FormsItemArrayWrapper.md)
  - [Model.FormsItemData](docs/FormsItemData.md)
  - [Model.FormsItemDto](docs/FormsItemDto.md)

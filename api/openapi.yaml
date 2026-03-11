@@ -3485,6 +3485,47 @@ paths:
       summary: Get users access rights to the protected file
       tags:
       - Files / Files
+  /api/2.0/files/file/{fileId}/xlsx:
+    post:
+      description: Triggers asynchronous XLSX report generation for the specified
+        form file.
+      operationId: generateXlsx
+      parameters:
+      - description: The file unique identifier.
+        explode: false
+        in: path
+        name: fileId
+        required: true
+        schema:
+          example: 1
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          description: XLSX report generation has been queued
+        "403":
+          description: You do not have enough permissions to perform this action
+        "404":
+          description: Form file not found
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Generate XLSX report
+      tags:
+      - Files / Files
   /api/2.0/files/file/{fileId}/log:
     get:
       description: Returns the list of actions performed on the file with the specified
@@ -3947,6 +3988,15 @@ paths:
           format: int32
           type: integer
         style: simple
+      - description: Specifies whether to return only the current operation
+        explode: true
+        in: query
+        name: ReturnSingleOperation
+        required: false
+        schema:
+          example: false
+          type: boolean
+        style: form
       requestBody:
         content:
           application/json:
@@ -4763,7 +4813,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/FormResultsArrayWrapper"
+                $ref: "#/components/schemas/FormSubmissionsWrapper"
           description: Form submission results were successfully retrieved
         "403":
           description: You do not have enough permissions to perform this action
@@ -15162,6 +15212,69 @@ paths:
       summary: Get my profile
       tags:
       - People / Profiles
+  /api/2.0/people/exists:
+    get:
+      description: Returns a boolean indicating whether a user with the specified
+        email exists on the portal.
+      operationId: checkUserExistsByEmail
+      parameters:
+      - description: The user email address.
+        explode: true
+        in: query
+        name: email
+        required: false
+        schema:
+          example: john.doe@example.com
+          format: email
+          maxLength: 255
+          minLength: 0
+          type: string
+        style: form
+      - description: The user encrypted email address.
+        explode: true
+        in: query
+        name: encemail
+        required: false
+        schema:
+          example: encrypted_email_string
+          type: string
+        style: form
+      - description: Culture
+        explode: true
+        in: query
+        name: culture
+        required: false
+        schema:
+          example: en-US
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BooleanWrapper"
+          description: Boolean result
+        "400":
+          description: Incorrect email
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Check if a user exists by email
+      tags:
+      - People / Profiles
   /api/2.0/people/delete:
     put:
       description: Deletes a list of the users with the IDs specified in the request.
@@ -21312,6 +21425,42 @@ paths:
         - write
       - OpenId: []
       summary: Save the authorization keys
+      tags:
+      - Settings / Authorization
+  /api/2.0/settings/authservice/externaldb/test:
+    post:
+      description: Tests an external database connection with the provided settings
+        without saving them.
+      operationId: testExternalDatabaseConnection
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalDatabaseSettings"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConnectionTestResultWrapper"
+          description: Connection test result with Success flag and optional Error
+            message
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Test external database connection
       tags:
       - Settings / Authorization
   /api/2.0/settings:
@@ -27478,9 +27627,11 @@ components:
             value: 33
             enabled: true
           type: 0
+          sendFormToExternalDB: true
           originRoomId: 22
           filesCount: 5
           rootRoomType: 1
+          saveFormAsXLSX: true
           logo:
             small: https://portal.example.com/logo/small.png
             cover:
@@ -27684,9 +27835,11 @@ components:
               value: 33
               enabled: true
             type: 0
+            sendFormToExternalDB: true
             originRoomId: 22
             filesCount: 5
             rootRoomType: 1
+            saveFormAsXLSX: true
             logo:
               small: https://portal.example.com/logo/small.png
               cover:
@@ -27965,6 +28118,14 @@ components:
             $ref: "#/components/schemas/ChatSettingsDto"
           rootRoomType:
             $ref: "#/components/schemas/RoomType"
+          saveFormAsXLSX:
+            description: Specifies whether to save form data as XLSX file.
+            nullable: true
+            type: boolean
+          sendFormToExternalDB:
+            description: Specifies whether to send form data to external database.
+            nullable: true
+            type: boolean
         type: object
       description: The folder parameters.
       example:
@@ -27975,9 +28136,11 @@ components:
           value: 33
           enabled: true
         type: 0
+        sendFormToExternalDB: true
         originRoomId: 22
         filesCount: 5
         rootRoomType: 1
+        saveFormAsXLSX: true
         logo:
           small: https://portal.example.com/logo/small.png
           cover:
@@ -28120,9 +28283,11 @@ components:
             value: 33
             enabled: true
           type: 0
+          sendFormToExternalDB: true
           originRoomId: 22
           filesCount: 5
           rootRoomType: 1
+          saveFormAsXLSX: true
           logo:
             small: https://portal.example.com/logo/small.png
             cover:
@@ -28262,9 +28427,11 @@ components:
             value: 33
             enabled: true
           type: 0
+          sendFormToExternalDB: true
           originRoomId: 22
           filesCount: 5
           rootRoomType: 1
+          saveFormAsXLSX: true
           logo:
             small: https://portal.example.com/logo/small.png
             cover:
@@ -28438,9 +28605,11 @@ components:
             value: 33
             enabled: true
           type: 0
+          sendFormToExternalDB: true
           originRoomId: 22
           filesCount: 5
           rootRoomType: 1
+          saveFormAsXLSX: true
           logo:
             small: https://portal.example.com/logo/small.png
             cover:
@@ -31266,7 +31435,6 @@ components:
       additionalProperties: false
       description: The request parameters for updating a room.
       example:
-        cover: cover1
         watermark:
           imageWidth: 200.0
           rotate: -45
@@ -31278,28 +31446,31 @@ components:
           imageScale: 100
         indexing: true
         color: "#FF5733"
-        chatSettings:
-          internal: false
-          modelId: gpt-4
-          providerId: 1
-          prompt: Please analyze this document
-        quota: 10485760
         lifetime:
           period: 0
           deletePermanently: true
           value: 33
           enabled: true
+        title: My Document
+        sendFormToExternalDB: true
+        denyDownload: true
+        tags:
+        - tag1
+        - tag2
+        cover: cover1
+        chatSettings:
+          internal: false
+          modelId: gpt-4
+          providerId: 1
+          prompt: Please analyze this document
+        saveFormAsXLSX: true
+        quota: 10485760
         logo:
           x: 0
           width: 100
           "y": 0
           tmpFile: /tmp/logo.png
           height: 100
-        title: My Document
-        denyDownload: true
-        tags:
-        - tag1
-        - tag2
       properties:
         title:
           description: The room title.
@@ -31355,6 +31526,14 @@ components:
           type: string
         chatSettings:
           $ref: "#/components/schemas/ChatSettings"
+        sendFormToExternalDB:
+          description: Specifies whether to send form data to external database.
+          nullable: true
+          type: boolean
+        saveFormAsXLSX:
+          description: Specifies whether to save form data as XLSX file.
+          nullable: true
+          type: boolean
       type: object
     UpdateRoomsQuotaRequestDtoInteger:
       additionalProperties: false
@@ -40337,9 +40516,11 @@ components:
               value: 33
               enabled: true
             type: 0
+            sendFormToExternalDB: true
             originRoomId: 22
             filesCount: 5
             rootRoomType: 1
+            saveFormAsXLSX: true
             logo:
               small: https://portal.example.com/logo/small.png
               cover:
@@ -40491,9 +40672,11 @@ components:
               value: 33
               enabled: true
             type: 0
+            sendFormToExternalDB: true
             originRoomId: 22
             filesCount: 5
             rootRoomType: 1
+            saveFormAsXLSX: true
             logo:
               small: https://portal.example.com/logo/small.png
               cover:
@@ -40774,6 +40957,14 @@ components:
             $ref: "#/components/schemas/ChatSettingsDto"
           rootRoomType:
             $ref: "#/components/schemas/RoomType"
+          saveFormAsXLSX:
+            description: Specifies whether to save form data as XLSX file.
+            nullable: true
+            type: boolean
+          sendFormToExternalDB:
+            description: Specifies whether to send form data to external database.
+            nullable: true
+            type: boolean
         type: object
       description: The folder parameters.
       example:
@@ -40784,9 +40975,11 @@ components:
           value: 33
           enabled: true
         type: 0
+        sendFormToExternalDB: true
         originRoomId: "22"
         filesCount: 5
         rootRoomType: 1
+        saveFormAsXLSX: true
         logo:
           small: https://portal.example.com/logo/small.png
           cover:
@@ -40981,9 +41174,11 @@ components:
             value: 33
             enabled: true
           type: 0
+          sendFormToExternalDB: true
           originRoomId: "22"
           filesCount: 5
           rootRoomType: 1
+          saveFormAsXLSX: true
           logo:
             small: https://portal.example.com/logo/small.png
             cover:
@@ -41123,9 +41318,11 @@ components:
             value: 33
             enabled: true
           type: 0
+          sendFormToExternalDB: true
           originRoomId: "22"
           filesCount: 5
           rootRoomType: 1
+          saveFormAsXLSX: true
           logo:
             small: https://portal.example.com/logo/small.png
             cover:
@@ -41299,9 +41496,11 @@ components:
             value: 33
             enabled: true
           type: 0
+          sendFormToExternalDB: true
           originRoomId: "22"
           filesCount: 5
           rootRoomType: 1
+          saveFormAsXLSX: true
           logo:
             small: https://portal.example.com/logo/small.png
             cover:
@@ -41496,47 +41695,34 @@ components:
       - InProgress
       - Complete
       - Stoped
-    FormResultsArrayWrapper:
+    FormMetadata:
+      additionalProperties: false
       example:
-        response:
-        - createOn: 2000-01-23T04:56:07.000+00:00
-          formsData:
-          - key: field1
-            value: Answer
-        - createOn: 2000-01-23T04:56:07.000+00:00
-          formsData:
-          - key: field1
-            value: Answer
-        count: 0
-        links:
-        - action: action
-          href: href
-        - action: action
-          href: href
-        status: 6
-        statusCode: 1
+        possibleValues:
+        - possibleValues
+        - possibleValues
+        format: format
+        type: type
+        key: key
       properties:
-        response:
+        key:
+          description: The form field key.
+          nullable: true
+          type: string
+        type:
+          description: The form field type.
+          nullable: true
+          type: string
+        format:
+          description: The form field format.
+          nullable: true
+          type: string
+        possibleValues:
+          description: The list of possible values for the form field.
           items:
-            $ref: "#/components/schemas/FormResultsDto"
+            type: string
+          nullable: true
           type: array
-        count:
-          description: The total number of items in the response
-          format: int32
-          type: integer
-        links:
-          description: List of links related to the response
-          items:
-            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
-          type: array
-        status:
-          description: HTTP status code of the response
-          format: int32
-          type: integer
-        statusCode:
-          description: HTTP status code of the response (duplicate of status)
-          format: int32
-          type: integer
       type: object
     FormResultsDto:
       additionalProperties: false
@@ -42146,6 +42332,99 @@ components:
       - roleName
       - sequence
       - submitted
+      type: object
+    FormSubmissionsDto:
+      additionalProperties: false
+      example:
+        metadata:
+        - possibleValues:
+          - possibleValues
+          - possibleValues
+          format: format
+          type: type
+          key: key
+        - possibleValues:
+          - possibleValues
+          - possibleValues
+          format: format
+          type: type
+          key: key
+        submissions:
+        - createOn: 2000-01-23T04:56:07.000+00:00
+          formsData:
+          - key: field1
+            value: Answer
+        - createOn: 2000-01-23T04:56:07.000+00:00
+          formsData:
+          - key: field1
+            value: Answer
+      properties:
+        metadata:
+          description: The form field metadata.
+          items:
+            $ref: "#/components/schemas/FormMetadata"
+          nullable: true
+          type: array
+        submissions:
+          description: All submissions.
+          items:
+            $ref: "#/components/schemas/FormResultsDto"
+          nullable: true
+          type: array
+      type: object
+    FormSubmissionsWrapper:
+      example:
+        response:
+          metadata:
+          - possibleValues:
+            - possibleValues
+            - possibleValues
+            format: format
+            type: type
+            key: key
+          - possibleValues:
+            - possibleValues
+            - possibleValues
+            format: format
+            type: type
+            key: key
+          submissions:
+          - createOn: 2000-01-23T04:56:07.000+00:00
+            formsData:
+            - key: field1
+              value: Answer
+          - createOn: 2000-01-23T04:56:07.000+00:00
+            formsData:
+            - key: field1
+              value: Answer
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/FormSubmissionsDto"
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
       type: object
     FormsItemArrayWrapper:
       example:
@@ -52737,6 +53016,25 @@ components:
           example: API key
           nullable: true
           type: string
+        type:
+          description: "The field type: text, password, select, toggle."
+          nullable: true
+          type: string
+        options:
+          description: The list of options for select type fields.
+          items:
+            type: string
+          nullable: true
+          type: array
+        dependsOn:
+          description: The name of another key this field depends on for visibility.
+          nullable: true
+          type: string
+        dependsOnValue:
+          description: The value of ASC.Web.Studio.UserControls.Management.AuthKey.DependsOn
+            key that makes this field visible.
+          nullable: true
+          type: string
       required:
       - name
       - value
@@ -53639,6 +53937,52 @@ components:
       properties:
         response:
           $ref: "#/components/schemas/ConfirmDto"
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
+      type: object
+    ConnectionTestResult:
+      additionalProperties: false
+      example:
+        success: true
+        error: error
+      properties:
+        success:
+          type: boolean
+        error:
+          nullable: true
+          type: string
+      type: object
+    ConnectionTestResultWrapper:
+      example:
+        response:
+          success: true
+          error: error
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/ConnectionTestResult"
         count:
           description: The total number of items in the response
           format: int32
@@ -54847,6 +55191,42 @@ components:
       - Room
       - Tag
       - Agent
+    ExternalDatabaseSettings:
+      additionalProperties: false
+      example:
+        databaseType: databaseType
+        dbPort: 0
+        dbSsl: true
+        sqliteFilePath: sqliteFilePath
+        dbName: dbName
+        dbUser: dbUser
+        dbHost: dbHost
+        dbPassword: dbPassword
+      properties:
+        databaseType:
+          nullable: true
+          type: string
+        dbHost:
+          nullable: true
+          type: string
+        dbPort:
+          format: int32
+          type: integer
+        dbName:
+          nullable: true
+          type: string
+        dbUser:
+          nullable: true
+          type: string
+        dbPassword:
+          nullable: true
+          type: string
+        dbSsl:
+          type: boolean
+        sqliteFilePath:
+          nullable: true
+          type: string
+      type: object
     FeatureUsedDto:
       additionalProperties: false
       description: The used space parameters of the tenant quota feature.
@@ -58244,6 +58624,7 @@ components:
         maxImageUploadSize: 10485760
         wizardToken: dGhpc2lzYXRva2Vu...
         displayBanners: true
+        externalDbEnabled: true
         limitedAccessSpace: true
         baseDomain: example.com
         limitedAccessDevToolsForUsers: true
@@ -58516,6 +58897,10 @@ components:
           $ref: "#/components/schemas/CultureSpecificExternalResources"
         defaultFolderType:
           $ref: "#/components/schemas/FolderType"
+        externalDbEnabled:
+          description: Specifies if an external database is connected for storing
+            form results.
+          type: boolean
       required:
       - baseDomain
       - cookieSettingsEnabled
@@ -58553,6 +58938,7 @@ components:
           maxImageUploadSize: 10485760
           wizardToken: dGhpc2lzYXRva2Vu...
           displayBanners: true
+          externalDbEnabled: true
           limitedAccessSpace: true
           baseDomain: example.com
           limitedAccessDevToolsForUsers: true

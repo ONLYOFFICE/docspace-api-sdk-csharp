@@ -64,6 +64,8 @@ Name | Type | Description | Notes
 **Expired** | **bool?** | Specifies if an external link to the folder is expired or not. | [optional] 
 **ChatSettings** | [**ChatSettingsDto**](ChatSettingsDto.md) |  | [optional] 
 **RootRoomType** | **RoomType** |  | [optional] 
+**SaveFormAsXLSX** | **bool?** | Specifies whether to save form data as XLSX file. | [optional] 
+**SendFormToExternalDB** | **bool?** | Specifies whether to send form data to external database. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

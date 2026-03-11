@@ -48,6 +48,7 @@ Name | Type | Description | Notes
 **LogoText** | **string** | The white label logo text. | [optional] 
 **ExternalResources** | [**CultureSpecificExternalResources**](CultureSpecificExternalResources.md) |  | [optional] 
 **DefaultFolderType** | **FolderType** |  | [optional] 
+**ExternalDbEnabled** | **bool** | Specifies if an external database is connected for storing form results. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

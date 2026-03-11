@@ -21,6 +21,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | [**DeleteFile**](#deletefile) | **DELETE** /api/2.0/files/file/{fileId} | Delete a file |
 | [**DeleteRecent**](#deleterecent) | **DELETE** /api/2.0/files/recent | Delete recent files |
 | [**DeleteTemplates**](#deletetemplates) | **DELETE** /api/2.0/files/templates | Delete template files |
+| [**GenerateXlsx**](#generatexlsx) | **POST** /api/2.0/files/file/{fileId}/xlsx | Generate XLSX report |
 | [**GetAllFormRoles**](#getallformroles) | **GET** /api/2.0/files/file/{fileId}/formroles | Get form roles |
 | [**GetEditDiffUrl**](#geteditdiffurl) | **GET** /api/2.0/files/file/{fileId}/edit/diff | Get changes URL |
 | [**GetEditHistory**](#getedithistory) | **GET** /api/2.0/files/file/{fileId}/edit/history | Get version history |
@@ -1614,7 +1615,7 @@ catch (ApiException e)
 
 <a id="deletefile"></a>
 # **DeleteFile**
-> FileOperationArrayWrapper DeleteFile (int fileId, Delete delete)
+> FileOperationArrayWrapper DeleteFile (int fileId, Delete delete, bool? returnSingleOperation = null)
 
 Deletes a file with the ID specified in the request.
 
@@ -1626,6 +1627,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 |------|------|-------------|-------|
 | **fileId** | **int** | The file ID to delete. |  |
 | **delete** | [**Delete**](Delete.md) | The parameters for deleting a file. |  |
+| **returnSingleOperation** | **bool?** | Specifies whether to return only the current operation | [optional]  |
 
 ### Return type
 
@@ -1674,11 +1676,12 @@ namespace Example
             var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
             var fileId = 1;  // int | The file ID to delete.
             var delete = new Delete(); // Delete | The parameters for deleting a file.
+            var returnSingleOperation = false;  // bool? | Specifies whether to return only the current operation (optional) 
 
             try
             {
                 // Delete a file
-                FileOperationArrayWrapper result = apiInstance.DeleteFile(fileId, delete);
+                FileOperationArrayWrapper result = apiInstance.DeleteFile(fileId, delete, returnSingleOperation);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1699,7 +1702,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Delete a file
-    ApiResponse<FileOperationArrayWrapper> response = apiInstance.DeleteFileWithHttpInfo(fileId, delete);
+    ApiResponse<FileOperationArrayWrapper> response = apiInstance.DeleteFileWithHttpInfo(fileId, delete, returnSingleOperation);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1946,6 +1949,116 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the operation is successful |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="generatexlsx"></a>
+# **GenerateXlsx**
+> void GenerateXlsx (int fileId)
+
+Triggers asynchronous XLSX report generation for the specified form file.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **fileId** | **int** | The file unique identifier. |  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class GenerateXlsxExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FilesApi(httpClient, config, httpClientHandler);
+            var fileId = 1;  // int | The file unique identifier.
+
+            try
+            {
+                // Generate XLSX report
+                apiInstance.GenerateXlsx(fileId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FilesApi.GenerateXlsx: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GenerateXlsxWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Generate XLSX report
+    apiInstance.GenerateXlsxWithHttpInfo(fileId);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FilesApi.GenerateXlsxWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | XLSX report generation has been queued |  -  |
+| **403** | You do not have enough permissions to perform this action |  -  |
+| **404** | Form file not found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2882,7 +2995,7 @@ catch (ApiException e)
 
 <a id="getformsubmissions"></a>
 # **GetFormSubmissions**
-> FormResultsArrayWrapper GetFormSubmissions (int fileId)
+> FormSubmissionsWrapper GetFormSubmissions (int fileId)
 
 Returns the results of form submissions.
 
@@ -2896,7 +3009,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**FormResultsArrayWrapper**](FormResultsArrayWrapper.md)
+[**FormSubmissionsWrapper**](FormSubmissionsWrapper.md)
 
 ### Authorization
 
@@ -2944,7 +3057,7 @@ namespace Example
             try
             {
                 // Get form submission results
-                FormResultsArrayWrapper result = apiInstance.GetFormSubmissions(fileId);
+                FormSubmissionsWrapper result = apiInstance.GetFormSubmissions(fileId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2965,7 +3078,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get form submission results
-    ApiResponse<FormResultsArrayWrapper> response = apiInstance.GetFormSubmissionsWithHttpInfo(fileId);
+    ApiResponse<FormSubmissionsWrapper> response = apiInstance.GetFormSubmissionsWithHttpInfo(fileId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

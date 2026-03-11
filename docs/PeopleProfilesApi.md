@@ -5,6 +5,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**AddMember**](#addmember) | **POST** /api/2.0/people | Add a user |
+| [**CheckUserExistsByEmail**](#checkuserexistsbyemail) | **GET** /api/2.0/people/exists | Check if a user exists by email |
 | [**DeleteMember**](#deletemember) | **DELETE** /api/2.0/people/{userid} | Delete a user |
 | [**DeleteProfile**](#deleteprofile) | **DELETE** /api/2.0/people/@self | Delete my profile |
 | [**GetAllProfiles**](#getallprofiles) | **GET** /api/2.0/people | Get profiles |
@@ -127,6 +128,123 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Newly added user with the detailed information |  -  |
 | **403** | The invitation link is invalid or its validity has expired |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="checkuserexistsbyemail"></a>
+# **CheckUserExistsByEmail**
+> BooleanWrapper CheckUserExistsByEmail (string? email = null, string? encemail = null, string? culture = null)
+
+Returns a boolean indicating whether a user with the specified email exists on the portal.
+
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/).
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **email** | **string?** | The user email address. | [optional]  |
+| **encemail** | **string?** | The user encrypted email address. | [optional]  |
+| **culture** | **string?** | Culture | [optional]  |
+
+### Return type
+
+[**BooleanWrapper**](BooleanWrapper.md)
+
+### Authorization
+
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2), [ApiKeyBearer](../README.md#ApiKeyBearer), [asc_auth_key](../README.md#asc_auth_key), [Bearer](../README.md#Bearer), [OpenId](../README.md#OpenId)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using DocSpace.API.SDK.Api;
+using DocSpace.API.SDK.Client;
+using DocSpace.API.SDK.Model;
+
+namespace Example
+{
+    public class CheckUserExistsByEmailExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-docspace.onlyoffice.com";
+            // Configure HTTP basic authorization: Basic
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+            // Configure OAuth2 access token for authorization: OAuth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure API key authorization: ApiKeyBearer
+            config.AddApiKey("ApiKeyBearer", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("ApiKeyBearer", "Bearer");
+            // Configure API key authorization: asc_auth_key
+            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // Configure Bearer token for authorization: Bearer
+            config.AccessToken = "YOUR_BEARER_TOKEN";
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new ProfilesApi(httpClient, config, httpClientHandler);
+            var email = john.doe@example.com;  // string? | The user email address. (optional) 
+            var encemail = encrypted_email_string;  // string? | The user encrypted email address. (optional) 
+            var culture = en-US;  // string? | Culture (optional) 
+
+            try
+            {
+                // Check if a user exists by email
+                BooleanWrapper result = apiInstance.CheckUserExistsByEmail(email, encemail, culture);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ProfilesApi.CheckUserExistsByEmail: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the CheckUserExistsByEmailWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Check if a user exists by email
+    ApiResponse<BooleanWrapper> response = apiInstance.CheckUserExistsByEmailWithHttpInfo(email, encemail, culture);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling ProfilesApi.CheckUserExistsByEmailWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Boolean result |  -  |
+| **400** | Incorrect email |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

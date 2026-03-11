@@ -113,7 +113,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="logoText">The white label logo text..</param>
         /// <param name="externalResources">externalResources.</param>
         /// <param name="defaultFolderType">defaultFolderType.</param>
-        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default, FolderType? defaultFolderType = default)
+        /// <param name="externalDbEnabled">Specifies if an external database is connected for storing form results..</param>
+        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default, FolderType? defaultFolderType = default, bool externalDbEnabled = default)
         {
             // to ensure "culture" is required (not null)
             if (culture == null)
@@ -173,6 +174,7 @@ namespace DocSpace.API.SDK.Model
             this.LogoText = logoText;
             this.ExternalResources = externalResources;
             this.DefaultFolderType = defaultFolderType;
+            this.ExternalDbEnabled = externalDbEnabled;
         }
 
         /// <summary>
@@ -538,6 +540,13 @@ namespace DocSpace.API.SDK.Model
         public CultureSpecificExternalResources ExternalResources { get; set; }
 
         /// <summary>
+        /// Specifies if an external database is connected for storing form results.
+        /// </summary>
+        /// <value>Specifies if an external database is connected for storing form results.</value>
+        [DataMember(Name = "externalDbEnabled", EmitDefaultValue = true)]
+        public bool ExternalDbEnabled { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -588,6 +597,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  LogoText: ").Append(LogoText).Append("\n");
             sb.Append("  ExternalResources: ").Append(ExternalResources).Append("\n");
             sb.Append("  DefaultFolderType: ").Append(DefaultFolderType).Append("\n");
+            sb.Append("  ExternalDbEnabled: ").Append(ExternalDbEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

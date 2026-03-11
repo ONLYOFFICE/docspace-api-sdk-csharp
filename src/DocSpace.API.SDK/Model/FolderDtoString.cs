@@ -83,7 +83,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="expired">Specifies if an external link to the folder is expired or not..</param>
         /// <param name="chatSettings">chatSettings.</param>
         /// <param name="rootRoomType">rootRoomType.</param>
-        public FolderDtoString(string parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? passwordProtected = default, bool? expired = default, ChatSettingsDto chatSettings = default, RoomType? rootRoomType = default)
+        /// <param name="saveFormAsXLSX">Specifies whether to save form data as XLSX file..</param>
+        /// <param name="sendFormToExternalDB">Specifies whether to send form data to external database..</param>
+        public FolderDtoString(string parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? passwordProtected = default, bool? expired = default, ChatSettingsDto chatSettings = default, RoomType? rootRoomType = default, bool? saveFormAsXLSX = default, bool? sendFormToExternalDB = default)
         {
             this.ParentId = parentId;
             this.FilesCount = filesCount;
@@ -109,6 +111,8 @@ namespace DocSpace.API.SDK.Model
             this.Expired = expired;
             this.ChatSettings = chatSettings;
             this.RootRoomType = rootRoomType;
+            this.SaveFormAsXLSX = saveFormAsXLSX;
+            this.SendFormToExternalDB = sendFormToExternalDB;
         }
 
         /// <summary>
@@ -307,6 +311,20 @@ namespace DocSpace.API.SDK.Model
         public ChatSettingsDto ChatSettings { get; set; }
 
         /// <summary>
+        /// Specifies whether to save form data as XLSX file.
+        /// </summary>
+        /// <value>Specifies whether to save form data as XLSX file.</value>
+        [DataMember(Name = "saveFormAsXLSX", EmitDefaultValue = true)]
+        public bool? SaveFormAsXLSX { get; set; }
+
+        /// <summary>
+        /// Specifies whether to send form data to external database.
+        /// </summary>
+        /// <value>Specifies whether to send form data to external database.</value>
+        [DataMember(Name = "sendFormToExternalDB", EmitDefaultValue = true)]
+        public bool? SendFormToExternalDB { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -338,6 +356,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Expired: ").Append(Expired).Append("\n");
             sb.Append("  ChatSettings: ").Append(ChatSettings).Append("\n");
             sb.Append("  RootRoomType: ").Append(RootRoomType).Append("\n");
+            sb.Append("  SaveFormAsXLSX: ").Append(SaveFormAsXLSX).Append("\n");
+            sb.Append("  SendFormToExternalDB: ").Append(SendFormToExternalDB).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
