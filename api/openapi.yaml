@@ -5257,7 +5257,7 @@ paths:
         style: form
       - description: Specifies whether to search for a specific file extension in
           the Recent folder.
-        explode: false
+        explode: true
         in: query
         name: extension
         required: false
@@ -10298,7 +10298,7 @@ paths:
       operationId: getRoomsFolder
       parameters:
       - description: The filter by room type.
-        explode: false
+        explode: true
         in: query
         name: type
         required: false
@@ -15529,7 +15529,7 @@ paths:
           $ref: "#/components/schemas/Area"
         style: form
       - description: The list of the user types.
-        explode: false
+        explode: true
         in: query
         name: employeeTypes
         required: false
@@ -15691,7 +15691,7 @@ paths:
           $ref: "#/components/schemas/Area"
         style: form
       - description: The list of the user types.
-        explode: false
+        explode: true
         in: query
         name: employeeTypes
         required: false
@@ -15853,7 +15853,7 @@ paths:
           $ref: "#/components/schemas/Area"
         style: form
       - description: The list of the user types.
-        explode: false
+        explode: true
         in: query
         name: employeeTypes
         required: false
@@ -16045,7 +16045,7 @@ paths:
           $ref: "#/components/schemas/EmployeeType"
         style: form
       - description: The list of user types.
-        explode: false
+        explode: true
         in: query
         name: employeeTypes
         required: false
@@ -16388,7 +16388,7 @@ paths:
           $ref: "#/components/schemas/EmployeeType"
         style: form
       - description: The list of user types.
-        explode: false
+        explode: true
         in: query
         name: employeeTypes
         required: false
@@ -16668,7 +16668,7 @@ paths:
           $ref: "#/components/schemas/Area"
         style: form
       - description: The list of user types.
-        explode: false
+        explode: true
         in: query
         name: employeeTypes
         required: false
@@ -16830,7 +16830,7 @@ paths:
           $ref: "#/components/schemas/Area"
         style: form
       - description: The list of user types.
-        explode: false
+        explode: true
         in: query
         name: employeeTypes
         required: false
@@ -16992,7 +16992,7 @@ paths:
           $ref: "#/components/schemas/Area"
         style: form
       - description: The list of user types.
-        explode: false
+        explode: true
         in: query
         name: employeeTypes
         required: false
@@ -23830,7 +23830,7 @@ paths:
       parameters:
       - description: The list of module identifiers for which to retrieve the security
           settings.
-        explode: false
+        explode: true
         in: query
         name: ids
         required: false

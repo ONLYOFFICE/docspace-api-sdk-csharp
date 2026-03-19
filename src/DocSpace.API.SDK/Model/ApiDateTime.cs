@@ -113,6 +113,11 @@ namespace DocSpace.API.SDK.Model
                 return null;
             }
 
+            if (reader is { TokenType: JsonToken.Date, Value: DateTime dateTime })
+            {
+                return new ApiDateTime { UtcTime = dateTime.ToUniversalTime(), TimeZoneOffset = TimeSpan.Zero.ToString() };
+            }
+
             var jsonString = reader.Value?.ToString();
 
             return DateTimeOffset.TryParse(jsonString, out var dateTimeOffset) ? new ApiDateTime { UtcTime = dateTimeOffset.UtcDateTime, TimeZoneOffset = dateTimeOffset.Offset.ToString()}
