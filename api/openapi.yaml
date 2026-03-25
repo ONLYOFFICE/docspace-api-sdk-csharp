@@ -3003,7 +3003,7 @@ paths:
   /api/2.0/backup/getbackupscount:
     get:
       description: Returns the number of backups for a period of time. The default
-        is one month.
+        is the current calendar month.
       operationId: getBackupsCount
       parameters:
       - description: The from date.
@@ -11792,7 +11792,7 @@ paths:
         content:
           multipart/form-data:
             encoding:
-              FormCollection:
+              File:
                 style: form
             schema:
               $ref: "#/components/schemas/uploadRoomLogo_request"
@@ -14684,7 +14684,9 @@ paths:
         content:
           multipart/form-data:
             encoding:
-              formCollection:
+              File:
+                style: form
+              Autosave:
                 style: form
             schema:
               $ref: "#/components/schemas/uploadMemberPhoto_request"
@@ -17905,7 +17907,7 @@ paths:
     post:
       description: Starts updating the type of the user or guest when reassigning
         rooms and shared files.
-      operationId: starUserTypetUpdate
+      operationId: startUserTypeUpdate
       requestBody:
         content:
           application/json:
@@ -18816,7 +18818,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/QuotaWrapper"
+                $ref: "#/components/schemas/WalletServiceWrapper"
           description: Wallet service
         "401":
           description: Unauthorized
@@ -19085,7 +19087,7 @@ paths:
         name: serviceName
         required: false
         schema:
-          example: aitools
+          example: backup
           type: string
         style: form
       - description: Specifies whether to refresh the payment information cache or
@@ -19160,8 +19162,17 @@ paths:
         name: ServiceName
         required: false
         schema:
-          example: aitools
+          example: backup
           type: string
+        style: form
+      - description: Write-off of the quota for the service
+        explode: true
+        in: query
+        name: WriteOffServiceQuota
+        required: false
+        schema:
+          example: false
+          type: boolean
         style: form
       - description: The report start date.
         explode: true
@@ -21996,6 +22007,76 @@ paths:
         - write
       - OpenId: []
       summary: Get the payment settings
+      tags:
+      - Settings / Common settings
+  /api/2.0/settings/ai-access:
+    get:
+      description: "Returns the current portal-level AI access settings that control\
+        \ whether all AI functionality\r\n(chat, agents, vectorization) is available\
+        \ for the portal. AI is enabled by default."
+      operationId: getTenantAiAccessSettings
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TenantAiAccessSettingsWrapper"
+          description: AI access settings
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Get the AI access settings for the portal
+      tags:
+      - Settings / Common settings
+    post:
+      description: "Updates the portal-level AI access settings. When AI is disabled,\
+        \ all AI features are turned off:\r\nthe AI Agents folder is hidden from root\
+        \ folder listings, AI status checks immediately return disabled,\r\nand AI\
+        \ chat endpoints become inaccessible. Only users with the DocSpaceAdmin role\r\
+        \n(EditPortalSettings permission) can change this setting."
+      operationId: setTenantAiAccessSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TenantAiAccessSettingsDto"
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TenantAiAccessSettingsWrapper"
+          description: Updated AI access settings
+        "403":
+          description: You don't have enough permission to change the AI access settings
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Set the AI access for the portal
       tags:
       - Settings / Common settings
   /api/2.0/settings/invitationsettings:
@@ -26018,6 +26099,19 @@ components:
       - agent
       - items
       type: object
+    AiChatPrice:
+      additionalProperties: false
+      example:
+        completion: 6.027456183070403
+        prompt: 0.8008281904610115
+      properties:
+        prompt:
+          format: double
+          type: number
+        completion:
+          format: double
+          type: number
+      type: object
     AiProviderArrayWrapper:
       example:
         response:
@@ -26186,6 +26280,7 @@ components:
         portalMcpServerId: 00000000-0000-0000-0000-000000000000
         webSearchNeedReset: false
         webSearchEnabled: true
+        systemAiEnabled: true
         generatePresentationToolName: generate_presentation
         webSearchToolName: web_search
         vectorizationNeedReset: false
@@ -26273,6 +26368,10 @@ components:
           example: generate_presentation
           nullable: true
           type: string
+        systemAiEnabled:
+          description: Indicates whether the system-level AI provider is enabled.
+          example: true
+          type: boolean
       required:
       - embeddingModel
       - generateDocxToolName
@@ -26296,6 +26395,7 @@ components:
           portalMcpServerId: 00000000-0000-0000-0000-000000000000
           webSearchNeedReset: false
           webSearchEnabled: true
+          systemAiEnabled: true
           generatePresentationToolName: generate_presentation
           webSearchToolName: web_search
           vectorizationNeedReset: false
@@ -26498,6 +26598,22 @@ components:
         image:
           $ref: "#/components/schemas/ChatImageMultimodalSettingsDto"
       type: object
+    ChatReasoningEffort:
+      description: "[]"
+      enum:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      example: 0
+      type: integer
+      x-enum-varnames:
+      - None
+      - Low
+      - Medium
+      - High
+      - XHigh
     ChatSettings:
       additionalProperties: false
       description: The chat settings.
@@ -26542,6 +26658,7 @@ components:
             - .jpeg
             - .gif
         prompt: You are a helpful assistant.
+        thinking: false
       properties:
         providerId:
           description: The AI provider ID.
@@ -26565,6 +26682,10 @@ components:
           type: string
         multimodal:
           $ref: "#/components/schemas/ChatMultimodalSettingsDto"
+        thinking:
+          description: Indicates whether the model supports extended thinking mode.
+          example: false
+          type: boolean
         internal:
           description: Indicates whether this is an internal AI gateway provider.
           example: false
@@ -26821,6 +26942,22 @@ components:
       - key
       - title
       type: object
+    CurrencyInfo:
+      additionalProperties: false
+      example:
+        symbol: symbol
+        code: code
+      properties:
+        code:
+          nullable: true
+          type: string
+        symbol:
+          nullable: true
+          type: string
+      required:
+      - code
+      - symbol
+      type: object
     DefaultProviderDto:
       additionalProperties: false
       description: Default AI provider information.
@@ -26966,17 +27103,19 @@ components:
           type: string
       type: object
     EmbeddingProviderType:
-      description: "[0 - None, 1 - OpenAi, 2 - OpenRouter]"
+      description: "[0 - None, 1 - OpenAi, 2 - OpenRouter, 3 - PortalAi]"
       enum:
       - 0
       - 1
       - 2
+      - 3
       example: 0
       type: integer
       x-enum-varnames:
       - None
       - OpenAi
       - OpenRouter
+      - PortalAi
     EmployeeDto:
       additionalProperties: false
       description: The user parameters.
@@ -27049,15 +27188,17 @@ components:
           type: boolean
       type: object
     EngineType:
-      description: "[0 - None, 1 - Exa]"
+      description: "[0 - None, 1 - Exa, 2 - PortalAi]"
       enum:
       - 0
       - 1
+      - 2
       example: 0
       type: integer
       x-enum-varnames:
       - None
       - Exa
+      - PortalAi
     ExportChatRequestBodyInteger:
       additionalProperties: false
       description: Parameters for exporting an AI chat session to a document.
@@ -27724,6 +27865,7 @@ components:
                 - .jpeg
                 - .gif
             prompt: You are a helpful assistant.
+            thinking: false
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -27932,6 +28074,7 @@ components:
                   - .jpeg
                   - .gif
               prompt: You are a helpful assistant.
+              thinking: false
             providerId: 1
             fileEntryType: 1
             isShareable: true
@@ -28233,6 +28376,7 @@ components:
               - .jpeg
               - .gif
           prompt: You are a helpful assistant.
+          thinking: false
         providerId: 1
         fileEntryType: 1
         isShareable: true
@@ -28380,6 +28524,7 @@ components:
                 - .jpeg
                 - .gif
             prompt: You are a helpful assistant.
+            thinking: false
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -28524,6 +28669,7 @@ components:
                 - .jpeg
                 - .gif
             prompt: You are a helpful assistant.
+            thinking: false
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -28702,6 +28848,7 @@ components:
                 - .jpeg
                 - .gif
             prompt: You are a helpful assistant.
+            thinking: false
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -29593,18 +29740,30 @@ components:
         response:
         - modelId: gpt-4o
           providerId: 1
+          price:
+            completion: 6.027456183070403
+            prompt: 0.8008281904610115
+          currency:
+            symbol: symbol
+            code: code
           providerTitle: OpenAI
         - modelId: gpt-4o
           providerId: 1
+          price:
+            completion: 6.027456183070403
+            prompt: 0.8008281904610115
+          currency:
+            symbol: symbol
+            code: code
           providerTitle: OpenAI
-        count: 0
+        count: 1
         links:
         - action: action
           href: href
         - action: action
           href: href
-        status: 6
-        statusCode: 1
+        status: 5
+        statusCode: 5
       properties:
         response:
           items:
@@ -29634,6 +29793,12 @@ components:
       example:
         modelId: gpt-4o
         providerId: 1
+        price:
+          completion: 6.027456183070403
+          prompt: 0.8008281904610115
+        currency:
+          symbol: symbol
+          code: code
         providerTitle: OpenAI
       properties:
         providerId:
@@ -29653,6 +29818,10 @@ components:
           example: gpt-4o
           nullable: true
           type: string
+        price:
+          $ref: "#/components/schemas/AiChatPrice"
+        currency:
+          $ref: "#/components/schemas/CurrencyInfo"
       required:
       - modelId
       - providerTitle
@@ -31300,6 +31469,7 @@ components:
       description: Parameters for updating user chat settings.
       example:
         webSearchEnabled: true
+        reasoningEffort: 0
       properties:
         webSearchEnabled:
           description: Indicates whether the AI assistant is allowed to perform web
@@ -31307,6 +31477,8 @@ components:
           example: true
           nullable: true
           type: boolean
+        reasoningEffort:
+          $ref: "#/components/schemas/ChatReasoningEffort"
       type: object
     SetWebSearchSettingsRequestBody:
       additionalProperties: false
@@ -31641,17 +31813,21 @@ components:
       description: The user chat settings.
       example:
         webSearchEnabled: true
+        reasoningEffort: 0
       properties:
         webSearchEnabled:
           description: Indicates whether the AI assistant is allowed to perform web
             searches when generating responses in this room.
           example: true
           type: boolean
+        reasoningEffort:
+          $ref: "#/components/schemas/ChatReasoningEffort"
       type: object
     UserChatSettingsWrapper:
       example:
         response:
           webSearchEnabled: true
+          reasoningEffort: 0
         count: 0
         links:
         - action: action
@@ -33513,6 +33689,7 @@ components:
             avatarSmall: https://example.com/avatar_small.jpg
             isAnonim: false
           requestToken: token-abc-123
+          isFillingPreparing: false
           updated:
             utcTime: 2018-01-01T00:00:00Z
             timeZoneOffset: 00:00:00
@@ -33863,6 +34040,7 @@ components:
               avatarSmall: https://example.com/avatar_small.jpg
               isAnonim: false
             requestToken: token-abc-123
+            isFillingPreparing: false
             updated:
               utcTime: 2018-01-01T00:00:00Z
               timeZoneOffset: 00:00:00
@@ -34269,12 +34447,13 @@ components:
       description: The request parameters to change the room cover.
       example:
         cover: cover1.jpg
-        color: "#FF0000"
+        color: FF0000
       properties:
         color:
           description: The cover color.
-          example: "#FF0000"
+          example: FF0000
           nullable: true
+          pattern: "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
           type: string
         cover:
           description: The cover name.
@@ -36707,6 +36886,13 @@ components:
             example: false
             nullable: true
             type: boolean
+          isFillingPreparing:
+            description: Specifies if the form filling has started but the file is
+              still being saved by the document editor. Filling and editing are not
+              allowed.
+            example: false
+            nullable: true
+            type: boolean
           inProcessFolderId:
             description: The InProcess folder ID of the file.
             example: 10
@@ -36796,6 +36982,7 @@ components:
           avatarSmall: https://example.com/avatar_small.jpg
           isAnonim: false
         requestToken: token-abc-123
+        isFillingPreparing: false
         updated:
           utcTime: 2018-01-01T00:00:00Z
           timeZoneOffset: 00:00:00
@@ -37482,6 +37669,7 @@ components:
             avatarSmall: https://example.com/avatar_small.jpg
             isAnonim: false
           requestToken: token-abc-123
+          isFillingPreparing: false
           updated:
             utcTime: 2018-01-01T00:00:00Z
             timeZoneOffset: 00:00:00
@@ -37612,6 +37800,7 @@ components:
             avatarSmall: https://example.com/avatar_small.jpg
             isAnonim: false
           requestToken: token-abc-123
+          isFillingPreparing: false
           updated:
             utcTime: 2018-01-01T00:00:00Z
             timeZoneOffset: 00:00:00
@@ -37776,6 +37965,7 @@ components:
             avatarSmall: https://example.com/avatar_small.jpg
             isAnonim: false
           requestToken: token-abc-123
+          isFillingPreparing: false
           updated:
             utcTime: 2018-01-01T00:00:00Z
             timeZoneOffset: 00:00:00
@@ -39853,6 +40043,7 @@ components:
             avatarSmall: https://example.com/avatar_small.jpg
             isAnonim: false
           requestToken: token-abc-123
+          isFillingPreparing: false
           updated:
             utcTime: 2018-01-01T00:00:00Z
             timeZoneOffset: 00:00:00
@@ -39984,6 +40175,7 @@ components:
             avatarSmall: https://example.com/avatar_small.jpg
             isAnonim: false
           requestToken: token-abc-123
+          isFillingPreparing: false
           updated:
             utcTime: 2018-01-01T00:00:00Z
             timeZoneOffset: 00:00:00
@@ -40222,6 +40414,7 @@ components:
               avatarSmall: https://example.com/avatar_small.jpg
               isAnonim: false
             requestToken: token-abc-123
+            isFillingPreparing: false
             updated:
               utcTime: 2018-01-01T00:00:00Z
               timeZoneOffset: 00:00:00
@@ -40354,6 +40547,7 @@ components:
               avatarSmall: https://example.com/avatar_small.jpg
               isAnonim: false
             requestToken: token-abc-123
+            isFillingPreparing: false
             updated:
               utcTime: 2018-01-01T00:00:00Z
               timeZoneOffset: 00:00:00
@@ -40613,6 +40807,7 @@ components:
                   - .jpeg
                   - .gif
               prompt: You are a helpful assistant.
+              thinking: false
             providerId: 1
             fileEntryType: 1
             isShareable: true
@@ -40769,6 +40964,7 @@ components:
                   - .jpeg
                   - .gif
               prompt: You are a helpful assistant.
+              thinking: false
             providerId: 1
             fileEntryType: 1
             isShareable: true
@@ -41072,6 +41268,7 @@ components:
               - .jpeg
               - .gif
           prompt: You are a helpful assistant.
+          thinking: false
         providerId: 1
         fileEntryType: 1
         isShareable: true
@@ -41271,6 +41468,7 @@ components:
                 - .jpeg
                 - .gif
             prompt: You are a helpful assistant.
+            thinking: false
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -41415,6 +41613,7 @@ components:
                 - .jpeg
                 - .gif
             prompt: You are a helpful assistant.
+            thinking: false
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -41593,6 +41792,7 @@ components:
                 - .jpeg
                 - .gif
             prompt: You are a helpful assistant.
+            thinking: false
           providerId: 1
           fileEntryType: 1
           isShareable: true
@@ -41701,20 +41901,23 @@ components:
         possibleValues:
         - possibleValues
         - possibleValues
-        format: format
-        type: type
-        key: key
+        format: date
+        type: text
+        key: name
       properties:
         key:
           description: The form field key.
+          example: name
           nullable: true
           type: string
         type:
           description: The form field type.
+          example: text
           nullable: true
           type: string
         format:
           description: The form field format.
+          example: date
           nullable: true
           type: string
         possibleValues:
@@ -42340,15 +42543,15 @@ components:
         - possibleValues:
           - possibleValues
           - possibleValues
-          format: format
-          type: type
-          key: key
+          format: date
+          type: text
+          key: name
         - possibleValues:
           - possibleValues
           - possibleValues
-          format: format
-          type: type
-          key: key
+          format: date
+          type: text
+          key: name
         submissions:
         - createOn: 2000-01-23T04:56:07.000+00:00
           formsData:
@@ -42379,15 +42582,15 @@ components:
           - possibleValues:
             - possibleValues
             - possibleValues
-            format: format
-            type: type
-            key: key
+            format: date
+            type: text
+            key: name
           - possibleValues:
             - possibleValues
             - possibleValues
-            format: format
-            type: type
-            key: key
+            format: date
+            type: text
+            key: name
           submissions:
           - createOn: 2000-01-23T04:56:07.000+00:00
             formsData:
@@ -43233,17 +43436,6 @@ components:
           format: int32
           type: integer
       type: object
-    KeyValuePairStringStringValues:
-      additionalProperties: false
-      properties:
-        key:
-          nullable: true
-          type: string
-        value:
-          items:
-            type: string
-          type: array
-      type: object
     LinkType:
       description: "[0 - Invitation, 1 - External]"
       enum:
@@ -43694,13 +43886,13 @@ components:
         \ settings updated, 6091 - Whitelabel additional settings updated, 6092 -\
         \ Whitelabel mail settings updated, 6093 - Invitation settings updated, 6094\
         \ - IP restrictions settings updated, 6095 - Login settings updated, 6096\
-        \ - AI default provider set, 7000 - Contact admin mail sent, 7001 - Room invite\
-        \ link used, 7002 - User created and added to room, 7003 - Guest created and\
-        \ added to room, 7004 - Contact sales mail sent, 9901 - Create client, 9902\
-        \ - Update client, 9903 - Regenerate secret, 9904 - Delete client, 9905 -\
-        \ Change client activation, 9906 - Change client visibility, 9907 - Revoke\
-        \ user client, 9908 - Generate authorization code token, 9909 - Generate personal\
-        \ access token, -1 - None]"
+        \ - AI default provider set, 6097 - AI access enabled, 6098 - AI access disabled,\
+        \ 7000 - Contact admin mail sent, 7001 - Room invite link used, 7002 - User\
+        \ created and added to room, 7003 - Guest created and added to room, 7004\
+        \ - Contact sales mail sent, 9901 - Create client, 9902 - Update client, 9903\
+        \ - Regenerate secret, 9904 - Delete client, 9905 - Change client activation,\
+        \ 9906 - Change client visibility, 9907 - Revoke user client, 9908 - Generate\
+        \ authorization code token, 9909 - Generate personal access token, -1 - None]"
       enum:
       - 1000
       - 1001
@@ -44018,6 +44210,8 @@ components:
       - 6094
       - 6095
       - 6096
+      - 6097
+      - 6098
       - 7000
       - 7001
       - 7002
@@ -44352,6 +44546,8 @@ components:
       - IPRestrictionsSettingsUpdated
       - LoginSettingsUpdated
       - AIDefaultProviderSet
+      - AIAccessEnabled
+      - AIAccessDisabled
       - ContactAdminMailSent
       - RoomInviteLinkUsed
       - UserCreatedAndAddedToRoom
@@ -48855,6 +49051,7 @@ components:
             avatarSmall: https://example.com/avatar_small.jpg
             isAnonim: false
           requestToken: token-abc-123
+          isFillingPreparing: false
           updated:
             utcTime: 2018-01-01T00:00:00Z
             timeZoneOffset: 00:00:00
@@ -49029,6 +49226,7 @@ components:
               avatarSmall: https://example.com/avatar_small.jpg
               isAnonim: false
             requestToken: token-abc-123
+            isFillingPreparing: false
             updated:
               utcTime: 2018-01-01T00:00:00Z
               timeZoneOffset: 00:00:00
@@ -52606,25 +52804,12 @@ components:
       - id
       - price
       type: object
-    AiChatPrice:
-      additionalProperties: false
-      example:
-        completion: 6.027456183070403
-        prompt: 0.8008281904610115
-      properties:
-        prompt:
-          format: double
-          type: number
-        completion:
-          format: double
-          type: number
-      type: object
     AiEmbeddingModelPricing:
       additionalProperties: false
       example:
         provider: provider
         price:
-          prompt: 1.4658129805029452
+          prompt: 0.8008281904610115
         alias: alias
         id: id
         ownedBy: ownedBy
@@ -52650,7 +52835,7 @@ components:
     AiEmbeddingPrice:
       additionalProperties: false
       example:
-        prompt: 1.4658129805029452
+        prompt: 0.8008281904610115
       properties:
         prompt:
           format: double
@@ -52660,9 +52845,9 @@ components:
       additionalProperties: false
       example:
         webSearch:
-          search: 5.962133916683182
+          search: 6.027456183070403
           provider: provider
-          contents: 5.637376656633329
+          contents: 1.4658129805029452
         chat:
         - provider: provider
           price:
@@ -52684,13 +52869,13 @@ components:
         embedding:
         - provider: provider
           price:
-            prompt: 1.4658129805029452
+            prompt: 0.8008281904610115
           alias: alias
           id: id
           ownedBy: ownedBy
         - provider: provider
           price:
-            prompt: 1.4658129805029452
+            prompt: 0.8008281904610115
           alias: alias
           id: id
           ownedBy: ownedBy
@@ -52719,9 +52904,9 @@ components:
       example:
         response:
           webSearch:
-            search: 5.962133916683182
+            search: 6.027456183070403
             provider: provider
-            contents: 5.637376656633329
+            contents: 1.4658129805029452
           chat:
           - provider: provider
             price:
@@ -52743,24 +52928,24 @@ components:
           embedding:
           - provider: provider
             price:
-              prompt: 1.4658129805029452
+              prompt: 0.8008281904610115
             alias: alias
             id: id
             ownedBy: ownedBy
           - provider: provider
             price:
-              prompt: 1.4658129805029452
+              prompt: 0.8008281904610115
             alias: alias
             id: id
             ownedBy: ownedBy
-        count: 2
+        count: 5
         links:
         - action: action
           href: href
         - action: action
           href: href
-        status: 7
-        statusCode: 9
+        status: 5
+        statusCode: 2
       properties:
         response:
           $ref: "#/components/schemas/AiPricesResponse"
@@ -52785,9 +52970,9 @@ components:
     AiWebSearchPricing:
       additionalProperties: false
       example:
-        search: 5.962133916683182
+        search: 6.027456183070403
         provider: provider
-        contents: 5.637376656633329
+        contents: 1.4658129805029452
       properties:
         provider:
           nullable: true
@@ -53348,7 +53533,7 @@ components:
           date: 2024-01-15T10:30:00Z
           amount: 1500.75
           currency: USD
-        accountName: aitools
+        accountName: account name
         subAccountNumber: 12345
         accountCurrency: USD
         accountNumber: 12345
@@ -53365,7 +53550,7 @@ components:
           type: integer
         accountName:
           description: The account name.
-          example: aitools
+          example: account name
           nullable: true
           type: string
         accountCurrency:
@@ -53395,7 +53580,7 @@ components:
             date: 2024-01-15T10:30:00Z
             amount: 1500.75
             currency: USD
-          accountName: aitools
+          accountName: account name
           subAccountNumber: 12345
           accountCurrency: USD
           accountNumber: 12345
@@ -53465,7 +53650,7 @@ components:
       description: The request parameters for buying wallet service.
       example:
         quantity: 1
-        serviceName: aitools
+        serviceName: backup
       properties:
         quantity:
           description: Number of services provided.
@@ -53476,7 +53661,7 @@ components:
           type: integer
         serviceName:
           description: The service name.
-          example: aitools
+          example: backup
           nullable: true
           type: string
       type: object
@@ -53634,7 +53819,7 @@ components:
       additionalProperties: false
       description: The request parameters for changing the tenant wallet service state.
       example:
-        service: -14
+        service: -13
         enabled: true
       properties:
         service:
@@ -54366,22 +54551,6 @@ components:
           nullable: true
           type: string
       type: object
-    CurrencyInfo:
-      additionalProperties: false
-      example:
-        symbol: symbol
-        code: code
-      properties:
-        code:
-          nullable: true
-          type: string
-        symbol:
-          nullable: true
-          type: string
-      required:
-      - code
-      - symbol
-      type: object
     CurrentLicenseInfo:
       additionalProperties: false
       description: The current license information.
@@ -54631,8 +54800,9 @@ components:
         orderType: 0
         types: 0
         endDate: 2024-01-31T23:59:59Z
+        writeOffServiceQuota: false
         orderBy: StartDate
-        serviceName: aitools
+        serviceName: backup
         participantName: ACME Corp
         credit: true
         debit: false
@@ -54641,9 +54811,13 @@ components:
       properties:
         serviceName:
           description: The service name.
-          example: aitools
+          example: backup
           nullable: true
           type: string
+        writeOffServiceQuota:
+          description: Write-off of the quota for the service
+          example: false
+          type: boolean
         startDate:
           description: The report start date.
           example: 2024-01-01T00:00:00Z
@@ -55201,11 +55375,14 @@ components:
         dbName: dbName
         dbUser: dbUser
         dbHost: dbHost
+        databaseTypeEnum: 0
         dbPassword: dbPassword
       properties:
         databaseType:
           nullable: true
           type: string
+        databaseTypeEnum:
+          $ref: "#/components/schemas/ExternalDatabaseType"
         dbHost:
           nullable: true
           type: string
@@ -55227,6 +55404,16 @@ components:
           nullable: true
           type: string
       type: object
+    ExternalDatabaseType:
+      description: "[]"
+      enum:
+      - 0
+      - 1
+      example: 0
+      type: integer
+      x-enum-varnames:
+      - MySql
+      - Sqlite
     FeatureUsedDto:
       additionalProperties: false
       description: The used space parameters of the tenant quota feature.
@@ -58635,6 +58822,7 @@ components:
         utcOffset: -08:30:00
         greetingSettings: Web Office Applications
         standalone: true
+        aiEnabled: true
         invitationLimit: 10
         firebase:
           storageBucket: myapp-12345.appspot.com
@@ -58866,6 +59054,12 @@ components:
           description: Specifies whether to display the promotional banners.
           example: true
           type: boolean
+        aiEnabled:
+          description: "Specifies whether AI functionality (chat, agents, vectorization)\
+            \ is enabled for the current tenant.\r\nWhen `false`, all AI features\
+            \ are disabled and the AI Agents folder is hidden."
+          example: true
+          type: boolean
         userNameRegex:
           description: The user name validation regex.
           example: "^[a-zA-Z0-9_]{3,20}$"
@@ -58900,6 +59094,7 @@ components:
         externalDbEnabled:
           description: Specifies if an external database is connected for storing
             form results.
+          example: true
           type: boolean
       required:
       - baseDomain
@@ -58949,6 +59144,7 @@ components:
           utcOffset: -08:30:00
           greetingSettings: Web Office Applications
           standalone: true
+          aiEnabled: true
           invitationLimit: 10
           firebase:
             storageBucket: myapp-12345.appspot.com
@@ -60120,6 +60316,73 @@ components:
           format: int32
           type: integer
       type: object
+    TenantAiAccessSettings:
+      additionalProperties: false
+      description: The tenant-level settings for enabling or disabling all AI functionality
+        in DocSpace.
+      example:
+        lastModified: 1990-01-01T00:00:00Z
+        enabled: true
+      properties:
+        enabled:
+          description: "Specifies whether AI functionality is enabled for the tenant.\r\
+            \nWhen set to `false`, all AI features (chat, agents, vectorization) are\
+            \ disabled tenant-wide."
+          example: true
+          type: boolean
+        lastModified:
+          description: The timestamp indicating when the settings were last modified.
+          example: 1990-01-01T00:00:00Z
+          format: date-time
+          type: string
+      type: object
+    TenantAiAccessSettingsDto:
+      additionalProperties: false
+      description: The request parameters for managing the tenant-level AI access
+        settings.
+      example:
+        enabled: false
+      properties:
+        enabled:
+          description: "Specifies whether AI functionality is enabled for the tenant.\r\
+            \nSet to `true` to enable all AI features or `false` to disable them tenant-wide."
+          example: false
+          type: boolean
+      type: object
+    TenantAiAccessSettingsWrapper:
+      example:
+        response:
+          lastModified: 1990-01-01T00:00:00Z
+          enabled: true
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/TenantAiAccessSettings"
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
+      type: object
     TenantAiAgentQuotaSettings:
       additionalProperties: false
       allOf:
@@ -60663,10 +60926,10 @@ components:
         countAIAgent: 5
         custom: false
         countUser: 100
-        serviceGroup: ai
+        serviceGroup: services
         maxFileSize: 25000000
         priceISOCurrencySymbol: USD
-        serviceName: space
+        serviceName: backup
         aiTools: true
         contentSearch: true
         usersInRoom: 50
@@ -60707,12 +60970,12 @@ components:
           type: string
         serviceName:
           description: The service name.
-          example: space
+          example: backup
           nullable: true
           type: string
         serviceGroup:
           description: The service group.
-          example: ai
+          example: services
           nullable: true
           type: string
         visible:
@@ -61015,10 +61278,10 @@ components:
           countAIAgent: 5
           custom: false
           countUser: 100
-          serviceGroup: ai
+          serviceGroup: services
           maxFileSize: 25000000
           priceISOCurrencySymbol: USD
-          serviceName: space
+          serviceName: backup
           aiTools: true
           contentSearch: true
           usersInRoom: 50
@@ -61268,16 +61531,14 @@ components:
           type: integer
       type: object
     TenantWalletService:
-      description: "[-14 - WebSearch, -13 - AITools, -12 - Backup, -11 - Storage]"
+      description: "[-13 - AITools, -12 - Backup, -11 - Storage]"
       enum:
-      - -14
       - -13
       - -12
       - -11
-      example: -14
+      example: -13
       type: integer
       x-enum-varnames:
-      - WebSearch
       - AITools
       - Backup
       - Storage
@@ -61298,14 +61559,12 @@ components:
           items:
             description: The list of the enabled wallet services.
             enum:
-            - -14
             - -13
             - -12
             - -11
-            example: -14
+            example: -13
             type: integer
             x-enum-varnames:
-            - WebSearch
             - AITools
             - Backup
             - Storage
@@ -62008,6 +62267,7 @@ components:
             defaultQuota: 1000
           dueDate: 2024-01-15T10:30:00Z
           title: Basic Plan
+          serviceName: backup
           trial: false
           tenantCustomQuota:
             lastRecalculateDate: 1990-01-01T00:00:00Z
@@ -62041,6 +62301,7 @@ components:
             defaultQuota: 1000
           dueDate: 2024-01-15T10:30:00Z
           title: Basic Plan
+          serviceName: backup
           trial: false
           tenantCustomQuota:
             lastRecalculateDate: 1990-01-01T00:00:00Z
@@ -62109,9 +62370,14 @@ components:
             - title: File Storage
               size: 1073741824
             items:
-              $ref: "#/components/schemas/QuotaDto"
+              $ref: "#/components/schemas/WalletServiceDto"
             nullable: true
             type: array
+          serviceName:
+            description: The service name.
+            example: backup
+            nullable: true
+            type: string
         type: object
       description: The wallet service information.
       example:
@@ -62122,6 +62388,7 @@ components:
           defaultQuota: 1000
         dueDate: 2024-01-15T10:30:00Z
         title: Basic Plan
+        serviceName: backup
         trial: false
         tenantCustomQuota:
           lastRecalculateDate: 1990-01-01T00:00:00Z
@@ -62148,6 +62415,72 @@ components:
           lastRecalculateDate: 2024-01-01T00:00:00Z
           enableQuota: true
           defaultQuota: 1000
+    WalletServiceWrapper:
+      example:
+        response:
+          nonProfit: false
+          usersQuota:
+            lastRecalculateDate: 2024-01-01T00:00:00Z
+            enableQuota: true
+            defaultQuota: 1000
+          dueDate: 2024-01-15T10:30:00Z
+          title: Basic Plan
+          serviceName: backup
+          trial: false
+          tenantCustomQuota:
+            lastRecalculateDate: 1990-01-01T00:00:00Z
+            enableQuota: true
+            quota: 10737418240
+            lastModified: 1990-01-01T00:00:00Z
+          innerServices:
+          - title: File Storage
+            size: 1073741824
+          features:
+          - id: 00000000-0000-0000-0000-000000000001
+            title: Premium Storage
+          roomsQuota:
+            lastRecalculateDate: 2024-01-01T00:00:00Z
+            enableQuota: true
+            defaultQuota: 1000
+          price:
+            isoCurrencySymbol: USD
+            currencySymbol: $
+            value: 99.99
+          id: 1
+          free: true
+          aiAgentsQuota:
+            lastRecalculateDate: 2024-01-01T00:00:00Z
+            enableQuota: true
+            defaultQuota: 1000
+        count: 0
+        links:
+        - action: action
+          href: href
+        - action: action
+          href: href
+        status: 6
+        statusCode: 1
+      properties:
+        response:
+          $ref: "#/components/schemas/WalletServiceDto"
+        count:
+          description: The total number of items in the response
+          format: int32
+          type: integer
+        links:
+          description: List of links related to the response
+          items:
+            $ref: "#/components/schemas/getPortalPrices_200_response_links_inner"
+          type: array
+        status:
+          description: HTTP status code of the response
+          format: int32
+          type: integer
+        statusCode:
+          description: HTTP status code of the response (duplicate of status)
+          format: int32
+          type: integer
+      type: object
     WebItemSecurityRequestsDto:
       additionalProperties: false
       description: The request parameters for configuring security settings of a single
@@ -63636,12 +63969,10 @@ components:
       type: object
     uploadRoomLogo_request:
       properties:
-        FormCollection:
+        File:
           description: The image data.
-          example: multipart/form-data
-          items:
-            $ref: "#/components/schemas/KeyValuePairStringStringValues"
-          type: array
+          format: binary
+          type: string
       type: object
     submitConsent_request:
       properties:
@@ -63711,15 +64042,16 @@ components:
       type: object
     uploadMemberPhoto_request:
       properties:
-        formCollection:
+        File:
           description: The image data.
-          example:
-            file: photo.jpg
-          items:
-            $ref: "#/components/schemas/KeyValuePairStringStringValues"
-          type: array
+          example: !!binary |-
+            eyJmaWxlIjogInBob3RvLmpwZyJ9
+          format: binary
+          type: string
+        Autosave:
+          type: boolean
       required:
-      - formCollection
+      - File
       type: object
     getPortalPrices_200_response_links_inner:
       example:

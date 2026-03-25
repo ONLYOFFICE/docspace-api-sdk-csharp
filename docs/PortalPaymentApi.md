@@ -937,7 +937,7 @@ catch (ApiException e)
 
 <a id="getcustomeroperations"></a>
 # **GetCustomerOperations**
-> ReportWrapper GetCustomerOperations (int? offset = null, int? limit = null, string? serviceName = null, DateTime? startDate = null, DateTime? endDate = null, string? participantName = null, bool? credit = null, bool? debit = null, OperationType? types = null, OperationStatus? status = null, string? orderBy = null, OperationOrderType? orderType = null)
+> ReportWrapper GetCustomerOperations (int? offset = null, int? limit = null, string? serviceName = null, bool? writeOffServiceQuota = null, DateTime? startDate = null, DateTime? endDate = null, string? participantName = null, bool? credit = null, bool? debit = null, OperationType? types = null, OperationStatus? status = null, string? orderBy = null, OperationOrderType? orderType = null)
 
 Returns the report of customer operations from the accounting service.
 
@@ -950,6 +950,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | **offset** | **int?** | The number of items to skip for pagination. The default value is 0. | [optional]  |
 | **limit** | **int?** | The maximum number of items to return for pagination. The default value is 25. | [optional]  |
 | **serviceName** | **string?** | The service name. | [optional]  |
+| **writeOffServiceQuota** | **bool?** | Write-off of the quota for the service | [optional]  |
 | **startDate** | **DateTime?** | The report start date. | [optional]  |
 | **endDate** | **DateTime?** | The report end date. | [optional]  |
 | **participantName** | **string?** | The participant name. | [optional]  |
@@ -1007,7 +1008,8 @@ namespace Example
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
             var offset = 0;  // int? | The number of items to skip for pagination. The default value is 0. (optional) 
             var limit = 25;  // int? | The maximum number of items to return for pagination. The default value is 25. (optional) 
-            var serviceName = aitools;  // string? | The service name. (optional) 
+            var serviceName = backup;  // string? | The service name. (optional) 
+            var writeOffServiceQuota = false;  // bool? | Write-off of the quota for the service (optional) 
             var startDate = 2024-01-01T00:00Z;  // DateTime? | The report start date. (optional) 
             var endDate = 2024-01-31T23:59:59Z;  // DateTime? | The report end date. (optional) 
             var participantName = ACME Corp;  // string? | The participant name. (optional) 
@@ -1021,7 +1023,7 @@ namespace Example
             try
             {
                 // Get the customer operations
-                ReportWrapper result = apiInstance.GetCustomerOperations(offset, limit, serviceName, startDate, endDate, participantName, credit, debit, types, status, orderBy, orderType);
+                ReportWrapper result = apiInstance.GetCustomerOperations(offset, limit, serviceName, writeOffServiceQuota, startDate, endDate, participantName, credit, debit, types, status, orderBy, orderType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1042,7 +1044,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the customer operations
-    ApiResponse<ReportWrapper> response = apiInstance.GetCustomerOperationsWithHttpInfo(offset, limit, serviceName, startDate, endDate, participantName, credit, debit, types, status, orderBy, orderType);
+    ApiResponse<ReportWrapper> response = apiInstance.GetCustomerOperationsWithHttpInfo(offset, limit, serviceName, writeOffServiceQuota, startDate, endDate, participantName, credit, debit, types, status, orderBy, orderType);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1238,7 +1240,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PaymentApi(httpClient, config, httpClientHandler);
-            var serviceName = aitools;  // string? | The service name. (optional) 
+            var serviceName = backup;  // string? | The service name. (optional) 
             var refresh = true;  // bool? | Specifies whether to refresh the payment information cache or not. (optional) 
 
             try
@@ -2285,7 +2287,7 @@ catch (ApiException e)
 
 <a id="getwalletservice"></a>
 # **GetWalletService**
-> QuotaWrapper GetWalletService (TenantWalletService service)
+> WalletServiceWrapper GetWalletService (TenantWalletService service)
 
 Returns the specified wallet service.
 
@@ -2299,7 +2301,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**QuotaWrapper**](QuotaWrapper.md)
+[**WalletServiceWrapper**](WalletServiceWrapper.md)
 
 ### Authorization
 
@@ -2347,7 +2349,7 @@ namespace Example
             try
             {
                 // Get wallet service
-                QuotaWrapper result = apiInstance.GetWalletService(service);
+                WalletServiceWrapper result = apiInstance.GetWalletService(service);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2368,7 +2370,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get wallet service
-    ApiResponse<QuotaWrapper> response = apiInstance.GetWalletServiceWithHttpInfo(service);
+    ApiResponse<WalletServiceWrapper> response = apiInstance.GetWalletServiceWithHttpInfo(service);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

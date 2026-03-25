@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.EngineType
-[0 - None, 1 - Exa]
+[0 - None, 1 - Exa, 2 - PortalAi]
 
 ## Properties
 

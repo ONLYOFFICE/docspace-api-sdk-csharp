@@ -222,6 +222,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
         /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="writeOffServiceQuota">Write-off of the quota for the service (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -233,7 +234,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>ReportWrapper</returns>
-        ReportWrapper GetCustomerOperations(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default);
+        ReportWrapper GetCustomerOperations(int? offset = default, int? limit = default, string? serviceName = default, bool? writeOffServiceQuota = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default);
 
         /// <summary>
         /// Get the customer operations
@@ -245,6 +246,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
         /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="writeOffServiceQuota">Write-off of the quota for the service (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -256,7 +258,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>ApiResponse of ReportWrapper</returns>
-        ApiResponse<ReportWrapper> GetCustomerOperationsWithHttpInfo(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default);
+        ApiResponse<ReportWrapper> GetCustomerOperationsWithHttpInfo(int? offset = default, int? limit = default, string? serviceName = default, bool? writeOffServiceQuota = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default);
         /// <summary>
         /// Get the status of the customer operations report generation
         /// </summary>
@@ -509,8 +511,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="service">The wallet service type.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-service/">REST API Reference for GetWalletService Operation</seealso>
-        /// <returns>QuotaWrapper</returns>
-        QuotaWrapper GetWalletService(TenantWalletService service);
+        /// <returns>WalletServiceWrapper</returns>
+        WalletServiceWrapper GetWalletService(TenantWalletService service);
 
         /// <summary>
         /// Get wallet service
@@ -521,8 +523,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="service">The wallet service type.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-service/">REST API Reference for GetWalletService Operation</seealso>
-        /// <returns>ApiResponse of QuotaWrapper</returns>
-        ApiResponse<QuotaWrapper> GetWalletServiceWithHttpInfo(TenantWalletService service);
+        /// <returns>ApiResponse of WalletServiceWrapper</returns>
+        ApiResponse<WalletServiceWrapper> GetWalletServiceWithHttpInfo(TenantWalletService service);
         /// <summary>
         /// Get wallet services
         /// </summary>
@@ -920,6 +922,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
         /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="writeOffServiceQuota">Write-off of the quota for the service (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -932,7 +935,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>Task of ReportWrapper</returns>
-        Task<ReportWrapper> GetCustomerOperationsAsync(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default);
+        Task<ReportWrapper> GetCustomerOperationsAsync(int? offset = default, int? limit = default, string? serviceName = default, bool? writeOffServiceQuota = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the customer operations
@@ -944,6 +947,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
         /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="writeOffServiceQuota">Write-off of the quota for the service (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -956,7 +960,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>Task of ApiResponse (ReportWrapper)</returns>
-        Task<ApiResponse<ReportWrapper>> GetCustomerOperationsWithHttpInfoAsync(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ReportWrapper>> GetCustomerOperationsWithHttpInfoAsync(int? offset = default, int? limit = default, string? serviceName = default, bool? writeOffServiceQuota = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the status of the customer operations report generation
         /// </summary>
@@ -1232,8 +1236,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="service">The wallet service type.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-service/">REST API Reference for GetWalletService Operation</seealso>
-        /// <returns>Task of QuotaWrapper</returns>
-        Task<QuotaWrapper> GetWalletServiceAsync(TenantWalletService service, CancellationToken cancellationToken = default);
+        /// <returns>Task of WalletServiceWrapper</returns>
+        Task<WalletServiceWrapper> GetWalletServiceAsync(TenantWalletService service, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get wallet service
@@ -1245,8 +1249,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="service">The wallet service type.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-service/">REST API Reference for GetWalletService Operation</seealso>
-        /// <returns>Task of ApiResponse (QuotaWrapper)</returns>
-        Task<ApiResponse<QuotaWrapper>> GetWalletServiceWithHttpInfoAsync(TenantWalletService service, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (WalletServiceWrapper)</returns>
+        Task<ApiResponse<WalletServiceWrapper>> GetWalletServiceWithHttpInfoAsync(TenantWalletService service, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get wallet services
         /// </summary>
@@ -3136,6 +3140,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
         /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="writeOffServiceQuota">Write-off of the quota for the service (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -3147,9 +3152,9 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>ReportWrapper</returns>
-        public ReportWrapper GetCustomerOperations(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default)
+        public ReportWrapper GetCustomerOperations(int? offset = default, int? limit = default, string? serviceName = default, bool? writeOffServiceQuota = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default)
         {
-            var localVarResponse = GetCustomerOperationsWithHttpInfo(offset, limit, serviceName, startDate, endDate, participantName, credit, debit, types, status, orderBy, orderType);
+            var localVarResponse = GetCustomerOperationsWithHttpInfo(offset, limit, serviceName, writeOffServiceQuota, startDate, endDate, participantName, credit, debit, types, status, orderBy, orderType);
             return localVarResponse.Data;
         }
 
@@ -3163,6 +3168,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
         /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="writeOffServiceQuota">Write-off of the quota for the service (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -3174,7 +3180,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>ApiResponse of ReportWrapper</returns>
-        public ApiResponse<ReportWrapper> GetCustomerOperationsWithHttpInfo(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default)
+        public ApiResponse<ReportWrapper> GetCustomerOperationsWithHttpInfo(int? offset = default, int? limit = default, string? serviceName = default, bool? writeOffServiceQuota = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3200,6 +3206,10 @@ namespace DocSpace.API.SDK.Api.Portal
             if (serviceName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ServiceName", serviceName));
+            }
+            if (writeOffServiceQuota != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "WriteOffServiceQuota", writeOffServiceQuota));
             }
             if (startDate != null)
             {
@@ -3294,6 +3304,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
         /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="writeOffServiceQuota">Write-off of the quota for the service (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -3306,9 +3317,9 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>Task of ReportWrapper</returns>
-        public async Task<ReportWrapper> GetCustomerOperationsAsync(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default)
+        public async Task<ReportWrapper> GetCustomerOperationsAsync(int? offset = default, int? limit = default, string? serviceName = default, bool? writeOffServiceQuota = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetCustomerOperationsWithHttpInfoAsync(offset, limit, serviceName, startDate, endDate, participantName, credit, debit, types, status, orderBy, orderType, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetCustomerOperationsWithHttpInfoAsync(offset, limit, serviceName, writeOffServiceQuota, startDate, endDate, participantName, credit, debit, types, status, orderBy, orderType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3322,6 +3333,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
         /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="writeOffServiceQuota">Write-off of the quota for the service (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -3334,7 +3346,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>Task of ApiResponse (ReportWrapper)</returns>
-        public async Task<ApiResponse<ReportWrapper>> GetCustomerOperationsWithHttpInfoAsync(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ReportWrapper>> GetCustomerOperationsWithHttpInfoAsync(int? offset = default, int? limit = default, string? serviceName = default, bool? writeOffServiceQuota = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3361,6 +3373,10 @@ namespace DocSpace.API.SDK.Api.Portal
             if (serviceName != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ServiceName", serviceName));
+            }
+            if (writeOffServiceQuota != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "WriteOffServiceQuota", writeOffServiceQuota));
             }
             if (startDate != null)
             {
@@ -5457,8 +5473,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="service">The wallet service type.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-service/">REST API Reference for GetWalletService Operation</seealso>
-        /// <returns>QuotaWrapper</returns>
-        public QuotaWrapper GetWalletService(TenantWalletService service)
+        /// <returns>WalletServiceWrapper</returns>
+        public WalletServiceWrapper GetWalletService(TenantWalletService service)
         {
             var localVarResponse = GetWalletServiceWithHttpInfo(service);
             return localVarResponse.Data;
@@ -5473,8 +5489,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="service">The wallet service type.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-service/">REST API Reference for GetWalletService Operation</seealso>
-        /// <returns>ApiResponse of QuotaWrapper</returns>
-        public ApiResponse<QuotaWrapper> GetWalletServiceWithHttpInfo(TenantWalletService service)
+        /// <returns>ApiResponse of WalletServiceWrapper</returns>
+        public ApiResponse<WalletServiceWrapper> GetWalletServiceWithHttpInfo(TenantWalletService service)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5523,7 +5539,7 @@ namespace DocSpace.API.SDK.Api.Portal
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<QuotaWrapper>("/api/2.0/portal/payment/walletservice", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<WalletServiceWrapper>("/api/2.0/portal/payment/walletservice", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -5547,8 +5563,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="service">The wallet service type.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-service/">REST API Reference for GetWalletService Operation</seealso>
-        /// <returns>Task of QuotaWrapper</returns>
-        public async Task<QuotaWrapper> GetWalletServiceAsync(TenantWalletService service, CancellationToken cancellationToken = default)
+        /// <returns>Task of WalletServiceWrapper</returns>
+        public async Task<WalletServiceWrapper> GetWalletServiceAsync(TenantWalletService service, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetWalletServiceWithHttpInfoAsync(service, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -5564,8 +5580,8 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="service">The wallet service type.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-wallet-service/">REST API Reference for GetWalletService Operation</seealso>
-        /// <returns>Task of ApiResponse (QuotaWrapper)</returns>
-        public async Task<ApiResponse<QuotaWrapper>> GetWalletServiceWithHttpInfoAsync(TenantWalletService service, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (WalletServiceWrapper)</returns>
+        public async Task<ApiResponse<WalletServiceWrapper>> GetWalletServiceWithHttpInfoAsync(TenantWalletService service, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -5616,7 +5632,7 @@ namespace DocSpace.API.SDK.Api.Portal
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<QuotaWrapper>("/api/2.0/portal/payment/walletservice", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<WalletServiceWrapper>("/api/2.0/portal/payment/walletservice", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

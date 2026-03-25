@@ -992,10 +992,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Uploads a temporary image to create a room logo.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="formCollection">The image data. (optional)</param>
+        /// <param name="file">The image data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/">REST API Reference for UploadRoomLogo Operation</seealso>
         /// <returns>UploadResultWrapper</returns>
-        UploadResultWrapper UploadRoomLogo(List<KeyValuePairStringStringValues>? formCollection = default);
+        UploadResultWrapper UploadRoomLogo(FileParameter? file = default);
 
         /// <summary>
         /// Upload a room logo image
@@ -1004,10 +1004,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Uploads a temporary image to create a room logo.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="formCollection">The image data. (optional)</param>
+        /// <param name="file">The image data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/">REST API Reference for UploadRoomLogo Operation</seealso>
         /// <returns>ApiResponse of UploadResultWrapper</returns>
-        ApiResponse<UploadResultWrapper> UploadRoomLogoWithHttpInfo(List<KeyValuePairStringStringValues>? formCollection = default);
+        ApiResponse<UploadResultWrapper> UploadRoomLogoWithHttpInfo(FileParameter? file = default);
         #endregion Synchronous Operations
     }
 
@@ -2057,11 +2057,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Uploads a temporary image to create a room logo.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="formCollection">The image data. (optional)</param>
+        /// <param name="file">The image data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/">REST API Reference for UploadRoomLogo Operation</seealso>
         /// <returns>Task of UploadResultWrapper</returns>
-        Task<UploadResultWrapper> UploadRoomLogoAsync(List<KeyValuePairStringStringValues>? formCollection = default, CancellationToken cancellationToken = default);
+        Task<UploadResultWrapper> UploadRoomLogoAsync(FileParameter? file = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload a room logo image
@@ -2070,11 +2070,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Uploads a temporary image to create a room logo.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="formCollection">The image data. (optional)</param>
+        /// <param name="file">The image data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/">REST API Reference for UploadRoomLogo Operation</seealso>
         /// <returns>Task of ApiResponse (UploadResultWrapper)</returns>
-        Task<ApiResponse<UploadResultWrapper>> UploadRoomLogoWithHttpInfoAsync(List<KeyValuePairStringStringValues>? formCollection = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<UploadResultWrapper>> UploadRoomLogoWithHttpInfoAsync(FileParameter? file = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -9751,12 +9751,12 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Uploads a temporary image to create a room logo.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="formCollection">The image data. (optional)</param>
+        /// <param name="file">The image data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/">REST API Reference for UploadRoomLogo Operation</seealso>
         /// <returns>UploadResultWrapper</returns>
-        public UploadResultWrapper UploadRoomLogo(List<KeyValuePairStringStringValues>? formCollection = default)
+        public UploadResultWrapper UploadRoomLogo(FileParameter? file = default)
         {
-            var localVarResponse = UploadRoomLogoWithHttpInfo(formCollection);
+            var localVarResponse = UploadRoomLogoWithHttpInfo(file);
             return localVarResponse.Data;
         }
 
@@ -9767,10 +9767,10 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Uploads a temporary image to create a room logo.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="formCollection">The image data. (optional)</param>
+        /// <param name="file">The image data. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/">REST API Reference for UploadRoomLogo Operation</seealso>
         /// <returns>ApiResponse of UploadResultWrapper</returns>
-        public ApiResponse<UploadResultWrapper> UploadRoomLogoWithHttpInfo(List<KeyValuePairStringStringValues>? formCollection = default)
+        public ApiResponse<UploadResultWrapper> UploadRoomLogoWithHttpInfo(FileParameter? file = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -9785,9 +9785,9 @@ namespace DocSpace.API.SDK.Api.Rooms
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (formCollection != null)
+            if (file != null)
             {
-                localVarRequestOptions.FormParameters.Add("FormCollection",ClientUtils.ParameterToString(formCollection)); // form parameter
+                localVarRequestOptions.FileParameters.Add("File", file);
             }
 
             // authentication (Basic) required
@@ -9843,13 +9843,13 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Uploads a temporary image to create a room logo.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="formCollection">The image data. (optional)</param>
+        /// <param name="file">The image data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/">REST API Reference for UploadRoomLogo Operation</seealso>
         /// <returns>Task of UploadResultWrapper</returns>
-        public async Task<UploadResultWrapper> UploadRoomLogoAsync(List<KeyValuePairStringStringValues>? formCollection = default, CancellationToken cancellationToken = default)
+        public async Task<UploadResultWrapper> UploadRoomLogoAsync(FileParameter? file = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UploadRoomLogoWithHttpInfoAsync(formCollection, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UploadRoomLogoWithHttpInfoAsync(file, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -9860,11 +9860,11 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// Uploads a temporary image to create a room logo.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="formCollection">The image data. (optional)</param>
+        /// <param name="file">The image data. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-room-logo/">REST API Reference for UploadRoomLogo Operation</seealso>
         /// <returns>Task of ApiResponse (UploadResultWrapper)</returns>
-        public async Task<ApiResponse<UploadResultWrapper>> UploadRoomLogoWithHttpInfoAsync(List<KeyValuePairStringStringValues>? formCollection = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<UploadResultWrapper>> UploadRoomLogoWithHttpInfoAsync(FileParameter? file = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -9880,9 +9880,9 @@ namespace DocSpace.API.SDK.Api.Rooms
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (formCollection != null)
+            if (file != null)
             {
-                localVarRequestOptions.FormParameters.Add("FormCollection", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(formCollection)); // form parameter
+                localVarRequestOptions.FileParameters.Add("File", file);
             }
 
             // authentication (Basic) required

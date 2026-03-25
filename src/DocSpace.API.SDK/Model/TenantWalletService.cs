@@ -32,16 +32,11 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [-14 - WebSearch, -13 - AITools, -12 - Backup, -11 - Storage]
+    /// [-13 - AITools, -12 - Backup, -11 - Storage]
     /// </summary>
-    /// <value>[-14 - WebSearch, -13 - AITools, -12 - Backup, -11 - Storage]</value>
+    /// <value>[-13 - AITools, -12 - Backup, -11 - Storage]</value>
     public enum TenantWalletService
     {
-        /// <summary>
-        /// Enum WebSearch for value: -14
-        /// </summary>
-        WebSearch = -14,
-
         /// <summary>
         /// Enum AITools for value: -13
         /// </summary>

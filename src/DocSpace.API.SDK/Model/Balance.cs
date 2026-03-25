@@ -82,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The account name.</value>
         /*
-        <example>aitools</example>
+        <example>account name</example>
         */
         [DataMember(Name = "accountName", EmitDefaultValue = true)]
         public string AccountName { get; set; }

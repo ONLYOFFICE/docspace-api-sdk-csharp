@@ -5,7 +5,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**GetUserTypeUpdateProgress**](#getusertypeupdateprogress) | **GET** /api/2.0/people/type/progress/{userid} | Get the progress of updating user type |
-| [**StarUserTypetUpdate**](#starusertypetupdate) | **POST** /api/2.0/people/type | Start updating user type |
+| [**StartUserTypeUpdate**](#startusertypeupdate) | **POST** /api/2.0/people/type | Start updating user type |
 | [**TerminateUserTypeUpdate**](#terminateusertypeupdate) | **PUT** /api/2.0/people/type/terminate | Terminate updating user type |
 | [**UpdateUserType**](#updateusertype) | **PUT** /api/2.0/people/type/{type} | Change a user type |
 
@@ -121,13 +121,13 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="starusertypetupdate"></a>
-# **StarUserTypetUpdate**
-> TaskProgressResponseWrapper StarUserTypetUpdate (StartUpdateUserTypeDto? startUpdateUserTypeDto = null)
+<a id="startusertypeupdate"></a>
+# **StartUserTypeUpdate**
+> TaskProgressResponseWrapper StartUserTypeUpdate (StartUpdateUserTypeDto? startUpdateUserTypeDto = null)
 
 Starts updating the type of the user or guest when reassigning rooms and shared files.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/start-user-type-update/).
 
 ### Parameters
 
@@ -154,7 +154,7 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class StarUserTypetUpdateExample
+    public class StartUserTypeUpdateExample
     {
         public static void Main()
         {
@@ -185,12 +185,12 @@ namespace Example
             try
             {
                 // Start updating user type
-                TaskProgressResponseWrapper result = apiInstance.StarUserTypetUpdate(startUpdateUserTypeDto);
+                TaskProgressResponseWrapper result = apiInstance.StartUserTypeUpdate(startUpdateUserTypeDto);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling UserTypeApi.StarUserTypetUpdate: " + e.Message);
+                Debug.Print("Exception when calling UserTypeApi.StartUserTypeUpdate: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -199,21 +199,21 @@ namespace Example
 }
 ```
 
-#### Using the StarUserTypetUpdateWithHttpInfo variant
+#### Using the StartUserTypeUpdateWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
     // Start updating user type
-    ApiResponse<TaskProgressResponseWrapper> response = apiInstance.StarUserTypetUpdateWithHttpInfo(startUpdateUserTypeDto);
+    ApiResponse<TaskProgressResponseWrapper> response = apiInstance.StartUserTypeUpdateWithHttpInfo(startUpdateUserTypeDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling UserTypeApi.StarUserTypetUpdateWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling UserTypeApi.StartUserTypeUpdateWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

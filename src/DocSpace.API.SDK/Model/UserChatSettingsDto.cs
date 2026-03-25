@@ -37,14 +37,22 @@ namespace DocSpace.API.SDK.Model
     [DataContract(Name = "UserChatSettingsDto")]
     public partial class UserChatSettingsDto : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets ReasoningEffort
+        /// </summary>
+        [DataMember(Name = "reasoningEffort", EmitDefaultValue = false)]
+        public ChatReasoningEffort? ReasoningEffort { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="UserChatSettingsDto" /> class.
         /// </summary>
         /// <param name="webSearchEnabled">Indicates whether the AI assistant is allowed to perform web searches when generating responses in this room..</param>
-        public UserChatSettingsDto(bool webSearchEnabled = default)
+        /// <param name="reasoningEffort">reasoningEffort.</param>
+        public UserChatSettingsDto(bool webSearchEnabled = default, ChatReasoningEffort? reasoningEffort = default)
         {
             this.WebSearchEnabled = webSearchEnabled;
+            this.ReasoningEffort = reasoningEffort;
         }
 
         /// <summary>
@@ -66,6 +74,7 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class UserChatSettingsDto {\n");
             sb.Append("  WebSearchEnabled: ").Append(WebSearchEnabled).Append("\n");
+            sb.Append("  ReasoningEffort: ").Append(ReasoningEffort).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

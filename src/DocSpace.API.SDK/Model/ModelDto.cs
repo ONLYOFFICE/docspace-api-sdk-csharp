@@ -49,7 +49,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="providerId">The unique identifier of the AI provider that offers this model..</param>
         /// <param name="providerTitle">The human-readable display name of the AI provider (e.g., OpenAI, Anthropic). (required).</param>
         /// <param name="modelId">The model identifier as recognized by the AI provider (e.g., gpt-4o, claude-sonnet-4-20250514). (required).</param>
-        public ModelDto(int providerId = default, string providerTitle = default, string modelId = default)
+        /// <param name="price">price.</param>
+        /// <param name="currency">currency.</param>
+        public ModelDto(int providerId = default, string providerTitle = default, string modelId = default, AiChatPrice price = default, CurrencyInfo currency = default)
         {
             // to ensure "providerTitle" is required (not null)
             if (providerTitle == null)
@@ -64,6 +66,8 @@ namespace DocSpace.API.SDK.Model
             }
             this.ModelId = modelId;
             this.ProviderId = providerId;
+            this.Price = price;
+            this.Currency = currency;
         }
 
         /// <summary>
@@ -97,6 +101,18 @@ namespace DocSpace.API.SDK.Model
         public string ModelId { get; set; }
 
         /// <summary>
+        /// Gets or Sets Price
+        /// </summary>
+        [DataMember(Name = "price", EmitDefaultValue = false)]
+        public AiChatPrice Price { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Currency
+        /// </summary>
+        [DataMember(Name = "currency", EmitDefaultValue = false)]
+        public CurrencyInfo Currency { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -107,6 +123,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ProviderId: ").Append(ProviderId).Append("\n");
             sb.Append("  ProviderTitle: ").Append(ProviderTitle).Append("\n");
             sb.Append("  ModelId: ").Append(ModelId).Append("\n");
+            sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

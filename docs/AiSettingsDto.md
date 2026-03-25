@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **GenerateDocxToolName** | **string** | The tool name used by the AI to launch docx creation in the editor. | 
 **GenerateFormToolName** | **string** | The tool name used by the AI assistant to launch form creation in the editor. | 
 **GeneratePresentationToolName** | **string** | The tool name used by the AI assistant to launch presentation creation in the editor. | 
+**SystemAiEnabled** | **bool** | Indicates whether the system-level AI provider is enabled. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

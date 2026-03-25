@@ -17,7 +17,8 @@ Name | Type | Description | Notes
 **AiAgentsQuota** | [**TenantEntityQuotaSettings**](TenantEntityQuotaSettings.md) |  | [optional] 
 **TenantCustomQuota** | [**TenantQuotaSettings**](TenantQuotaSettings.md) |  | [optional] 
 **DueDate** | **DateTime?** | The due date. | [optional] 
-**InnerServices** | [**List&lt;QuotaDto&gt;**](QuotaDto.md) | The list of inner services. | [optional] 
+**InnerServices** | [**List&lt;WalletServiceDto&gt;**](WalletServiceDto.md) | The list of inner services. | [optional] 
+**ServiceName** | **string** | The service name. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -61,9 +61,9 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-user-type-update/">REST API Reference for StartUserTypeUpdate Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
-        TaskProgressResponseWrapper StarUserTypetUpdate(StartUpdateUserTypeDto? startUpdateUserTypeDto = default);
+        TaskProgressResponseWrapper StartUserTypeUpdate(StartUpdateUserTypeDto? startUpdateUserTypeDto = default);
 
         /// <summary>
         /// Start updating user type
@@ -73,9 +73,9 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-user-type-update/">REST API Reference for StartUserTypeUpdate Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
-        ApiResponse<TaskProgressResponseWrapper> StarUserTypetUpdateWithHttpInfo(StartUpdateUserTypeDto? startUpdateUserTypeDto = default);
+        ApiResponse<TaskProgressResponseWrapper> StartUserTypeUpdateWithHttpInfo(StartUpdateUserTypeDto? startUpdateUserTypeDto = default);
         /// <summary>
         /// Terminate updating user type
         /// </summary>
@@ -167,9 +167,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-user-type-update/">REST API Reference for StartUserTypeUpdate Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        Task<TaskProgressResponseWrapper> StarUserTypetUpdateAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default, CancellationToken cancellationToken = default);
+        Task<TaskProgressResponseWrapper> StartUserTypeUpdateAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Start updating user type
@@ -180,9 +180,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-user-type-update/">REST API Reference for StartUserTypeUpdate Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        Task<ApiResponse<TaskProgressResponseWrapper>> StarUserTypetUpdateWithHttpInfoAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<TaskProgressResponseWrapper>> StartUserTypeUpdateWithHttpInfoAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Terminate updating user type
         /// </summary>
@@ -640,11 +640,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-user-type-update/">REST API Reference for StartUserTypeUpdate Operation</seealso>
         /// <returns>TaskProgressResponseWrapper</returns>
-        public TaskProgressResponseWrapper StarUserTypetUpdate(StartUpdateUserTypeDto? startUpdateUserTypeDto = default)
+        public TaskProgressResponseWrapper StartUserTypeUpdate(StartUpdateUserTypeDto? startUpdateUserTypeDto = default)
         {
-            var localVarResponse = StarUserTypetUpdateWithHttpInfo(startUpdateUserTypeDto);
+            var localVarResponse = StartUserTypeUpdateWithHttpInfo(startUpdateUserTypeDto);
             return localVarResponse.Data;
         }
 
@@ -656,9 +656,9 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-user-type-update/">REST API Reference for StartUserTypeUpdate Operation</seealso>
         /// <returns>ApiResponse of TaskProgressResponseWrapper</returns>
-        public ApiResponse<TaskProgressResponseWrapper> StarUserTypetUpdateWithHttpInfo(StartUpdateUserTypeDto? startUpdateUserTypeDto = default)
+        public ApiResponse<TaskProgressResponseWrapper> StartUserTypeUpdateWithHttpInfo(StartUpdateUserTypeDto? startUpdateUserTypeDto = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -711,7 +711,7 @@ namespace DocSpace.API.SDK.Api.People
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("StarUserTypetUpdate", localVarResponse);
+                var exception = ExceptionFactory("StartUserTypeUpdate", localVarResponse);
                 if (exception != null)
                 {
                     throw exception;
@@ -730,11 +730,11 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-user-type-update/">REST API Reference for StartUserTypeUpdate Operation</seealso>
         /// <returns>Task of TaskProgressResponseWrapper</returns>
-        public async Task<TaskProgressResponseWrapper> StarUserTypetUpdateAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default, CancellationToken cancellationToken = default)
+        public async Task<TaskProgressResponseWrapper> StartUserTypeUpdateAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await StarUserTypetUpdateWithHttpInfoAsync(startUpdateUserTypeDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await StartUserTypeUpdateWithHttpInfoAsync(startUpdateUserTypeDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -747,9 +747,9 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startUpdateUserTypeDto">The parameters for updating the type of the user or guest when reassigning rooms and shared files. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/star-user-typet-update/">REST API Reference for StarUserTypetUpdate Operation</seealso>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-user-type-update/">REST API Reference for StartUserTypeUpdate Operation</seealso>
         /// <returns>Task of ApiResponse (TaskProgressResponseWrapper)</returns>
-        public async Task<ApiResponse<TaskProgressResponseWrapper>> StarUserTypetUpdateWithHttpInfoAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<TaskProgressResponseWrapper>> StartUserTypeUpdateWithHttpInfoAsync(StartUpdateUserTypeDto? startUpdateUserTypeDto = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -804,7 +804,7 @@ namespace DocSpace.API.SDK.Api.People
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("StarUserTypetUpdate", localVarResponse);
+                var exception = ExceptionFactory("StartUserTypeUpdate", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

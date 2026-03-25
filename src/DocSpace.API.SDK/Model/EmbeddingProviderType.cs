@@ -32,9 +32,9 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - None, 1 - OpenAi, 2 - OpenRouter]
+    /// [0 - None, 1 - OpenAi, 2 - OpenRouter, 3 - PortalAi]
     /// </summary>
-    /// <value>[0 - None, 1 - OpenAi, 2 - OpenRouter]</value>
+    /// <value>[0 - None, 1 - OpenAi, 2 - OpenRouter, 3 - PortalAi]</value>
     public enum EmbeddingProviderType
     {
         /// <summary>
@@ -50,7 +50,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum OpenRouter for value: 2
         /// </summary>
-        OpenRouter = 2
+        OpenRouter = 2,
+
+        /// <summary>
+        /// Enum PortalAi for value: 3
+        /// </summary>
+        PortalAi = 3
     }
 
 }

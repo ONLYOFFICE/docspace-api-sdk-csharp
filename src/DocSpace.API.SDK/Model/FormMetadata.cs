@@ -57,6 +57,9 @@ namespace DocSpace.API.SDK.Model
         /// The form field key.
         /// </summary>
         /// <value>The form field key.</value>
+        /*
+        <example>name</example>
+        */
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
@@ -64,6 +67,9 @@ namespace DocSpace.API.SDK.Model
         /// The form field type.
         /// </summary>
         /// <value>The form field type.</value>
+        /*
+        <example>text</example>
+        */
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 
@@ -71,6 +77,9 @@ namespace DocSpace.API.SDK.Model
         /// The form field format.
         /// </summary>
         /// <value>The form field format.</value>
+        /*
+        <example>date</example>
+        */
         [DataMember(Name = "format", EmitDefaultValue = true)]
         public string Format { get; set; }
 

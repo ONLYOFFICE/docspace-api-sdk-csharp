@@ -95,6 +95,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="customFilterEnabled">Specifies if the Custom Filter editing mode is enabled for a file or not..</param>
         /// <param name="customFilterEnabledBy">The name of the user who enabled a Custom Filter editing mode for a file..</param>
         /// <param name="startFilling">Specifies if the filling has started or not..</param>
+        /// <param name="isFillingPreparing">Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed..</param>
         /// <param name="inProcessFolderId">The InProcess folder ID of the file..</param>
         /// <param name="inProcessFolderTitle">The InProcess folder title of the file..</param>
         /// <param name="draftLocation">draftLocation.</param>
@@ -103,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="expired">expired.</param>
         /// <param name="vectorizationStatus">vectorizationStatus.</param>
         /// <param name="dimensions">dimensions.</param>
-        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, Dictionary<string, string> editingBy = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, VectorizationStatus? vectorizationStatus = default, Size dimensions = default)
+        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, Dictionary<string, string> editingBy = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, bool? isFillingPreparing = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, VectorizationStatus? vectorizationStatus = default, Size dimensions = default)
         {
             this.FolderId = folderId;
             this.@Version = version;
@@ -129,6 +130,7 @@ namespace DocSpace.API.SDK.Model
             this.CustomFilterEnabled = customFilterEnabled;
             this.CustomFilterEnabledBy = customFilterEnabledBy;
             this.StartFilling = startFilling;
+            this.IsFillingPreparing = isFillingPreparing;
             this.InProcessFolderId = inProcessFolderId;
             this.InProcessFolderTitle = inProcessFolderTitle;
             this.DraftLocation = draftLocation;
@@ -340,6 +342,16 @@ namespace DocSpace.API.SDK.Model
         public bool? StartFilling { get; set; }
 
         /// <summary>
+        /// Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed.
+        /// </summary>
+        /// <value>Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "isFillingPreparing", EmitDefaultValue = true)]
+        public bool? IsFillingPreparing { get; set; }
+
+        /// <summary>
         /// The InProcess folder ID of the file.
         /// </summary>
         /// <value>The InProcess folder ID of the file.</value>
@@ -421,6 +433,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  CustomFilterEnabled: ").Append(CustomFilterEnabled).Append("\n");
             sb.Append("  CustomFilterEnabledBy: ").Append(CustomFilterEnabledBy).Append("\n");
             sb.Append("  StartFilling: ").Append(StartFilling).Append("\n");
+            sb.Append("  IsFillingPreparing: ").Append(IsFillingPreparing).Append("\n");
             sb.Append("  InProcessFolderId: ").Append(InProcessFolderId).Append("\n");
             sb.Append("  InProcessFolderTitle: ").Append(InProcessFolderTitle).Append("\n");
             sb.Append("  DraftLocation: ").Append(DraftLocation).Append("\n");

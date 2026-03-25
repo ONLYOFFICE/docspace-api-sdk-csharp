@@ -61,7 +61,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="generateDocxToolName">The tool name used by the AI to launch docx creation in the editor. (required).</param>
         /// <param name="generateFormToolName">The tool name used by the AI assistant to launch form creation in the editor. (required).</param>
         /// <param name="generatePresentationToolName">The tool name used by the AI assistant to launch presentation creation in the editor. (required).</param>
-        public AiSettingsDto(bool webSearchEnabled = default, bool webSearchNeedReset = default, bool vectorizationEnabled = default, bool vectorizationNeedReset = default, bool aiReady = default, bool aiReadyNeedReset = default, Guid? portalMcpServerId = default, string embeddingModel = default, Dictionary<string, string> modelAliases = default, string knowledgeSearchToolName = default, string webSearchToolName = default, string webCrawlingToolName = default, string generateDocxToolName = default, string generateFormToolName = default, string generatePresentationToolName = default)
+        /// <param name="systemAiEnabled">Indicates whether the system-level AI provider is enabled..</param>
+        public AiSettingsDto(bool webSearchEnabled = default, bool webSearchNeedReset = default, bool vectorizationEnabled = default, bool vectorizationNeedReset = default, bool aiReady = default, bool aiReadyNeedReset = default, Guid? portalMcpServerId = default, string embeddingModel = default, Dictionary<string, string> modelAliases = default, string knowledgeSearchToolName = default, string webSearchToolName = default, string webCrawlingToolName = default, string generateDocxToolName = default, string generateFormToolName = default, string generatePresentationToolName = default, bool systemAiEnabled = default)
         {
             // to ensure "embeddingModel" is required (not null)
             if (embeddingModel == null)
@@ -118,6 +119,7 @@ namespace DocSpace.API.SDK.Model
             this.AiReady = aiReady;
             this.AiReadyNeedReset = aiReadyNeedReset;
             this.PortalMcpServerId = portalMcpServerId;
+            this.SystemAiEnabled = systemAiEnabled;
         }
 
         /// <summary>
@@ -271,6 +273,16 @@ namespace DocSpace.API.SDK.Model
         public string GeneratePresentationToolName { get; set; }
 
         /// <summary>
+        /// Indicates whether the system-level AI provider is enabled.
+        /// </summary>
+        /// <value>Indicates whether the system-level AI provider is enabled.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "systemAiEnabled", EmitDefaultValue = true)]
+        public bool SystemAiEnabled { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -293,6 +305,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  GenerateDocxToolName: ").Append(GenerateDocxToolName).Append("\n");
             sb.Append("  GenerateFormToolName: ").Append(GenerateFormToolName).Append("\n");
             sb.Append("  GeneratePresentationToolName: ").Append(GeneratePresentationToolName).Append("\n");
+            sb.Append("  SystemAiEnabled: ").Append(SystemAiEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

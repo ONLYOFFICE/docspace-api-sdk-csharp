@@ -32,42 +32,42 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for buying wallet service.
+    /// The tenant-level settings for enabling or disabling all AI functionality in DocSpace.
     /// </summary>
-    [DataContract(Name = "BuyWalletServiceRequestDto")]
-    public partial class BuyWalletServiceRequestDto : IValidatableObject
+    [DataContract(Name = "TenantAiAccessSettings")]
+    public partial class TenantAiAccessSettings : IValidatableObject
     {
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="BuyWalletServiceRequestDto" /> class.
+        /// Initializes a new instance of the <see cref="TenantAiAccessSettings" /> class.
         /// </summary>
-        /// <param name="quantity">Number of services provided..</param>
-        /// <param name="serviceName">The service name..</param>
-        public BuyWalletServiceRequestDto(int quantity = default, string serviceName = default)
+        /// <param name="enabled">Specifies whether AI functionality is enabled for the tenant.  When set to &#x60;false&#x60;, all AI features (chat, agents, vectorization) are disabled tenant-wide..</param>
+        /// <param name="lastModified">The timestamp indicating when the settings were last modified..</param>
+        public TenantAiAccessSettings(bool enabled = default, DateTime lastModified = default)
         {
-            this.Quantity = quantity;
-            this.ServiceName = serviceName;
+            this.Enabled = enabled;
+            this.LastModified = lastModified;
         }
 
         /// <summary>
-        /// Number of services provided.
+        /// Specifies whether AI functionality is enabled for the tenant.  When set to &#x60;false&#x60;, all AI features (chat, agents, vectorization) are disabled tenant-wide.
         /// </summary>
-        /// <value>Number of services provided.</value>
+        /// <value>Specifies whether AI functionality is enabled for the tenant.  When set to &#x60;false&#x60;, all AI features (chat, agents, vectorization) are disabled tenant-wide.</value>
         /*
-        <example>1</example>
+        <example>true</example>
         */
-        [DataMember(Name = "quantity", EmitDefaultValue = false)]
-        public int Quantity { get; set; }
+        [DataMember(Name = "enabled", EmitDefaultValue = true)]
+        public bool Enabled { get; set; }
 
         /// <summary>
-        /// The service name.
+        /// The timestamp indicating when the settings were last modified.
         /// </summary>
-        /// <value>The service name.</value>
+        /// <value>The timestamp indicating when the settings were last modified.</value>
         /*
-        <example>backup</example>
+        <example>1990-01-01T00:00Z</example>
         */
-        [DataMember(Name = "serviceName", EmitDefaultValue = true)]
-        public string ServiceName { get; set; }
+        [DataMember(Name = "lastModified", EmitDefaultValue = false)]
+        public DateTime LastModified { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,9 +76,9 @@ namespace DocSpace.API.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class BuyWalletServiceRequestDto {\n");
-            sb.Append("  Quantity: ").Append(Quantity).Append("\n");
-            sb.Append("  ServiceName: ").Append(ServiceName).Append("\n");
+            sb.Append("class TenantAiAccessSettings {\n");
+            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            sb.Append("  LastModified: ").Append(LastModified).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,18 +99,6 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Quantity (int) maximum
-            if (this.Quantity > (int)999999)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 999999.", new [] { "Quantity" });
-            }
-
-            // Quantity (int) minimum
-            if (this.Quantity < (int)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
-            }
-
             yield break;
         }
 

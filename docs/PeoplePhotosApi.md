@@ -472,7 +472,7 @@ catch (ApiException e)
 
 <a id="uploadmemberphoto"></a>
 # **UploadMemberPhoto**
-> FileUploadResultWrapper UploadMemberPhoto (string userid, List<KeyValuePairStringStringValues> formCollection)
+> FileUploadResultWrapper UploadMemberPhoto (string userid, FileParameter file, bool? autosave = null)
 
 Uploads a photo of the user with the ID specified in the request.
 
@@ -483,7 +483,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userid** | **string** | The user ID. |  |
-| **formCollection** | [**List&lt;KeyValuePairStringStringValues&gt;**](KeyValuePairStringStringValues.md) | The image data. |  |
+| **file** | **FileParameter****FileParameter** | The image data. |  |
+| **autosave** | **bool?** |  | [optional]  |
 
 ### Return type
 
@@ -531,12 +532,13 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 00000000-0000-0000-0000-000000000000;  // string | The user ID.
-            var formCollection = new List<KeyValuePairStringStringValues>(); // List<KeyValuePairStringStringValues> | The image data.
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter | The image data.
+            var autosave = true;  // bool? |  (optional) 
 
             try
             {
                 // Upload a user photo
-                FileUploadResultWrapper result = apiInstance.UploadMemberPhoto(userid, formCollection);
+                FileUploadResultWrapper result = apiInstance.UploadMemberPhoto(userid, file, autosave);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -557,7 +559,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Upload a user photo
-    ApiResponse<FileUploadResultWrapper> response = apiInstance.UploadMemberPhotoWithHttpInfo(userid, formCollection);
+    ApiResponse<FileUploadResultWrapper> response = apiInstance.UploadMemberPhotoWithHttpInfo(userid, file, autosave);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

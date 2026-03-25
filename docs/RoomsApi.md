@@ -4434,7 +4434,7 @@ catch (ApiException e)
 
 <a id="uploadroomlogo"></a>
 # **UploadRoomLogo**
-> UploadResultWrapper UploadRoomLogo (List<KeyValuePairStringStringValues>? formCollection = null)
+> UploadResultWrapper UploadRoomLogo (FileParameter? file = null)
 
 Uploads a temporary image to create a room logo.
 
@@ -4444,7 +4444,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **formCollection** | [**List&lt;KeyValuePairStringStringValues&gt;?**](KeyValuePairStringStringValues.md) | The image data. | [optional]  |
+| **file** | **FileParameter?****FileParameter?** | The image data. | [optional]  |
 
 ### Return type
 
@@ -4491,12 +4491,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
-            var formCollection = new List<KeyValuePairStringStringValues>?(); // List<KeyValuePairStringStringValues>? | The image data. (optional) 
+            var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter? | The image data. (optional) 
 
             try
             {
                 // Upload a room logo image
-                UploadResultWrapper result = apiInstance.UploadRoomLogo(formCollection);
+                UploadResultWrapper result = apiInstance.UploadRoomLogo(file);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -4517,7 +4517,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Upload a room logo image
-    ApiResponse<UploadResultWrapper> response = apiInstance.UploadRoomLogoWithHttpInfo(formCollection);
+    ApiResponse<UploadResultWrapper> response = apiInstance.UploadRoomLogoWithHttpInfo(file);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

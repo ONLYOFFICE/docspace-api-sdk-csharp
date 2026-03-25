@@ -104,6 +104,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="limitedAccessSpace">Specifies whether the access to the space management is limited or not..</param>
         /// <param name="limitedAccessDevToolsForUsers">Specifies whether the access to the Developer Tools is limited for users or not..</param>
         /// <param name="displayBanners">Specifies whether to display the promotional banners..</param>
+        /// <param name="aiEnabled">Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When &#x60;false&#x60;, all AI features are disabled and the AI Agents folder is hidden..</param>
         /// <param name="userNameRegex">The user name validation regex..</param>
         /// <param name="invitationLimit">The maximum number of invitations to the portal..</param>
         /// <param name="plugins">plugins.</param>
@@ -114,7 +115,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="externalResources">externalResources.</param>
         /// <param name="defaultFolderType">defaultFolderType.</param>
         /// <param name="externalDbEnabled">Specifies if an external database is connected for storing form results..</param>
-        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default, FolderType? defaultFolderType = default, bool externalDbEnabled = default)
+        public SettingsDto(string timezone = default, List<string> trustedDomains = default, TenantTrustedDomainsType? trustedDomainsType = default, string culture = default, string utcOffset = default, double utcHoursOffset = default, string greetingSettings = default, Guid ownerId = default, string nameSchemaId = default, bool? enabledJoin = default, bool? enableAdmMess = default, bool? thirdpartyEnable = default, bool docSpace = default, bool standalone = default, bool isAmi = default, string baseDomain = default, string wizardToken = default, PasswordHasher passwordHash = default, FirebaseDto firebase = default, string version = default, RecaptchaType? recaptchaType = default, string recaptchaPublicKey = default, bool debugInfo = default, string socketUrl = default, TenantStatus? tenantStatus = default, string tenantAlias = default, bool displayAbout = default, TenantDomainValidator domainValidator = default, string zendeskKey = default, string tagManagerId = default, bool cookieSettingsEnabled = default, bool limitedAccessSpace = default, bool limitedAccessDevToolsForUsers = default, bool displayBanners = default, bool aiEnabled = default, string userNameRegex = default, int? invitationLimit = default, PluginsDto plugins = default, DeepLinkDto deepLink = default, FormGalleryDto formGallery = default, long maxImageUploadSize = default, string logoText = default, CultureSpecificExternalResources externalResources = default, FolderType? defaultFolderType = default, bool externalDbEnabled = default)
         {
             // to ensure "culture" is required (not null)
             if (culture == null)
@@ -166,6 +167,7 @@ namespace DocSpace.API.SDK.Model
             this.LimitedAccessSpace = limitedAccessSpace;
             this.LimitedAccessDevToolsForUsers = limitedAccessDevToolsForUsers;
             this.DisplayBanners = displayBanners;
+            this.AiEnabled = aiEnabled;
             this.UserNameRegex = userNameRegex;
             this.InvitationLimit = invitationLimit;
             this.Plugins = plugins;
@@ -476,6 +478,16 @@ namespace DocSpace.API.SDK.Model
         public bool DisplayBanners { get; set; }
 
         /// <summary>
+        /// Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When &#x60;false&#x60;, all AI features are disabled and the AI Agents folder is hidden.
+        /// </summary>
+        /// <value>Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When &#x60;false&#x60;, all AI features are disabled and the AI Agents folder is hidden.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiEnabled", EmitDefaultValue = true)]
+        public bool AiEnabled { get; set; }
+
+        /// <summary>
         /// The user name validation regex.
         /// </summary>
         /// <value>The user name validation regex.</value>
@@ -543,6 +555,9 @@ namespace DocSpace.API.SDK.Model
         /// Specifies if an external database is connected for storing form results.
         /// </summary>
         /// <value>Specifies if an external database is connected for storing form results.</value>
+        /*
+        <example>true</example>
+        */
         [DataMember(Name = "externalDbEnabled", EmitDefaultValue = true)]
         public bool ExternalDbEnabled { get; set; }
 
@@ -588,6 +603,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  LimitedAccessSpace: ").Append(LimitedAccessSpace).Append("\n");
             sb.Append("  LimitedAccessDevToolsForUsers: ").Append(LimitedAccessDevToolsForUsers).Append("\n");
             sb.Append("  DisplayBanners: ").Append(DisplayBanners).Append("\n");
+            sb.Append("  AiEnabled: ").Append(AiEnabled).Append("\n");
             sb.Append("  UserNameRegex: ").Append(UserNameRegex).Append("\n");
             sb.Append("  InvitationLimit: ").Append(InvitationLimit).Append("\n");
             sb.Append("  Plugins: ").Append(Plugins).Append("\n");

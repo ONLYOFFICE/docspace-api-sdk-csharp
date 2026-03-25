@@ -32,9 +32,9 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - None, 1 - Exa]
+    /// [0 - None, 1 - Exa, 2 - PortalAi]
     /// </summary>
-    /// <value>[0 - None, 1 - Exa]</value>
+    /// <value>[0 - None, 1 - Exa, 2 - PortalAi]</value>
     public enum EngineType
     {
         /// <summary>
@@ -45,7 +45,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum Exa for value: 1
         /// </summary>
-        Exa = 1
+        Exa = 1,
+
+        /// <summary>
+        /// Enum PortalAi for value: 2
+        /// </summary>
+        PortalAi = 2
     }
 
 }

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DatabaseType** | **string** |  | [optional] 
+**DatabaseTypeEnum** | **ExternalDatabaseType** |  | [optional] 
 **DbHost** | **string** |  | [optional] 
 **DbPort** | **int** |  | [optional] 
 **DbName** | **string** |  | [optional] 

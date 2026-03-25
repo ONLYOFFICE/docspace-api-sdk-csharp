@@ -923,7 +923,7 @@ catch (ApiException e)
 # **GetBackupsCount**
 > Int32Wrapper GetBackupsCount (DateTime? from = null, DateTime? to = null, bool? paid = null)
 
-Returns the number of backups for a period of time. The default is one month.
+Returns the number of backups for a period of time. The default is the current calendar month.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-backups-count/).
 

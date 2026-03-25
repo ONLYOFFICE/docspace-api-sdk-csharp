@@ -64,6 +64,7 @@ Name | Type | Description | Notes
 **CustomFilterEnabled** | **bool?** | Specifies if the Custom Filter editing mode is enabled for a file or not. | [optional] 
 **CustomFilterEnabledBy** | **string** | The name of the user who enabled a Custom Filter editing mode for a file. | [optional] 
 **StartFilling** | **bool?** | Specifies if the filling has started or not. | [optional] 
+**IsFillingPreparing** | **bool?** | Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed. | [optional] 
 **InProcessFolderId** | **int?** | The InProcess folder ID of the file. | [optional] 
 **InProcessFolderTitle** | **string** | The InProcess folder title of the file. | [optional] 
 **DraftLocation** | [**DraftLocationInteger**](DraftLocationInteger.md) |  | [optional] 

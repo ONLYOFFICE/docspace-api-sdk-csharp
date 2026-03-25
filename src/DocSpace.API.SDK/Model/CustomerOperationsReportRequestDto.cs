@@ -60,6 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="CustomerOperationsReportRequestDto" /> class.
         /// </summary>
         /// <param name="serviceName">The service name..</param>
+        /// <param name="writeOffServiceQuota">Write-off of the quota for the service.</param>
         /// <param name="startDate">The report start date..</param>
         /// <param name="endDate">The report end date..</param>
         /// <param name="participantName">The participant name..</param>
@@ -69,9 +70,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="status">status.</param>
         /// <param name="orderBy">The field to order by..</param>
         /// <param name="orderType">orderType.</param>
-        public CustomerOperationsReportRequestDto(string serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string orderBy = default, OperationOrderType? orderType = default)
+        public CustomerOperationsReportRequestDto(string serviceName = default, bool writeOffServiceQuota = default, DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string orderBy = default, OperationOrderType? orderType = default)
         {
             this.ServiceName = serviceName;
+            this.WriteOffServiceQuota = writeOffServiceQuota;
             this.StartDate = startDate;
             this.EndDate = endDate;
             this.ParticipantName = participantName;
@@ -88,10 +90,20 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The service name.</value>
         /*
-        <example>aitools</example>
+        <example>backup</example>
         */
         [DataMember(Name = "serviceName", EmitDefaultValue = true)]
         public string ServiceName { get; set; }
+
+        /// <summary>
+        /// Write-off of the quota for the service
+        /// </summary>
+        /// <value>Write-off of the quota for the service</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "writeOffServiceQuota", EmitDefaultValue = true)]
+        public bool WriteOffServiceQuota { get; set; }
 
         /// <summary>
         /// The report start date.
@@ -162,6 +174,7 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class CustomerOperationsReportRequestDto {\n");
             sb.Append("  ServiceName: ").Append(ServiceName).Append("\n");
+            sb.Append("  WriteOffServiceQuota: ").Append(WriteOffServiceQuota).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  ParticipantName: ").Append(ParticipantName).Append("\n");

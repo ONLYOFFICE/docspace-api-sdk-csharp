@@ -47,9 +47,11 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="WalletServiceDto" /> class.
         /// </summary>
         /// <param name="innerServices">The list of inner services..</param>
-        public WalletServiceDto(List<QuotaDto> innerServices = default)
+        /// <param name="serviceName">The service name..</param>
+        public WalletServiceDto(List<WalletServiceDto> innerServices = default, string serviceName = default)
         {
             this.InnerServices = innerServices;
+            this.ServiceName = serviceName;
         }
 
         /// <summary>
@@ -60,7 +62,17 @@ namespace DocSpace.API.SDK.Model
         <example>[{&quot;title&quot;:&quot;File Storage&quot;,&quot;size&quot;:1073741824}]</example>
         */
         [DataMember(Name = "innerServices", EmitDefaultValue = true)]
-        public List<QuotaDto> InnerServices { get; set; }
+        public List<WalletServiceDto> InnerServices { get; set; }
+
+        /// <summary>
+        /// The service name.
+        /// </summary>
+        /// <value>The service name.</value>
+        /*
+        <example>backup</example>
+        */
+        [DataMember(Name = "serviceName", EmitDefaultValue = true)]
+        public string ServiceName { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,6 +83,7 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class WalletServiceDto {\n");
             sb.Append("  InnerServices: ").Append(InnerServices).Append("\n");
+            sb.Append("  ServiceName: ").Append(ServiceName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

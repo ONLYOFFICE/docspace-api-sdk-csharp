@@ -131,7 +131,7 @@ namespace DocSpace.API.SDK.Model
                 writer.WriteNull();
                 return;
             }
-
+            
             writer.WriteValue(value.UtcTime.ToString("o"));
         }
     }

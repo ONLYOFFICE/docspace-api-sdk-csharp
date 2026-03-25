@@ -32,42 +32,30 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for buying wallet service.
+    /// The request parameters for managing the tenant-level AI access settings.
     /// </summary>
-    [DataContract(Name = "BuyWalletServiceRequestDto")]
-    public partial class BuyWalletServiceRequestDto : IValidatableObject
+    [DataContract(Name = "TenantAiAccessSettingsDto")]
+    public partial class TenantAiAccessSettingsDto : IValidatableObject
     {
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="BuyWalletServiceRequestDto" /> class.
+        /// Initializes a new instance of the <see cref="TenantAiAccessSettingsDto" /> class.
         /// </summary>
-        /// <param name="quantity">Number of services provided..</param>
-        /// <param name="serviceName">The service name..</param>
-        public BuyWalletServiceRequestDto(int quantity = default, string serviceName = default)
+        /// <param name="enabled">Specifies whether AI functionality is enabled for the tenant.  Set to &#x60;true&#x60; to enable all AI features or &#x60;false&#x60; to disable them tenant-wide..</param>
+        public TenantAiAccessSettingsDto(bool enabled = default)
         {
-            this.Quantity = quantity;
-            this.ServiceName = serviceName;
+            this.Enabled = enabled;
         }
 
         /// <summary>
-        /// Number of services provided.
+        /// Specifies whether AI functionality is enabled for the tenant.  Set to &#x60;true&#x60; to enable all AI features or &#x60;false&#x60; to disable them tenant-wide.
         /// </summary>
-        /// <value>Number of services provided.</value>
+        /// <value>Specifies whether AI functionality is enabled for the tenant.  Set to &#x60;true&#x60; to enable all AI features or &#x60;false&#x60; to disable them tenant-wide.</value>
         /*
-        <example>1</example>
+        <example>false</example>
         */
-        [DataMember(Name = "quantity", EmitDefaultValue = false)]
-        public int Quantity { get; set; }
-
-        /// <summary>
-        /// The service name.
-        /// </summary>
-        /// <value>The service name.</value>
-        /*
-        <example>backup</example>
-        */
-        [DataMember(Name = "serviceName", EmitDefaultValue = true)]
-        public string ServiceName { get; set; }
+        [DataMember(Name = "enabled", EmitDefaultValue = true)]
+        public bool Enabled { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,9 +64,8 @@ namespace DocSpace.API.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class BuyWalletServiceRequestDto {\n");
-            sb.Append("  Quantity: ").Append(Quantity).Append("\n");
-            sb.Append("  ServiceName: ").Append(ServiceName).Append("\n");
+            sb.Append("class TenantAiAccessSettingsDto {\n");
+            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,18 +86,6 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Quantity (int) maximum
-            if (this.Quantity > (int)999999)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value less than or equal to 999999.", new [] { "Quantity" });
-            }
-
-            // Quantity (int) minimum
-            if (this.Quantity < (int)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
-            }
-
             yield break;
         }
 

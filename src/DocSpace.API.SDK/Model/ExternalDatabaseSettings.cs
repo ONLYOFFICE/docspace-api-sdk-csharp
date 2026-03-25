@@ -37,11 +37,18 @@ namespace DocSpace.API.SDK.Model
     [DataContract(Name = "ExternalDatabaseSettings")]
     public partial class ExternalDatabaseSettings : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets DatabaseTypeEnum
+        /// </summary>
+        [DataMember(Name = "databaseTypeEnum", EmitDefaultValue = false)]
+        public ExternalDatabaseType? DatabaseTypeEnum { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalDatabaseSettings" /> class.
         /// </summary>
         /// <param name="databaseType">databaseType.</param>
+        /// <param name="databaseTypeEnum">databaseTypeEnum.</param>
         /// <param name="dbHost">dbHost.</param>
         /// <param name="dbPort">dbPort.</param>
         /// <param name="dbName">dbName.</param>
@@ -49,9 +56,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="dbPassword">dbPassword.</param>
         /// <param name="dbSsl">dbSsl.</param>
         /// <param name="sqliteFilePath">sqliteFilePath.</param>
-        public ExternalDatabaseSettings(string databaseType = default, string dbHost = default, int dbPort = default, string dbName = default, string dbUser = default, string dbPassword = default, bool dbSsl = default, string sqliteFilePath = default)
+        public ExternalDatabaseSettings(string databaseType = default, ExternalDatabaseType? databaseTypeEnum = default, string dbHost = default, int dbPort = default, string dbName = default, string dbUser = default, string dbPassword = default, bool dbSsl = default, string sqliteFilePath = default)
         {
             this.DatabaseType = databaseType;
+            this.DatabaseTypeEnum = databaseTypeEnum;
             this.DbHost = dbHost;
             this.DbPort = dbPort;
             this.DbName = dbName;
@@ -118,6 +126,7 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class ExternalDatabaseSettings {\n");
             sb.Append("  DatabaseType: ").Append(DatabaseType).Append("\n");
+            sb.Append("  DatabaseTypeEnum: ").Append(DatabaseTypeEnum).Append("\n");
             sb.Append("  DbHost: ").Append(DbHost).Append("\n");
             sb.Append("  DbPort: ").Append(DbPort).Append("\n");
             sb.Append("  DbName: ").Append(DbName).Append("\n");

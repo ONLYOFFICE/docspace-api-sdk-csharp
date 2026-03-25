@@ -6,6 +6,7 @@ The request parameters for generating a report on client operations.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ServiceName** | **string** | The service name. | [optional] 
+**WriteOffServiceQuota** | **bool** | Write-off of the quota for the service | [optional] 
 **StartDate** | **DateTime?** | The report start date. | [optional] 
 **EndDate** | **DateTime?** | The report end date. | [optional] 
 **ParticipantName** | **string** | The participant name. | [optional] 

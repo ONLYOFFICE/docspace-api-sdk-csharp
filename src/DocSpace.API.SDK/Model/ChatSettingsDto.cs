@@ -46,13 +46,15 @@ namespace DocSpace.API.SDK.Model
         /// <param name="modelAlias">The AI model display alias..</param>
         /// <param name="prompt">The system prompt for the chat..</param>
         /// <param name="multimodal">multimodal.</param>
-        public ChatSettingsDto(int providerId = default, string modelId = default, string modelAlias = default, string prompt = default, ChatMultimodalSettingsDto multimodal = default)
+        /// <param name="thinking">Indicates whether the model supports extended thinking mode..</param>
+        public ChatSettingsDto(int providerId = default, string modelId = default, string modelAlias = default, string prompt = default, ChatMultimodalSettingsDto multimodal = default, bool thinking = default)
         {
             this.ProviderId = providerId;
             this.ModelId = modelId;
             this.ModelAlias = modelAlias;
             this.Prompt = prompt;
             this.Multimodal = multimodal;
+            this.Thinking = thinking;
         }
 
         /// <summary>
@@ -102,6 +104,16 @@ namespace DocSpace.API.SDK.Model
         public ChatMultimodalSettingsDto Multimodal { get; set; }
 
         /// <summary>
+        /// Indicates whether the model supports extended thinking mode.
+        /// </summary>
+        /// <value>Indicates whether the model supports extended thinking mode.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "thinking", EmitDefaultValue = true)]
+        public bool Thinking { get; set; }
+
+        /// <summary>
         /// Indicates whether this is an internal AI gateway provider.
         /// </summary>
         /// <value>Indicates whether this is an internal AI gateway provider.</value>
@@ -132,6 +144,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ModelAlias: ").Append(ModelAlias).Append("\n");
             sb.Append("  Prompt: ").Append(Prompt).Append("\n");
             sb.Append("  Multimodal: ").Append(Multimodal).Append("\n");
+            sb.Append("  Thinking: ").Append(Thinking).Append("\n");
             sb.Append("  Internal: ").Append(Internal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

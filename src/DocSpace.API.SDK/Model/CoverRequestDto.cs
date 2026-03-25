@@ -54,7 +54,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The cover color.</value>
         /*
-        <example>#FF0000</example>
+        <example>FF0000</example>
         */
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
@@ -99,6 +99,15 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            if (this.Color != null) {
+                // Color (string) pattern
+                                Regex regexColor = new Regex(@"^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", RegexOptions.CultureInvariant);
+                                if (!regexColor.Match(this.Color).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Color, must match a pattern of " + regexColor, new [] { "Color" });
+                                }
+            }
+
             yield break;
         }
 

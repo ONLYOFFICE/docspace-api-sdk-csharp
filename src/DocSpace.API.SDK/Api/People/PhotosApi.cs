@@ -134,10 +134,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="formCollection">The image data.</param>
+        /// <param name="file">The image data.</param>
+        /// <param name="autosave"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>FileUploadResultWrapper</returns>
-        FileUploadResultWrapper UploadMemberPhoto(string userid, List<KeyValuePairStringStringValues> formCollection);
+        FileUploadResultWrapper UploadMemberPhoto(string userid, FileParameter file, bool? autosave = default);
 
         /// <summary>
         /// Upload a user photo
@@ -147,10 +148,11 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="formCollection">The image data.</param>
+        /// <param name="file">The image data.</param>
+        /// <param name="autosave"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of FileUploadResultWrapper</returns>
-        ApiResponse<FileUploadResultWrapper> UploadMemberPhotoWithHttpInfo(string userid, List<KeyValuePairStringStringValues> formCollection);
+        ApiResponse<FileUploadResultWrapper> UploadMemberPhotoWithHttpInfo(string userid, FileParameter file, bool? autosave = default);
         #endregion Synchronous Operations
     }
 
@@ -272,11 +274,12 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="formCollection">The image data.</param>
+        /// <param name="file">The image data.</param>
+        /// <param name="autosave"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>Task of FileUploadResultWrapper</returns>
-        Task<FileUploadResultWrapper> UploadMemberPhotoAsync(string userid, List<KeyValuePairStringStringValues> formCollection, CancellationToken cancellationToken = default);
+        Task<FileUploadResultWrapper> UploadMemberPhotoAsync(string userid, FileParameter file, bool? autosave = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload a user photo
@@ -286,11 +289,12 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="formCollection">The image data.</param>
+        /// <param name="file">The image data.</param>
+        /// <param name="autosave"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>Task of ApiResponse (FileUploadResultWrapper)</returns>
-        Task<ApiResponse<FileUploadResultWrapper>> UploadMemberPhotoWithHttpInfoAsync(string userid, List<KeyValuePairStringStringValues> formCollection, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileUploadResultWrapper>> UploadMemberPhotoWithHttpInfoAsync(string userid, FileParameter file, bool? autosave = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -1302,12 +1306,13 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="formCollection">The image data.</param>
+        /// <param name="file">The image data.</param>
+        /// <param name="autosave"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>FileUploadResultWrapper</returns>
-        public FileUploadResultWrapper UploadMemberPhoto(string userid, List<KeyValuePairStringStringValues> formCollection)
+        public FileUploadResultWrapper UploadMemberPhoto(string userid, FileParameter file, bool? autosave = default)
         {
-            var localVarResponse = UploadMemberPhotoWithHttpInfo(userid, formCollection);
+            var localVarResponse = UploadMemberPhotoWithHttpInfo(userid, file, autosave);
             return localVarResponse.Data;
         }
 
@@ -1319,18 +1324,19 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="formCollection">The image data.</param>
+        /// <param name="file">The image data.</param>
+        /// <param name="autosave"> (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of FileUploadResultWrapper</returns>
-        public ApiResponse<FileUploadResultWrapper> UploadMemberPhotoWithHttpInfo(string userid, List<KeyValuePairStringStringValues> formCollection)
+        public ApiResponse<FileUploadResultWrapper> UploadMemberPhotoWithHttpInfo(string userid, FileParameter file, bool? autosave = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
                 throw new ApiException(400, "Missing required parameter 'userid' when calling PhotosApi->UploadMemberPhoto");
 
-            // verify the required parameter 'formCollection' is set
-            if (formCollection == null)
-                throw new ApiException(400, "Missing required parameter 'formCollection' when calling PhotosApi->UploadMemberPhoto");
+            // verify the required parameter 'file' is set
+            if (file == null)
+                throw new ApiException(400, "Missing required parameter 'file' when calling PhotosApi->UploadMemberPhoto");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1346,7 +1352,11 @@ namespace DocSpace.API.SDK.Api.People
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
-            localVarRequestOptions.FormParameters.Add("formCollection", ClientUtils.ParameterToString(formCollection)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (autosave != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Autosave",ClientUtils.ParameterToString(autosave)); // form parameter
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1402,13 +1412,14 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="formCollection">The image data.</param>
+        /// <param name="file">The image data.</param>
+        /// <param name="autosave"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>Task of FileUploadResultWrapper</returns>
-        public async Task<FileUploadResultWrapper> UploadMemberPhotoAsync(string userid, List<KeyValuePairStringStringValues> formCollection, CancellationToken cancellationToken = default)
+        public async Task<FileUploadResultWrapper> UploadMemberPhotoAsync(string userid, FileParameter file, bool? autosave = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UploadMemberPhotoWithHttpInfoAsync(userid, formCollection, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UploadMemberPhotoWithHttpInfoAsync(userid, file, autosave, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1420,19 +1431,20 @@ namespace DocSpace.API.SDK.Api.People
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="formCollection">The image data.</param>
+        /// <param name="file">The image data.</param>
+        /// <param name="autosave"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>Task of ApiResponse (FileUploadResultWrapper)</returns>
-        public async Task<ApiResponse<FileUploadResultWrapper>> UploadMemberPhotoWithHttpInfoAsync(string userid, List<KeyValuePairStringStringValues> formCollection, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileUploadResultWrapper>> UploadMemberPhotoWithHttpInfoAsync(string userid, FileParameter file, bool? autosave = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'userid' is set
             if (userid == null)
                 throw new ApiException(400, "Missing required parameter 'userid' when calling PhotosApi->UploadMemberPhoto");
 
-            // verify the required parameter 'formCollection' is set
-            if (formCollection == null)
-                throw new ApiException(400, "Missing required parameter 'formCollection' when calling PhotosApi->UploadMemberPhoto");
+            // verify the required parameter 'file' is set
+            if (file == null)
+                throw new ApiException(400, "Missing required parameter 'file' when calling PhotosApi->UploadMemberPhoto");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1449,7 +1461,11 @@ namespace DocSpace.API.SDK.Api.People
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("userid", ClientUtils.ParameterToString(userid)); // path parameter
-            localVarRequestOptions.FormParameters.Add("formCollection", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(formCollection)); // form parameter
+            localVarRequestOptions.FileParameters.Add("File", file);
+            if (autosave != null)
+            {
+                localVarRequestOptions.FormParameters.Add("Autosave", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(autosave)); // form parameter
+            }
 
             // authentication (Basic) required
             // http basic authentication required

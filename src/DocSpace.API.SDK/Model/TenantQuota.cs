@@ -192,7 +192,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The service name.</value>
         /*
-        <example>space</example>
+        <example>backup</example>
         */
         [DataMember(Name = "serviceName", EmitDefaultValue = true)]
         public string ServiceName { get; set; }
@@ -202,7 +202,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The service group.</value>
         /*
-        <example>ai</example>
+        <example>services</example>
         */
         [DataMember(Name = "serviceGroup", EmitDefaultValue = true)]
         public string ServiceGroup { get; set; }
