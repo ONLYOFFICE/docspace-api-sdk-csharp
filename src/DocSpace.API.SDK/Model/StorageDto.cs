@@ -95,7 +95,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of storage authentication keys.</value>
         /*
-        <example>[{&quot;name&quot;:&quot;ApiKey&quot;,&quot;value&quot;:&quot;12345&quot;}]</example>
+        <example>[{"name":"ApiKey","value":"12345"}]</example>
         */
         [DataMember(Name = "properties", EmitDefaultValue = true)]
         public List<AuthKey> Properties { get; set; }

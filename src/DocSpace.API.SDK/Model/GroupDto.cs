@@ -146,7 +146,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of group members.</value>
         /*
-        <example>[{&quot;displayName&quot;:&quot;John Doe&quot;}]</example>
+        <example>[{"displayName":"John Doe"}]</example>
         */
         [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<EmployeeFullDto> Members { get; set; }

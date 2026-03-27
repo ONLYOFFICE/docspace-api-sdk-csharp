@@ -134,7 +134,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The role history.</value>
         /*
-        <example>{&quot;0&quot;:&quot;2025-01-15T10:30:00Z&quot;}</example>
+        <example>{"0":"2025-01-15T10:30:00Z"}</example>
         */
         [DataMember(Name = "history", EmitDefaultValue = true)]
         public Dictionary<string, DateTime> History { get; set; }

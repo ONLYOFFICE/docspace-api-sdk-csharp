@@ -5,7 +5,7 @@ The parameters required for the mobile phone verification.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MobilePhone** | **string** | The user&#39;s mobile phone number. | [optional] 
+**MobilePhone** | **string** | The user's mobile phone number. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

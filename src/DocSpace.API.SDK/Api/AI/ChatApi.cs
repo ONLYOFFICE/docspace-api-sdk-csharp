@@ -34,7 +34,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send a message to an existing AI chat
         /// </summary>
         /// <remarks>
-        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+        /// Appends a new user message to an existing chat session and streams the AI assistant's response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send a message to an existing AI chat
         /// </summary>
         /// <remarks>
-        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+        /// Appends a new user message to an existing chat session and streams the AI assistant's response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
@@ -207,7 +207,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+        /// Retrieves the current user's personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
@@ -219,7 +219,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+        /// Retrieves the current user's personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
@@ -230,7 +230,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Submit a tool execution permission decision
         /// </summary>
         /// <remarks>
-        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+        /// Provides the user's approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user's decision  so that the AI chat session can proceed accordingly.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
@@ -243,7 +243,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Submit a tool execution permission decision
         /// </summary>
         /// <remarks>
-        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+        /// Provides the user's approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user's decision  so that the AI chat session can proceed accordingly.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
@@ -280,7 +280,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+        /// Saves the current user's personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
@@ -293,7 +293,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+        /// Saves the current user's personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
@@ -339,7 +339,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send a message to an existing AI chat
         /// </summary>
         /// <remarks>
-        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+        /// Appends a new user message to an existing chat session and streams the AI assistant's response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
@@ -353,7 +353,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send a message to an existing AI chat
         /// </summary>
         /// <remarks>
-        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+        /// Appends a new user message to an existing chat session and streams the AI assistant's response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
@@ -526,7 +526,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+        /// Retrieves the current user's personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
@@ -539,7 +539,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+        /// Retrieves the current user's personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
@@ -551,7 +551,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Submit a tool execution permission decision
         /// </summary>
         /// <remarks>
-        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+        /// Provides the user's approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user's decision  so that the AI chat session can proceed accordingly.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
@@ -565,7 +565,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Submit a tool execution permission decision
         /// </summary>
         /// <remarks>
-        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+        /// Provides the user's approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user's decision  so that the AI chat session can proceed accordingly.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
@@ -605,7 +605,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+        /// Saves the current user's personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
@@ -619,7 +619,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+        /// Saves the current user's personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
@@ -874,7 +874,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send a message to an existing AI chat
         /// </summary>
         /// <remarks>
-        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+        /// Appends a new user message to an existing chat session and streams the AI assistant's response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
@@ -890,7 +890,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send a message to an existing AI chat
         /// </summary>
         /// <remarks>
-        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+        /// Appends a new user message to an existing chat session and streams the AI assistant's response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
@@ -969,7 +969,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send a message to an existing AI chat
         /// </summary>
         /// <remarks>
-        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+        /// Appends a new user message to an existing chat session and streams the AI assistant's response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
@@ -986,7 +986,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Send a message to an existing AI chat
         /// </summary>
         /// <remarks>
-        /// Appends a new user message to an existing chat session and streams the AI assistant&#39;s response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
+        /// Appends a new user message to an existing chat session and streams the AI assistant's response.  The full conversation history of the chat is sent to the AI provider to maintain context.  The response is delivered as a Server-Sent Events (SSE) stream with periodic keep-alive pings.  File references can optionally be attached to provide additional context.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the existing AI chat session to continue.</param>
@@ -2224,7 +2224,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+        /// Retrieves the current user's personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
@@ -2240,7 +2240,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+        /// Retrieves the current user's personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
@@ -2313,7 +2313,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+        /// Retrieves the current user's personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
@@ -2330,7 +2330,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Get user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Retrieves the current user&#39;s personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
+        /// Retrieves the current user's personal AI chat preferences for the specified room,  including whether web search is enabled for AI-assisted responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be retrieved.</param>
@@ -2406,7 +2406,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Submit a tool execution permission decision
         /// </summary>
         /// <remarks>
-        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+        /// Provides the user's approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user's decision  so that the AI chat session can proceed accordingly.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
@@ -2422,7 +2422,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Submit a tool execution permission decision
         /// </summary>
         /// <remarks>
-        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+        /// Provides the user's approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user's decision  so that the AI chat session can proceed accordingly.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
@@ -2505,7 +2505,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Submit a tool execution permission decision
         /// </summary>
         /// <remarks>
-        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+        /// Provides the user's approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user's decision  so that the AI chat session can proceed accordingly.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
@@ -2522,7 +2522,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Submit a tool execution permission decision
         /// </summary>
         /// <remarks>
-        /// Provides the user&#39;s approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user&#39;s decision  so that the AI chat session can proceed accordingly.
+        /// Provides the user's approval or denial decision for a pending MCP (Model Context Protocol) tool execution request.  When an AI assistant attempts to invoke an external tool that requires explicit user consent,  the client receives a permission prompt via the SSE stream. This endpoint is used to submit the user's decision  so that the AI chat session can proceed accordingly.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callId">The unique identifier of the pending tool execution call awaiting a permission decision.</param>
@@ -2804,7 +2804,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+        /// Saves the current user's personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
@@ -2821,7 +2821,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+        /// Saves the current user's personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
@@ -2900,7 +2900,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+        /// Saves the current user's personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>
@@ -2918,7 +2918,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// Update user chat settings for a room
         /// </summary>
         /// <remarks>
-        /// Saves the current user&#39;s personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
+        /// Saves the current user's personal AI chat preferences for the specified room.  Currently supports toggling the web search capability, which allows the AI assistant to search the internet when generating responses.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId">The identifier of the room whose chat settings are to be updated.</param>

@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>A collection of operations.</value>
         /*
-        <example>[{&quot;id&quot;:&quot;op1&quot;,&quot;type&quot;:&quot;payment&quot;}]</example>
+        <example>[{"id":"op1","type":"payment"}]</example>
         */
         [DataMember(Name = "collection", EmitDefaultValue = true)]
         public List<OperationDto> Collection { get; set; }

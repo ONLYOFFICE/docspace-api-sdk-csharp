@@ -124,7 +124,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The confirmation email URL.</value>
         /*
-        <example>https://example.com/confirm?token&#x3D;abc123</example>
+        <example>https://example.com/confirm?token=abc123</example>
         */
         [DataMember(Name = "confirmUrl", EmitDefaultValue = true)]
         public string ConfirmUrl { get; set; }

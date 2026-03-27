@@ -1347,7 +1347,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Backup progress: completed or not, progress percentage, error, tenant ID, backup progress item (Backup, Restore, Transfer), link |  -  |
-| **400** | Wrong folder type or backup can&#x60;t start as dump |  -  |
+| **400** | Wrong folder type or backup can`t start as dump |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
 | **403** | Access denied |  -  |
 | **404** | The required folder was not found |  -  |

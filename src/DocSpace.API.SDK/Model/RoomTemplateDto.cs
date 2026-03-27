@@ -113,7 +113,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of email addresses of users with whom to share a room.</value>
         /*
-        <example>[&quot;user1@example.com&quot;,&quot;user2@example.com&quot;]</example>
+        <example>["user1@example.com","user2@example.com"]</example>
         */
         [DataMember(Name = "share", EmitDefaultValue = true)]
         public List<string> Share { get; set; }
@@ -123,7 +123,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of groups with whom to share a room.</value>
         /*
-        <example>[&quot;00000000-0000-0000-0000-000000000000&quot;]</example>
+        <example>["00000000-0000-0000-0000-000000000000"]</example>
         */
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<Guid> Groups { get; set; }
@@ -143,7 +143,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of tags.</value>
         /*
-        <example>[&quot;tag1&quot;,&quot;tag2&quot;]</example>
+        <example>["tag1","tag2"]</example>
         */
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }

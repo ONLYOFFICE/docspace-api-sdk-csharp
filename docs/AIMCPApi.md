@@ -130,7 +130,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | List of MCP server statuses after assignment |  -  |
 | **400** | The maximum number of servers per room has been exceeded |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The room with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -245,7 +245,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Newly registered MCP server configuration |  -  |
 | **400** | Invalid server name, reserved name, duplicate name, incorrect credentials, or invalid endpoint URL |  -  |
-| **403** | You don&#39;t have permission to manage MCP servers |  -  |
+| **403** | You don't have permission to manage MCP servers |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -363,7 +363,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | MCP server connection status after authorization |  -  |
 | **400** | The provided authorization code is invalid |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The room or MCP server connection was not found |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -475,7 +475,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | MCP servers were successfully removed from the room |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The room with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -585,7 +585,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | MCP servers were successfully deleted |  -  |
-| **403** | You don&#39;t have permission to manage MCP servers |  -  |
+| **403** | You don't have permission to manage MCP servers |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -700,7 +700,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | MCP server connection status after disconnection |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The room or MCP server connection was not found |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -928,7 +928,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of MCP server statuses in the room |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The room with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -1042,7 +1042,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | MCP server summary information |  -  |
-| **403** | You don&#39;t have permission to manage MCP servers |  -  |
+| **403** | You don't have permission to manage MCP servers |  -  |
 | **404** | The MCP server with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -1158,7 +1158,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Paginated list of all registered MCP servers |  -  |
-| **403** | You don&#39;t have permission to manage MCP servers |  -  |
+| **403** | You don't have permission to manage MCP servers |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1273,7 +1273,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | List of tools with their enabled/disabled states |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The room or MCP server was not found |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -1389,7 +1389,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | MCP server with the updated status |  -  |
-| **403** | You don&#39;t have permission to manage MCP servers |  -  |
+| **403** | You don't have permission to manage MCP servers |  -  |
 | **404** | The MCP server with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -1507,7 +1507,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Complete list of tools with their enabled/disabled states |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The room or MCP server was not found |  -  |
 | **401** | Unauthorized |  -  |
 
@@ -1624,7 +1624,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Updated MCP server configuration |  -  |
 | **400** | Invalid server name, reserved name, duplicate name, incorrect credentials, or invalid endpoint URL |  -  |
-| **403** | You don&#39;t have permission to manage MCP servers |  -  |
+| **403** | You don't have permission to manage MCP servers |  -  |
 | **404** | The MCP server with the specified ID was not found |  -  |
 | **401** | Unauthorized |  -  |
 

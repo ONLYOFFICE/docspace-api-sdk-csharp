@@ -124,7 +124,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of paragraphs of the watermark.</value>
         /*
-        <example>[{&quot;align&quot;:2,&quot;runs&quot;:[{&quot;fill&quot;:[124,124,124],&quot;text&quot;:&quot;CONFIDENTIAL&quot;,&quot;fontSize&quot;:26}]}]</example>
+        <example>[{"align":2,"runs":[{"fill":[124,124,124],"text":"CONFIDENTIAL","fontSize":26}]}]</example>
         */
         [DataMember(Name = "paragraphs", EmitDefaultValue = true)]
         public List<Paragraph> Paragraphs { get; set; }

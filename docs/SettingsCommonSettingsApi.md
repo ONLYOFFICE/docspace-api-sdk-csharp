@@ -2126,7 +2126,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Updated AI access settings |  -  |
-| **403** | You don&#39;t have enough permission to change the AI access settings |  -  |
+| **403** | You don't have enough permission to change the AI access settings |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

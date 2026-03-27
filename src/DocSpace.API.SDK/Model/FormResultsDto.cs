@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of forms data.</value>
         /*
-        <example>[{&quot;key&quot;:&quot;field1&quot;,&quot;value&quot;:&quot;Answer&quot;}]</example>
+        <example>[{"key":"field1","value":"Answer"}]</example>
         */
         [DataMember(Name = "formsData", EmitDefaultValue = true)]
         public List<FormsItemData> FormsData { get; set; }

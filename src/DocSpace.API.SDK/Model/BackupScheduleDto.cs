@@ -66,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The backup storage parameters.</value>
         /*
-        <example>[{&quot;key&quot;:&quot;path&quot;,&quot;value&quot;:&quot;/backup&quot;}]</example>
+        <example>[{"key":"path","value":"/backup"}]</example>
         */
         [DataMember(Name = "storageParams", EmitDefaultValue = true)]
         public List<ItemKeyValuePairObjectObject> StorageParams { get; set; }

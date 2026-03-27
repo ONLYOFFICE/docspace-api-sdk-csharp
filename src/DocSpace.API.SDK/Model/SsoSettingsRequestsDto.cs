@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The JSON-serialized SSO configuration settings.</value>
         /*
-        <example>{&quot;enableSso&quot;:true,&quot;idpSettings&quot;:{&quot;entityId&quot;:&quot;https://idp.example.com&quot;}}</example>
+        <example>{"enableSso":true,"idpSettings":{"entityId":"https://idp.example.com"}}</example>
         */
         [DataMember(Name = "serializeSettings", IsRequired = true, EmitDefaultValue = true)]
         public string SerializeSettings { get; set; }

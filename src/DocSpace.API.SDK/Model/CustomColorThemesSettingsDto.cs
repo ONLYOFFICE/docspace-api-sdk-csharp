@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the custom color themes.</value>
         /*
-        <example>[{&quot;id&quot;:1,&quot;name&quot;:&quot;Custom Theme&quot;}]</example>
+        <example>[{"id":1,"name":"Custom Theme"}]</example>
         */
         [DataMember(Name = "themes", EmitDefaultValue = true)]
         public List<CustomColorThemesSettingsItem> Themes { get; set; }

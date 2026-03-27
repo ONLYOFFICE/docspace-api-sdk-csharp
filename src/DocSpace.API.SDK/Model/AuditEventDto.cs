@@ -216,7 +216,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of target objects affected by the audit event (e.g., document ID, user account).</value>
         /*
-        <example>[&quot;item1&quot;,&quot;item2&quot;]</example>
+        <example>["item1","item2"]</example>
         */
         [DataMember(Name = "target", EmitDefaultValue = true)]
         public List<string> Target { get; set; }
@@ -226,7 +226,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of audit entry types (e.g., Folder, User, File).</value>
         /*
-        <example>[&quot;File&quot;,&quot;Folder&quot;]</example>
+        <example>["File","Folder"]</example>
         */
         [DataMember(Name = "entries", EmitDefaultValue = true)]
         public List<EntryType> Entries { get; set; }

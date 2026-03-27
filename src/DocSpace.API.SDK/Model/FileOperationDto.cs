@@ -162,7 +162,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of files of the file operation.</value>
         /*
-        <example>[{&quot;id&quot;:10,&quot;title&quot;:&quot;document.docx&quot;}]</example>
+        <example>[{"id":10,"title":"document.docx"}]</example>
         */
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Files { get; set; }
@@ -172,7 +172,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of folders of the file operation.</value>
         /*
-        <example>[{&quot;id&quot;:20,&quot;title&quot;:&quot;My Folder&quot;}]</example>
+        <example>[{"id":20,"title":"My Folder"}]</example>
         */
         [DataMember(Name = "folders", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Folders { get; set; }

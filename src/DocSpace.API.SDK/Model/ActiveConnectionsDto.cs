@@ -69,7 +69,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of active connection items.</value>
         /*
-        <example>[{&quot;id&quot;:&quot;conn1&quot;,&quot;ip&quot;:&quot;192.168.1.1&quot;}]</example>
+        <example>[{"id":"conn1","ip":"192.168.1.1"}]</example>
         */
         [DataMember(Name = "items", EmitDefaultValue = true)]
         public List<ActiveConnectionsItemDto> Items { get; set; }

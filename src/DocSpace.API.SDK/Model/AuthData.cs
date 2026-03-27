@@ -82,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The authentication raw token.</value>
         /*
-        <example>{&quot;access_token&quot;:&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...&quot;,&quot;expires_in&quot;:3600}</example>
+        <example>{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...","expires_in":3600}</example>
         */
         [DataMember(Name = "rawToken", EmitDefaultValue = true)]
         public string RawToken { get; set; }

@@ -80,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of sharing parameters.</value>
         /*
-        <example>[{&quot;shareTo&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;access&quot;:1}]</example>
+        <example>[{"shareTo":"00000000-0000-0000-0000-000000000000","access":1}]</example>
         */
         [DataMember(Name = "share", EmitDefaultValue = true)]
         public List<FileShareParams> Share { get; set; }

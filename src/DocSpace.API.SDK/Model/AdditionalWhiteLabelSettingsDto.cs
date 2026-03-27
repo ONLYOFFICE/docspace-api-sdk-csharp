@@ -48,7 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="startDocsEnabled">Specifies if the sample documents are displayed or hidden. (required).</param>
         /// <param name="helpCenterEnabled">Specifies if the Help Center link is available or not. (required).</param>
-        /// <param name="feedbackAndSupportEnabled">Specifies if the Feedback &amp; Support link is available or not. (required).</param>
+        /// <param name="feedbackAndSupportEnabled">Specifies if the Feedback & Support link is available or not. (required).</param>
         /// <param name="userForumEnabled">Specifies if the user forum is available or not. (required).</param>
         /// <param name="videoGuidesEnabled">Specifies if the Video Guides link is available or not. (required).</param>
         /// <param name="licenseAgreementsEnabled">Specifies if the License Agreements link is available or not. (required).</param>
@@ -85,9 +85,9 @@ namespace DocSpace.API.SDK.Model
         public bool HelpCenterEnabled { get; set; }
 
         /// <summary>
-        /// Specifies if the Feedback &amp; Support link is available or not.
+        /// Specifies if the Feedback & Support link is available or not.
         /// </summary>
-        /// <value>Specifies if the Feedback &amp; Support link is available or not.</value>
+        /// <value>Specifies if the Feedback & Support link is available or not.</value>
         /*
         <example>true</example>
         */

@@ -70,7 +70,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of users with the access to the module.</value>
         /*
-        <example>[{&quot;displayName&quot;:&quot;John Doe&quot;}]</example>
+        <example>[{"displayName":"John Doe"}]</example>
         */
         [DataMember(Name = "users", EmitDefaultValue = true)]
         public List<EmployeeDto> Users { get; set; }
@@ -80,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of groups with the access to the module.</value>
         /*
-        <example>[{&quot;id&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;name&quot;:&quot;Administrators&quot;}]</example>
+        <example>[{"id":"00000000-0000-0000-0000-000000000000","name":"Administrators"}]</example>
         */
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<GroupSummaryDto> Groups { get; set; }

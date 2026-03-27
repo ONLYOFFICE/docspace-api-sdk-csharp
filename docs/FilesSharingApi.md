@@ -1247,7 +1247,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | List of access rights information |  -  |
 | **400** | The list of email addresses is empty |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **404** | The required file was not found |  -  |
 | **401** | Unauthorized |  -  |
 

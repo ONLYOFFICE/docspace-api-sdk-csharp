@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>A list of emails that will receive the mention message.</value>
         /*
-        <example>[&quot;user1@example.com&quot;,&quot;user2@example.com&quot;]</example>
+        <example>["user1@example.com","user2@example.com"]</example>
         */
         [DataMember(Name = "emails", EmitDefaultValue = true)]
         public List<string> Emails { get; set; }

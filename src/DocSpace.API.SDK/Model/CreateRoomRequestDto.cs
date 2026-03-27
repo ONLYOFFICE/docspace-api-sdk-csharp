@@ -152,7 +152,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tags.</value>
         /*
-        <example>[&quot;tag1&quot;,&quot;tag2&quot;,&quot;tag3&quot;]</example>
+        <example>["tag1","tag2","tag3"]</example>
         */
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
@@ -192,7 +192,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of sharing parameters.</value>
         /*
-        <example>[{&quot;shareTo&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;access&quot;:1}]</example>
+        <example>[{"shareTo":"00000000-0000-0000-0000-000000000000","access":1}]</example>
         */
         [DataMember(Name = "share", EmitDefaultValue = true)]
         public List<FileShareParams> Share { get; set; }

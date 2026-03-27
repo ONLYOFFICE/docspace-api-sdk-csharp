@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of file titles.</value>
         /*
-        <example>[&quot;file1.docx&quot;,&quot;file2.pdf&quot;,&quot;file3.xlsx&quot;]</example>
+        <example>["file1.docx","file2.pdf","file3.xlsx"]</example>
         */
         [DataMember(Name = "filesTitle", EmitDefaultValue = true)]
         public List<string> FilesTitle { get; set; }

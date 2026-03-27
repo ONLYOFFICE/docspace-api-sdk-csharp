@@ -116,7 +116,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | URL to the xlsx report file |  -  |
 | **402** | Your pricing plan does not support this option |  -  |
-| **403** | You don&#39;t have enough permission to create |  -  |
+| **403** | You don't have enough permission to create |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

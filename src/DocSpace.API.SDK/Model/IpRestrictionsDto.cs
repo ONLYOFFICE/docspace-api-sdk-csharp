@@ -64,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of IP restriction addresses.</value>
         /*
-        <example>[{&quot;ip&quot;:&quot;192.0.2.1&quot;,&quot;forAdmin&quot;:false}]</example>
+        <example>[{"ip":"192.0.2.1","forAdmin":false}]</example>
         */
         [DataMember(Name = "ipRestrictions", IsRequired = true, EmitDefaultValue = true)]
         public List<IpRestrictionBase> IpRestrictions { get; set; }

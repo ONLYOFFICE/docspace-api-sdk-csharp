@@ -207,7 +207,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Mapping of model identifiers to human-readable aliases.</value>
         /*
-        <example>{&quot;gpt-5.2&quot;:&quot;GPT-5.2&quot;,&quot;claude-sonnet-4-20250514&quot;:&quot;Claude Sonnet 4&quot;}</example>
+        <example>{"gpt-5.2":"GPT-5.2","claude-sonnet-4-20250514":"Claude Sonnet 4"}</example>
         */
         [DataMember(Name = "modelAliases", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, string> ModelAliases { get; set; }

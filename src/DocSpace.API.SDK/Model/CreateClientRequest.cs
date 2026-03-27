@@ -52,9 +52,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="scopes">The client scopes..</param>
         /// <param name="allowPkce">Indicates whether PKCE is allowed for the client..</param>
         /// <param name="isPublic">Indicates whether the client is accessible by third-party tenants..</param>
-        /// <param name="websiteUrl">The URL to the client&#39;s website..</param>
-        /// <param name="termsUrl">The URL to the client&#39;s terms of service..</param>
-        /// <param name="policyUrl">The URL to the client&#39;s privacy policy..</param>
+        /// <param name="websiteUrl">The URL to the client's website..</param>
+        /// <param name="termsUrl">The URL to the client's terms of service..</param>
+        /// <param name="policyUrl">The URL to the client's privacy policy..</param>
         /// <param name="redirectUris">The list of allowed redirect URIs. (required).</param>
         /// <param name="allowedOrigins">The list of allowed CORS origins. (required).</param>
         /// <param name="logoutRedirectUri">The list of allowed logout redirect URIs..</param>
@@ -119,7 +119,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The client scopes.</value>
         /*
-        <example>[&quot;read&quot;,&quot;write&quot;]</example>
+        <example>["read","write"]</example>
         */
         [DataMember(Name = "scopes", EmitDefaultValue = false)]
         public List<string> Scopes { get; set; }
@@ -145,9 +145,9 @@ namespace DocSpace.API.SDK.Model
         public bool IsPublic { get; set; }
 
         /// <summary>
-        /// The URL to the client&#39;s website.
+        /// The URL to the client's website.
         /// </summary>
-        /// <value>The URL to the client&#39;s website.</value>
+        /// <value>The URL to the client's website.</value>
         /*
         <example>http://example.com</example>
         */
@@ -155,9 +155,9 @@ namespace DocSpace.API.SDK.Model
         public string WebsiteUrl { get; set; }
 
         /// <summary>
-        /// The URL to the client&#39;s terms of service.
+        /// The URL to the client's terms of service.
         /// </summary>
-        /// <value>The URL to the client&#39;s terms of service.</value>
+        /// <value>The URL to the client's terms of service.</value>
         /*
         <example>http://example.com/terms</example>
         */
@@ -165,9 +165,9 @@ namespace DocSpace.API.SDK.Model
         public string TermsUrl { get; set; }
 
         /// <summary>
-        /// The URL to the client&#39;s privacy policy.
+        /// The URL to the client's privacy policy.
         /// </summary>
-        /// <value>The URL to the client&#39;s privacy policy.</value>
+        /// <value>The URL to the client's privacy policy.</value>
         /*
         <example>http://example.com/policy</example>
         */
@@ -179,7 +179,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of allowed redirect URIs.</value>
         /*
-        <example>[&quot;http://example.com/redirect&quot;]</example>
+        <example>["http://example.com/redirect"]</example>
         */
         [DataMember(Name = "redirect_uris", IsRequired = true, EmitDefaultValue = true)]
         public List<string> RedirectUris { get; set; }
@@ -189,7 +189,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of allowed CORS origins.</value>
         /*
-        <example>[&quot;http://example.com&quot;]</example>
+        <example>["http://example.com"]</example>
         */
         [DataMember(Name = "allowed_origins", IsRequired = true, EmitDefaultValue = true)]
         public List<string> AllowedOrigins { get; set; }

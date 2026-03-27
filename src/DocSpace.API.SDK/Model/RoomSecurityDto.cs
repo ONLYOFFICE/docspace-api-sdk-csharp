@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of room members.</value>
         /*
-        <example>[{&quot;access&quot;:1,&quot;isOwner&quot;:false}]</example>
+        <example>[{"access":1,"isOwner":false}]</example>
         */
         [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<FileShareDto> Members { get; set; }

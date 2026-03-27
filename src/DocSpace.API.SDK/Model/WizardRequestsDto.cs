@@ -46,10 +46,10 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WizardRequestsDto" /> class.
         /// </summary>
-        /// <param name="email">The user&#39;s email address for authentication and communication. (required).</param>
-        /// <param name="passwordHash">The hashed representation of the user&#39;s password. (required).</param>
-        /// <param name="lng">The user&#39;s preferred interface language code..</param>
-        /// <param name="timeZone">The user&#39;s time zone identifier..</param>
+        /// <param name="email">The user's email address for authentication and communication. (required).</param>
+        /// <param name="passwordHash">The hashed representation of the user's password. (required).</param>
+        /// <param name="lng">The user's preferred interface language code..</param>
+        /// <param name="timeZone">The user's time zone identifier..</param>
         /// <param name="amiId">The Amazon Machine Image (AMI) identifier..</param>
         /// <param name="subscribeFromSite">Specifies whether the user opted in for site communications..</param>
         public WizardRequestsDto(string email = default, string passwordHash = default, string lng = default, string timeZone = default, string amiId = default, bool subscribeFromSite = default)
@@ -73,9 +73,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The user&#39;s email address for authentication and communication.
+        /// The user's email address for authentication and communication.
         /// </summary>
-        /// <value>The user&#39;s email address for authentication and communication.</value>
+        /// <value>The user's email address for authentication and communication.</value>
         /*
         <example>user@example.com</example>
         */
@@ -83,19 +83,19 @@ namespace DocSpace.API.SDK.Model
         public string Email { get; set; }
 
         /// <summary>
-        /// The hashed representation of the user&#39;s password.
+        /// The hashed representation of the user's password.
         /// </summary>
-        /// <value>The hashed representation of the user&#39;s password.</value>
+        /// <value>The hashed representation of the user's password.</value>
         /*
-        <example>2DYmIoA/aYKEksFocEf6uw&#x3D;&#x3D;</example>
+        <example>2DYmIoA/aYKEksFocEf6uw==</example>
         */
         [DataMember(Name = "passwordHash", IsRequired = true, EmitDefaultValue = true)]
         public string PasswordHash { get; set; }
 
         /// <summary>
-        /// The user&#39;s preferred interface language code.
+        /// The user's preferred interface language code.
         /// </summary>
-        /// <value>The user&#39;s preferred interface language code.</value>
+        /// <value>The user's preferred interface language code.</value>
         /*
         <example>en-US</example>
         */
@@ -103,9 +103,9 @@ namespace DocSpace.API.SDK.Model
         public string Lng { get; set; }
 
         /// <summary>
-        /// The user&#39;s time zone identifier.
+        /// The user's time zone identifier.
         /// </summary>
-        /// <value>The user&#39;s time zone identifier.</value>
+        /// <value>The user's time zone identifier.</value>
         /*
         <example>UTC</example>
         */

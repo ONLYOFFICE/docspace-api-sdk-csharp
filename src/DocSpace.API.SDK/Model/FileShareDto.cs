@@ -93,7 +93,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user who has the access to the specified file.</value>
         /*
-        <example>{&quot;displayName&quot;:&quot;John Doe&quot;}</example>
+        <example>{"displayName":"John Doe"}</example>
         */
         [DataMember(Name = "sharedTo", EmitDefaultValue = true)]
         [Obsolete]

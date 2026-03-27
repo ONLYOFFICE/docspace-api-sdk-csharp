@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The supported image formats.</value>
         /*
-        <example>[&quot;.jpeg&quot;,&quot;.gif&quot;]</example>
+        <example>[".jpeg",".gif"]</example>
         */
         [DataMember(Name = "formats", EmitDefaultValue = true)]
         public List<string> Formats { get; set; }

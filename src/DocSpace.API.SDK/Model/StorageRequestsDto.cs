@@ -74,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of configuration key-value pairs for the storage module.</value>
         /*
-        <example>[&quot;item1&quot;,&quot;item2&quot;]</example>
+        <example>["item1","item2"]</example>
         */
         [DataMember(Name = "props", EmitDefaultValue = true)]
         public List<ItemKeyValuePairStringString> Props { get; set; }

@@ -110,7 +110,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The resulting file after the conversion.</value>
         /*
-        <example>{&quot;id&quot;:10,&quot;title&quot;:&quot;converted_file.pdf&quot;}</example>
+        <example>{"id":10,"title":"converted_file.pdf"}</example>
         */
         [DataMember(Name = "result", EmitDefaultValue = true)]
         public Object Result { get; set; }

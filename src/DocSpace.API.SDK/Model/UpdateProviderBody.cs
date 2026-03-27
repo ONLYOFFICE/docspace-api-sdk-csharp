@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Parameters for updating an AI provider&#39;s configuration.
+    /// Parameters for updating an AI provider's configuration.
     /// </summary>
     [DataContract(Name = "UpdateProviderBody")]
     public partial class UpdateProviderBody : IValidatableObject

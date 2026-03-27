@@ -60,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of invitation parameters.</value>
         /*
-        <example>[{&quot;id&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;access&quot;:1}]</example>
+        <example>[{"id":"00000000-0000-0000-0000-000000000000","access":1}]</example>
         */
         [DataMember(Name = "invitations", EmitDefaultValue = true)]
         public List<RoomInvitation> Invitations { get; set; }

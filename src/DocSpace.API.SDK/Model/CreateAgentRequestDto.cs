@@ -151,7 +151,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tags.</value>
         /*
-        <example>[&quot;ai&quot;,&quot;assistant&quot;]</example>
+        <example>["ai","assistant"]</example>
         */
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
@@ -191,7 +191,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of sharing parameters.</value>
         /*
-        <example>[{&quot;shareId&quot;:&quot;user@example.com&quot;,&quot;access&quot;:1}]</example>
+        <example>[{"shareId":"user@example.com","access":1}]</example>
         */
         [DataMember(Name = "share", EmitDefaultValue = true)]
         public List<FileShareParams> Share { get; set; }

@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of user IDs to add to the group.</value>
         /*
-        <example>[&quot;00000000-0000-0000-0000-000000000000&quot;]</example>
+        <example>["00000000-0000-0000-0000-000000000000"]</example>
         */
         [DataMember(Name = "membersToAdd", EmitDefaultValue = true)]
         public List<Guid> MembersToAdd { get; set; }
@@ -68,7 +68,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of user IDs to remove from the group.</value>
         /*
-        <example>[&quot;11111111-1111-1111-1111-111111111111&quot;]</example>
+        <example>["11111111-1111-1111-1111-111111111111"]</example>
         */
         [DataMember(Name = "membersToRemove", EmitDefaultValue = true)]
         public List<Guid> MembersToRemove { get; set; }

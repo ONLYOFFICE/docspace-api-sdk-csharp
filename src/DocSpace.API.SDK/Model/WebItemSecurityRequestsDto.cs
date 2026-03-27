@@ -86,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of user and group identifiers granted access to the module.</value>
         /*
-        <example>[&quot;00000000-0000-0000-0000-000000000000&quot;]</example>
+        <example>["00000000-0000-0000-0000-000000000000"]</example>
         */
         [DataMember(Name = "subjects", EmitDefaultValue = true)]
         public List<Guid> Subjects { get; set; }

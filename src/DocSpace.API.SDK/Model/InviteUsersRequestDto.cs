@@ -64,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of user invitations.</value>
         /*
-        <example>[{&quot;email&quot;:&quot;user@example.com&quot;,&quot;type&quot;:1}]</example>
+        <example>[{"email":"user@example.com","type":1}]</example>
         */
         [DataMember(Name = "invitations", IsRequired = true, EmitDefaultValue = true)]
         public List<UserInvitationRequestDto> Invitations { get; set; }

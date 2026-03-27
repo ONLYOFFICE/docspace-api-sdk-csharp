@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tag names.</value>
         /*
-        <example>[&quot;tag1&quot;,&quot;tag2&quot;,&quot;tag3&quot;]</example>
+        <example>["tag1","tag2","tag3"]</example>
         */
         [DataMember(Name = "names", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Names { get; set; }

@@ -76,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The absolute URL to the document where it will be created and available after creation.</value>
         /*
-        <example>https://portal.example.com/editor/new?template&#x3D;blank</example>
+        <example>https://portal.example.com/editor/new?template=blank</example>
         */
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }

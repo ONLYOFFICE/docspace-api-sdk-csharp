@@ -66,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The uploaded data.</value>
         /*
-        <example>{&quot;id&quot;:10,&quot;title&quot;:&quot;document.docx&quot;}</example>
+        <example>{"id":10,"title":"document.docx"}</example>
         */
         [DataMember(Name = "data", EmitDefaultValue = true)]
         public Object Data { get; set; }

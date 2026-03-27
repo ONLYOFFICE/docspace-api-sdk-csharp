@@ -150,7 +150,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tenant quota features.</value>
         /*
-        <example>[{&quot;id&quot;:&quot;00000000-0000-0000-0000-000000000001&quot;,&quot;title&quot;:&quot;Premium Storage&quot;}]</example>
+        <example>[{"id":"00000000-0000-0000-0000-000000000001","title":"Premium Storage"}]</example>
         */
         [DataMember(Name = "features", IsRequired = true, EmitDefaultValue = true)]
         public List<TenantQuotaFeatureDto> Features { get; set; }

@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The absolute URL to the document serving as a source file for the document embedded into the web page.</value>
         /*
-        <example>https://portal.example.com/files/editor?action&#x3D;embedded&amp;share&#x3D;abc123</example>
+        <example>https://portal.example.com/files/editor?action=embedded&share=abc123</example>
         */
         [DataMember(Name = "embedUrl", EmitDefaultValue = true)]
         public string EmbedUrl { get; set; }
@@ -66,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The absolute URL that will allow the document to be saved onto the user personal computer.</value>
         /*
-        <example>https://portal.example.com/files/filehandler?action&#x3D;download&amp;share&#x3D;abc123</example>
+        <example>https://portal.example.com/files/filehandler?action=download&share=abc123</example>
         */
         [DataMember(Name = "saveUrl", EmitDefaultValue = true)]
         public string SaveUrl { get; private set; }
@@ -84,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The shared URL parameter.</value>
         /*
-        <example>&amp;share&#x3D;abc123</example>
+        <example>&share=abc123</example>
         */
         [DataMember(Name = "shareLinkParam", EmitDefaultValue = true)]
         public string ShareLinkParam { get; set; }
@@ -94,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The absolute URL that will allow other users to share this document.</value>
         /*
-        <example>https://portal.example.com/files/editor?action&#x3D;view&amp;share&#x3D;abc123</example>
+        <example>https://portal.example.com/files/editor?action=view&share=abc123</example>
         */
         [DataMember(Name = "shareUrl", EmitDefaultValue = true)]
         public string ShareUrl { get; set; }

@@ -54,7 +54,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="email">The user email address. (required).</param>
         /// <param name="recaptchaType">recaptchaType.</param>
-        /// <param name="recaptchaResponse">The user&#39;s response to the CAPTCHA challenge..</param>
+        /// <param name="recaptchaResponse">The user's response to the CAPTCHA challenge..</param>
         public EmailMemberRequestDto(string email = default, RecaptchaType? recaptchaType = default, string recaptchaResponse = default)
         {
             // to ensure "email" is required (not null)
@@ -78,9 +78,9 @@ namespace DocSpace.API.SDK.Model
         public string Email { get; set; }
 
         /// <summary>
-        /// The user&#39;s response to the CAPTCHA challenge.
+        /// The user's response to the CAPTCHA challenge.
         /// </summary>
-        /// <value>The user&#39;s response to the CAPTCHA challenge.</value>
+        /// <value>The user's response to the CAPTCHA challenge.</value>
         /*
         <example>03AGdBq27...</example>
         */

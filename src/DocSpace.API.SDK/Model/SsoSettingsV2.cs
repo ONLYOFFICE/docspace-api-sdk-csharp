@@ -100,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the IdP certificates.</value>
         /*
-        <example>[{&quot;crt&quot;:&quot;base64-cert-data&quot;,&quot;key&quot;:&quot;base64-key-data&quot;}]</example>
+        <example>[{"crt":"base64-cert-data","key":"base64-key-data"}]</example>
         */
         [DataMember(Name = "idpCertificates", EmitDefaultValue = true)]
         public List<SsoCertificate> IdpCertificates { get; set; }
@@ -126,7 +126,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the SP certificates.</value>
         /*
-        <example>[{&quot;crt&quot;:&quot;base64-cert-data&quot;,&quot;key&quot;:&quot;base64-key-data&quot;}]</example>
+        <example>[{"crt":"base64-cert-data","key":"base64-key-data"}]</example>
         */
         [DataMember(Name = "spCertificates", EmitDefaultValue = true)]
         public List<SsoCertificate> SpCertificates { get; set; }

@@ -62,7 +62,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of items with their ordering information.</value>
         /*
-        <example>[{&quot;entryId&quot;:1,&quot;order&quot;:1}]</example>
+        <example>[{"entryId":1,"order":1}]</example>
         */
         [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
         public List<OrdersItemRequestDtoInteger> Items { get; set; }

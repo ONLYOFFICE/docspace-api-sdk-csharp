@@ -124,7 +124,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of authorization keys associated with the authorization service.</value>
         /*
-        <example>[{&quot;name&quot;:&quot;key&quot;,&quot;value&quot;:&quot;value&quot;}]</example>
+        <example>[{"name":"key","value":"value"}]</example>
         */
         [DataMember(Name = "props", EmitDefaultValue = true)]
         public List<AuthKey> Props { get; set; }

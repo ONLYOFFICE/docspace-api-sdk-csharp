@@ -37,7 +37,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Initiates the OAuth2 authorization flow.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
+        /// <param name="responseType">The OAuth 2.0 response type, must be 'code' for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
         /// <param name="scope">The space-separated list of requested scope permissions.</param>
@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Initiates the OAuth2 authorization flow.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
+        /// <param name="responseType">The OAuth 2.0 response type, must be 'code' for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
         /// <param name="scope">The space-separated list of requested scope permissions.</param>
@@ -66,7 +66,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Exchanges an authorization code specified in the request for the access token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
+        /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -82,7 +82,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Exchanges an authorization code specified in the request for the access token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
+        /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -133,7 +133,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Initiates the OAuth2 authorization flow.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
+        /// <param name="responseType">The OAuth 2.0 response type, must be 'code' for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
         /// <param name="scope">The space-separated list of requested scope permissions.</param>
@@ -149,7 +149,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Initiates the OAuth2 authorization flow.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
+        /// <param name="responseType">The OAuth 2.0 response type, must be 'code' for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
         /// <param name="scope">The space-separated list of requested scope permissions.</param>
@@ -164,7 +164,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Exchanges an authorization code specified in the request for the access token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
+        /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -181,7 +181,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Exchanges an authorization code specified in the request for the access token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
+        /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -441,7 +441,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Initiates the OAuth2 authorization flow.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
+        /// <param name="responseType">The OAuth 2.0 response type, must be 'code' for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
         /// <param name="scope">The space-separated list of requested scope permissions.</param>
@@ -459,7 +459,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Initiates the OAuth2 authorization flow.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
+        /// <param name="responseType">The OAuth 2.0 response type, must be 'code' for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
         /// <param name="scope">The space-separated list of requested scope permissions.</param>
@@ -530,7 +530,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Initiates the OAuth2 authorization flow.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
+        /// <param name="responseType">The OAuth 2.0 response type, must be 'code' for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
         /// <param name="scope">The space-separated list of requested scope permissions.</param>
@@ -549,7 +549,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Initiates the OAuth2 authorization flow.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="responseType">The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow.</param>
+        /// <param name="responseType">The OAuth 2.0 response type, must be 'code' for authorization code flow.</param>
         /// <param name="clientId">The client identifier issued to the client during registration.</param>
         /// <param name="redirectUri">The URL to redirect to after authorization is complete.</param>
         /// <param name="scope">The space-separated list of requested scope permissions.</param>
@@ -623,7 +623,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Exchanges an authorization code specified in the request for the access token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
+        /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -643,7 +643,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Exchanges an authorization code specified in the request for the access token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
+        /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -709,7 +709,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Exchanges an authorization code specified in the request for the access token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
+        /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -730,7 +730,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Exchanges an authorization code specified in the request for the access token.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="grantType">The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. (optional)</param>
+        /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
         /// <param name="code">A temporary authorization code that is sent to the client to be exchanged for a token. (optional)</param>
         /// <param name="redirectUri">The URL where the user will be redirected after successful or unsuccessful authentication. (optional)</param>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>

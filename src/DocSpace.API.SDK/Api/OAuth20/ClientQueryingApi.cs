@@ -80,7 +80,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
@@ -94,7 +94,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
@@ -241,7 +241,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
@@ -256,7 +256,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
@@ -850,7 +850,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
@@ -868,7 +868,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
@@ -927,7 +927,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>
@@ -946,7 +946,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Get clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the &#39;limit&#39; parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">The maximum number of results returned per page.</param>

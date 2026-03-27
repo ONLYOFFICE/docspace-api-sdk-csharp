@@ -98,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of rooms in the group.</value>
         /*
-        <example>[{&quot;id&quot;:1,&quot;title&quot;:&quot;Room 1&quot;},{&quot;id&quot;:2,&quot;title&quot;:&quot;Room 2&quot;}]</example>
+        <example>[{"id":1,"title":"Room 1"},{"id":2,"title":"Room 2"}]</example>
         */
         [DataMember(Name = "rooms", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Rooms { get; set; }

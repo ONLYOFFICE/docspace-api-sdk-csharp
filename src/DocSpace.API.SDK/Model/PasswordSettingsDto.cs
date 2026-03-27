@@ -131,7 +131,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The allowed password characters in the regex string format.</value>
         /*
-        <example>^[a-zA-Z0-9!@#$%^&amp;*()]+$</example>
+        <example>^[a-zA-Z0-9!@#$%^&*()]+$</example>
         */
         [DataMember(Name = "allowedCharactersRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string AllowedCharactersRegexStr { get; set; }
@@ -141,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The password digits in the regex string format.</value>
         /*
-        <example>(?&#x3D;.*\\d)</example>
+        <example>(?=.*\\d)</example>
         */
         [DataMember(Name = "digitsRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string DigitsRegexStr { get; set; }
@@ -151,7 +151,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The password uppercase letters in the regex string format.</value>
         /*
-        <example>(?&#x3D;.*[A-Z])</example>
+        <example>(?=.*[A-Z])</example>
         */
         [DataMember(Name = "upperCaseRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string UpperCaseRegexStr { get; set; }
@@ -161,7 +161,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The passaword special symbols in the regex string format.</value>
         /*
-        <example>(?&#x3D;.*[!@#$%^&amp;*()])</example>
+        <example>(?=.*[!@#$%^&*()])</example>
         */
         [DataMember(Name = "specSymbolsRegexStr", IsRequired = true, EmitDefaultValue = true)]
         public string SpecSymbolsRegexStr { get; set; }

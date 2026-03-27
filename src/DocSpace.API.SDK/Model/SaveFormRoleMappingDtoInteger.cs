@@ -74,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of roles.</value>
         /*
-        <example>[{&quot;roleName&quot;:&quot;Approver&quot;,&quot;userId&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;}]</example>
+        <example>[{"roleName":"Approver","userId":"00000000-0000-0000-0000-000000000000"}]</example>
         */
         [DataMember(Name = "roles", IsRequired = true, EmitDefaultValue = true)]
         public List<FormRole> Roles { get; set; }

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The agent new item&#39;s information.
+    /// The agent new item's information.
     /// </summary>
     [DataContract(Name = "AgentNewItemsDto")]
     public partial class AgentNewItemsDto : IValidatableObject

@@ -60,7 +60,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of files in the destination folder.</value>
         /*
-        <example>[{&quot;id&quot;:10,&quot;title&quot;:&quot;document.docx&quot;}]</example>
+        <example>[{"id":10,"title":"document.docx"}]</example>
         */
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Files { get; set; }

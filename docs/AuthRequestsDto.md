@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **Session** | **bool** | Specifies whether the authentication is session-based. | [optional] 
 **ConfirmData** | [**ConfirmData**](ConfirmData.md) |  | [optional] 
 **RecaptchaType** | **RecaptchaType** |  | [optional] 
-**RecaptchaResponse** | **string** | The user&#39;s response to the CAPTCHA challenge. | [optional] 
+**RecaptchaResponse** | **string** | The user's response to the CAPTCHA challenge. | [optional] 
 **Culture** | **string** | The culture code for localization during authentication. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

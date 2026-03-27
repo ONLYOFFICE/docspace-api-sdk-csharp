@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Url** | **string** | API endpoint URL for the AI provider. | [optional] 
 **CreatedOn** | [**ApiDateTime**](ApiDateTime.md) |  | 
 **ModifiedOn** | [**ApiDateTime**](ApiDateTime.md) |  | 
-**NeedReset** | **bool** | Indicates whether the provider&#39;s API key needs to be reset. | [optional] 
+**NeedReset** | **bool** | Indicates whether the provider's API key needs to be reset. | [optional] 
 **IsDefault** | **bool** | Indicates whether this provider is the default provider for the tenant. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

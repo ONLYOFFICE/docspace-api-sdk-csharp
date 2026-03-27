@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfirmData" /> class.
         /// </summary>
-        /// <param name="email">The email address to confirm the user&#39;s identity..</param>
-        /// <param name="first">Specifies whether this is the first access to the user&#39;s account..</param>
+        /// <param name="email">The email address to confirm the user's identity..</param>
+        /// <param name="first">Specifies whether this is the first access to the user's account..</param>
         /// <param name="key">The unique confirmation key for validating user identity..</param>
         public ConfirmData(string email = default, bool? first = default, string key = default)
         {
@@ -52,9 +52,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The email address to confirm the user&#39;s identity.
+        /// The email address to confirm the user's identity.
         /// </summary>
-        /// <value>The email address to confirm the user&#39;s identity.</value>
+        /// <value>The email address to confirm the user's identity.</value>
         /*
         <example>user@example.com</example>
         */
@@ -62,9 +62,9 @@ namespace DocSpace.API.SDK.Model
         public string Email { get; set; }
 
         /// <summary>
-        /// Specifies whether this is the first access to the user&#39;s account.
+        /// Specifies whether this is the first access to the user's account.
         /// </summary>
-        /// <value>Specifies whether this is the first access to the user&#39;s account.</value>
+        /// <value>Specifies whether this is the first access to the user's account.</value>
         /*
         <example>true</example>
         */

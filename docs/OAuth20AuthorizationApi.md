@@ -20,7 +20,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **responseType** | **string** | The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow. |  |
+| **responseType** | **string** | The OAuth 2.0 response type, must be 'code' for authorization code flow. |  |
 | **clientId** | **string** | The client identifier issued to the client during registration. |  |
 | **redirectUri** | **string** | The URL to redirect to after authorization is complete. |  |
 | **scope** | **string** | The space-separated list of requested scope permissions. |  |
@@ -123,7 +123,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **grantType** | **string?** | The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. | [optional]  |
+| **grantType** | **string?** | The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. | [optional]  |
 | **code** | **string?** | A temporary authorization code that is sent to the client to be exchanged for a token. | [optional]  |
 | **redirectUri** | **string?** | The URL where the user will be redirected after successful or unsuccessful authentication. | [optional]  |
 | **clientId** | **string?** | The client identifier issued to the client during registration. | [optional]  |
@@ -311,7 +311,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **302** | Redirect to the client&#39;s redirect URI with authorization code |  -  |
+| **302** | Redirect to the client's redirect URI with authorization code |  -  |
 | **400** | Invalid request parameters |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

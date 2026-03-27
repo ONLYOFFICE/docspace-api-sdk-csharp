@@ -88,7 +88,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of files when specified as multipart/form-data.</value>
         /*
-        <example>[&quot;file1.docx&quot;,&quot;file2.xlsx&quot;]</example>
+        <example>["file1.docx","file2.xlsx"]</example>
         */
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<FileParameter> Files { get; set; }

@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TenantAiAccessSettings" /> class.
         /// </summary>
-        /// <param name="enabled">Specifies whether AI functionality is enabled for the tenant.  When set to &#x60;false&#x60;, all AI features (chat, agents, vectorization) are disabled tenant-wide..</param>
+        /// <param name="enabled">Specifies whether AI functionality is enabled for the tenant.  When set to `false`, all AI features (chat, agents, vectorization) are disabled tenant-wide..</param>
         /// <param name="lastModified">The timestamp indicating when the settings were last modified..</param>
         public TenantAiAccessSettings(bool enabled = default, DateTime lastModified = default)
         {
@@ -50,9 +50,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether AI functionality is enabled for the tenant.  When set to &#x60;false&#x60;, all AI features (chat, agents, vectorization) are disabled tenant-wide.
+        /// Specifies whether AI functionality is enabled for the tenant.  When set to `false`, all AI features (chat, agents, vectorization) are disabled tenant-wide.
         /// </summary>
-        /// <value>Specifies whether AI functionality is enabled for the tenant.  When set to &#x60;false&#x60;, all AI features (chat, agents, vectorization) are disabled tenant-wide.</value>
+        /// <value>Specifies whether AI functionality is enabled for the tenant.  When set to `false`, all AI features (chat, agents, vectorization) are disabled tenant-wide.</value>
         /*
         <example>true</example>
         */

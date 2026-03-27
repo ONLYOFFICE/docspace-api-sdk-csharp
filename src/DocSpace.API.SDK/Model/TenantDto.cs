@@ -294,7 +294,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tenant trusted domains.</value>
         /*
-        <example>[&quot;example.com&quot;,&quot;trusted.com&quot;]</example>
+        <example>["example.com","trusted.com"]</example>
         */
         [DataMember(Name = "trustedDomains", EmitDefaultValue = true)]
         public List<string> TrustedDomains { get; set; }

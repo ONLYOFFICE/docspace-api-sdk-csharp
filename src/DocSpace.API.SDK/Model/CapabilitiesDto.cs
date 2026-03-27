@@ -104,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of providers.</value>
         /*
-        <example>[&quot;google&quot;,&quot;facebook&quot;,&quot;microsoft&quot;]</example>
+        <example>["google","facebook","microsoft"]</example>
         */
         [DataMember(Name = "providers", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Providers { get; set; }

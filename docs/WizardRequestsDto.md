@@ -5,10 +5,10 @@ The request parameters for initial configuration of the setup wizard.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Email** | **string** | The user&#39;s email address for authentication and communication. | 
-**PasswordHash** | **string** | The hashed representation of the user&#39;s password. | 
-**Lng** | **string** | The user&#39;s preferred interface language code. | [optional] 
-**@TimeZone** | **string** | The user&#39;s time zone identifier. | [optional] 
+**Email** | **string** | The user's email address for authentication and communication. | 
+**PasswordHash** | **string** | The hashed representation of the user's password. | 
+**Lng** | **string** | The user's preferred interface language code. | [optional] 
+**@TimeZone** | **string** | The user's time zone identifier. | [optional] 
 **AmiId** | **string** | The Amazon Machine Image (AMI) identifier. | [optional] 
 **SubscribeFromSite** | **bool** | Specifies whether the user opted in for site communications. | [optional] 
 

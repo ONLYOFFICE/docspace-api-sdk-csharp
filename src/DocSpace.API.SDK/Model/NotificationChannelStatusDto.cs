@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of notification channels.</value>
         /*
-        <example>[{&quot;name&quot;:&quot;email&quot;,&quot;isActive&quot;:true}]</example>
+        <example>[{"name":"email","isActive":true}]</example>
         */
         [DataMember(Name = "channels", EmitDefaultValue = true)]
         public List<NotificationChannelDto> Channels { get; set; }

@@ -72,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of authorized email domains that are considered trusted.</value>
         /*
-        <example>[&quot;example.com&quot;,&quot;company.com&quot;]</example>
+        <example>["example.com","company.com"]</example>
         */
         [DataMember(Name = "domains", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Domains { get; set; }

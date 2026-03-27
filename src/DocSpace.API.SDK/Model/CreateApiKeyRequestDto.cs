@@ -76,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of permissions granted to the API key.</value>
         /*
-        <example>[&quot;read&quot;,&quot;write&quot;]</example>
+        <example>["read","write"]</example>
         */
         [DataMember(Name = "permissions", EmitDefaultValue = true)]
         public List<string> Permissions { get; set; }

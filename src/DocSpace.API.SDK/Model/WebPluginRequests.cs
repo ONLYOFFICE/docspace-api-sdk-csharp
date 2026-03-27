@@ -74,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The JSON-formatted configuration settings for the web plugin.</value>
         /*
-        <example>{&quot;theme&quot;:&quot;dark&quot;,&quot;autoSave&quot;:true}</example>
+        <example>{"theme":"dark","autoSave":true}</example>
         */
         [DataMember(Name = "settings", IsRequired = true, EmitDefaultValue = true)]
         public string Settings { get; set; }

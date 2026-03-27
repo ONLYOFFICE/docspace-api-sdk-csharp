@@ -64,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The white label tenant IDs with their logos (light or dark).</value>
         /*
-        <example>[&quot;item1&quot;,&quot;item2&quot;]</example>
+        <example>["item1","item2"]</example>
         */
         [DataMember(Name = "logo", EmitDefaultValue = true)]
         public List<ItemKeyValuePairStringLogoRequestsDto> Logo { get; set; }

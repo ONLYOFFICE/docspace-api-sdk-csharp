@@ -121,7 +121,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of related history.</value>
         /*
-        <example>[{&quot;id&quot;:124,&quot;action&quot;:0}]</example>
+        <example>[{"id":124,"action":0}]</example>
         */
         [DataMember(Name = "related", EmitDefaultValue = true)]
         public List<HistoryDto> Related { get; set; }

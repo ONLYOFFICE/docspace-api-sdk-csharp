@@ -130,7 +130,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of file history changes.</value>
         /*
-        <example>[{&quot;user&quot;:{&quot;id&quot;:&quot;123&quot;,&quot;name&quot;:&quot;John Doe&quot;},&quot;created&quot;:&quot;2021-01-01T00:00:00Z&quot;}]</example>
+        <example>[{"user":{"id":"123","name":"John Doe"},"created":"2021-01-01T00:00:00Z"}]</example>
         */
         [DataMember(Name = "changes", EmitDefaultValue = true)]
         public List<EditHistoryChangesWrapper> Changes { get; set; }

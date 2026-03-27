@@ -69,7 +69,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of CSP domains.</value>
         /*
-        <example>[&quot;https://example.com&quot;,&quot;https://cdn.example.com&quot;]</example>
+        <example>["https://example.com","https://cdn.example.com"]</example>
         */
         [DataMember(Name = "domains", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Domains { get; set; }
@@ -79,7 +79,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The CSP header.</value>
         /*
-        <example>default-src &#39;self&#39;; script-src &#39;self&#39; https://example.com</example>
+        <example>default-src 'self'; script-src 'self' https://example.com</example>
         */
         [DataMember(Name = "header", IsRequired = true, EmitDefaultValue = true)]
         public string Header { get; set; }

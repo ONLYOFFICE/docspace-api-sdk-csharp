@@ -132,7 +132,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tariff quotas.</value>
         /*
-        <example>{&quot;quotas&quot;:[{&quot;id&quot;:1,&quot;quantity&quot;:50,&quot;wallet&quot;:false}]}</example>
+        <example>{"quotas":[{"id":1,"quantity":50,"wallet":false}]}</example>
         */
         [DataMember(Name = "quotas", IsRequired = true, EmitDefaultValue = true)]
         public List<Quota> Quotas { get; set; }

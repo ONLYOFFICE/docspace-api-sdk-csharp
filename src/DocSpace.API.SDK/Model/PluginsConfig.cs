@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The array of absolute URLs to the plugin configuration files.</value>
         /*
-        <example>[&quot;https://portal.example.com/ThirdParty/plugin/easybib/config.json&quot;,&quot;https://portal.example.com/ThirdParty/plugin/wordpress/config.json&quot;]</example>
+        <example>["https://portal.example.com/ThirdParty/plugin/easybib/config.json","https://portal.example.com/ThirdParty/plugin/wordpress/config.json"]</example>
         */
         [DataMember(Name = "pluginsData", EmitDefaultValue = true)]
         public List<string> PluginsData { get; private set; }

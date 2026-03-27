@@ -6,8 +6,8 @@ The user information.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Guid** | The user ID. | [optional] 
-**FirstName** | **string** | The user&#39;s first name. | [optional] 
-**LastName** | **string** | The user&#39;s last name. | [optional] 
+**FirstName** | **string** | The user's first name. | [optional] 
+**LastName** | **string** | The user's last name. | [optional] 
 **UserName** | **string** | The user username. | [optional] 
 **BirthDate** | **DateTime?** | The user birthday. | [optional] 
 **Sex** | **bool?** | The user sex (male or female). | [optional] 

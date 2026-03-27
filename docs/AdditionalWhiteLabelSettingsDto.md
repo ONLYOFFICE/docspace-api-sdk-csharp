@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StartDocsEnabled** | **bool** | Specifies if the sample documents are displayed or hidden. | 
 **HelpCenterEnabled** | **bool** | Specifies if the Help Center link is available or not. | 
-**FeedbackAndSupportEnabled** | **bool** | Specifies if the Feedback &amp; Support link is available or not. | 
+**FeedbackAndSupportEnabled** | **bool** | Specifies if the Feedback & Support link is available or not. | 
 **UserForumEnabled** | **bool** | Specifies if the user forum is available or not. | 
 **VideoGuidesEnabled** | **bool** | Specifies if the Video Guides link is available or not. | 
 **LicenseAgreementsEnabled** | **bool** | Specifies if the License Agreements link is available or not. | 

@@ -64,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of text runs from the paragraph.</value>
         /*
-        <example>[{&quot;fill&quot;:[124,124,124],&quot;text&quot;:&quot;CONFIDENTIAL&quot;,&quot;fontSize&quot;:26}]</example>
+        <example>[{"fill":[124,124,124],"text":"CONFIDENTIAL","fontSize":26}]</example>
         */
         [DataMember(Name = "runs", EmitDefaultValue = true)]
         public List<Run> Runs { get; set; }

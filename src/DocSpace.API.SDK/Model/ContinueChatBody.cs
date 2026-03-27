@@ -86,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of attached files.</value>
         /*
-        <example>[{&quot;id&quot;:1,&quot;type&quot;:&quot;file&quot;}]</example>
+        <example>[{"id":1,"type":"file"}]</example>
         */
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<ContinueChatBodyFilesInner> Files { get; set; }

@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The Complete &amp; Submit button settings.
+    /// The Complete & Submit button settings.
     /// </summary>
     [DataContract(Name = "SubmitForm")]
     public partial class SubmitForm : IValidatableObject
@@ -41,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubmitForm" /> class.
         /// </summary>
-        /// <param name="visible">Specifies whether the Complete  &amp; Submit button will be displayed or hidden on the top toolbar..</param>
+        /// <param name="visible">Specifies whether the Complete  & Submit button will be displayed or hidden on the top toolbar..</param>
         /// <param name="resultMessage">A message displayed after forms are submitted..</param>
         public SubmitForm(bool visible = default, string resultMessage = default)
         {
@@ -50,9 +50,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Specifies whether the Complete  &amp; Submit button will be displayed or hidden on the top toolbar.
+        /// Specifies whether the Complete  & Submit button will be displayed or hidden on the top toolbar.
         /// </summary>
-        /// <value>Specifies whether the Complete  &amp; Submit button will be displayed or hidden on the top toolbar.</value>
+        /// <value>Specifies whether the Complete  & Submit button will be displayed or hidden on the top toolbar.</value>
         /*
         <example>true</example>
         */

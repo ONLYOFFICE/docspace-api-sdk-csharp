@@ -164,7 +164,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the user departments IDs.</value>
         /*
-        <example>[&quot;00000000-0000-0000-0000-000000000000&quot;]</example>
+        <example>["00000000-0000-0000-0000-000000000000"]</example>
         */
         [DataMember(Name = "department", EmitDefaultValue = true)]
         public List<Guid> Department { get; set; }
@@ -216,7 +216,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the user contacts.</value>
         /*
-        <example>[{&quot;type&quot;:&quot;email&quot;,&quot;value&quot;:&quot;john.doe@example.com&quot;}]</example>
+        <example>[{"type":"email","value":"john.doe@example.com"}]</example>
         */
         [DataMember(Name = "contacts", EmitDefaultValue = true)]
         public List<Contact> Contacts { get; set; }

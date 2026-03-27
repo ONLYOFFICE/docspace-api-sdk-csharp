@@ -927,7 +927,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Boolean value: true if the parameter is enabled |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1473,7 +1473,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Default template settings |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2433,7 +2433,7 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | New default template settings |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2547,7 +2547,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | New default template settings |  -  |
 | **400** | Incorrect or missing file |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -3218,7 +3218,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | New default template settings |  -  |
 | **400** | Incorrect or missing file |  -  |
-| **403** | You don&#39;t have enough permission to perform the operation |  -  |
+| **403** | You don't have enough permission to perform the operation |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

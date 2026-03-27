@@ -102,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>A list of sub-accounts.</value>
         /*
-        <example>[{&quot;currency&quot;:&quot;USD&quot;,&quot;amount&quot;:1500.75}]</example>
+        <example>[{"currency":"USD","amount":1500.75}]</example>
         */
         [DataMember(Name = "subAccounts", EmitDefaultValue = true)]
         public List<SubAccount> SubAccounts { get; set; }

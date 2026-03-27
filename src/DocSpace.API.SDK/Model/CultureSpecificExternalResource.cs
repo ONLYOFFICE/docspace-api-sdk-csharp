@@ -64,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The external resource entries.</value>
         /*
-        <example>{&quot;welcomeMessage&quot;:&quot;Welcome&quot;,&quot;logoutButton&quot;:&quot;Log out&quot;}</example>
+        <example>{"welcomeMessage":"Welcome","logoutButton":"Log out"}</example>
         */
         [DataMember(Name = "entries", EmitDefaultValue = true)]
         public Dictionary<string, string> Entries { get; set; }
