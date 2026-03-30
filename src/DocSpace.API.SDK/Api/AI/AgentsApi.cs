@@ -109,6 +109,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectId">The filter by user ID. (optional)</param>
+        /// <param name="subjectOwnerId">The filter by room owner ID. (optional)</param>
         /// <param name="withoutTags">Specifies whether to search by tags or not. (optional)</param>
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
@@ -121,7 +122,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/">REST API Reference for GetAgents Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetAgents(string? subjectId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        FolderContentIntegerWrapper GetAgents(string? subjectId = default, string? subjectOwnerId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
 
         /// <summary>
         /// Get ai agents
@@ -131,6 +132,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectId">The filter by user ID. (optional)</param>
+        /// <param name="subjectOwnerId">The filter by room owner ID. (optional)</param>
         /// <param name="withoutTags">Specifies whether to search by tags or not. (optional)</param>
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
@@ -143,7 +145,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/">REST API Reference for GetAgents Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetAgentsWithHttpInfo(string? subjectId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
+        ApiResponse<FolderContentIntegerWrapper> GetAgentsWithHttpInfo(string? subjectId = default, string? subjectOwnerId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default);
         /// <summary>
         /// Get the room new items
         /// </summary>
@@ -330,6 +332,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectId">The filter by user ID. (optional)</param>
+        /// <param name="subjectOwnerId">The filter by room owner ID. (optional)</param>
         /// <param name="withoutTags">Specifies whether to search by tags or not. (optional)</param>
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
@@ -343,7 +346,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/">REST API Reference for GetAgents Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        Task<FolderContentIntegerWrapper> GetAgentsAsync(string? subjectId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetAgentsAsync(string? subjectId = default, string? subjectOwnerId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get ai agents
@@ -353,6 +356,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectId">The filter by user ID. (optional)</param>
+        /// <param name="subjectOwnerId">The filter by room owner ID. (optional)</param>
         /// <param name="withoutTags">Specifies whether to search by tags or not. (optional)</param>
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
@@ -366,7 +370,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/">REST API Reference for GetAgents Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        Task<ApiResponse<FolderContentIntegerWrapper>> GetAgentsWithHttpInfoAsync(string? subjectId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetAgentsWithHttpInfoAsync(string? subjectId = default, string? subjectOwnerId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the room new items
         /// </summary>
@@ -1263,6 +1267,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectId">The filter by user ID. (optional)</param>
+        /// <param name="subjectOwnerId">The filter by room owner ID. (optional)</param>
         /// <param name="withoutTags">Specifies whether to search by tags or not. (optional)</param>
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
@@ -1275,9 +1280,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/">REST API Reference for GetAgents Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetAgents(string? subjectId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public FolderContentIntegerWrapper GetAgents(string? subjectId = default, string? subjectOwnerId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
-            var localVarResponse = GetAgentsWithHttpInfo(subjectId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue);
+            var localVarResponse = GetAgentsWithHttpInfo(subjectId, subjectOwnerId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue);
             return localVarResponse.Data;
         }
 
@@ -1289,6 +1294,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectId">The filter by user ID. (optional)</param>
+        /// <param name="subjectOwnerId">The filter by room owner ID. (optional)</param>
         /// <param name="withoutTags">Specifies whether to search by tags or not. (optional)</param>
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
@@ -1301,7 +1307,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="filterValue">The text filter value used to refine search or query operations. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/">REST API Reference for GetAgents Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetAgentsWithHttpInfo(string? subjectId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
+        public ApiResponse<FolderContentIntegerWrapper> GetAgentsWithHttpInfo(string? subjectId = default, string? subjectOwnerId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1319,6 +1325,10 @@ namespace DocSpace.API.SDK.Api.AI
             if (subjectId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "subjectId", subjectId));
+            }
+            if (subjectOwnerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "subjectOwnerId", subjectOwnerId));
             }
             if (withoutTags != null)
             {
@@ -1419,6 +1429,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectId">The filter by user ID. (optional)</param>
+        /// <param name="subjectOwnerId">The filter by room owner ID. (optional)</param>
         /// <param name="withoutTags">Specifies whether to search by tags or not. (optional)</param>
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
@@ -1432,9 +1443,9 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/">REST API Reference for GetAgents Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async Task<FolderContentIntegerWrapper> GetAgentsAsync(string? subjectId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerWrapper> GetAgentsAsync(string? subjectId = default, string? subjectOwnerId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetAgentsWithHttpInfoAsync(subjectId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetAgentsWithHttpInfoAsync(subjectId, subjectOwnerId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1446,6 +1457,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subjectId">The filter by user ID. (optional)</param>
+        /// <param name="subjectOwnerId">The filter by room owner ID. (optional)</param>
         /// <param name="withoutTags">Specifies whether to search by tags or not. (optional)</param>
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
@@ -1459,7 +1471,7 @@ namespace DocSpace.API.SDK.Api.AI
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-agents/">REST API Reference for GetAgents Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetAgentsWithHttpInfoAsync(string? subjectId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetAgentsWithHttpInfoAsync(string? subjectId = default, string? subjectOwnerId = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1478,6 +1490,10 @@ namespace DocSpace.API.SDK.Api.AI
             if (subjectId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "subjectId", subjectId));
+            }
+            if (subjectOwnerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "subjectOwnerId", subjectOwnerId));
             }
             if (withoutTags != null)
             {

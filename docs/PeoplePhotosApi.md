@@ -484,7 +484,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 |------|------|-------------|-------|
 | **userid** | **string** | The user ID. |  |
 | **file** | **FileParameter****FileParameter** | The image data. |  |
-| **autosave** | **bool?** |  | [optional]  |
+| **autosave** | **bool?** | Specifies whether to autosave a photo or not. | [optional]  |
 
 ### Return type
 
@@ -533,7 +533,7 @@ namespace Example
             var apiInstance = new PhotosApi(httpClient, config, httpClientHandler);
             var userid = 00000000-0000-0000-0000-000000000000;  // string | The user ID.
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter | The image data.
-            var autosave = true;  // bool? |  (optional) 
+            var autosave = true;  // bool? | Specifies whether to autosave a photo or not. (optional) 
 
             try
             {

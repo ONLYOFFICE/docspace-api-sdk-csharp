@@ -269,6 +269,15 @@ paths:
           example: 00000000-0000-0000-0000-000000000000
           type: string
         style: form
+      - description: The filter by room owner ID.
+        explode: true
+        in: query
+        name: subjectOwnerId
+        required: false
+        schema:
+          example: 00000000-0000-0000-0000-000000000000
+          type: string
+        style: form
       - description: Specifies whether to search by tags or not.
         explode: true
         in: query
@@ -2043,6 +2052,8 @@ paths:
         schema:
           example: 1
           format: int32
+          maximum: 2147483647
+          minimum: 1
           type: integer
         style: simple
       requestBody:
@@ -10312,6 +10323,15 @@ paths:
         explode: true
         in: query
         name: subjectId
+        required: false
+        schema:
+          example: 00000000-0000-0000-0000-000000000000
+          type: string
+        style: form
+      - description: The filter by room owner ID.
+        explode: true
+        in: query
+        name: subjectOwnerId
         required: false
         schema:
           example: 00000000-0000-0000-0000-000000000000
@@ -62985,6 +63005,9 @@ components:
       - FormSubmit
       - FormFilledOut
       - FormStopped
+      - AgentCreated
+      - AgentUpdated
+      - AgentDeleted
     WebhooksConfigDto:
       additionalProperties: false
       description: The webhook configuration parameters.
@@ -64049,6 +64072,8 @@ components:
           format: binary
           type: string
         Autosave:
+          description: Specifies whether to autosave a photo or not.
+          example: true
           type: boolean
       required:
       - File

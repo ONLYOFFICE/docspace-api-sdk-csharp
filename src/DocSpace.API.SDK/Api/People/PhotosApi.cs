@@ -135,7 +135,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="file">The image data.</param>
-        /// <param name="autosave"> (optional)</param>
+        /// <param name="autosave">Specifies whether to autosave a photo or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>FileUploadResultWrapper</returns>
         FileUploadResultWrapper UploadMemberPhoto(string userid, FileParameter file, bool? autosave = default);
@@ -149,7 +149,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="file">The image data.</param>
-        /// <param name="autosave"> (optional)</param>
+        /// <param name="autosave">Specifies whether to autosave a photo or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of FileUploadResultWrapper</returns>
         ApiResponse<FileUploadResultWrapper> UploadMemberPhotoWithHttpInfo(string userid, FileParameter file, bool? autosave = default);
@@ -275,7 +275,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="file">The image data.</param>
-        /// <param name="autosave"> (optional)</param>
+        /// <param name="autosave">Specifies whether to autosave a photo or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>Task of FileUploadResultWrapper</returns>
@@ -290,7 +290,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="file">The image data.</param>
-        /// <param name="autosave"> (optional)</param>
+        /// <param name="autosave">Specifies whether to autosave a photo or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>Task of ApiResponse (FileUploadResultWrapper)</returns>
@@ -1307,7 +1307,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="file">The image data.</param>
-        /// <param name="autosave"> (optional)</param>
+        /// <param name="autosave">Specifies whether to autosave a photo or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>FileUploadResultWrapper</returns>
         public FileUploadResultWrapper UploadMemberPhoto(string userid, FileParameter file, bool? autosave = default)
@@ -1325,7 +1325,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="file">The image data.</param>
-        /// <param name="autosave"> (optional)</param>
+        /// <param name="autosave">Specifies whether to autosave a photo or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>ApiResponse of FileUploadResultWrapper</returns>
         public ApiResponse<FileUploadResultWrapper> UploadMemberPhotoWithHttpInfo(string userid, FileParameter file, bool? autosave = default)
@@ -1413,7 +1413,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="file">The image data.</param>
-        /// <param name="autosave"> (optional)</param>
+        /// <param name="autosave">Specifies whether to autosave a photo or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>Task of FileUploadResultWrapper</returns>
@@ -1432,7 +1432,7 @@ namespace DocSpace.API.SDK.Api.People
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
         /// <param name="file">The image data.</param>
-        /// <param name="autosave"> (optional)</param>
+        /// <param name="autosave">Specifies whether to autosave a photo or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-member-photo/">REST API Reference for UploadMemberPhoto Operation</seealso>
         /// <returns>Task of ApiResponse (FileUploadResultWrapper)</returns>

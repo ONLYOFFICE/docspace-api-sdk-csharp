@@ -2617,7 +2617,7 @@ catch (ApiException e)
 
 <a id="getroomsfolder"></a>
 # **GetRoomsFolder**
-> FolderContentIntegerWrapper GetRoomsFolder (List<RoomType>? type = null, string? subjectId = null, SearchArea? searchArea = null, bool? withoutTags = null, string? tags = null, bool? excludeSubject = null, ProviderFilter? provider = null, SubjectFilter? subjectFilter = null, QuotaFilter? quotaFilter = null, StorageFilter? storageFilter = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, int? groupId = null)
+> FolderContentIntegerWrapper GetRoomsFolder (List<RoomType>? type = null, string? subjectId = null, string? subjectOwnerId = null, SearchArea? searchArea = null, bool? withoutTags = null, string? tags = null, bool? excludeSubject = null, ProviderFilter? provider = null, SubjectFilter? subjectFilter = null, QuotaFilter? quotaFilter = null, StorageFilter? storageFilter = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null, int? groupId = null)
 
 Returns the contents of the Rooms section by the parameters specified in the request.
 
@@ -2629,6 +2629,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 |------|------|-------------|-------|
 | **type** | [**List&lt;RoomType&gt;?**](RoomType.md) | The filter by room type. | [optional]  |
 | **subjectId** | **string?** | The filter by user ID. | [optional]  |
+| **subjectOwnerId** | **string?** | The filter by room owner ID. | [optional]  |
 | **searchArea** | [**SearchArea?**](SearchArea.md) | The room search area (Active, Archive, Any, Recent by links). | [optional]  |
 | **withoutTags** | **bool?** | Specifies whether to search by tags or not. | [optional]  |
 | **tags** | **string?** | The tags in the serialized format. | [optional]  |
@@ -2691,6 +2692,7 @@ namespace Example
             var apiInstance = new RoomsApi(httpClient, config, httpClientHandler);
             var type = new List<RoomType>?(); // List<RoomType>? | The filter by room type. (optional) 
             var subjectId = 00000000-0000-0000-0000-000000000000;  // string? | The filter by user ID. (optional) 
+            var subjectOwnerId = 00000000-0000-0000-0000-000000000000;  // string? | The filter by room owner ID. (optional) 
             var searchArea = new SearchArea?(); // SearchArea? | The room search area (Active, Archive, Any, Recent by links). (optional) 
             var withoutTags = false;  // bool? | Specifies whether to search by tags or not. (optional) 
             var tags = tag1;  // string? | The tags in the serialized format. (optional) 
@@ -2709,7 +2711,7 @@ namespace Example
             try
             {
                 // Get rooms
-                FolderContentIntegerWrapper result = apiInstance.GetRoomsFolder(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
+                FolderContentIntegerWrapper result = apiInstance.GetRoomsFolder(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2730,7 +2732,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get rooms
-    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetRoomsFolderWithHttpInfo(type, subjectId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
+    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetRoomsFolderWithHttpInfo(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);

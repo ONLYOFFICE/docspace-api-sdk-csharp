@@ -353,7 +353,7 @@ catch (ApiException e)
 
 <a id="getagents"></a>
 # **GetAgents**
-> FolderContentIntegerWrapper GetAgents (string? subjectId = null, bool? withoutTags = null, string? tags = null, bool? excludeSubject = null, SubjectFilter? subjectFilter = null, QuotaFilter? quotaFilter = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
+> FolderContentIntegerWrapper GetAgents (string? subjectId = null, string? subjectOwnerId = null, bool? withoutTags = null, string? tags = null, bool? excludeSubject = null, SubjectFilter? subjectFilter = null, QuotaFilter? quotaFilter = null, int? count = null, int? startIndex = null, string? sortBy = null, SortOrder? sortOrder = null, string? filterValue = null)
 
 Get ai agents
 
@@ -364,6 +364,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **subjectId** | **string?** | The filter by user ID. | [optional]  |
+| **subjectOwnerId** | **string?** | The filter by room owner ID. | [optional]  |
 | **withoutTags** | **bool?** | Specifies whether to search by tags or not. | [optional]  |
 | **tags** | **string?** | The tags in the serialized format. | [optional]  |
 | **excludeSubject** | **bool?** | Specifies whether to exclude search by user or group ID. | [optional]  |
@@ -421,6 +422,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new AgentsApi(httpClient, config, httpClientHandler);
             var subjectId = 00000000-0000-0000-0000-000000000000;  // string? | The filter by user ID. (optional) 
+            var subjectOwnerId = 00000000-0000-0000-0000-000000000000;  // string? | The filter by room owner ID. (optional) 
             var withoutTags = false;  // bool? | Specifies whether to search by tags or not. (optional) 
             var tags = ai,assistant;  // string? | The tags in the serialized format. (optional) 
             var excludeSubject = false;  // bool? | Specifies whether to exclude search by user or group ID. (optional) 
@@ -435,7 +437,7 @@ namespace Example
             try
             {
                 // Get ai agents
-                FolderContentIntegerWrapper result = apiInstance.GetAgents(subjectId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue);
+                FolderContentIntegerWrapper result = apiInstance.GetAgents(subjectId, subjectOwnerId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -456,7 +458,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get ai agents
-    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetAgentsWithHttpInfo(subjectId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue);
+    ApiResponse<FolderContentIntegerWrapper> response = apiInstance.GetAgentsWithHttpInfo(subjectId, subjectOwnerId, withoutTags, tags, excludeSubject, subjectFilter, quotaFilter, count, startIndex, sortBy, sortOrder, filterValue);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
