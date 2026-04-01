@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for changing the client activation status.
+    /// Client activation change request
     /// </summary>
     [DataContract(Name = "ChangeClientActivationRequest")]
     public partial class ChangeClientActivationRequest : IValidatableObject
@@ -46,16 +46,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChangeClientActivationRequest" /> class.
         /// </summary>
-        /// <param name="status">The client activation status. (required).</param>
+        /// <param name="status">The activation status of the client (required).</param>
         public ChangeClientActivationRequest(bool status = default)
         {
             this.Status = status;
         }
 
         /// <summary>
-        /// The client activation status.
+        /// The activation status of the client
         /// </summary>
-        /// <value>The client activation status.</value>
+        /// <value>The activation status of the client</value>
         /*
         <example>true</example>
         */

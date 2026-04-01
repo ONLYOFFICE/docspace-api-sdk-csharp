@@ -450,8 +450,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns></returns>
-        void GenerateXlsx(int fileId);
+        /// <returns>FileIntegerWrapper</returns>
+        FileIntegerWrapper GenerateXlsx(int fileId);
 
         /// <summary>
         /// Generate XLSX report
@@ -462,8 +462,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GenerateXlsxWithHttpInfo(int fileId);
+        /// <returns>ApiResponse of FileIntegerWrapper</returns>
+        ApiResponse<FileIntegerWrapper> GenerateXlsxWithHttpInfo(int fileId);
         /// <summary>
         /// Get form roles
         /// </summary>
@@ -1709,8 +1709,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns>Task of void</returns>
-        Task GenerateXlsxAsync(int fileId, CancellationToken cancellationToken = default);
+        /// <returns>Task of FileIntegerWrapper</returns>
+        Task<FileIntegerWrapper> GenerateXlsxAsync(int fileId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Generate XLSX report
@@ -1722,8 +1722,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> GenerateXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
+        Task<ApiResponse<FileIntegerWrapper>> GenerateXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get form roles
         /// </summary>
@@ -5901,10 +5901,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns></returns>
-        public void GenerateXlsx(int fileId)
+        /// <returns>FileIntegerWrapper</returns>
+        public FileIntegerWrapper GenerateXlsx(int fileId)
         {
-            GenerateXlsxWithHttpInfo(fileId);
+            var localVarResponse = GenerateXlsxWithHttpInfo(fileId);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -5916,15 +5917,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GenerateXlsxWithHttpInfo(int fileId)
+        /// <returns>ApiResponse of FileIntegerWrapper</returns>
+        public ApiResponse<FileIntegerWrapper> GenerateXlsxWithHttpInfo(int fileId)
         {
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -5966,7 +5967,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<Object>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<FileIntegerWrapper>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -5990,10 +5991,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns>Task of void</returns>
-        public async Task GenerateXlsxAsync(int fileId, CancellationToken cancellationToken = default)
+        /// <returns>Task of FileIntegerWrapper</returns>
+        public async Task<FileIntegerWrapper> GenerateXlsxAsync(int fileId, CancellationToken cancellationToken = default)
         {
-            await GenerateXlsxWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GenerateXlsxWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -6006,15 +6008,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> GenerateXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
+        public async Task<ApiResponse<FileIntegerWrapper>> GenerateXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -6058,7 +6060,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<Object>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<FileIntegerWrapper>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

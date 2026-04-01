@@ -5,7 +5,7 @@ info:
     name: API Support
     url: https://helpdesk.onlyoffice.com/hc/en-us
   title: Api
-  version: 3.6.0
+  version: 3.7.0
   x-scalar-sdk-installation:
   - lang: Node
     description: "Install our **ONLYOFFICE SDK** for Node.js from npm:"
@@ -79,8 +79,10 @@ tags:
     \ consent."
   name: OAuth 2.0 / Authorization
   x-displayName: Authorization
-- description: "APIs for managing OAuth2 clients, including creation, updates, deletion,\
-    \ and activation."
+- name: OAuth 2.0 / Discovery
+  x-displayName: Discovery
+- description: "APIs for managing OAuth2 clients including creation, updates, deletion\
+    \ and activation"
   name: OAuth 2.0 / Client Management
   x-displayName: Client Management
 - description: APIs for retrieving OAuth2 scopes and their permissions.
@@ -3514,11 +3516,15 @@ paths:
         style: simple
       responses:
         "200":
-          description: XLSX report generation has been queued
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileIntegerWrapper"
+          description: Original form file information
         "403":
           description: You do not have enough permissions to perform this action
         "404":
-          description: Form file not found
+          description: File not found
         "401":
           description: Unauthorized
       security:
@@ -5561,6 +5567,51 @@ paths:
                 $ref: "#/components/schemas/FormsItemArrayWrapper"
           description: Ok
       summary: Get folder form filter
+      tags:
+      - Files / Folders
+  /api/2.0/files/folder/{folderId}/xlsx:
+    post:
+      description: Triggers asynchronous XLSX report generation for the specified
+        form results folder.
+      operationId: generateXlsxByFolder
+      parameters:
+      - description: The folder unique identifier.
+        explode: false
+        in: path
+        name: folderId
+        required: true
+        schema:
+          example: 1
+          format: int32
+          type: integer
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FileIntegerWrapper"
+          description: Original form file information
+        "403":
+          description: You do not have enough permissions to perform this action
+        "404":
+          description: Form results folder not found
+        "401":
+          description: Unauthorized
+      security:
+      - asc_auth_key:
+        - read
+        - write
+      - Bearer: []
+      - ApiKeyBearer:
+        - read
+        - write
+      - Basic: []
+      - OAuth2:
+        - read
+        - write
+      - OpenId: []
+      summary: Generate XLSX report by folder
       tags:
       - Files / Folders
   /api/2.0/files/folder/{folderId}:
@@ -12284,14 +12335,12 @@ paths:
         "400":
           description: Invalid request parameters
       security:
-      - asc_auth_key:
-        - read
-        - write
-      summary: OAuth2 authorization endpoint
+      - x-signature: []
+      summary: OAuth2 Authorization Endpoint
       tags:
       - OAuth 2.0 / Authorization
     post:
-      description: Sends a consent request with the specified parameters.
+      description: Sends consent approval
       operationId: submitConsent
       requestBody:
         content:
@@ -12304,16 +12353,13 @@ paths:
         "400":
           description: Invalid request parameters
       security:
-      - asc_auth_key:
-        - read
-        - write
+      - x-signature: []
       summary: OAuth2 consent endpoint
       tags:
       - OAuth 2.0 / Authorization
   /oauth2/token:
     post:
-      description: Exchanges an authorization code specified in the request for the
-        access token.
+      description: Exchange authorization code for access token
       operationId: exchangeToken
       requestBody:
         content:
@@ -12326,21 +12372,32 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/exchangeToken_200_response"
-          description: The authorization code was successfully exchanged for the access
-            token
+          description: Successfully exchanged authorization code for access token
         "400":
           description: Invalid request parameters
-      summary: OAuth2 token endpoint
+      summary: OAuth2 Token Endpoint
       tags:
       - OAuth 2.0 / Authorization
+  /.well-known/oauth-authorization-server:
+    options:
+      operationId: handleOptions
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                type: object
+          description: OK
+      tags:
+      - OAuth 2.0 / Discovery
   /api/2.0/clients/{clientId}:
     delete:
-      description: Permanently deletes an OAuth2 client and all associated data. All
-        access and refresh tokens issued to this client will be invalidated. This
-        operation cannot be undone.
+      description: Permanently deletes an OAuth2 client and all associated data. This
+        will invalidate all access tokens and refresh tokens issued to this client.
+        This operation cannot be undone.
       operationId: deleteClient
       parameters:
-      - description: The client identifier.
+      - description: ID of the client to delete
         example: 6c7cf17b-1bd3-47d5-94c6-be2d3570e168
         explode: false
         in: path
@@ -12361,36 +12418,34 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Invalid client ID format
         "403":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Insufficient permissions to delete client
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Client not found
         "429":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Too many requests - rate limit exceeded
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Internal server error occurred
       security:
-      - asc_auth_key:
-        - read
-        - write
+      - x-signature: []
       summary: Delete an OAuth2 client
       tags:
       - OAuth 2.0 / Client Management
@@ -12399,7 +12454,7 @@ paths:
         \ including its name, description, redirect URIs, and scopes."
       operationId: getClient
       parameters:
-      - description: The client identifier.
+      - description: ID of the client to retrieve
         example: 6c7cf17b-1bd3-47d5-94c6-be2d3570e168
         explode: false
         in: path
@@ -12447,46 +12502,44 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Invalid client ID format
         "403":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Insufficient permissions to view client
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Client not found
         "429":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Too many requests - rate limit exceeded
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Internal server error occurred
       security:
-      - asc_auth_key:
-        - read
-        - write
+      - x-signature: []
       summary: Get client details
       tags:
       - OAuth 2.0 / Client Querying
     put:
-      description: "Updates the configuration of an existing OAuth2 client, allowing\
-        \ modifications to the client name, description, redirect URIs, and other\
-        \ settings. The client ID cannot be modified."
+      description: "Updates the configuration of an existing OAuth2 client. Allows\
+        \ modification of client name, description, redirect URIs, and other settings.\
+        \ The client ID cannot be modified."
       operationId: updateClient
       parameters:
-      - description: The client identifier.
+      - description: ID of the client to update
         example: 6c7cf17b-1bd3-47d5-94c6-be2d3570e168
         explode: false
         in: path
@@ -12513,59 +12566,98 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Invalid request - missing required fields or validation failed
         "403":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Insufficient permissions to update client
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Client not found
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetail"
+          description: Unsupported media type
         "429":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Too many requests - rate limit exceeded
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Internal server error occurred
       security:
-      - asc_auth_key:
-        - read
-        - write
+      - x-signature: []
       summary: Update an existing OAuth2 client
       tags:
       - OAuth 2.0 / Client Management
   /api/2.0/clients:
+    delete:
+      description: Permanently deletes user OAuth2 clients and all associated data.
+        This will invalidate all access tokens and refresh tokens issued to this client.
+        This operation cannot be undone.
+      operationId: deleteUserClients
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Client successfully deleted
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetail"
+          description: Insufficient permissions to delete user clients
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetail"
+          description: Too many requests - rate limit exceeded
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetail"
+          description: Internal server error occurred
+      security:
+      - x-signature: []
+      summary: Delete all user OAuth2 clients
+      tags:
+      - OAuth 2.0 / Client Management
     get:
       description: Retrieves a paginated list of OAuth2 clients. The results can be
-        paginated using the 'limit' parameter and the last seen client ID or creation
-        date.
+        paginated using the limit parameter and last seen client ID/creation date.
       operationId: getClients
       parameters:
-      - description: The maximum number of results returned per page.
+      - description: Pagination limit
         example: 1
         explode: true
         in: query
         name: limit
         required: true
         schema:
+          default: 30
           format: int32
           maximum: 50
           minimum: 1
           type: integer
         style: form
-      - description: The ID of the last retrieved client.
+      - description: ID of the last retrieved client
         example: 6c7cf17b-1bd3-47d5-94c6-be2d3570e168
         explode: true
         in: query
@@ -12574,7 +12666,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: The creation date of the last retrieved client.
+      - description: Date of the last retrieved client
         example: 2024-04-04T12:00:00Z
         explode: true
         in: query
@@ -12626,31 +12718,29 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Invalid pagination parameters
         "403":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
-          description: Insufficient permissions to create a client list
+                $ref: "#/components/schemas/ProblemDetail"
+          description: Insufficient permissions to list clients
         "429":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Too many requests - rate limit exceeded
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Internal server error occurred
       security:
-      - asc_auth_key:
-        - read
-        - write
-      summary: Get clients
+      - x-signature: []
+      summary: List clients
       tags:
       - OAuth 2.0 / Client Querying
     post:
@@ -12703,30 +12793,34 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Invalid request - missing required fields or validation failed
         "403":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
-          description: Insufficient permissions to create a client
+                $ref: "#/components/schemas/ProblemDetail"
+          description: Insufficient permissions to create client
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetail"
+          description: Unsupported media type
         "429":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Too many requests - rate limit exceeded
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Internal server error occurred
       security:
-      - asc_auth_key:
-        - read
-        - write
+      - x-signature: []
       summary: Create a new OAuth2 client
       tags:
       - OAuth 2.0 / Client Management
@@ -12737,7 +12831,7 @@ paths:
         with caution as it requires updating the secret in all client applications.
       operationId: regenerateSecret
       parameters:
-      - description: The client identifier.
+      - description: ID of the client to regenerate secret for
         example: 6c7cf17b-1bd3-47d5-94c6-be2d3570e168
         explode: false
         in: path
@@ -12760,37 +12854,35 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Invalid client ID format
         "403":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Insufficient permissions to regenerate client secret
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Client not found
         "429":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Too many requests - rate limit exceeded
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Internal server error occurred
       security:
-      - asc_auth_key:
-        - read
-        - write
-      summary: Regenerate the client secret
+      - x-signature: []
+      summary: Regenerate client secret
       tags:
       - OAuth 2.0 / Client Management
   /api/2.0/clients/{clientId}/activation:
@@ -12800,7 +12892,7 @@ paths:
         \ valid until they expire."
       operationId: changeActivation
       parameters:
-      - description: The client identifier.
+      - description: ID of the client to change activation for
         example: 6c7cf17b-1bd3-47d5-94c6-be2d3570e168
         explode: false
         in: path
@@ -12827,37 +12919,41 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Invalid client ID format or activation status
         "403":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Insufficient permissions to change client activation
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Client not found
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetail"
+          description: Unsupported media type
         "429":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Too many requests - rate limit exceeded
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Internal server error occurred
       security:
-      - asc_auth_key:
-        - read
-        - write
-      summary: Change the client activation status
+      - x-signature: []
+      summary: Change client activation status
       tags:
       - OAuth 2.0 / Client Management
   /api/2.0/scopes:
@@ -12882,40 +12978,36 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Invalid request parameters
         "403":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
-          description: Insufficient permissions to get a list of scopes
+                $ref: "#/components/schemas/ProblemDetail"
+          description: Insufficient permissions to list scopes
         "429":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Too many requests - rate limit exceeded
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Internal server error occurred
       security:
-      - asc_auth_key:
-        - read
-        - write
-      summary: Get available OAuth2 scopes
+      - x-signature: []
+      summary: List available OAuth2 scopes
       tags:
       - OAuth 2.0 / Scope Management
   /api/2.0/clients/{clientId}/public/info:
     get:
-      description: Returns the public information for a client with the ID secified
-        din the request.
       operationId: getPublicClientInfo
       parameters:
-      - description: The client identifier.
+      - description: ID of the client to retrieve
         example: 6c7cf17b-1bd3-47d5-94c6-be2d3570e168
         explode: false
         in: path
@@ -12956,11 +13048,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Too many requests
         "500":
           description: Internal server error
-      summary: Get public client information
+      summary: Handles the GET request for public client information
       tags:
       - OAuth 2.0 / Client Querying
   /api/2.0/clients/{clientId}/info:
@@ -12969,7 +13061,7 @@ paths:
         in the request.
       operationId: getClientInfo
       parameters:
-      - description: The client identifier.
+      - description: ID of the client to retrieve
         example: 6c7cf17b-1bd3-47d5-94c6-be2d3570e168
         explode: false
         in: path
@@ -13010,15 +13102,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Too many requests
         "500":
           description: Internal server error
       security:
-      - asc_auth_key:
-        - read
-        - write
-      summary: Get detailed client information
+      - x-signature: []
+      summary: Retrieves detailed information for a specific client
       tags:
       - OAuth 2.0 / Client Querying
   /api/2.0/clients/info:
@@ -13026,7 +13116,7 @@ paths:
       description: Retrieves a paginated list of information for all clients.
       operationId: getClientsInfo
       parameters:
-      - description: The maximum number of results returned per page.
+      - description: Pagination limit
         example: 1
         explode: true
         in: query
@@ -13038,7 +13128,7 @@ paths:
           minimum: 1
           type: integer
         style: form
-      - description: The identifier of the last retrieved client.
+      - description: ID of the last retrieved client
         example: 6c7cf17b-1bd3-47d5-94c6-be2d3570e168
         explode: true
         in: query
@@ -13047,7 +13137,7 @@ paths:
         schema:
           type: string
         style: form
-      - description: The creation date of the last retrieved client.
+      - description: Date of the last retrieved client
         example: 2024-04-04T12:00:00Z
         explode: true
         in: query
@@ -13070,15 +13160,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Too many requests
         "500":
           description: Internal server error
       security:
-      - asc_auth_key:
-        - read
-        - write
-      summary: Get detailed information of clients
+      - x-signature: []
+      summary: Retrieves a pageable list of client information
       tags:
       - OAuth 2.0 / Client Querying
   /api/2.0/clients/consents:
@@ -13086,7 +13174,7 @@ paths:
       description: Retrieves a paginated list of user consents.
       operationId: getConsents
       parameters:
-      - description: The maximum number of results returned per page.
+      - description: Pagination limit
         example: 1
         explode: true
         in: query
@@ -13098,7 +13186,7 @@ paths:
           minimum: 1
           type: integer
         style: form
-      - description: The date when the user consent was last modified.
+      - description: Date of the last retrieved consent
         example: 2024-04-04T12:00:00Z
         explode: true
         in: query
@@ -13143,10 +13231,8 @@ paths:
                 $ref: "#/components/schemas/PageableModificationResponse"
           description: Successfully retrieved user consents
       security:
-      - asc_auth_key:
-        - read
-        - write
-      summary: Get user consents
+      - x-signature: []
+      summary: Retrieves a pageable list of consents
       tags:
       - OAuth 2.0 / Client Querying
   /api/2.0/clients/{clientId}/revoke:
@@ -13157,7 +13243,7 @@ paths:
         their resources.
       operationId: revokeUserClient
       parameters:
-      - description: The client identifier.
+      - description: ID of the client to revoke consent for
         example: 6c7cf17b-1bd3-47d5-94c6-be2d3570e168
         explode: false
         in: path
@@ -13178,43 +13264,77 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Invalid client ID format
         "403":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Insufficient permissions to revoke consent
         "404":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Client not found
         "429":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Too many requests - rate limit exceeded
         "500":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Internal server error occurred
         "503":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ErrorResponse"
+                $ref: "#/components/schemas/ProblemDetail"
           description: Authorization service unavailable
       security:
-      - asc_auth_key:
-        - read
-        - write
+      - x-signature: []
       summary: Revoke client consent
+      tags:
+      - OAuth 2.0 / Client Management
+  /api/2.0/clients/tenant:
+    delete:
+      description: Permanently deletes tenant OAuth2 clients and all associated data.
+        This will invalidate all access tokens and refresh tokens issued to this client.
+        This operation cannot be undone.
+      operationId: deleteTenantClients
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Client successfully deleted
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetail"
+          description: Insufficient permissions to delete tenant clients
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetail"
+          description: Too many requests - rate limit exceeded
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetail"
+          description: Internal server error occurred
+      security:
+      - x-signature: []
+      summary: Delete all tenant OAuth2 clients
       tags:
       - OAuth 2.0 / Client Management
   /api/2.0/keys:
@@ -49699,18 +49819,38 @@ components:
           nullable: true
           type: array
       type: object
-    ErrorResponse:
-      description: The error response containing the human-readable error explanation.
+    ProblemDetail:
       example:
-        reason: reason
+        instance: https://openapi-generator.tech
+        detail: detail
+        type: https://openapi-generator.tech
+        title: title
+        properties:
+          key: "{}"
+        status: 6
       properties:
-        reason:
-          description: The human-readable error explanation.
+        type:
+          format: uri
           type: string
+        title:
+          type: string
+        status:
+          format: int32
+          type: integer
+        detail:
+          type: string
+        instance:
+          format: uri
+          type: string
+        properties:
+          additionalProperties:
+            type: object
+          type: object
       type: object
     UpdateClientRequest:
-      description: The request for updating client details.
+      description: Client update request containing modified client details
       example:
+        public: true
         allow_pkce: true
         name: Updated Client
         is_public: false
@@ -49720,38 +49860,42 @@ components:
         - http://allowed.origin
       properties:
         name:
-          description: The client name.
+          description: The name of the client
           example: Updated Client
           minLength: 1
           type: string
         description:
-          description: The client description
+          description: The description of the client
           example: Updated description of the client
           maxLength: 255
           minLength: 0
           type: string
         logo:
-          description: The client logo in base64 format.
+          description: The logo of the client in base64 format
           example: "data:image/png;base64,..."
           minLength: 1
           pattern: "^data:image\\/(?:png|jpeg|jpg|svg\\+xml);base64,.*.{1,}"
           type: string
+        public:
+          type: boolean
         allow_pkce:
-          description: Indicates whether PKCE is allowed for the client.
+          description: Indicates whether PKCE is allowed for the client
           example: true
           type: boolean
         is_public:
-          description: Indicates whether the client is accessible by third-party tenants.
+          description: Indicates whether client is accessible by third-party tenants
           example: false
           type: boolean
         allowed_origins:
-          description: The allowed origins for the client.
+          description: The allowed origins for the client
           example:
           - http://allowed.origin
           items:
-            description: The allowed origins for the client.
+            description: The allowed origins for the client
             example: "[\"http://allowed.origin\"]"
             type: string
+          maxItems: 12
+          minItems: 1
           type: array
           uniqueItems: true
       type: object
@@ -49868,22 +50012,23 @@ components:
           type: boolean
       type: object
     CreateClientRequest:
-      description: The request parameters for creating a client.
+      description: Client creation request containing client details
       example:
         policy_url: http://example.com/policy
+        description: Description of the client
+        redirect_uris:
+        - http://example.com/redirect
+        logout_redirect_uri: http://example.com/logout
+        public: true
         website_url: http://example.com
         allow_pkce: true
         terms_url: http://example.com/terms
         name: Example Client
         is_public: false
-        description: Description of the client
         logo: "data:image/png;base64,..."
         scopes:
         - read
         - write
-        redirect_uris:
-        - http://example.com/redirect
-        logout_redirect_uri: http://example.com/logout
         allowed_origins:
         - http://example.com
       properties:
@@ -49894,88 +50039,94 @@ components:
           minLength: 3
           type: string
         description:
-          description: The client description.
+          description: The description of the client
           example: Description of the client
           maxLength: 255
           minLength: 0
           type: string
         logo:
-          description: The client logo in base64 format.
+          description: The logo of the client in base64 format
           example: "data:image/png;base64,..."
           minLength: 1
           pattern: "^data:image\\/(?:png|jpeg|jpg|svg\\+xml);base64,.*.{1,}"
           type: string
         scopes:
-          description: The client scopes.
+          description: The scopes for the client
           example:
           - read
           - write
           items:
-            description: The client scopes.
+            description: The scopes for the client
             example: "[\"read\",\"write\"]"
             type: string
           minItems: 1
           type: array
           uniqueItems: true
+        public:
+          type: boolean
         allow_pkce:
-          description: Indicates whether PKCE is allowed for the client.
+          description: Indicates whether PKCE is allowed for the client
           example: true
           type: boolean
         is_public:
-          description: Indicates whether the client is accessible by third-party tenants.
+          description: Indicates if the client is public
           example: false
           type: boolean
         website_url:
-          description: The URL to the client's website.
+          description: The website URL of the client
           example: http://example.com
           minLength: 1
-          pattern: "^(https?://)?(([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\\\
-            d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$|^https?://(\\d{1,3}\\\
-            .){3}\\d{1,3}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$"
+          pattern: "^(https?://)?([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\\
+            [\\]@!$&'()*+,;=]*)?$|^https?://(\\d{1,3}\\.){3}\\d{1,3}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\\
+            [\\]@!$&'()*+,;=]*)?$"
           type: string
         terms_url:
-          description: The URL to the client's terms of service.
+          description: The terms URL of the client
           example: http://example.com/terms
           minLength: 1
-          pattern: "^(https?://)?(([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\\\
-            d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$|^https?://(\\d{1,3}\\\
-            .){3}\\d{1,3}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$"
+          pattern: "^(https?://)?([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\\
+            [\\]@!$&'()*+,;=]*)?$|^https?://(\\d{1,3}\\.){3}\\d{1,3}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\\
+            [\\]@!$&'()*+,;=]*)?$"
           type: string
         policy_url:
-          description: The URL to the client's privacy policy.
+          description: The policy URL of the client
           example: http://example.com/policy
           minLength: 1
-          pattern: "^(https?://)?(([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\\\
-            d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$|^https?://(\\d{1,3}\\\
-            .){3}\\d{1,3}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$"
+          pattern: "^(https?://)?([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\\
+            [\\]@!$&'()*+,;=]*)?$|^https?://(\\d{1,3}\\.){3}\\d{1,3}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\\
+            [\\]@!$&'()*+,;=]*)?$"
           type: string
         redirect_uris:
-          description: The list of allowed redirect URIs.
+          description: The redirect URIs for the client
           example:
           - http://example.com/redirect
           items:
-            description: The list of allowed redirect URIs.
+            description: The redirect URIs for the client
             example: "[\"http://example.com/redirect\"]"
             type: string
+          maxItems: 12
+          minItems: 1
           type: array
           uniqueItems: true
         allowed_origins:
-          description: The list of allowed CORS origins.
+          description: The allowed origins for the client
           example:
           - http://example.com
           items:
-            description: The list of allowed CORS origins.
+            description: The allowed origins for the client
             example: "[\"http://example.com\"]"
             type: string
+          maxItems: 12
+          minItems: 1
           type: array
           uniqueItems: true
         logout_redirect_uri:
-          description: The list of allowed logout redirect URIs.
+          description: The logout redirect URI for the client
           example: http://example.com/logout
           minLength: 1
-          pattern: "^(https?://)?(([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\\\
-            d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$|^https?://(\\d{1,3}\\\
-            .){3}\\d{1,3}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\[\\]@!$&'()*+,;=]*)?$"
+          pattern: "^(https?://)?([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\\
+            [\\]@!$&'()*+,;=]*)?$|^https?://(\\d{1,3}\\.){3}\\d{1,3}(:\\d+)?(/[a-zA-Z0-9-._~:/?#\\\
+            [\\]@!$&'()*+,;=]*)?$"
           type: string
       required:
       - allowed_origins
@@ -49991,12 +50142,12 @@ components:
           type: string
       type: object
     ChangeClientActivationRequest:
-      description: The request parameters for changing the client activation status.
+      description: Client activation change request
       example:
         status: true
       properties:
         status:
-          description: The client activation status.
+          description: The activation status of the client
           example: true
           type: boolean
       required:
@@ -50050,6 +50201,7 @@ components:
         description: description
         created_by: created_by
         client_id: client_id
+        public: true
         website_url: website_url
         created_on: 2000-01-23T04:56:07.000+00:00
         terms_url: terms_url
@@ -50076,6 +50228,8 @@ components:
             type: string
           type: array
           uniqueItems: true
+        public:
+          type: boolean
         client_id:
           description: The client ID.
           type: string
@@ -64292,6 +64446,8 @@ components:
           type: boolean
         UseChat:
           type: boolean
+        UpdateXlsx:
+          type: boolean
       type: object
     FileEntryDtoInteger_allOf_availableShareRights:
       description: The available external rights of the file entry.
@@ -64564,6 +64720,7 @@ x-tagGroups:
   - OAuth 2.0 / Authorization
   - OAuth 2.0 / Client Management
   - OAuth 2.0 / Client Querying
+  - OAuth 2.0 / Discovery
   - OAuth 2.0 / Scope Management
 - name: Api keys
   tags:

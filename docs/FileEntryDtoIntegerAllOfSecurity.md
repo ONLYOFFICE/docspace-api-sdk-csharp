@@ -48,6 +48,7 @@ Name | Type | Description | Notes
 **Vectorization** | **bool** |  | [optional] 
 **AskAi** | **bool** |  | [optional] 
 **UseChat** | **bool** |  | [optional] 
+**UpdateXlsx** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

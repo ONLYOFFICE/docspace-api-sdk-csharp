@@ -1955,7 +1955,7 @@ catch (ApiException e)
 
 <a id="generatexlsx"></a>
 # **GenerateXlsx**
-> void GenerateXlsx (int fileId)
+> FileIntegerWrapper GenerateXlsx (int fileId)
 
 Triggers asynchronous XLSX report generation for the specified form file.
 
@@ -1969,7 +1969,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-void (empty response body)
+[**FileIntegerWrapper**](FileIntegerWrapper.md)
 
 ### Authorization
 
@@ -2017,7 +2017,8 @@ namespace Example
             try
             {
                 // Generate XLSX report
-                apiInstance.GenerateXlsx(fileId);
+                FileIntegerWrapper result = apiInstance.GenerateXlsx(fileId);
+                Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
@@ -2037,7 +2038,10 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Generate XLSX report
-    apiInstance.GenerateXlsxWithHttpInfo(fileId);
+    ApiResponse<FileIntegerWrapper> response = apiInstance.GenerateXlsxWithHttpInfo(fileId);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
@@ -2050,15 +2054,15 @@ catch (ApiException e)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | XLSX report generation has been queued |  -  |
+| **200** | Original form file information |  -  |
 | **403** | You do not have enough permissions to perform this action |  -  |
-| **404** | Form file not found |  -  |
+| **404** | File not found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

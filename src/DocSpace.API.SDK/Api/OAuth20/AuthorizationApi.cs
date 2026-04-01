@@ -31,7 +31,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
     {
         #region Synchronous Operations
         /// <summary>
-        /// OAuth2 authorization endpoint
+        /// OAuth2 Authorization Endpoint
         /// </summary>
         /// <remarks>
         /// Initiates the OAuth2 authorization flow.
@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         void AuthorizeOAuth(string responseType, string clientId, string redirectUri, string scope);
 
         /// <summary>
-        /// OAuth2 authorization endpoint
+        /// OAuth2 Authorization Endpoint
         /// </summary>
         /// <remarks>
         /// Initiates the OAuth2 authorization flow.
@@ -60,10 +60,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> AuthorizeOAuthWithHttpInfo(string responseType, string clientId, string redirectUri, string scope);
         /// <summary>
-        /// OAuth2 token endpoint
+        /// OAuth2 Token Endpoint
         /// </summary>
         /// <remarks>
-        /// Exchanges an authorization code specified in the request for the access token.
+        /// Exchange authorization code for access token
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
@@ -76,10 +76,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         ExchangeToken200Response ExchangeToken(string? grantType = default, string? code = default, string? redirectUri = default, string? clientId = default, string? clientSecret = default);
 
         /// <summary>
-        /// OAuth2 token endpoint
+        /// OAuth2 Token Endpoint
         /// </summary>
         /// <remarks>
-        /// Exchanges an authorization code specified in the request for the access token.
+        /// Exchange authorization code for access token
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
@@ -94,7 +94,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// OAuth2 consent endpoint
         /// </summary>
         /// <remarks>
-        /// Sends a consent request with the specified parameters.
+        /// Sends consent approval
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -108,7 +108,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// OAuth2 consent endpoint
         /// </summary>
         /// <remarks>
-        /// Sends a consent request with the specified parameters.
+        /// Sends consent approval
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -127,7 +127,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
     {
         #region Asynchronous Operations
         /// <summary>
-        /// OAuth2 authorization endpoint
+        /// OAuth2 Authorization Endpoint
         /// </summary>
         /// <remarks>
         /// Initiates the OAuth2 authorization flow.
@@ -143,7 +143,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         Task AuthorizeOAuthAsync(string responseType, string clientId, string redirectUri, string scope, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// OAuth2 authorization endpoint
+        /// OAuth2 Authorization Endpoint
         /// </summary>
         /// <remarks>
         /// Initiates the OAuth2 authorization flow.
@@ -158,10 +158,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> AuthorizeOAuthWithHttpInfoAsync(string responseType, string clientId, string redirectUri, string scope, CancellationToken cancellationToken = default);
         /// <summary>
-        /// OAuth2 token endpoint
+        /// OAuth2 Token Endpoint
         /// </summary>
         /// <remarks>
-        /// Exchanges an authorization code specified in the request for the access token.
+        /// Exchange authorization code for access token
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
@@ -175,10 +175,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         Task<ExchangeToken200Response> ExchangeTokenAsync(string? grantType = default, string? code = default, string? redirectUri = default, string? clientId = default, string? clientSecret = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// OAuth2 token endpoint
+        /// OAuth2 Token Endpoint
         /// </summary>
         /// <remarks>
-        /// Exchanges an authorization code specified in the request for the access token.
+        /// Exchange authorization code for access token
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
@@ -194,7 +194,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// OAuth2 consent endpoint
         /// </summary>
         /// <remarks>
-        /// Sends a consent request with the specified parameters.
+        /// Sends consent approval
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -209,7 +209,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// OAuth2 consent endpoint
         /// </summary>
         /// <remarks>
-        /// Sends a consent request with the specified parameters.
+        /// Sends consent approval
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -435,7 +435,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
         
         /// <summary>
-        /// OAuth2 authorization endpoint
+        /// OAuth2 Authorization Endpoint
         /// </summary>
         /// <remarks>
         /// Initiates the OAuth2 authorization flow.
@@ -453,7 +453,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// OAuth2 authorization endpoint
+        /// OAuth2 Authorization Endpoint
         /// </summary>
         /// <remarks>
         /// Initiates the OAuth2 authorization flow.
@@ -501,11 +501,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "redirect_uri", redirectUri));
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "scope", scope));
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -524,7 +524,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// OAuth2 authorization endpoint
+        /// OAuth2 Authorization Endpoint
         /// </summary>
         /// <remarks>
         /// Initiates the OAuth2 authorization flow.
@@ -543,7 +543,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// OAuth2 authorization endpoint
+        /// OAuth2 Authorization Endpoint
         /// </summary>
         /// <remarks>
         /// Initiates the OAuth2 authorization flow.
@@ -593,11 +593,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "redirect_uri", redirectUri));
             localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "scope", scope));
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -617,10 +617,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// OAuth2 token endpoint
+        /// OAuth2 Token Endpoint
         /// </summary>
         /// <remarks>
-        /// Exchanges an authorization code specified in the request for the access token.
+        /// Exchange authorization code for access token
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
@@ -637,10 +637,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// OAuth2 token endpoint
+        /// OAuth2 Token Endpoint
         /// </summary>
         /// <remarks>
-        /// Exchanges an authorization code specified in the request for the access token.
+        /// Exchange authorization code for access token
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
@@ -703,10 +703,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// OAuth2 token endpoint
+        /// OAuth2 Token Endpoint
         /// </summary>
         /// <remarks>
-        /// Exchanges an authorization code specified in the request for the access token.
+        /// Exchange authorization code for access token
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
@@ -724,10 +724,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// OAuth2 token endpoint
+        /// OAuth2 Token Endpoint
         /// </summary>
         /// <remarks>
-        /// Exchanges an authorization code specified in the request for the access token.
+        /// Exchange authorization code for access token
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="grantType">The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. (optional)</param>
@@ -796,7 +796,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// OAuth2 consent endpoint
         /// </summary>
         /// <remarks>
-        /// Sends a consent request with the specified parameters.
+        /// Sends consent approval
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -813,7 +813,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// OAuth2 consent endpoint
         /// </summary>
         /// <remarks>
-        /// Sends a consent request with the specified parameters.
+        /// Sends consent approval
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -849,11 +849,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
                 localVarRequestOptions.FormParameters.Add("scope",ClientUtils.ParameterToString(scope)); // form parameter
             }
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -875,7 +875,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// OAuth2 consent endpoint
         /// </summary>
         /// <remarks>
-        /// Sends a consent request with the specified parameters.
+        /// Sends consent approval
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -893,7 +893,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// OAuth2 consent endpoint
         /// </summary>
         /// <remarks>
-        /// Sends a consent request with the specified parameters.
+        /// Sends consent approval
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="clientId">The client identifier issued to the client during registration. (optional)</param>
@@ -931,11 +931,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
                 localVarRequestOptions.FormParameters.Add("scope", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(scope)); // form parameter
             }
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request

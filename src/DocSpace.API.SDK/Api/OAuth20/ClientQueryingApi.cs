@@ -37,7 +37,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
         /// <returns>ClientResponse</returns>
         ClientResponse GetClient(string clientId);
@@ -49,132 +49,129 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
         /// <returns>ApiResponse of ClientResponse</returns>
         ApiResponse<ClientResponse> GetClientWithHttpInfo(string clientId);
         /// <summary>
-        /// Get detailed client information
+        /// Retrieves detailed information for a specific client
         /// </summary>
         /// <remarks>
         /// Retrieves the detailed information for a client with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
         /// <returns>ClientInfoResponse</returns>
         ClientInfoResponse GetClientInfo(string clientId);
 
         /// <summary>
-        /// Get detailed client information
+        /// Retrieves detailed information for a specific client
         /// </summary>
         /// <remarks>
         /// Retrieves the detailed information for a client with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
         /// <returns>ApiResponse of ClientInfoResponse</returns>
         ApiResponse<ClientInfoResponse> GetClientInfoWithHttpInfo(string clientId);
         /// <summary>
-        /// Get clients
+        /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
         /// <returns>PageableResponse</returns>
         PageableResponse GetClients(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default);
 
         /// <summary>
-        /// Get clients
+        /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
         /// <returns>ApiResponse of PageableResponse</returns>
         ApiResponse<PageableResponse> GetClientsWithHttpInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default);
         /// <summary>
-        /// Get detailed information of clients
+        /// Retrieves a pageable list of client information
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of information for all clients.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
         /// <returns>PageableResponseClientInfoResponse</returns>
         PageableResponseClientInfoResponse GetClientsInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default);
 
         /// <summary>
-        /// Get detailed information of clients
+        /// Retrieves a pageable list of client information
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of information for all clients.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
         /// <returns>ApiResponse of PageableResponseClientInfoResponse</returns>
         ApiResponse<PageableResponseClientInfoResponse> GetClientsInfoWithHttpInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default);
         /// <summary>
-        /// Get user consents
+        /// Retrieves a pageable list of consents
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of user consents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
         /// <returns>PageableModificationResponse</returns>
         PageableModificationResponse GetConsents(int limit, DateTime? lastModifiedOn = default);
 
         /// <summary>
-        /// Get user consents
+        /// Retrieves a pageable list of consents
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of user consents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
         /// <returns>ApiResponse of PageableModificationResponse</returns>
         ApiResponse<PageableModificationResponse> GetConsentsWithHttpInfo(int limit, DateTime? lastModifiedOn = default);
         /// <summary>
-        /// Get public client information
+        /// Handles the GET request for public client information
         /// </summary>
-        /// <remarks>
-        /// Returns the public information for a client with the ID secified din the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
         /// <returns>ClientInfoResponse</returns>
         ClientInfoResponse GetPublicClientInfo(string clientId);
 
         /// <summary>
-        /// Get public client information
+        /// Handles the GET request for public client information
         /// </summary>
         /// <remarks>
-        /// Returns the public information for a client with the ID secified din the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
         /// <returns>ApiResponse of ClientInfoResponse</returns>
         ApiResponse<ClientInfoResponse> GetPublicClientInfoWithHttpInfo(string clientId);
@@ -194,7 +191,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
         /// <returns>Task of ClientResponse</returns>
@@ -207,142 +204,142 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
         /// <returns>Task of ApiResponse (ClientResponse)</returns>
         Task<ApiResponse<ClientResponse>> GetClientWithHttpInfoAsync(string clientId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get detailed client information
+        /// Retrieves detailed information for a specific client
         /// </summary>
         /// <remarks>
         /// Retrieves the detailed information for a client with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
         /// <returns>Task of ClientInfoResponse</returns>
         Task<ClientInfoResponse> GetClientInfoAsync(string clientId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get detailed client information
+        /// Retrieves detailed information for a specific client
         /// </summary>
         /// <remarks>
         /// Retrieves the detailed information for a client with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
         /// <returns>Task of ApiResponse (ClientInfoResponse)</returns>
         Task<ApiResponse<ClientInfoResponse>> GetClientInfoWithHttpInfoAsync(string clientId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get clients
+        /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
         /// <returns>Task of PageableResponse</returns>
         Task<PageableResponse> GetClientsAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get clients
+        /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
         /// <returns>Task of ApiResponse (PageableResponse)</returns>
         Task<ApiResponse<PageableResponse>> GetClientsWithHttpInfoAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get detailed information of clients
+        /// Retrieves a pageable list of client information
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of information for all clients.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
         /// <returns>Task of PageableResponseClientInfoResponse</returns>
         Task<PageableResponseClientInfoResponse> GetClientsInfoAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get detailed information of clients
+        /// Retrieves a pageable list of client information
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of information for all clients.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
         /// <returns>Task of ApiResponse (PageableResponseClientInfoResponse)</returns>
         Task<ApiResponse<PageableResponseClientInfoResponse>> GetClientsInfoWithHttpInfoAsync(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get user consents
+        /// Retrieves a pageable list of consents
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of user consents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
         /// <returns>Task of PageableModificationResponse</returns>
         Task<PageableModificationResponse> GetConsentsAsync(int limit, DateTime? lastModifiedOn = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get user consents
+        /// Retrieves a pageable list of consents
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of user consents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
         /// <returns>Task of ApiResponse (PageableModificationResponse)</returns>
         Task<ApiResponse<PageableModificationResponse>> GetConsentsWithHttpInfoAsync(int limit, DateTime? lastModifiedOn = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get public client information
+        /// Handles the GET request for public client information
         /// </summary>
         /// <remarks>
-        /// Returns the public information for a client with the ID secified din the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
         /// <returns>Task of ClientInfoResponse</returns>
         Task<ClientInfoResponse> GetPublicClientInfoAsync(string clientId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get public client information
+        /// Handles the GET request for public client information
         /// </summary>
         /// <remarks>
-        /// Returns the public information for a client with the ID secified din the request.
+        /// 
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
         /// <returns>Task of ApiResponse (ClientInfoResponse)</returns>
@@ -569,7 +566,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
         /// <returns>ClientResponse</returns>
         public ClientResponse GetClient(string clientId)
@@ -585,7 +582,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
         /// <returns>ApiResponse of ClientResponse</returns>
         public ApiResponse<ClientResponse> GetClientWithHttpInfo(string clientId)
@@ -609,11 +606,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -638,7 +635,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
         /// <returns>Task of ClientResponse</returns>
@@ -655,7 +652,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Retrieves detailed information about a specific OAuth2 client including its name, description, redirect URIs, and scopes.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client/">REST API Reference for GetClient Operation</seealso>
         /// <returns>Task of ApiResponse (ClientResponse)</returns>
@@ -681,11 +678,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -705,13 +702,13 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get detailed client information
+        /// Retrieves detailed information for a specific client
         /// </summary>
         /// <remarks>
         /// Retrieves the detailed information for a client with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
         /// <returns>ClientInfoResponse</returns>
         public ClientInfoResponse GetClientInfo(string clientId)
@@ -721,13 +718,13 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get detailed client information
+        /// Retrieves detailed information for a specific client
         /// </summary>
         /// <remarks>
         /// Retrieves the detailed information for a client with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
         /// <returns>ApiResponse of ClientInfoResponse</returns>
         public ApiResponse<ClientInfoResponse> GetClientInfoWithHttpInfo(string clientId)
@@ -751,11 +748,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -774,13 +771,13 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get detailed client information
+        /// Retrieves detailed information for a specific client
         /// </summary>
         /// <remarks>
         /// Retrieves the detailed information for a client with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
         /// <returns>Task of ClientInfoResponse</returns>
@@ -791,13 +788,13 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get detailed client information
+        /// Retrieves detailed information for a specific client
         /// </summary>
         /// <remarks>
         /// Retrieves the detailed information for a client with the ID specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-client-info/">REST API Reference for GetClientInfo Operation</seealso>
         /// <returns>Task of ApiResponse (ClientInfoResponse)</returns>
@@ -823,11 +820,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -847,15 +844,15 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get clients
+        /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
         /// <returns>PageableResponse</returns>
         public PageableResponse GetClients(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default)
@@ -865,15 +862,15 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get clients
+        /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
         /// <returns>ApiResponse of PageableResponse</returns>
         public ApiResponse<PageableResponse> GetClientsWithHttpInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default)
@@ -901,11 +898,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_created_on", lastCreatedOn));
             }
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -924,15 +921,15 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get clients
+        /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
         /// <returns>Task of PageableResponse</returns>
@@ -943,15 +940,15 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get clients
+        /// List clients
         /// </summary>
         /// <remarks>
-        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
+        /// Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The ID of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/">REST API Reference for GetClients Operation</seealso>
         /// <returns>Task of ApiResponse (PageableResponse)</returns>
@@ -981,11 +978,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_created_on", lastCreatedOn));
             }
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -1005,15 +1002,15 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get detailed information of clients
+        /// Retrieves a pageable list of client information
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of information for all clients.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
         /// <returns>PageableResponseClientInfoResponse</returns>
         public PageableResponseClientInfoResponse GetClientsInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default)
@@ -1023,15 +1020,15 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get detailed information of clients
+        /// Retrieves a pageable list of client information
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of information for all clients.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
         /// <returns>ApiResponse of PageableResponseClientInfoResponse</returns>
         public ApiResponse<PageableResponseClientInfoResponse> GetClientsInfoWithHttpInfo(int limit, string? lastClientId = default, DateTime? lastCreatedOn = default)
@@ -1059,11 +1056,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_created_on", lastCreatedOn));
             }
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -1082,15 +1079,15 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get detailed information of clients
+        /// Retrieves a pageable list of client information
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of information for all clients.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
         /// <returns>Task of PageableResponseClientInfoResponse</returns>
@@ -1101,15 +1098,15 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get detailed information of clients
+        /// Retrieves a pageable list of client information
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of information for all clients.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastClientId">The identifier of the last retrieved client. (optional)</param>
-        /// <param name="lastCreatedOn">The creation date of the last retrieved client. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastClientId">ID of the last retrieved client (optional)</param>
+        /// <param name="lastCreatedOn">Date of the last retrieved client (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients-info/">REST API Reference for GetClientsInfo Operation</seealso>
         /// <returns>Task of ApiResponse (PageableResponseClientInfoResponse)</returns>
@@ -1139,11 +1136,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_created_on", lastCreatedOn));
             }
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -1163,14 +1160,14 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get user consents
+        /// Retrieves a pageable list of consents
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of user consents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
         /// <returns>PageableModificationResponse</returns>
         public PageableModificationResponse GetConsents(int limit, DateTime? lastModifiedOn = default)
@@ -1180,14 +1177,14 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get user consents
+        /// Retrieves a pageable list of consents
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of user consents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
         /// <returns>ApiResponse of PageableModificationResponse</returns>
         public ApiResponse<PageableModificationResponse> GetConsentsWithHttpInfo(int limit, DateTime? lastModifiedOn = default)
@@ -1211,11 +1208,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_modified_on", lastModifiedOn));
             }
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -1234,14 +1231,14 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get user consents
+        /// Retrieves a pageable list of consents
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of user consents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
         /// <returns>Task of PageableModificationResponse</returns>
@@ -1252,14 +1249,14 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get user consents
+        /// Retrieves a pageable list of consents
         /// </summary>
         /// <remarks>
         /// Retrieves a paginated list of user consents.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The maximum number of results returned per page.</param>
-        /// <param name="lastModifiedOn">The date when the user consent was last modified. (optional)</param>
+        /// <param name="limit">Pagination limit</param>
+        /// <param name="lastModifiedOn">Date of the last retrieved consent (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-consents/">REST API Reference for GetConsents Operation</seealso>
         /// <returns>Task of ApiResponse (PageableModificationResponse)</returns>
@@ -1285,11 +1282,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "last_modified_on", lastModifiedOn));
             }
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -1309,13 +1306,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get public client information
+        /// Handles the GET request for public client information
         /// </summary>
-        /// <remarks>
-        /// Returns the public information for a client with the ID secified din the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
         /// <returns>ClientInfoResponse</returns>
         public ClientInfoResponse GetPublicClientInfo(string clientId)
@@ -1325,13 +1319,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get public client information
+        /// Handles the GET request for public client information
         /// </summary>
-        /// <remarks>
-        /// Returns the public information for a client with the ID secified din the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
         /// <returns>ApiResponse of ClientInfoResponse</returns>
         public ApiResponse<ClientInfoResponse> GetPublicClientInfoWithHttpInfo(string clientId)
@@ -1372,13 +1363,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get public client information
+        /// Handles the GET request for public client information
         /// </summary>
-        /// <remarks>
-        /// Returns the public information for a client with the ID secified din the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
         /// <returns>Task of ClientInfoResponse</returns>
@@ -1389,13 +1377,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get public client information
+        /// Handles the GET request for public client information
         /// </summary>
-        /// <remarks>
-        /// Returns the public information for a client with the ID secified din the request.
-        /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to retrieve</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/">REST API Reference for GetPublicClientInfo Operation</seealso>
         /// <returns>Task of ApiResponse (ClientInfoResponse)</returns>

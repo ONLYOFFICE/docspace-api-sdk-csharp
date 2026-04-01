@@ -84,7 +84,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="vectorization">vectorization.</param>
         /// <param name="askAi">askAi.</param>
         /// <param name="useChat">useChat.</param>
-        public FileEntryDtoIntegerAllOfSecurity(bool read = default, bool comment = default, bool fillForms = default, bool review = default, bool create = default, bool createFrom = default, bool edit = default, bool delete = default, bool customFilter = default, bool editRoom = default, bool rename = default, bool readHistory = default, bool @lock = default, bool editHistory = default, bool copyTo = default, bool copy = default, bool moveTo = default, bool move = default, bool pin = default, bool mute = default, bool editAccess = default, bool duplicate = default, bool submitToFormGallery = default, bool download = default, bool convert = default, bool copySharedLink = default, bool readLinks = default, bool reconnect = default, bool createRoomFrom = default, bool copyLink = default, bool embed = default, bool changeOwner = default, bool indexExport = default, bool startFilling = default, bool fillingStatus = default, bool resetFilling = default, bool stopFilling = default, bool openForm = default, bool editInternal = default, bool editExpiration = default, bool vectorization = default, bool askAi = default, bool useChat = default)
+        /// <param name="updateXlsx">updateXlsx.</param>
+        public FileEntryDtoIntegerAllOfSecurity(bool read = default, bool comment = default, bool fillForms = default, bool review = default, bool create = default, bool createFrom = default, bool edit = default, bool delete = default, bool customFilter = default, bool editRoom = default, bool rename = default, bool readHistory = default, bool @lock = default, bool editHistory = default, bool copyTo = default, bool copy = default, bool moveTo = default, bool move = default, bool pin = default, bool mute = default, bool editAccess = default, bool duplicate = default, bool submitToFormGallery = default, bool download = default, bool convert = default, bool copySharedLink = default, bool readLinks = default, bool reconnect = default, bool createRoomFrom = default, bool copyLink = default, bool embed = default, bool changeOwner = default, bool indexExport = default, bool startFilling = default, bool fillingStatus = default, bool resetFilling = default, bool stopFilling = default, bool openForm = default, bool editInternal = default, bool editExpiration = default, bool vectorization = default, bool askAi = default, bool useChat = default, bool updateXlsx = default)
         {
             this.Read = read;
             this.Comment = comment;
@@ -129,6 +130,7 @@ namespace DocSpace.API.SDK.Model
             this.Vectorization = vectorization;
             this.AskAi = askAi;
             this.UseChat = useChat;
+            this.UpdateXlsx = updateXlsx;
         }
 
         /// <summary>
@@ -390,6 +392,12 @@ namespace DocSpace.API.SDK.Model
         public bool UseChat { get; set; }
 
         /// <summary>
+        /// Gets or Sets UpdateXlsx
+        /// </summary>
+        [DataMember(Name = "UpdateXlsx", EmitDefaultValue = true)]
+        public bool UpdateXlsx { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -440,6 +448,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Vectorization: ").Append(Vectorization).Append("\n");
             sb.Append("  AskAi: ").Append(AskAi).Append("\n");
             sb.Append("  UseChat: ").Append(UseChat).Append("\n");
+            sb.Append("  UpdateXlsx: ").Append(UpdateXlsx).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
