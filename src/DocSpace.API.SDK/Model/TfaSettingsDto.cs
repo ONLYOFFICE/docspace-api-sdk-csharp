@@ -49,11 +49,11 @@ namespace DocSpace.API.SDK.Model
         /// <param name="id">The ID of the TFA configuration. (required).</param>
         /// <param name="title">The display name or description of the TFA configuration. (required).</param>
         /// <param name="enabled">Indicates whether the TFA configuration is currently active. (required).</param>
-        /// <param name="avaliable">Indicates whether the TFA configuration can be used. (required).</param>
+        /// <param name="available">Indicates whether the TFA configuration can be used. (required).</param>
         /// <param name="trustedIps">The list of IP addresses that are exempt from TFA requirements..</param>
         /// <param name="mandatoryUsers">The list of user IDs that are required to use TFA..</param>
         /// <param name="mandatoryGroups">The list of group IDs whose members are required to use TFA..</param>
-        public TfaSettingsDto(string id = default, string title = default, bool enabled = default, bool avaliable = default, List<string> trustedIps = default, List<Guid> mandatoryUsers = default, List<Guid> mandatoryGroups = default)
+        public TfaSettingsDto(string id = default, string title = default, bool enabled = default, bool available = default, List<string> trustedIps = default, List<Guid> mandatoryUsers = default, List<Guid> mandatoryGroups = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -68,7 +68,7 @@ namespace DocSpace.API.SDK.Model
             }
             this.Title = title;
             this.Enabled = enabled;
-            this.Avaliable = avaliable;
+            this.Available = available;
             this.TrustedIps = trustedIps;
             this.MandatoryUsers = mandatoryUsers;
             this.MandatoryGroups = mandatoryGroups;
@@ -111,8 +111,8 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>true</example>
         */
-        [DataMember(Name = "avaliable", IsRequired = true, EmitDefaultValue = true)]
-        public bool Avaliable { get; set; }
+        [DataMember(Name = "available", IsRequired = true, EmitDefaultValue = true)]
+        public bool Available { get; set; }
 
         /// <summary>
         /// The list of IP addresses that are exempt from TFA requirements.
@@ -155,7 +155,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  Avaliable: ").Append(Avaliable).Append("\n");
+            sb.Append("  Available: ").Append(Available).Append("\n");
             sb.Append("  TrustedIps: ").Append(TrustedIps).Append("\n");
             sb.Append("  MandatoryUsers: ").Append(MandatoryUsers).Append("\n");
             sb.Append("  MandatoryGroups: ").Append(MandatoryGroups).Append("\n");

@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **Debit** | **double** | The debit amount of the operation. | [optional] 
 **ParticipantName** | **string** | The participant original name. | [optional] 
 **ParticipantDisplayName** | **string** | The participant display name. | [optional] 
+**AgentId** | **string** | AI Agent id. | [optional] 
+**AgentTitle** | **string** | AI Agent name. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

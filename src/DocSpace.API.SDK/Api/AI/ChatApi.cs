@@ -86,10 +86,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
-        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
+        /// <param name="exportChatRequestBody">The export parameters including destination folder and file title.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns></returns>
-        void ExportChat(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger);
+        void ExportChat(Guid chatId, ExportChatRequestBody exportChatRequestBody);
 
         /// <summary>
         /// Export AI chat messages to a file
@@ -99,10 +99,10 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
-        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
+        /// <param name="exportChatRequestBody">The export parameters including destination folder and file title.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> ExportChatWithHttpInfo(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger);
+        ApiResponse<Object> ExportChatWithHttpInfo(Guid chatId, ExportChatRequestBody exportChatRequestBody);
         /// <summary>
         /// Get an AI chat by ID
         /// </summary>
@@ -395,11 +395,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
-        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
+        /// <param name="exportChatRequestBody">The export parameters including destination folder and file title.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns>Task of void</returns>
-        Task ExportChatAsync(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger, CancellationToken cancellationToken = default);
+        Task ExportChatAsync(Guid chatId, ExportChatRequestBody exportChatRequestBody, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Export AI chat messages to a file
@@ -409,11 +409,11 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
-        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
+        /// <param name="exportChatRequestBody">The export parameters including destination folder and file title.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> ExportChatWithHttpInfoAsync(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger, CancellationToken cancellationToken = default);
+        Task<ApiResponse<Object>> ExportChatWithHttpInfoAsync(Guid chatId, ExportChatRequestBody exportChatRequestBody, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get an AI chat by ID
         /// </summary>
@@ -1252,12 +1252,12 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
-        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
+        /// <param name="exportChatRequestBody">The export parameters including destination folder and file title.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns></returns>
-        public void ExportChat(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger)
+        public void ExportChat(Guid chatId, ExportChatRequestBody exportChatRequestBody)
         {
-            ExportChatWithHttpInfo(chatId, exportChatRequestBodyInteger);
+            ExportChatWithHttpInfo(chatId, exportChatRequestBody);
         }
 
         /// <summary>
@@ -1268,14 +1268,14 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
-        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
+        /// <param name="exportChatRequestBody">The export parameters including destination folder and file title.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> ExportChatWithHttpInfo(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger)
+        public ApiResponse<Object> ExportChatWithHttpInfo(Guid chatId, ExportChatRequestBody exportChatRequestBody)
         {
-            // verify the required parameter 'exportChatRequestBodyInteger' is set
-            if (exportChatRequestBodyInteger == null)
-                throw new ApiException(400, "Missing required parameter 'exportChatRequestBodyInteger' when calling ChatApi->ExportChat");
+            // verify the required parameter 'exportChatRequestBody' is set
+            if (exportChatRequestBody == null)
+                throw new ApiException(400, "Missing required parameter 'exportChatRequestBody' when calling ChatApi->ExportChat");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1291,7 +1291,7 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("chatId", ClientUtils.ParameterToString(chatId)); // path parameter
-            if (exportChatRequestBodyInteger != null) localVarRequestOptions.Data = exportChatRequestBodyInteger;
+            if (exportChatRequestBody != null) localVarRequestOptions.Data = exportChatRequestBody;
 
             // authentication (Basic) required
             // http basic authentication required
@@ -1347,13 +1347,13 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
-        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
+        /// <param name="exportChatRequestBody">The export parameters including destination folder and file title.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns>Task of void</returns>
-        public async Task ExportChatAsync(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger, CancellationToken cancellationToken = default)
+        public async Task ExportChatAsync(Guid chatId, ExportChatRequestBody exportChatRequestBody, CancellationToken cancellationToken = default)
         {
-            await ExportChatWithHttpInfoAsync(chatId, exportChatRequestBodyInteger, cancellationToken).ConfigureAwait(false);
+            await ExportChatWithHttpInfoAsync(chatId, exportChatRequestBody, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -1364,15 +1364,15 @@ namespace DocSpace.API.SDK.Api.AI
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="chatId">The unique identifier of the AI chat session to export.</param>
-        /// <param name="exportChatRequestBodyInteger">The export parameters including destination folder and file title.</param>
+        /// <param name="exportChatRequestBody">The export parameters including destination folder and file title.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/export-chat/">REST API Reference for ExportChat Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> ExportChatWithHttpInfoAsync(Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<Object>> ExportChatWithHttpInfoAsync(Guid chatId, ExportChatRequestBody exportChatRequestBody, CancellationToken cancellationToken = default)
         {
-            // verify the required parameter 'exportChatRequestBodyInteger' is set
-            if (exportChatRequestBodyInteger == null)
-                throw new ApiException(400, "Missing required parameter 'exportChatRequestBodyInteger' when calling ChatApi->ExportChat");
+            // verify the required parameter 'exportChatRequestBody' is set
+            if (exportChatRequestBody == null)
+                throw new ApiException(400, "Missing required parameter 'exportChatRequestBody' when calling ChatApi->ExportChat");
 
             var localVarRequestOptions = new RequestOptions();
 
@@ -1389,7 +1389,7 @@ namespace DocSpace.API.SDK.Api.AI
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("chatId", ClientUtils.ParameterToString(chatId)); // path parameter
-            if (exportChatRequestBodyInteger != null) localVarRequestOptions.Data = exportChatRequestBodyInteger;
+            if (exportChatRequestBody != null) localVarRequestOptions.Data = exportChatRequestBody;
 
             // authentication (Basic) required
             // http basic authentication required
