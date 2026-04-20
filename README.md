@@ -133,6 +133,18 @@ Authentication schemes defined for the API:
 
 
 
+## Rate Limiting
+
+All API responses may include the following rate limiting headers:
+
+| Header | Description |
+|--------|-------------|
+| `X-RateLimit-Limit` | Sliding window rate limit: 1500 requests per minute per user/IP. |
+| `X-RateLimit-Remaining` | Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. |
+| `X-RateLimit-Reset` | Unix timestamp (seconds) when the current sliding window rate limit resets. |
+| `Retry-After` | Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). |
+
+
 <a id="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
@@ -3799,15 +3811,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.FeedbackConfig](docs/FeedbackConfig.md)
  - [Model.FileConflictResolveType](docs/FileConflictResolveType.md)
  - [Model.FileDtoInteger](docs/FileDtoInteger.md)
- - [Model.FileDtoIntegerAllOfViewAccessibility](docs/FileDtoIntegerAllOfViewAccessibility.md)
+ - [Model.FileDtoIntegerViewAccessibility](docs/FileDtoIntegerViewAccessibility.md)
  - [Model.FileEntryBaseArrayWrapper](docs/FileEntryBaseArrayWrapper.md)
  - [Model.FileEntryBaseDto](docs/FileEntryBaseDto.md)
  - [Model.FileEntryBaseWrapper](docs/FileEntryBaseWrapper.md)
  - [Model.FileEntryDtoInteger](docs/FileEntryDtoInteger.md)
- - [Model.FileEntryDtoIntegerAllOfAvailableShareRights](docs/FileEntryDtoIntegerAllOfAvailableShareRights.md)
- - [Model.FileEntryDtoIntegerAllOfSecurity](docs/FileEntryDtoIntegerAllOfSecurity.md)
- - [Model.FileEntryDtoIntegerAllOfShareSettings](docs/FileEntryDtoIntegerAllOfShareSettings.md)
- - [Model.FileEntryDtoString](docs/FileEntryDtoString.md)
  - [Model.FileEntryIntegerArrayWrapper](docs/FileEntryIntegerArrayWrapper.md)
  - [Model.FileEntryType](docs/FileEntryType.md)
  - [Model.FileIntegerArrayWrapper](docs/FileIntegerArrayWrapper.md)
@@ -3851,6 +3859,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.FolderContentIntegerArrayWrapper](docs/FolderContentIntegerArrayWrapper.md)
  - [Model.FolderContentIntegerWrapper](docs/FolderContentIntegerWrapper.md)
  - [Model.FolderDtoInteger](docs/FolderDtoInteger.md)
+ - [Model.FolderDtoIntegerAvailableShareRights](docs/FolderDtoIntegerAvailableShareRights.md)
+ - [Model.FolderDtoIntegerSecurity](docs/FolderDtoIntegerSecurity.md)
+ - [Model.FolderDtoIntegerShareSettings](docs/FolderDtoIntegerShareSettings.md)
  - [Model.FolderDtoString](docs/FolderDtoString.md)
  - [Model.FolderIntegerArrayWrapper](docs/FolderIntegerArrayWrapper.md)
  - [Model.FolderIntegerWrapper](docs/FolderIntegerWrapper.md)
