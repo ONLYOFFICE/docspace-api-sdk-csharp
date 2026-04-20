@@ -241,7 +241,7 @@ catch (ApiException e)
 
 <a id="exportchat"></a>
 # **ExportChat**
-> void ExportChat (Guid chatId, ExportChatRequestBodyInteger exportChatRequestBodyInteger)
+> void ExportChat (Guid chatId, ExportChatRequestBody exportChatRequestBody)
 
 Exports the entire message history of an AI chat session and saves it as a document in the specified folder.  The exported file is created with the provided title. Only the chat owner can export their own chat sessions.
 
@@ -252,7 +252,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **chatId** | **Guid** | The unique identifier of the AI chat session to export. |  |
-| **exportChatRequestBodyInteger** | [**ExportChatRequestBodyInteger**](ExportChatRequestBodyInteger.md) | The export parameters including destination folder and file title. |  |
+| **exportChatRequestBody** | [**ExportChatRequestBody**](ExportChatRequestBody.md) | The export parameters including destination folder and file title. |  |
 
 ### Return type
 
@@ -300,12 +300,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ChatApi(httpClient, config, httpClientHandler);
             var chatId = 00000000-0000-0000-0000-000000000000;  // Guid | The unique identifier of the AI chat session to export.
-            var exportChatRequestBodyInteger = new ExportChatRequestBodyInteger(); // ExportChatRequestBodyInteger | The export parameters including destination folder and file title.
+            var exportChatRequestBody = new ExportChatRequestBody(); // ExportChatRequestBody | The export parameters including destination folder and file title.
 
             try
             {
                 // Export AI chat messages to a file
-                apiInstance.ExportChat(chatId, exportChatRequestBodyInteger);
+                apiInstance.ExportChat(chatId, exportChatRequestBody);
             }
             catch (ApiException  e)
             {
@@ -325,7 +325,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Export AI chat messages to a file
-    apiInstance.ExportChatWithHttpInfo(chatId, exportChatRequestBodyInteger);
+    apiInstance.ExportChatWithHttpInfo(chatId, exportChatRequestBody);
 }
 catch (ApiException e)
 {

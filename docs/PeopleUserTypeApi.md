@@ -230,6 +230,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Update type progress |  -  |
 | **400** | Can not update user type |  -  |
+| **403** | Access denied |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

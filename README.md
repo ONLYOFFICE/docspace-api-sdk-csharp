@@ -361,9 +361,19 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get the default AI provider</td>
       </tr>
       <tr>
+        <td><a href="docs/AIProvidersApi.md#getprovidermodels"><strong>GetProviderModels</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/providers/{providerId}/models</td>
+        <td>Get all models for a provider with their settings</td>
+      </tr>
+      <tr>
         <td><a href="docs/AIProvidersApi.md#getproviders"><strong>GetProviders</strong></a></td>
         <td><strong>GET</strong> /api/2.0/ai/providers</td>
         <td>Get AI providers</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIProvidersApi.md#previewprovidermodels"><strong>PreviewProviderModels</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/providers/models/preview</td>
+        <td>Preview models for a new AI provider</td>
       </tr>
       <tr>
         <td><a href="docs/AIProvidersApi.md#setdefaultprovider"><strong>SetDefaultProvider</strong></a></td>
@@ -790,6 +800,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/FilesFilesApi.md#getreferencedata"><strong>GetReferenceData</strong></a></td>
         <td><strong>POST</strong> /api/2.0/files/file/referencedata</td>
         <td>Get reference data</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesFilesApi.md#getxlsx"><strong>GetXlsx</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/file/{fileId}/xlsx</td>
+        <td>Get XLSX report generation status</td>
       </tr>
       <tr>
         <td><a href="docs/FilesFilesApi.md#isformpdf"><strong>IsFormPDF</strong></a></td>
@@ -3350,9 +3365,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get the TFA codes</td>
       </tr>
       <tr>
-        <td><a href="docs/SettingsTFASettingsApi.md#gettfaconfirmurl"><strong>GetTfaConfirmUrl</strong></a></td>
+        <td><a href="docs/SettingsTFASettingsApi.md#gettfaconfirmdata"><strong>GetTfaConfirmData</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/tfaapp/confirm</td>
-        <td>Get confirmation email</td>
+        <td>Get TFA confirmation data</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsTFASettingsApi.md#gettfasettings"><strong>GetTfaSettings</strong></a></td>
@@ -3387,7 +3402,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/SettingsTFASettingsApi.md#updatetfasettingslink"><strong>UpdateTfaSettingsLink</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/settings/tfaappwithlink</td>
-        <td>Get a confirmation email for updating TFA settings</td>
+        <td>Updates TFA settings</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>TelegramApi</strong></td>
@@ -3537,6 +3552,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.AiChatPrice](docs/AiChatPrice.md)
  - [Model.AiEmbeddingModelPricing](docs/AiEmbeddingModelPricing.md)
  - [Model.AiEmbeddingPrice](docs/AiEmbeddingPrice.md)
+ - [Model.AiModelCapabilities](docs/AiModelCapabilities.md)
  - [Model.AiPricesResponse](docs/AiPricesResponse.md)
  - [Model.AiPricesResponseWrapper](docs/AiPricesResponseWrapper.md)
  - [Model.AiProviderArrayWrapper](docs/AiProviderArrayWrapper.md)
@@ -3771,8 +3787,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.EngineType](docs/EngineType.md)
  - [Model.EntryType](docs/EntryType.md)
  - [Model.ExchangeToken200Response](docs/ExchangeToken200Response.md)
- - [Model.ExportChatRequestBodyInteger](docs/ExportChatRequestBodyInteger.md)
- - [Model.ExportMessageRequestBodyInteger](docs/ExportMessageRequestBodyInteger.md)
+ - [Model.ExportChatRequestBody](docs/ExportChatRequestBody.md)
+ - [Model.ExportChatRequestBodyFolderId](docs/ExportChatRequestBodyFolderId.md)
+ - [Model.ExportMessageRequestBody](docs/ExportMessageRequestBody.md)
  - [Model.ExternalDatabaseSettings](docs/ExternalDatabaseSettings.md)
  - [Model.ExternalDatabaseType](docs/ExternalDatabaseType.md)
  - [Model.ExternalShareDto](docs/ExternalShareDto.md)
@@ -3952,6 +3969,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.MobileRequestsDto](docs/MobileRequestsDto.md)
  - [Model.ModelArrayWrapper](docs/ModelArrayWrapper.md)
  - [Model.ModelDto](docs/ModelDto.md)
+ - [Model.ModelSettingsArrayWrapper](docs/ModelSettingsArrayWrapper.md)
+ - [Model.ModelSettingsDto](docs/ModelSettingsDto.md)
+ - [Model.ModelSettingsItemDto](docs/ModelSettingsItemDto.md)
  - [Model.Module](docs/Module.md)
  - [Model.ModuleWrapper](docs/ModuleWrapper.md)
  - [Model.MultiSizeLogoCover](docs/MultiSizeLogoCover.md)
@@ -4003,6 +4023,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.PermissionsConfig](docs/PermissionsConfig.md)
  - [Model.PluginsConfig](docs/PluginsConfig.md)
  - [Model.PluginsDto](docs/PluginsDto.md)
+ - [Model.PreviewProviderModelsRequestDto](docs/PreviewProviderModelsRequestDto.md)
  - [Model.PriceDto](docs/PriceDto.md)
  - [Model.ProblemDetail](docs/ProblemDetail.md)
  - [Model.ProductAdministratorDto](docs/ProductAdministratorDto.md)
@@ -4090,7 +4111,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.SettingsWrapper](docs/SettingsWrapper.md)
  - [Model.SetupCode](docs/SetupCode.md)
  - [Model.SetupCodeWrapper](docs/SetupCodeWrapper.md)
- - [Model.SexEnum](docs/SexEnum.md)
  - [Model.ShareFilterType](docs/ShareFilterType.md)
  - [Model.SignupAccountRequestDto](docs/SignupAccountRequestDto.md)
  - [Model.Size](docs/Size.md)
@@ -4180,6 +4200,10 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.TenantWalletSettingsWrapper](docs/TenantWalletSettingsWrapper.md)
  - [Model.TenantWrapper](docs/TenantWrapper.md)
  - [Model.TerminateRequestDto](docs/TerminateRequestDto.md)
+ - [Model.TfaAppCodeArrayWrapper](docs/TfaAppCodeArrayWrapper.md)
+ - [Model.TfaAppCodeDto](docs/TfaAppCodeDto.md)
+ - [Model.TfaConfirmDataDto](docs/TfaConfirmDataDto.md)
+ - [Model.TfaConfirmDataWrapper](docs/TfaConfirmDataWrapper.md)
  - [Model.TfaRequestsDto](docs/TfaRequestsDto.md)
  - [Model.TfaRequestsDtoType](docs/TfaRequestsDtoType.md)
  - [Model.TfaSettingsArrayWrapper](docs/TfaSettingsArrayWrapper.md)
@@ -4271,5 +4295,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.WizardRequestsDto](docs/WizardRequestsDto.md)
  - [Model.WizardSettings](docs/WizardSettings.md)
  - [Model.WizardSettingsWrapper](docs/WizardSettingsWrapper.md)
+ - [Model.XlsxReportResponseDto](docs/XlsxReportResponseDto.md)
+ - [Model.XlsxReportResponseWrapper](docs/XlsxReportResponseWrapper.md)
 
 </details>

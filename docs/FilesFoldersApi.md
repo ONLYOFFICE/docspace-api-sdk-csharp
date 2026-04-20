@@ -607,7 +607,7 @@ catch (ApiException e)
 
 <a id="generatexlsxbyfolder"></a>
 # **GenerateXlsxByFolder**
-> FileIntegerWrapper GenerateXlsxByFolder (int folderId)
+> XlsxReportResponseWrapper GenerateXlsxByFolder (int folderId)
 
 Triggers asynchronous XLSX report generation for the specified form results folder.
 
@@ -621,7 +621,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Return type
 
-[**FileIntegerWrapper**](FileIntegerWrapper.md)
+[**XlsxReportResponseWrapper**](XlsxReportResponseWrapper.md)
 
 ### Authorization
 
@@ -669,7 +669,7 @@ namespace Example
             try
             {
                 // Generate XLSX report by folder
-                FileIntegerWrapper result = apiInstance.GenerateXlsxByFolder(folderId);
+                XlsxReportResponseWrapper result = apiInstance.GenerateXlsxByFolder(folderId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -690,7 +690,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Generate XLSX report by folder
-    ApiResponse<FileIntegerWrapper> response = apiInstance.GenerateXlsxByFolderWithHttpInfo(folderId);
+    ApiResponse<XlsxReportResponseWrapper> response = apiInstance.GenerateXlsxByFolderWithHttpInfo(folderId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -712,9 +712,9 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Original form file information |  -  |
+| **200** | Ok |  -  |
 | **403** | You do not have enough permissions to perform this action |  -  |
-| **404** | Form results folder not found |  -  |
+| **404** | The required folder was not found |  -  |
 | **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

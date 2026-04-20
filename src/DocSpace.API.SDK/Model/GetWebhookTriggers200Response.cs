@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="links">List of links related to the response.</param>
         /// <param name="status">HTTP status code of the response.</param>
         /// <param name="statusCode">HTTP status code of the response (duplicate of status).</param>
-        public GetWebhookTriggers200Response(Dictionary<string, int> response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
+        public GetWebhookTriggers200Response(Dictionary<string, long> response = default, int count = default, List<GetPortalPrices200ResponseLinksInner> links = default, int status = default, int statusCode = default)
         {
             this.Response = response;
             this.Count = count;
@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// Gets or Sets Response
         /// </summary>
         [DataMember(Name = "response", EmitDefaultValue = false)]
-        public Dictionary<string, int> Response { get; set; }
+        public Dictionary<string, long> Response { get; set; }
 
         /// <summary>
         /// The total number of items in the response

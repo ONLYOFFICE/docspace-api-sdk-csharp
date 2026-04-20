@@ -8,7 +8,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="exportmessage"></a>
 # **ExportMessage**
-> void ExportMessage (int messageId, ExportMessageRequestBodyInteger exportMessageRequestBodyInteger)
+> void ExportMessage (int messageId, ExportMessageRequestBody exportMessageRequestBody)
 
 Exports a specific AI chat message as a document into the specified folder. The system verifies that the message exists  and belongs to a chat accessible by the current user, then publishes an asynchronous export task to the event bus.  The exported document will be created in the target folder with the given title once the background task completes.
 
@@ -19,7 +19,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **messageId** | **int** | The unique identifier of the AI chat message to export. |  |
-| **exportMessageRequestBodyInteger** | [**ExportMessageRequestBodyInteger**](ExportMessageRequestBodyInteger.md) | The export parameters including destination folder and file title. |  |
+| **exportMessageRequestBody** | [**ExportMessageRequestBody**](ExportMessageRequestBody.md) | The export parameters including destination folder and file title. |  |
 
 ### Return type
 
@@ -67,12 +67,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new MessagesApi(httpClient, config, httpClientHandler);
             var messageId = 1;  // int | The unique identifier of the AI chat message to export.
-            var exportMessageRequestBodyInteger = new ExportMessageRequestBodyInteger(); // ExportMessageRequestBodyInteger | The export parameters including destination folder and file title.
+            var exportMessageRequestBody = new ExportMessageRequestBody(); // ExportMessageRequestBody | The export parameters including destination folder and file title.
 
             try
             {
                 // Export a single AI message to a document
-                apiInstance.ExportMessage(messageId, exportMessageRequestBodyInteger);
+                apiInstance.ExportMessage(messageId, exportMessageRequestBody);
             }
             catch (ApiException  e)
             {
@@ -92,7 +92,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Export a single AI message to a document
-    apiInstance.ExportMessageWithHttpInfo(messageId, exportMessageRequestBodyInteger);
+    apiInstance.ExportMessageWithHttpInfo(messageId, exportMessageRequestBody);
 }
 catch (ApiException e)
 {

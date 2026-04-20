@@ -66,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file to be uploaded.</value>
         /*
-        <example>[B@2bc12da</example>
+        <example>[B@58faa93b</example>
         */
         [DataMember(Name = "file", EmitDefaultValue = true)]
         public FileParameter File { get; set; }
@@ -128,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The request input stream.</value>
         /*
-        <example>[B@3122b117</example>
+        <example>[B@5f212d84</example>
         */
         [DataMember(Name = "stream", EmitDefaultValue = true)]
         public FileParameter Stream { get; set; }

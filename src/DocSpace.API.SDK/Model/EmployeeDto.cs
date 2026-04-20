@@ -43,7 +43,6 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="id">The user ID..</param>
         /// <param name="displayName">The HTML-encoded user's display name formatted according to the default format for the current culture..</param>
-        /// <param name="title">The user title..</param>
         /// <param name="avatar">The user avatar..</param>
         /// <param name="avatarOriginal">The user original size avatar..</param>
         /// <param name="avatarMax">The user maximum size avatar..</param>
@@ -52,11 +51,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="profileUrl">The user profile URL..</param>
         /// <param name="hasAvatar">Specifies if the user has an avatar or not..</param>
         /// <param name="isAnonim">Specifies if the user is anonymous or not..</param>
-        public EmployeeDto(Guid id = default, string displayName = default, string title = default, string avatar = default, string avatarOriginal = default, string avatarMax = default, string avatarMedium = default, string avatarSmall = default, string profileUrl = default, bool hasAvatar = default, bool isAnonim = default)
+        public EmployeeDto(Guid id = default, string displayName = default, string avatar = default, string avatarOriginal = default, string avatarMax = default, string avatarMedium = default, string avatarSmall = default, string profileUrl = default, bool hasAvatar = default, bool isAnonim = default)
         {
             this.Id = id;
             this.DisplayName = displayName;
-            this.Title = title;
             this.Avatar = avatar;
             this.AvatarOriginal = avatarOriginal;
             this.AvatarMax = avatarMax;
@@ -86,16 +84,6 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "displayName", EmitDefaultValue = true)]
         public string DisplayName { get; set; }
-
-        /// <summary>
-        /// The user title.
-        /// </summary>
-        /// <value>The user title.</value>
-        /*
-        <example>Manager</example>
-        */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
-        public string Title { get; set; }
 
         /// <summary>
         /// The user avatar.
@@ -187,7 +175,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class EmployeeDto {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Avatar: ").Append(Avatar).Append("\n");
             sb.Append("  AvatarOriginal: ").Append(AvatarOriginal).Append("\n");
             sb.Append("  AvatarMax: ").Append(AvatarMax).Append("\n");

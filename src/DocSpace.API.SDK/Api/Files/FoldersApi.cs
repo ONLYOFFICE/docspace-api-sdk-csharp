@@ -162,8 +162,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
-        /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper GenerateXlsxByFolder(int folderId);
+        /// <returns>XlsxReportResponseWrapper</returns>
+        XlsxReportResponseWrapper GenerateXlsxByFolder(int folderId);
 
         /// <summary>
         /// Generate XLSX report by folder
@@ -174,8 +174,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
-        /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> GenerateXlsxByFolderWithHttpInfo(int folderId);
+        /// <returns>ApiResponse of XlsxReportResponseWrapper</returns>
+        ApiResponse<XlsxReportResponseWrapper> GenerateXlsxByFolderWithHttpInfo(int folderId);
         /// <summary>
         /// Get the Favorites section
         /// </summary>
@@ -1039,8 +1039,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
-        /// <returns>Task of FileIntegerWrapper</returns>
-        Task<FileIntegerWrapper> GenerateXlsxByFolderAsync(int folderId, CancellationToken cancellationToken = default);
+        /// <returns>Task of XlsxReportResponseWrapper</returns>
+        Task<XlsxReportResponseWrapper> GenerateXlsxByFolderAsync(int folderId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Generate XLSX report by folder
@@ -1052,8 +1052,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
-        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        Task<ApiResponse<FileIntegerWrapper>> GenerateXlsxByFolderWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (XlsxReportResponseWrapper)</returns>
+        Task<ApiResponse<XlsxReportResponseWrapper>> GenerateXlsxByFolderWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the Favorites section
         /// </summary>
@@ -3021,8 +3021,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
-        /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper GenerateXlsxByFolder(int folderId)
+        /// <returns>XlsxReportResponseWrapper</returns>
+        public XlsxReportResponseWrapper GenerateXlsxByFolder(int folderId)
         {
             var localVarResponse = GenerateXlsxByFolderWithHttpInfo(folderId);
             return localVarResponse.Data;
@@ -3037,8 +3037,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
-        /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public ApiResponse<FileIntegerWrapper> GenerateXlsxByFolderWithHttpInfo(int folderId)
+        /// <returns>ApiResponse of XlsxReportResponseWrapper</returns>
+        public ApiResponse<XlsxReportResponseWrapper> GenerateXlsxByFolderWithHttpInfo(int folderId)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3087,7 +3087,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<FileIntegerWrapper>("/api/2.0/files/folder/{folderId}/xlsx", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<XlsxReportResponseWrapper>("/api/2.0/files/folder/{folderId}/xlsx", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3111,8 +3111,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
-        /// <returns>Task of FileIntegerWrapper</returns>
-        public async Task<FileIntegerWrapper> GenerateXlsxByFolderAsync(int folderId, CancellationToken cancellationToken = default)
+        /// <returns>Task of XlsxReportResponseWrapper</returns>
+        public async Task<XlsxReportResponseWrapper> GenerateXlsxByFolderAsync(int folderId, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GenerateXlsxByFolderWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3128,8 +3128,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="folderId">The folder unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
-        /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async Task<ApiResponse<FileIntegerWrapper>> GenerateXlsxByFolderWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (XlsxReportResponseWrapper)</returns>
+        public async Task<ApiResponse<XlsxReportResponseWrapper>> GenerateXlsxByFolderWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3180,7 +3180,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<FileIntegerWrapper>("/api/2.0/files/folder/{folderId}/xlsx", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<XlsxReportResponseWrapper>("/api/2.0/files/folder/{folderId}/xlsx", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

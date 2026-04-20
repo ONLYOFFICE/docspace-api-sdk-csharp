@@ -49,9 +49,11 @@ namespace DocSpace.API.SDK.Model
         /// <param name="providerId">The unique identifier of the AI provider that offers this model..</param>
         /// <param name="providerTitle">The human-readable display name of the AI provider (e.g., OpenAI, Anthropic). (required).</param>
         /// <param name="modelId">The model identifier as recognized by the AI provider (e.g., gpt-4o, claude-sonnet-4-20250514). (required).</param>
+        /// <param name="alias">The display name for the model..</param>
+        /// <param name="capabilities">capabilities.</param>
         /// <param name="price">price.</param>
         /// <param name="currency">currency.</param>
-        public ModelDto(int providerId = default, string providerTitle = default, string modelId = default, AiChatPrice price = default, CurrencyInfo currency = default)
+        public ModelDto(int providerId = default, string providerTitle = default, string modelId = default, string alias = default, AiModelCapabilities capabilities = default, AiChatPrice price = default, CurrencyInfo currency = default)
         {
             // to ensure "providerTitle" is required (not null)
             if (providerTitle == null)
@@ -66,6 +68,8 @@ namespace DocSpace.API.SDK.Model
             }
             this.ModelId = modelId;
             this.ProviderId = providerId;
+            this.Alias = alias;
+            this.Capabilities = capabilities;
             this.Price = price;
             this.Currency = currency;
         }
@@ -101,6 +105,22 @@ namespace DocSpace.API.SDK.Model
         public string ModelId { get; set; }
 
         /// <summary>
+        /// The display name for the model.
+        /// </summary>
+        /// <value>The display name for the model.</value>
+        /*
+        <example>GPT-4o</example>
+        */
+        [DataMember(Name = "alias", EmitDefaultValue = true)]
+        public string Alias { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Capabilities
+        /// </summary>
+        [DataMember(Name = "capabilities", EmitDefaultValue = false)]
+        public AiModelCapabilities Capabilities { get; set; }
+
+        /// <summary>
         /// Gets or Sets Price
         /// </summary>
         [DataMember(Name = "price", EmitDefaultValue = false)]
@@ -123,6 +143,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ProviderId: ").Append(ProviderId).Append("\n");
             sb.Append("  ProviderTitle: ").Append(ProviderTitle).Append("\n");
             sb.Append("  ModelId: ").Append(ModelId).Append("\n");
+            sb.Append("  Alias: ").Append(Alias).Append("\n");
+            sb.Append("  Capabilities: ").Append(Capabilities).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");

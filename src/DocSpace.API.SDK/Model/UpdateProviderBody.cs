@@ -44,11 +44,13 @@ namespace DocSpace.API.SDK.Model
         /// <param name="title">The new display title for the AI provider. If null, the title is not changed..</param>
         /// <param name="url">The new API endpoint URL for the AI provider. If null, the URL is not changed..</param>
         /// <param name="key">The new authentication API key for the AI provider. If null, the key is not changed..</param>
-        public UpdateProviderBody(string title = default, string url = default, string key = default)
+        /// <param name="modelSettings">Optional list of model settings changes to apply atomically with the provider update..</param>
+        public UpdateProviderBody(string title = default, string url = default, string key = default, List<ModelSettingsItemDto> modelSettings = default)
         {
             this.Title = title;
             this.Url = url;
             this.Key = key;
+            this.ModelSettings = modelSettings;
         }
 
         /// <summary>
@@ -82,6 +84,13 @@ namespace DocSpace.API.SDK.Model
         public string Key { get; set; }
 
         /// <summary>
+        /// Optional list of model settings changes to apply atomically with the provider update.
+        /// </summary>
+        /// <value>Optional list of model settings changes to apply atomically with the provider update.</value>
+        [DataMember(Name = "modelSettings", EmitDefaultValue = true)]
+        public List<ModelSettingsItemDto> ModelSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +101,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  ModelSettings: ").Append(ModelSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

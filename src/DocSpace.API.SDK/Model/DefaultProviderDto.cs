@@ -37,6 +37,12 @@ namespace DocSpace.API.SDK.Model
     [DataContract(Name = "DefaultProviderDto")]
     public partial class DefaultProviderDto : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets ProviderType
+        /// </summary>
+        [DataMember(Name = "providerType", EmitDefaultValue = false)]
+        public ProviderType? ProviderType { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultProviderDto" /> class.
@@ -49,7 +55,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="providerId">AI provider identifier..</param>
         /// <param name="defaultModel">Default model identifier used with this provider. (required).</param>
         /// <param name="providerTitle">AI provider title..</param>
-        public DefaultProviderDto(int providerId = default, string defaultModel = default, string providerTitle = default)
+        /// <param name="providerType">providerType.</param>
+        /// <param name="defaultModelAlias">Display alias of the default model..</param>
+        public DefaultProviderDto(int providerId = default, string defaultModel = default, string providerTitle = default, ProviderType? providerType = default, string defaultModelAlias = default)
         {
             // to ensure "defaultModel" is required (not null)
             if (defaultModel == null)
@@ -59,6 +67,8 @@ namespace DocSpace.API.SDK.Model
             this.DefaultModel = defaultModel;
             this.ProviderId = providerId;
             this.ProviderTitle = providerTitle;
+            this.ProviderType = providerType;
+            this.DefaultModelAlias = defaultModelAlias;
         }
 
         /// <summary>
@@ -92,6 +102,16 @@ namespace DocSpace.API.SDK.Model
         public string ProviderTitle { get; set; }
 
         /// <summary>
+        /// Display alias of the default model.
+        /// </summary>
+        /// <value>Display alias of the default model.</value>
+        /*
+        <example>GPT-4o</example>
+        */
+        [DataMember(Name = "defaultModelAlias", EmitDefaultValue = true)]
+        public string DefaultModelAlias { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -102,6 +122,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ProviderId: ").Append(ProviderId).Append("\n");
             sb.Append("  DefaultModel: ").Append(DefaultModel).Append("\n");
             sb.Append("  ProviderTitle: ").Append(ProviderTitle).Append("\n");
+            sb.Append("  ProviderType: ").Append(ProviderType).Append("\n");
+            sb.Append("  DefaultModelAlias: ").Append(DefaultModelAlias).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
