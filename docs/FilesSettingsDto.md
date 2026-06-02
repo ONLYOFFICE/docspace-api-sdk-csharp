@@ -63,6 +63,10 @@ Name | Type | Description | Notes
 **ChunkUploadSize** | **long** | The size of a large file that is uploaded in chunks. | [optional] 
 **OpenEditorInSameTab** | **bool** | Specifies whether to open the editor in the same tab or not. | [optional] 
 **OrganizeRoomsGrouping** | **bool** | Specifies whether the grouping of rooms is enabled or not. | [optional] 
+**DefaultShareLinkInternal** | **bool** | Specifies the default sharing link type: true = DocSpace users only (internal), false = Anyone with the link. | [optional] 
+**ExternalShareApplyToDocuments** | **bool** | When external sharing is restricted, specifies whether the restriction applies to the My Documents section. | [optional] 
+**ExternalShareApplyToRooms** | **bool** | When external sharing is restricted, specifies whether the restriction applies to the Rooms section. | [optional] 
+**BlockExistingLinksOnRestrict** | **bool** | When external sharing is restricted, specifies whether existing public links are blocked immediately. | [optional] 
 **ExtsFilesVectorized** | **List&lt;string&gt;** | List of extensions available for vectorization | [optional] 
 **MaxVectorizationFileSize** | **long** | The maximum file size for vectorization | [optional] 
 

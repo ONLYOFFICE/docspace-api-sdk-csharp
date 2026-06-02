@@ -169,6 +169,9 @@ namespace DocSpace.API.SDK.Model
         /// Specifies whether to send form data to external database.
         /// </summary>
         /// <value>Specifies whether to send form data to external database.</value>
+        /*
+        <example>false</example>
+        */
         [DataMember(Name = "sendFormToExternalDB", EmitDefaultValue = true)]
         public bool? SendFormToExternalDB { get; set; }
 
@@ -176,6 +179,9 @@ namespace DocSpace.API.SDK.Model
         /// Specifies whether to save form data as XLSX file.
         /// </summary>
         /// <value>Specifies whether to save form data as XLSX file.</value>
+        /*
+        <example>false</example>
+        */
         [DataMember(Name = "saveFormAsXLSX", EmitDefaultValue = true)]
         public bool? SaveFormAsXLSX { get; set; }
 

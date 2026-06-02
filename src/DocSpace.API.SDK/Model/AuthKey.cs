@@ -168,9 +168,9 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Value (string) maxLength
-            if (this.Value != null && this.Value.Length > 255)
+            if (this.Value != null && this.Value.Length > 4000)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be less than 255.", new [] { "Value" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be less than 4000.", new [] { "Value" });
             }
 
             // Value (string) minLength

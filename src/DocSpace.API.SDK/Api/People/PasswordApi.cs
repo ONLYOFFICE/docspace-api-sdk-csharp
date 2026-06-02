@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Reminds a password to the user using the email address specified in the request.
+        /// Sends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -71,7 +71,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Reminds a password to the user using the email address specified in the request.
+        /// Sends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -118,7 +118,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Reminds a password to the user using the email address specified in the request.
+        /// Sends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -131,7 +131,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Reminds a password to the user using the email address specified in the request.
+        /// Sends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -554,7 +554,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Reminds a password to the user using the email address specified in the request.
+        /// Sends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -570,7 +570,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Reminds a password to the user using the email address specified in the request.
+        /// Sends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -613,7 +613,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Reminds a password to the user using the email address specified in the request.
+        /// Sends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>
@@ -630,7 +630,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Remind a user password
         /// </summary>
         /// <remarks>
-        /// Reminds a password to the user using the email address specified in the request.
+        /// Sends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="emailMemberRequestDto">The request parameters for the user email. (optional)</param>

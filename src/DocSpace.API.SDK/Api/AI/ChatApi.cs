@@ -277,6 +277,31 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>ApiResponse of ChatWrapper</returns>
         ApiResponse<ChatWrapper> RenameChatWithHttpInfo(Guid chatId, RenameChatBody renameChatBody);
         /// <summary>
+        /// Resolve a pending editor file-generation tool
+        /// </summary>
+        /// <remarks>
+        /// Submits the user's approval or denial for a pending editor generation tool call (docx, form, presentation).  On approval the file is created from the original tool arguments and information about it is returned,  while the suspended chat tool is resumed with the same result so the AI session can continue.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callId">The unique identifier of the pending tool call awaiting the user's decision.</param>
+        /// <param name="editorToolDecisionRequestBody">The decision parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resolve-editor-tool/">REST API Reference for ResolveEditorTool Operation</seealso>
+        /// <returns>GeneratedFileWrapper</returns>
+        GeneratedFileWrapper ResolveEditorTool(string callId, EditorToolDecisionRequestBody editorToolDecisionRequestBody);
+
+        /// <summary>
+        /// Resolve a pending editor file-generation tool
+        /// </summary>
+        /// <remarks>
+        /// Submits the user's approval or denial for a pending editor generation tool call (docx, form, presentation).  On approval the file is created from the original tool arguments and information about it is returned,  while the suspended chat tool is resumed with the same result so the AI session can continue.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callId">The unique identifier of the pending tool call awaiting the user's decision.</param>
+        /// <param name="editorToolDecisionRequestBody">The decision parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resolve-editor-tool/">REST API Reference for ResolveEditorTool Operation</seealso>
+        /// <returns>ApiResponse of GeneratedFileWrapper</returns>
+        ApiResponse<GeneratedFileWrapper> ResolveEditorToolWithHttpInfo(string callId, EditorToolDecisionRequestBody editorToolDecisionRequestBody);
+        /// <summary>
         /// Update user chat settings for a room
         /// </summary>
         /// <remarks>
@@ -601,6 +626,33 @@ namespace DocSpace.API.SDK.Api.AI
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/rename-chat/">REST API Reference for RenameChat Operation</seealso>
         /// <returns>Task of ApiResponse (ChatWrapper)</returns>
         Task<ApiResponse<ChatWrapper>> RenameChatWithHttpInfoAsync(Guid chatId, RenameChatBody renameChatBody, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Resolve a pending editor file-generation tool
+        /// </summary>
+        /// <remarks>
+        /// Submits the user's approval or denial for a pending editor generation tool call (docx, form, presentation).  On approval the file is created from the original tool arguments and information about it is returned,  while the suspended chat tool is resumed with the same result so the AI session can continue.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callId">The unique identifier of the pending tool call awaiting the user's decision.</param>
+        /// <param name="editorToolDecisionRequestBody">The decision parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resolve-editor-tool/">REST API Reference for ResolveEditorTool Operation</seealso>
+        /// <returns>Task of GeneratedFileWrapper</returns>
+        Task<GeneratedFileWrapper> ResolveEditorToolAsync(string callId, EditorToolDecisionRequestBody editorToolDecisionRequestBody, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Resolve a pending editor file-generation tool
+        /// </summary>
+        /// <remarks>
+        /// Submits the user's approval or denial for a pending editor generation tool call (docx, form, presentation).  On approval the file is created from the original tool arguments and information about it is returned,  while the suspended chat tool is resumed with the same result so the AI session can continue.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callId">The unique identifier of the pending tool call awaiting the user's decision.</param>
+        /// <param name="editorToolDecisionRequestBody">The decision parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resolve-editor-tool/">REST API Reference for ResolveEditorTool Operation</seealso>
+        /// <returns>Task of ApiResponse (GeneratedFileWrapper)</returns>
+        Task<ApiResponse<GeneratedFileWrapper>> ResolveEditorToolWithHttpInfoAsync(string callId, EditorToolDecisionRequestBody editorToolDecisionRequestBody, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update user chat settings for a room
         /// </summary>
@@ -2791,6 +2843,210 @@ namespace DocSpace.API.SDK.Api.AI
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("RenameChat", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Resolve a pending editor file-generation tool
+        /// </summary>
+        /// <remarks>
+        /// Submits the user's approval or denial for a pending editor generation tool call (docx, form, presentation).  On approval the file is created from the original tool arguments and information about it is returned,  while the suspended chat tool is resumed with the same result so the AI session can continue.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callId">The unique identifier of the pending tool call awaiting the user's decision.</param>
+        /// <param name="editorToolDecisionRequestBody">The decision parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resolve-editor-tool/">REST API Reference for ResolveEditorTool Operation</seealso>
+        /// <returns>GeneratedFileWrapper</returns>
+        public GeneratedFileWrapper ResolveEditorTool(string callId, EditorToolDecisionRequestBody editorToolDecisionRequestBody)
+        {
+            var localVarResponse = ResolveEditorToolWithHttpInfo(callId, editorToolDecisionRequestBody);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Resolve a pending editor file-generation tool
+        /// </summary>
+        /// <remarks>
+        /// Submits the user's approval or denial for a pending editor generation tool call (docx, form, presentation).  On approval the file is created from the original tool arguments and information about it is returned,  while the suspended chat tool is resumed with the same result so the AI session can continue.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callId">The unique identifier of the pending tool call awaiting the user's decision.</param>
+        /// <param name="editorToolDecisionRequestBody">The decision parameters.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resolve-editor-tool/">REST API Reference for ResolveEditorTool Operation</seealso>
+        /// <returns>ApiResponse of GeneratedFileWrapper</returns>
+        public ApiResponse<GeneratedFileWrapper> ResolveEditorToolWithHttpInfo(string callId, EditorToolDecisionRequestBody editorToolDecisionRequestBody)
+        {
+            // verify the required parameter 'callId' is set
+            if (callId == null)
+                throw new ApiException(400, "Missing required parameter 'callId' when calling ChatApi->ResolveEditorTool");
+
+            // verify the required parameter 'editorToolDecisionRequestBody' is set
+            if (editorToolDecisionRequestBody == null)
+                throw new ApiException(400, "Missing required parameter 'editorToolDecisionRequestBody' when calling ChatApi->ResolveEditorTool");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("callId", ClientUtils.ParameterToString(callId)); // path parameter
+            if (editorToolDecisionRequestBody != null) localVarRequestOptions.Data = editorToolDecisionRequestBody;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<GeneratedFileWrapper>("/api/2.0/ai/chats/tool-files/{callId}/decision", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("ResolveEditorTool", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Resolve a pending editor file-generation tool
+        /// </summary>
+        /// <remarks>
+        /// Submits the user's approval or denial for a pending editor generation tool call (docx, form, presentation).  On approval the file is created from the original tool arguments and information about it is returned,  while the suspended chat tool is resumed with the same result so the AI session can continue.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callId">The unique identifier of the pending tool call awaiting the user's decision.</param>
+        /// <param name="editorToolDecisionRequestBody">The decision parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resolve-editor-tool/">REST API Reference for ResolveEditorTool Operation</seealso>
+        /// <returns>Task of GeneratedFileWrapper</returns>
+        public async Task<GeneratedFileWrapper> ResolveEditorToolAsync(string callId, EditorToolDecisionRequestBody editorToolDecisionRequestBody, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await ResolveEditorToolWithHttpInfoAsync(callId, editorToolDecisionRequestBody, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Resolve a pending editor file-generation tool
+        /// </summary>
+        /// <remarks>
+        /// Submits the user's approval or denial for a pending editor generation tool call (docx, form, presentation).  On approval the file is created from the original tool arguments and information about it is returned,  while the suspended chat tool is resumed with the same result so the AI session can continue.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="callId">The unique identifier of the pending tool call awaiting the user's decision.</param>
+        /// <param name="editorToolDecisionRequestBody">The decision parameters.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/resolve-editor-tool/">REST API Reference for ResolveEditorTool Operation</seealso>
+        /// <returns>Task of ApiResponse (GeneratedFileWrapper)</returns>
+        public async Task<ApiResponse<GeneratedFileWrapper>> ResolveEditorToolWithHttpInfoAsync(string callId, EditorToolDecisionRequestBody editorToolDecisionRequestBody, CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'callId' is set
+            if (callId == null)
+                throw new ApiException(400, "Missing required parameter 'callId' when calling ChatApi->ResolveEditorTool");
+
+            // verify the required parameter 'editorToolDecisionRequestBody' is set
+            if (editorToolDecisionRequestBody == null)
+                throw new ApiException(400, "Missing required parameter 'editorToolDecisionRequestBody' when calling ChatApi->ResolveEditorTool");
+
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("callId", ClientUtils.ParameterToString(callId)); // path parameter
+            if (editorToolDecisionRequestBody != null) localVarRequestOptions.Data = editorToolDecisionRequestBody;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<GeneratedFileWrapper>("/api/2.0/ai/chats/tool-files/{callId}/decision", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("ResolveEditorTool", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

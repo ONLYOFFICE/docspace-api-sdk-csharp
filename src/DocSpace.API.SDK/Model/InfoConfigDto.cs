@@ -97,6 +97,9 @@ namespace DocSpace.API.SDK.Model
         /// The sharing settings of the file.
         /// </summary>
         /// <value>The sharing settings of the file.</value>
+        /*
+        <example>[]</example>
+        */
         [DataMember(Name = "sharingSettings", EmitDefaultValue = true)]
         public List<AceShortWrapper> SharingSettings { get; set; }
 

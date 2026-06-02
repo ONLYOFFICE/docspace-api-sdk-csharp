@@ -146,6 +146,29 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of ICompressWrapper</returns>
         ApiResponse<ICompressWrapper> ChangeDownloadZipFromBodyWithHttpInfo(DisplayRequestDto? displayRequestDto = default);
         /// <summary>
+        /// Change the Access Control external sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Changes the Access Control external sharing settings.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalSharingSettingsRequestDto">The Access Control external sharing settings request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-external-sharing-settings/">REST API Reference for ChangeExternalSharingSettings Operation</seealso>
+        /// <returns>ExternalSharingSettingsWrapper</returns>
+        ExternalSharingSettingsWrapper ChangeExternalSharingSettings(ExternalSharingSettingsRequestDto? externalSharingSettingsRequestDto = default);
+
+        /// <summary>
+        /// Change the Access Control external sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Changes the Access Control external sharing settings.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalSharingSettingsRequestDto">The Access Control external sharing settings request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-external-sharing-settings/">REST API Reference for ChangeExternalSharingSettings Operation</seealso>
+        /// <returns>ApiResponse of ExternalSharingSettingsWrapper</returns>
+        ApiResponse<ExternalSharingSettingsWrapper> ChangeExternalSharingSettingsWithHttpInfo(ExternalSharingSettingsRequestDto? externalSharingSettingsRequestDto = default);
+        /// <summary>
         /// Check the document service URL
         /// </summary>
         /// <remarks>
@@ -819,6 +842,31 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-download-zip-from-body/">REST API Reference for ChangeDownloadZipFromBody Operation</seealso>
         /// <returns>Task of ApiResponse (ICompressWrapper)</returns>
         Task<ApiResponse<ICompressWrapper>> ChangeDownloadZipFromBodyWithHttpInfoAsync(DisplayRequestDto? displayRequestDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Change the Access Control external sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Changes the Access Control external sharing settings.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalSharingSettingsRequestDto">The Access Control external sharing settings request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-external-sharing-settings/">REST API Reference for ChangeExternalSharingSettings Operation</seealso>
+        /// <returns>Task of ExternalSharingSettingsWrapper</returns>
+        Task<ExternalSharingSettingsWrapper> ChangeExternalSharingSettingsAsync(ExternalSharingSettingsRequestDto? externalSharingSettingsRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Change the Access Control external sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Changes the Access Control external sharing settings.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalSharingSettingsRequestDto">The Access Control external sharing settings request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-external-sharing-settings/">REST API Reference for ChangeExternalSharingSettings Operation</seealso>
+        /// <returns>Task of ApiResponse (ExternalSharingSettingsWrapper)</returns>
+        Task<ApiResponse<ExternalSharingSettingsWrapper>> ChangeExternalSharingSettingsWithHttpInfoAsync(ExternalSharingSettingsRequestDto? externalSharingSettingsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Check the document service URL
         /// </summary>
@@ -2523,6 +2571,188 @@ namespace DocSpace.API.SDK.Api.Files
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("ChangeDownloadZipFromBody", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Change the Access Control external sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Changes the Access Control external sharing settings.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalSharingSettingsRequestDto">The Access Control external sharing settings request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-external-sharing-settings/">REST API Reference for ChangeExternalSharingSettings Operation</seealso>
+        /// <returns>ExternalSharingSettingsWrapper</returns>
+        public ExternalSharingSettingsWrapper ChangeExternalSharingSettings(ExternalSharingSettingsRequestDto? externalSharingSettingsRequestDto = default)
+        {
+            var localVarResponse = ChangeExternalSharingSettingsWithHttpInfo(externalSharingSettingsRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change the Access Control external sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Changes the Access Control external sharing settings.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalSharingSettingsRequestDto">The Access Control external sharing settings request parameters. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-external-sharing-settings/">REST API Reference for ChangeExternalSharingSettings Operation</seealso>
+        /// <returns>ApiResponse of ExternalSharingSettingsWrapper</returns>
+        public ApiResponse<ExternalSharingSettingsWrapper> ChangeExternalSharingSettingsWithHttpInfo(ExternalSharingSettingsRequestDto? externalSharingSettingsRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (externalSharingSettingsRequestDto != null) localVarRequestOptions.Data = externalSharingSettingsRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<ExternalSharingSettingsWrapper>("/api/2.0/files/settings/externalsharingsettings", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("ChangeExternalSharingSettings", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Change the Access Control external sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Changes the Access Control external sharing settings.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalSharingSettingsRequestDto">The Access Control external sharing settings request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-external-sharing-settings/">REST API Reference for ChangeExternalSharingSettings Operation</seealso>
+        /// <returns>Task of ExternalSharingSettingsWrapper</returns>
+        public async Task<ExternalSharingSettingsWrapper> ChangeExternalSharingSettingsAsync(ExternalSharingSettingsRequestDto? externalSharingSettingsRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await ChangeExternalSharingSettingsWithHttpInfoAsync(externalSharingSettingsRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Change the Access Control external sharing settings
+        /// </summary>
+        /// <remarks>
+        /// Changes the Access Control external sharing settings.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalSharingSettingsRequestDto">The Access Control external sharing settings request parameters. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-external-sharing-settings/">REST API Reference for ChangeExternalSharingSettings Operation</seealso>
+        /// <returns>Task of ApiResponse (ExternalSharingSettingsWrapper)</returns>
+        public async Task<ApiResponse<ExternalSharingSettingsWrapper>> ChangeExternalSharingSettingsWithHttpInfoAsync(ExternalSharingSettingsRequestDto? externalSharingSettingsRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (externalSharingSettingsRequestDto != null) localVarRequestOptions.Data = externalSharingSettingsRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<ExternalSharingSettingsWrapper>("/api/2.0/files/settings/externalsharingsettings", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("ChangeExternalSharingSettings", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

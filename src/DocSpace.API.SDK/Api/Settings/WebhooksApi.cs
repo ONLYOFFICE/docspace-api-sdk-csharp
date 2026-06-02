@@ -101,23 +101,23 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get webhook triggers
         /// </summary>
         /// <remarks>
-        /// Returns a list of triggers for a webhook.
+        /// Returns a list of triggers for a webhook with their availability for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
-        /// <returns>GetWebhookTriggers200Response</returns>
-        GetWebhookTriggers200Response GetWebhookTriggers();
+        /// <returns>WebhookTriggerArrayWrapper</returns>
+        WebhookTriggerArrayWrapper GetWebhookTriggers();
 
         /// <summary>
         /// Get webhook triggers
         /// </summary>
         /// <remarks>
-        /// Returns a list of triggers for a webhook.
+        /// Returns a list of triggers for a webhook with their availability for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
-        /// <returns>ApiResponse of GetWebhookTriggers200Response</returns>
-        ApiResponse<GetWebhookTriggers200Response> GetWebhookTriggersWithHttpInfo();
+        /// <returns>ApiResponse of WebhookTriggerArrayWrapper</returns>
+        ApiResponse<WebhookTriggerArrayWrapper> GetWebhookTriggersWithHttpInfo();
         /// <summary>
         /// Get webhook logs
         /// </summary>
@@ -337,25 +337,25 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get webhook triggers
         /// </summary>
         /// <remarks>
-        /// Returns a list of triggers for a webhook.
+        /// Returns a list of triggers for a webhook with their availability for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
-        /// <returns>Task of GetWebhookTriggers200Response</returns>
-        Task<GetWebhookTriggers200Response> GetWebhookTriggersAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of WebhookTriggerArrayWrapper</returns>
+        Task<WebhookTriggerArrayWrapper> GetWebhookTriggersAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get webhook triggers
         /// </summary>
         /// <remarks>
-        /// Returns a list of triggers for a webhook.
+        /// Returns a list of triggers for a webhook with their availability for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
-        /// <returns>Task of ApiResponse (GetWebhookTriggers200Response)</returns>
-        Task<ApiResponse<GetWebhookTriggers200Response>> GetWebhookTriggersWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (WebhookTriggerArrayWrapper)</returns>
+        Task<ApiResponse<WebhookTriggerArrayWrapper>> GetWebhookTriggersWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get webhook logs
         /// </summary>
@@ -1271,12 +1271,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get webhook triggers
         /// </summary>
         /// <remarks>
-        /// Returns a list of triggers for a webhook.
+        /// Returns a list of triggers for a webhook with their availability for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
-        /// <returns>GetWebhookTriggers200Response</returns>
-        public GetWebhookTriggers200Response GetWebhookTriggers()
+        /// <returns>WebhookTriggerArrayWrapper</returns>
+        public WebhookTriggerArrayWrapper GetWebhookTriggers()
         {
             var localVarResponse = GetWebhookTriggersWithHttpInfo();
             return localVarResponse.Data;
@@ -1286,12 +1286,12 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get webhook triggers
         /// </summary>
         /// <remarks>
-        /// Returns a list of triggers for a webhook.
+        /// Returns a list of triggers for a webhook with their availability for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
-        /// <returns>ApiResponse of GetWebhookTriggers200Response</returns>
-        public ApiResponse<GetWebhookTriggers200Response> GetWebhookTriggersWithHttpInfo()
+        /// <returns>ApiResponse of WebhookTriggerArrayWrapper</returns>
+        public ApiResponse<WebhookTriggerArrayWrapper> GetWebhookTriggersWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1339,7 +1339,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<GetWebhookTriggers200Response>("/api/2.0/settings/webhook/triggers", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<WebhookTriggerArrayWrapper>("/api/2.0/settings/webhook/triggers", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1357,13 +1357,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get webhook triggers
         /// </summary>
         /// <remarks>
-        /// Returns a list of triggers for a webhook.
+        /// Returns a list of triggers for a webhook with their availability for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
-        /// <returns>Task of GetWebhookTriggers200Response</returns>
-        public async Task<GetWebhookTriggers200Response> GetWebhookTriggersAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of WebhookTriggerArrayWrapper</returns>
+        public async Task<WebhookTriggerArrayWrapper> GetWebhookTriggersAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetWebhookTriggersWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1373,13 +1373,13 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Get webhook triggers
         /// </summary>
         /// <remarks>
-        /// Returns a list of triggers for a webhook.
+        /// Returns a list of triggers for a webhook with their availability for the current user.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-webhook-triggers/">REST API Reference for GetWebhookTriggers Operation</seealso>
-        /// <returns>Task of ApiResponse (GetWebhookTriggers200Response)</returns>
-        public async Task<ApiResponse<GetWebhookTriggers200Response>> GetWebhookTriggersWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (WebhookTriggerArrayWrapper)</returns>
+        public async Task<ApiResponse<WebhookTriggerArrayWrapper>> GetWebhookTriggersWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1429,7 +1429,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<GetWebhookTriggers200Response>("/api/2.0/settings/webhook/triggers", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<WebhookTriggerArrayWrapper>("/api/2.0/settings/webhook/triggers", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

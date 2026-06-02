@@ -170,6 +170,9 @@ namespace DocSpace.API.SDK.Model
         /// The recent configuration of the editor.
         /// </summary>
         /// <value>The recent configuration of the editor.</value>
+        /*
+        <example>[]</example>
+        */
         [DataMember(Name = "recent", EmitDefaultValue = true)]
         public List<RecentConfig> Recent { get; set; }
 
@@ -177,6 +180,9 @@ namespace DocSpace.API.SDK.Model
         /// The templates of the editor configuration.
         /// </summary>
         /// <value>The templates of the editor configuration.</value>
+        /*
+        <example>[]</example>
+        */
         [DataMember(Name = "templates", EmitDefaultValue = true)]
         public List<TemplatesConfig> Templates { get; set; }
 

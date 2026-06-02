@@ -49,6 +49,7 @@ Name | Type | Description | Notes
 **AskAi** | **bool** |  | [optional] 
 **UseChat** | **bool** |  | [optional] 
 **UpdateXlsx** | **bool** |  | [optional] 
+**AnalyzeResponses** | **bool** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

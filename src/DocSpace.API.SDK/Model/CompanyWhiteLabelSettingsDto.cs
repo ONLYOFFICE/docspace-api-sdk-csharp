@@ -96,7 +96,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The company name.</value>
         /*
-        <example>Acme Corporation</example>
+        <example>My Own Corporation</example>
         */
         [DataMember(Name = "companyName", IsRequired = true, EmitDefaultValue = true)]
         public string CompanyName { get; set; }

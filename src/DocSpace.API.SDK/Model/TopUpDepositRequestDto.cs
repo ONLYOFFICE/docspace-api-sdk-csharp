@@ -111,6 +111,18 @@ namespace DocSpace.API.SDK.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value greater than or equal to 1.", new [] { "Amount" });
             }
 
+            // Currency (string) maxLength
+            if (this.Currency != null && this.Currency.Length > 3)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be less than 3.", new [] { "Currency" });
+            }
+
+            // Currency (string) minLength
+            if (this.Currency != null && this.Currency.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 0.", new [] { "Currency" });
+            }
+
             yield break;
         }
 

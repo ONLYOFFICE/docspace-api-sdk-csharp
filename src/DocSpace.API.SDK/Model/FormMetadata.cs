@@ -87,6 +87,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of possible values for the form field.
         /// </summary>
         /// <value>The list of possible values for the form field.</value>
+        /*
+        <example>[]</example>
+        */
         [DataMember(Name = "possibleValues", EmitDefaultValue = true)]
         public List<string> PossibleValues { get; set; }
 
