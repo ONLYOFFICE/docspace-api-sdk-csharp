@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,14 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// BackupProgress
+    /// The backup progress parameters.
     /// </summary>
     [DataContract(Name = "BackupProgress")]
     public partial class BackupProgress : IValidatableObject
@@ -30,19 +43,26 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "backupProgressEnum", EmitDefaultValue = false)]
         public BackupProgressEnum? BackupProgressEnum { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public DistributedTaskStatus? Status { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="BackupProgress" /> class.
         /// </summary>
-        /// <param name="isCompleted">isCompleted.</param>
-        /// <param name="progress">progress.</param>
-        /// <param name="error">error.</param>
-        /// <param name="warning">warning.</param>
-        /// <param name="link">link.</param>
-        /// <param name="tenantId">tenantId.</param>
+        /// <param name="isCompleted">Specifies if the backup is completed or not..</param>
+        /// <param name="progress">The backup progress in percentage..</param>
+        /// <param name="error">The backup error message..</param>
+        /// <param name="warning">The backup warning message..</param>
+        /// <param name="link">The backup link..</param>
+        /// <param name="tenantId">The tenant ID..</param>
         /// <param name="backupProgressEnum">backupProgressEnum.</param>
-        /// <param name="taskId">taskId.</param>
-        public BackupProgress(bool isCompleted = default, int progress = default, string error = default, string warning = default, string link = default, int tenantId = default, BackupProgressEnum? backupProgressEnum = default, string taskId = default)
+        /// <param name="status">status.</param>
+        /// <param name="taskId">The task ID..</param>
+        public BackupProgress(bool isCompleted = default, int progress = default, string error = default, string warning = default, string link = default, int tenantId = default, BackupProgressEnum? backupProgressEnum = default, DistributedTaskStatus? status = default, string taskId = default)
         {
             this.IsCompleted = isCompleted;
             this.Progress = progress;
@@ -51,68 +71,70 @@ namespace DocSpace.API.SDK.Model
             this.Link = link;
             this.TenantId = tenantId;
             this.BackupProgressEnum = backupProgressEnum;
+            this.Status = status;
             this.TaskId = taskId;
         }
 
         /// <summary>
-        /// Gets or Sets IsCompleted
+        /// Specifies if the backup is completed or not.
         /// </summary>
+        /// <value>Specifies if the backup is completed or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isCompleted", EmitDefaultValue = true)]
         public bool IsCompleted { get; set; }
 
         /// <summary>
-        /// Gets or Sets Progress
+        /// The backup progress in percentage.
         /// </summary>
+        /// <value>The backup progress in percentage.</value>
         /*
-        <example>1234</example>
+        <example>50</example>
         */
         [DataMember(Name = "progress", EmitDefaultValue = false)]
         public int Progress { get; set; }
 
         /// <summary>
-        /// Gets or Sets Error
+        /// The backup error message.
         /// </summary>
-        /*
-        <example>some text</example>
-        */
+        /// <value>The backup error message.</value>
         [DataMember(Name = "error", EmitDefaultValue = true)]
         public string Error { get; set; }
 
         /// <summary>
-        /// Gets or Sets Warning
+        /// The backup warning message.
         /// </summary>
-        /*
-        <example>some text</example>
-        */
+        /// <value>The backup warning message.</value>
         [DataMember(Name = "warning", EmitDefaultValue = true)]
         public string Warning { get; set; }
 
         /// <summary>
-        /// Gets or Sets Link
+        /// The backup link.
         /// </summary>
+        /// <value>The backup link.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/backup/task_123</example>
         */
         [DataMember(Name = "link", EmitDefaultValue = true)]
         public string Link { get; set; }
 
         /// <summary>
-        /// Gets or Sets TenantId
+        /// The tenant ID.
         /// </summary>
+        /// <value>The tenant ID.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "tenantId", EmitDefaultValue = false)]
         public int TenantId { get; set; }
 
         /// <summary>
-        /// Gets or Sets TaskId
+        /// The task ID.
         /// </summary>
+        /// <value>The task ID.</value>
         /*
-        <example>some text</example>
+        <example>task_123</example>
         */
         [DataMember(Name = "taskId", EmitDefaultValue = true)]
         public string TaskId { get; set; }
@@ -132,6 +154,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Link: ").Append(Link).Append("\n");
             sb.Append("  TenantId: ").Append(TenantId).Append("\n");
             sb.Append("  BackupProgressEnum: ").Append(BackupProgressEnum).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  TaskId: ").Append(TaskId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -143,7 +166,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

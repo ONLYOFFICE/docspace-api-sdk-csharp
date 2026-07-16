@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -64,6 +77,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="contentLength">The content length of the file..</param>
         /// <param name="pureContentLength">The pure content length of the file..</param>
         /// <param name="fileStatus">fileStatus.</param>
+        /// <param name="editingBy">The list of users editing the file..</param>
         /// <param name="mute">Specifies if the file is muted or not..</param>
         /// <param name="viewUrl">The URL link to view the file..</param>
         /// <param name="webUrl">The Web URL link to the file..</param>
@@ -81,15 +95,18 @@ namespace DocSpace.API.SDK.Model
         /// <param name="customFilterEnabled">Specifies if the Custom Filter editing mode is enabled for a file or not..</param>
         /// <param name="customFilterEnabledBy">The name of the user who enabled a Custom Filter editing mode for a file..</param>
         /// <param name="startFilling">Specifies if the filling has started or not..</param>
+        /// <param name="isFillingPreparing">Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed..</param>
         /// <param name="inProcessFolderId">The InProcess folder ID of the file..</param>
         /// <param name="inProcessFolderTitle">The InProcess folder title of the file..</param>
+        /// <param name="resultsFolderId">The ID of the FormFillingFolderDone folder that corresponds to this original form..</param>
         /// <param name="draftLocation">draftLocation.</param>
         /// <param name="viewAccessibility">viewAccessibility.</param>
         /// <param name="lastOpened">lastOpened.</param>
         /// <param name="expired">expired.</param>
         /// <param name="vectorizationStatus">vectorizationStatus.</param>
+        /// <param name="externalDbTableName">The name of the table in the external database that corresponds to this form..</param>
         /// <param name="dimensions">dimensions.</param>
-        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, VectorizationStatus? vectorizationStatus = default, Size dimensions = default)
+        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, Dictionary<string, string> editingBy = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, bool? isFillingPreparing = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, int? resultsFolderId = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, VectorizationStatus? vectorizationStatus = default, string externalDbTableName = default, Size dimensions = default)
         {
             this.FolderId = folderId;
             this.@Version = version;
@@ -97,6 +114,7 @@ namespace DocSpace.API.SDK.Model
             this.ContentLength = contentLength;
             this.PureContentLength = pureContentLength;
             this.FileStatus = fileStatus;
+            this.EditingBy = editingBy;
             this.Mute = mute;
             this.ViewUrl = viewUrl;
             this.WebUrl = webUrl;
@@ -114,13 +132,16 @@ namespace DocSpace.API.SDK.Model
             this.CustomFilterEnabled = customFilterEnabled;
             this.CustomFilterEnabledBy = customFilterEnabledBy;
             this.StartFilling = startFilling;
+            this.IsFillingPreparing = isFillingPreparing;
             this.InProcessFolderId = inProcessFolderId;
             this.InProcessFolderTitle = inProcessFolderTitle;
+            this.ResultsFolderId = resultsFolderId;
             this.DraftLocation = draftLocation;
             this.ViewAccessibility = viewAccessibility;
             this.LastOpened = lastOpened;
             this.Expired = expired;
             this.VectorizationStatus = vectorizationStatus;
+            this.ExternalDbTableName = externalDbTableName;
             this.Dimensions = dimensions;
         }
 
@@ -129,7 +150,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The folder ID where the file is located.</value>
         /*
-        <example>9846</example>
+        <example>10</example>
         */
         [DataMember(Name = "folderId", EmitDefaultValue = false)]
         public int FolderId { get; set; }
@@ -169,10 +190,20 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The pure content length of the file.</value>
         /*
-        <example>1234</example>
+        <example>12345</example>
         */
         [DataMember(Name = "pureContentLength", EmitDefaultValue = true)]
         public long? PureContentLength { get; set; }
+
+        /// <summary>
+        /// The list of users editing the file.
+        /// </summary>
+        /// <value>The list of users editing the file.</value>
+        /*
+        <example>{&quot;00000000-0000-0000-0000-000000000000&quot;:&quot;John Doe&quot;}</example>
+        */
+        [DataMember(Name = "editingBy", EmitDefaultValue = true)]
+        public Dictionary<string, string> EditingBy { get; set; }
 
         /// <summary>
         /// Specifies if the file is muted or not.
@@ -199,7 +230,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The Web URL link to the file.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/files/document.docx</example>
         */
         [DataMember(Name = "webUrl", EmitDefaultValue = true)]
         public string WebUrl { get; set; }
@@ -219,7 +250,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The comment to the file.</value>
         /*
-        <example>some text</example>
+        <example>This is a comment</example>
         */
         [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
@@ -239,7 +270,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The thumbnail URL of the file.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/thumbnails/file.png</example>
         */
         [DataMember(Name = "thumbnailUrl", EmitDefaultValue = true)]
         public string ThumbnailUrl { get; set; }
@@ -249,7 +280,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the file is locked or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "locked", EmitDefaultValue = true)]
         public bool? Locked { get; set; }
@@ -259,7 +290,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user ID of the person who locked the file.</value>
         /*
-        <example>some text</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "lockedBy", EmitDefaultValue = true)]
         public string LockedBy { get; set; }
@@ -289,7 +320,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the Custom Filter editing mode is enabled for a file or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "customFilterEnabled", EmitDefaultValue = true)]
         public bool? CustomFilterEnabled { get; set; }
@@ -299,7 +330,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The name of the user who enabled a Custom Filter editing mode for a file.</value>
         /*
-        <example>some text</example>
+        <example>John Doe</example>
         */
         [DataMember(Name = "customFilterEnabledBy", EmitDefaultValue = true)]
         public string CustomFilterEnabledBy { get; set; }
@@ -315,11 +346,21 @@ namespace DocSpace.API.SDK.Model
         public bool? StartFilling { get; set; }
 
         /// <summary>
+        /// Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed.
+        /// </summary>
+        /// <value>Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "isFillingPreparing", EmitDefaultValue = true)]
+        public bool? IsFillingPreparing { get; set; }
+
+        /// <summary>
         /// The InProcess folder ID of the file.
         /// </summary>
         /// <value>The InProcess folder ID of the file.</value>
         /*
-        <example>1234</example>
+        <example>10</example>
         */
         [DataMember(Name = "inProcessFolderId", EmitDefaultValue = true)]
         public int? InProcessFolderId { get; set; }
@@ -329,10 +370,20 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The InProcess folder title of the file.</value>
         /*
-        <example>some text</example>
+        <example>In Process</example>
         */
         [DataMember(Name = "inProcessFolderTitle", EmitDefaultValue = true)]
         public string InProcessFolderTitle { get; set; }
+
+        /// <summary>
+        /// The ID of the FormFillingFolderDone folder that corresponds to this original form.
+        /// </summary>
+        /// <value>The ID of the FormFillingFolderDone folder that corresponds to this original form.</value>
+        /*
+        <example>55</example>
+        */
+        [DataMember(Name = "resultsFolderId", EmitDefaultValue = true)]
+        public int? ResultsFolderId { get; set; }
 
         /// <summary>
         /// Gets or Sets DraftLocation
@@ -359,6 +410,16 @@ namespace DocSpace.API.SDK.Model
         public ApiDateTime Expired { get; set; }
 
         /// <summary>
+        /// The name of the table in the external database that corresponds to this form.
+        /// </summary>
+        /// <value>The name of the table in the external database that corresponds to this form.</value>
+        /*
+        <example>form_123_v1</example>
+        */
+        [DataMember(Name = "externalDbTableName", EmitDefaultValue = true)]
+        public string ExternalDbTableName { get; set; }
+
+        /// <summary>
         /// Gets or Sets Dimensions
         /// </summary>
         [DataMember(Name = "dimensions", EmitDefaultValue = false)]
@@ -378,6 +439,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ContentLength: ").Append(ContentLength).Append("\n");
             sb.Append("  PureContentLength: ").Append(PureContentLength).Append("\n");
             sb.Append("  FileStatus: ").Append(FileStatus).Append("\n");
+            sb.Append("  EditingBy: ").Append(EditingBy).Append("\n");
             sb.Append("  Mute: ").Append(Mute).Append("\n");
             sb.Append("  ViewUrl: ").Append(ViewUrl).Append("\n");
             sb.Append("  WebUrl: ").Append(WebUrl).Append("\n");
@@ -395,13 +457,16 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  CustomFilterEnabled: ").Append(CustomFilterEnabled).Append("\n");
             sb.Append("  CustomFilterEnabledBy: ").Append(CustomFilterEnabledBy).Append("\n");
             sb.Append("  StartFilling: ").Append(StartFilling).Append("\n");
+            sb.Append("  IsFillingPreparing: ").Append(IsFillingPreparing).Append("\n");
             sb.Append("  InProcessFolderId: ").Append(InProcessFolderId).Append("\n");
             sb.Append("  InProcessFolderTitle: ").Append(InProcessFolderTitle).Append("\n");
+            sb.Append("  ResultsFolderId: ").Append(ResultsFolderId).Append("\n");
             sb.Append("  DraftLocation: ").Append(DraftLocation).Append("\n");
             sb.Append("  ViewAccessibility: ").Append(ViewAccessibility).Append("\n");
             sb.Append("  LastOpened: ").Append(LastOpened).Append("\n");
             sb.Append("  Expired: ").Append(Expired).Append("\n");
             sb.Append("  VectorizationStatus: ").Append(VectorizationStatus).Append("\n");
+            sb.Append("  ExternalDbTableName: ").Append(ExternalDbTableName).Append("\n");
             sb.Append("  Dimensions: ").Append(Dimensions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -413,7 +478,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     
 

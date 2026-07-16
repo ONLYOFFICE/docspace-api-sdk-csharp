@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -39,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="copyLogo">Specifies whether to copy room logo or not..</param>
         /// <param name="share">The collection of email addresses of users with whom to share a room..</param>
         /// <param name="groups">The collection of groups with whom to share a room..</param>
-        /// <param name="@public">Specifies whether the room template is public or not..</param>
+        /// <param name="public">Specifies whether the room template is public or not..</param>
         /// <param name="tags">The collection of tags..</param>
         /// <param name="color">The color of the room template..</param>
         /// <param name="cover">The cover of the room template..</param>
@@ -64,7 +77,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room template ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "roomId", IsRequired = true, EmitDefaultValue = true)]
         public int RoomId { get; set; }
@@ -74,7 +87,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room template title.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>My Document</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -100,7 +113,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of email addresses of users with whom to share a room.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>["user1@example.com","user2@example.com"]</example>
         */
         [DataMember(Name = "share", EmitDefaultValue = true)]
         public List<string> Share { get; set; }
@@ -110,7 +123,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of groups with whom to share a room.</value>
         /*
-        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
+        <example>["00000000-0000-0000-0000-000000000000"]</example>
         */
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<Guid> Groups { get; set; }
@@ -130,7 +143,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of tags.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>["tag1","tag2"]</example>
         */
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
@@ -140,7 +153,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The color of the room template.</value>
         /*
-        <example>some text</example>
+        <example>#FF0000</example>
         */
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
@@ -150,7 +163,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The cover of the room template.</value>
         /*
-        <example>some text</example>
+        <example>cover1</example>
         */
         [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
@@ -160,7 +173,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Room quota</value>
         /*
-        <example>1234</example>
+        <example>10485760</example>
         */
         [DataMember(Name = "quota", EmitDefaultValue = true)]
         public long? Quota { get; set; }
@@ -194,7 +207,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

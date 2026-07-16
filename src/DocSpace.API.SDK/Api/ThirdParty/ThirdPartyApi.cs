@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.ThirdParty
@@ -27,7 +34,7 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// Get the code request
         /// </summary>
         /// <remarks>
-        /// Returns a request to get the confirmation code from URL.   **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.
+        /// Returns a request to get the confirmation code from URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
@@ -39,7 +46,7 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// Get the code request
         /// </summary>
         /// <remarks>
-        /// Returns a request to get the confirmation code from URL.   **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.
+        /// Returns a request to get the confirmation code from URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
@@ -59,7 +66,7 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// Get the code request
         /// </summary>
         /// <remarks>
-        /// Returns a request to get the confirmation code from URL.   **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.
+        /// Returns a request to get the confirmation code from URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
@@ -72,7 +79,7 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// Get the code request
         /// </summary>
         /// <remarks>
-        /// Returns a request to get the confirmation code from URL.   **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.
+        /// Returns a request to get the confirmation code from URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
@@ -299,7 +306,7 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// Get the code request
         /// </summary>
         /// <remarks>
-        /// Returns a request to get the confirmation code from URL.   **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.
+        /// Returns a request to get the confirmation code from URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
@@ -315,7 +322,7 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// Get the code request
         /// </summary>
         /// <remarks>
-        /// Returns a request to get the confirmation code from URL.   **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.
+        /// Returns a request to get the confirmation code from URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
@@ -388,7 +395,7 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// Get the code request
         /// </summary>
         /// <remarks>
-        /// Returns a request to get the confirmation code from URL.   **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.
+        /// Returns a request to get the confirmation code from URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>
@@ -405,7 +412,7 @@ namespace DocSpace.API.SDK.Api.ThirdParty
         /// Get the code request
         /// </summary>
         /// <remarks>
-        /// Returns a request to get the confirmation code from URL.   **Note**: List of providers: Google, Dropbox, Docusign, Box, OneDrive, Wordpress.
+        /// Returns a request to get the confirmation code from URL.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="provider">The identity provider used for authentication.</param>

@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,14 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The quota parameters.
+    /// The quota parameters.  &lt;example&gt;  {    id: 1,    quantity: 50,    wallet: false,    dueDate: 2026-03-31T00:00:00Z,    nextQuantity: 100,    state: Active  }  &lt;/example&gt;
     /// </summary>
     [DataContract(Name = "Quota")]
     public partial class Quota : IValidatableObject
@@ -54,9 +67,6 @@ namespace DocSpace.API.SDK.Model
         /// The quota ID.
         /// </summary>
         /// <value>The quota ID.</value>
-        /*
-        <example>9846</example>
-        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
 
@@ -65,7 +75,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The quota quantity.</value>
         /*
-        <example>1234</example>
+        <example>50</example>
         */
         [DataMember(Name = "quantity", EmitDefaultValue = false)]
         public int Quantity { get; set; }
@@ -75,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The quota applies to the wallet or not</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "wallet", EmitDefaultValue = true)]
         public bool Wallet { get; set; }
@@ -85,7 +95,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The quota due date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2026-03-31T00:00Z</example>
         */
         [DataMember(Name = "dueDate", EmitDefaultValue = true)]
         public DateTime? DueDate { get; set; }
@@ -95,7 +105,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The quota next quantity.</value>
         /*
-        <example>1234</example>
+        <example>100</example>
         */
         [DataMember(Name = "nextQuantity", EmitDefaultValue = true)]
         public int? NextQuantity { get; set; }
@@ -124,7 +134,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

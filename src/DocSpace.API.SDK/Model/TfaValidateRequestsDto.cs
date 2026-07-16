@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -34,7 +47,8 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="TfaValidateRequestsDto" /> class.
         /// </summary>
         /// <param name="code">The verification code provided by the user. (required).</param>
-        public TfaValidateRequestsDto(string code = default)
+        /// <param name="session">Specifies whether the authentication is session-based..</param>
+        public TfaValidateRequestsDto(string code = default, bool session = default)
         {
             // to ensure "code" is required (not null)
             if (code == null)
@@ -42,6 +56,7 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("code is a required property for TfaValidateRequestsDto and cannot be null");
             }
             this.Code = code;
+            this.Session = session;
         }
 
         /// <summary>
@@ -49,10 +64,20 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The verification code provided by the user.</value>
         /*
-        <example>some text</example>
+        <example>123456</example>
         */
         [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
+
+        /// <summary>
+        /// Specifies whether the authentication is session-based.
+        /// </summary>
+        /// <value>Specifies whether the authentication is session-based.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "session", EmitDefaultValue = true)]
+        public bool Session { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,6 +88,7 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class TfaValidateRequestsDto {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Session: ").Append(Session).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -73,7 +99,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

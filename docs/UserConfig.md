@@ -7,9 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | The user ID. | [optional] 
 **Name** | **string** | The full name of the user. | [optional] 
-**Image** | **string** | The path to the user&#39;s avatar. | [optional] 
+**Image** | **string** | The path to the user's avatar. | [optional] 
 **Roles** | **List&lt;string&gt;** | Roles | [optional] 
-**CustomerId** | **string** |  | [optional] 
+**CustomerId** | **string** | Customer identifier associated with the user. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

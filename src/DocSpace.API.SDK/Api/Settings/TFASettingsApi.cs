@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Settings
@@ -31,8 +38,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
-        /// <returns>ObjectArrayWrapper</returns>
-        ObjectArrayWrapper GetTfaAppCodes();
+        /// <returns>TfaAppCodeArrayWrapper</returns>
+        TfaAppCodeArrayWrapper GetTfaAppCodes();
 
         /// <summary>
         /// Get the TFA codes
@@ -42,29 +49,29 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
-        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        ApiResponse<ObjectArrayWrapper> GetTfaAppCodesWithHttpInfo();
+        /// <returns>ApiResponse of TfaAppCodeArrayWrapper</returns>
+        ApiResponse<TfaAppCodeArrayWrapper> GetTfaAppCodesWithHttpInfo();
         /// <summary>
-        /// Get confirmation email
+        /// Get TFA confirmation data
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for authorization via SMS or TFA application.
+        /// Returns the confirmation data for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
-        /// <returns>StringWrapper</returns>
-        StringWrapper GetTfaConfirmUrl();
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-data/">REST API Reference for GetTfaConfirmData Operation</seealso>
+        /// <returns>TfaConfirmDataWrapper</returns>
+        TfaConfirmDataWrapper GetTfaConfirmData();
 
         /// <summary>
-        /// Get confirmation email
+        /// Get TFA confirmation data
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for authorization via SMS or TFA application.
+        /// Returns the confirmation data for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
-        /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> GetTfaConfirmUrlWithHttpInfo();
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-data/">REST API Reference for GetTfaConfirmData Operation</seealso>
+        /// <returns>ApiResponse of TfaConfirmDataWrapper</returns>
+        ApiResponse<TfaConfirmDataWrapper> GetTfaConfirmDataWithHttpInfo();
         /// <summary>
         /// Get the TFA settings
         /// </summary>
@@ -161,8 +168,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
-        /// <returns>ObjectArrayWrapper</returns>
-        ObjectArrayWrapper UpdateTfaAppCodes();
+        /// <returns>TfaAppCodeArrayWrapper</returns>
+        TfaAppCodeArrayWrapper UpdateTfaAppCodes();
 
         /// <summary>
         /// Update the TFA codes
@@ -172,8 +179,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
-        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        ApiResponse<ObjectArrayWrapper> UpdateTfaAppCodesWithHttpInfo();
+        /// <returns>ApiResponse of TfaAppCodeArrayWrapper</returns>
+        ApiResponse<TfaAppCodeArrayWrapper> UpdateTfaAppCodesWithHttpInfo();
         /// <summary>
         /// Update the TFA settings
         /// </summary>
@@ -198,10 +205,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> UpdateTfaSettingsWithHttpInfo(TfaRequestsDto? tfaRequestsDto = default);
         /// <summary>
-        /// Get a confirmation email for updating TFA settings
+        /// Updates TFA settings
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for updating TFA settings.
+        /// Updates TFA settings and returns the confirmation URL for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
@@ -210,10 +217,10 @@ namespace DocSpace.API.SDK.Api.Settings
         StringWrapper UpdateTfaSettingsLink(TfaRequestsDto? tfaRequestsDto = default);
 
         /// <summary>
-        /// Get a confirmation email for updating TFA settings
+        /// Updates TFA settings
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for updating TFA settings.
+        /// Updates TFA settings and returns the confirmation URL for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
@@ -238,8 +245,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
-        /// <returns>Task of ObjectArrayWrapper</returns>
-        Task<ObjectArrayWrapper> GetTfaAppCodesAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of TfaAppCodeArrayWrapper</returns>
+        Task<TfaAppCodeArrayWrapper> GetTfaAppCodesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the TFA codes
@@ -250,31 +257,31 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        Task<ApiResponse<ObjectArrayWrapper>> GetTfaAppCodesWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (TfaAppCodeArrayWrapper)</returns>
+        Task<ApiResponse<TfaAppCodeArrayWrapper>> GetTfaAppCodesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get confirmation email
+        /// Get TFA confirmation data
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for authorization via SMS or TFA application.
+        /// Returns the confirmation data for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
-        /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> GetTfaConfirmUrlAsync(CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-data/">REST API Reference for GetTfaConfirmData Operation</seealso>
+        /// <returns>Task of TfaConfirmDataWrapper</returns>
+        Task<TfaConfirmDataWrapper> GetTfaConfirmDataAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get confirmation email
+        /// Get TFA confirmation data
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for authorization via SMS or TFA application.
+        /// Returns the confirmation data for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
-        /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> GetTfaConfirmUrlWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-data/">REST API Reference for GetTfaConfirmData Operation</seealso>
+        /// <returns>Task of ApiResponse (TfaConfirmDataWrapper)</returns>
+        Task<ApiResponse<TfaConfirmDataWrapper>> GetTfaConfirmDataWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the TFA settings
         /// </summary>
@@ -380,8 +387,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
-        /// <returns>Task of ObjectArrayWrapper</returns>
-        Task<ObjectArrayWrapper> UpdateTfaAppCodesAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of TfaAppCodeArrayWrapper</returns>
+        Task<TfaAppCodeArrayWrapper> UpdateTfaAppCodesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Update the TFA codes
@@ -392,8 +399,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        Task<ApiResponse<ObjectArrayWrapper>> UpdateTfaAppCodesWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (TfaAppCodeArrayWrapper)</returns>
+        Task<ApiResponse<TfaAppCodeArrayWrapper>> UpdateTfaAppCodesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Update the TFA settings
         /// </summary>
@@ -420,10 +427,10 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> UpdateTfaSettingsWithHttpInfoAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Get a confirmation email for updating TFA settings
+        /// Updates TFA settings
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for updating TFA settings.
+        /// Updates TFA settings and returns the confirmation URL for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
@@ -433,10 +440,10 @@ namespace DocSpace.API.SDK.Api.Settings
         Task<StringWrapper> UpdateTfaSettingsLinkAsync(TfaRequestsDto? tfaRequestsDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get a confirmation email for updating TFA settings
+        /// Updates TFA settings
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for updating TFA settings.
+        /// Updates TFA settings and returns the confirmation URL for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
@@ -667,8 +674,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
-        /// <returns>ObjectArrayWrapper</returns>
-        public ObjectArrayWrapper GetTfaAppCodes()
+        /// <returns>TfaAppCodeArrayWrapper</returns>
+        public TfaAppCodeArrayWrapper GetTfaAppCodes()
         {
             var localVarResponse = GetTfaAppCodesWithHttpInfo();
             return localVarResponse.Data;
@@ -682,8 +689,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
-        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        public ApiResponse<ObjectArrayWrapper> GetTfaAppCodesWithHttpInfo()
+        /// <returns>ApiResponse of TfaAppCodeArrayWrapper</returns>
+        public ApiResponse<TfaAppCodeArrayWrapper> GetTfaAppCodesWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -731,7 +738,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<ObjectArrayWrapper>("/api/2.0/settings/tfaappcodes", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<TfaAppCodeArrayWrapper>("/api/2.0/settings/tfaappcodes", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -754,8 +761,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
-        /// <returns>Task of ObjectArrayWrapper</returns>
-        public async Task<ObjectArrayWrapper> GetTfaAppCodesAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of TfaAppCodeArrayWrapper</returns>
+        public async Task<TfaAppCodeArrayWrapper> GetTfaAppCodesAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetTfaAppCodesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -770,8 +777,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-app-codes/">REST API Reference for GetTfaAppCodes Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        public async Task<ApiResponse<ObjectArrayWrapper>> GetTfaAppCodesWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (TfaAppCodeArrayWrapper)</returns>
+        public async Task<ApiResponse<TfaAppCodeArrayWrapper>> GetTfaAppCodesWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -821,7 +828,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<ObjectArrayWrapper>("/api/2.0/settings/tfaappcodes", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TfaAppCodeArrayWrapper>("/api/2.0/settings/tfaappcodes", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -836,30 +843,30 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
         /// <summary>
-        /// Get confirmation email
+        /// Get TFA confirmation data
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for authorization via SMS or TFA application.
+        /// Returns the confirmation data for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
-        /// <returns>StringWrapper</returns>
-        public StringWrapper GetTfaConfirmUrl()
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-data/">REST API Reference for GetTfaConfirmData Operation</seealso>
+        /// <returns>TfaConfirmDataWrapper</returns>
+        public TfaConfirmDataWrapper GetTfaConfirmData()
         {
-            var localVarResponse = GetTfaConfirmUrlWithHttpInfo();
+            var localVarResponse = GetTfaConfirmDataWithHttpInfo();
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get confirmation email
+        /// Get TFA confirmation data
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for authorization via SMS or TFA application.
+        /// Returns the confirmation data for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
-        /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> GetTfaConfirmUrlWithHttpInfo()
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-data/">REST API Reference for GetTfaConfirmData Operation</seealso>
+        /// <returns>ApiResponse of TfaConfirmDataWrapper</returns>
+        public ApiResponse<TfaConfirmDataWrapper> GetTfaConfirmDataWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -907,11 +914,11 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<StringWrapper>("/api/2.0/settings/tfaapp/confirm", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<TfaConfirmDataWrapper>("/api/2.0/settings/tfaapp/confirm", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("GetTfaConfirmUrl", localVarResponse);
+                var exception = ExceptionFactory("GetTfaConfirmData", localVarResponse);
                 if (exception != null)
                 {
                     throw exception;
@@ -922,32 +929,32 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
         /// <summary>
-        /// Get confirmation email
+        /// Get TFA confirmation data
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for authorization via SMS or TFA application.
+        /// Returns the confirmation data for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
-        /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> GetTfaConfirmUrlAsync(CancellationToken cancellationToken = default)
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-data/">REST API Reference for GetTfaConfirmData Operation</seealso>
+        /// <returns>Task of TfaConfirmDataWrapper</returns>
+        public async Task<TfaConfirmDataWrapper> GetTfaConfirmDataAsync(CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetTfaConfirmUrlWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetTfaConfirmDataWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get confirmation email
+        /// Get TFA confirmation data
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for authorization via SMS or TFA application.
+        /// Returns the confirmation data for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/">REST API Reference for GetTfaConfirmUrl Operation</seealso>
-        /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> GetTfaConfirmUrlWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-data/">REST API Reference for GetTfaConfirmData Operation</seealso>
+        /// <returns>Task of ApiResponse (TfaConfirmDataWrapper)</returns>
+        public async Task<ApiResponse<TfaConfirmDataWrapper>> GetTfaConfirmDataWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -997,11 +1004,11 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<StringWrapper>("/api/2.0/settings/tfaapp/confirm", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<TfaConfirmDataWrapper>("/api/2.0/settings/tfaapp/confirm", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
-                var exception = ExceptionFactory("GetTfaConfirmUrl", localVarResponse);
+                var exception = ExceptionFactory("GetTfaConfirmData", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -1735,8 +1742,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
-        /// <returns>ObjectArrayWrapper</returns>
-        public ObjectArrayWrapper UpdateTfaAppCodes()
+        /// <returns>TfaAppCodeArrayWrapper</returns>
+        public TfaAppCodeArrayWrapper UpdateTfaAppCodes()
         {
             var localVarResponse = UpdateTfaAppCodesWithHttpInfo();
             return localVarResponse.Data;
@@ -1750,8 +1757,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
-        /// <returns>ApiResponse of ObjectArrayWrapper</returns>
-        public ApiResponse<ObjectArrayWrapper> UpdateTfaAppCodesWithHttpInfo()
+        /// <returns>ApiResponse of TfaAppCodeArrayWrapper</returns>
+        public ApiResponse<TfaAppCodeArrayWrapper> UpdateTfaAppCodesWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1799,7 +1806,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Put<ObjectArrayWrapper>("/api/2.0/settings/tfaappnewcodes", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Put<TfaAppCodeArrayWrapper>("/api/2.0/settings/tfaappnewcodes", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1822,8 +1829,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
-        /// <returns>Task of ObjectArrayWrapper</returns>
-        public async Task<ObjectArrayWrapper> UpdateTfaAppCodesAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of TfaAppCodeArrayWrapper</returns>
+        public async Task<TfaAppCodeArrayWrapper> UpdateTfaAppCodesAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await UpdateTfaAppCodesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1838,8 +1845,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-app-codes/">REST API Reference for UpdateTfaAppCodes Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectArrayWrapper)</returns>
-        public async Task<ApiResponse<ObjectArrayWrapper>> UpdateTfaAppCodesWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (TfaAppCodeArrayWrapper)</returns>
+        public async Task<ApiResponse<TfaAppCodeArrayWrapper>> UpdateTfaAppCodesWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1889,7 +1896,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PutAsync<ObjectArrayWrapper>("/api/2.0/settings/tfaappnewcodes", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PutAsync<TfaAppCodeArrayWrapper>("/api/2.0/settings/tfaappnewcodes", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -2086,10 +2093,10 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
         /// <summary>
-        /// Get a confirmation email for updating TFA settings
+        /// Updates TFA settings
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for updating TFA settings.
+        /// Updates TFA settings and returns the confirmation URL for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
@@ -2102,10 +2109,10 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
         /// <summary>
-        /// Get a confirmation email for updating TFA settings
+        /// Updates TFA settings
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for updating TFA settings.
+        /// Updates TFA settings and returns the confirmation URL for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
@@ -2175,10 +2182,10 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
         /// <summary>
-        /// Get a confirmation email for updating TFA settings
+        /// Updates TFA settings
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for updating TFA settings.
+        /// Updates TFA settings and returns the confirmation URL for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>
@@ -2192,10 +2199,10 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
         /// <summary>
-        /// Get a confirmation email for updating TFA settings
+        /// Updates TFA settings
         /// </summary>
         /// <remarks>
-        /// Returns the confirmation email URL for updating TFA settings.
+        /// Updates TFA settings and returns the confirmation URL for authorization via SMS or TFA application.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tfaRequestsDto">The request parameters for configuring the Two-Factor Authentication (TFA) settings. (optional)</param>

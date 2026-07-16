@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -72,7 +85,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook log ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public int Id { get; set; }
@@ -82,7 +95,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook configuration name.</value>
         /*
-        <example>some text</example>
+        <example>Example Name</example>
         */
         [DataMember(Name = "configName", EmitDefaultValue = true)]
         public string ConfigName { get; set; }
@@ -92,7 +105,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook creation time.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-01-15T10:30Z</example>
         */
         [DataMember(Name = "creationTime", EmitDefaultValue = false)]
         public DateTime CreationTime { get; set; }
@@ -102,7 +115,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook method.</value>
         /*
-        <example>some text</example>
+        <example>example value</example>
         */
         [DataMember(Name = "method", EmitDefaultValue = true)]
         public string Method { get; set; }
@@ -112,7 +125,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook route.</value>
         /*
-        <example>some text</example>
+        <example>example value</example>
         */
         [DataMember(Name = "route", EmitDefaultValue = true)]
         public string Route { get; set; }
@@ -122,7 +135,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook request headers.</value>
         /*
-        <example>some text</example>
+        <example>example value</example>
         */
         [DataMember(Name = "requestHeaders", EmitDefaultValue = true)]
         public string RequestHeaders { get; set; }
@@ -132,7 +145,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook request payload.</value>
         /*
-        <example>some text</example>
+        <example>example value</example>
         */
         [DataMember(Name = "requestPayload", EmitDefaultValue = true)]
         public string RequestPayload { get; set; }
@@ -142,7 +155,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook response headers.</value>
         /*
-        <example>some text</example>
+        <example>example value</example>
         */
         [DataMember(Name = "responseHeaders", EmitDefaultValue = true)]
         public string ResponseHeaders { get; set; }
@@ -152,7 +165,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook response payload.</value>
         /*
-        <example>some text</example>
+        <example>example value</example>
         */
         [DataMember(Name = "responsePayload", EmitDefaultValue = true)]
         public string ResponsePayload { get; set; }
@@ -162,7 +175,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook status.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "status", EmitDefaultValue = false)]
         public int Status { get; set; }
@@ -172,7 +185,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The webhook delivery time.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-01-15T10:30Z</example>
         */
         [DataMember(Name = "delivery", EmitDefaultValue = true)]
         public DateTime? Delivery { get; set; }
@@ -207,7 +220,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -74,14 +74,14 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UserStatusApi(httpClient, config, httpClientHandler);
-            var status = (EmployeeStatus) "1";  // EmployeeStatus | The user status.
-            var filterBy = some text;  // string? | Specifies the criteria used to filter the profiles in the request. (optional) 
-            var count = 1234;  // int? | The maximum number of user profiles to retrieve. (optional) 
-            var startIndex = 1234;  // int? | The starting index for retrieving data in a paginated request. (optional) 
-            var sortBy = some text;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
+            var status = 1;  // EmployeeStatus | The user status.
+            var filterBy = displayName;  // string? | Specifies the criteria used to filter the profiles in the request. (optional) 
+            var count = 25;  // int? | The maximum number of user profiles to retrieve. (optional) 
+            var startIndex = 0;  // int? | The starting index for retrieving data in a paginated request. (optional) 
+            var sortBy = displayName;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterSeparator = some text;  // string? | Represents the separator used to split multiple filter criteria in a query string. (optional) 
-            var filterValue = some text;  // string? | A string value representing additional filter criteria used in query parameters. (optional) 
+            var filterSeparator = ,;  // string? | Represents the separator used to split multiple filter criteria in a query string. (optional) 
+            var filterValue = John;  // string? | A string value representing additional filter criteria used in query parameters. (optional) 
 
             try
             {
@@ -129,8 +129,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  -  |
+| **200** | List of users with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -194,7 +197,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UserStatusApi(httpClient, config, httpClientHandler);
-            var activationstatus = (EmployeeActivationStatus) "0";  // EmployeeActivationStatus | The new user activation status.
+            var activationstatus = 1;  // EmployeeActivationStatus | The new user activation status.
             var updateMembersRequestDto = new UpdateMembersRequestDto(); // UpdateMembersRequestDto | The request parameters for updating the user information.
 
             try
@@ -243,8 +246,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  -  |
+| **200** | List of users with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -308,7 +314,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new UserStatusApi(httpClient, config, httpClientHandler);
-            var status = (EmployeeStatus) "1";  // EmployeeStatus | The new user status.
+            var status = 1;  // EmployeeStatus | The new user status.
             var updateMembersRequestDto = new UpdateMembersRequestDto(); // UpdateMembersRequestDto | The request parameters for updating the user information.
 
             try
@@ -357,8 +363,13 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  -  |
+| **200** | List of users with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **400** | Incorrect status |  -  |
+| **403** | No permissions to perform this action or cannot change status for a specific user (yourself, owner, LDAP ...) |  -  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

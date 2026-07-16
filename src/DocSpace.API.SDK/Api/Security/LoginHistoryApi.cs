@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Security
@@ -829,11 +836,19 @@ namespace DocSpace.API.SDK.Api.Security
             }
             if (from != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "from", from));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", from.UtcTime));
+                if (from.TimeZoneOffset != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", from.TimeZoneOffset));
+                }
             }
             if (to != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "to", to));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", to.UtcTime));
+                if (to.TimeZoneOffset != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", to.TimeZoneOffset));
+                }
             }
             if (count != null)
             {

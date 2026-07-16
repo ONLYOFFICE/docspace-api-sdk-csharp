@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -22,38 +35,38 @@ namespace DocSpace.API.SDK.Model
     /// [All - All, RoomAdmin - Room admin, Guest - Guest, DocSpaceAdmin - DocSpace admin, User - User]
     /// </summary>
     /// <value>[All - All, RoomAdmin - Room admin, Guest - Guest, DocSpaceAdmin - DocSpace admin, User - User]</value>
-    [JsonConverter(typeof(JsonStringEnumConverter))]
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum EmployeeType
     {
         /// <summary>
         /// Enum All for value: All
         /// </summary>
         [EnumMember(Value = "All")]
-        All = 0,
+        All,
 
         /// <summary>
         /// Enum RoomAdmin for value: RoomAdmin
         /// </summary>
         [EnumMember(Value = "RoomAdmin")]
-        RoomAdmin = 1,
+        RoomAdmin,
 
         /// <summary>
         /// Enum Guest for value: Guest
         /// </summary>
         [EnumMember(Value = "Guest")]
-        Guest = 2,
+        Guest,
 
         /// <summary>
         /// Enum DocSpaceAdmin for value: DocSpaceAdmin
         /// </summary>
         [EnumMember(Value = "DocSpaceAdmin")]
-        DocSpaceAdmin = 3,
+        DocSpaceAdmin,
 
         /// <summary>
         /// Enum User for value: User
         /// </summary>
         [EnumMember(Value = "User")]
-        User = 4
+        User
     }
 
 }

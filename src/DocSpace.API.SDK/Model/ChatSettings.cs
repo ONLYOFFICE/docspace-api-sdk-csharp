@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,14 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ChatSettings
+    /// The chat settings.
     /// </summary>
     [DataContract(Name = "ChatSettings")]
     public partial class ChatSettings : IValidatableObject
@@ -28,9 +41,9 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatSettings" /> class.
         /// </summary>
-        /// <param name="providerId">providerId.</param>
-        /// <param name="modelId">modelId.</param>
-        /// <param name="prompt">prompt.</param>
+        /// <param name="providerId">The provider ID..</param>
+        /// <param name="modelId">The model ID..</param>
+        /// <param name="prompt">The prompt..</param>
         public ChatSettings(int providerId = default, string modelId = default, string prompt = default)
         {
             this.ProviderId = providerId;
@@ -39,32 +52,53 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets ProviderId
+        /// The provider ID.
         /// </summary>
+        /// <value>The provider ID.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "providerId", EmitDefaultValue = false)]
         public int ProviderId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ModelId
+        /// The model ID.
         /// </summary>
+        /// <value>The model ID.</value>
         /*
-        <example>some text</example>
+        <example>gpt-4</example>
         */
         [DataMember(Name = "modelId", EmitDefaultValue = true)]
         public string ModelId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Prompt
+        /// The prompt.
         /// </summary>
+        /// <value>The prompt.</value>
         /*
-        <example>some text</example>
+        <example>Please analyze this document</example>
         */
         [DataMember(Name = "prompt", EmitDefaultValue = true)]
         public string Prompt { get; set; }
 
+        /// <summary>
+        /// Specifies whether the provider is internal or not.
+        /// </summary>
+        /// <value>Specifies whether the provider is internal or not.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "internal", EmitDefaultValue = true)]
+        public bool Internal { get; private set; }
+
+        /// <summary>
+        /// Returns false as Internal should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeInternal()
+        {
+            return false;
+        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -76,6 +110,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ProviderId: ").Append(ProviderId).Append("\n");
             sb.Append("  ModelId: ").Append(ModelId).Append("\n");
             sb.Append("  Prompt: ").Append(Prompt).Append("\n");
+            sb.Append("  Internal: ").Append(Internal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,7 +121,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

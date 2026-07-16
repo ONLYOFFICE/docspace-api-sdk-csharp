@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.OAuth20
@@ -24,10 +31,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the &#39;openid&#39; scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/">REST API Reference for GetScopes Operation</seealso>
@@ -35,10 +42,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         ScopeResponse GetScopes();
 
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the &#39;openid&#39; scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/">REST API Reference for GetScopes Operation</seealso>
@@ -54,10 +61,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the &#39;openid&#39; scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -66,10 +73,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         Task<ScopeResponse> GetScopesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the &#39;openid&#39; scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -292,10 +299,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
         
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the &#39;openid&#39; scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/">REST API Reference for GetScopes Operation</seealso>
@@ -307,10 +314,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the &#39;openid&#39; scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-scopes/">REST API Reference for GetScopes Operation</seealso>
@@ -331,11 +338,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -354,10 +361,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the &#39;openid&#39; scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -370,10 +377,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
-        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the &#39;openid&#39; scope always appearing first.
+        /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -396,11 +403,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request

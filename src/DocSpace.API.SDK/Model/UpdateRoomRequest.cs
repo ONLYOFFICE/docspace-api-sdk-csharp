@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -39,7 +52,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="color">The room color..</param>
         /// <param name="cover">The room cover..</param>
         /// <param name="chatSettings">chatSettings.</param>
-        public UpdateRoomRequest(string title = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, ChatSettings chatSettings = default)
+        /// <param name="sendFormToExternalDB">Specifies whether to send form data to external database..</param>
+        /// <param name="saveFormAsXLSX">Specifies whether to save form data as XLSX file..</param>
+        public UpdateRoomRequest(string title = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, ChatSettings chatSettings = default, bool? sendFormToExternalDB = default, bool? saveFormAsXLSX = default)
         {
             this.Title = title;
             this.Quota = quota;
@@ -52,6 +67,8 @@ namespace DocSpace.API.SDK.Model
             this.Color = color;
             this.Cover = cover;
             this.ChatSettings = chatSettings;
+            this.SendFormToExternalDB = sendFormToExternalDB;
+            this.SaveFormAsXLSX = saveFormAsXLSX;
         }
 
         /// <summary>
@@ -59,7 +76,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room title.</value>
         /*
-        <example>1080p_small_wooden_mouse_personal_loan_account</example>
+        <example>My Document</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -69,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room quota.</value>
         /*
-        <example>1234</example>
+        <example>10485760</example>
         */
         [DataMember(Name = "quota", EmitDefaultValue = true)]
         public long? Quota { get; set; }
@@ -117,7 +134,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tags.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>["tag1","tag2"]</example>
         */
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
@@ -127,7 +144,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room color.</value>
         /*
-        <example>some text</example>
+        <example>#FF5733</example>
         */
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
@@ -137,7 +154,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room cover.</value>
         /*
-        <example>some text</example>
+        <example>cover1</example>
         */
         [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
@@ -147,6 +164,26 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "chatSettings", EmitDefaultValue = false)]
         public ChatSettings ChatSettings { get; set; }
+
+        /// <summary>
+        /// Specifies whether to send form data to external database.
+        /// </summary>
+        /// <value>Specifies whether to send form data to external database.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "sendFormToExternalDB", EmitDefaultValue = true)]
+        public bool? SendFormToExternalDB { get; set; }
+
+        /// <summary>
+        /// Specifies whether to save form data as XLSX file.
+        /// </summary>
+        /// <value>Specifies whether to save form data as XLSX file.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "saveFormAsXLSX", EmitDefaultValue = true)]
+        public bool? SaveFormAsXLSX { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -167,6 +204,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Color: ").Append(Color).Append("\n");
             sb.Append("  Cover: ").Append(Cover).Append("\n");
             sb.Append("  ChatSettings: ").Append(ChatSettings).Append("\n");
+            sb.Append("  SendFormToExternalDB: ").Append(SendFormToExternalDB).Append("\n");
+            sb.Append("  SaveFormAsXLSX: ").Append(SaveFormAsXLSX).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -177,7 +216,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

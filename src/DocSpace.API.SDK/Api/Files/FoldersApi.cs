@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Files
@@ -147,6 +154,29 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
         ApiResponse<FileOperationArrayWrapper> DeleteFolderWithHttpInfo(int folderId, DeleteFolder deleteFolder);
         /// <summary>
+        /// Generate XLSX report by folder
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form results folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
+        /// <returns>XlsxReportResponseWrapper</returns>
+        XlsxReportResponseWrapper GenerateXlsxByFolder(int folderId);
+
+        /// <summary>
+        /// Generate XLSX report by folder
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form results folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
+        /// <returns>ApiResponse of XlsxReportResponseWrapper</returns>
+        ApiResponse<XlsxReportResponseWrapper> GenerateXlsxByFolderWithHttpInfo(int folderId);
+        /// <summary>
         /// Get the Favorites section
         /// </summary>
         /// <remarks>
@@ -239,6 +269,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
+        /// <param name="withSubFolders">Specifies whether to include files from subfolders in the results. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
@@ -251,7 +282,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="location">The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default);
+        FolderContentIntegerWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default);
 
         /// <summary>
         /// Get a folder by ID
@@ -267,6 +298,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
+        /// <param name="withSubFolders">Specifies whether to include files from subfolders in the results. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
@@ -279,7 +311,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="location">The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default);
+        ApiResponse<FolderContentIntegerWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default);
         /// <summary>
         /// Get folder history
         /// </summary>
@@ -813,50 +845,62 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
-        /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper UploadFile(int folderId, UploadRequestDto? uploadRequestDto = default);
+        /// <returns>FileIntegerArrayWrapper</returns>
+        FileIntegerArrayWrapper UploadFile(int folderId, bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default);
 
         /// <summary>
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
-        /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> UploadFileWithHttpInfo(int folderId, UploadRequestDto? uploadRequestDto = default);
+        /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
+        ApiResponse<FileIntegerArrayWrapper> UploadFileWithHttpInfo(int folderId, bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default);
         /// <summary>
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper UploadFileToMy(UploadRequestDto? inDto = default);
+        /// <returns>FileIntegerArrayWrapper</returns>
+        FileIntegerArrayWrapper UploadFileToMy(bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default);
 
         /// <summary>
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> UploadFileToMyWithHttpInfo(UploadRequestDto? inDto = default);
+        /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
+        ApiResponse<FileIntegerArrayWrapper> UploadFileToMyWithHttpInfo(bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default);
         #endregion Synchronous Operations
     }
 
@@ -1000,6 +1044,31 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
         Task<ApiResponse<FileOperationArrayWrapper>> DeleteFolderWithHttpInfoAsync(int folderId, DeleteFolder deleteFolder, CancellationToken cancellationToken = default);
         /// <summary>
+        /// Generate XLSX report by folder
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form results folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
+        /// <returns>Task of XlsxReportResponseWrapper</returns>
+        Task<XlsxReportResponseWrapper> GenerateXlsxByFolderAsync(int folderId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Generate XLSX report by folder
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form results folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (XlsxReportResponseWrapper)</returns>
+        Task<ApiResponse<XlsxReportResponseWrapper>> GenerateXlsxByFolderWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get the Favorites section
         /// </summary>
         /// <remarks>
@@ -1098,6 +1167,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
+        /// <param name="withSubFolders">Specifies whether to include files from subfolders in the results. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
@@ -1111,7 +1181,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        Task<FolderContentIntegerWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get a folder by ID
@@ -1127,6 +1197,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
+        /// <param name="withSubFolders">Specifies whether to include files from subfolders in the results. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
@@ -1140,7 +1211,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get folder history
         /// </summary>
@@ -1708,54 +1779,66 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
-        /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> UploadFileAsync(int folderId, UploadRequestDto? uploadRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of FileIntegerArrayWrapper</returns>
+        Task<FileIntegerArrayWrapper> UploadFileAsync(int folderId, bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
-        /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> UploadFileWithHttpInfoAsync(int folderId, UploadRequestDto? uploadRequestDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
+        Task<ApiResponse<FileIntegerArrayWrapper>> UploadFileWithHttpInfoAsync(int folderId, bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> UploadFileToMyAsync(UploadRequestDto? inDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of FileIntegerArrayWrapper</returns>
+        Task<FileIntegerArrayWrapper> UploadFileToMyAsync(bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> UploadFileToMyWithHttpInfoAsync(UploadRequestDto? inDto = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
+        Task<ApiResponse<FileIntegerArrayWrapper>> UploadFileToMyWithHttpInfoAsync(bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -1985,6 +2068,10 @@ namespace DocSpace.API.SDK.Api.Files
 
         private bool _useAtRecent ;
 
+        /// <summary>
+        /// Enables the "@" address prefix so the request targets the current user's recent items.
+        /// </summary>
+        /// <returns></returns>
         public FoldersApi WithFields()
         {
             _useAtRecent = true;
@@ -2958,6 +3045,188 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
+        /// Generate XLSX report by folder
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form results folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
+        /// <returns>XlsxReportResponseWrapper</returns>
+        public XlsxReportResponseWrapper GenerateXlsxByFolder(int folderId)
+        {
+            var localVarResponse = GenerateXlsxByFolderWithHttpInfo(folderId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate XLSX report by folder
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form results folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
+        /// <returns>ApiResponse of XlsxReportResponseWrapper</returns>
+        public ApiResponse<XlsxReportResponseWrapper> GenerateXlsxByFolderWithHttpInfo(int folderId)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<XlsxReportResponseWrapper>("/api/2.0/files/folder/{folderId}/xlsx", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GenerateXlsxByFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Generate XLSX report by folder
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form results folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
+        /// <returns>Task of XlsxReportResponseWrapper</returns>
+        public async Task<XlsxReportResponseWrapper> GenerateXlsxByFolderAsync(int folderId, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GenerateXlsxByFolderWithHttpInfoAsync(folderId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate XLSX report by folder
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form results folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="folderId">The folder unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx-by-folder/">REST API Reference for GenerateXlsxByFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (XlsxReportResponseWrapper)</returns>
+        public async Task<ApiResponse<XlsxReportResponseWrapper>> GenerateXlsxByFolderWithHttpInfoAsync(int folderId, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<XlsxReportResponseWrapper>("/api/2.0/files/folder/{folderId}/xlsx", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GenerateXlsxByFolder", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get the Favorites section
         /// </summary>
         /// <remarks>
@@ -3533,6 +3802,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
+        /// <param name="withSubFolders">Specifies whether to include files from subfolders in the results. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
@@ -3545,9 +3815,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="location">The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default)
+        public FolderContentIntegerWrapper GetFolderByFolderId(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default)
         {
-            var localVarResponse = GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
+            var localVarResponse = GetFolderByFolderIdWithHttpInfo(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location);
             return localVarResponse.Data;
         }
 
@@ -3565,6 +3835,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
+        /// <param name="withSubFolders">Specifies whether to include files from subfolders in the results. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
@@ -3577,7 +3848,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="location">The location context of the request, specifying the area  where the operation is performed, such as a room, documents, or a link. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default)
+        public ApiResponse<FolderContentIntegerWrapper> GetFolderByFolderIdWithHttpInfo(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3616,6 +3887,10 @@ namespace DocSpace.API.SDK.Api.Files
             if (applyFilterOption != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
+            }
+            if (withSubFolders != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withSubFolders", withSubFolders));
             }
             if (extension != null)
             {
@@ -3688,6 +3963,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
+        /// <param name="withSubFolders">Specifies whether to include files from subfolders in the results. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
@@ -3701,9 +3977,9 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async Task<FolderContentIntegerWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerWrapper> GetFolderByFolderIdAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetFolderByFolderIdWithHttpInfoAsync(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetFolderByFolderIdWithHttpInfoAsync(folderId, userIdOrGroupId, sharedBy, filterType, roomId, excludeSubject, applyFilterOption, withSubFolders, extension, searchArea, formsItemKey, formsItemType, count, startIndex, sortBy, sortOrder, filterValue, location, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3721,6 +3997,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="roomId">The room ID. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="applyFilterOption">Specifies whether to return only files, only folders, or all elements from the specified folder. (optional)</param>
+        /// <param name="withSubFolders">Specifies whether to include files from subfolders in the results. (optional)</param>
         /// <param name="extension">Specifies whether to search for the specific file extension. (optional)</param>
         /// <param name="searchArea">The search area. (optional)</param>
         /// <param name="formsItemKey">The forms item key. (optional)</param>
@@ -3734,7 +4011,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-folder-by-folder-id/">REST API Reference for GetFolderByFolderId Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetFolderByFolderIdWithHttpInfoAsync(int folderId, Guid? userIdOrGroupId = default, Guid? sharedBy = default, FilterType? filterType = default, int? roomId = default, bool? excludeSubject = default, ApplyFilterOption? applyFilterOption = default, bool? withSubFolders = default, string? extension = default, SearchArea? searchArea = default, string? formsItemKey = default, string? formsItemType = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, Location? location = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3774,6 +4051,10 @@ namespace DocSpace.API.SDK.Api.Files
             if (applyFilterOption != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "applyFilterOption", applyFilterOption));
+            }
+            if (withSubFolders != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "withSubFolders", withSubFolders));
             }
             if (extension != null)
             {
@@ -3885,11 +4166,19 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (fromDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", fromDate.UtcTime));
+                if (fromDate.TimeZoneOffset != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", fromDate.TimeZoneOffset));
+                }
             }
             if (toDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", toDate.UtcTime));
+                if (toDate.TimeZoneOffset != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", toDate.TimeZoneOffset));
+                }
             }
             if (count != null)
             {
@@ -7698,16 +7987,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
-        /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper UploadFile(int folderId, UploadRequestDto? uploadRequestDto = default)
+        /// <returns>FileIntegerArrayWrapper</returns>
+        public FileIntegerArrayWrapper UploadFile(int folderId, bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default)
         {
-            var localVarResponse = UploadFileWithHttpInfo(folderId, uploadRequestDto);
+            var localVarResponse = UploadFileWithHttpInfo(folderId, createNewIfExist, storeOriginalFile, keepConvertStatus, file);
             return localVarResponse.Data;
         }
 
@@ -7715,18 +8007,21 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
-        /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> UploadFileWithHttpInfo(int folderId, UploadRequestDto? uploadRequestDto = default)
+        /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
+        public ApiResponse<FileIntegerArrayWrapper> UploadFileWithHttpInfo(int folderId, bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
-            string[] contentTypes = [ "application/json"];
+            string[] contentTypes = [ "multipart/form-data"];
 
             // to determine the Accept header
             string[] accepts = ["application/json"];
@@ -7738,7 +8033,22 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (uploadRequestDto != null) localVarRequestOptions.Data = uploadRequestDto;
+            if (createNewIfExist != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "createNewIfExist", createNewIfExist));
+            }
+            if (storeOriginalFile != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "storeOriginalFile", storeOriginalFile));
+            }
+            if (keepConvertStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "keepConvertStatus", keepConvertStatus));
+            }
+            if (file != null)
+            {
+                localVarRequestOptions.FileParameters.Add("File", file);
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -7772,7 +8082,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ObjectWrapper>("/api/2.0/files/{folderId}/upload", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<FileIntegerArrayWrapper>("/api/2.0/files/{folderId}/upload", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -7790,17 +8100,20 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
-        /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> UploadFileAsync(int folderId, UploadRequestDto? uploadRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of FileIntegerArrayWrapper</returns>
+        public async Task<FileIntegerArrayWrapper> UploadFileAsync(int folderId, bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UploadFileWithHttpInfoAsync(folderId, uploadRequestDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UploadFileWithHttpInfoAsync(folderId, createNewIfExist, storeOriginalFile, keepConvertStatus, file, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7808,19 +8121,22 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the selected folder by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID to upload a file.</param>
-        /// <param name="uploadRequestDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file/">REST API Reference for UploadFile Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> UploadFileWithHttpInfoAsync(int folderId, UploadRequestDto? uploadRequestDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
+        public async Task<ApiResponse<FileIntegerArrayWrapper>> UploadFileWithHttpInfoAsync(int folderId, bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
-            string[] contentTypes = [ "application/json"];
+            string[] contentTypes = [ "multipart/form-data"];
 
             // to determine the Accept header
             string[] accepts = [ "application/json"];
@@ -7833,7 +8149,22 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
-            if (uploadRequestDto != null) localVarRequestOptions.Data = uploadRequestDto;
+            if (createNewIfExist != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "createNewIfExist", createNewIfExist));
+            }
+            if (storeOriginalFile != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "storeOriginalFile", storeOriginalFile));
+            }
+            if (keepConvertStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "keepConvertStatus", keepConvertStatus));
+            }
+            if (file != null)
+            {
+                localVarRequestOptions.FileParameters.Add("File", file);
+            }
 
             // authentication (Basic) required
             // http basic authentication required
@@ -7868,7 +8199,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ObjectWrapper>("/api/2.0/files/{folderId}/upload", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<FileIntegerArrayWrapper>("/api/2.0/files/{folderId}/upload", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -7886,15 +8217,18 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper UploadFileToMy(UploadRequestDto? inDto = default)
+        /// <returns>FileIntegerArrayWrapper</returns>
+        public FileIntegerArrayWrapper UploadFileToMy(bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default)
         {
-            var localVarResponse = UploadFileToMyWithHttpInfo(inDto);
+            var localVarResponse = UploadFileToMyWithHttpInfo(createNewIfExist, storeOriginalFile, keepConvertStatus, file);
             return localVarResponse.Data;
         }
 
@@ -7902,17 +8236,20 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> UploadFileToMyWithHttpInfo(UploadRequestDto? inDto = default)
+        /// <returns>ApiResponse of FileIntegerArrayWrapper</returns>
+        public ApiResponse<FileIntegerArrayWrapper> UploadFileToMyWithHttpInfo(bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
-            string[] contentTypes = [];
+            string[] contentTypes = [ "multipart/form-data"];
 
             // to determine the Accept header
             string[] accepts = ["application/json"];
@@ -7923,9 +8260,21 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (inDto != null)
+            if (createNewIfExist != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "createNewIfExist", createNewIfExist));
+            }
+            if (storeOriginalFile != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "storeOriginalFile", storeOriginalFile));
+            }
+            if (keepConvertStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "keepConvertStatus", keepConvertStatus));
+            }
+            if (file != null)
+            {
+                localVarRequestOptions.FileParameters.Add("File", file);
             }
 
             // authentication (Basic) required
@@ -7960,7 +8309,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ObjectWrapper>("/api/2.0/files/@my/upload", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<FileIntegerArrayWrapper>("/api/2.0/files/@my/upload", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -7978,16 +8327,19 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> UploadFileToMyAsync(UploadRequestDto? inDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of FileIntegerArrayWrapper</returns>
+        public async Task<FileIntegerArrayWrapper> UploadFileToMyAsync(bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await UploadFileToMyWithHttpInfoAsync(inDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await UploadFileToMyWithHttpInfoAsync(createNewIfExist, storeOriginalFile, keepConvertStatus, file, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7995,18 +8347,21 @@ namespace DocSpace.API.SDK.Api.Files
         /// Upload a file to the My documents section
         /// </summary>
         /// <remarks>
-        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.   **Note**:  You can upload files in two different ways:   &lt;ol&gt;  &lt;li&gt;Using single file upload. You should set the Content-Type and Content-Disposition headers to specify a file name and content type, and send the file to the request body.&lt;/li&gt;  &lt;li&gt;Using standart multipart/form-data method.&lt;/li&gt;  &lt;/ol&gt;
+        /// Uploads a file specified in the request to the My documents section by single file uploading or standart multipart/form-data method.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="inDto">The request parameters for uploading a file. (optional)</param>
+        /// <param name="createNewIfExist">Specifies whether to create the new file if it already exists or not. (optional)</param>
+        /// <param name="storeOriginalFile">Specifies whether to upload documents in the original formats as well or not. (optional)</param>
+        /// <param name="keepConvertStatus">Specifies whether to keep the file converting status or not. (optional)</param>
+        /// <param name="file">The file to be uploaded. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/upload-file-to-my/">REST API Reference for UploadFileToMy Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> UploadFileToMyWithHttpInfoAsync(UploadRequestDto? inDto = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (FileIntegerArrayWrapper)</returns>
+        public async Task<ApiResponse<FileIntegerArrayWrapper>> UploadFileToMyWithHttpInfoAsync(bool? createNewIfExist = default, bool? storeOriginalFile = default, bool? keepConvertStatus = default, FileParameter? file = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
-            string[] contentTypes = [];
+            string[] contentTypes = [ "multipart/form-data"];
 
             // to determine the Accept header
             string[] accepts = [ "application/json"];
@@ -8018,9 +8373,21 @@ namespace DocSpace.API.SDK.Api.Files
             var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (inDto != null)
+            if (createNewIfExist != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "inDto", inDto));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "createNewIfExist", createNewIfExist));
+            }
+            if (storeOriginalFile != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "storeOriginalFile", storeOriginalFile));
+            }
+            if (keepConvertStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "keepConvertStatus", keepConvertStatus));
+            }
+            if (file != null)
+            {
+                localVarRequestOptions.FileParameters.Add("File", file);
             }
 
             // authentication (Basic) required
@@ -8056,7 +8423,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ObjectWrapper>("/api/2.0/files/@my/upload", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<FileIntegerArrayWrapper>("/api/2.0/files/@my/upload", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

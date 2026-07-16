@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Settings
@@ -31,8 +38,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
-        /// <returns>DoubleWrapper</returns>
-        DoubleWrapper GetStorageEncryptionProgress();
+        /// <returns>DoubleNullableWrapper</returns>
+        DoubleNullableWrapper GetStorageEncryptionProgress();
 
         /// <summary>
         /// Get the storage encryption progress
@@ -42,8 +49,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
-        /// <returns>ApiResponse of DoubleWrapper</returns>
-        ApiResponse<DoubleWrapper> GetStorageEncryptionProgressWithHttpInfo();
+        /// <returns>ApiResponse of DoubleNullableWrapper</returns>
+        ApiResponse<DoubleNullableWrapper> GetStorageEncryptionProgressWithHttpInfo();
         /// <summary>
         /// Get the storage encryption settings
         /// </summary>
@@ -106,8 +113,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
-        /// <returns>Task of DoubleWrapper</returns>
-        Task<DoubleWrapper> GetStorageEncryptionProgressAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of DoubleNullableWrapper</returns>
+        Task<DoubleNullableWrapper> GetStorageEncryptionProgressAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the storage encryption progress
@@ -118,8 +125,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
-        /// <returns>Task of ApiResponse (DoubleWrapper)</returns>
-        Task<ApiResponse<DoubleWrapper>> GetStorageEncryptionProgressWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (DoubleNullableWrapper)</returns>
+        Task<ApiResponse<DoubleNullableWrapper>> GetStorageEncryptionProgressWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the storage encryption settings
         /// </summary>
@@ -391,8 +398,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
-        /// <returns>DoubleWrapper</returns>
-        public DoubleWrapper GetStorageEncryptionProgress()
+        /// <returns>DoubleNullableWrapper</returns>
+        public DoubleNullableWrapper GetStorageEncryptionProgress()
         {
             var localVarResponse = GetStorageEncryptionProgressWithHttpInfo();
             return localVarResponse.Data;
@@ -406,8 +413,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
-        /// <returns>ApiResponse of DoubleWrapper</returns>
-        public ApiResponse<DoubleWrapper> GetStorageEncryptionProgressWithHttpInfo()
+        /// <returns>ApiResponse of DoubleNullableWrapper</returns>
+        public ApiResponse<DoubleNullableWrapper> GetStorageEncryptionProgressWithHttpInfo()
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -455,7 +462,7 @@ namespace DocSpace.API.SDK.Api.Settings
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<DoubleWrapper>("/api/2.0/settings/encryption/progress", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<DoubleNullableWrapper>("/api/2.0/settings/encryption/progress", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -478,8 +485,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
-        /// <returns>Task of DoubleWrapper</returns>
-        public async Task<DoubleWrapper> GetStorageEncryptionProgressAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of DoubleNullableWrapper</returns>
+        public async Task<DoubleNullableWrapper> GetStorageEncryptionProgressAsync(CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetStorageEncryptionProgressWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -494,8 +501,8 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-storage-encryption-progress/">REST API Reference for GetStorageEncryptionProgress Operation</seealso>
-        /// <returns>Task of ApiResponse (DoubleWrapper)</returns>
-        public async Task<ApiResponse<DoubleWrapper>> GetStorageEncryptionProgressWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (DoubleNullableWrapper)</returns>
+        public async Task<ApiResponse<DoubleNullableWrapper>> GetStorageEncryptionProgressWithHttpInfoAsync(CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -545,7 +552,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<DoubleWrapper>("/api/2.0/settings/encryption/progress", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<DoubleNullableWrapper>("/api/2.0/settings/encryption/progress", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

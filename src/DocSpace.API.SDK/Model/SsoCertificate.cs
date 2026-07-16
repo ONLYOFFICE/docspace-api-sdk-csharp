@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -51,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if a certificate is self-signed or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "selfSigned", EmitDefaultValue = true)]
         public bool SelfSigned { get; set; }
@@ -61,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The CRT certificate file.</value>
         /*
-        <example>some text</example>
+        <example>crt file</example>
         */
         [DataMember(Name = "crt", EmitDefaultValue = true)]
         public string Crt { get; set; }
@@ -71,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The certificate key.</value>
         /*
-        <example>some text</example>
+        <example>key</example>
         */
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
@@ -81,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The certificate action.</value>
         /*
-        <example>some text</example>
+        <example>validate</example>
         */
         [DataMember(Name = "action", EmitDefaultValue = true)]
         public string Action { get; set; }
@@ -91,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The certificate domain name.</value>
         /*
-        <example>some text</example>
+        <example>example.com</example>
         */
         [DataMember(Name = "domainName", EmitDefaultValue = true)]
         public string DomainName { get; set; }
@@ -101,7 +114,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The certificate start date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-01-01T00:00Z</example>
         */
         [DataMember(Name = "startDate", EmitDefaultValue = false)]
         public DateTime StartDate { get; set; }
@@ -111,7 +124,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The certificate expiration date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-01-01T00:00Z</example>
         */
         [DataMember(Name = "expiredDate", EmitDefaultValue = false)]
         public DateTime ExpiredDate { get; set; }
@@ -141,7 +154,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

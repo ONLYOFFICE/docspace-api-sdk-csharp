@@ -6,8 +6,7 @@ The full list of user parameters.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Guid** | The user ID. | [optional] 
-**DisplayName** | **string** | The user display name. | [optional] 
-**Title** | **string** | The user title. | [optional] 
+**DisplayName** | **string** | The HTML-encoded user's display name formatted according to the default format for the current culture. | [optional] 
 **Avatar** | **string** | The user avatar. | [optional] 
 **AvatarOriginal** | **string** | The user original size avatar. | [optional] 
 **AvatarMax** | **string** | The user maximum size avatar. | [optional] 
@@ -21,13 +20,10 @@ Name | Type | Description | Notes
 **UserName** | **string** | The user username. | [optional] 
 **Email** | **string** | The user email. | [optional] 
 **Contacts** | [**List&lt;Contact&gt;**](Contact.md) | The list of user contacts. | [optional] 
-**Birthday** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
-**Sex** | **string** | The user sex. | [optional] 
 **Status** | **EmployeeStatus** |  | [optional] 
 **ActivationStatus** | **EmployeeActivationStatus** |  | [optional] 
 **Terminated** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **Department** | **string** | The user department. | [optional] 
-**WorkFrom** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
 **Groups** | [**List&lt;GroupSummaryDto&gt;**](GroupSummaryDto.md) | The list of user groups. | [optional] 
 **Location** | **string** | The user location. | [optional] 
 **Notes** | **string** | The user notes. | [optional] 
@@ -51,7 +47,7 @@ Name | Type | Description | Notes
 **AuthCookieLifetime** | **double?** | The auth cookie lifetime in seconds. | [optional] 
 **CreatedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
 **RegistrationDate** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
-**HasPersonalFolder** | **bool** | Specifies if the user has a personal folder or not. | [optional] 
+**HasPersonalFolder** | **bool?** | Specifies if the user has a personal folder or not. | [optional] 
 **TfaAppEnabled** | **bool?** | Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

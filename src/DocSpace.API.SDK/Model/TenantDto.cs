@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -97,7 +110,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The affiliate ID.</value>
         /*
-        <example>some text</example>
+        <example>AFF12345</example>
         */
         [DataMember(Name = "affiliateId", EmitDefaultValue = true)]
         public string AffiliateId { get; set; }
@@ -107,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant alias.</value>
         /*
-        <example>some text</example>
+        <example>my-company</example>
         */
         [DataMember(Name = "tenantAlias", EmitDefaultValue = true)]
         public string TenantAlias { get; set; }
@@ -127,7 +140,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant campaign.</value>
         /*
-        <example>some text</example>
+        <example>WINTER2024</example>
         */
         [DataMember(Name = "campaign", EmitDefaultValue = true)]
         public string Campaign { get; set; }
@@ -137,7 +150,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant creation date and time.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-01-15T10:30Z</example>
         */
         [DataMember(Name = "creationDateTime", EmitDefaultValue = false)]
         public DateTime CreationDateTime { get; private set; }
@@ -155,7 +168,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The hosted region.</value>
         /*
-        <example>some text</example>
+        <example>EU</example>
         */
         [DataMember(Name = "hostedRegion", EmitDefaultValue = true)]
         public string HostedRegion { get; set; }
@@ -165,7 +178,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant ID.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "tenantId", EmitDefaultValue = false)]
         public int TenantId { get; private set; }
@@ -183,7 +196,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant language.</value>
         /*
-        <example>some text</example>
+        <example>en-US</example>
         */
         [DataMember(Name = "language", EmitDefaultValue = true)]
         public string Language { get; set; }
@@ -193,7 +206,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the tenant was last modified.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-02-10T14:20Z</example>
         */
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
@@ -203,7 +216,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant mapped domain.</value>
         /*
-        <example>some text</example>
+        <example>mycompany.example.com</example>
         */
         [DataMember(Name = "mappedDomain", EmitDefaultValue = true)]
         public string MappedDomain { get; set; }
@@ -213,7 +226,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant name.</value>
         /*
-        <example>Winfield Upton</example>
+        <example>My Company</example>
         */
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
@@ -223,7 +236,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant owner ID.</value>
         /*
-        <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
+        <example>00000000-0000-0000-0000-000000000001</example>
         */
         [DataMember(Name = "ownerId", EmitDefaultValue = false)]
         public Guid OwnerId { get; set; }
@@ -233,7 +246,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant payment ID.</value>
         /*
-        <example>some text</example>
+        <example>PAY123456789</example>
         */
         [DataMember(Name = "paymentId", EmitDefaultValue = true)]
         public string PaymentId { get; set; }
@@ -243,7 +256,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the ONLYOFFICE newsletter is allowed or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "spam", EmitDefaultValue = true)]
         public bool Spam { get; set; }
@@ -253,7 +266,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the tenant status was changed.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-01-15T10:30Z</example>
         */
         [DataMember(Name = "statusChangeDate", EmitDefaultValue = false)]
         public DateTime StatusChangeDate { get; private set; }
@@ -271,7 +284,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant time zone.</value>
         /*
-        <example>some text</example>
+        <example>America/New_York</example>
         */
         [DataMember(Name = "timeZone", EmitDefaultValue = true)]
         public string @TimeZone { get; set; }
@@ -281,7 +294,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tenant trusted domains.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>["example.com","trusted.com"]</example>
         */
         [DataMember(Name = "trustedDomains", EmitDefaultValue = true)]
         public List<string> TrustedDomains { get; set; }
@@ -291,7 +304,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant trusted domains in the string format.</value>
         /*
-        <example>some text</example>
+        <example>example.com,trusted.com</example>
         */
         [DataMember(Name = "trustedDomainsRaw", EmitDefaultValue = true)]
         public string TrustedDomainsRaw { get; set; }
@@ -301,7 +314,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant version</value>
         /*
-        <example>1234</example>
+        <example>2</example>
         */
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public int @Version { get; set; }
@@ -311,7 +324,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the tenant version was changed.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-02-01T09:00Z</example>
         */
         [DataMember(Name = "versionChanged", EmitDefaultValue = false)]
         public DateTime VersionChanged { get; set; }
@@ -321,7 +334,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant AWS region.</value>
         /*
-        <example>some text</example>
+        <example>us-east-1</example>
         */
         [DataMember(Name = "region", EmitDefaultValue = true)]
         public string Region { get; set; }
@@ -368,7 +381,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

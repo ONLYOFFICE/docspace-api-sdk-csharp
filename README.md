@@ -61,18 +61,18 @@ config.AccessToken = "YOUR_BEARER_TOKEN";
 // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
 HttpClient httpClient = new HttpClient();
 HttpClientHandler httpClientHandler = new HttpClientHandler();
-var apiInstance = new ApiKeysApi(httpClient, config, httpClientHandler);
-var createApiKeyRequestDto = new CreateApiKeyRequestDto?(); // CreateApiKeyRequestDto? | The request parameters for creating a new API key. (optional) 
+var apiInstance = new AIAgentsApi(httpClient, config, httpClientHandler);
+var createAgentRequestDto = new CreateAgentRequestDto?(); // CreateAgentRequestDto? | Request to create a new AI agent room. (optional) 
 
 try
 {
-    // Create a user API key
-    ApiKeyResponseWrapper result = apiInstance.CreateApiKey(createApiKeyRequestDto);
+    // Create an ai agent
+    FolderIntegerWrapper result = apiInstance.CreateAgent(createAgentRequestDto);
     Debug.WriteLine(result);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ApiKeysApi.CreateApiKey: " + e.Message );
+    Debug.Print("Exception when calling AIAgentsApi.CreateAgent: " + e.Message );
     Debug.Print("Status Code: "+ e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -133,6 +133,17 @@ Authentication schemes defined for the API:
 
 
 
+## Rate Limiting
+
+All API responses may include the following rate limiting headers:
+
+| Header | Description |
+|--------|-------------|
+| `X-RateLimit-Limit` | Sliding window rate limit: 1500 requests per minute per user/IP. |
+| `X-RateLimit-Remaining` | Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. |
+| `X-RateLimit-Reset` | Unix timestamp (seconds) when the current sliding window rate limit resets. |
+| `Retry-After` | Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). |
+
 <a id="documentation-for-api-endpoints"></a>
 ## Documentation for API Endpoints
 
@@ -140,6 +151,306 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 ### API Endoints tables:
 
+<details>
+  <summary>AI</summary>
+
+  <table>
+    <tbody>
+      <tr>
+        <th>Method</th>
+        <th>HTTP request</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td colspan="3" style="text-align: center;"><strong>AgentsApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIAgentsApi.md#createagent"><strong>CreateAgent</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/agents</td>
+        <td>Create an ai agent</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIAgentsApi.md#deleteagent"><strong>DeleteAgent</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/ai/agents/{id}</td>
+        <td>Remove an ai agent</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIAgentsApi.md#getagentinfo"><strong>GetAgentInfo</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/agents/{id}</td>
+        <td>Return an ai agent</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIAgentsApi.md#getagents"><strong>GetAgents</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/agents</td>
+        <td>Get ai agents</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIAgentsApi.md#getagentsnewitems"><strong>GetAgentsNewItems</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/agents/news</td>
+        <td>Get the room new items</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIAgentsApi.md#resetagentsquota"><strong>ResetAgentsQuota</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/agents/resetquota</td>
+        <td>Reset the AI agents quota limit</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIAgentsApi.md#updateagent"><strong>UpdateAgent</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/agents/{id}</td>
+        <td>Update an ai agent</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIAgentsApi.md#updateagentsquota"><strong>UpdateAgentsQuota</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/agents/agentquota</td>
+        <td>Change the AI agent quota limit</td>
+      </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;"><strong>ChatApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIChatApi.md#continuechat"><strong>ContinueChat</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/chats/{chatId}/messages</td>
+        <td>Send a message to an existing AI chat</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIChatApi.md#deletechat"><strong>DeleteChat</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/ai/chats/{chatId}</td>
+        <td>Delete an AI chat</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIChatApi.md#exportchat"><strong>ExportChat</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/chats/{chatId}/messages/export</td>
+        <td>Export AI chat messages to a file</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIChatApi.md#getchat"><strong>GetChat</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/chats/{chatId}</td>
+        <td>Get an AI chat by ID</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIChatApi.md#getchatmodels"><strong>GetChatModels</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/chats/models</td>
+        <td>Get available AI models</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIChatApi.md#getchats"><strong>GetChats</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/rooms/{roomId}/chats</td>
+        <td>Get AI chats in a room</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIChatApi.md#getmessages"><strong>GetMessages</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/chats/{chatId}/messages</td>
+        <td>Get messages of an AI chat</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIChatApi.md#getuserchatssettings"><strong>GetUserChatsSettings</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/rooms/{roomId}/chats/config</td>
+        <td>Get user chat settings for a room</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIChatApi.md#providepermission"><strong>ProvidePermission</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/chats/tool-permissions/{callId}/decision</td>
+        <td>Submit a tool execution permission decision</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIChatApi.md#renamechat"><strong>RenameChat</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/chats/{chatId}</td>
+        <td>Rename an AI chat</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIChatApi.md#resolveeditortool"><strong>ResolveEditorTool</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/chats/tool-files/{callId}/decision</td>
+        <td>Resolve a pending editor file-generation tool</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIChatApi.md#setuserchatssettings"><strong>SetUserChatsSettings</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/rooms/{roomId}/chats/config</td>
+        <td>Update user chat settings for a room</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIChatApi.md#startnewchat"><strong>StartNewChat</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/rooms/{roomId}/chats</td>
+        <td>Start a new AI chat</td>
+      </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;"><strong>MCPApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#addroomservers"><strong>AddRoomServers</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/rooms/{roomId}/servers</td>
+        <td>Assign MCP servers to a room</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#addserver"><strong>AddServer</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/servers</td>
+        <td>Register a custom MCP server</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#connectserver"><strong>ConnectServer</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/rooms/{roomId}/servers/{serverId}/connect</td>
+        <td>Connect an OAuth-based MCP server in a room</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#deleteroomservers"><strong>DeleteRoomServers</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/ai/rooms/{roomId}/servers</td>
+        <td>Remove MCP servers from a room</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#deleteserver"><strong>DeleteServer</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/ai/servers</td>
+        <td>Delete MCP servers</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#disconnectserver"><strong>DisconnectServer</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/rooms/{roomId}/servers/{serverId}/disconnect</td>
+        <td>Disconnect an MCP server in a room</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#getavailableservers"><strong>GetAvailableServers</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/servers/available</td>
+        <td>Get available MCP servers</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#getroomservers"><strong>GetRoomServers</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/rooms/{roomId}/servers</td>
+        <td>Get MCP servers assigned to a room</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#getserver"><strong>GetServer</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/servers/{id}</td>
+        <td>Get an MCP server by ID</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#getservers"><strong>GetServers</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/servers</td>
+        <td>Get all MCP servers</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#gettools"><strong>GetTools</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/rooms/{roomId}/servers/{serverId}/tools</td>
+        <td>Get MCP server tools in a room</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#setserverstatus"><strong>SetServerStatus</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/servers/{id}/status</td>
+        <td>Enable or disable an MCP server</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#settools"><strong>SetTools</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/rooms/{roomId}/servers/{serverId}/tools</td>
+        <td>Configure MCP server tools in a room</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMCPApi.md#updateserver"><strong>UpdateServer</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/servers/{id}</td>
+        <td>Update a custom MCP server</td>
+      </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;"><strong>MessagesApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIMessagesApi.md#exportmessage"><strong>ExportMessage</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/messages/{messageId}/export</td>
+        <td>Export a single AI message to a document</td>
+      </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;"><strong>ProvidersApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIProvidersApi.md#addprovider"><strong>AddProvider</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/providers</td>
+        <td>Add an AI provider</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIProvidersApi.md#deleteproviders"><strong>DeleteProviders</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/ai/providers</td>
+        <td>Delete AI providers</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIProvidersApi.md#getavailableproviders"><strong>GetAvailableProviders</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/providers/available</td>
+        <td>Get available AI provider types</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIProvidersApi.md#getdefaultprovider"><strong>GetDefaultProvider</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/providers/default</td>
+        <td>Get the default AI provider</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIProvidersApi.md#getprovidermodels"><strong>GetProviderModels</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/providers/{providerId}/models</td>
+        <td>Get all models for a provider with their settings</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIProvidersApi.md#getproviders"><strong>GetProviders</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/providers</td>
+        <td>Get AI providers</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIProvidersApi.md#previewprovidermodels"><strong>PreviewProviderModels</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/providers/models/preview</td>
+        <td>Preview models for a new AI provider</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIProvidersApi.md#setdefaultprovider"><strong>SetDefaultProvider</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/providers/default</td>
+        <td>Set the default AI provider</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIProvidersApi.md#updateprovider"><strong>UpdateProvider</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/providers/{id}</td>
+        <td>Update an AI provider</td>
+      </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;"><strong>SettingsApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/AISettingsApi.md#getaisettings"><strong>GetAiSettings</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/config</td>
+        <td>Get AI settings</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AISettingsApi.md#getaiusersettings"><strong>GetAiUserSettings</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/config/user</td>
+        <td>Get per-user AI settings</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AISettingsApi.md#getvectorizationsettings"><strong>GetVectorizationSettings</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/config/vectorization</td>
+        <td>Get vectorization settings</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AISettingsApi.md#getwebsearchsettings"><strong>GetWebSearchSettings</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/ai/config/web-search</td>
+        <td>Get web search settings</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AISettingsApi.md#setaiusersettings"><strong>SetAiUserSettings</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/config/user</td>
+        <td>Update per-user AI settings</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AISettingsApi.md#setvectorizationsettings"><strong>SetVectorizationSettings</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/config/vectorization</td>
+        <td>Update vectorization settings</td>
+      </tr>
+      <tr>
+        <td><a href="docs/AISettingsApi.md#setwebsearchsettings"><strong>SetWebSearchSettings</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/ai/config/web-search</td>
+        <td>Update web search settings</td>
+      </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;"><strong>VectorizationApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/AIVectorizationApi.md#starttask"><strong>StartTask</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/ai/vectorization/tasks</td>
+        <td>Start a vectorization task</td>
+      </tr>
+    </tbody>
+  </table>
+
+</details>
 <details>
   <summary>ApiKeys</summary>
 
@@ -171,12 +482,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/ApiKeysApi.md#getapikey"><strong>GetApiKey</strong></a></td>
         <td><strong>GET</strong> /api/2.0/keys/@self</td>
-        <td>Get current user&#39;s API key</td>
+        <td>Get current user's API key</td>
       </tr>
       <tr>
         <td><a href="docs/ApiKeysApi.md#getapikeys"><strong>GetApiKeys</strong></a></td>
         <td><strong>GET</strong> /api/2.0/keys</td>
-        <td>Get current user&#39;s API keys</td>
+        <td>Get current user's API keys</td>
       </tr>
       <tr>
         <td><a href="docs/ApiKeysApi.md#updateapikey"><strong>UpdateApiKey</strong></a></td>
@@ -251,6 +562,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       </tr>
       <tr>
         <td colspan="3" style="text-align: center;"><strong>BackupApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/BackupApi.md#cancelbackup"><strong>CancelBackup</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/backup/cancelbackup</td>
+        <td>Cancel current backup</td>
       </tr>
       <tr>
         <td><a href="docs/BackupApi.md#createbackupschedule"><strong>CreateBackupSchedule</strong></a></td>
@@ -437,6 +753,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Delete template files</td>
       </tr>
       <tr>
+        <td><a href="docs/FilesFilesApi.md#generatexlsx"><strong>GenerateXlsx</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/file/{fileId}/xlsx</td>
+        <td>Generate XLSX report</td>
+      </tr>
+      <tr>
         <td><a href="docs/FilesFilesApi.md#getallformroles"><strong>GetAllFormRoles</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/file/{fileId}/formroles</td>
         <td>Get form roles</td>
@@ -482,6 +803,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get form-filling result</td>
       </tr>
       <tr>
+        <td><a href="docs/FilesFilesApi.md#getformsubmissions"><strong>GetFormSubmissions</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/file/{fileId}/submissions</td>
+        <td>Get form submission results</td>
+      </tr>
+      <tr>
         <td><a href="docs/FilesFilesApi.md#getpresignedfileuri"><strong>GetPresignedFileUri</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/file/{fileId}/presigned</td>
         <td>Get file download link asynchronously</td>
@@ -500,6 +826,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/FilesFilesApi.md#getreferencedata"><strong>GetReferenceData</strong></a></td>
         <td><strong>POST</strong> /api/2.0/files/file/referencedata</td>
         <td>Get reference data</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesFilesApi.md#getxlsx"><strong>GetXlsx</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/file/{fileId}/xlsx</td>
+        <td>Get XLSX report generation status</td>
       </tr>
       <tr>
         <td><a href="docs/FilesFilesApi.md#isformpdf"><strong>IsFormPDF</strong></a></td>
@@ -613,6 +944,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/FilesFoldersApi.md#deletefolder"><strong>DeleteFolder</strong></a></td>
         <td><strong>DELETE</strong> /api/2.0/files/folder/{folderId}</td>
         <td>Delete a folder</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesFoldersApi.md#generatexlsxbyfolder"><strong>GenerateXlsxByFolder</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/folder/{folderId}/xlsx</td>
+        <td>Generate XLSX report by folder</td>
       </tr>
       <tr>
         <td><a href="docs/FilesFoldersApi.md#getfavoritesfolder"><strong>GetFavoritesFolder</strong></a></td>
@@ -733,6 +1069,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td colspan="3" style="text-align: center;"><strong>OperationsApi</strong></td>
       </tr>
       <tr>
+        <td><a href="docs/FilesOperationsApi.md#abortuploadsession"><strong>AbortUploadSession</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/files/{folderId}/session/{sessionId}</td>
+        <td>Aborts an in-progress file upload session.</td>
+      </tr>
+      <tr>
         <td><a href="docs/FilesOperationsApi.md#addfavorites"><strong>AddFavorites</strong></a></td>
         <td><strong>POST</strong> /api/2.0/files/favorites</td>
         <td>Add favorite files and folders</td>
@@ -768,6 +1109,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Chunked upload</td>
       </tr>
       <tr>
+        <td><a href="docs/FilesOperationsApi.md#createuploadsessioninfolder"><strong>CreateUploadSessionInFolder</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/{folderId}/session</td>
+        <td>Creates a session for uploading a file to a specific folder in chunks.</td>
+      </tr>
+      <tr>
         <td><a href="docs/FilesOperationsApi.md#deletebatchitems"><strong>DeleteBatchItems</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/files/fileops/delete</td>
         <td>Delete files and folders</td>
@@ -791,6 +1137,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/FilesOperationsApi.md#emptytrash"><strong>EmptyTrash</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/files/fileops/emptytrash</td>
         <td>Empty the Trash folder</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesOperationsApi.md#finalizesession"><strong>FinalizeSession</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/files/{folderId}/session/{sessionId}/finalize</td>
+        <td>Finalize an upload session</td>
       </tr>
       <tr>
         <td><a href="docs/FilesOperationsApi.md#getoperationstatuses"><strong>GetOperationStatuses</strong></a></td>
@@ -826,6 +1177,16 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/FilesOperationsApi.md#updatefilecomment"><strong>UpdateFileComment</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/files/file/{fileId}/comment</td>
         <td>Update a comment</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesOperationsApi.md#uploadasyncsession"><strong>UploadAsyncSession</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/{folderId}/session/{sessionId}/upload</td>
+        <td>Handles the upload of a chunk for an existing upload session.</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesOperationsApi.md#uploadsession"><strong>UploadSession</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/{folderId}/session/{sessionId}</td>
+        <td>Resumes an ongoing file upload session for uploading additional chunks of data.</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>QuotaApi</strong></td>
@@ -869,6 +1230,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Change the archive format (using body parameters)</td>
       </tr>
       <tr>
+        <td><a href="docs/FilesSettingsApi.md#changeexternalsharingsettings"><strong>ChangeExternalSharingSettings</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/files/settings/externalsharingsettings</td>
+        <td>Change the Access Control external sharing settings</td>
+      </tr>
+      <tr>
         <td><a href="docs/FilesSettingsApi.md#checkdocserviceurl"><strong>CheckDocServiceUrl</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/files/docservice</td>
         <td>Check the document service URL</td>
@@ -902,6 +1268,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/FilesSettingsApi.md#getautomaticallycleanup"><strong>GetAutomaticallyCleanUp</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/settings/autocleanup</td>
         <td>Get the trash bin auto-clearing setting</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesSettingsApi.md#getdefaulttemplates"><strong>GetDefaultTemplates</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/settings/defaulttemplate</td>
+        <td>Get the default template setting</td>
       </tr>
       <tr>
         <td><a href="docs/FilesSettingsApi.md#getdocserviceurl"><strong>GetDocServiceUrl</strong></a></td>
@@ -944,9 +1315,24 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Ask a new file name</td>
       </tr>
       <tr>
+        <td><a href="docs/FilesSettingsApi.md#resetdefaulttemplate"><strong>ResetDefaultTemplate</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/files/settings/defaulttemplate</td>
+        <td>Reset the default template setting</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesSettingsApi.md#setdefaulttemplate"><strong>SetDefaultTemplate</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/files/settings/defaulttemplate</td>
+        <td>Change the default template setting</td>
+      </tr>
+      <tr>
         <td><a href="docs/FilesSettingsApi.md#setopeneditorinsametab"><strong>SetOpenEditorInSameTab</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/files/settings/openeditorinsametab</td>
         <td>Open document in the same browser tab</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesSettingsApi.md#setorganizeroomsgrouping"><strong>SetOrganizeRoomsGrouping</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/files/settings/organizegrouping</td>
+        <td>Organize rooms grouping</td>
       </tr>
       <tr>
         <td><a href="docs/FilesSettingsApi.md#storeforcesave"><strong>StoreForcesave</strong></a></td>
@@ -962,6 +1348,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/FilesSettingsApi.md#updatefileifexist"><strong>UpdateFileIfExist</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/files/updateifexist</td>
         <td>Update a file version if it exists</td>
+      </tr>
+      <tr>
+        <td><a href="docs/FilesSettingsApi.md#uploaddefaulttemplate"><strong>UploadDefaultTemplate</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/settings/defaulttemplate</td>
+        <td>Upload a file as the default template setting</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>SharingApi</strong></td>
@@ -1246,12 +1637,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/OAuth20AuthorizationApi.md#authorizeoauth"><strong>AuthorizeOAuth</strong></a></td>
         <td><strong>GET</strong> /oauth2/authorize</td>
-        <td>OAuth2 authorization endpoint</td>
+        <td>OAuth2 Authorization Endpoint</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20AuthorizationApi.md#exchangetoken"><strong>ExchangeToken</strong></a></td>
         <td><strong>POST</strong> /oauth2/token</td>
-        <td>OAuth2 token endpoint</td>
+        <td>OAuth2 Token Endpoint</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20AuthorizationApi.md#submitconsent"><strong>SubmitConsent</strong></a></td>
@@ -1264,7 +1655,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/OAuth20ClientManagementApi.md#changeactivation"><strong>ChangeActivation</strong></a></td>
         <td><strong>PATCH</strong> /api/2.0/clients/{clientId}/activation</td>
-        <td>Change the client activation status</td>
+        <td>Change client activation status</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20ClientManagementApi.md#createclient"><strong>CreateClient</strong></a></td>
@@ -1277,9 +1668,19 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Delete an OAuth2 client</td>
       </tr>
       <tr>
+        <td><a href="docs/OAuth20ClientManagementApi.md#deletetenantclients"><strong>DeleteTenantClients</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/clients/tenant</td>
+        <td>Delete all tenant OAuth2 clients</td>
+      </tr>
+      <tr>
+        <td><a href="docs/OAuth20ClientManagementApi.md#deleteuserclients"><strong>DeleteUserClients</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/clients</td>
+        <td>Delete all user OAuth2 clients</td>
+      </tr>
+      <tr>
         <td><a href="docs/OAuth20ClientManagementApi.md#regeneratesecret"><strong>RegenerateSecret</strong></a></td>
         <td><strong>PATCH</strong> /api/2.0/clients/{clientId}/regenerate</td>
-        <td>Regenerate the client secret</td>
+        <td>Regenerate client secret</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20ClientManagementApi.md#revokeuserclient"><strong>RevokeUserClient</strong></a></td>
@@ -1302,27 +1703,35 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/OAuth20ClientQueryingApi.md#getclientinfo"><strong>GetClientInfo</strong></a></td>
         <td><strong>GET</strong> /api/2.0/clients/{clientId}/info</td>
-        <td>Get detailed client information</td>
+        <td>Retrieves detailed information for a specific client</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20ClientQueryingApi.md#getclients"><strong>GetClients</strong></a></td>
         <td><strong>GET</strong> /api/2.0/clients</td>
-        <td>Get clients</td>
+        <td>List clients</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20ClientQueryingApi.md#getclientsinfo"><strong>GetClientsInfo</strong></a></td>
         <td><strong>GET</strong> /api/2.0/clients/info</td>
-        <td>Get detailed information of clients</td>
+        <td>Retrieves a pageable list of client information</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20ClientQueryingApi.md#getconsents"><strong>GetConsents</strong></a></td>
         <td><strong>GET</strong> /api/2.0/clients/consents</td>
-        <td>Get user consents</td>
+        <td>Retrieves a pageable list of consents</td>
       </tr>
       <tr>
         <td><a href="docs/OAuth20ClientQueryingApi.md#getpublicclientinfo"><strong>GetPublicClientInfo</strong></a></td>
         <td><strong>GET</strong> /api/2.0/clients/{clientId}/public/info</td>
-        <td>Get public client information</td>
+        <td>Handles the GET request for public client information</td>
+      </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;"><strong>DiscoveryApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/OAuth20DiscoveryApi.md#handleoptions"><strong>HandleOptions</strong></a></td>
+        <td><strong>OPTIONS</strong> /.well-known/oauth-authorization-server</td>
+        <td></td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>ScopeManagementApi</strong></td>
@@ -1330,7 +1739,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/OAuth20ScopeManagementApi.md#getscopes"><strong>GetScopes</strong></a></td>
         <td><strong>GET</strong> /api/2.0/scopes</td>
-        <td>Get available OAuth2 scopes</td>
+        <td>List available OAuth2 scopes</td>
       </tr>
     </tbody>
   </table>
@@ -1347,6 +1756,19 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <th>Description</th>
       </tr>
       <tr>
+        <td colspan="3" style="text-align: center;"><strong>EmailApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/PeopleEmailApi.md#changeuseremail"><strong>ChangeUserEmail</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/people/{userid}/email</td>
+        <td>Change a user email</td>
+      </tr>
+      <tr>
+        <td><a href="docs/PeopleEmailApi.md#sendemailchangeinstructions"><strong>SendEmailChangeInstructions</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/people/email</td>
+        <td>Send instructions to change email</td>
+      </tr>
+    <tr>
         <td colspan="3" style="text-align: center;"><strong>GuestsApi</strong></td>
       </tr>
       <tr>
@@ -1409,6 +1831,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Add a user</td>
       </tr>
       <tr>
+        <td><a href="docs/PeopleProfilesApi.md#checkuserexistsbyemail"><strong>CheckUserExistsByEmail</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/people/exists</td>
+        <td>Check if a user exists by email</td>
+      </tr>
+      <tr>
         <td><a href="docs/PeopleProfilesApi.md#deletemember"><strong>DeleteMember</strong></a></td>
         <td><strong>DELETE</strong> /api/2.0/people/{userid}</td>
         <td>Delete a user</td>
@@ -1459,11 +1886,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Resend activation emails</td>
       </tr>
       <tr>
-        <td><a href="docs/PeopleProfilesApi.md#sendemailchangeinstructions"><strong>SendEmailChangeInstructions</strong></a></td>
-        <td><strong>POST</strong> /api/2.0/people/email</td>
-        <td>Send instructions to change email</td>
-      </tr>
-      <tr>
         <td><a href="docs/PeopleProfilesApi.md#updatemember"><strong>UpdateMember</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/people/{userid}</td>
         <td>Update a user</td>
@@ -1471,7 +1893,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/PeopleProfilesApi.md#updatememberculture"><strong>UpdateMemberCulture</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/people/{userid}/culture</td>
-        <td>Update a user culture code</td>
+        <td>Update a user culture</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>QuotaApi</strong></td>
@@ -1660,7 +2082,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get the progress of updating user type</td>
       </tr>
       <tr>
-        <td><a href="docs/PeopleUserTypeApi.md#starusertypetupdate"><strong>StarUserTypetUpdate</strong></a></td>
+        <td><a href="docs/PeopleUserTypeApi.md#startusertypeupdate"><strong>StartUserTypeUpdate</strong></a></td>
         <td><strong>POST</strong> /api/2.0/people/type</td>
         <td>Start updating user type</td>
       </tr>
@@ -1707,7 +2129,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/PortalPaymentApi.md#changetenantwalletservicestate"><strong>ChangeTenantWalletServiceState</strong></a></td>
         <td><strong>POST</strong> /api/2.0/portal/payment/servicestate</td>
-        <td>Change wallet service state</td>
+        <td>Change tenant wallet service state</td>
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#createcustomeroperationsreport"><strong>CreateCustomerOperationsReport</strong></a></td>
@@ -1715,9 +2137,24 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Start the customer operations report generation</td>
       </tr>
       <tr>
+        <td><a href="docs/PortalPaymentApi.md#creditaibalance"><strong>CreditAiBalance</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/portal/payment/creditaibalance</td>
+        <td>Credit AI balance</td>
+      </tr>
+      <tr>
+        <td><a href="docs/PortalPaymentApi.md#getaiprices"><strong>GetAiPrices</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/portal/payment/ai-prices</td>
+        <td>Get AI model prices</td>
+      </tr>
+      <tr>
         <td><a href="docs/PortalPaymentApi.md#getcheckoutsetupurl"><strong>GetCheckoutSetupUrl</strong></a></td>
-        <td><strong>GET</strong> /api/2.0/portal/payment/chechoutsetupurl</td>
+        <td><strong>GET</strong> /api/2.0/portal/payment/checkoutsetupurl</td>
         <td>Get the checkout setup page URL</td>
+      </tr>
+      <tr>
+        <td><a href="docs/PortalPaymentApi.md#getcustomeraibalance"><strong>GetCustomerAiBalance</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/portal/payment/customer/aibalance</td>
+        <td>Get the customer AI balance</td>
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#getcustomerbalance"><strong>GetCustomerBalance</strong></a></td>
@@ -1770,14 +2207,19 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get quota payment information</td>
       </tr>
       <tr>
+        <td><a href="docs/PortalPaymentApi.md#getrestrictedaimodels"><strong>GetRestrictedAiModels</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/portal/payment/ai-model/restrictions</td>
+        <td>Get restricted AI models</td>
+      </tr>
+      <tr>
         <td><a href="docs/PortalPaymentApi.md#gettenantwalletservicesettings"><strong>GetTenantWalletServiceSettings</strong></a></td>
         <td><strong>GET</strong> /api/2.0/portal/payment/servicessettings</td>
-        <td>Get wallet services settings</td>
+        <td>Gets the wallet service settings for the tenant.</td>
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#gettenantwalletsettings"><strong>GetTenantWalletSettings</strong></a></td>
         <td><strong>GET</strong> /api/2.0/portal/payment/topupsettings</td>
-        <td>Get wallet auto top-up settings</td>
+        <td>Gets the tenant wallet auto top up settings</td>
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#getwalletservice"><strong>GetWalletService</strong></a></td>
@@ -1795,9 +2237,14 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Send a payment request</td>
       </tr>
       <tr>
+        <td><a href="docs/PortalPaymentApi.md#setrestrictedaimodels"><strong>SetRestrictedAiModels</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/portal/payment/ai-model/restrictions</td>
+        <td>Set restricted AI models</td>
+      </tr>
+      <tr>
         <td><a href="docs/PortalPaymentApi.md#settenantwalletsettings"><strong>SetTenantWalletSettings</strong></a></td>
         <td><strong>POST</strong> /api/2.0/portal/payment/topupsettings</td>
-        <td>Set wallet auto top-up settings</td>
+        <td>Set the wallet auto top up settings</td>
       </tr>
       <tr>
         <td><a href="docs/PortalPaymentApi.md#terminatecustomeroperationsreport"><strong>TerminateCustomerOperationsReport</strong></a></td>
@@ -1884,8 +2331,23 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td colspan="3" style="text-align: center;"><strong>UsersApi</strong></td>
       </tr>
       <tr>
+        <td><a href="docs/PortalUsersApi.md#createinvitationlink"><strong>CreateInvitationLink</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/portal/users/invitationlink</td>
+        <td>Create an invitation link</td>
+      </tr>
+      <tr>
+        <td><a href="docs/PortalUsersApi.md#deleteinvitationlink"><strong>DeleteInvitationLink</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/portal/users/invitationlink</td>
+        <td>Deletes an invitation link.</td>
+      </tr>
+      <tr>
         <td><a href="docs/PortalUsersApi.md#getinvitationlink"><strong>GetInvitationLink</strong></a></td>
         <td><strong>GET</strong> /api/2.0/portal/users/invite/{employeeType}</td>
+        <td>Get an invitation link</td>
+      </tr>
+      <tr>
+        <td><a href="docs/PortalUsersApi.md#getinvitationlinkbyemployeetype"><strong>GetInvitationLinkByEmployeeType</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/portal/users/invitationlink/{employeeType}</td>
         <td>Get an invitation link</td>
       </tr>
       <tr>
@@ -1907,6 +2369,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/PortalUsersApi.md#sendcongratulations"><strong>SendCongratulations</strong></a></td>
         <td><strong>POST</strong> /api/2.0/portal/sendcongratulations</td>
         <td>Send congratulations</td>
+      </tr>
+      <tr>
+        <td><a href="docs/PortalUsersApi.md#updateinvitationlink"><strong>UpdateInvitationLink</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/portal/users/invitationlink</td>
+        <td>Update an invitation link</td>
       </tr>
     </tbody>
   </table>
@@ -1991,6 +2458,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Remove the room tags</td>
       </tr>
       <tr>
+        <td><a href="docs/RoomsApi.md#getexternaldbsyncstatus"><strong>GetExternalDbSyncStatus</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/rooms/{id}/externaldbsync</td>
+        <td>Get external DB sync status</td>
+      </tr>
+      <tr>
         <td><a href="docs/RoomsApi.md#getnewroomitems"><strong>GetNewRoomItems</strong></a></td>
         <td><strong>GET</strong> /api/2.0/files/rooms/{id}/news</td>
         <td>Get the new room items</td>
@@ -2056,6 +2528,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get the room primary external link</td>
       </tr>
       <tr>
+        <td><a href="docs/RoomsApi.md#hastaglinks"><strong>HasTagLinks</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/tags/{tagName}/haslinks</td>
+        <td>Has tag links</td>
+      </tr>
+      <tr>
         <td><a href="docs/RoomsApi.md#pinroom"><strong>PinRoom</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/files/rooms/{id}/pin</td>
         <td>Pin a room</td>
@@ -2086,6 +2563,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Set the room access rights</td>
       </tr>
       <tr>
+        <td><a href="docs/RoomsApi.md#startexternaldbsync"><strong>StartExternalDbSync</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/rooms/{id}/externaldbsync</td>
+        <td>Start external DB sync</td>
+      </tr>
+      <tr>
         <td><a href="docs/RoomsApi.md#startroomindexexport"><strong>StartRoomIndexExport</strong></a></td>
         <td><strong>POST</strong> /api/2.0/files/rooms/{id}/indexexport</td>
         <td>Start the room index export</td>
@@ -2111,9 +2593,47 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Update a room</td>
       </tr>
       <tr>
+        <td><a href="docs/RoomsApi.md#updateroomtag"><strong>UpdateRoomTag</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/files/tags</td>
+        <td>Update tag</td>
+      </tr>
+      <tr>
         <td><a href="docs/RoomsApi.md#uploadroomlogo"><strong>UploadRoomLogo</strong></a></td>
         <td><strong>POST</strong> /api/2.0/files/logos</td>
         <td>Upload a room logo image</td>
+      </tr>
+    <tr>
+        <td colspan="3" style="text-align: center;"><strong>GroupsApi</strong></td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsGroupsApi.md#addroomgroup"><strong>AddRoomGroup</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/group</td>
+        <td>Add a new room group</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsGroupsApi.md#changeroomgroupicon"><strong>ChangeRoomGroupIcon</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/files/group/{id}/icon</td>
+        <td>Change group icon</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsGroupsApi.md#deleteroomgroup"><strong>DeleteRoomGroup</strong></a></td>
+        <td><strong>DELETE</strong> /api/2.0/files/group/{id}</td>
+        <td>Delete group</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsGroupsApi.md#getroomgroupinfo"><strong>GetRoomGroupInfo</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/group/{id}</td>
+        <td>Get room group info</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsGroupsApi.md#getroomgroups"><strong>GetRoomGroups</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/files/group</td>
+        <td>List room groups</td>
+      </tr>
+      <tr>
+        <td><a href="docs/RoomsGroupsApi.md#updateroomgroup"><strong>UpdateRoomGroup</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/files/group/{id}</td>
+        <td>Update room group</td>
       </tr>
     </tbody>
   </table>
@@ -2326,6 +2846,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><strong>POST</strong> /api/2.0/settings/authservice</td>
         <td>Save the authorization keys</td>
       </tr>
+      <tr>
+        <td><a href="docs/SettingsAuthorizationApi.md#testexternaldatabaseconnection"><strong>TestExternalDatabaseConnection</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/settings/authservice/externaldb/test</td>
+        <td>Test external database connection</td>
+      </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>BannersVisibilityApi</strong></td>
       </tr>
@@ -2398,6 +2923,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get supported languages</td>
       </tr>
       <tr>
+        <td><a href="docs/SettingsCommonSettingsApi.md#gettenantaiaccesssettings"><strong>GetTenantAiAccessSettings</strong></a></td>
+        <td><strong>GET</strong> /api/2.0/settings/ai-access</td>
+        <td>Get the AI access settings for the portal</td>
+      </tr>
+      <tr>
         <td><a href="docs/SettingsCommonSettingsApi.md#gettenantuserinvitationsettings"><strong>GetTenantUserInvitationSettings</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/invitationsettings</td>
         <td>Get the user invitation settings</td>
@@ -2406,6 +2936,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/SettingsCommonSettingsApi.md#gettimezones"><strong>GetTimeZones</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/timezones</td>
         <td>Get time zones</td>
+      </tr>
+      <tr>
+        <td><a href="docs/SettingsCommonSettingsApi.md#savedefaultfolder"><strong>SaveDefaultFolder</strong></a></td>
+        <td><strong>PUT</strong> /api/2.0/settings/defaultfolder</td>
+        <td>Set the default folder</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsCommonSettingsApi.md#savednssettings"><strong>SaveDnsSettings</strong></a></td>
@@ -2421,6 +2956,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td><a href="docs/SettingsCommonSettingsApi.md#saveportalcolortheme"><strong>SavePortalColorTheme</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/settings/colortheme</td>
         <td>Save a color theme</td>
+      </tr>
+      <tr>
+        <td><a href="docs/SettingsCommonSettingsApi.md#settenantaiaccesssettings"><strong>SetTenantAiAccessSettings</strong></a></td>
+        <td><strong>POST</strong> /api/2.0/settings/ai-access</td>
+        <td>Set the AI access for the portal</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsCommonSettingsApi.md#updateemailactivationsettings"><strong>UpdateEmailActivationSettings</strong></a></td>
@@ -2866,9 +3406,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
         <td>Get the TFA codes</td>
       </tr>
       <tr>
-        <td><a href="docs/SettingsTFASettingsApi.md#gettfaconfirmurl"><strong>GetTfaConfirmUrl</strong></a></td>
+        <td><a href="docs/SettingsTFASettingsApi.md#gettfaconfirmdata"><strong>GetTfaConfirmData</strong></a></td>
         <td><strong>GET</strong> /api/2.0/settings/tfaapp/confirm</td>
-        <td>Get confirmation email</td>
+        <td>Get TFA confirmation data</td>
       </tr>
       <tr>
         <td><a href="docs/SettingsTFASettingsApi.md#gettfasettings"><strong>GetTfaSettings</strong></a></td>
@@ -2903,7 +3443,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
       <tr>
         <td><a href="docs/SettingsTFASettingsApi.md#updatetfasettingslink"><strong>UpdateTfaSettingsLink</strong></a></td>
         <td><strong>PUT</strong> /api/2.0/settings/tfaappwithlink</td>
-        <td>Get a confirmation email for updating TFA settings</td>
+        <td>Updates TFA settings</td>
       </tr>
     <tr>
         <td colspan="3" style="text-align: center;"><strong>TelegramApi</strong></td>
@@ -3041,12 +3581,29 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.ActiveConnectionsDto](docs/ActiveConnectionsDto.md)
  - [Model.ActiveConnectionsItemDto](docs/ActiveConnectionsItemDto.md)
  - [Model.ActiveConnectionsWrapper](docs/ActiveConnectionsWrapper.md)
- - [Model.ActiveConnectionsWrapperLinksInner](docs/ActiveConnectionsWrapperLinksInner.md)
+ - [Model.AddMcpServerRequestBody](docs/AddMcpServerRequestBody.md)
+ - [Model.AddRoomServersRequestBody](docs/AddRoomServersRequestBody.md)
  - [Model.AdditionalWhiteLabelSettings](docs/AdditionalWhiteLabelSettings.md)
  - [Model.AdditionalWhiteLabelSettingsDto](docs/AdditionalWhiteLabelSettingsDto.md)
  - [Model.AdditionalWhiteLabelSettingsWrapper](docs/AdditionalWhiteLabelSettingsWrapper.md)
  - [Model.AdminMessageBaseSettingsRequestsDto](docs/AdminMessageBaseSettingsRequestsDto.md)
  - [Model.AdminMessageSettingsRequestsDto](docs/AdminMessageSettingsRequestsDto.md)
+ - [Model.AgentNewItemsDto](docs/AgentNewItemsDto.md)
+ - [Model.AiChatModelPricing](docs/AiChatModelPricing.md)
+ - [Model.AiChatPrice](docs/AiChatPrice.md)
+ - [Model.AiEmbeddingModelPricing](docs/AiEmbeddingModelPricing.md)
+ - [Model.AiEmbeddingPrice](docs/AiEmbeddingPrice.md)
+ - [Model.AiModelCapabilities](docs/AiModelCapabilities.md)
+ - [Model.AiPricesResponse](docs/AiPricesResponse.md)
+ - [Model.AiPricesResponseWrapper](docs/AiPricesResponseWrapper.md)
+ - [Model.AiProviderArrayWrapper](docs/AiProviderArrayWrapper.md)
+ - [Model.AiProviderDto](docs/AiProviderDto.md)
+ - [Model.AiProviderWrapper](docs/AiProviderWrapper.md)
+ - [Model.AiSettingsDto](docs/AiSettingsDto.md)
+ - [Model.AiSettingsWrapper](docs/AiSettingsWrapper.md)
+ - [Model.AiUserSettingsDto](docs/AiUserSettingsDto.md)
+ - [Model.AiUserSettingsWrapper](docs/AiUserSettingsWrapper.md)
+ - [Model.AiWebSearchPricing](docs/AiWebSearchPricing.md)
  - [Model.AnonymousConfigDto](docs/AnonymousConfigDto.md)
  - [Model.ApiDateTime](docs/ApiDateTime.md)
  - [Model.ApiKeyResponseArrayWrapper](docs/ApiKeyResponseArrayWrapper.md)
@@ -3063,6 +3620,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.AuthRequestsDto](docs/AuthRequestsDto.md)
  - [Model.AuthServiceRequestsArrayWrapper](docs/AuthServiceRequestsArrayWrapper.md)
  - [Model.AuthServiceRequestsDto](docs/AuthServiceRequestsDto.md)
+ - [Model.AuthWithCodeRequestsDto](docs/AuthWithCodeRequestsDto.md)
  - [Model.AuthenticationTokenDto](docs/AuthenticationTokenDto.md)
  - [Model.AuthenticationTokenWrapper](docs/AuthenticationTokenWrapper.md)
  - [Model.AutoCleanUpData](docs/AutoCleanUpData.md)
@@ -3098,10 +3656,19 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.CdnStorageSettings](docs/CdnStorageSettings.md)
  - [Model.CdnStorageSettingsWrapper](docs/CdnStorageSettingsWrapper.md)
  - [Model.ChangeClientActivationRequest](docs/ChangeClientActivationRequest.md)
+ - [Model.ChangeEmailRequest](docs/ChangeEmailRequest.md)
  - [Model.ChangeHistory](docs/ChangeHistory.md)
  - [Model.ChangeOwnerRequestDto](docs/ChangeOwnerRequestDto.md)
+ - [Model.ChangePasswordRequest](docs/ChangePasswordRequest.md)
  - [Model.ChangeWalletServiceStateRequestDto](docs/ChangeWalletServiceStateRequestDto.md)
+ - [Model.ChatArrayWrapper](docs/ChatArrayWrapper.md)
+ - [Model.ChatDto](docs/ChatDto.md)
+ - [Model.ChatImageMultimodalSettingsDto](docs/ChatImageMultimodalSettingsDto.md)
+ - [Model.ChatMultimodalSettingsDto](docs/ChatMultimodalSettingsDto.md)
+ - [Model.ChatReasoningEffort](docs/ChatReasoningEffort.md)
  - [Model.ChatSettings](docs/ChatSettings.md)
+ - [Model.ChatSettingsDto](docs/ChatSettingsDto.md)
+ - [Model.ChatWrapper](docs/ChatWrapper.md)
  - [Model.CheckConversionRequestDtoInteger](docs/CheckConversionRequestDtoInteger.md)
  - [Model.CheckDestFolderDto](docs/CheckDestFolderDto.md)
  - [Model.CheckDestFolderResult](docs/CheckDestFolderResult.md)
@@ -3109,6 +3676,10 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.CheckDocServiceUrlRequestDto](docs/CheckDocServiceUrlRequestDto.md)
  - [Model.CheckFillFormDraft](docs/CheckFillFormDraft.md)
  - [Model.CheckUploadRequest](docs/CheckUploadRequest.md)
+ - [Model.ChunkedUploadSessionResponseInteger](docs/ChunkedUploadSessionResponseInteger.md)
+ - [Model.ChunkedUploadSessionResponseIntegerWrapper](docs/ChunkedUploadSessionResponseIntegerWrapper.md)
+ - [Model.ChunkedUploadSessionResponseWrapperInteger](docs/ChunkedUploadSessionResponseWrapperInteger.md)
+ - [Model.ChunkedUploadSessionResponseWrapperIntegerWrapper](docs/ChunkedUploadSessionResponseWrapperIntegerWrapper.md)
  - [Model.ClientInfoResponse](docs/ClientInfoResponse.md)
  - [Model.ClientResponse](docs/ClientResponse.md)
  - [Model.ClientSecretResponse](docs/ClientSecretResponse.md)
@@ -3124,9 +3695,12 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.ConfirmDto](docs/ConfirmDto.md)
  - [Model.ConfirmType](docs/ConfirmType.md)
  - [Model.ConfirmWrapper](docs/ConfirmWrapper.md)
+ - [Model.ConnectServerRequestBody](docs/ConnectServerRequestBody.md)
+ - [Model.ConnectionTestResult](docs/ConnectionTestResult.md)
+ - [Model.ConnectionTestResultWrapper](docs/ConnectionTestResultWrapper.md)
  - [Model.Contact](docs/Contact.md)
- - [Model.ContentDisposition](docs/ContentDisposition.md)
- - [Model.ContentType](docs/ContentType.md)
+ - [Model.ContinueChatBody](docs/ContinueChatBody.md)
+ - [Model.ContinueChatBodyFilesInner](docs/ContinueChatBodyFilesInner.md)
  - [Model.ConversationResultArrayWrapper](docs/ConversationResultArrayWrapper.md)
  - [Model.ConversationResultDto](docs/ConversationResultDto.md)
  - [Model.CookieSettingsDto](docs/CookieSettingsDto.md)
@@ -3137,17 +3711,20 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.CoverRequestDto](docs/CoverRequestDto.md)
  - [Model.CoversResultArrayWrapper](docs/CoversResultArrayWrapper.md)
  - [Model.CoversResultDto](docs/CoversResultDto.md)
+ - [Model.CreateAgentRequestDto](docs/CreateAgentRequestDto.md)
  - [Model.CreateApiKeyRequestDto](docs/CreateApiKeyRequestDto.md)
  - [Model.CreateClientRequest](docs/CreateClientRequest.md)
  - [Model.CreateFileJsonElement](docs/CreateFileJsonElement.md)
  - [Model.CreateFileJsonElementTemplateId](docs/CreateFileJsonElementTemplateId.md)
  - [Model.CreateFolder](docs/CreateFolder.md)
+ - [Model.CreateProviderRequestDto](docs/CreateProviderRequestDto.md)
  - [Model.CreateRoomFromTemplateDto](docs/CreateRoomFromTemplateDto.md)
  - [Model.CreateRoomRequestDto](docs/CreateRoomRequestDto.md)
  - [Model.CreateTagRequestDto](docs/CreateTagRequestDto.md)
  - [Model.CreateTextOrHtmlFile](docs/CreateTextOrHtmlFile.md)
  - [Model.CreateThirdPartyRoom](docs/CreateThirdPartyRoom.md)
  - [Model.CreateWebhooksConfigRequestsDto](docs/CreateWebhooksConfigRequestsDto.md)
+ - [Model.CreditAiBalanceRequestDto](docs/CreditAiBalanceRequestDto.md)
  - [Model.Cron](docs/Cron.md)
  - [Model.CronParams](docs/CronParams.md)
  - [Model.CspDto](docs/CspDto.md)
@@ -3158,6 +3735,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.CultureSpecificExternalResources](docs/CultureSpecificExternalResources.md)
  - [Model.CurrenciesArrayWrapper](docs/CurrenciesArrayWrapper.md)
  - [Model.CurrenciesDto](docs/CurrenciesDto.md)
+ - [Model.CurrencyInfo](docs/CurrencyInfo.md)
  - [Model.CurrentLicenseInfo](docs/CurrentLicenseInfo.md)
  - [Model.CustomColorThemesSettingsColorItem](docs/CustomColorThemesSettingsColorItem.md)
  - [Model.CustomColorThemesSettingsDto](docs/CustomColorThemesSettingsDto.md)
@@ -3180,12 +3758,23 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.DeepLinkConfigurationRequestsDto](docs/DeepLinkConfigurationRequestsDto.md)
  - [Model.DeepLinkDto](docs/DeepLinkDto.md)
  - [Model.DeepLinkHandlingMode](docs/DeepLinkHandlingMode.md)
+ - [Model.DefaultProductRequestDto](docs/DefaultProductRequestDto.md)
+ - [Model.DefaultProviderDto](docs/DefaultProviderDto.md)
+ - [Model.DefaultProviderWrapper](docs/DefaultProviderWrapper.md)
+ - [Model.DefaultTemplateItemDto](docs/DefaultTemplateItemDto.md)
+ - [Model.DefaultTemplateSettingsDto](docs/DefaultTemplateSettingsDto.md)
+ - [Model.DefaultTemplateSettingsRequestDto](docs/DefaultTemplateSettingsRequestDto.md)
+ - [Model.DefaultTemplateSettingsRequestDtoSelectedFile](docs/DefaultTemplateSettingsRequestDtoSelectedFile.md)
+ - [Model.DefaultTemplateSettingsResetRequestDto](docs/DefaultTemplateSettingsResetRequestDto.md)
+ - [Model.DefaultTemplateSettingsWrapper](docs/DefaultTemplateSettingsWrapper.md)
  - [Model.Delete](docs/Delete.md)
  - [Model.DeleteBatchRequestDto](docs/DeleteBatchRequestDto.md)
  - [Model.DeleteBatchRequestDtoAllOfFileIds](docs/DeleteBatchRequestDtoAllOfFileIds.md)
  - [Model.DeleteBatchRequestDtoAllOfFolderIds](docs/DeleteBatchRequestDtoAllOfFolderIds.md)
  - [Model.DeleteFolder](docs/DeleteFolder.md)
  - [Model.DeleteRoomRequest](docs/DeleteRoomRequest.md)
+ - [Model.DeleteRoomServersRequestBody](docs/DeleteRoomServersRequestBody.md)
+ - [Model.DeleteServersRequestBody](docs/DeleteServersRequestBody.md)
  - [Model.DeleteVersionBatchRequestDto](docs/DeleteVersionBatchRequestDto.md)
  - [Model.DisplayRequestDto](docs/DisplayRequestDto.md)
  - [Model.DistributedTaskStatus](docs/DistributedTaskStatus.md)
@@ -3195,6 +3784,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.DocumentBuilderTaskDto](docs/DocumentBuilderTaskDto.md)
  - [Model.DocumentBuilderTaskWrapper](docs/DocumentBuilderTaskWrapper.md)
  - [Model.DocumentConfigDto](docs/DocumentConfigDto.md)
+ - [Model.DoubleNullableWrapper](docs/DoubleNullableWrapper.md)
  - [Model.DoubleWrapper](docs/DoubleWrapper.md)
  - [Model.DownloadRequestDto](docs/DownloadRequestDto.md)
  - [Model.DownloadRequestDtoAllOfFileIds](docs/DownloadRequestDtoAllOfFileIds.md)
@@ -3213,6 +3803,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.EditHistoryDto](docs/EditHistoryDto.md)
  - [Model.EditHistoryUrl](docs/EditHistoryUrl.md)
  - [Model.EditorConfigurationDto](docs/EditorConfigurationDto.md)
+ - [Model.EditorToolCallStateDto](docs/EditorToolCallStateDto.md)
+ - [Model.EditorToolDecisionRequestBody](docs/EditorToolDecisionRequestBody.md)
  - [Model.EditorType](docs/EditorType.md)
  - [Model.EmailActivationSettings](docs/EmailActivationSettings.md)
  - [Model.EmailActivationSettingsWrapper](docs/EmailActivationSettingsWrapper.md)
@@ -3220,6 +3812,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.EmailMemberRequestDto](docs/EmailMemberRequestDto.md)
  - [Model.EmailValidationKeyModel](docs/EmailValidationKeyModel.md)
  - [Model.EmbeddedConfig](docs/EmbeddedConfig.md)
+ - [Model.EmbeddingProviderType](docs/EmbeddingProviderType.md)
  - [Model.EmployeeActivationStatus](docs/EmployeeActivationStatus.md)
  - [Model.EmployeeArrayWrapper](docs/EmployeeArrayWrapper.md)
  - [Model.EmployeeDto](docs/EmployeeDto.md)
@@ -3233,12 +3826,23 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.EncryptionKeysConfig](docs/EncryptionKeysConfig.md)
  - [Model.EncryptionSettings](docs/EncryptionSettings.md)
  - [Model.EncryptionSettingsWrapper](docs/EncryptionSettingsWrapper.md)
+ - [Model.EngineType](docs/EngineType.md)
  - [Model.EntryType](docs/EntryType.md)
- - [Model.ErrorResponse](docs/ErrorResponse.md)
  - [Model.ExchangeToken200Response](docs/ExchangeToken200Response.md)
+ - [Model.ExportChatRequestBody](docs/ExportChatRequestBody.md)
+ - [Model.ExportChatRequestBodyFolderId](docs/ExportChatRequestBodyFolderId.md)
+ - [Model.ExportMessageRequestBody](docs/ExportMessageRequestBody.md)
+ - [Model.ExternalDatabaseSettings](docs/ExternalDatabaseSettings.md)
+ - [Model.ExternalDatabaseType](docs/ExternalDatabaseType.md)
+ - [Model.ExternalDbSyncFormResultDto](docs/ExternalDbSyncFormResultDto.md)
+ - [Model.ExternalDbSyncTaskDto](docs/ExternalDbSyncTaskDto.md)
+ - [Model.ExternalDbSyncTaskWrapper](docs/ExternalDbSyncTaskWrapper.md)
  - [Model.ExternalShareDto](docs/ExternalShareDto.md)
  - [Model.ExternalShareRequestParam](docs/ExternalShareRequestParam.md)
  - [Model.ExternalShareWrapper](docs/ExternalShareWrapper.md)
+ - [Model.ExternalSharingSettingsDto](docs/ExternalSharingSettingsDto.md)
+ - [Model.ExternalSharingSettingsRequestDto](docs/ExternalSharingSettingsRequestDto.md)
+ - [Model.ExternalSharingSettingsWrapper](docs/ExternalSharingSettingsWrapper.md)
  - [Model.FeatureUsedDto](docs/FeatureUsedDto.md)
  - [Model.FeedbackConfig](docs/FeedbackConfig.md)
  - [Model.FileConflictResolveType](docs/FileConflictResolveType.md)
@@ -3305,11 +3909,20 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.FormFillingManageAction](docs/FormFillingManageAction.md)
  - [Model.FormFillingStatus](docs/FormFillingStatus.md)
  - [Model.FormGalleryDto](docs/FormGalleryDto.md)
+ - [Model.FormMetadata](docs/FormMetadata.md)
+ - [Model.FormResultsDto](docs/FormResultsDto.md)
  - [Model.FormRole](docs/FormRole.md)
  - [Model.FormRoleArrayWrapper](docs/FormRoleArrayWrapper.md)
  - [Model.FormRoleDto](docs/FormRoleDto.md)
+ - [Model.FormSubmissionsDto](docs/FormSubmissionsDto.md)
+ - [Model.FormSubmissionsWrapper](docs/FormSubmissionsWrapper.md)
  - [Model.FormsItemArrayWrapper](docs/FormsItemArrayWrapper.md)
+ - [Model.FormsItemData](docs/FormsItemData.md)
  - [Model.FormsItemDto](docs/FormsItemDto.md)
+ - [Model.GeneratedFileDto](docs/GeneratedFileDto.md)
+ - [Model.GeneratedFileWrapper](docs/GeneratedFileWrapper.md)
+ - [Model.GetPortalPrices200Response](docs/GetPortalPrices200Response.md)
+ - [Model.GetPortalPrices200ResponseLinksInner](docs/GetPortalPrices200ResponseLinksInner.md)
  - [Model.GetReferenceDataDtoInteger](docs/GetReferenceDataDtoInteger.md)
  - [Model.GobackConfig](docs/GobackConfig.md)
  - [Model.GreetingSettingsRequestsDto](docs/GreetingSettingsRequestsDto.md)
@@ -3332,10 +3945,17 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.IPRestrictionArrayWrapper](docs/IPRestrictionArrayWrapper.md)
  - [Model.IPRestrictionsSettings](docs/IPRestrictionsSettings.md)
  - [Model.IPRestrictionsSettingsWrapper](docs/IPRestrictionsSettingsWrapper.md)
+ - [Model.Icon](docs/Icon.md)
+ - [Model.IconRequest](docs/IconRequest.md)
  - [Model.ImportableApiEntity](docs/ImportableApiEntity.md)
  - [Model.InfoConfigDto](docs/InfoConfigDto.md)
  - [Model.Int32Wrapper](docs/Int32Wrapper.md)
  - [Model.Int64Wrapper](docs/Int64Wrapper.md)
+ - [Model.InvitationLinkCreateRequestDto](docs/InvitationLinkCreateRequestDto.md)
+ - [Model.InvitationLinkDeleteRequestDto](docs/InvitationLinkDeleteRequestDto.md)
+ - [Model.InvitationLinkDto](docs/InvitationLinkDto.md)
+ - [Model.InvitationLinkUpdateRequestDto](docs/InvitationLinkUpdateRequestDto.md)
+ - [Model.InvitationLinkWrapper](docs/InvitationLinkWrapper.md)
  - [Model.InviteUsersRequestDto](docs/InviteUsersRequestDto.md)
  - [Model.IpRestrictionBase](docs/IpRestrictionBase.md)
  - [Model.IpRestrictionsDto](docs/IpRestrictionsDto.md)
@@ -3349,7 +3969,6 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.ItemKeyValuePairStringString](docs/ItemKeyValuePairStringString.md)
  - [Model.KeyValuePairBooleanString](docs/KeyValuePairBooleanString.md)
  - [Model.KeyValuePairBooleanStringWrapper](docs/KeyValuePairBooleanStringWrapper.md)
- - [Model.KeyValuePairStringStringValues](docs/KeyValuePairStringStringValues.md)
  - [Model.LinkAccountRequestDto](docs/LinkAccountRequestDto.md)
  - [Model.LinkType](docs/LinkType.md)
  - [Model.Location](docs/Location.md)
@@ -3368,13 +3987,27 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.LogoRequestsDto](docs/LogoRequestsDto.md)
  - [Model.MailDomainSettingsRequestsDto](docs/MailDomainSettingsRequestsDto.md)
  - [Model.ManageFormFillingDtoInteger](docs/ManageFormFillingDtoInteger.md)
- - [Model.MemberBaseRequestDto](docs/MemberBaseRequestDto.md)
+ - [Model.McpServerArrayWrapper](docs/McpServerArrayWrapper.md)
+ - [Model.McpServerDto](docs/McpServerDto.md)
+ - [Model.McpServerShortArrayWrapper](docs/McpServerShortArrayWrapper.md)
+ - [Model.McpServerShortDto](docs/McpServerShortDto.md)
+ - [Model.McpServerShortWrapper](docs/McpServerShortWrapper.md)
+ - [Model.McpServerStatusArrayWrapper](docs/McpServerStatusArrayWrapper.md)
+ - [Model.McpServerStatusDto](docs/McpServerStatusDto.md)
+ - [Model.McpServerStatusWrapper](docs/McpServerStatusWrapper.md)
+ - [Model.McpServerWrapper](docs/McpServerWrapper.md)
+ - [Model.McpToolArrayWrapper](docs/McpToolArrayWrapper.md)
+ - [Model.McpToolDto](docs/McpToolDto.md)
  - [Model.MemberRequestDto](docs/MemberRequestDto.md)
  - [Model.MembersRequest](docs/MembersRequest.md)
  - [Model.MentionMessageWrapper](docs/MentionMessageWrapper.md)
  - [Model.MentionWrapper](docs/MentionWrapper.md)
  - [Model.MentionWrapperArrayWrapper](docs/MentionWrapperArrayWrapper.md)
  - [Model.MessageAction](docs/MessageAction.md)
+ - [Model.MessageArrayWrapper](docs/MessageArrayWrapper.md)
+ - [Model.MessageContentDto](docs/MessageContentDto.md)
+ - [Model.MessageContentType](docs/MessageContentType.md)
+ - [Model.MessageDto](docs/MessageDto.md)
  - [Model.MigratingApiFiles](docs/MigratingApiFiles.md)
  - [Model.MigratingApiGroup](docs/MigratingApiGroup.md)
  - [Model.MigratingApiUser](docs/MigratingApiUser.md)
@@ -3383,8 +4016,16 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.MigrationStatusWrapper](docs/MigrationStatusWrapper.md)
  - [Model.MobilePhoneActivationStatus](docs/MobilePhoneActivationStatus.md)
  - [Model.MobileRequestsDto](docs/MobileRequestsDto.md)
+ - [Model.ModelArrayWrapper](docs/ModelArrayWrapper.md)
+ - [Model.ModelDto](docs/ModelDto.md)
+ - [Model.ModelSettingsArrayWrapper](docs/ModelSettingsArrayWrapper.md)
+ - [Model.ModelSettingsDto](docs/ModelSettingsDto.md)
+ - [Model.ModelSettingsItemDto](docs/ModelSettingsItemDto.md)
  - [Model.Module](docs/Module.md)
  - [Model.ModuleWrapper](docs/ModuleWrapper.md)
+ - [Model.MultiSizeLogoCover](docs/MultiSizeLogoCover.md)
+ - [Model.NewItemsAgentNewItemsArrayWrapper](docs/NewItemsAgentNewItemsArrayWrapper.md)
+ - [Model.NewItemsDtoAgentNewItemsDto](docs/NewItemsDtoAgentNewItemsDto.md)
  - [Model.NewItemsDtoFileEntryBaseDto](docs/NewItemsDtoFileEntryBaseDto.md)
  - [Model.NewItemsDtoRoomNewItemsDto](docs/NewItemsDtoRoomNewItemsDto.md)
  - [Model.NewItemsFileEntryBaseArrayWrapper](docs/NewItemsFileEntryBaseArrayWrapper.md)
@@ -3402,6 +4043,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.ObjectArrayWrapper](docs/ObjectArrayWrapper.md)
  - [Model.ObjectWrapper](docs/ObjectWrapper.md)
  - [Model.OperationDto](docs/OperationDto.md)
+ - [Model.OperationOrderType](docs/OperationOrderType.md)
+ - [Model.OperationStatus](docs/OperationStatus.md)
+ - [Model.OperationType](docs/OperationType.md)
  - [Model.Options](docs/Options.md)
  - [Model.OrderBy](docs/OrderBy.md)
  - [Model.OrderRequestDto](docs/OrderRequestDto.md)
@@ -3423,12 +4067,14 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.PaymentMethodStatus](docs/PaymentMethodStatus.md)
  - [Model.PaymentSettingsDto](docs/PaymentSettingsDto.md)
  - [Model.PaymentSettingsWrapper](docs/PaymentSettingsWrapper.md)
- - [Model.PaymentUrlRequestsDto](docs/PaymentUrlRequestsDto.md)
+ - [Model.PaymentUrlRequestDto](docs/PaymentUrlRequestDto.md)
  - [Model.Payments](docs/Payments.md)
  - [Model.PermissionsConfig](docs/PermissionsConfig.md)
  - [Model.PluginsConfig](docs/PluginsConfig.md)
  - [Model.PluginsDto](docs/PluginsDto.md)
+ - [Model.PreviewProviderModelsRequestDto](docs/PreviewProviderModelsRequestDto.md)
  - [Model.PriceDto](docs/PriceDto.md)
+ - [Model.ProblemDetail](docs/ProblemDetail.md)
  - [Model.ProductAdministratorDto](docs/ProductAdministratorDto.md)
  - [Model.ProductAdministratorWrapper](docs/ProductAdministratorWrapper.md)
  - [Model.ProductQuantityType](docs/ProductQuantityType.md)
@@ -3436,11 +4082,15 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.ProviderArrayWrapper](docs/ProviderArrayWrapper.md)
  - [Model.ProviderDto](docs/ProviderDto.md)
  - [Model.ProviderFilter](docs/ProviderFilter.md)
+ - [Model.ProviderSettingsArrayWrapper](docs/ProviderSettingsArrayWrapper.md)
+ - [Model.ProviderSettingsDto](docs/ProviderSettingsDto.md)
+ - [Model.ProviderType](docs/ProviderType.md)
  - [Model.QuantityRequestDto](docs/QuantityRequestDto.md)
  - [Model.Quota](docs/Quota.md)
  - [Model.QuotaArrayWrapper](docs/QuotaArrayWrapper.md)
  - [Model.QuotaDto](docs/QuotaDto.md)
  - [Model.QuotaFilter](docs/QuotaFilter.md)
+ - [Model.QuotaScope](docs/QuotaScope.md)
  - [Model.QuotaSettingsRequestsDto](docs/QuotaSettingsRequestsDto.md)
  - [Model.QuotaSettingsRequestsDtoDefaultQuota](docs/QuotaSettingsRequestsDtoDefaultQuota.md)
  - [Model.QuotaState](docs/QuotaState.md)
@@ -3448,13 +4098,22 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.RecaptchaType](docs/RecaptchaType.md)
  - [Model.RecentConfig](docs/RecentConfig.md)
  - [Model.RegStatus](docs/RegStatus.md)
+ - [Model.RemoveProviderRequestDto](docs/RemoveProviderRequestDto.md)
+ - [Model.RenameChatBody](docs/RenameChatBody.md)
  - [Model.ReportDto](docs/ReportDto.md)
  - [Model.ReportWrapper](docs/ReportWrapper.md)
+ - [Model.RestrictedModelsResponse](docs/RestrictedModelsResponse.md)
+ - [Model.RestrictedModelsResponseWrapper](docs/RestrictedModelsResponseWrapper.md)
  - [Model.ReviewConfig](docs/ReviewConfig.md)
+ - [Model.Role](docs/Role.md)
  - [Model.RoomDataLifetimeDto](docs/RoomDataLifetimeDto.md)
  - [Model.RoomDataLifetimePeriod](docs/RoomDataLifetimePeriod.md)
  - [Model.RoomFromTemplateStatusDto](docs/RoomFromTemplateStatusDto.md)
  - [Model.RoomFromTemplateStatusWrapper](docs/RoomFromTemplateStatusWrapper.md)
+ - [Model.RoomGroupArrayWrapper](docs/RoomGroupArrayWrapper.md)
+ - [Model.RoomGroupDto](docs/RoomGroupDto.md)
+ - [Model.RoomGroupRequestDto](docs/RoomGroupRequestDto.md)
+ - [Model.RoomGroupWrapper](docs/RoomGroupWrapper.md)
  - [Model.RoomInvitation](docs/RoomInvitation.md)
  - [Model.RoomInvitationRequest](docs/RoomInvitationRequest.md)
  - [Model.RoomLinkRequest](docs/RoomLinkRequest.md)
@@ -3483,15 +4142,25 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.SecurityInfoRequestDto](docs/SecurityInfoRequestDto.md)
  - [Model.SecurityInfoSimpleRequestDto](docs/SecurityInfoSimpleRequestDto.md)
  - [Model.SecurityRequestsDto](docs/SecurityRequestsDto.md)
+ - [Model.ServerType](docs/ServerType.md)
+ - [Model.ServicePayment](docs/ServicePayment.md)
+ - [Model.ServicePaymentWrapper](docs/ServicePaymentWrapper.md)
  - [Model.SessionRequest](docs/SessionRequest.md)
+ - [Model.SetAiUserSettingsRequestDto](docs/SetAiUserSettingsRequestDto.md)
+ - [Model.SetDefaultProviderRequestDto](docs/SetDefaultProviderRequestDto.md)
+ - [Model.SetEmbeddingConfigRequestBody](docs/SetEmbeddingConfigRequestBody.md)
  - [Model.SetManagerRequest](docs/SetManagerRequest.md)
+ - [Model.SetMcpToolsRequestBody](docs/SetMcpToolsRequestBody.md)
  - [Model.SetPublicDto](docs/SetPublicDto.md)
+ - [Model.SetRestrictedAiModelsRequestDto](docs/SetRestrictedAiModelsRequestDto.md)
+ - [Model.SetServerStatusRequestBody](docs/SetServerStatusRequestBody.md)
+ - [Model.SetUserChatSettingsRequestBody](docs/SetUserChatSettingsRequestBody.md)
+ - [Model.SetWebSearchSettingsRequestBody](docs/SetWebSearchSettingsRequestBody.md)
  - [Model.SettingsDto](docs/SettingsDto.md)
  - [Model.SettingsRequestDto](docs/SettingsRequestDto.md)
  - [Model.SettingsWrapper](docs/SettingsWrapper.md)
  - [Model.SetupCode](docs/SetupCode.md)
  - [Model.SetupCodeWrapper](docs/SetupCodeWrapper.md)
- - [Model.SexEnum](docs/SexEnum.md)
  - [Model.ShareFilterType](docs/ShareFilterType.md)
  - [Model.SignupAccountRequestDto](docs/SignupAccountRequestDto.md)
  - [Model.Size](docs/Size.md)
@@ -3512,6 +4181,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.StartEdit](docs/StartEdit.md)
  - [Model.StartFillingForm](docs/StartFillingForm.md)
  - [Model.StartFillingMode](docs/StartFillingMode.md)
+ - [Model.StartNewChatBody](docs/StartNewChatBody.md)
  - [Model.StartReassignRequestDto](docs/StartReassignRequestDto.md)
  - [Model.StartUpdateUserTypeDto](docs/StartUpdateUserTypeDto.md)
  - [Model.Status](docs/Status.md)
@@ -3524,6 +4194,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.StorageSettings](docs/StorageSettings.md)
  - [Model.StorageSettingsWrapper](docs/StorageSettingsWrapper.md)
  - [Model.StringWrapper](docs/StringWrapper.md)
+ - [Model.StudioDefaultPageSettings](docs/StudioDefaultPageSettings.md)
+ - [Model.StudioDefaultPageSettingsWrapper](docs/StudioDefaultPageSettingsWrapper.md)
  - [Model.SubAccount](docs/SubAccount.md)
  - [Model.SubjectFilter](docs/SubjectFilter.md)
  - [Model.SubjectType](docs/SubjectType.md)
@@ -3537,6 +4209,9 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.TelegramStatusWrapper](docs/TelegramStatusWrapper.md)
  - [Model.TemplatesConfig](docs/TemplatesConfig.md)
  - [Model.TemplatesRequestDto](docs/TemplatesRequestDto.md)
+ - [Model.TenantAiAccessSettings](docs/TenantAiAccessSettings.md)
+ - [Model.TenantAiAccessSettingsDto](docs/TenantAiAccessSettingsDto.md)
+ - [Model.TenantAiAccessSettingsWrapper](docs/TenantAiAccessSettingsWrapper.md)
  - [Model.TenantAiAgentQuotaSettings](docs/TenantAiAgentQuotaSettings.md)
  - [Model.TenantAiAgentQuotaSettingsWrapper](docs/TenantAiAgentQuotaSettingsWrapper.md)
  - [Model.TenantAuditSettings](docs/TenantAuditSettings.md)
@@ -3575,6 +4250,10 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.TenantWalletSettingsWrapper](docs/TenantWalletSettingsWrapper.md)
  - [Model.TenantWrapper](docs/TenantWrapper.md)
  - [Model.TerminateRequestDto](docs/TerminateRequestDto.md)
+ - [Model.TfaAppCodeArrayWrapper](docs/TfaAppCodeArrayWrapper.md)
+ - [Model.TfaAppCodeDto](docs/TfaAppCodeDto.md)
+ - [Model.TfaConfirmDataDto](docs/TfaConfirmDataDto.md)
+ - [Model.TfaConfirmDataWrapper](docs/TfaConfirmDataWrapper.md)
  - [Model.TfaRequestsDto](docs/TfaRequestsDto.md)
  - [Model.TfaRequestsDtoType](docs/TfaRequestsDtoType.md)
  - [Model.TfaSettingsArrayWrapper](docs/TfaSettingsArrayWrapper.md)
@@ -3590,9 +4269,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.ThumbnailsRequest](docs/ThumbnailsRequest.md)
  - [Model.TimezonesRequestsArrayWrapper](docs/TimezonesRequestsArrayWrapper.md)
  - [Model.TimezonesRequestsDto](docs/TimezonesRequestsDto.md)
+ - [Model.ToolDecisionRequestBody](docs/ToolDecisionRequestBody.md)
+ - [Model.ToolExecutionDecision](docs/ToolExecutionDecision.md)
  - [Model.TopUpDepositRequestDto](docs/TopUpDepositRequestDto.md)
+ - [Model.TransactionInfo](docs/TransactionInfo.md)
  - [Model.TurnOnAdminMessageSettingsRequestDto](docs/TurnOnAdminMessageSettingsRequestDto.md)
- - [Model.UnknownWrapper](docs/UnknownWrapper.md)
  - [Model.UpdateApiKeyRequest](docs/UpdateApiKeyRequest.md)
  - [Model.UpdateClientRequest](docs/UpdateClientRequest.md)
  - [Model.UpdateComment](docs/UpdateComment.md)
@@ -3603,23 +4284,38 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.UpdateMembersQuotaRequestDtoQuota](docs/UpdateMembersQuotaRequestDtoQuota.md)
  - [Model.UpdateMembersRequestDto](docs/UpdateMembersRequestDto.md)
  - [Model.UpdatePhotoMemberRequest](docs/UpdatePhotoMemberRequest.md)
+ - [Model.UpdateProviderBody](docs/UpdateProviderBody.md)
+ - [Model.UpdateRoomGroupRequest](docs/UpdateRoomGroupRequest.md)
  - [Model.UpdateRoomRequest](docs/UpdateRoomRequest.md)
  - [Model.UpdateRoomsQuotaRequestDtoInteger](docs/UpdateRoomsQuotaRequestDtoInteger.md)
  - [Model.UpdateRoomsRoomIdsRequestDtoInteger](docs/UpdateRoomsRoomIdsRequestDtoInteger.md)
+ - [Model.UpdateServerRequestBody](docs/UpdateServerRequestBody.md)
+ - [Model.UpdateTagRequestDto](docs/UpdateTagRequestDto.md)
  - [Model.UpdateWebhooksConfigRequestsDto](docs/UpdateWebhooksConfigRequestsDto.md)
- - [Model.UploadRequestDto](docs/UploadRequestDto.md)
  - [Model.UploadResultDto](docs/UploadResultDto.md)
  - [Model.UploadResultWrapper](docs/UploadResultWrapper.md)
+ - [Model.UploadSessionResponseDtoInteger](docs/UploadSessionResponseDtoInteger.md)
+ - [Model.UploadSessionResponseIntegerWrapper](docs/UploadSessionResponseIntegerWrapper.md)
  - [Model.UsageSpaceStatItemArrayWrapper](docs/UsageSpaceStatItemArrayWrapper.md)
  - [Model.UsageSpaceStatItemDto](docs/UsageSpaceStatItemDto.md)
+ - [Model.UserChatSettingsDto](docs/UserChatSettingsDto.md)
+ - [Model.UserChatSettingsWrapper](docs/UserChatSettingsWrapper.md)
  - [Model.UserConfig](docs/UserConfig.md)
+ - [Model.UserExistsResponseDto](docs/UserExistsResponseDto.md)
+ - [Model.UserExistsResponseWrapper](docs/UserExistsResponseWrapper.md)
  - [Model.UserInfo](docs/UserInfo.md)
  - [Model.UserInfoWrapper](docs/UserInfoWrapper.md)
  - [Model.UserInvitation](docs/UserInvitation.md)
  - [Model.UserInvitationRequestDto](docs/UserInvitationRequestDto.md)
  - [Model.ValidationResult](docs/ValidationResult.md)
+ - [Model.VectorizationSettingsDto](docs/VectorizationSettingsDto.md)
+ - [Model.VectorizationSettingsWrapper](docs/VectorizationSettingsWrapper.md)
+ - [Model.VectorizationStartRequestBody](docs/VectorizationStartRequestBody.md)
  - [Model.VectorizationStatus](docs/VectorizationStatus.md)
  - [Model.WalletQuantityRequestDto](docs/WalletQuantityRequestDto.md)
+ - [Model.WalletServiceArrayWrapper](docs/WalletServiceArrayWrapper.md)
+ - [Model.WalletServiceDto](docs/WalletServiceDto.md)
+ - [Model.WalletServiceWrapper](docs/WalletServiceWrapper.md)
  - [Model.WatermarkAdditions](docs/WatermarkAdditions.md)
  - [Model.WatermarkDto](docs/WatermarkDto.md)
  - [Model.WatermarkOnDraw](docs/WatermarkOnDraw.md)
@@ -3630,9 +4326,13 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.WebPluginDto](docs/WebPluginDto.md)
  - [Model.WebPluginRequests](docs/WebPluginRequests.md)
  - [Model.WebPluginWrapper](docs/WebPluginWrapper.md)
+ - [Model.WebSearchSettingsDto](docs/WebSearchSettingsDto.md)
+ - [Model.WebSearchSettingsWrapper](docs/WebSearchSettingsWrapper.md)
  - [Model.WebhookGroupStatus](docs/WebhookGroupStatus.md)
  - [Model.WebhookRetryRequestsDto](docs/WebhookRetryRequestsDto.md)
  - [Model.WebhookTrigger](docs/WebhookTrigger.md)
+ - [Model.WebhookTriggerArrayWrapper](docs/WebhookTriggerArrayWrapper.md)
+ - [Model.WebhookTriggerDto](docs/WebhookTriggerDto.md)
  - [Model.WebhooksConfigDto](docs/WebhooksConfigDto.md)
  - [Model.WebhooksConfigWithStatusArrayWrapper](docs/WebhooksConfigWithStatusArrayWrapper.md)
  - [Model.WebhooksConfigWithStatusDto](docs/WebhooksConfigWithStatusDto.md)
@@ -3648,5 +4348,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
  - [Model.WizardRequestsDto](docs/WizardRequestsDto.md)
  - [Model.WizardSettings](docs/WizardSettings.md)
  - [Model.WizardSettingsWrapper](docs/WizardSettingsWrapper.md)
+ - [Model.XlsxReportResponseDto](docs/XlsxReportResponseDto.md)
+ - [Model.XlsxReportResponseWrapper](docs/XlsxReportResponseWrapper.md)
 
 </details>

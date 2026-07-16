@@ -39,6 +39,7 @@ Name | Type | Description | Notes
 **LimitedAccessSpace** | **bool** | Specifies whether the access to the space management is limited or not. | [optional] 
 **LimitedAccessDevToolsForUsers** | **bool** | Specifies whether the access to the Developer Tools is limited for users or not. | [optional] 
 **DisplayBanners** | **bool** | Specifies whether to display the promotional banners. | [optional] 
+**AiEnabled** | **bool** | Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When `false`, all AI features are disabled and the AI Agents folder is hidden. | [optional] 
 **UserNameRegex** | **string** | The user name validation regex. | [optional] 
 **InvitationLimit** | **int?** | The maximum number of invitations to the portal. | [optional] 
 **Plugins** | [**PluginsDto**](PluginsDto.md) |  | [optional] 
@@ -47,6 +48,8 @@ Name | Type | Description | Notes
 **MaxImageUploadSize** | **long** | The maximum image upload size. | [optional] 
 **LogoText** | **string** | The white label logo text. | [optional] 
 **ExternalResources** | [**CultureSpecificExternalResources**](CultureSpecificExternalResources.md) |  | [optional] 
+**DefaultFolderType** | **FolderType** |  | [optional] 
+**ExternalDbEnabled** | **bool** | Specifies if an external database is connected for storing form results. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

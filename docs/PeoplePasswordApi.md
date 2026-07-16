@@ -9,7 +9,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 <a id="changeuserpassword"></a>
 # **ChangeUserPassword**
-> EmployeeFullWrapper ChangeUserPassword (Guid userid, MemberBaseRequestDto memberBaseRequestDto)
+> EmployeeFullWrapper ChangeUserPassword (Guid userid, ChangePasswordRequest changePasswordRequest)
 
 Sets a new password to the user with the ID specified in the request.
 
@@ -20,7 +20,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **userid** | **Guid** | The user ID. |  |
-| **memberBaseRequestDto** | [**MemberBaseRequestDto**](MemberBaseRequestDto.md) | The request parameters for the user generic information. |  |
+| **changePasswordRequest** | [**ChangePasswordRequest**](ChangePasswordRequest.md) | The request parameters for updating a user password. |  |
 
 ### Return type
 
@@ -67,13 +67,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new PasswordApi(httpClient, config, httpClientHandler);
-            var userid = aae1e103-bca5-9fa1-ba8c-42058b4abf28;  // Guid | The user ID.
-            var memberBaseRequestDto = new MemberBaseRequestDto(); // MemberBaseRequestDto | The request parameters for the user generic information.
+            var userid = 00000000-0000-0000-0000-000000000000;  // Guid | The user ID.
+            var changePasswordRequest = new ChangePasswordRequest(); // ChangePasswordRequest | The request parameters for updating a user password.
 
             try
             {
                 // Change a user password
-                EmployeeFullWrapper result = apiInstance.ChangeUserPassword(userid, memberBaseRequestDto);
+                EmployeeFullWrapper result = apiInstance.ChangeUserPassword(userid, changePasswordRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -94,7 +94,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Change a user password
-    ApiResponse<EmployeeFullWrapper> response = apiInstance.ChangeUserPasswordWithHttpInfo(userid, memberBaseRequestDto);
+    ApiResponse<EmployeeFullWrapper> response = apiInstance.ChangeUserPasswordWithHttpInfo(userid, changePasswordRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -116,11 +116,14 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Detailed user information |  -  |
-| **400** | Incorrect email |  -  |
+| **200** | Detailed user information |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
+| **400** | Incorrect userId or password |  -  |
+| **403** | The link is invalid or no permissions to perform this action |  -  |
+| **404** | The user could not be found |  -  |
 | **401** | Unauthorized |  -  |
-| **403** | The invitation link is invalid or its validity has expired |  -  |
-| **404** | User not found |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -128,7 +131,7 @@ catch (ApiException e)
 # **SendUserPassword**
 > StringWrapper SendUserPassword (EmailMemberRequestDto? emailMemberRequestDto = null)
 
-Reminds a password to the user using the email address specified in the request.
+Sends a password recovery email to the specified user address.  For unauthenticated requests, CAPTCHA validation is required when CAPTCHA is enabled in the configuration.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/send-user-password/).
 
@@ -215,8 +218,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Email with the password |  -  |
+| **200** | Email with the password |  * X-RateLimit-Limit - Rate limit: 5 requests per 15 minutes per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

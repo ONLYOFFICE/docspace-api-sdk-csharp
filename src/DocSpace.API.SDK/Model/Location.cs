@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,32 +12,45 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The location context of the request.
+    /// [1 - Room, 2 - Documents, 3 - Link]
     /// </summary>
-    /// <value>The location context of the request.</value>
+    /// <value>[1 - Room, 2 - Documents, 3 - Link]</value>
     public enum Location
     {
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum Room for value: 1
         /// </summary>
-        NUMBER_1 = 1,
+        Room = 1,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum Documents for value: 2
         /// </summary>
-        NUMBER_2 = 2,
+        Documents = 2,
 
         /// <summary>
-        /// Enum NUMBER_3 for value: 3
+        /// Enum Link for value: 3
         /// </summary>
-        NUMBER_3 = 3
+        Link = 3
     }
 
 }

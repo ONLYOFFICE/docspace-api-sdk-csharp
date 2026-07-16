@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -39,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="ssoLabel">The SP login label. (required).</param>
         /// <param name="oauthEnabled">Specifies if OAuth is enabled or not. (required).</param>
         /// <param name="ssoUrl">The SSO URL. If this parameter is empty, then the SSO settings are disabled. (required).</param>
-        /// <param name="identityServerEnabled">Specifies if identity server is enabled or not (required).</param>
+        /// <param name="identityServerEnabled">Specifies if an identity server is enabled or not. (required).</param>
         public CapabilitiesDto(bool ldapEnabled = default, string ldapDomain = default, List<string> providers = default, string ssoLabel = default, bool oauthEnabled = default, string ssoUrl = default, bool identityServerEnabled = default)
         {
             this.LdapEnabled = ldapEnabled;
@@ -81,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The LDAP domain.</value>
         /*
-        <example>some text</example>
+        <example>example.com</example>
         */
         [DataMember(Name = "ldapDomain", EmitDefaultValue = true)]
         public string LdapDomain { get; set; }
@@ -91,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of providers.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>["google","facebook","microsoft"]</example>
         */
         [DataMember(Name = "providers", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Providers { get; set; }
@@ -100,6 +113,9 @@ namespace DocSpace.API.SDK.Model
         /// The SP login label.
         /// </summary>
         /// <value>The SP login label.</value>
+        /*
+        <example>Enterprise SSO</example>
+        */
         [DataMember(Name = "ssoLabel", IsRequired = true, EmitDefaultValue = true)]
         public string SsoLabel { get; set; }
 
@@ -117,15 +133,18 @@ namespace DocSpace.API.SDK.Model
         /// The SSO URL. If this parameter is empty, then the SSO settings are disabled.
         /// </summary>
         /// <value>The SSO URL. If this parameter is empty, then the SSO settings are disabled.</value>
+        /*
+        <example>https://sso.example.com/login</example>
+        */
         [DataMember(Name = "ssoUrl", IsRequired = true, EmitDefaultValue = true)]
         public string SsoUrl { get; set; }
 
         /// <summary>
-        /// Specifies if identity server is enabled or not
+        /// Specifies if an identity server is enabled or not.
         /// </summary>
-        /// <value>Specifies if identity server is enabled or not</value>
+        /// <value>Specifies if an identity server is enabled or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "identityServerEnabled", IsRequired = true, EmitDefaultValue = true)]
         public bool IdentityServerEnabled { get; set; }
@@ -155,7 +174,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

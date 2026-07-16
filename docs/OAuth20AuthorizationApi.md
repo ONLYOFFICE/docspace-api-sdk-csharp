@@ -4,8 +4,8 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**AuthorizeOAuth**](#authorizeoauth) | **GET** /oauth2/authorize | OAuth2 authorization endpoint |
-| [**ExchangeToken**](#exchangetoken) | **POST** /oauth2/token | OAuth2 token endpoint |
+| [**AuthorizeOAuth**](#authorizeoauth) | **GET** /oauth2/authorize | OAuth2 Authorization Endpoint |
+| [**ExchangeToken**](#exchangetoken) | **POST** /oauth2/token | OAuth2 Token Endpoint |
 | [**SubmitConsent**](#submitconsent) | **POST** /oauth2/authorize | OAuth2 consent endpoint |
 
 <a id="authorizeoauth"></a>
@@ -20,7 +20,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **responseType** | **string** | The OAuth 2.0 response type, must be &#39;code&#39; for authorization code flow. |  |
+| **responseType** | **string** | The OAuth 2.0 response type, must be 'code' for authorization code flow. |  |
 | **clientId** | **string** | The client identifier issued to the client during registration. |  |
 | **redirectUri** | **string** | The URL to redirect to after authorization is complete. |  |
 | **scope** | **string** | The space-separated list of requested scope permissions. |  |
@@ -31,7 +31,7 @@ void (empty response body)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 ```csharp
@@ -50,10 +50,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Configure API key authorization: x-signature
+            config.AddApiKey("x-signature", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // config.AddApiKeyPrefix("x-signature", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -66,7 +66,7 @@ namespace Example
 
             try
             {
-                // OAuth2 authorization endpoint
+                // OAuth2 Authorization Endpoint
                 apiInstance.AuthorizeOAuth(responseType, clientId, redirectUri, scope);
             }
             catch (ApiException  e)
@@ -86,7 +86,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // OAuth2 authorization endpoint
+    // OAuth2 Authorization Endpoint
     apiInstance.AuthorizeOAuthWithHttpInfo(responseType, clientId, redirectUri, scope);
 }
 catch (ApiException e)
@@ -115,7 +115,7 @@ catch (ApiException e)
 # **ExchangeToken**
 > ExchangeToken200Response ExchangeToken (string? grantType = null, string? code = null, string? redirectUri = null, string? clientId = null, string? clientSecret = null)
 
-Exchanges an authorization code specified in the request for the access token.
+Exchange authorization code for access token
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/exchange-token/).
 
@@ -123,7 +123,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **grantType** | **string?** | The OAuth2 grant type, must be &#39;authorization_code&#39; for the authorization code flow. | [optional]  |
+| **grantType** | **string?** | The OAuth2 grant type, must be 'authorization_code' for the authorization code flow. | [optional]  |
 | **code** | **string?** | A temporary authorization code that is sent to the client to be exchanged for a token. | [optional]  |
 | **redirectUri** | **string?** | The URL where the user will be redirected after successful or unsuccessful authentication. | [optional]  |
 | **clientId** | **string?** | The client identifier issued to the client during registration. | [optional]  |
@@ -166,7 +166,7 @@ namespace Example
 
             try
             {
-                // OAuth2 token endpoint
+                // OAuth2 Token Endpoint
                 ExchangeToken200Response result = apiInstance.ExchangeToken(grantType, code, redirectUri, clientId, clientSecret);
                 Debug.WriteLine(result);
             }
@@ -187,7 +187,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // OAuth2 token endpoint
+    // OAuth2 Token Endpoint
     ApiResponse<ExchangeToken200Response> response = apiInstance.ExchangeTokenWithHttpInfo(grantType, code, redirectUri, clientId, clientSecret);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -210,7 +210,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The authorization code was successfully exchanged for the access token |  -  |
+| **200** | Successfully exchanged authorization code for access token |  -  |
 | **400** | Invalid request parameters |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -219,7 +219,7 @@ catch (ApiException e)
 # **SubmitConsent**
 > void SubmitConsent (string? clientId = null, string? state = null, string? scope = null)
 
-Sends a consent request with the specified parameters.
+Sends consent approval
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/submit-consent/).
 
@@ -237,7 +237,7 @@ void (empty response body)
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 ```csharp
@@ -256,10 +256,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Configure API key authorization: x-signature
+            config.AddApiKey("x-signature", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // config.AddApiKeyPrefix("x-signature", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -311,7 +311,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **302** | Redirect to the client&#39;s redirect URI with authorization code |  -  |
+| **302** | Redirect to the client's redirect URI with authorization code |  -  |
 | **400** | Invalid request parameters |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

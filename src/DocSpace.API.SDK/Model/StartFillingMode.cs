@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,16 +12,29 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - None, 1 - Share to fill out, 2 - Start filling]
+    /// [0 - None, 1 - Share to fill out, 2 - Start filling, 3 - Start filling form room]
     /// </summary>
-    /// <value>[0 - None, 1 - Share to fill out, 2 - Start filling]</value>
+    /// <value>[0 - None, 1 - Share to fill out, 2 - Start filling, 3 - Start filling form room]</value>
     public enum StartFillingMode
     {
         /// <summary>
@@ -37,7 +50,12 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Enum StartFilling for value: 2
         /// </summary>
-        StartFilling = 2
+        StartFilling = 2,
+
+        /// <summary>
+        /// Enum StartFillingFormRoom for value: 3
+        /// </summary>
+        StartFillingFormRoom = 3
     }
 
 }

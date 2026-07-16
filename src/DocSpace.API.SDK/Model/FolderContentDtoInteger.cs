@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -40,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="startIndex">The folder start index..</param>
         /// <param name="count">The number of folder elements..</param>
         /// <param name="total">The total number of elements in the folder. (required).</param>
-        /// <param name="@new">The new element index in the folder..</param>
+        /// <param name="new">The new element index in the folder..</param>
         public FolderContentDtoInteger(List<FileEntryBaseDto> files = default, List<FileEntryBaseDto> folders = default, FolderDtoInteger current = default, Object pathParts = default, int startIndex = default, int count = default, int total = default, int @new = default)
         {
             // to ensure "pathParts" is required (not null)
@@ -62,6 +75,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of files in the folder.
         /// </summary>
         /// <value>The list of files in the folder.</value>
+        /*
+        <example>[{"id":10,"title":"document.docx"}]</example>
+        */
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Files { get; set; }
 
@@ -69,6 +85,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of folders in the folder.
         /// </summary>
         /// <value>The list of folders in the folder.</value>
+        /*
+        <example>[{"id":20,"title":"My Folder"}]</example>
+        */
         [DataMember(Name = "folders", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Folders { get; set; }
 
@@ -83,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The folder path.</value>
         /*
-        <example>{key &#x3D; &quot;Key&quot;, path &#x3D; &quot;//path//to//folder&quot;}</example>
+        <example>{key = "Key", path = "//path//to//folder"}</example>
         */
         [DataMember(Name = "pathParts", IsRequired = true, EmitDefaultValue = true)]
         public Object PathParts { get; set; }
@@ -123,7 +142,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The new element index in the folder.</value>
         /*
-        <example>1234</example>
+        <example>0</example>
         */
         [DataMember(Name = "new", EmitDefaultValue = false)]
         public int New { get; set; }
@@ -154,7 +173,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -40,14 +53,13 @@ namespace DocSpace.API.SDK.Model
         /// <param name="provider">The type of authentication provider (e.g., internal, Google, Azure)..</param>
         /// <param name="accessToken">The access token used for authentication with external providers..</param>
         /// <param name="serializedProfile">The serialized user profile data, if applicable..</param>
-        /// <param name="code">The code for two-factor authentication..</param>
         /// <param name="codeOAuth">The authorization code used for obtaining OAuth tokens..</param>
         /// <param name="session">Specifies whether the authentication is session-based..</param>
         /// <param name="confirmData">confirmData.</param>
         /// <param name="recaptchaType">recaptchaType.</param>
         /// <param name="recaptchaResponse">The user&#39;s response to the CAPTCHA challenge..</param>
         /// <param name="culture">The culture code for localization during authentication..</param>
-        public AuthRequestsDto(string userName = default, string password = default, string passwordHash = default, string provider = default, string accessToken = default, string serializedProfile = default, string code = default, string codeOAuth = default, bool session = default, ConfirmData confirmData = default, RecaptchaType? recaptchaType = default, string recaptchaResponse = default, string culture = default)
+        public AuthRequestsDto(string userName = default, string password = default, string passwordHash = default, string provider = default, string accessToken = default, string serializedProfile = default, string codeOAuth = default, bool session = default, ConfirmData confirmData = default, RecaptchaType? recaptchaType = default, string recaptchaResponse = default, string culture = default)
         {
             this.UserName = userName;
             this.Password = password;
@@ -55,7 +67,6 @@ namespace DocSpace.API.SDK.Model
             this.Provider = provider;
             this.AccessToken = accessToken;
             this.SerializedProfile = serializedProfile;
-            this.Code = code;
             this.CodeOAuth = codeOAuth;
             this.Session = session;
             this.ConfirmData = confirmData;
@@ -69,7 +80,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The username or email used for authentication.</value>
         /*
-        <example>some text</example>
+        <example>user@example.com</example>
         */
         [DataMember(Name = "userName", EmitDefaultValue = true)]
         public string UserName { get; set; }
@@ -79,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The password in plain text for user authentication.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>SecurePassword123!</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
@@ -89,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The hashed password for secure verification.</value>
         /*
-        <example>some text</example>
+        <example>5f4dcc3b5aa765d61d8327deb882cf99</example>
         */
         [DataMember(Name = "passwordHash", EmitDefaultValue = true)]
         public string PasswordHash { get; set; }
@@ -99,7 +110,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The type of authentication provider (e.g., internal, Google, Azure).</value>
         /*
-        <example>some text</example>
+        <example>google</example>
         */
         [DataMember(Name = "provider", EmitDefaultValue = true)]
         public string Provider { get; set; }
@@ -109,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The access token used for authentication with external providers.</value>
         /*
-        <example>some text</example>
+        <example>ya29.a0AfH6SMBx...</example>
         */
         [DataMember(Name = "accessToken", EmitDefaultValue = true)]
         public string AccessToken { get; set; }
@@ -119,27 +130,17 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The serialized user profile data, if applicable.</value>
         /*
-        <example>some text</example>
+        <example>{"name":"John Doe","email":"john@example.com"}</example>
         */
         [DataMember(Name = "serializedProfile", EmitDefaultValue = true)]
         public string SerializedProfile { get; set; }
-
-        /// <summary>
-        /// The code for two-factor authentication.
-        /// </summary>
-        /// <value>The code for two-factor authentication.</value>
-        /*
-        <example>some text</example>
-        */
-        [DataMember(Name = "code", EmitDefaultValue = true)]
-        public string Code { get; set; }
 
         /// <summary>
         /// The authorization code used for obtaining OAuth tokens.
         /// </summary>
         /// <value>The authorization code used for obtaining OAuth tokens.</value>
         /*
-        <example>some text</example>
+        <example>4/0AY0e-g7...</example>
         */
         [DataMember(Name = "codeOAuth", EmitDefaultValue = true)]
         public string CodeOAuth { get; set; }
@@ -165,7 +166,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user&#39;s response to the CAPTCHA challenge.</value>
         /*
-        <example>some text</example>
+        <example>03AGdBq25...</example>
         */
         [DataMember(Name = "recaptchaResponse", EmitDefaultValue = true)]
         public string RecaptchaResponse { get; set; }
@@ -175,7 +176,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The culture code for localization during authentication.</value>
         /*
-        <example>some text</example>
+        <example>en-US</example>
         */
         [DataMember(Name = "culture", EmitDefaultValue = true)]
         public string Culture { get; set; }
@@ -194,7 +195,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("  AccessToken: ").Append(AccessToken).Append("\n");
             sb.Append("  SerializedProfile: ").Append(SerializedProfile).Append("\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  CodeOAuth: ").Append(CodeOAuth).Append("\n");
             sb.Append("  Session: ").Append(Session).Append("\n");
             sb.Append("  ConfirmData: ").Append(ConfirmData).Append("\n");
@@ -211,7 +211,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

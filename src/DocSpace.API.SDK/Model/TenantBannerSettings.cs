@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -29,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="TenantBannerSettings" /> class.
         /// </summary>
         /// <param name="hidden">The banners visibility flag..</param>
-        /// <param name="lastModified">lastModified.</param>
+        /// <param name="lastModified">The timestamp indicating when the settings were last modified..</param>
         public TenantBannerSettings(bool hidden = default, DateTime lastModified = default)
         {
             this.Hidden = hidden;
@@ -41,16 +54,17 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The banners visibility flag.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "hidden", EmitDefaultValue = true)]
         public bool Hidden { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastModified
+        /// The timestamp indicating when the settings were last modified.
         /// </summary>
+        /// <value>The timestamp indicating when the settings were last modified.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>1990-01-01T00:00Z</example>
         */
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
@@ -75,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

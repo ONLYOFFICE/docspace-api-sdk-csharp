@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,14 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request parameters for creating a client.
+    /// Client creation request containing client details
     /// </summary>
     [DataContract(Name = "CreateClientRequest")]
     public partial class CreateClientRequest : IValidatableObject
@@ -34,18 +47,19 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="CreateClientRequest" /> class.
         /// </summary>
         /// <param name="name">The client name..</param>
-        /// <param name="description">The client description..</param>
-        /// <param name="logo">The client logo in base64 format..</param>
-        /// <param name="scopes">The client scopes..</param>
-        /// <param name="allowPkce">Indicates whether PKCE is allowed for the client..</param>
-        /// <param name="isPublic">Indicates whether the client is accessible by third-party tenants..</param>
-        /// <param name="websiteUrl">The URL to the client&#39;s website..</param>
-        /// <param name="termsUrl">The URL to the client&#39;s terms of service..</param>
-        /// <param name="policyUrl">The URL to the client&#39;s privacy policy..</param>
-        /// <param name="redirectUris">The list of allowed redirect URIs. (required).</param>
-        /// <param name="allowedOrigins">The list of allowed CORS origins. (required).</param>
-        /// <param name="logoutRedirectUri">The list of allowed logout redirect URIs..</param>
-        public CreateClientRequest(string name = default, string description = default, string logo = default, List<string> scopes = default, bool allowPkce = default, bool isPublic = default, string websiteUrl = default, string termsUrl = default, string policyUrl = default, List<string> redirectUris = default, List<string> allowedOrigins = default, string logoutRedirectUri = default)
+        /// <param name="description">The description of the client.</param>
+        /// <param name="logo">The logo of the client in base64 format.</param>
+        /// <param name="scopes">The scopes for the client.</param>
+        /// <param name="public">@public.</param>
+        /// <param name="allowPkce">Indicates whether PKCE is allowed for the client.</param>
+        /// <param name="isPublic">Indicates if the client is public.</param>
+        /// <param name="websiteUrl">The website URL of the client.</param>
+        /// <param name="termsUrl">The terms URL of the client.</param>
+        /// <param name="policyUrl">The policy URL of the client.</param>
+        /// <param name="redirectUris">The redirect URIs for the client (required).</param>
+        /// <param name="allowedOrigins">The allowed origins for the client (required).</param>
+        /// <param name="logoutRedirectUri">The logout redirect URI for the client.</param>
+        public CreateClientRequest(string name = default, string description = default, string logo = default, List<string> scopes = default, bool @public = default, bool allowPkce = default, bool isPublic = default, string websiteUrl = default, string termsUrl = default, string policyUrl = default, List<string> redirectUris = default, List<string> allowedOrigins = default, string logoutRedirectUri = default)
         {
             // to ensure "redirectUris" is required (not null)
             if (redirectUris == null)
@@ -63,6 +77,7 @@ namespace DocSpace.API.SDK.Model
             this.Description = description;
             this.Logo = logo;
             this.Scopes = scopes;
+            this.Public = @public;
             this.AllowPkce = allowPkce;
             this.IsPublic = isPublic;
             this.WebsiteUrl = websiteUrl;
@@ -82,9 +97,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The client description.
+        /// The description of the client
         /// </summary>
-        /// <value>The client description.</value>
+        /// <value>The description of the client</value>
         /*
         <example>Description of the client</example>
         */
@@ -92,9 +107,9 @@ namespace DocSpace.API.SDK.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The client logo in base64 format.
+        /// The logo of the client in base64 format
         /// </summary>
-        /// <value>The client logo in base64 format.</value>
+        /// <value>The logo of the client in base64 format</value>
         /*
         <example>data:image/png;base64,...</example>
         */
@@ -102,19 +117,25 @@ namespace DocSpace.API.SDK.Model
         public string Logo { get; set; }
 
         /// <summary>
-        /// The client scopes.
+        /// The scopes for the client
         /// </summary>
-        /// <value>The client scopes.</value>
+        /// <value>The scopes for the client</value>
         /*
-        <example>[&quot;read&quot;,&quot;write&quot;]</example>
+        <example>["read","write"]</example>
         */
         [DataMember(Name = "scopes", EmitDefaultValue = false)]
         public List<string> Scopes { get; set; }
 
         /// <summary>
-        /// Indicates whether PKCE is allowed for the client.
+        /// Gets or Sets Public
         /// </summary>
-        /// <value>Indicates whether PKCE is allowed for the client.</value>
+        [DataMember(Name = "public", EmitDefaultValue = true)]
+        public bool Public { get; set; }
+
+        /// <summary>
+        /// Indicates whether PKCE is allowed for the client
+        /// </summary>
+        /// <value>Indicates whether PKCE is allowed for the client</value>
         /*
         <example>true</example>
         */
@@ -122,9 +143,9 @@ namespace DocSpace.API.SDK.Model
         public bool AllowPkce { get; set; }
 
         /// <summary>
-        /// Indicates whether the client is accessible by third-party tenants.
+        /// Indicates if the client is public
         /// </summary>
-        /// <value>Indicates whether the client is accessible by third-party tenants.</value>
+        /// <value>Indicates if the client is public</value>
         /*
         <example>false</example>
         */
@@ -132,9 +153,9 @@ namespace DocSpace.API.SDK.Model
         public bool IsPublic { get; set; }
 
         /// <summary>
-        /// The URL to the client&#39;s website.
+        /// The website URL of the client
         /// </summary>
-        /// <value>The URL to the client&#39;s website.</value>
+        /// <value>The website URL of the client</value>
         /*
         <example>http://example.com</example>
         */
@@ -142,9 +163,9 @@ namespace DocSpace.API.SDK.Model
         public string WebsiteUrl { get; set; }
 
         /// <summary>
-        /// The URL to the client&#39;s terms of service.
+        /// The terms URL of the client
         /// </summary>
-        /// <value>The URL to the client&#39;s terms of service.</value>
+        /// <value>The terms URL of the client</value>
         /*
         <example>http://example.com/terms</example>
         */
@@ -152,9 +173,9 @@ namespace DocSpace.API.SDK.Model
         public string TermsUrl { get; set; }
 
         /// <summary>
-        /// The URL to the client&#39;s privacy policy.
+        /// The policy URL of the client
         /// </summary>
-        /// <value>The URL to the client&#39;s privacy policy.</value>
+        /// <value>The policy URL of the client</value>
         /*
         <example>http://example.com/policy</example>
         */
@@ -162,29 +183,29 @@ namespace DocSpace.API.SDK.Model
         public string PolicyUrl { get; set; }
 
         /// <summary>
-        /// The list of allowed redirect URIs.
+        /// The redirect URIs for the client
         /// </summary>
-        /// <value>The list of allowed redirect URIs.</value>
+        /// <value>The redirect URIs for the client</value>
         /*
-        <example>[&quot;http://example.com/redirect&quot;]</example>
+        <example>["http://example.com/redirect"]</example>
         */
         [DataMember(Name = "redirect_uris", IsRequired = true, EmitDefaultValue = true)]
         public List<string> RedirectUris { get; set; }
 
         /// <summary>
-        /// The list of allowed CORS origins.
+        /// The allowed origins for the client
         /// </summary>
-        /// <value>The list of allowed CORS origins.</value>
+        /// <value>The allowed origins for the client</value>
         /*
-        <example>[&quot;http://example.com&quot;]</example>
+        <example>["http://example.com"]</example>
         */
         [DataMember(Name = "allowed_origins", IsRequired = true, EmitDefaultValue = true)]
         public List<string> AllowedOrigins { get; set; }
 
         /// <summary>
-        /// The list of allowed logout redirect URIs.
+        /// The logout redirect URI for the client
         /// </summary>
-        /// <value>The list of allowed logout redirect URIs.</value>
+        /// <value>The logout redirect URI for the client</value>
         /*
         <example>http://example.com/logout</example>
         */
@@ -203,6 +224,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Logo: ").Append(Logo).Append("\n");
             sb.Append("  Scopes: ").Append(Scopes).Append("\n");
+            sb.Append("  Public: ").Append(Public).Append("\n");
             sb.Append("  AllowPkce: ").Append(AllowPkce).Append("\n");
             sb.Append("  IsPublic: ").Append(IsPublic).Append("\n");
             sb.Append("  WebsiteUrl: ").Append(WebsiteUrl).Append("\n");
@@ -221,7 +243,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -263,11 +285,11 @@ namespace DocSpace.API.SDK.Model
 
             if (this.Logo != null) {
                 // Logo (string) pattern
-                Regex regexLogo = new Regex(@"^data:image\/(?:png|jpeg|jpg|svg\+xml);base64,.*.{1,}", RegexOptions.CultureInvariant);
-                if (!regexLogo.Match(this.Logo).Success)
-                {
-                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Logo, must match a pattern of " + regexLogo, new [] { "Logo" });
-                }
+                                Regex regexLogo = new Regex(@"^data:image\/(?:png|jpeg|jpg|svg\+xml);base64,.*.{1,}", RegexOptions.CultureInvariant);
+                                if (!regexLogo.Match(this.Logo).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Logo, must match a pattern of " + regexLogo, new [] { "Logo" });
+                                }
             }
 
             // WebsiteUrl (string) minLength
@@ -278,11 +300,11 @@ namespace DocSpace.API.SDK.Model
 
             if (this.WebsiteUrl != null) {
                 // WebsiteUrl (string) pattern
-                Regex regexWebsiteUrl = new Regex(@"^(https?://)?(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
-                if (!regexWebsiteUrl.Match(this.WebsiteUrl).Success)
-                {
-                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WebsiteUrl, must match a pattern of " + regexWebsiteUrl, new [] { "WebsiteUrl" });
-                }
+                                Regex regexWebsiteUrl = new Regex(@"^(https?://)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
+                                if (!regexWebsiteUrl.Match(this.WebsiteUrl).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for WebsiteUrl, must match a pattern of " + regexWebsiteUrl, new [] { "WebsiteUrl" });
+                                }
             }
 
             // TermsUrl (string) minLength
@@ -293,11 +315,11 @@ namespace DocSpace.API.SDK.Model
 
             if (this.TermsUrl != null) {
                 // TermsUrl (string) pattern
-                Regex regexTermsUrl = new Regex(@"^(https?://)?(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
-                if (!regexTermsUrl.Match(this.TermsUrl).Success)
-                {
-                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TermsUrl, must match a pattern of " + regexTermsUrl, new [] { "TermsUrl" });
-                }
+                                Regex regexTermsUrl = new Regex(@"^(https?://)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
+                                if (!regexTermsUrl.Match(this.TermsUrl).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TermsUrl, must match a pattern of " + regexTermsUrl, new [] { "TermsUrl" });
+                                }
             }
 
             // PolicyUrl (string) minLength
@@ -308,11 +330,11 @@ namespace DocSpace.API.SDK.Model
 
             if (this.PolicyUrl != null) {
                 // PolicyUrl (string) pattern
-                Regex regexPolicyUrl = new Regex(@"^(https?://)?(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
-                if (!regexPolicyUrl.Match(this.PolicyUrl).Success)
-                {
-                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PolicyUrl, must match a pattern of " + regexPolicyUrl, new [] { "PolicyUrl" });
-                }
+                                Regex regexPolicyUrl = new Regex(@"^(https?://)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
+                                if (!regexPolicyUrl.Match(this.PolicyUrl).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PolicyUrl, must match a pattern of " + regexPolicyUrl, new [] { "PolicyUrl" });
+                                }
             }
 
             // LogoutRedirectUri (string) minLength
@@ -323,11 +345,11 @@ namespace DocSpace.API.SDK.Model
 
             if (this.LogoutRedirectUri != null) {
                 // LogoutRedirectUri (string) pattern
-                Regex regexLogoutRedirectUri = new Regex(@"^(https?://)?(([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|localhost|[a-zA-Z0-9-]+)(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
-                if (!regexLogoutRedirectUri.Match(this.LogoutRedirectUri).Success)
-                {
-                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LogoutRedirectUri, must match a pattern of " + regexLogoutRedirectUri, new [] { "LogoutRedirectUri" });
-                }
+                                Regex regexLogoutRedirectUri = new Regex(@"^(https?://)?([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$|^https?://(\d{1,3}\.){3}\d{1,3}(:\d+)?(/[a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=]*)?$", RegexOptions.CultureInvariant);
+                                if (!regexLogoutRedirectUri.Match(this.LogoutRedirectUri).Success)
+                                {
+                                    yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LogoutRedirectUri, must match a pattern of " + regexLogoutRedirectUri, new [] { "LogoutRedirectUri" });
+                                }
             }
 
             yield break;

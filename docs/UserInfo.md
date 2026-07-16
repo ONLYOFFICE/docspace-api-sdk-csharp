@@ -6,8 +6,8 @@ The user information.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **Guid** | The user ID. | [optional] 
-**FirstName** | **string** | The user first name. | [optional] 
-**LastName** | **string** | The user last name. | [optional] 
+**FirstName** | **string** | The user's first name. | [optional] 
+**LastName** | **string** | The user's last name. | [optional] 
 **UserName** | **string** | The user username. | [optional] 
 **BirthDate** | **DateTime?** | The user birthday. | [optional] 
 **Sex** | **bool?** | The user sex (male or female). | [optional] 
@@ -28,14 +28,14 @@ Name | Type | Description | Notes
 **CultureName** | **string** | The user culture code. | [optional] 
 **MobilePhone** | **string** | The user mobile phone. | [optional] 
 **MobilePhoneActivationStatus** | **MobilePhoneActivationStatus** |  | [optional] 
-**Sid** | **string** | The LDAP user identificator. | [optional] 
+**Sid** | **string** | The LDAP user identifier. | [optional] 
 **LdapQouta** | **long** | The LDAP user quota attribute. | [optional] 
-**SsoNameId** | **string** | The SSO SAML user identificator. | [optional] 
-**SsoSessionId** | **string** | The SSO SAML user session identificator. | [optional] 
+**SsoNameId** | **string** | The SSO SAML user identifier. | [optional] 
+**SsoSessionId** | **string** | The SSO SAML user session identifier. | [optional] 
 **CreateDate** | **DateTime** | The date and time when the user account was created. | [optional] 
 **CreatedBy** | **Guid?** | The ID of the user who created the current user account. | [optional] 
 **Spam** | **bool?** | Specifies if tips, updates and offers are allowed to be sent to the user or not. | [optional] 
-**CheckActivation** | **bool** |  | [optional] [readonly] 
+**CheckActivation** | **bool** | Indicates whether the activation status of the employee or recipient is unchecked or inactive.  Depending on the context, this property evaluates the activation or eligibility status accordingly. | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

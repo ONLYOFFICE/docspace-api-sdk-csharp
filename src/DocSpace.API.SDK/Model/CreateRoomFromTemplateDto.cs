@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -45,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="denyDownload">Specifies whether to deny downloads from the room..</param>
         /// <param name="lifetime">lifetime.</param>
         /// <param name="watermark">watermark.</param>
-        /// <param name="@private">Specifies whether the room to be created is private or not..</param>
+        /// <param name="private">Specifies whether the room to be created is private or not..</param>
         public CreateRoomFromTemplateDto(int templateId = default, string title = default, LogoRequest logo = default, bool copyLogo = default, List<string> tags = default, string color = default, string cover = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, bool? @private = default)
         {
             this.TemplateId = templateId;
@@ -73,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The template ID from which the room to be created.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "templateId", IsRequired = true, EmitDefaultValue = true)]
         public int TemplateId { get; set; }
@@ -83,7 +96,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room title.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>My Room From Template</example>
         */
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -99,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to copy a logo or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "copyLogo", EmitDefaultValue = true)]
         public bool CopyLogo { get; set; }
@@ -109,7 +122,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The collection of tags.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>["tag1","tag2","tag3"]</example>
         */
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
@@ -119,7 +132,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The color of the room to be created.</value>
         /*
-        <example>some text</example>
+        <example>#FF0000</example>
         */
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
@@ -129,7 +142,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The cover of the room to be created.</value>
         /*
-        <example>some text</example>
+        <example>cover1.jpg</example>
         */
         [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
@@ -139,7 +152,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room quota.</value>
         /*
-        <example>1234</example>
+        <example>1073741824</example>
         */
         [DataMember(Name = "quota", EmitDefaultValue = true)]
         public long? Quota { get; set; }
@@ -159,7 +172,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to deny downloads from the room.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool? DenyDownload { get; set; }
@@ -181,7 +194,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether the room to be created is private or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "private", EmitDefaultValue = true)]
         public bool? Private { get; set; }
@@ -217,7 +230,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

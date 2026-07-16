@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
+using System.Reflection;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -117,7 +131,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonSerializer.Serialize(this.ActualInstance, UpdateMembersQuotaRequestDtoQuota.SerializerOptions);
+            return JsonConvert.SerializeObject(this.ActualInstance, UpdateMembersQuotaRequestDtoQuota.SerializerSettings);
         }
 
         /// <summary>
@@ -138,35 +152,51 @@ namespace DocSpace.API.SDK.Model
 
             try
             {
-                // System.Text.Json doesn't have a direct equivalent to AdditionalProperties handling
-                // We'll use the default options for all types
-                newUpdateMembersQuotaRequestDtoQuota = new UpdateMembersQuotaRequestDtoQuota(JsonSerializer.Deserialize<int>(jsonString, UpdateMembersQuotaRequestDtoQuota.SerializerOptions));
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(int).GetProperty("AdditionalProperties") == null)
+                {
+                    newUpdateMembersQuotaRequestDtoQuota = new UpdateMembersQuotaRequestDtoQuota(JsonConvert.DeserializeObject<int>(jsonString, UpdateMembersQuotaRequestDtoQuota.SerializerSettings));
+                }
+                else
+                {
+                    newUpdateMembersQuotaRequestDtoQuota = new UpdateMembersQuotaRequestDtoQuota(JsonConvert.DeserializeObject<int>(jsonString, UpdateMembersQuotaRequestDtoQuota.AdditionalPropertiesSerializerSettings));
+                }
                 matchedTypes.Add("int");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine($"Failed to deserialize '{jsonString}' into int: {exception}");
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into int: {1}", jsonString, exception.ToString()));
             }
 
             try
             {
-                // System.Text.Json doesn't have a direct equivalent to AdditionalProperties handling
-                // We'll use the default options for all types
-                newUpdateMembersQuotaRequestDtoQuota = new UpdateMembersQuotaRequestDtoQuota(JsonSerializer.Deserialize<string>(jsonString, UpdateMembersQuotaRequestDtoQuota.SerializerOptions));
+                // if it does not contains "AdditionalProperties", use SerializerSettings to deserialize
+                if (typeof(string).GetProperty("AdditionalProperties") == null)
+                {
+                    newUpdateMembersQuotaRequestDtoQuota = new UpdateMembersQuotaRequestDtoQuota(JsonConvert.DeserializeObject<string>(jsonString, UpdateMembersQuotaRequestDtoQuota.SerializerSettings));
+                }
+                else
+                {
+                    newUpdateMembersQuotaRequestDtoQuota = new UpdateMembersQuotaRequestDtoQuota(JsonConvert.DeserializeObject<string>(jsonString, UpdateMembersQuotaRequestDtoQuota.AdditionalPropertiesSerializerSettings));
+                }
                 matchedTypes.Add("string");
                 match++;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine($"Failed to deserialize '{jsonString}' into string: {exception}");
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into string: {1}", jsonString, exception.ToString()));
             }
 
             if (match == 0)
             {
-                throw new InvalidDataException($"The JSON string '{jsonString}' cannot be deserialized into any schema defined.");
+                throw new InvalidDataException("The JSON string `" + jsonString + "` cannot be deserialized into any schema defined.");
+            }
+            else if (match > 1)
+            {
+                throw new InvalidDataException("The JSON string `" + jsonString + "` incorrectly matches more than one schema (should be exactly one match): " + String.Join(",", matchedTypes));
             }
 
             // deserialization is considered successful at this point if no exception has been thrown.
@@ -188,46 +218,52 @@ namespace DocSpace.API.SDK.Model
     /// <summary>
     /// Custom JSON converter for UpdateMembersQuotaRequestDtoQuota
     /// </summary>
-    public class UpdateMembersQuotaRequestDtoQuotaJsonConverter : JsonConverter<UpdateMembersQuotaRequestDtoQuota>
+    public class UpdateMembersQuotaRequestDtoQuotaJsonConverter : JsonConverter
     {
         /// <summary>
         /// To write the JSON string
         /// </summary>
         /// <param name="writer">JSON writer</param>
         /// <param name="value">Object to be converted into a JSON string</param>
-        /// <param name="options">JSON Serializer Options</param>
-        public override void Write(Utf8JsonWriter writer, UpdateMembersQuotaRequestDtoQuota value, JsonSerializerOptions options)
+        /// <param name="serializer">JSON Serializer</param>
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteRawValue(value.ToJson());
+            writer.WriteRawValue((string)(typeof(UpdateMembersQuotaRequestDtoQuota).GetMethod("ToJson").Invoke(value, null)));
         }
 
         /// <summary>
         /// To convert a JSON string into an object
         /// </summary>
         /// <param name="reader">JSON reader</param>
-        /// <param name="typeToConvert">Object type</param>
-        /// <param name="options">JSON Serializer Options</param>
+        /// <param name="objectType">Object type</param>
+        /// <param name="existingValue">Existing value</param>
+        /// <param name="serializer">JSON Serializer</param>
         /// <returns>The object converted from the JSON string</returns>
-        public override UpdateMembersQuotaRequestDtoQuota Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            using (JsonDocument document = JsonDocument.ParseValue(ref reader))
+            switch(reader.TokenType) 
             {
-                var root = document.RootElement;
-                
-                // Handle primitive types
-                switch (root.ValueKind)
-                {
-                    case JsonValueKind.Number when root.TryGetInt32(out int intValue):
-                        return new UpdateMembersQuotaRequestDtoQuota(intValue);
-                    case JsonValueKind.String:
-                        return new UpdateMembersQuotaRequestDtoQuota(root.GetString());
-                    case JsonValueKind.Object:
-                    case JsonValueKind.Array:
-                        return UpdateMembersQuotaRequestDtoQuota.FromJson(root.GetRawText());
-                    default:
-                        throw new JsonException($"Unexpected token type {root.ValueKind}");
-                }
+                case JsonToken.Integer: 
+                    return new UpdateMembersQuotaRequestDtoQuota(Convert.ToInt32(reader.Value));
+                case JsonToken.String: 
+                    return new UpdateMembersQuotaRequestDtoQuota(Convert.ToString(reader.Value));
+                case JsonToken.StartObject:
+                    return UpdateMembersQuotaRequestDtoQuota.FromJson(JObject.Load(reader).ToString(Formatting.None));
+                case JsonToken.StartArray:
+                    return UpdateMembersQuotaRequestDtoQuota.FromJson(JArray.Load(reader).ToString(Formatting.None));
+                default:
+                    return null;
             }
+        }
+
+        /// <summary>
+        /// Check if the object can be converted
+        /// </summary>
+        /// <param name="objectType">Object type</param>
+        /// <returns>True if the object can be converted</returns>
+        public override bool CanConvert(Type objectType)
+        {
+            return false;
         }
     }
 

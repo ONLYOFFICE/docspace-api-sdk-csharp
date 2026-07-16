@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -48,6 +61,9 @@ namespace DocSpace.API.SDK.Model
         /// A collection of operations.
         /// </summary>
         /// <value>A collection of operations.</value>
+        /*
+        <example>[{"id":"op1","type":"payment"}]</example>
+        */
         [DataMember(Name = "collection", EmitDefaultValue = true)]
         public List<OperationDto> Collection { get; set; }
 
@@ -56,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The report data offset.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "offset", EmitDefaultValue = false)]
         public int Offset { get; set; }
@@ -66,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The report data limit.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "limit", EmitDefaultValue = false)]
         public int Limit { get; set; }
@@ -76,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The total quantity of operations in the report.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "totalQuantity", EmitDefaultValue = false)]
         public int TotalQuantity { get; set; }
@@ -86,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The total number of pages in the report.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "totalPage", EmitDefaultValue = false)]
         public int TotalPage { get; set; }
@@ -96,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The current page number of the report.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "currentPage", EmitDefaultValue = false)]
         public int CurrentPage { get; set; }
@@ -125,7 +141,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

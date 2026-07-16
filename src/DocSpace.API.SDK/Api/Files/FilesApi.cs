@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Files
@@ -148,32 +155,32 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        ObjectWrapper CreateEditSession(int fileId, long? fileSize = default);
+        /// <returns>ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
+        ChunkedUploadSessionResponseWrapperIntegerWrapper CreateEditSession(int fileId, long? fileSize = default);
 
         /// <summary>
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        ApiResponse<ObjectWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default);
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
+        ApiResponse<ChunkedUploadSessionResponseWrapperIntegerWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default);
         /// <summary>
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -186,7 +193,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -198,7 +205,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -210,7 +217,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -370,9 +377,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
+        /// <param name="returnSingleOperation">Specifies whether to return only the current operation (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/">REST API Reference for DeleteFile Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
-        FileOperationArrayWrapper DeleteFile(int fileId, Delete delete);
+        FileOperationArrayWrapper DeleteFile(int fileId, Delete delete, bool? returnSingleOperation = default);
 
         /// <summary>
         /// Delete a file
@@ -383,9 +391,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
+        /// <param name="returnSingleOperation">Specifies whether to return only the current operation (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/">REST API Reference for DeleteFile Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        ApiResponse<FileOperationArrayWrapper> DeleteFileWithHttpInfo(int fileId, Delete delete);
+        ApiResponse<FileOperationArrayWrapper> DeleteFileWithHttpInfo(int fileId, Delete delete, bool? returnSingleOperation = default);
         /// <summary>
         /// Delete recent files
         /// </summary>
@@ -432,6 +441,29 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/">REST API Reference for DeleteTemplates Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> DeleteTemplatesWithHttpInfo(List<int>? requestBody = default);
+        /// <summary>
+        /// Generate XLSX report
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form file.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
+        /// <returns>XlsxReportResponseWrapper</returns>
+        XlsxReportResponseWrapper GenerateXlsx(int fileId);
+
+        /// <summary>
+        /// Generate XLSX report
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form file.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
+        /// <returns>ApiResponse of XlsxReportResponseWrapper</returns>
+        ApiResponse<XlsxReportResponseWrapper> GenerateXlsxWithHttpInfo(int fileId);
         /// <summary>
         /// Get form roles
         /// </summary>
@@ -660,6 +692,29 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of FillingFormResultIntegerWrapper</returns>
         ApiResponse<FillingFormResultIntegerWrapper> GetFillResultWithHttpInfo(string? fillingSessionId = default);
         /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>FormSubmissionsWrapper</returns>
+        FormSubmissionsWrapper GetFormSubmissions(int fileId);
+
+        /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>ApiResponse of FormSubmissionsWrapper</returns>
+        ApiResponse<FormSubmissionsWrapper> GetFormSubmissionsWithHttpInfo(int fileId);
+        /// <summary>
         /// Get file download link asynchronously
         /// </summary>
         /// <remarks>
@@ -751,6 +806,29 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
         /// <returns>ApiResponse of FileReferenceWrapper</returns>
         ApiResponse<FileReferenceWrapper> GetReferenceDataWithHttpInfo(GetReferenceDataDtoInteger? getReferenceDataDtoInteger = default);
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        DocumentBuilderTaskWrapper GetXlsx(int fileId);
+
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        ApiResponse<DocumentBuilderTaskWrapper> GetXlsxWithHttpInfo(int fileId);
         /// <summary>
         /// Check the PDF file
         /// </summary>
@@ -892,13 +970,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        FileIntegerWrapper SaveEditingFileFromForm(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default);
+        FileIntegerWrapper SaveEditingFileFromForm(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default);
 
         /// <summary>
         /// Save file edits
@@ -908,13 +986,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        ApiResponse<FileIntegerWrapper> SaveEditingFileFromFormWithHttpInfo(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default);
+        ApiResponse<FileIntegerWrapper> SaveEditingFileFromFormWithHttpInfo(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default);
         /// <summary>
         /// Save a file as PDF
         /// </summary>
@@ -1334,34 +1412,34 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        Task<ObjectWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
+        Task<ChunkedUploadSessionResponseWrapperIntegerWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        Task<ApiResponse<ObjectWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperIntegerWrapper)</returns>
+        Task<ApiResponse<ChunkedUploadSessionResponseWrapperIntegerWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -1375,7 +1453,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -1388,7 +1466,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -1401,7 +1479,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -1574,10 +1652,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
+        /// <param name="returnSingleOperation">Specifies whether to return only the current operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/">REST API Reference for DeleteFile Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        Task<FileOperationArrayWrapper> DeleteFileAsync(int fileId, Delete delete, CancellationToken cancellationToken = default);
+        Task<FileOperationArrayWrapper> DeleteFileAsync(int fileId, Delete delete, bool? returnSingleOperation = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Delete a file
@@ -1588,10 +1667,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
+        /// <param name="returnSingleOperation">Specifies whether to return only the current operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/">REST API Reference for DeleteFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        Task<ApiResponse<FileOperationArrayWrapper>> DeleteFileWithHttpInfoAsync(int fileId, Delete delete, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileOperationArrayWrapper>> DeleteFileWithHttpInfoAsync(int fileId, Delete delete, bool? returnSingleOperation = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete recent files
         /// </summary>
@@ -1642,6 +1722,31 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-templates/">REST API Reference for DeleteTemplates Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> DeleteTemplatesWithHttpInfoAsync(List<int>? requestBody = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Generate XLSX report
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form file.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
+        /// <returns>Task of XlsxReportResponseWrapper</returns>
+        Task<XlsxReportResponseWrapper> GenerateXlsxAsync(int fileId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Generate XLSX report
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form file.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
+        /// <returns>Task of ApiResponse (XlsxReportResponseWrapper)</returns>
+        Task<ApiResponse<XlsxReportResponseWrapper>> GenerateXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get form roles
         /// </summary>
@@ -1888,6 +1993,31 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (FillingFormResultIntegerWrapper)</returns>
         Task<ApiResponse<FillingFormResultIntegerWrapper>> GetFillResultWithHttpInfoAsync(string? fillingSessionId = default, CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>Task of FormSubmissionsWrapper</returns>
+        Task<FormSubmissionsWrapper> GetFormSubmissionsAsync(int fileId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>Task of ApiResponse (FormSubmissionsWrapper)</returns>
+        Task<ApiResponse<FormSubmissionsWrapper>> GetFormSubmissionsWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get file download link asynchronously
         /// </summary>
         /// <remarks>
@@ -1987,6 +2117,31 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
         /// <returns>Task of ApiResponse (FileReferenceWrapper)</returns>
         Task<ApiResponse<FileReferenceWrapper>> GetReferenceDataWithHttpInfoAsync(GetReferenceDataDtoInteger? getReferenceDataDtoInteger = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        Task<DocumentBuilderTaskWrapper> GetXlsxAsync(int fileId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        Task<ApiResponse<DocumentBuilderTaskWrapper>> GetXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Check the PDF file
         /// </summary>
@@ -2138,14 +2293,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        Task<FileIntegerWrapper> SaveEditingFileFromFormAsync(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default);
+        Task<FileIntegerWrapper> SaveEditingFileFromFormAsync(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Save file edits
@@ -2155,14 +2310,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        Task<ApiResponse<FileIntegerWrapper>> SaveEditingFileFromFormWithHttpInfoAsync(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FileIntegerWrapper>> SaveEditingFileFromFormWithHttpInfoAsync(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Save a file as PDF
         /// </summary>
@@ -3571,14 +3726,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ObjectWrapper</returns>
-        public ObjectWrapper CreateEditSession(int fileId, long? fileSize = default)
+        /// <returns>ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
+        public ChunkedUploadSessionResponseWrapperIntegerWrapper CreateEditSession(int fileId, long? fileSize = default)
         {
             var localVarResponse = CreateEditSessionWithHttpInfo(fileId, fileSize);
             return localVarResponse.Data;
@@ -3588,14 +3743,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>ApiResponse of ObjectWrapper</returns>
-        public ApiResponse<ObjectWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default)
+        /// <returns>ApiResponse of ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
+        public ApiResponse<ChunkedUploadSessionResponseWrapperIntegerWrapper> CreateEditSessionWithHttpInfo(int fileId, long? fileSize = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3648,7 +3803,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<ObjectWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<ChunkedUploadSessionResponseWrapperIntegerWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -3666,15 +3821,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ObjectWrapper</returns>
-        public async Task<ObjectWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ChunkedUploadSessionResponseWrapperIntegerWrapper</returns>
+        public async Task<ChunkedUploadSessionResponseWrapperIntegerWrapper> CreateEditSessionAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CreateEditSessionWithHttpInfoAsync(fileId, fileSize, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3684,15 +3839,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create the editing session
         /// </summary>
         /// <remarks>
-        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).   **Note**: Information about created session which includes:  &lt;ul&gt;  &lt;li&gt;&lt;b&gt;id:&lt;/b&gt; unique ID of this upload session,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;created:&lt;/b&gt; UTC time when the session was created,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;expired:&lt;/b&gt; UTC time when the session will expire if no chunks are sent before that time,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;location:&lt;/b&gt; URL where you should send your next chunk,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_uploaded:&lt;/b&gt; number of bytes uploaded for the specific upload ID,&lt;/li&gt;  &lt;li&gt;&lt;b&gt;bytes_total:&lt;/b&gt; total number of bytes which will be uploaded.&lt;/li&gt;  &lt;/ul&gt;
+        /// Creates a session to edit the existing file with multiple chunks (needed for WebDAV).
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID.</param>
         /// <param name="fileSize">The file size in bytes. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-edit-session/">REST API Reference for CreateEditSession Operation</seealso>
-        /// <returns>Task of ApiResponse (ObjectWrapper)</returns>
-        public async Task<ApiResponse<ObjectWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (ChunkedUploadSessionResponseWrapperIntegerWrapper)</returns>
+        public async Task<ApiResponse<ChunkedUploadSessionResponseWrapperIntegerWrapper>> CreateEditSessionWithHttpInfoAsync(int fileId, long? fileSize = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3747,7 +3902,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<ObjectWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<ChunkedUploadSessionResponseWrapperIntegerWrapper>("/api/2.0/files/file/{fileId}/edit_session", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -3765,7 +3920,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -3782,7 +3937,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -3861,7 +4016,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -3879,7 +4034,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the specified folder with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the specified folder with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="folderId">The folder ID for the file creation.</param>
@@ -3961,7 +4116,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -3977,7 +4132,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -4050,7 +4205,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -4067,7 +4222,7 @@ namespace DocSpace.API.SDK.Api.Files
         /// Create a file in the My documents section
         /// </summary>
         /// <remarks>
-        /// Creates a new file in the My documents section with the title specified in the request.   **Note**: If a file extension is different from DOCX/XLSX/PPTX and refers to one of the known text, spreadsheet, or presentation formats, it will be changed to DOCX/XLSX/PPTX accordingly. If the file extension is not specified or is unknown, the DOCX extension will be added to the file title.
+        /// Creates a new file in the My documents section with the title specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createFileJsonElement">The parameters for creating a file. (optional)</param>
@@ -5222,11 +5377,12 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
+        /// <param name="returnSingleOperation">Specifies whether to return only the current operation (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/">REST API Reference for DeleteFile Operation</seealso>
         /// <returns>FileOperationArrayWrapper</returns>
-        public FileOperationArrayWrapper DeleteFile(int fileId, Delete delete)
+        public FileOperationArrayWrapper DeleteFile(int fileId, Delete delete, bool? returnSingleOperation = default)
         {
-            var localVarResponse = DeleteFileWithHttpInfo(fileId, delete);
+            var localVarResponse = DeleteFileWithHttpInfo(fileId, delete, returnSingleOperation);
             return localVarResponse.Data;
         }
 
@@ -5239,9 +5395,10 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
+        /// <param name="returnSingleOperation">Specifies whether to return only the current operation (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/">REST API Reference for DeleteFile Operation</seealso>
         /// <returns>ApiResponse of FileOperationArrayWrapper</returns>
-        public ApiResponse<FileOperationArrayWrapper> DeleteFileWithHttpInfo(int fileId, Delete delete)
+        public ApiResponse<FileOperationArrayWrapper> DeleteFileWithHttpInfo(int fileId, Delete delete, bool? returnSingleOperation = default)
         {
             // verify the required parameter 'delete' is set
             if (delete == null)
@@ -5261,6 +5418,10 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (returnSingleOperation != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ReturnSingleOperation", returnSingleOperation));
+            }
             if (delete != null) localVarRequestOptions.Data = delete;
 
             // authentication (Basic) required
@@ -5318,12 +5479,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
+        /// <param name="returnSingleOperation">Specifies whether to return only the current operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/">REST API Reference for DeleteFile Operation</seealso>
         /// <returns>Task of FileOperationArrayWrapper</returns>
-        public async Task<FileOperationArrayWrapper> DeleteFileAsync(int fileId, Delete delete, CancellationToken cancellationToken = default)
+        public async Task<FileOperationArrayWrapper> DeleteFileAsync(int fileId, Delete delete, bool? returnSingleOperation = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await DeleteFileWithHttpInfoAsync(fileId, delete, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await DeleteFileWithHttpInfoAsync(fileId, delete, returnSingleOperation, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5336,10 +5498,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file ID to delete.</param>
         /// <param name="delete">The parameters for deleting a file.</param>
+        /// <param name="returnSingleOperation">Specifies whether to return only the current operation (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-file/">REST API Reference for DeleteFile Operation</seealso>
         /// <returns>Task of ApiResponse (FileOperationArrayWrapper)</returns>
-        public async Task<ApiResponse<FileOperationArrayWrapper>> DeleteFileWithHttpInfoAsync(int fileId, Delete delete, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileOperationArrayWrapper>> DeleteFileWithHttpInfoAsync(int fileId, Delete delete, bool? returnSingleOperation = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'delete' is set
             if (delete == null)
@@ -5360,6 +5523,10 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (returnSingleOperation != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ReturnSingleOperation", returnSingleOperation));
+            }
             if (delete != null) localVarRequestOptions.Data = delete;
 
             // authentication (Basic) required
@@ -5764,6 +5931,188 @@ namespace DocSpace.API.SDK.Api.Files
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("DeleteTemplates", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Generate XLSX report
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form file.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
+        /// <returns>XlsxReportResponseWrapper</returns>
+        public XlsxReportResponseWrapper GenerateXlsx(int fileId)
+        {
+            var localVarResponse = GenerateXlsxWithHttpInfo(fileId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate XLSX report
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form file.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
+        /// <returns>ApiResponse of XlsxReportResponseWrapper</returns>
+        public ApiResponse<XlsxReportResponseWrapper> GenerateXlsxWithHttpInfo(int fileId)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<XlsxReportResponseWrapper>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GenerateXlsx", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Generate XLSX report
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form file.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
+        /// <returns>Task of XlsxReportResponseWrapper</returns>
+        public async Task<XlsxReportResponseWrapper> GenerateXlsxAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GenerateXlsxWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate XLSX report
+        /// </summary>
+        /// <remarks>
+        /// Triggers asynchronous XLSX report generation for the specified form file.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
+        /// <returns>Task of ApiResponse (XlsxReportResponseWrapper)</returns>
+        public async Task<ApiResponse<XlsxReportResponseWrapper>> GenerateXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<XlsxReportResponseWrapper>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GenerateXlsx", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -6263,11 +6612,19 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (fromDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "fromDate", fromDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", fromDate.UtcTime));
+                if (fromDate.TimeZoneOffset != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", fromDate.TimeZoneOffset));
+                }
             }
             if (toDate != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "toDate", toDate));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", toDate.UtcTime));
+                if (toDate.TimeZoneOffset != null)
+                {
+                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", toDate.TimeZoneOffset));
+                }
             }
             if (count != null)
             {
@@ -7178,6 +7535,188 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>FormSubmissionsWrapper</returns>
+        public FormSubmissionsWrapper GetFormSubmissions(int fileId)
+        {
+            var localVarResponse = GetFormSubmissionsWithHttpInfo(fileId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>ApiResponse of FormSubmissionsWrapper</returns>
+        public ApiResponse<FormSubmissionsWrapper> GetFormSubmissionsWithHttpInfo(int fileId)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<FormSubmissionsWrapper>("/api/2.0/files/file/{fileId}/submissions", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetFormSubmissions", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>Task of FormSubmissionsWrapper</returns>
+        public async Task<FormSubmissionsWrapper> GetFormSubmissionsAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetFormSubmissionsWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get form submission results
+        /// </summary>
+        /// <remarks>
+        /// Returns the results of form submissions.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-form-submissions/">REST API Reference for GetFormSubmissions Operation</seealso>
+        /// <returns>Task of ApiResponse (FormSubmissionsWrapper)</returns>
+        public async Task<ApiResponse<FormSubmissionsWrapper>> GetFormSubmissionsWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<FormSubmissionsWrapper>("/api/2.0/files/file/{fileId}/submissions", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetFormSubmissions", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get file download link asynchronously
         /// </summary>
         /// <remarks>
@@ -7896,6 +8435,188 @@ namespace DocSpace.API.SDK.Api.Files
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetReferenceData", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        public DocumentBuilderTaskWrapper GetXlsx(int fileId)
+        {
+            var localVarResponse = GetXlsxWithHttpInfo(fileId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        public ApiResponse<DocumentBuilderTaskWrapper> GetXlsxWithHttpInfo(int fileId)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<DocumentBuilderTaskWrapper>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetXlsx", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        public async Task<DocumentBuilderTaskWrapper> GetXlsxAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetXlsxWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        public async Task<ApiResponse<DocumentBuilderTaskWrapper>> GetXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<DocumentBuilderTaskWrapper>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetXlsx", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -8813,15 +9534,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>FileIntegerWrapper</returns>
-        public FileIntegerWrapper SaveEditingFileFromForm(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default)
+        public FileIntegerWrapper SaveEditingFileFromForm(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default)
         {
-            var localVarResponse = SaveEditingFileFromFormWithHttpInfo(fileId, fileExtension, downloadUri, file, forcesave);
+            var localVarResponse = SaveEditingFileFromFormWithHttpInfo(fileId, downloadUri, fileExtension, file, forcesave);
             return localVarResponse.Data;
         }
 
@@ -8833,13 +9554,13 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
-        public ApiResponse<FileIntegerWrapper> SaveEditingFileFromFormWithHttpInfo(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default)
+        public ApiResponse<FileIntegerWrapper> SaveEditingFileFromFormWithHttpInfo(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -8855,13 +9576,13 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (downloadUri != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "DownloadUri", downloadUri));
+            }
             if (fileExtension != null)
             {
                 localVarRequestOptions.FormParameters.Add("FileExtension",ClientUtils.ParameterToString(fileExtension)); // form parameter
-            }
-            if (downloadUri != null)
-            {
-                localVarRequestOptions.FormParameters.Add("DownloadUri",ClientUtils.ParameterToString(downloadUri)); // form parameter
             }
             if (file != null)
             {
@@ -8926,16 +9647,16 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>Task of FileIntegerWrapper</returns>
-        public async Task<FileIntegerWrapper> SaveEditingFileFromFormAsync(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default)
+        public async Task<FileIntegerWrapper> SaveEditingFileFromFormAsync(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await SaveEditingFileFromFormWithHttpInfoAsync(fileId, fileExtension, downloadUri, file, forcesave, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await SaveEditingFileFromFormWithHttpInfoAsync(fileId, downloadUri, fileExtension, file, forcesave, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -8947,14 +9668,14 @@ namespace DocSpace.API.SDK.Api.Files
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The editing file ID from the request.</param>
-        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
         /// <param name="downloadUri">The URI to download the editing file. (optional)</param>
-        /// <param name="file">The request file stream. (optional)</param>
+        /// <param name="fileExtension">The editing file extension from the request. (optional)</param>
+        /// <param name="file">The edited file to be saved, uploaded as part of the multipart/form-data request.  This property represents the modified file content from the HTTP request form after editing operations.  The file is accessed via the IFormFile interface which provides access to the file name, content type, length, and stream. (optional)</param>
         /// <param name="forcesave">Specifies whether to force save the file or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-editing-file-from-form/">REST API Reference for SaveEditingFileFromForm Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
-        public async Task<ApiResponse<FileIntegerWrapper>> SaveEditingFileFromFormWithHttpInfoAsync(int fileId, string? fileExtension = default, string? downloadUri = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FileIntegerWrapper>> SaveEditingFileFromFormWithHttpInfoAsync(int fileId, string? downloadUri = default, string? fileExtension = default, FileParameter? file = default, bool? forcesave = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -8971,13 +9692,13 @@ namespace DocSpace.API.SDK.Api.Files
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (downloadUri != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "DownloadUri", downloadUri));
+            }
             if (fileExtension != null)
             {
                 localVarRequestOptions.FormParameters.Add("FileExtension", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(fileExtension)); // form parameter
-            }
-            if (downloadUri != null)
-            {
-                localVarRequestOptions.FormParameters.Add("DownloadUri", DocSpace.API.SDK.Client.ClientUtils.ParameterToString(downloadUri)); // form parameter
             }
             if (file != null)
             {

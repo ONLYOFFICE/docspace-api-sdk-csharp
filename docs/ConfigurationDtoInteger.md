@@ -18,6 +18,8 @@ Name | Type | Description | Notes
 **FillingStatus** | **bool?** | The file filling status. | [optional] 
 **StartFillingMode** | **StartFillingMode** |  | [optional] 
 **FillingSessionId** | **string** | The file filling session ID. | [optional] 
+**QuotaExceededScope** | **QuotaScope** |  | [optional] 
+**GenerationToolCallState** | [**EditorToolCallStateDto**](EditorToolCallStateDto.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

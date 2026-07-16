@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,32 +12,45 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The registration Telegram status.
+    /// []
     /// </summary>
-    /// <value>The registration Telegram status.</value>
+    /// <value>[]</value>
     public enum RegStatus
     {
         /// <summary>
-        /// Enum NUMBER_0 for value: 0
+        /// Enum unlinked for value: 0
         /// </summary>
-        NUMBER_0 = 0,
+        unlinked = 0,
 
         /// <summary>
-        /// Enum NUMBER_1 for value: 1
+        /// Enum linked for value: 1
         /// </summary>
-        NUMBER_1 = 1,
+        linked = 1,
 
         /// <summary>
-        /// Enum NUMBER_2 for value: 2
+        /// Enum linking for value: 2
         /// </summary>
-        NUMBER_2 = 2
+        linking = 2
     }
 
 }

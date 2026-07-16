@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,18 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
+using System.Net.Http;
+using System.Net.Security;
+
 namespace DocSpace.API.SDK.Client
 {
     /// <summary>
@@ -26,7 +38,7 @@ namespace DocSpace.API.SDK.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "3.6.0";
+        public const string Version = "3.7.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -69,7 +81,7 @@ namespace DocSpace.API.SDK.Client
         /// </summary>
         private string _basePath;
 
-        private bool _useDefaultCredentials = false;
+        private bool _useDefaultCredentials;
 
         /// <summary>
         /// Gets or sets the API key based on the authentication name.
@@ -110,7 +122,7 @@ namespace DocSpace.API.SDK.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/3.6.0/csharp");
+            UserAgent = WebUtility.UrlEncode("OpenAPI-Generator/3.7.0/csharp");
             BasePath = "http://localhost:8092";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -542,7 +554,8 @@ namespace DocSpace.API.SDK.Client
             string report = "C# SDK (DocSpace.API.SDK) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
-            report += "    SDK Package Version: 3.6.0\n";
+            report += "    Version of the API: 3.7.0\n";
+            report += "    SDK Package Version: 3.7.0\n";
 
             return report;
         }

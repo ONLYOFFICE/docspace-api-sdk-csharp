@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -66,7 +79,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The connection URL for the sharepoint.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com</example>
         */
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
@@ -76,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The third-party request login.</value>
         /*
-        <example>some text</example>
+        <example>admin</example>
         */
         [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; set; }
@@ -86,7 +99,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The third-party request password.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>password123</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
@@ -96,7 +109,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The authentication token.</value>
         /*
-        <example>some text</example>
+        <example>abc123</example>
         */
         [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
@@ -106,7 +119,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The customer title.</value>
         /*
-        <example>some text</example>
+        <example>My Document</example>
         */
         [DataMember(Name = "customerTitle", IsRequired = true, EmitDefaultValue = true)]
         public string CustomerTitle { get; set; }
@@ -116,7 +129,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The provider key.</value>
         /*
-        <example>some text</example>
+        <example>abc123</example>
         */
         [DataMember(Name = "providerKey", IsRequired = true, EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
@@ -126,7 +139,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The provider ID.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "providerId", EmitDefaultValue = true)]
         public int? ProviderId { get; set; }
@@ -156,7 +169,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

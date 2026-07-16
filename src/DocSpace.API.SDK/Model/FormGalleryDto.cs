@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -91,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The form gallery path.</value>
         /*
-        <example>some text</example>
+        <example>/forms/templates</example>
         */
         [DataMember(Name = "path", IsRequired = true, EmitDefaultValue = true)]
         public string Path { get; set; }
@@ -101,7 +114,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The form gallery domain.</value>
         /*
-        <example>some text</example>
+        <example>https://forms.example.com</example>
         */
         [DataMember(Name = "domain", IsRequired = true, EmitDefaultValue = true)]
         public string Domain { get; set; }
@@ -111,7 +124,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The form gallery extension.</value>
         /*
-        <example>.txt</example>
+        <example>.docxf</example>
         */
         [DataMember(Name = "ext", IsRequired = true, EmitDefaultValue = true)]
         public string Ext { get; set; }
@@ -121,7 +134,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The form gallery upload path.</value>
         /*
-        <example>some text</example>
+        <example>/forms/upload</example>
         */
         [DataMember(Name = "uploadPath", IsRequired = true, EmitDefaultValue = true)]
         public string UploadPath { get; set; }
@@ -131,7 +144,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The form gallery upload domain.</value>
         /*
-        <example>some text</example>
+        <example>https://upload.forms.example.com</example>
         */
         [DataMember(Name = "uploadDomain", IsRequired = true, EmitDefaultValue = true)]
         public string UploadDomain { get; set; }
@@ -141,7 +154,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The form gallery upload extension.</value>
         /*
-        <example>some text</example>
+        <example>.docxf</example>
         */
         [DataMember(Name = "uploadExt", IsRequired = true, EmitDefaultValue = true)]
         public string UploadExt { get; set; }
@@ -151,7 +164,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The form gallery upload dashboard.</value>
         /*
-        <example>some text</example>
+        <example>/dashboard/forms</example>
         */
         [DataMember(Name = "uploadDashboard", IsRequired = true, EmitDefaultValue = true)]
         public string UploadDashboard { get; set; }
@@ -181,7 +194,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

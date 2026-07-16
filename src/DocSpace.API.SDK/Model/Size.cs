@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,14 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// Size
+    /// Represents dimensions with width and height values.
     /// </summary>
     [DataContract(Name = "Size")]
     public partial class Size : IValidatableObject
@@ -28,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Size" /> class.
         /// </summary>
-        /// <param name="height">height.</param>
-        /// <param name="width">width.</param>
+        /// <param name="height">Gets or sets the height dimension of an object, typically measured in pixels or other unit.  It defines the vertical size of the object..</param>
+        /// <param name="width">Gets or sets the width dimension of an object, typically measured in pixels or other unit..</param>
         public Size(int height = default, int width = default)
         {
             this.Height = height;
@@ -37,14 +50,22 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets Height
+        /// Gets or sets the height dimension of an object, typically measured in pixels or other unit.  It defines the vertical size of the object.
         /// </summary>
+        /// <value>Gets or sets the height dimension of an object, typically measured in pixels or other unit.  It defines the vertical size of the object.</value>
+        /*
+        <example>10</example>
+        */
         [DataMember(Name = "height", EmitDefaultValue = false)]
         public int Height { get; set; }
 
         /// <summary>
-        /// Gets or Sets Width
+        /// Gets or sets the width dimension of an object, typically measured in pixels or other unit.
         /// </summary>
+        /// <value>Gets or sets the width dimension of an object, typically measured in pixels or other unit.</value>
+        /*
+        <example>10</example>
+        */
         [DataMember(Name = "width", EmitDefaultValue = false)]
         public int Width { get; set; }
 
@@ -68,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

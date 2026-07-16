@@ -87,19 +87,19 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The user ID.
+            var id = 56;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
-            var excludeShared = true;  // bool? | Specifies whether to exclude the account sharing settings from the response. (optional) 
-            var includeShared = true;  // bool? | Specifies whether to include the account sharing settings in the response. (optional) 
-            var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
-            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var excludeShared = false;  // bool? | Specifies whether to exclude the account sharing settings from the response. (optional) 
+            var includeShared = false;  // bool? | Specifies whether to include the account sharing settings in the response. (optional) 
+            var invitedByMe = false;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
+            var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | The inviter ID. (optional) 
             var area = new Area?(); // Area? | The area of the account entries. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of the user types. (optional) 
-            var count = 1234;  // int? | The number of items to retrieve in a request. (optional) 
-            var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
-            var filterSeparator = some text;  // string? | Specifies the separator used in filter expressions. (optional) 
-            var filterValue = some text;  // string? | The text filter applied to the accounts search query. (optional) 
+            var count = 25;  // int? | The number of items to retrieve in a request. (optional) 
+            var startIndex = 0;  // int? | The starting index for the query results. (optional) 
+            var filterSeparator = ,;  // string? | Specifies the separator used in filter expressions. (optional) 
+            var filterValue = John;  // string? | The text filter applied to the accounts search query. (optional) 
 
             try
             {
@@ -147,9 +147,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -224,19 +227,19 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The user ID.
+            var id = 56;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
-            var excludeShared = true;  // bool? | Specifies whether to exclude the account sharing settings from the response. (optional) 
-            var includeShared = true;  // bool? | Specifies whether to include the account sharing settings in the response. (optional) 
-            var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
-            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var excludeShared = false;  // bool? | Specifies whether to exclude the account sharing settings from the response. (optional) 
+            var includeShared = false;  // bool? | Specifies whether to include the account sharing settings in the response. (optional) 
+            var invitedByMe = false;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
+            var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | The inviter ID. (optional) 
             var area = new Area?(); // Area? | The area of the account entries. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of the user types. (optional) 
-            var count = 1234;  // int? | The number of items to retrieve in a request. (optional) 
-            var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
-            var filterSeparator = some text;  // string? | Specifies the separator used in filter expressions. (optional) 
-            var filterValue = some text;  // string? | The text filter applied to the accounts search query. (optional) 
+            var count = 25;  // int? | The number of items to retrieve in a request. (optional) 
+            var startIndex = 0;  // int? | The starting index for the query results. (optional) 
+            var filterSeparator = ,;  // string? | Specifies the separator used in filter expressions. (optional) 
+            var filterValue = John;  // string? | The text filter applied to the accounts search query. (optional) 
 
             try
             {
@@ -284,9 +287,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -361,19 +367,19 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The user ID.
+            var id = 56;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
-            var excludeShared = true;  // bool? | Specifies whether to exclude the account sharing settings from the response. (optional) 
-            var includeShared = true;  // bool? | Specifies whether to include the account sharing settings in the response. (optional) 
-            var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
-            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var excludeShared = false;  // bool? | Specifies whether to exclude the account sharing settings from the response. (optional) 
+            var includeShared = false;  // bool? | Specifies whether to include the account sharing settings in the response. (optional) 
+            var invitedByMe = false;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
+            var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | The inviter ID. (optional) 
             var area = new Area?(); // Area? | The area of the account entries. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of the user types. (optional) 
-            var count = 1234;  // int? | The number of items to retrieve in a request. (optional) 
-            var startIndex = 1234;  // int? | The starting index for the query results. (optional) 
-            var filterSeparator = some text;  // string? | Specifies the separator used in filter expressions. (optional) 
-            var filterValue = some text;  // string? | The text filter applied to the accounts search query. (optional) 
+            var count = 25;  // int? | The number of items to retrieve in a request. (optional) 
+            var startIndex = 0;  // int? | The starting index for the query results. (optional) 
+            var filterSeparator = ,;  // string? | Specifies the separator used in filter expressions. (optional) 
+            var filterValue = John;  // string? | The text filter applied to the accounts search query. (optional) 
 
             try
             {
@@ -421,9 +427,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -488,9 +497,9 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var query = some text;  // string | The search query.
-            var filterBy = some text;  // string? | Specifies a filter criteria for the user search query. (optional) 
-            var filterValue = some text;  // string? | The value used for filtering users, allowing additional constraints for the query. (optional) 
+            var query = John;  // string | The search query.
+            var filterBy = displayName;  // string? | Specifies a filter criteria for the user search query. (optional) 
+            var filterValue = John;  // string? | The value used for filtering users, allowing additional constraints for the query. (optional) 
 
             try
             {
@@ -538,9 +547,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | List of users with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -623,25 +635,25 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
-            var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The group ID. (optional) 
+            var groupId = 00000000-0000-0000-0000-000000000000;  // Guid? | The group ID. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
             var employeeType = new EmployeeType?(); // EmployeeType? | The user type. (optional) 
             var employeeTypes = new List<int>?(); // List<int>? | The list of user types. (optional) 
-            var isAdministrator = true;  // bool? | Specifies if the user is an administrator or not. (optional) 
+            var isAdministrator = false;  // bool? | Specifies if the user is an administrator or not. (optional) 
             var payments = new Payments?(); // Payments? | The user payment status. (optional) 
             var accountLoginType = new AccountLoginType?(); // AccountLoginType? | The account login type. (optional) 
             var quotaFilter = new QuotaFilter?(); // QuotaFilter? | The quota filter (All - 0, Default - 1, Custom - 2). (optional) 
-            var withoutGroup = true;  // bool? | Specifies whether the user should be a member of a group or not. (optional) 
-            var excludeGroup = true;  // bool? | Specifies whether the user should be a member of the group with the specified ID. (optional) 
-            var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
-            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var withoutGroup = false;  // bool? | Specifies whether the user should be a member of a group or not. (optional) 
+            var excludeGroup = false;  // bool? | Specifies whether the user should be a member of the group with the specified ID. (optional) 
+            var invitedByMe = false;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
+            var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | The inviter ID. (optional) 
             var area = new Area?(); // Area? | The filter area. (optional) 
-            var count = 1234;  // int? | The maximum number of items to be retrieved in the response. (optional) 
-            var startIndex = 1234;  // int? | The zero-based index of the first item to be retrieved in a filtered result set. (optional) 
-            var sortBy = some text;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
+            var count = 25;  // int? | The maximum number of items to be retrieved in the response. (optional) 
+            var startIndex = 0;  // int? | The zero-based index of the first item to be retrieved in a filtered result set. (optional) 
+            var sortBy = displayName;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterSeparator = some text;  // string? | Represents the separator used to split filter criteria in query parameters. (optional) 
-            var filterValue = some text;  // string? | The search text used to filter results based on user input. (optional) 
+            var filterSeparator = ,;  // string? | Represents the separator used to split filter criteria in query parameters. (optional) 
+            var filterValue = John;  // string? | The search text used to filter results based on user input. (optional) 
 
             try
             {
@@ -689,9 +701,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | List of users |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -766,19 +781,19 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The user ID.
+            var id = 56;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
-            var excludeShared = true;  // bool? | Specifies whether to exclude the user sharing settings or not. (optional) 
-            var includeShared = true;  // bool? | Specifies whether to include the user sharing settings or not. (optional) 
-            var invitedByMe = true;  // bool? | Specifies whether the user was invited by the current user or not. (optional) 
-            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var excludeShared = false;  // bool? | Specifies whether to exclude the user sharing settings or not. (optional) 
+            var includeShared = false;  // bool? | Specifies whether to include the user sharing settings or not. (optional) 
+            var invitedByMe = false;  // bool? | Specifies whether the user was invited by the current user or not. (optional) 
+            var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | The inviter ID. (optional) 
             var area = new Area?(); // Area? | The user area. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of user types. (optional) 
-            var count = 1234;  // int? | The maximum number of users to be retrieved in the request. (optional) 
-            var startIndex = 1234;  // int? | The zero-based index of the first record to retrieve in a paged query. (optional) 
-            var filterSeparator = some text;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
-            var filterValue = some text;  // string? | The filter text value used for searching or filtering user results. (optional) 
+            var count = 25;  // int? | The maximum number of users to be retrieved in the request. (optional) 
+            var startIndex = 0;  // int? | The zero-based index of the first record to retrieve in a paged query. (optional) 
+            var filterSeparator = ,;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
+            var filterValue = John;  // string? | The filter text value used for searching or filtering user results. (optional) 
 
             try
             {
@@ -826,9 +841,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -903,19 +921,19 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The user ID.
+            var id = 56;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
-            var excludeShared = true;  // bool? | Specifies whether to exclude the user sharing settings or not. (optional) 
-            var includeShared = true;  // bool? | Specifies whether to include the user sharing settings or not. (optional) 
-            var invitedByMe = true;  // bool? | Specifies whether the user was invited by the current user or not. (optional) 
-            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var excludeShared = false;  // bool? | Specifies whether to exclude the user sharing settings or not. (optional) 
+            var includeShared = false;  // bool? | Specifies whether to include the user sharing settings or not. (optional) 
+            var invitedByMe = false;  // bool? | Specifies whether the user was invited by the current user or not. (optional) 
+            var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | The inviter ID. (optional) 
             var area = new Area?(); // Area? | The user area. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of user types. (optional) 
-            var count = 1234;  // int? | The maximum number of users to be retrieved in the request. (optional) 
-            var startIndex = 1234;  // int? | The zero-based index of the first record to retrieve in a paged query. (optional) 
-            var filterSeparator = some text;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
-            var filterValue = some text;  // string? | The filter text value used for searching or filtering user results. (optional) 
+            var count = 25;  // int? | The maximum number of users to be retrieved in the request. (optional) 
+            var startIndex = 0;  // int? | The zero-based index of the first record to retrieve in a paged query. (optional) 
+            var filterSeparator = ,;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
+            var filterValue = John;  // string? | The filter text value used for searching or filtering user results. (optional) 
 
             try
             {
@@ -963,9 +981,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1040,19 +1061,19 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var id = 9846;  // int | The user ID.
+            var id = 56;  // int | The user ID.
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
-            var excludeShared = true;  // bool? | Specifies whether to exclude the user sharing settings or not. (optional) 
-            var includeShared = true;  // bool? | Specifies whether to include the user sharing settings or not. (optional) 
-            var invitedByMe = true;  // bool? | Specifies whether the user was invited by the current user or not. (optional) 
-            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var excludeShared = false;  // bool? | Specifies whether to exclude the user sharing settings or not. (optional) 
+            var includeShared = false;  // bool? | Specifies whether to include the user sharing settings or not. (optional) 
+            var invitedByMe = false;  // bool? | Specifies whether the user was invited by the current user or not. (optional) 
+            var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | The inviter ID. (optional) 
             var area = new Area?(); // Area? | The user area. (optional) 
             var employeeTypes = new List<EmployeeType>?(); // List<EmployeeType>? | The list of user types. (optional) 
-            var count = 1234;  // int? | The maximum number of users to be retrieved in the request. (optional) 
-            var startIndex = 1234;  // int? | The zero-based index of the first record to retrieve in a paged query. (optional) 
-            var filterSeparator = some text;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
-            var filterValue = some text;  // string? | The filter text value used for searching or filtering user results. (optional) 
+            var count = 25;  // int? | The maximum number of users to be retrieved in the request. (optional) 
+            var startIndex = 0;  // int? | The zero-based index of the first record to retrieve in a paged query. (optional) 
+            var filterSeparator = ,;  // string? | The character or string used to separate multiple filter values in a filtering query. (optional) 
+            var filterValue = John;  // string? | The filter text value used for searching or filtering user results. (optional) 
 
             try
             {
@@ -1100,9 +1121,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Ok |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Ok |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1185,25 +1209,25 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
             var employeeStatus = new EmployeeStatus?(); // EmployeeStatus? | The user status. (optional) 
-            var groupId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The group ID. (optional) 
+            var groupId = 00000000-0000-0000-0000-000000000000;  // Guid? | The group ID. (optional) 
             var activationStatus = new EmployeeActivationStatus?(); // EmployeeActivationStatus? | The user activation status. (optional) 
             var employeeType = new EmployeeType?(); // EmployeeType? | The user type. (optional) 
             var employeeTypes = new List<int>?(); // List<int>? | The list of user types. (optional) 
-            var isAdministrator = true;  // bool? | Specifies if the user is an administrator or not. (optional) 
+            var isAdministrator = false;  // bool? | Specifies if the user is an administrator or not. (optional) 
             var payments = new Payments?(); // Payments? | The user payment status. (optional) 
             var accountLoginType = new AccountLoginType?(); // AccountLoginType? | The account login type. (optional) 
             var quotaFilter = new QuotaFilter?(); // QuotaFilter? | The quota filter (All - 0, Default - 1, Custom - 2). (optional) 
-            var withoutGroup = true;  // bool? | Specifies whether the user should be a member of a group or not. (optional) 
-            var excludeGroup = true;  // bool? | Specifies whether the user should be a member of the group with the specified ID. (optional) 
-            var invitedByMe = true;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
-            var inviterId = 75a5f745-f697-4418-b38d-0fe0d277e258;  // Guid? | The inviter ID. (optional) 
+            var withoutGroup = false;  // bool? | Specifies whether the user should be a member of a group or not. (optional) 
+            var excludeGroup = false;  // bool? | Specifies whether the user should be a member of the group with the specified ID. (optional) 
+            var invitedByMe = false;  // bool? | Specifies whether the user is invited by the current user or not. (optional) 
+            var inviterId = 00000000-0000-0000-0000-000000000000;  // Guid? | The inviter ID. (optional) 
             var area = new Area?(); // Area? | The filter area. (optional) 
-            var count = 1234;  // int? | The maximum number of items to be retrieved in the response. (optional) 
-            var startIndex = 1234;  // int? | The zero-based index of the first item to be retrieved in a filtered result set. (optional) 
-            var sortBy = some text;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
+            var count = 25;  // int? | The maximum number of items to be retrieved in the response. (optional) 
+            var startIndex = 0;  // int? | The zero-based index of the first item to be retrieved in a filtered result set. (optional) 
+            var sortBy = displayName;  // string? | Specifies the property or field name by which the results should be sorted. (optional) 
             var sortOrder = new SortOrder?(); // SortOrder? | The order in which the results are sorted. (optional) 
-            var filterSeparator = some text;  // string? | Represents the separator used to split filter criteria in query parameters. (optional) 
-            var filterValue = some text;  // string? | The search text used to filter results based on user input. (optional) 
+            var filterSeparator = ,;  // string? | Represents the separator used to split filter criteria in query parameters. (optional) 
+            var filterValue = John;  // string? | The search text used to filter results based on user input. (optional) 
 
             try
             {
@@ -1251,9 +1275,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | List of users with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1316,7 +1343,7 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var query = some text;  // string? | The search query. (optional) 
+            var query = John;  // string? | The search query. (optional) 
 
             try
             {
@@ -1364,8 +1391,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users |  -  |
+| **200** | List of users |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1431,10 +1461,10 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new SearchApi(httpClient, config, httpClientHandler);
-            var status = (EmployeeStatus) "1";  // EmployeeStatus | The user status.
-            var query = some text;  // string? | The advanced search query. (optional) 
-            var filterBy = some text;  // string? | Specifies the criteria used to filter search results in advanced queries. (optional) 
-            var filterValue = some text;  // string? | The value used to filter the search query. (optional) 
+            var status = 1;  // EmployeeStatus | The user status.
+            var query = John;  // string? | The advanced search query. (optional) 
+            var filterBy = displayName;  // string? | Specifies the criteria used to filter search results in advanced queries. (optional) 
+            var filterValue = John;  // string? | The value used to filter the search query. (optional) 
 
             try
             {
@@ -1482,9 +1512,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of users with the detailed information |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | List of users with the detailed information |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

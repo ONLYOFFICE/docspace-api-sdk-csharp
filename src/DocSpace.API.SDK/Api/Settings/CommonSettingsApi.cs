@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Settings
@@ -284,6 +291,27 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <returns>ApiResponse of STRINGArrayWrapper</returns>
         ApiResponse<STRINGArrayWrapper> GetSupportedCulturesWithHttpInfo();
         /// <summary>
+        /// Get the AI access settings for the portal
+        /// </summary>
+        /// <remarks>
+        /// Returns the current portal-level AI access settings that control whether all AI functionality  (chat, agents, vectorization) is available for the portal. AI is enabled by default.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-ai-access-settings/">REST API Reference for GetTenantAiAccessSettings Operation</seealso>
+        /// <returns>TenantAiAccessSettingsWrapper</returns>
+        TenantAiAccessSettingsWrapper GetTenantAiAccessSettings();
+
+        /// <summary>
+        /// Get the AI access settings for the portal
+        /// </summary>
+        /// <remarks>
+        /// Returns the current portal-level AI access settings that control whether all AI functionality  (chat, agents, vectorization) is available for the portal. AI is enabled by default.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-ai-access-settings/">REST API Reference for GetTenantAiAccessSettings Operation</seealso>
+        /// <returns>ApiResponse of TenantAiAccessSettingsWrapper</returns>
+        ApiResponse<TenantAiAccessSettingsWrapper> GetTenantAiAccessSettingsWithHttpInfo();
+        /// <summary>
         /// Get the user invitation settings
         /// </summary>
         /// <remarks>
@@ -325,6 +353,29 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>ApiResponse of TimezonesRequestsArrayWrapper</returns>
         ApiResponse<TimezonesRequestsArrayWrapper> GetTimeZonesWithHttpInfo();
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>StudioDefaultPageSettingsWrapper</returns>
+        StudioDefaultPageSettingsWrapper SaveDefaultFolder(DefaultProductRequestDto? defaultProductRequestDto = default);
+
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>ApiResponse of StudioDefaultPageSettingsWrapper</returns>
+        ApiResponse<StudioDefaultPageSettingsWrapper> SaveDefaultFolderWithHttpInfo(DefaultProductRequestDto? defaultProductRequestDto = default);
         /// <summary>
         /// Save the DNS settings
         /// </summary>
@@ -394,6 +445,29 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>ApiResponse of CustomColorThemesSettingsWrapper</returns>
         ApiResponse<CustomColorThemesSettingsWrapper> SavePortalColorThemeWithHttpInfo(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default);
+        /// <summary>
+        /// Set the AI access for the portal
+        /// </summary>
+        /// <remarks>
+        /// Updates the portal-level AI access settings. When AI is disabled, all AI features are turned off:  the AI Agents folder is hidden from root folder listings, AI status checks immediately return disabled,  and AI chat endpoints become inaccessible. Only users with the DocSpaceAdmin role  (EditPortalSettings permission) can change this setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAiAccessSettingsDto">The request parameters for managing the tenant-level AI access settings. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
+        /// <returns>TenantAiAccessSettingsWrapper</returns>
+        TenantAiAccessSettingsWrapper SetTenantAiAccessSettings(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default);
+
+        /// <summary>
+        /// Set the AI access for the portal
+        /// </summary>
+        /// <remarks>
+        /// Updates the portal-level AI access settings. When AI is disabled, all AI features are turned off:  the AI Agents folder is hidden from root folder listings, AI status checks immediately return disabled,  and AI chat endpoints become inaccessible. Only users with the DocSpaceAdmin role  (EditPortalSettings permission) can change this setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAiAccessSettingsDto">The request parameters for managing the tenant-level AI access settings. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
+        /// <returns>ApiResponse of TenantAiAccessSettingsWrapper</returns>
+        ApiResponse<TenantAiAccessSettingsWrapper> SetTenantAiAccessSettingsWithHttpInfo(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default);
         /// <summary>
         /// Update the email activation settings
         /// </summary>
@@ -734,6 +808,29 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <returns>Task of ApiResponse (STRINGArrayWrapper)</returns>
         Task<ApiResponse<STRINGArrayWrapper>> GetSupportedCulturesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get the AI access settings for the portal
+        /// </summary>
+        /// <remarks>
+        /// Returns the current portal-level AI access settings that control whether all AI functionality  (chat, agents, vectorization) is available for the portal. AI is enabled by default.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-ai-access-settings/">REST API Reference for GetTenantAiAccessSettings Operation</seealso>
+        /// <returns>Task of TenantAiAccessSettingsWrapper</returns>
+        Task<TenantAiAccessSettingsWrapper> GetTenantAiAccessSettingsAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get the AI access settings for the portal
+        /// </summary>
+        /// <remarks>
+        /// Returns the current portal-level AI access settings that control whether all AI functionality  (chat, agents, vectorization) is available for the portal. AI is enabled by default.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-ai-access-settings/">REST API Reference for GetTenantAiAccessSettings Operation</seealso>
+        /// <returns>Task of ApiResponse (TenantAiAccessSettingsWrapper)</returns>
+        Task<ApiResponse<TenantAiAccessSettingsWrapper>> GetTenantAiAccessSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get the user invitation settings
         /// </summary>
         /// <remarks>
@@ -779,6 +876,31 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-time-zones/">REST API Reference for GetTimeZones Operation</seealso>
         /// <returns>Task of ApiResponse (TimezonesRequestsArrayWrapper)</returns>
         Task<ApiResponse<TimezonesRequestsArrayWrapper>> GetTimeZonesWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>Task of StudioDefaultPageSettingsWrapper</returns>
+        Task<StudioDefaultPageSettingsWrapper> SaveDefaultFolderAsync(DefaultProductRequestDto? defaultProductRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (StudioDefaultPageSettingsWrapper)</returns>
+        Task<ApiResponse<StudioDefaultPageSettingsWrapper>> SaveDefaultFolderWithHttpInfoAsync(DefaultProductRequestDto? defaultProductRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Save the DNS settings
         /// </summary>
@@ -854,6 +976,31 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-portal-color-theme/">REST API Reference for SavePortalColorTheme Operation</seealso>
         /// <returns>Task of ApiResponse (CustomColorThemesSettingsWrapper)</returns>
         Task<ApiResponse<CustomColorThemesSettingsWrapper>> SavePortalColorThemeWithHttpInfoAsync(CustomColorThemesSettingsRequestsDto? customColorThemesSettingsRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Set the AI access for the portal
+        /// </summary>
+        /// <remarks>
+        /// Updates the portal-level AI access settings. When AI is disabled, all AI features are turned off:  the AI Agents folder is hidden from root folder listings, AI status checks immediately return disabled,  and AI chat endpoints become inaccessible. Only users with the DocSpaceAdmin role  (EditPortalSettings permission) can change this setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAiAccessSettingsDto">The request parameters for managing the tenant-level AI access settings. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
+        /// <returns>Task of TenantAiAccessSettingsWrapper</returns>
+        Task<TenantAiAccessSettingsWrapper> SetTenantAiAccessSettingsAsync(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Set the AI access for the portal
+        /// </summary>
+        /// <remarks>
+        /// Updates the portal-level AI access settings. When AI is disabled, all AI features are turned off:  the AI Agents folder is hidden from root folder listings, AI status checks immediately return disabled,  and AI chat endpoints become inaccessible. Only users with the DocSpaceAdmin role  (EditPortalSettings permission) can change this setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAiAccessSettingsDto">The request parameters for managing the tenant-level AI access settings. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
+        /// <returns>Task of ApiResponse (TenantAiAccessSettingsWrapper)</returns>
+        Task<ApiResponse<TenantAiAccessSettingsWrapper>> SetTenantAiAccessSettingsWithHttpInfoAsync(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Update the email activation settings
         /// </summary>
@@ -3020,6 +3167,182 @@ namespace DocSpace.API.SDK.Api.Settings
         }
 
         /// <summary>
+        /// Get the AI access settings for the portal
+        /// </summary>
+        /// <remarks>
+        /// Returns the current portal-level AI access settings that control whether all AI functionality  (chat, agents, vectorization) is available for the portal. AI is enabled by default.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-ai-access-settings/">REST API Reference for GetTenantAiAccessSettings Operation</seealso>
+        /// <returns>TenantAiAccessSettingsWrapper</returns>
+        public TenantAiAccessSettingsWrapper GetTenantAiAccessSettings()
+        {
+            var localVarResponse = GetTenantAiAccessSettingsWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the AI access settings for the portal
+        /// </summary>
+        /// <remarks>
+        /// Returns the current portal-level AI access settings that control whether all AI functionality  (chat, agents, vectorization) is available for the portal. AI is enabled by default.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-ai-access-settings/">REST API Reference for GetTenantAiAccessSettings Operation</seealso>
+        /// <returns>ApiResponse of TenantAiAccessSettingsWrapper</returns>
+        public ApiResponse<TenantAiAccessSettingsWrapper> GetTenantAiAccessSettingsWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<TenantAiAccessSettingsWrapper>("/api/2.0/settings/ai-access", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetTenantAiAccessSettings", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the AI access settings for the portal
+        /// </summary>
+        /// <remarks>
+        /// Returns the current portal-level AI access settings that control whether all AI functionality  (chat, agents, vectorization) is available for the portal. AI is enabled by default.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-ai-access-settings/">REST API Reference for GetTenantAiAccessSettings Operation</seealso>
+        /// <returns>Task of TenantAiAccessSettingsWrapper</returns>
+        public async Task<TenantAiAccessSettingsWrapper> GetTenantAiAccessSettingsAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetTenantAiAccessSettingsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the AI access settings for the portal
+        /// </summary>
+        /// <remarks>
+        /// Returns the current portal-level AI access settings that control whether all AI functionality  (chat, agents, vectorization) is available for the portal. AI is enabled by default.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tenant-ai-access-settings/">REST API Reference for GetTenantAiAccessSettings Operation</seealso>
+        /// <returns>Task of ApiResponse (TenantAiAccessSettingsWrapper)</returns>
+        public async Task<ApiResponse<TenantAiAccessSettingsWrapper>> GetTenantAiAccessSettingsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<TenantAiAccessSettingsWrapper>("/api/2.0/settings/ai-access", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetTenantAiAccessSettings", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get the user invitation settings
         /// </summary>
         /// <remarks>
@@ -3302,6 +3625,188 @@ namespace DocSpace.API.SDK.Api.Settings
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetTimeZones", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>StudioDefaultPageSettingsWrapper</returns>
+        public StudioDefaultPageSettingsWrapper SaveDefaultFolder(DefaultProductRequestDto? defaultProductRequestDto = default)
+        {
+            var localVarResponse = SaveDefaultFolderWithHttpInfo(defaultProductRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>ApiResponse of StudioDefaultPageSettingsWrapper</returns>
+        public ApiResponse<StudioDefaultPageSettingsWrapper> SaveDefaultFolderWithHttpInfo(DefaultProductRequestDto? defaultProductRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (defaultProductRequestDto != null) localVarRequestOptions.Data = defaultProductRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<StudioDefaultPageSettingsWrapper>("/api/2.0/settings/defaultfolder", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SaveDefaultFolder", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>Task of StudioDefaultPageSettingsWrapper</returns>
+        public async Task<StudioDefaultPageSettingsWrapper> SaveDefaultFolderAsync(DefaultProductRequestDto? defaultProductRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await SaveDefaultFolderWithHttpInfoAsync(defaultProductRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set the default folder
+        /// </summary>
+        /// <remarks>
+        /// Sets the default folder.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="defaultProductRequestDto">The request parameters for setting the default product configuration. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-default-folder/">REST API Reference for SaveDefaultFolder Operation</seealso>
+        /// <returns>Task of ApiResponse (StudioDefaultPageSettingsWrapper)</returns>
+        public async Task<ApiResponse<StudioDefaultPageSettingsWrapper>> SaveDefaultFolderWithHttpInfoAsync(DefaultProductRequestDto? defaultProductRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (defaultProductRequestDto != null) localVarRequestOptions.Data = defaultProductRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<StudioDefaultPageSettingsWrapper>("/api/2.0/settings/defaultfolder", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SaveDefaultFolder", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -3848,6 +4353,188 @@ namespace DocSpace.API.SDK.Api.Settings
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("SavePortalColorTheme", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set the AI access for the portal
+        /// </summary>
+        /// <remarks>
+        /// Updates the portal-level AI access settings. When AI is disabled, all AI features are turned off:  the AI Agents folder is hidden from root folder listings, AI status checks immediately return disabled,  and AI chat endpoints become inaccessible. Only users with the DocSpaceAdmin role  (EditPortalSettings permission) can change this setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAiAccessSettingsDto">The request parameters for managing the tenant-level AI access settings. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
+        /// <returns>TenantAiAccessSettingsWrapper</returns>
+        public TenantAiAccessSettingsWrapper SetTenantAiAccessSettings(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default)
+        {
+            var localVarResponse = SetTenantAiAccessSettingsWithHttpInfo(tenantAiAccessSettingsDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set the AI access for the portal
+        /// </summary>
+        /// <remarks>
+        /// Updates the portal-level AI access settings. When AI is disabled, all AI features are turned off:  the AI Agents folder is hidden from root folder listings, AI status checks immediately return disabled,  and AI chat endpoints become inaccessible. Only users with the DocSpaceAdmin role  (EditPortalSettings permission) can change this setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAiAccessSettingsDto">The request parameters for managing the tenant-level AI access settings. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
+        /// <returns>ApiResponse of TenantAiAccessSettingsWrapper</returns>
+        public ApiResponse<TenantAiAccessSettingsWrapper> SetTenantAiAccessSettingsWithHttpInfo(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (tenantAiAccessSettingsDto != null) localVarRequestOptions.Data = tenantAiAccessSettingsDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<TenantAiAccessSettingsWrapper>("/api/2.0/settings/ai-access", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SetTenantAiAccessSettings", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set the AI access for the portal
+        /// </summary>
+        /// <remarks>
+        /// Updates the portal-level AI access settings. When AI is disabled, all AI features are turned off:  the AI Agents folder is hidden from root folder listings, AI status checks immediately return disabled,  and AI chat endpoints become inaccessible. Only users with the DocSpaceAdmin role  (EditPortalSettings permission) can change this setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAiAccessSettingsDto">The request parameters for managing the tenant-level AI access settings. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
+        /// <returns>Task of TenantAiAccessSettingsWrapper</returns>
+        public async Task<TenantAiAccessSettingsWrapper> SetTenantAiAccessSettingsAsync(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await SetTenantAiAccessSettingsWithHttpInfoAsync(tenantAiAccessSettingsDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set the AI access for the portal
+        /// </summary>
+        /// <remarks>
+        /// Updates the portal-level AI access settings. When AI is disabled, all AI features are turned off:  the AI Agents folder is hidden from root folder listings, AI status checks immediately return disabled,  and AI chat endpoints become inaccessible. Only users with the DocSpaceAdmin role  (EditPortalSettings permission) can change this setting.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="tenantAiAccessSettingsDto">The request parameters for managing the tenant-level AI access settings. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-tenant-ai-access-settings/">REST API Reference for SetTenantAiAccessSettings Operation</seealso>
+        /// <returns>Task of ApiResponse (TenantAiAccessSettingsWrapper)</returns>
+        public async Task<ApiResponse<TenantAiAccessSettingsWrapper>> SetTenantAiAccessSettingsWithHttpInfoAsync(TenantAiAccessSettingsDto? tenantAiAccessSettingsDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (tenantAiAccessSettingsDto != null) localVarRequestOptions.Data = tenantAiAccessSettingsDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<TenantAiAccessSettingsWrapper>("/api/2.0/settings/ai-access", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SetTenantAiAccessSettings", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

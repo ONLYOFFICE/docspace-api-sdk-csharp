@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **Url** | **string** | The file operation URL. | [optional] 
 **Files** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of files of the file operation. | [optional] 
 **Folders** | [**List&lt;FileEntryBaseDto&gt;**](FileEntryBaseDto.md) | The list of folders of the file operation. | [optional] 
+**Status** | **DistributedTaskStatus** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

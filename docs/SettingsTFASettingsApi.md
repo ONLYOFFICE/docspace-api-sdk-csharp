@@ -5,18 +5,18 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**GetTfaAppCodes**](#gettfaappcodes) | **GET** /api/2.0/settings/tfaappcodes | Get the TFA codes |
-| [**GetTfaConfirmUrl**](#gettfaconfirmurl) | **GET** /api/2.0/settings/tfaapp/confirm | Get confirmation email |
+| [**GetTfaConfirmData**](#gettfaconfirmdata) | **GET** /api/2.0/settings/tfaapp/confirm | Get TFA confirmation data |
 | [**GetTfaSettings**](#gettfasettings) | **GET** /api/2.0/settings/tfaapp | Get the TFA settings |
 | [**TfaAppGenerateSetupCode**](#tfaappgeneratesetupcode) | **GET** /api/2.0/settings/tfaapp/setup | Generate setup code |
 | [**TfaValidateAuthCode**](#tfavalidateauthcode) | **POST** /api/2.0/settings/tfaapp/validate | Validate the TFA code |
 | [**UnlinkTfaApp**](#unlinktfaapp) | **PUT** /api/2.0/settings/tfaappnewapp | Unlink the TFA application |
 | [**UpdateTfaAppCodes**](#updatetfaappcodes) | **PUT** /api/2.0/settings/tfaappnewcodes | Update the TFA codes |
 | [**UpdateTfaSettings**](#updatetfasettings) | **PUT** /api/2.0/settings/tfaapp | Update the TFA settings |
-| [**UpdateTfaSettingsLink**](#updatetfasettingslink) | **PUT** /api/2.0/settings/tfaappwithlink | Get a confirmation email for updating TFA settings |
+| [**UpdateTfaSettingsLink**](#updatetfasettingslink) | **PUT** /api/2.0/settings/tfaappwithlink | Updates TFA settings |
 
 <a id="gettfaappcodes"></a>
 # **GetTfaAppCodes**
-> ObjectArrayWrapper GetTfaAppCodes ()
+> TfaAppCodeArrayWrapper GetTfaAppCodes ()
 
 Returns the two-factor authentication application codes.
 
@@ -26,7 +26,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
+[**TfaAppCodeArrayWrapper**](TfaAppCodeArrayWrapper.md)
 
 ### Authorization
 
@@ -73,7 +73,7 @@ namespace Example
             try
             {
                 // Get the TFA codes
-                ObjectArrayWrapper result = apiInstance.GetTfaAppCodes();
+                TfaAppCodeArrayWrapper result = apiInstance.GetTfaAppCodes();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -94,7 +94,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get the TFA codes
-    ApiResponse<ObjectArrayWrapper> response = apiInstance.GetTfaAppCodesWithHttpInfo();
+    ApiResponse<TfaAppCodeArrayWrapper> response = apiInstance.GetTfaAppCodesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -116,25 +116,28 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | List of TFA application codes |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | List of TFA application codes |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **405** | TFA application settings are not available |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="gettfaconfirmurl"></a>
-# **GetTfaConfirmUrl**
-> StringWrapper GetTfaConfirmUrl ()
+<a id="gettfaconfirmdata"></a>
+# **GetTfaConfirmData**
+> TfaConfirmDataWrapper GetTfaConfirmData ()
 
-Returns the confirmation email URL for authorization via SMS or TFA application.
+Returns the confirmation data for authorization via SMS or TFA application.
 
-For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-url/).
+For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-tfa-confirm-data/).
 
 ### Parameters
 This endpoint does not need any parameter.
 ### Return type
 
-[**StringWrapper**](StringWrapper.md)
+[**TfaConfirmDataWrapper**](TfaConfirmDataWrapper.md)
 
 ### Authorization
 
@@ -151,7 +154,7 @@ using DocSpace.API.SDK.Model;
 
 namespace Example
 {
-    public class GetTfaConfirmUrlExample
+    public class GetTfaConfirmDataExample
     {
         public static void Main()
         {
@@ -180,13 +183,13 @@ namespace Example
 
             try
             {
-                // Get confirmation email
-                StringWrapper result = apiInstance.GetTfaConfirmUrl();
+                // Get TFA confirmation data
+                TfaConfirmDataWrapper result = apiInstance.GetTfaConfirmData();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TFASettingsApi.GetTfaConfirmUrl: " + e.Message);
+                Debug.Print("Exception when calling TFASettingsApi.GetTfaConfirmData: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -195,21 +198,21 @@ namespace Example
 }
 ```
 
-#### Using the GetTfaConfirmUrlWithHttpInfo variant
+#### Using the GetTfaConfirmDataWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Get confirmation email
-    ApiResponse<StringWrapper> response = apiInstance.GetTfaConfirmUrlWithHttpInfo();
+    // Get TFA confirmation data
+    ApiResponse<TfaConfirmDataWrapper> response = apiInstance.GetTfaConfirmDataWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling TFASettingsApi.GetTfaConfirmUrlWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TFASettingsApi.GetTfaConfirmDataWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -224,8 +227,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Confirmation email URL |  -  |
+| **200** | TFA confirmation data |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -331,8 +337,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | TFA settings |  -  |
+| **200** | TFA settings |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -438,9 +447,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Setup code |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Setup code |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **405** | TFA application settings are not available |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -551,8 +563,11 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | True if the code is valid |  -  |
+| **200** | True if the code is valid |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -663,16 +678,19 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Login URL |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | Login URL |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
 | **405** | TFA application settings are not available |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a id="updatetfaappcodes"></a>
 # **UpdateTfaAppCodes**
-> ObjectArrayWrapper UpdateTfaAppCodes ()
+> TfaAppCodeArrayWrapper UpdateTfaAppCodes ()
 
 Requests the new backup codes for the two-factor authentication application.
 
@@ -682,7 +700,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 This endpoint does not need any parameter.
 ### Return type
 
-[**ObjectArrayWrapper**](ObjectArrayWrapper.md)
+[**TfaAppCodeArrayWrapper**](TfaAppCodeArrayWrapper.md)
 
 ### Authorization
 
@@ -729,7 +747,7 @@ namespace Example
             try
             {
                 // Update the TFA codes
-                ObjectArrayWrapper result = apiInstance.UpdateTfaAppCodes();
+                TfaAppCodeArrayWrapper result = apiInstance.UpdateTfaAppCodes();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -750,7 +768,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Update the TFA codes
-    ApiResponse<ObjectArrayWrapper> response = apiInstance.UpdateTfaAppCodesWithHttpInfo();
+    ApiResponse<TfaAppCodeArrayWrapper> response = apiInstance.UpdateTfaAppCodesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -772,9 +790,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | New backup codes |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | New backup codes |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **405** | TFA application settings are not available |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -885,9 +906,12 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | True if the operation is successful |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | True if the operation is successful |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **405** | SMS settings are not available/TFA application settings are not available |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -895,7 +919,7 @@ catch (ApiException e)
 # **UpdateTfaSettingsLink**
 > StringWrapper UpdateTfaSettingsLink (TfaRequestsDto? tfaRequestsDto = null)
 
-Returns the confirmation email URL for updating TFA settings.
+Updates TFA settings and returns the confirmation URL for authorization via SMS or TFA application.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/update-tfa-settings-link/).
 
@@ -954,7 +978,7 @@ namespace Example
 
             try
             {
-                // Get a confirmation email for updating TFA settings
+                // Updates TFA settings
                 StringWrapper result = apiInstance.UpdateTfaSettingsLink(tfaRequestsDto);
                 Debug.WriteLine(result);
             }
@@ -975,7 +999,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get a confirmation email for updating TFA settings
+    // Updates TFA settings
     ApiResponse<StringWrapper> response = apiInstance.UpdateTfaSettingsLinkWithHttpInfo(tfaRequestsDto);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -998,10 +1022,13 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Confirmation email URL |  -  |
-| **401** | Unauthorized |  -  |
+| **200** | TFA confirmation URL |  * X-RateLimit-Limit - Sliding window rate limit: 1500 requests per minute per user/IP. <br>  * X-RateLimit-Remaining - Number of requests remaining in the current sliding window (1500 req/min). Concurrent limits also apply: 50 parallel GET requests, 15 parallel POST/PUT requests. <br>  * X-RateLimit-Reset - Unix timestamp (seconds) when the current sliding window rate limit resets. <br>  |
 | **403** | No permissions to perform this action |  -  |
 | **405** | SMS settings are not available/TFA application settings are not available |  -  |
+| **401** | Unauthorized |  -  |
+| **429** | Too Many Requests. |  * Retry-After - Seconds to wait before retrying. Up to 60s for the sliding window (1500 req/min), up to 86400s for the daily POST/PUT limit (10000/day). <br>  |
+| **502** | Bad Gateway. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
+| **503** | Service Unavailable. Returned by the reverse proxy, response body may be HTML and not JSON. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

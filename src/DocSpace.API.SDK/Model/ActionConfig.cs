@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -41,7 +54,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The action data that will be scrolled to.</value>
         /*
-        <example>some text</example>
+        <example>section</example>
         */
         [DataMember(Name = "data", EmitDefaultValue = true)]
         public string Data { get; set; }
@@ -51,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The action type.</value>
         /*
-        <example>some text</example>
+        <example>scroll</example>
         */
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
@@ -76,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -86,6 +99,30 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Data (string) maxLength
+            if (this.Data != null && this.Data.Length > 256)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Data, length must be less than 256.", new [] { "Data" });
+            }
+
+            // Data (string) minLength
+            if (this.Data != null && this.Data.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Data, length must be greater than 0.", new [] { "Data" });
+            }
+
+            // Type (string) maxLength
+            if (this.Type != null && this.Type.Length > 128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than 128.", new [] { "Type" });
+            }
+
+            // Type (string) minLength
+            if (this.Type != null && this.Type.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 0.", new [] { "Type" });
+            }
+
             yield break;
         }
 

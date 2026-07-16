@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -36,6 +49,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "startFillingMode", EmitDefaultValue = false)]
         public StartFillingMode? StartFillingMode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets QuotaExceededScope
+        /// </summary>
+        [DataMember(Name = "quotaExceededScope", EmitDefaultValue = false)]
+        public QuotaScope? QuotaExceededScope { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigurationDtoInteger" /> class.
@@ -58,7 +77,9 @@ namespace DocSpace.API.SDK.Model
         /// <param name="fillingStatus">The file filling status..</param>
         /// <param name="startFillingMode">startFillingMode.</param>
         /// <param name="fillingSessionId">The file filling session ID..</param>
-        public ConfigurationDtoInteger(DocumentConfigDto document = default, string documentType = default, EditorConfigurationDto editorConfig = default, EditorType editorType = default, string editorUrl = default, string token = default, string type = default, FileDtoInteger file = default, string errorMessage = default, bool? startFilling = default, bool? fillingStatus = default, StartFillingMode? startFillingMode = default, string fillingSessionId = default)
+        /// <param name="quotaExceededScope">quotaExceededScope.</param>
+        /// <param name="generationToolCallState">generationToolCallState.</param>
+        public ConfigurationDtoInteger(DocumentConfigDto document = default, string documentType = default, EditorConfigurationDto editorConfig = default, EditorType editorType = default, string editorUrl = default, string token = default, string type = default, FileDtoInteger file = default, string errorMessage = default, bool? startFilling = default, bool? fillingStatus = default, StartFillingMode? startFillingMode = default, string fillingSessionId = default, QuotaScope? quotaExceededScope = default, EditorToolCallStateDto generationToolCallState = default)
         {
             // to ensure "document" is required (not null)
             if (document == null)
@@ -98,6 +119,8 @@ namespace DocSpace.API.SDK.Model
             this.FillingStatus = fillingStatus;
             this.StartFillingMode = startFillingMode;
             this.FillingSessionId = fillingSessionId;
+            this.QuotaExceededScope = quotaExceededScope;
+            this.GenerationToolCallState = generationToolCallState;
         }
 
         /// <summary>
@@ -111,7 +134,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The document type.</value>
         /*
-        <example>some text</example>
+        <example>word</example>
         */
         [DataMember(Name = "documentType", IsRequired = true, EmitDefaultValue = true)]
         public string DocumentType { get; set; }
@@ -127,7 +150,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The editor URL.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/editor</example>
         */
         [DataMember(Name = "editorUrl", IsRequired = true, EmitDefaultValue = true)]
         public string EditorUrl { get; set; }
@@ -137,7 +160,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The token of the file configuration.</value>
         /*
-        <example>some text</example>
+        <example>token-abc-123</example>
         */
         [DataMember(Name = "token", EmitDefaultValue = true)]
         public string Token { get; set; }
@@ -147,7 +170,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The platform type.</value>
         /*
-        <example>some text</example>
+        <example>desktop</example>
         */
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
@@ -163,7 +186,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The error message.</value>
         /*
-        <example>some text</example>
+        <example>Configuration error</example>
         */
         [DataMember(Name = "errorMessage", EmitDefaultValue = true)]
         public string ErrorMessage { get; set; }
@@ -173,7 +196,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the file filling has started or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "startFilling", EmitDefaultValue = true)]
         public bool? StartFilling { get; set; }
@@ -183,7 +206,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file filling status.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "fillingStatus", EmitDefaultValue = true)]
         public bool? FillingStatus { get; set; }
@@ -193,10 +216,16 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file filling session ID.</value>
         /*
-        <example>some text</example>
+        <example>session-123-456</example>
         */
         [DataMember(Name = "fillingSessionId", EmitDefaultValue = true)]
         public string FillingSessionId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets GenerationToolCallState
+        /// </summary>
+        [DataMember(Name = "generationToolCallState", EmitDefaultValue = false)]
+        public EditorToolCallStateDto GenerationToolCallState { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -219,6 +248,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  FillingStatus: ").Append(FillingStatus).Append("\n");
             sb.Append("  StartFillingMode: ").Append(StartFillingMode).Append("\n");
             sb.Append("  FillingSessionId: ").Append(FillingSessionId).Append("\n");
+            sb.Append("  QuotaExceededScope: ").Append(QuotaExceededScope).Append("\n");
+            sb.Append("  GenerationToolCallState: ").Append(GenerationToolCallState).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -229,7 +260,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -36,7 +49,11 @@ namespace DocSpace.API.SDK.Model
         /// <param name="name">The authorization key name. (required).</param>
         /// <param name="value">The authorization key value. (required).</param>
         /// <param name="title">The authorization key title..</param>
-        public AuthKey(string name = default, string value = default, string title = default)
+        /// <param name="type">The field type: text, password, select, toggle..</param>
+        /// <param name="options">The list of options for select type fields..</param>
+        /// <param name="dependsOn">The name of another key this field depends on for visibility..</param>
+        /// <param name="dependsOnValue">The value of ASC.Web.Studio.UserControls.Management.AuthKey.DependsOn key that makes this field visible..</param>
+        public AuthKey(string name = default, string value = default, string title = default, string type = default, List<string> options = default, string dependsOn = default, string dependsOnValue = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -51,6 +68,10 @@ namespace DocSpace.API.SDK.Model
             }
             this.Value = value;
             this.Title = title;
+            this.Type = type;
+            this.Options = options;
+            this.DependsOn = dependsOn;
+            this.DependsOnValue = dependsOnValue;
         }
 
         /// <summary>
@@ -58,7 +79,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The authorization key name.</value>
         /*
-        <example>Winfield Upton</example>
+        <example>Auth-Key</example>
         */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
@@ -68,7 +89,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The authorization key value.</value>
         /*
-        <example>some text</example>
+        <example>abc123xyz456</example>
         */
         [DataMember(Name = "value", IsRequired = true, EmitDefaultValue = true)]
         public string Value { get; set; }
@@ -78,10 +99,38 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The authorization key title.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>API key</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
+
+        /// <summary>
+        /// The field type: text, password, select, toggle.
+        /// </summary>
+        /// <value>The field type: text, password, select, toggle.</value>
+        [DataMember(Name = "type", EmitDefaultValue = true)]
+        public string Type { get; set; }
+
+        /// <summary>
+        /// The list of options for select type fields.
+        /// </summary>
+        /// <value>The list of options for select type fields.</value>
+        [DataMember(Name = "options", EmitDefaultValue = true)]
+        public List<string> Options { get; set; }
+
+        /// <summary>
+        /// The name of another key this field depends on for visibility.
+        /// </summary>
+        /// <value>The name of another key this field depends on for visibility.</value>
+        [DataMember(Name = "dependsOn", EmitDefaultValue = true)]
+        public string DependsOn { get; set; }
+
+        /// <summary>
+        /// The value of ASC.Web.Studio.UserControls.Management.AuthKey.DependsOn key that makes this field visible.
+        /// </summary>
+        /// <value>The value of ASC.Web.Studio.UserControls.Management.AuthKey.DependsOn key that makes this field visible.</value>
+        [DataMember(Name = "dependsOnValue", EmitDefaultValue = true)]
+        public string DependsOnValue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -94,6 +143,10 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Options: ").Append(Options).Append("\n");
+            sb.Append("  DependsOn: ").Append(DependsOn).Append("\n");
+            sb.Append("  DependsOnValue: ").Append(DependsOnValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,7 +157,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -115,9 +168,9 @@ namespace DocSpace.API.SDK.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Value (string) maxLength
-            if (this.Value != null && this.Value.Length > 255)
+            if (this.Value != null && this.Value.Length > 4000)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be less than 255.", new [] { "Value" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be less than 4000.", new [] { "Value" });
             }
 
             // Value (string) minLength

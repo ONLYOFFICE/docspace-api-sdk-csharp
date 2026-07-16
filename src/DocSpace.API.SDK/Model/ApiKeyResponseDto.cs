@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -77,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The API key unique identifier.</value>
         /*
-        <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public Guid Id { get; set; }
@@ -87,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The API key name.</value>
         /*
-        <example>Winfield Upton</example>
+        <example>My API Key</example>
         */
         [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = true)]
         public string Name { get; set; }
@@ -97,7 +110,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The full API key value (only returned when creating a new key).</value>
         /*
-        <example>some text</example>
+        <example>api_key_1234567890abcdef</example>
         */
         [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
         public string Key { get; set; }
@@ -107,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The API key postfix (used for identification).</value>
         /*
-        <example>some text</example>
+        <example>...cdef</example>
         */
         [DataMember(Name = "keyPostfix", EmitDefaultValue = true)]
         public string KeyPostfix { get; set; }
@@ -117,7 +130,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of permissions granted to the API key.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>["read","write","delete"]</example>
         */
         [DataMember(Name = "permissions", IsRequired = true, EmitDefaultValue = true)]
         public List<string> Permissions { get; set; }
@@ -184,7 +197,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

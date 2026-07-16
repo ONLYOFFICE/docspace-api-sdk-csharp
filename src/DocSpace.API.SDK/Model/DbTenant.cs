@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -97,7 +110,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
@@ -107,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant name.</value>
         /*
-        <example>Winfield Upton</example>
+        <example>Tenant</example>
         */
         [DataMember(Name = "name", EmitDefaultValue = true)]
         public string Name { get; set; }
@@ -117,7 +130,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant alias.</value>
         /*
-        <example>some text</example>
+        <example>tenant</example>
         */
         [DataMember(Name = "alias", EmitDefaultValue = true)]
         public string Alias { get; set; }
@@ -127,7 +140,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Mapped domain</value>
         /*
-        <example>some text</example>
+        <example>tenant.example.com</example>
         */
         [DataMember(Name = "mappedDomain", EmitDefaultValue = true)]
         public string MappedDomain { get; set; }
@@ -137,7 +150,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant version.</value>
         /*
-        <example>1234</example>
+        <example>5</example>
         */
         [DataMember(Name = "version", EmitDefaultValue = false)]
         public int @Version { get; set; }
@@ -147,7 +160,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The Version_changed field.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2025-01-01T10:00Z</example>
         */
         [DataMember(Name = "versionChangedField", EmitDefaultValue = true)]
         public DateTime? VersionChangedField { get; set; }
@@ -157,7 +170,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the version was changed.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2025-01-01T10:00Z</example>
         */
         [DataMember(Name = "versionChanged", EmitDefaultValue = false)]
         public DateTime VersionChanged { get; set; }
@@ -167,7 +180,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant language.</value>
         /*
-        <example>some text</example>
+        <example>en-US</example>
         */
         [DataMember(Name = "language", EmitDefaultValue = true)]
         public string Language { get; set; }
@@ -177,7 +190,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant time zone.</value>
         /*
-        <example>some text</example>
+        <example>UTC</example>
         */
         [DataMember(Name = "timeZone", EmitDefaultValue = true)]
         public string @TimeZone { get; set; }
@@ -187,7 +200,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant trusted domains raw.</value>
         /*
-        <example>some text</example>
+        <example>tenant.exapmle.com, example.com</example>
         */
         [DataMember(Name = "trustedDomainsRaw", EmitDefaultValue = true)]
         public string TrustedDomainsRaw { get; set; }
@@ -197,7 +210,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the tenant status was changed.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2025-01-01T12:00Z</example>
         */
         [DataMember(Name = "statusChanged", EmitDefaultValue = true)]
         public DateTime? StatusChanged { get; set; }
@@ -207,7 +220,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The hacked date and time when the tenant status was changed.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2025-01-01T12:00Z</example>
         */
         [DataMember(Name = "statusChangedHack", EmitDefaultValue = false)]
         public DateTime StatusChangedHack { get; set; }
@@ -217,7 +230,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant creation date.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2025-01-01T12:00Z</example>
         */
         [DataMember(Name = "creationDateTime", EmitDefaultValue = false)]
         public DateTime CreationDateTime { get; set; }
@@ -227,7 +240,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant owner ID.</value>
         /*
-        <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "ownerId", EmitDefaultValue = true)]
         public Guid? OwnerId { get; set; }
@@ -237,7 +250,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant payment ID.</value>
         /*
-        <example>some text</example>
+        <example>pay_1234567890</example>
         */
         [DataMember(Name = "paymentId", EmitDefaultValue = true)]
         public string PaymentId { get; set; }
@@ -247,7 +260,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The date and time when the tenant was last modified.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2025-02-01T08:30Z</example>
         */
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
@@ -307,7 +320,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

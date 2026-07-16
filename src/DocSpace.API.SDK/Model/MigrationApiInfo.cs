@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -69,27 +82,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets MigratorName
         /// </summary>
-        /*
-        <example>some text</example>
-        */
         [DataMember(Name = "migratorName", EmitDefaultValue = true)]
         public string MigratorName { get; set; }
 
         /// <summary>
         /// Gets or Sets Operation
         /// </summary>
-        /*
-        <example>some text</example>
-        */
         [DataMember(Name = "operation", EmitDefaultValue = true)]
         public string Operation { get; set; }
 
         /// <summary>
         /// Gets or Sets FailedArchives
         /// </summary>
-        /*
-        <example>[&quot;some text&quot;]</example>
-        */
         [DataMember(Name = "failedArchives", EmitDefaultValue = true)]
         public List<string> FailedArchives { get; set; }
 
@@ -120,90 +124,60 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets ImportPersonalFiles
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "importPersonalFiles", EmitDefaultValue = true)]
         public bool ImportPersonalFiles { get; set; }
 
         /// <summary>
         /// Gets or Sets ImportSharedFiles
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "importSharedFiles", EmitDefaultValue = true)]
         public bool ImportSharedFiles { get; set; }
 
         /// <summary>
         /// Gets or Sets ImportSharedFolders
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "importSharedFolders", EmitDefaultValue = true)]
         public bool ImportSharedFolders { get; set; }
 
         /// <summary>
         /// Gets or Sets ImportCommonFiles
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "importCommonFiles", EmitDefaultValue = true)]
         public bool ImportCommonFiles { get; set; }
 
         /// <summary>
         /// Gets or Sets ImportProjectFiles
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "importProjectFiles", EmitDefaultValue = true)]
         public bool ImportProjectFiles { get; set; }
 
         /// <summary>
         /// Gets or Sets ImportGroups
         /// </summary>
-        /*
-        <example>true</example>
-        */
         [DataMember(Name = "importGroups", EmitDefaultValue = true)]
         public bool ImportGroups { get; set; }
 
         /// <summary>
         /// Gets or Sets SuccessedUsers
         /// </summary>
-        /*
-        <example>1234</example>
-        */
         [DataMember(Name = "successedUsers", EmitDefaultValue = false)]
         public int SuccessedUsers { get; set; }
 
         /// <summary>
         /// Gets or Sets FailedUsers
         /// </summary>
-        /*
-        <example>1234</example>
-        */
         [DataMember(Name = "failedUsers", EmitDefaultValue = false)]
         public int FailedUsers { get; set; }
 
         /// <summary>
         /// Gets or Sets Files
         /// </summary>
-        /*
-        <example>[&quot;some text&quot;]</example>
-        */
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<string> Files { get; set; }
 
         /// <summary>
         /// Gets or Sets Errors
         /// </summary>
-        /*
-        <example>[&quot;some text&quot;]</example>
-        */
         [DataMember(Name = "errors", EmitDefaultValue = true)]
         public List<string> Errors { get; set; }
 
@@ -242,7 +216,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

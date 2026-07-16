@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -97,7 +110,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The audit event ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
@@ -113,7 +126,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The name of the user who triggered the audit event.</value>
         /*
-        <example>some text</example>
+        <example>John Doe</example>
         */
         [DataMember(Name = "user", EmitDefaultValue = true)]
         public string User { get; set; }
@@ -123,7 +136,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The ID of the user who triggered the audit event.</value>
         /*
-        <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
+        <example>00000000-0000-0000-0000-000000000001</example>
         */
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
@@ -133,7 +146,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The audit event action.</value>
         /*
-        <example>some text</example>
+        <example>User logged in</example>
         */
         [DataMember(Name = "action", EmitDefaultValue = true)]
         public string Action { get; set; }
@@ -143,7 +156,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The audit event IP.</value>
         /*
-        <example>some text</example>
+        <example>192.0.2.1</example>
         */
         [DataMember(Name = "ip", EmitDefaultValue = true)]
         public string Ip { get; set; }
@@ -153,7 +166,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The audit event country.</value>
         /*
-        <example>some text</example>
+        <example>United States</example>
         */
         [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
@@ -163,7 +176,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The audit event city.</value>
         /*
-        <example>some text</example>
+        <example>New York</example>
         */
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
@@ -173,7 +186,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The audit event browser.</value>
         /*
-        <example>some text</example>
+        <example>Chrome 120.0</example>
         */
         [DataMember(Name = "browser", EmitDefaultValue = true)]
         public string Browser { get; set; }
@@ -183,7 +196,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The audit event platform.</value>
         /*
-        <example>some text</example>
+        <example>Windows</example>
         */
         [DataMember(Name = "platform", EmitDefaultValue = true)]
         public string Platform { get; set; }
@@ -193,7 +206,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The audit event page.</value>
         /*
-        <example>some text</example>
+        <example>/rooms/shared</example>
         */
         [DataMember(Name = "page", EmitDefaultValue = true)]
         public string Page { get; set; }
@@ -203,7 +216,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of target objects affected by the audit event (e.g., document ID, user account).</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>["item1","item2"]</example>
         */
         [DataMember(Name = "target", EmitDefaultValue = true)]
         public List<string> Target { get; set; }
@@ -212,6 +225,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of audit entry types (e.g., Folder, User, File).
         /// </summary>
         /// <value>The list of audit entry types (e.g., Folder, User, File).</value>
+        /*
+        <example>["File","Folder"]</example>
+        */
         [DataMember(Name = "entries", EmitDefaultValue = true)]
         public List<EntryType> Entries { get; set; }
 
@@ -220,7 +236,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The audit event context.</value>
         /*
-        <example>some text</example>
+        <example>Security settings updated</example>
         */
         [DataMember(Name = "context", EmitDefaultValue = true)]
         public string Context { get; set; }
@@ -261,7 +277,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

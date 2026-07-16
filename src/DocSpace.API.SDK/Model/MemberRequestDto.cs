@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -30,12 +43,6 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "type", EmitDefaultValue = false)]
         public EmployeeType? Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Sex
-        /// </summary>
-        [DataMember(Name = "sex", EmitDefaultValue = false)]
-        public SexEnum? Sex { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="MemberRequestDto" /> class.
@@ -48,11 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="firstName">The user first name..</param>
         /// <param name="lastName">The user last name..</param>
         /// <param name="department">The list of the user departments IDs..</param>
-        /// <param name="title">The user title..</param>
         /// <param name="location">The user location..</param>
-        /// <param name="sex">sex.</param>
-        /// <param name="birthday">birthday.</param>
-        /// <param name="worksfrom">worksfrom.</param>
         /// <param name="comment">The user comment..</param>
         /// <param name="contacts">The list of the user contacts..</param>
         /// <param name="files">The avatar photo URL..</param>
@@ -61,7 +64,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="cultureName">The user culture code..</param>
         /// <param name="target">The user target ID..</param>
         /// <param name="spam">Specifies if tips, updates and offers are allowed to be sent to the user or not..</param>
-        public MemberRequestDto(string password = default, string passwordHash = default, string email = default, EmployeeType? type = default, bool? isUser = default, string firstName = default, string lastName = default, List<Guid> department = default, string title = default, string location = default, SexEnum? sex = default, ApiDateTime birthday = default, ApiDateTime worksfrom = default, string comment = default, List<Contact> contacts = default, string files = default, bool fromInviteLink = default, string key = default, string cultureName = default, Guid target = default, bool? spam = default)
+        public MemberRequestDto(string password = default, string passwordHash = default, string email = default, EmployeeType? type = default, bool? isUser = default, string firstName = default, string lastName = default, List<Guid> department = default, string location = default, string comment = default, List<Contact> contacts = default, string files = default, bool fromInviteLink = default, string key = default, string cultureName = default, Guid target = default, bool? spam = default)
         {
             this.Password = password;
             this.PasswordHash = passwordHash;
@@ -71,11 +74,7 @@ namespace DocSpace.API.SDK.Model
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Department = department;
-            this.Title = title;
             this.Location = location;
-            this.Sex = sex;
-            this.Birthday = birthday;
-            this.Worksfrom = worksfrom;
             this.Comment = comment;
             this.Contacts = contacts;
             this.Files = files;
@@ -91,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user password.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>P@ssw0rd</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
@@ -101,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user password hash.</value>
         /*
-        <example>some text</example>
+        <example>5f4dcc3b5aa765d61d8327deb882cf99</example>
         */
         [DataMember(Name = "passwordHash", EmitDefaultValue = true)]
         public string PasswordHash { get; set; }
@@ -111,7 +110,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user email address.</value>
         /*
-        <example>Sydney_Roberts4@hotmail.com</example>
+        <example>john.doe@example.com</example>
         */
         [DataMember(Name = "email", EmitDefaultValue = true)]
         public string Email { get; set; }
@@ -131,7 +130,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user first name.</value>
         /*
-        <example>Winfield</example>
+        <example>John</example>
         */
         [DataMember(Name = "firstName", EmitDefaultValue = true)]
         public string FirstName { get; set; }
@@ -141,7 +140,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user last name.</value>
         /*
-        <example>Wyman</example>
+        <example>Doe</example>
         */
         [DataMember(Name = "lastName", EmitDefaultValue = true)]
         public string LastName { get; set; }
@@ -151,49 +150,27 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the user departments IDs.</value>
         /*
-        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
+        <example>["00000000-0000-0000-0000-000000000000"]</example>
         */
         [DataMember(Name = "department", EmitDefaultValue = true)]
         public List<Guid> Department { get; set; }
-
-        /// <summary>
-        /// The user title.
-        /// </summary>
-        /// <value>The user title.</value>
-        /*
-        <example>legacy_1080p_small_wooden_mouse</example>
-        */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
-        public string Title { get; set; }
 
         /// <summary>
         /// The user location.
         /// </summary>
         /// <value>The user location.</value>
         /*
-        <example>001 Schroeder Run, New Tabithaport, Colombia</example>
+        <example>New York</example>
         */
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Birthday
-        /// </summary>
-        [DataMember(Name = "birthday", EmitDefaultValue = false)]
-        public ApiDateTime Birthday { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Worksfrom
-        /// </summary>
-        [DataMember(Name = "worksfrom", EmitDefaultValue = false)]
-        public ApiDateTime Worksfrom { get; set; }
 
         /// <summary>
         /// The user comment.
         /// </summary>
         /// <value>The user comment.</value>
         /*
-        <example>some text</example>
+        <example>User comment</example>
         */
         [DataMember(Name = "comment", EmitDefaultValue = true)]
         public string Comment { get; set; }
@@ -202,6 +179,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of the user contacts.
         /// </summary>
         /// <value>The list of the user contacts.</value>
+        /*
+        <example>[{"type":"email","value":"john.doe@example.com"}]</example>
+        */
         [DataMember(Name = "contacts", EmitDefaultValue = true)]
         public List<Contact> Contacts { get; set; }
 
@@ -210,7 +190,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The avatar photo URL.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/avatar.jpg</example>
         */
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public string Files { get; set; }
@@ -220,7 +200,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user is added via the invitation link or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "fromInviteLink", EmitDefaultValue = true)]
         public bool FromInviteLink { get; set; }
@@ -230,7 +210,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user key.</value>
         /*
-        <example>some text</example>
+        <example>user_key_string</example>
         */
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
@@ -240,7 +220,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user culture code.</value>
         /*
-        <example>some text</example>
+        <example>en-US</example>
         */
         [DataMember(Name = "cultureName", EmitDefaultValue = true)]
         public string CultureName { get; set; }
@@ -250,7 +230,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user target ID.</value>
         /*
-        <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "target", EmitDefaultValue = false)]
         public Guid Target { get; set; }
@@ -260,7 +240,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if tips, updates and offers are allowed to be sent to the user or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "spam", EmitDefaultValue = true)]
         public bool? Spam { get; set; }
@@ -281,11 +261,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Department: ").Append(Department).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Location: ").Append(Location).Append("\n");
-            sb.Append("  Sex: ").Append(Sex).Append("\n");
-            sb.Append("  Birthday: ").Append(Birthday).Append("\n");
-            sb.Append("  Worksfrom: ").Append(Worksfrom).Append("\n");
             sb.Append("  Comment: ").Append(Comment).Append("\n");
             sb.Append("  Contacts: ").Append(Contacts).Append("\n");
             sb.Append("  Files: ").Append(Files).Append("\n");
@@ -304,7 +280,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -348,18 +324,6 @@ namespace DocSpace.API.SDK.Model
             if (this.LastName != null && this.LastName.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, length must be greater than 0.", new [] { "LastName" });
-            }
-
-            // Title (string) maxLength
-            if (this.Title != null && this.Title.Length > 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be less than 255.", new [] { "Title" });
-            }
-
-            // Title (string) minLength
-            if (this.Title != null && this.Title.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 0.", new [] { "Title" });
             }
 
             yield break;

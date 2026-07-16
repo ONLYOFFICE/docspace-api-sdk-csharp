@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.People
@@ -46,6 +53,33 @@ namespace DocSpace.API.SDK.Api.People
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/">REST API Reference for AddMember Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
         ApiResponse<EmployeeFullWrapper> AddMemberWithHttpInfo(MemberRequestDto? memberRequestDto = default);
+        /// <summary>
+        /// Check if a user exists by email
+        /// </summary>
+        /// <remarks>
+        /// Returns data indicating whether a user with the specified email exists on the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
+        /// <param name="culture">Culture (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
+        /// <returns>UserExistsResponseWrapper</returns>
+        UserExistsResponseWrapper CheckUserExistsByEmail(string? email = default, string? encemail = default, string? culture = default);
+
+        /// <summary>
+        /// Check if a user exists by email
+        /// </summary>
+        /// <remarks>
+        /// Returns data indicating whether a user with the specified email exists on the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
+        /// <param name="culture">Culture (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
+        /// <returns>ApiResponse of UserExistsResponseWrapper</returns>
+        ApiResponse<UserExistsResponseWrapper> CheckUserExistsByEmailWithHttpInfo(string? email = default, string? encemail = default, string? culture = default);
         /// <summary>
         /// Delete a user
         /// </summary>
@@ -287,29 +321,6 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>ApiResponse of EmployeeFullArrayWrapper</returns>
         ApiResponse<EmployeeFullArrayWrapper> ResendUserInvitesWithHttpInfo(UpdateMembersRequestDto? updateMembersRequestDto = default);
         /// <summary>
-        /// Send instructions to change email
-        /// </summary>
-        /// <remarks>
-        /// Sends a message to the user email with the instructions to change the email address connected to the portal.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
-        /// <returns>StringWrapper</returns>
-        StringWrapper SendEmailChangeInstructions(UpdateMemberRequestDto? updateMemberRequestDto = default);
-
-        /// <summary>
-        /// Send instructions to change email
-        /// </summary>
-        /// <remarks>
-        /// Sends a message to the user email with the instructions to change the email address connected to the portal.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
-        /// <returns>ApiResponse of StringWrapper</returns>
-        ApiResponse<StringWrapper> SendEmailChangeInstructionsWithHttpInfo(UpdateMemberRequestDto? updateMemberRequestDto = default);
-        /// <summary>
         /// Update a user
         /// </summary>
         /// <remarks>
@@ -335,27 +346,27 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
         ApiResponse<EmployeeFullWrapper> UpdateMemberWithHttpInfo(string userid, UpdateMemberRequestDto updateMemberRequestDto);
         /// <summary>
-        /// Update a user culture code
+        /// Update a user culture
         /// </summary>
         /// <remarks>
-        /// Updates the user culture code with the parameters specified in the request.
+        /// Updates the user culture with the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="culture">The culture code parameters. (optional)</param>
+        /// <param name="culture">The culture name parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
         EmployeeFullWrapper UpdateMemberCulture(string userid, Culture? culture = default);
 
         /// <summary>
-        /// Update a user culture code
+        /// Update a user culture
         /// </summary>
         /// <remarks>
-        /// Updates the user culture code with the parameters specified in the request.
+        /// Updates the user culture with the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="culture">The culture code parameters. (optional)</param>
+        /// <param name="culture">The culture name parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
         ApiResponse<EmployeeFullWrapper> UpdateMemberCultureWithHttpInfo(string userid, Culture? culture = default);
@@ -393,6 +404,35 @@ namespace DocSpace.API.SDK.Api.People
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-member/">REST API Reference for AddMember Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
         Task<ApiResponse<EmployeeFullWrapper>> AddMemberWithHttpInfoAsync(MemberRequestDto? memberRequestDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Check if a user exists by email
+        /// </summary>
+        /// <remarks>
+        /// Returns data indicating whether a user with the specified email exists on the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
+        /// <param name="culture">Culture (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
+        /// <returns>Task of UserExistsResponseWrapper</returns>
+        Task<UserExistsResponseWrapper> CheckUserExistsByEmailAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Check if a user exists by email
+        /// </summary>
+        /// <remarks>
+        /// Returns data indicating whether a user with the specified email exists on the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
+        /// <param name="culture">Culture (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
+        /// <returns>Task of ApiResponse (UserExistsResponseWrapper)</returns>
+        Task<ApiResponse<UserExistsResponseWrapper>> CheckUserExistsByEmailWithHttpInfoAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a user
         /// </summary>
@@ -654,31 +694,6 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>Task of ApiResponse (EmployeeFullArrayWrapper)</returns>
         Task<ApiResponse<EmployeeFullArrayWrapper>> ResendUserInvitesWithHttpInfoAsync(UpdateMembersRequestDto? updateMembersRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Send instructions to change email
-        /// </summary>
-        /// <remarks>
-        /// Sends a message to the user email with the instructions to change the email address connected to the portal.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
-        /// <returns>Task of StringWrapper</returns>
-        Task<StringWrapper> SendEmailChangeInstructionsAsync(UpdateMemberRequestDto? updateMemberRequestDto = default, CancellationToken cancellationToken = default);
-
-        /// <summary>
-        /// Send instructions to change email
-        /// </summary>
-        /// <remarks>
-        /// Sends a message to the user email with the instructions to change the email address connected to the portal.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
-        /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        Task<ApiResponse<StringWrapper>> SendEmailChangeInstructionsWithHttpInfoAsync(UpdateMemberRequestDto? updateMemberRequestDto = default, CancellationToken cancellationToken = default);
-        /// <summary>
         /// Update a user
         /// </summary>
         /// <remarks>
@@ -706,28 +721,28 @@ namespace DocSpace.API.SDK.Api.People
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
         Task<ApiResponse<EmployeeFullWrapper>> UpdateMemberWithHttpInfoAsync(string userid, UpdateMemberRequestDto updateMemberRequestDto, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Update a user culture code
+        /// Update a user culture
         /// </summary>
         /// <remarks>
-        /// Updates the user culture code with the parameters specified in the request.
+        /// Updates the user culture with the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="culture">The culture code parameters. (optional)</param>
+        /// <param name="culture">The culture name parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
         Task<EmployeeFullWrapper> UpdateMemberCultureAsync(string userid, Culture? culture = default, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Update a user culture code
+        /// Update a user culture
         /// </summary>
         /// <remarks>
-        /// Updates the user culture code with the parameters specified in the request.
+        /// Updates the user culture with the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="culture">The culture code parameters. (optional)</param>
+        /// <param name="culture">The culture name parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>
@@ -1133,6 +1148,218 @@ namespace DocSpace.API.SDK.Api.People
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("AddMember", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Check if a user exists by email
+        /// </summary>
+        /// <remarks>
+        /// Returns data indicating whether a user with the specified email exists on the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
+        /// <param name="culture">Culture (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
+        /// <returns>UserExistsResponseWrapper</returns>
+        public UserExistsResponseWrapper CheckUserExistsByEmail(string? email = default, string? encemail = default, string? culture = default)
+        {
+            var localVarResponse = CheckUserExistsByEmailWithHttpInfo(email, encemail, culture);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check if a user exists by email
+        /// </summary>
+        /// <remarks>
+        /// Returns data indicating whether a user with the specified email exists on the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
+        /// <param name="culture">Culture (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
+        /// <returns>ApiResponse of UserExistsResponseWrapper</returns>
+        public ApiResponse<UserExistsResponseWrapper> CheckUserExistsByEmailWithHttpInfo(string? email = default, string? encemail = default, string? culture = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (email != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "email", email));
+            }
+            if (encemail != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "encemail", encemail));
+            }
+            if (culture != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "culture", culture));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<UserExistsResponseWrapper>("/api/2.0/people/exists", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("CheckUserExistsByEmail", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Check if a user exists by email
+        /// </summary>
+        /// <remarks>
+        /// Returns data indicating whether a user with the specified email exists on the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
+        /// <param name="culture">Culture (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
+        /// <returns>Task of UserExistsResponseWrapper</returns>
+        public async Task<UserExistsResponseWrapper> CheckUserExistsByEmailAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await CheckUserExistsByEmailWithHttpInfoAsync(email, encemail, culture, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Check if a user exists by email
+        /// </summary>
+        /// <remarks>
+        /// Returns data indicating whether a user with the specified email exists on the portal.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="email">The user email address. (optional)</param>
+        /// <param name="encemail">The user encrypted email address. (optional)</param>
+        /// <param name="culture">Culture (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
+        /// <returns>Task of ApiResponse (UserExistsResponseWrapper)</returns>
+        public async Task<ApiResponse<UserExistsResponseWrapper>> CheckUserExistsByEmailWithHttpInfoAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (email != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "email", email));
+            }
+            if (encemail != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "encemail", encemail));
+            }
+            if (culture != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "culture", culture));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<UserExistsResponseWrapper>("/api/2.0/people/exists", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("CheckUserExistsByEmail", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -3073,188 +3300,6 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Send instructions to change email
-        /// </summary>
-        /// <remarks>
-        /// Sends a message to the user email with the instructions to change the email address connected to the portal.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
-        /// <returns>StringWrapper</returns>
-        public StringWrapper SendEmailChangeInstructions(UpdateMemberRequestDto? updateMemberRequestDto = default)
-        {
-            var localVarResponse = SendEmailChangeInstructionsWithHttpInfo(updateMemberRequestDto);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Send instructions to change email
-        /// </summary>
-        /// <remarks>
-        /// Sends a message to the user email with the instructions to change the email address connected to the portal.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
-        /// <returns>ApiResponse of StringWrapper</returns>
-        public ApiResponse<StringWrapper> SendEmailChangeInstructionsWithHttpInfo(UpdateMemberRequestDto? updateMemberRequestDto = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [ "application/json"];
-
-            // to determine the Accept header
-            string[] accepts = ["application/json"];
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (updateMemberRequestDto != null) localVarRequestOptions.Data = updateMemberRequestDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-            var localVarResponse = Client.Post<StringWrapper>("/api/2.0/people/email", localVarRequestOptions, Configuration);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("SendEmailChangeInstructions", localVarResponse);
-                if (exception != null)
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Send instructions to change email
-        /// </summary>
-        /// <remarks>
-        /// Sends a message to the user email with the instructions to change the email address connected to the portal.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
-        /// <returns>Task of StringWrapper</returns>
-        public async Task<StringWrapper> SendEmailChangeInstructionsAsync(UpdateMemberRequestDto? updateMemberRequestDto = default, CancellationToken cancellationToken = default)
-        {
-            var localVarResponse = await SendEmailChangeInstructionsWithHttpInfoAsync(updateMemberRequestDto, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Send instructions to change email
-        /// </summary>
-        /// <remarks>
-        /// Sends a message to the user email with the instructions to change the email address connected to the portal.
-        /// </remarks>
-        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="updateMemberRequestDto">The request parameters for updating the user information. (optional)</param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/send-email-change-instructions/">REST API Reference for SendEmailChangeInstructions Operation</seealso>
-        /// <returns>Task of ApiResponse (StringWrapper)</returns>
-        public async Task<ApiResponse<StringWrapper>> SendEmailChangeInstructionsWithHttpInfoAsync(UpdateMemberRequestDto? updateMemberRequestDto = default, CancellationToken cancellationToken = default)
-        {
-            var localVarRequestOptions = new RequestOptions();
-
-            string[] contentTypes = [ "application/json"];
-
-            // to determine the Accept header
-            string[] accepts = [ "application/json"];
-
-
-            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (updateMemberRequestDto != null) localVarRequestOptions.Data = updateMemberRequestDto;
-
-            // authentication (Basic) required
-            // http basic authentication required
-            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
-            }
-            // authentication (OAuth2) required
-            // oauth required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (ApiKeyBearer) required
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
-            }
-            // authentication (asc_auth_key) required
-            // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
-            {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
-            }
-            // authentication (Bearer) required
-            // bearer authentication required
-            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
-            }
-            // authentication (OpenId) required
-
-            // make the HTTP request
-
-            var localVarResponse = await AsynchronousClient.PostAsync<StringWrapper>("/api/2.0/people/email", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (ExceptionFactory != null)
-            {
-                var exception = ExceptionFactory("SendEmailChangeInstructions", localVarResponse);
-                if (exception != null) 
-                {
-                    throw exception;
-                }
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
         /// Update a user
         /// </summary>
         /// <remarks>
@@ -3459,14 +3504,14 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Update a user culture code
+        /// Update a user culture
         /// </summary>
         /// <remarks>
-        /// Updates the user culture code with the parameters specified in the request.
+        /// Updates the user culture with the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="culture">The culture code parameters. (optional)</param>
+        /// <param name="culture">The culture name parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
         /// <returns>EmployeeFullWrapper</returns>
         public EmployeeFullWrapper UpdateMemberCulture(string userid, Culture? culture = default)
@@ -3476,14 +3521,14 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Update a user culture code
+        /// Update a user culture
         /// </summary>
         /// <remarks>
-        /// Updates the user culture code with the parameters specified in the request.
+        /// Updates the user culture with the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="culture">The culture code parameters. (optional)</param>
+        /// <param name="culture">The culture name parameters. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
         /// <returns>ApiResponse of EmployeeFullWrapper</returns>
         public ApiResponse<EmployeeFullWrapper> UpdateMemberCultureWithHttpInfo(string userid, Culture? culture = default)
@@ -3555,14 +3600,14 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Update a user culture code
+        /// Update a user culture
         /// </summary>
         /// <remarks>
-        /// Updates the user culture code with the parameters specified in the request.
+        /// Updates the user culture with the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="culture">The culture code parameters. (optional)</param>
+        /// <param name="culture">The culture name parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
         /// <returns>Task of EmployeeFullWrapper</returns>
@@ -3573,14 +3618,14 @@ namespace DocSpace.API.SDK.Api.People
         }
 
         /// <summary>
-        /// Update a user culture code
+        /// Update a user culture
         /// </summary>
         /// <remarks>
-        /// Updates the user culture code with the parameters specified in the request.
+        /// Updates the user culture with the parameters specified in the request.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userid">The user ID.</param>
-        /// <param name="culture">The culture code parameters. (optional)</param>
+        /// <param name="culture">The culture name parameters. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-member-culture/">REST API Reference for UpdateMemberCulture Operation</seealso>
         /// <returns>Task of ApiResponse (EmployeeFullWrapper)</returns>

@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -43,9 +56,11 @@ namespace DocSpace.API.SDK.Model
         /// <param name="denyDownload">Indicates whether downloading of the shared content is prohibited..</param>
         /// <param name="isExpired">Indicates whether the shared link has expired..</param>
         /// <param name="primary">Indicates whether this is the primary shared link..</param>
-        /// <param name="@internal">Indicates whether the link is for the internal sharing only..</param>
+        /// <param name="internal">Indicates whether the link is for the internal sharing only..</param>
         /// <param name="requestToken">The token for validating access requests..</param>
-        public FileShareLink(Guid id = default, string title = default, string shareLink = default, ApiDateTime expirationDate = default, LinkType? linkType = default, string password = default, bool? denyDownload = default, bool? isExpired = default, bool primary = default, bool? @internal = default, string requestToken = default)
+        /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
+        /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>
+        public FileShareLink(Guid id = default, string title = default, string shareLink = default, ApiDateTime expirationDate = default, LinkType? linkType = default, string password = default, bool? denyDownload = default, bool? isExpired = default, bool primary = default, bool? @internal = default, string requestToken = default, int? maxUseCount = default, int? currentUseCount = default)
         {
             this.Id = id;
             this.Title = title;
@@ -58,6 +73,8 @@ namespace DocSpace.API.SDK.Model
             this.Primary = primary;
             this.Internal = @internal;
             this.RequestToken = requestToken;
+            this.MaxUseCount = maxUseCount;
+            this.CurrentUseCount = currentUseCount;
         }
 
         /// <summary>
@@ -65,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The unique identifier of the shared link.</value>
         /*
-        <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
@@ -75,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The title of the shared content.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>Shared Document</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -85,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The URL for accessing the shared content.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/share/abc123</example>
         */
         [DataMember(Name = "shareLink", EmitDefaultValue = true)]
         public string ShareLink { get; set; }
@@ -101,7 +118,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The password protection for accessing the shared content.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>password123</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
@@ -111,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Indicates whether downloading of the shared content is prohibited.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool? DenyDownload { get; set; }
@@ -121,7 +138,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Indicates whether the shared link has expired.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isExpired", EmitDefaultValue = true)]
         public bool? IsExpired { get; set; }
@@ -141,7 +158,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Indicates whether the link is for the internal sharing only.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "internal", EmitDefaultValue = true)]
         public bool? Internal { get; set; }
@@ -151,10 +168,30 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The token for validating access requests.</value>
         /*
-        <example>some text</example>
+        <example>token-abc-123</example>
         */
         [DataMember(Name = "requestToken", EmitDefaultValue = true)]
         public string RequestToken { get; set; }
+
+        /// <summary>
+        /// The maximum number of times the invitation link can be used.
+        /// </summary>
+        /// <value>The maximum number of times the invitation link can be used.</value>
+        /*
+        <example>10</example>
+        */
+        [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
+        public int? MaxUseCount { get; set; }
+
+        /// <summary>
+        /// The current number of times the invitation link has been used.
+        /// </summary>
+        /// <value>The current number of times the invitation link has been used.</value>
+        /*
+        <example>5</example>
+        */
+        [DataMember(Name = "currentUseCount", EmitDefaultValue = true)]
+        public int? CurrentUseCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -175,6 +212,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Primary: ").Append(Primary).Append("\n");
             sb.Append("  Internal: ").Append(Internal).Append("\n");
             sb.Append("  RequestToken: ").Append(RequestToken).Append("\n");
+            sb.Append("  MaxUseCount: ").Append(MaxUseCount).Append("\n");
+            sb.Append("  CurrentUseCount: ").Append(CurrentUseCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -185,7 +224,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.StartFillingMode
-[0 - None, 1 - Share to fill out, 2 - Start filling]
+[0 - None, 1 - Share to fill out, 2 - Start filling, 3 - Start filling form room]
 
 ## Properties
 

@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -34,13 +47,18 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="GroupRequestDto" /> class.
         /// </summary>
         /// <param name="members">The list of group member IDs..</param>
-        /// <param name="groupManager">The group manager ID. (required).</param>
-        /// <param name="groupName">The group name..</param>
+        /// <param name="groupManager">The group manager ID..</param>
+        /// <param name="groupName">The group name. (required).</param>
         public GroupRequestDto(List<Guid> members = default, Guid groupManager = default, string groupName = default)
         {
-            this.GroupManager = groupManager;
-            this.Members = members;
+            // to ensure "groupName" is required (not null)
+            if (groupName == null)
+            {
+                throw new ArgumentNullException("groupName is a required property for GroupRequestDto and cannot be null");
+            }
             this.GroupName = groupName;
+            this.Members = members;
+            this.GroupManager = groupManager;
         }
 
         /// <summary>
@@ -48,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of group member IDs.</value>
         /*
-        <example>[&quot;75a5f745-f697-4418-b38d-0fe0d277e258&quot;]</example>
+        <example>["00000000-0000-0000-0000-000000000000","11111111-1111-1111-1111-111111111111"]</example>
         */
         [DataMember(Name = "members", EmitDefaultValue = true)]
         public List<Guid> Members { get; set; }
@@ -58,9 +76,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The group manager ID.</value>
         /*
-        <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
-        [DataMember(Name = "groupManager", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "groupManager", EmitDefaultValue = false)]
         public Guid GroupManager { get; set; }
 
         /// <summary>
@@ -68,9 +86,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The group name.</value>
         /*
-        <example>some text</example>
+        <example>Marketing Team</example>
         */
-        [DataMember(Name = "groupName", EmitDefaultValue = true)]
+        [DataMember(Name = "groupName", IsRequired = true, EmitDefaultValue = true)]
         public string GroupName { get; set; }
 
         /// <summary>
@@ -94,7 +112,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -111,9 +129,9 @@ namespace DocSpace.API.SDK.Model
             }
 
             // GroupName (string) minLength
-            if (this.GroupName != null && this.GroupName.Length < 0)
+            if (this.GroupName != null && this.GroupName.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GroupName, length must be greater than 0.", new [] { "GroupName" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GroupName, length must be greater than 1.", new [] { "GroupName" });
             }
 
             yield break;

@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Settings
@@ -30,7 +37,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns a list of all the backup storages.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dump"> (optional)</param>
+        /// <param name="dump">Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
         /// <returns>StorageArrayWrapper</returns>
         StorageArrayWrapper GetAllBackupStorages(bool? dump = default);
@@ -42,7 +49,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns a list of all the backup storages.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dump"> (optional)</param>
+        /// <param name="dump">Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
         /// <returns>ApiResponse of StorageArrayWrapper</returns>
         ApiResponse<StorageArrayWrapper> GetAllBackupStoragesWithHttpInfo(bool? dump = default);
@@ -234,7 +241,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns a list of all the backup storages.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dump"> (optional)</param>
+        /// <param name="dump">Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
         /// <returns>Task of StorageArrayWrapper</returns>
@@ -247,7 +254,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns a list of all the backup storages.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dump"> (optional)</param>
+        /// <param name="dump">Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
         /// <returns>Task of ApiResponse (StorageArrayWrapper)</returns>
@@ -662,7 +669,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns a list of all the backup storages.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dump"> (optional)</param>
+        /// <param name="dump">Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
         /// <returns>StorageArrayWrapper</returns>
         public StorageArrayWrapper GetAllBackupStorages(bool? dump = default)
@@ -678,7 +685,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns a list of all the backup storages.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dump"> (optional)</param>
+        /// <param name="dump">Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
         /// <returns>ApiResponse of StorageArrayWrapper</returns>
         public ApiResponse<StorageArrayWrapper> GetAllBackupStoragesWithHttpInfo(bool? dump = default)
@@ -754,7 +761,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns a list of all the backup storages.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dump"> (optional)</param>
+        /// <param name="dump">Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
         /// <returns>Task of StorageArrayWrapper</returns>
@@ -771,7 +778,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Returns a list of all the backup storages.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="dump"> (optional)</param>
+        /// <param name="dump">Indicates whether the operation should perform a dump of backup storage data.  This property is used as a parameter in backup-related API requests to specify  if additional details or data dumping is required during the process. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-all-backup-storages/">REST API Reference for GetAllBackupStorages Operation</seealso>
         /// <returns>Task of ApiResponse (StorageArrayWrapper)</returns>

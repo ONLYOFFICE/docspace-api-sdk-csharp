@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -22,7 +35,7 @@ namespace DocSpace.API.SDK.Model
     /// The collection of file sharing parameters.
     /// </summary>
     [DataContract(Name = "FileShareParams")]
-    public partial class FileShareParams : IValidatableObject
+    public partial class FileShareParams : EmailInvitationDto, IValidatableObject
     {
 
         /// <summary>
@@ -35,12 +48,10 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="FileShareParams" /> class.
         /// </summary>
         /// <param name="shareTo">The ID of the user to whom the file will be shared..</param>
-        /// <param name="email">The user email address..</param>
         /// <param name="access">access.</param>
-        public FileShareParams(Guid shareTo = default, string email = default, FileShare? access = default)
+        public FileShareParams(Guid shareTo = default, FileShare? access = default)
         {
             this.ShareTo = shareTo;
-            this.Email = email;
             this.Access = access;
         }
 
@@ -49,20 +60,10 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The ID of the user to whom the file will be shared.</value>
         /*
-        <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "shareTo", EmitDefaultValue = false)]
         public Guid ShareTo { get; set; }
-
-        /// <summary>
-        /// The user email address.
-        /// </summary>
-        /// <value>The user email address.</value>
-        /*
-        <example>Sydney_Roberts4@hotmail.com</example>
-        */
-        [DataMember(Name = "email", EmitDefaultValue = true)]
-        public string Email { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -73,7 +74,6 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class FileShareParams {\n");
             sb.Append("  ShareTo: ").Append(ShareTo).Append("\n");
-            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Access: ").Append(Access).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -83,10 +83,11 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public virtual string ToJson()
+        public override string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
+    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -95,10 +96,14 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Email (string) maxLength
+            if (this.Email != null && this.Email.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be less than 255.", new [] { "Email" });
+            }
+
             yield break;
         }
 
     }
-
-
 }

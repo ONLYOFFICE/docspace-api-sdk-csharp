@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -30,6 +43,12 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "Operation", IsRequired = true, EmitDefaultValue = true)]
         public FileOperationType Operation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = false)]
+        public DistributedTaskStatus? Status { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="FileOperationDto" /> class.
@@ -48,7 +67,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="url">The file operation URL..</param>
         /// <param name="files">The list of files of the file operation..</param>
         /// <param name="folders">The list of folders of the file operation..</param>
-        public FileOperationDto(string id = default, FileOperationType operation = default, int progress = default, string error = default, string processed = default, bool finished = default, string url = default, List<FileEntryBaseDto> files = default, List<FileEntryBaseDto> folders = default)
+        /// <param name="status">status.</param>
+        public FileOperationDto(string id = default, FileOperationType operation = default, int progress = default, string error = default, string processed = default, bool finished = default, string url = default, List<FileEntryBaseDto> files = default, List<FileEntryBaseDto> folders = default, DistributedTaskStatus? status = default)
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -74,6 +94,7 @@ namespace DocSpace.API.SDK.Model
             this.Url = url;
             this.Files = files;
             this.Folders = folders;
+            this.Status = status;
         }
 
         /// <summary>
@@ -81,7 +102,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file operation ID.</value>
         /*
-        <example>9846</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
         public string Id { get; set; }
@@ -100,6 +121,9 @@ namespace DocSpace.API.SDK.Model
         /// The file operation error message.
         /// </summary>
         /// <value>The file operation error message.</value>
+        /*
+        <example>File not found.</example>
+        */
         [DataMember(Name = "error", IsRequired = true, EmitDefaultValue = true)]
         public string Error { get; set; }
 
@@ -128,7 +152,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file operation URL.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/download</example>
         */
         [DataMember(Name = "url", EmitDefaultValue = true)]
         public string Url { get; set; }
@@ -137,6 +161,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of files of the file operation.
         /// </summary>
         /// <value>The list of files of the file operation.</value>
+        /*
+        <example>[{"id":10,"title":"document.docx"}]</example>
+        */
         [DataMember(Name = "files", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Files { get; set; }
 
@@ -144,6 +171,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of folders of the file operation.
         /// </summary>
         /// <value>The list of folders of the file operation.</value>
+        /*
+        <example>[{"id":20,"title":"My Folder"}]</example>
+        */
         [DataMember(Name = "folders", EmitDefaultValue = true)]
         public List<FileEntryBaseDto> Folders { get; set; }
 
@@ -164,6 +194,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Files: ").Append(Files).Append("\n");
             sb.Append("  Folders: ").Append(Folders).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -174,7 +205,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

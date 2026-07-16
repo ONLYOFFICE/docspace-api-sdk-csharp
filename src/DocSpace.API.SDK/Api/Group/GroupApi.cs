@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Group
@@ -98,7 +105,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get a group
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about the selected group.   **Note**: This method returns full group information.
+        /// Returns the detailed information about the selected group.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
@@ -111,7 +118,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get a group
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about the selected group.   **Note**: This method returns full group information.
+        /// Returns the detailed information about the selected group.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
@@ -146,7 +153,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+        /// Returns the general information about all the groups, such as group ID and group manager.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -164,7 +171,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+        /// Returns the general information about all the groups, such as group ID and group manager.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -392,7 +399,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get a group
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about the selected group.   **Note**: This method returns full group information.
+        /// Returns the detailed information about the selected group.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
@@ -406,7 +413,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get a group
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about the selected group.   **Note**: This method returns full group information.
+        /// Returns the detailed information about the selected group.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
@@ -444,7 +451,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+        /// Returns the general information about all the groups, such as group ID and group manager.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -463,7 +470,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+        /// Returns the general information about all the groups, such as group ID and group manager.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -1404,7 +1411,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get a group
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about the selected group.   **Note**: This method returns full group information.
+        /// Returns the detailed information about the selected group.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
@@ -1421,7 +1428,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get a group
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about the selected group.   **Note**: This method returns full group information.
+        /// Returns the detailed information about the selected group.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
@@ -1499,7 +1506,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get a group
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about the selected group.   **Note**: This method returns full group information.
+        /// Returns the detailed information about the selected group.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
@@ -1517,7 +1524,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get a group
         /// </summary>
         /// <remarks>
-        /// Returns the detailed information about the selected group.   **Note**: This method returns full group information.
+        /// Returns the detailed information about the selected group.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The group ID.</param>
@@ -1780,7 +1787,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+        /// Returns the general information about all the groups, such as group ID and group manager.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -1802,7 +1809,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+        /// Returns the general information about all the groups, such as group ID and group manager.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -1912,7 +1919,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+        /// Returns the general information about all the groups, such as group ID and group manager.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>
@@ -1935,7 +1942,7 @@ namespace DocSpace.API.SDK.Api.Group
         /// Get groups
         /// </summary>
         /// <remarks>
-        /// Returns the general information about all the groups, such as group ID and group manager.   **Note**: This method returns partial group information.
+        /// Returns the general information about all the groups, such as group ID and group manager.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId">The user ID. (optional)</param>

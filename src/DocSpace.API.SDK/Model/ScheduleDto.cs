@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,14 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// ScheduleDto
+    /// The backup schedule parameters.
     /// </summary>
     [DataContract(Name = "ScheduleDto")]
     public partial class ScheduleDto : IValidatableObject
@@ -40,11 +53,11 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ScheduleDto" /> class.
         /// </summary>
         /// <param name="storageType">storageType (required).</param>
-        /// <param name="storageParams">storageParams (required).</param>
+        /// <param name="storageParams">The backup storage parameters. (required).</param>
         /// <param name="cronParams">cronParams (required).</param>
-        /// <param name="backupsStored">backupsStored.</param>
-        /// <param name="lastBackupTime">lastBackupTime (required).</param>
-        /// <param name="dump">dump (required).</param>
+        /// <param name="backupsStored">The maximum number of the stored backup copies..</param>
+        /// <param name="lastBackupTime">The date and time when the last backup was reated. (required).</param>
+        /// <param name="dump">Specifies if a dump will be created or not. (required).</param>
         public ScheduleDto(BackupStorageType storageType = default, Dictionary<string, string> storageParams = default, CronParams cronParams = default, int? backupsStored = default, DateTime lastBackupTime = default, bool dump = default)
         {
             this.StorageType = storageType;
@@ -66,11 +79,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets StorageParams
+        /// The backup storage parameters.
         /// </summary>
-        /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:&quot;some text&quot;}]</example>
-        */
+        /// <value>The backup storage parameters.</value>
         [DataMember(Name = "storageParams", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, string> StorageParams { get; set; }
 
@@ -81,26 +92,29 @@ namespace DocSpace.API.SDK.Model
         public CronParams CronParams { get; set; }
 
         /// <summary>
-        /// Gets or Sets BackupsStored
+        /// The maximum number of the stored backup copies.
         /// </summary>
+        /// <value>The maximum number of the stored backup copies.</value>
         /*
-        <example>1234</example>
+        <example>5</example>
         */
         [DataMember(Name = "backupsStored", EmitDefaultValue = true)]
         public int? BackupsStored { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastBackupTime
+        /// The date and time when the last backup was reated.
         /// </summary>
+        /// <value>The date and time when the last backup was reated.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2026-01-01T00:00Z</example>
         */
         [DataMember(Name = "lastBackupTime", IsRequired = true, EmitDefaultValue = true)]
         public DateTime LastBackupTime { get; set; }
 
         /// <summary>
-        /// Gets or Sets Dump
+        /// Specifies if a dump will be created or not.
         /// </summary>
+        /// <value>Specifies if a dump will be created or not.</value>
         /*
         <example>false</example>
         */
@@ -131,7 +145,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

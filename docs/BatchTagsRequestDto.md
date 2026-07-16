@@ -5,7 +5,7 @@ The parameters for managing room tags.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Names** | **List&lt;string&gt;** | The list of tag names. | [optional] 
+**Names** | **List&lt;string&gt;** | The list of tag names. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

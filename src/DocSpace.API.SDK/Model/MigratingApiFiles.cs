@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -41,27 +54,18 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Gets or Sets FoldersCount
         /// </summary>
-        /*
-        <example>1234</example>
-        */
         [DataMember(Name = "foldersCount", EmitDefaultValue = false)]
         public int FoldersCount { get; set; }
 
         /// <summary>
         /// Gets or Sets FilesCount
         /// </summary>
-        /*
-        <example>1234</example>
-        */
         [DataMember(Name = "filesCount", EmitDefaultValue = false)]
         public int FilesCount { get; set; }
 
         /// <summary>
         /// Gets or Sets BytesTotal
         /// </summary>
-        /*
-        <example>1234</example>
-        */
         [DataMember(Name = "bytesTotal", EmitDefaultValue = false)]
         public long BytesTotal { get; set; }
 
@@ -86,7 +90,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

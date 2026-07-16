@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -90,7 +103,6 @@ namespace DocSpace.API.SDK.Model
             /// </summary>
             ContentCreator = 11
         }
-
     
         /// <summary>
         /// Initializes a new instance of the <see cref="FilesSettingsDto" /> class.
@@ -152,9 +164,14 @@ namespace DocSpace.API.SDK.Model
         /// <param name="maxUploadThreadCount">The maximum number of upload threads..</param>
         /// <param name="chunkUploadSize">The size of a large file that is uploaded in chunks..</param>
         /// <param name="openEditorInSameTab">Specifies whether to open the editor in the same tab or not..</param>
+        /// <param name="organizeRoomsGrouping">Specifies whether the grouping of rooms is enabled or not..</param>
+        /// <param name="defaultShareLinkInternal">Specifies the default sharing link type: true &#x3D; DocSpace users only (internal), false &#x3D; Anyone with the link..</param>
+        /// <param name="externalShareApplyToDocuments">When external sharing is restricted, specifies whether the restriction applies to the My Documents section..</param>
+        /// <param name="externalShareApplyToRooms">When external sharing is restricted, specifies whether the restriction applies to the Rooms section..</param>
+        /// <param name="blockExistingLinksOnRestrict">When external sharing is restricted, specifies whether existing public links are blocked immediately..</param>
         /// <param name="extsFilesVectorized">List of extensions available for vectorization.</param>
         /// <param name="maxVectorizationFileSize">The maximum file size for vectorization.</param>
-        public FilesSettingsDto(List<string> extsImagePreviewed = default, List<string> extsMediaPreviewed = default, List<string> extsWebPreviewed = default, List<string> extsWebEdited = default, List<string> extsWebEncrypt = default, List<string> extsWebReviewed = default, List<string> extsWebCustomFilterEditing = default, List<string> extsWebRestrictedEditing = default, List<string> extsWebCommented = default, List<string> extsWebTemplate = default, List<string> extsMustConvert = default, Dictionary<string, List<string>> extsConvertible = default, List<string> extsUploadable = default, List<string> extsArchive = default, List<string> extsVideo = default, List<string> extsAudio = default, List<string> extsImage = default, List<string> extsSpreadsheet = default, List<string> extsPresentation = default, List<string> extsDocument = default, List<string> extsDiagram = default, FilesSettingsDtoInternalFormats internalFormats = default, string masterFormExtension = default, string paramVersion = default, string paramOutType = default, string fileDownloadUrlString = default, string fileWebViewerUrlString = default, string fileWebViewerExternalUrlString = default, string fileWebEditorUrlString = default, string fileWebEditorExternalUrlString = default, string fileRedirectPreviewUrlString = default, string fileThumbnailUrlString = default, bool confirmDelete = default, bool enableThirdParty = default, bool externalShare = default, bool externalShareSocialMedia = default, bool storeOriginalFiles = default, bool keepNewFileName = default, bool displayFileExtension = default, bool convertNotify = default, bool hideConfirmCancelOperation = default, bool hideConfirmConvertSave = default, bool hideConfirmConvertOpen = default, bool hideConfirmRoomLifetime = default, OrderBy defaultOrder = default, bool forcesave = default, bool storeForcesave = default, bool recentSection = default, bool favoritesSection = default, bool templatesSection = default, bool downloadTarGz = default, AutoCleanUpData automaticallyCleanUp = default, bool canSearchByContent = default, List<FilesSettingsDto.DefaultSharingAccessRightsEnum> defaultSharingAccessRights = default, int maxUploadThreadCount = default, long chunkUploadSize = default, bool openEditorInSameTab = default, List<string> extsFilesVectorized = default, long maxVectorizationFileSize = default)
+        public FilesSettingsDto(List<string> extsImagePreviewed = default, List<string> extsMediaPreviewed = default, List<string> extsWebPreviewed = default, List<string> extsWebEdited = default, List<string> extsWebEncrypt = default, List<string> extsWebReviewed = default, List<string> extsWebCustomFilterEditing = default, List<string> extsWebRestrictedEditing = default, List<string> extsWebCommented = default, List<string> extsWebTemplate = default, List<string> extsMustConvert = default, Dictionary<string, List<string>> extsConvertible = default, List<string> extsUploadable = default, List<string> extsArchive = default, List<string> extsVideo = default, List<string> extsAudio = default, List<string> extsImage = default, List<string> extsSpreadsheet = default, List<string> extsPresentation = default, List<string> extsDocument = default, List<string> extsDiagram = default, FilesSettingsDtoInternalFormats internalFormats = default, string masterFormExtension = default, string paramVersion = default, string paramOutType = default, string fileDownloadUrlString = default, string fileWebViewerUrlString = default, string fileWebViewerExternalUrlString = default, string fileWebEditorUrlString = default, string fileWebEditorExternalUrlString = default, string fileRedirectPreviewUrlString = default, string fileThumbnailUrlString = default, bool confirmDelete = default, bool enableThirdParty = default, bool externalShare = default, bool externalShareSocialMedia = default, bool storeOriginalFiles = default, bool keepNewFileName = default, bool displayFileExtension = default, bool convertNotify = default, bool hideConfirmCancelOperation = default, bool hideConfirmConvertSave = default, bool hideConfirmConvertOpen = default, bool hideConfirmRoomLifetime = default, OrderBy defaultOrder = default, bool forcesave = default, bool storeForcesave = default, bool recentSection = default, bool favoritesSection = default, bool templatesSection = default, bool downloadTarGz = default, AutoCleanUpData automaticallyCleanUp = default, bool canSearchByContent = default, List<FilesSettingsDto.DefaultSharingAccessRightsEnum> defaultSharingAccessRights = default, int maxUploadThreadCount = default, long chunkUploadSize = default, bool openEditorInSameTab = default, bool organizeRoomsGrouping = default, bool defaultShareLinkInternal = default, bool externalShareApplyToDocuments = default, bool externalShareApplyToRooms = default, bool blockExistingLinksOnRestrict = default, List<string> extsFilesVectorized = default, long maxVectorizationFileSize = default)
         {
             this.ExtsImagePreviewed = extsImagePreviewed;
             this.ExtsMediaPreviewed = extsMediaPreviewed;
@@ -213,6 +230,11 @@ namespace DocSpace.API.SDK.Model
             this.MaxUploadThreadCount = maxUploadThreadCount;
             this.ChunkUploadSize = chunkUploadSize;
             this.OpenEditorInSameTab = openEditorInSameTab;
+            this.OrganizeRoomsGrouping = organizeRoomsGrouping;
+            this.DefaultShareLinkInternal = defaultShareLinkInternal;
+            this.ExternalShareApplyToDocuments = externalShareApplyToDocuments;
+            this.ExternalShareApplyToRooms = externalShareApplyToRooms;
+            this.BlockExistingLinksOnRestrict = blockExistingLinksOnRestrict;
             this.ExtsFilesVectorized = extsFilesVectorized;
             this.MaxVectorizationFileSize = maxVectorizationFileSize;
         }
@@ -222,7 +244,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the viewed images.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".bmp",".gif",".jpeg",".jpg",".png",".svg"]</example>
         */
         [DataMember(Name = "extsImagePreviewed", EmitDefaultValue = true)]
         public List<string> ExtsImagePreviewed { get; set; }
@@ -232,7 +254,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the viewed media files.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".mp4",".webm",".mp3",".ogg"]</example>
         */
         [DataMember(Name = "extsMediaPreviewed", EmitDefaultValue = true)]
         public List<string> ExtsMediaPreviewed { get; set; }
@@ -242,7 +264,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the viewed files.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".docx",".xlsx",".pptx",".pdf"]</example>
         */
         [DataMember(Name = "extsWebPreviewed", EmitDefaultValue = true)]
         public List<string> ExtsWebPreviewed { get; set; }
@@ -252,7 +274,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the edited files.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".docx",".xlsx",".pptx"]</example>
         */
         [DataMember(Name = "extsWebEdited", EmitDefaultValue = true)]
         public List<string> ExtsWebEdited { get; set; }
@@ -262,7 +284,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the encrypted files.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".docx",".xlsx",".pptx"]</example>
         */
         [DataMember(Name = "extsWebEncrypt", EmitDefaultValue = true)]
         public List<string> ExtsWebEncrypt { get; set; }
@@ -272,7 +294,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the reviewed files.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".docx"]</example>
         */
         [DataMember(Name = "extsWebReviewed", EmitDefaultValue = true)]
         public List<string> ExtsWebReviewed { get; set; }
@@ -282,7 +304,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the custom filter files.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".xlsx"]</example>
         */
         [DataMember(Name = "extsWebCustomFilterEditing", EmitDefaultValue = true)]
         public List<string> ExtsWebCustomFilterEditing { get; set; }
@@ -292,7 +314,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the files that are restricted for editing.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".pdf"]</example>
         */
         [DataMember(Name = "extsWebRestrictedEditing", EmitDefaultValue = true)]
         public List<string> ExtsWebRestrictedEditing { get; set; }
@@ -302,7 +324,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the commented files.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".docx"]</example>
         */
         [DataMember(Name = "extsWebCommented", EmitDefaultValue = true)]
         public List<string> ExtsWebCommented { get; set; }
@@ -312,7 +334,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the template files.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".docx",".xlsx",".pptx"]</example>
         */
         [DataMember(Name = "extsWebTemplate", EmitDefaultValue = true)]
         public List<string> ExtsWebTemplate { get; set; }
@@ -322,7 +344,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the files that must be converted.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".doc",".xls",".ppt"]</example>
         */
         [DataMember(Name = "extsMustConvert", EmitDefaultValue = true)]
         public List<string> ExtsMustConvert { get; set; }
@@ -332,7 +354,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the convertible extensions.</value>
         /*
-        <example>[{&quot;key&quot;:&quot;some text&quot;,&quot;value&quot;:[&quot;some text&quot;]}]</example>
+        <example>{".doc":[".docx",".pdf"],".xls":[".xlsx",".pdf"]}</example>
         */
         [DataMember(Name = "extsConvertible", EmitDefaultValue = true)]
         public Dictionary<string, List<string>> ExtsConvertible { get; set; }
@@ -342,7 +364,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the uploadable extensions.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".docx",".xlsx",".pdf"]</example>
         */
         [DataMember(Name = "extsUploadable", EmitDefaultValue = true)]
         public List<string> ExtsUploadable { get; set; }
@@ -352,7 +374,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of extensions of the archive files.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".zip",".rar",".7z"]</example>
         */
         [DataMember(Name = "extsArchive", EmitDefaultValue = true)]
         public List<string> ExtsArchive { get; set; }
@@ -362,7 +384,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the video extensions.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".mp4",".webm",".avi"]</example>
         */
         [DataMember(Name = "extsVideo", EmitDefaultValue = true)]
         public List<string> ExtsVideo { get; set; }
@@ -372,7 +394,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the audio extensions.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".mp3",".ogg",".wav"]</example>
         */
         [DataMember(Name = "extsAudio", EmitDefaultValue = true)]
         public List<string> ExtsAudio { get; set; }
@@ -382,7 +404,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the image extensions.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".png",".jpg",".gif"]</example>
         */
         [DataMember(Name = "extsImage", EmitDefaultValue = true)]
         public List<string> ExtsImage { get; set; }
@@ -392,7 +414,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the spreadsheet extensions.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".xlsx",".xls",".ods"]</example>
         */
         [DataMember(Name = "extsSpreadsheet", EmitDefaultValue = true)]
         public List<string> ExtsSpreadsheet { get; set; }
@@ -402,7 +424,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the presentation extensions.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".pptx",".ppt",".odp"]</example>
         */
         [DataMember(Name = "extsPresentation", EmitDefaultValue = true)]
         public List<string> ExtsPresentation { get; set; }
@@ -412,7 +434,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the text document extensions.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".docx",".doc",".odt"]</example>
         */
         [DataMember(Name = "extsDocument", EmitDefaultValue = true)]
         public List<string> ExtsDocument { get; set; }
@@ -422,7 +444,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the diagram extensions.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".vsdx"]</example>
         */
         [DataMember(Name = "extsDiagram", EmitDefaultValue = true)]
         public List<string> ExtsDiagram { get; set; }
@@ -438,7 +460,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The master form extension.</value>
         /*
-        <example>some text</example>
+        <example>.docxf</example>
         */
         [DataMember(Name = "masterFormExtension", EmitDefaultValue = true)]
         public string MasterFormExtension { get; set; }
@@ -448,7 +470,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The URL parameter which specifies the file version.</value>
         /*
-        <example>some text</example>
+        <example>ver</example>
         */
         [DataMember(Name = "paramVersion", EmitDefaultValue = true)]
         public string ParamVersion { get; set; }
@@ -458,7 +480,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The URL parameter which specifies the output type of the converted file.</value>
         /*
-        <example>some text</example>
+        <example>otype</example>
         */
         [DataMember(Name = "paramOutType", EmitDefaultValue = true)]
         public string ParamOutType { get; set; }
@@ -468,7 +490,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The URL to download a file.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/products/files/httphandlers/filehandler.ashx?action=download&fileid={0}</example>
         */
         [DataMember(Name = "fileDownloadUrlString", EmitDefaultValue = true)]
         public string FileDownloadUrlString { get; set; }
@@ -478,7 +500,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The URL to the file web viewer.</value>
         /*
-        <example>some text</example>
+        <example>/products/files/doceditor?fileid={0}&action=view</example>
         */
         [DataMember(Name = "fileWebViewerUrlString", EmitDefaultValue = true)]
         public string FileWebViewerUrlString { get; set; }
@@ -488,7 +510,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The external URL to the file web viewer.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/products/files/doceditor?fileid={0}&action=view</example>
         */
         [DataMember(Name = "fileWebViewerExternalUrlString", EmitDefaultValue = true)]
         public string FileWebViewerExternalUrlString { get; set; }
@@ -498,7 +520,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The URL to the file web editor.</value>
         /*
-        <example>some text</example>
+        <example>/products/files/doceditor?fileid={0}&action=edit</example>
         */
         [DataMember(Name = "fileWebEditorUrlString", EmitDefaultValue = true)]
         public string FileWebEditorUrlString { get; set; }
@@ -508,7 +530,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The external URL to the file web editor.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/products/files/doceditor?fileid={0}&action=edit</example>
         */
         [DataMember(Name = "fileWebEditorExternalUrlString", EmitDefaultValue = true)]
         public string FileWebEditorExternalUrlString { get; set; }
@@ -518,7 +540,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The redirect URL to the file viewer.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/products/files/{0}</example>
         */
         [DataMember(Name = "fileRedirectPreviewUrlString", EmitDefaultValue = true)]
         public string FileRedirectPreviewUrlString { get; set; }
@@ -528,7 +550,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The URL to the file thumbnail.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/products/files/httphandlers/filehandler.ashx?action=thumb&fileid={0}</example>
         */
         [DataMember(Name = "fileThumbnailUrlString", EmitDefaultValue = true)]
         public string FileThumbnailUrlString { get; set; }
@@ -588,7 +610,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to keep the new file name.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "keepNewFileName", EmitDefaultValue = true)]
         public bool KeepNewFileName { get; set; }
@@ -618,7 +640,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to hide the confirmation dialog for the cancel operation.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "hideConfirmCancelOperation", EmitDefaultValue = true)]
         public bool HideConfirmCancelOperation { get; set; }
@@ -628,7 +650,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to hide the confirmation dialog  for saving the file copy in the original format when converting a file.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "hideConfirmConvertSave", EmitDefaultValue = true)]
         public bool HideConfirmConvertSave { get; set; }
@@ -638,7 +660,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to hide the confirmation dialog  for opening the conversion result.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "hideConfirmConvertOpen", EmitDefaultValue = true)]
         public bool HideConfirmConvertOpen { get; set; }
@@ -648,7 +670,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to hide the confirmation dialog about the file lifetime in the room.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "hideConfirmRoomLifetime", EmitDefaultValue = true)]
         public bool HideConfirmRoomLifetime { get; set; }
@@ -664,7 +686,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to forcesave the files or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "forcesave", EmitDefaultValue = true)]
         public bool Forcesave { get; set; }
@@ -674,7 +696,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to store the forcesaved file versions or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "storeForcesave", EmitDefaultValue = true)]
         public bool StoreForcesave { get; set; }
@@ -739,6 +761,9 @@ namespace DocSpace.API.SDK.Model
         /// The default access rights in sharing settings.
         /// </summary>
         /// <value>The default access rights in sharing settings.</value>
+        /*
+        <example>[1,2]</example>
+        */
         [DataMember(Name = "defaultSharingAccessRights", EmitDefaultValue = true)]
         public List<FilesSettingsDto.DefaultSharingAccessRightsEnum> DefaultSharingAccessRights { get; set; }
 
@@ -747,7 +772,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The maximum number of upload threads.</value>
         /*
-        <example>1234</example>
+        <example>10</example>
         */
         [DataMember(Name = "maxUploadThreadCount", EmitDefaultValue = false)]
         public int MaxUploadThreadCount { get; set; }
@@ -757,7 +782,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The size of a large file that is uploaded in chunks.</value>
         /*
-        <example>1234</example>
+        <example>10485760</example>
         */
         [DataMember(Name = "chunkUploadSize", EmitDefaultValue = false)]
         public long ChunkUploadSize { get; set; }
@@ -767,17 +792,67 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to open the editor in the same tab or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "openEditorInSameTab", EmitDefaultValue = true)]
         public bool OpenEditorInSameTab { get; set; }
+
+        /// <summary>
+        /// Specifies whether the grouping of rooms is enabled or not.
+        /// </summary>
+        /// <value>Specifies whether the grouping of rooms is enabled or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "organizeRoomsGrouping", EmitDefaultValue = true)]
+        public bool OrganizeRoomsGrouping { get; set; }
+
+        /// <summary>
+        /// Specifies the default sharing link type: true &#x3D; DocSpace users only (internal), false &#x3D; Anyone with the link.
+        /// </summary>
+        /// <value>Specifies the default sharing link type: true &#x3D; DocSpace users only (internal), false &#x3D; Anyone with the link.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "defaultShareLinkInternal", EmitDefaultValue = true)]
+        public bool DefaultShareLinkInternal { get; set; }
+
+        /// <summary>
+        /// When external sharing is restricted, specifies whether the restriction applies to the My Documents section.
+        /// </summary>
+        /// <value>When external sharing is restricted, specifies whether the restriction applies to the My Documents section.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "externalShareApplyToDocuments", EmitDefaultValue = true)]
+        public bool ExternalShareApplyToDocuments { get; set; }
+
+        /// <summary>
+        /// When external sharing is restricted, specifies whether the restriction applies to the Rooms section.
+        /// </summary>
+        /// <value>When external sharing is restricted, specifies whether the restriction applies to the Rooms section.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "externalShareApplyToRooms", EmitDefaultValue = true)]
+        public bool ExternalShareApplyToRooms { get; set; }
+
+        /// <summary>
+        /// When external sharing is restricted, specifies whether existing public links are blocked immediately.
+        /// </summary>
+        /// <value>When external sharing is restricted, specifies whether existing public links are blocked immediately.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "blockExistingLinksOnRestrict", EmitDefaultValue = true)]
+        public bool BlockExistingLinksOnRestrict { get; set; }
 
         /// <summary>
         /// List of extensions available for vectorization
         /// </summary>
         /// <value>List of extensions available for vectorization</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>[".docx",".pdf",".txt"]</example>
         */
         [DataMember(Name = "extsFilesVectorized", EmitDefaultValue = true)]
         public List<string> ExtsFilesVectorized { get; set; }
@@ -787,7 +862,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The maximum file size for vectorization</value>
         /*
-        <example>1234</example>
+        <example>5242880</example>
         */
         [DataMember(Name = "maxVectorizationFileSize", EmitDefaultValue = false)]
         public long MaxVectorizationFileSize { get; set; }
@@ -857,6 +932,11 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  MaxUploadThreadCount: ").Append(MaxUploadThreadCount).Append("\n");
             sb.Append("  ChunkUploadSize: ").Append(ChunkUploadSize).Append("\n");
             sb.Append("  OpenEditorInSameTab: ").Append(OpenEditorInSameTab).Append("\n");
+            sb.Append("  OrganizeRoomsGrouping: ").Append(OrganizeRoomsGrouping).Append("\n");
+            sb.Append("  DefaultShareLinkInternal: ").Append(DefaultShareLinkInternal).Append("\n");
+            sb.Append("  ExternalShareApplyToDocuments: ").Append(ExternalShareApplyToDocuments).Append("\n");
+            sb.Append("  ExternalShareApplyToRooms: ").Append(ExternalShareApplyToRooms).Append("\n");
+            sb.Append("  BlockExistingLinksOnRestrict: ").Append(BlockExistingLinksOnRestrict).Append("\n");
             sb.Append("  ExtsFilesVectorized: ").Append(ExtsFilesVectorized).Append("\n");
             sb.Append("  MaxVectorizationFileSize: ").Append(MaxVectorizationFileSize).Append("\n");
             sb.Append("}\n");
@@ -869,7 +949,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

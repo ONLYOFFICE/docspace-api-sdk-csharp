@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -31,6 +44,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="name">The client name..</param>
         /// <param name="description">The client description..</param>
         /// <param name="scopes">The client scopes..</param>
+        /// <param name="public">@public.</param>
         /// <param name="clientId">The client ID..</param>
         /// <param name="websiteUrl">The URL to the client&#39;s website.</param>
         /// <param name="termsUrl">The URL to the client&#39;s terms of service..</param>
@@ -42,11 +56,12 @@ namespace DocSpace.API.SDK.Model
         /// <param name="createdBy">The user who created the client..</param>
         /// <param name="modifiedOn">The date and time when the client was last modified..</param>
         /// <param name="modifiedBy">The user who last modified the client..</param>
-        public ClientInfoResponse(string name = default, string description = default, List<string> scopes = default, string clientId = default, string websiteUrl = default, string termsUrl = default, string policyUrl = default, string logo = default, List<string> authenticationMethods = default, bool isPublic = default, DateTime createdOn = default, string createdBy = default, DateTime modifiedOn = default, string modifiedBy = default)
+        public ClientInfoResponse(string name = default, string description = default, List<string> scopes = default, bool @public = default, string clientId = default, string websiteUrl = default, string termsUrl = default, string policyUrl = default, string logo = default, List<string> authenticationMethods = default, bool isPublic = default, DateTime createdOn = default, string createdBy = default, DateTime modifiedOn = default, string modifiedBy = default)
         {
             this.Name = name;
             this.Description = description;
             this.Scopes = scopes;
+            this.Public = @public;
             this.ClientId = clientId;
             this.WebsiteUrl = websiteUrl;
             this.TermsUrl = termsUrl;
@@ -80,6 +95,12 @@ namespace DocSpace.API.SDK.Model
         /// <value>The client scopes.</value>
         [DataMember(Name = "scopes", EmitDefaultValue = false)]
         public List<string> Scopes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Public
+        /// </summary>
+        [DataMember(Name = "public", EmitDefaultValue = true)]
+        public bool Public { get; set; }
 
         /// <summary>
         /// The client ID.
@@ -169,6 +190,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Scopes: ").Append(Scopes).Append("\n");
+            sb.Append("  Public: ").Append(Public).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  WebsiteUrl: ").Append(WebsiteUrl).Append("\n");
             sb.Append("  TermsUrl: ").Append(TermsUrl).Append("\n");
@@ -190,7 +212,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

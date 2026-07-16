@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Settings
@@ -67,6 +74,29 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>ApiResponse of BooleanWrapper</returns>
         ApiResponse<BooleanWrapper> SaveAuthKeysWithHttpInfo(AuthServiceRequestsDto? authServiceRequestsDto = default);
+        /// <summary>
+        /// Test external database connection
+        /// </summary>
+        /// <remarks>
+        /// Tests an external database connection with the provided settings without saving them.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
+        /// <returns>ConnectionTestResultWrapper</returns>
+        ConnectionTestResultWrapper TestExternalDatabaseConnection(ExternalDatabaseSettings? externalDatabaseSettings = default);
+
+        /// <summary>
+        /// Test external database connection
+        /// </summary>
+        /// <remarks>
+        /// Tests an external database connection with the provided settings without saving them.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
+        /// <returns>ApiResponse of ConnectionTestResultWrapper</returns>
+        ApiResponse<ConnectionTestResultWrapper> TestExternalDatabaseConnectionWithHttpInfo(ExternalDatabaseSettings? externalDatabaseSettings = default);
         #endregion Synchronous Operations
     }
 
@@ -124,6 +154,31 @@ namespace DocSpace.API.SDK.Api.Settings
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/save-auth-keys/">REST API Reference for SaveAuthKeys Operation</seealso>
         /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
         Task<ApiResponse<BooleanWrapper>> SaveAuthKeysWithHttpInfoAsync(AuthServiceRequestsDto? authServiceRequestsDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Test external database connection
+        /// </summary>
+        /// <remarks>
+        /// Tests an external database connection with the provided settings without saving them.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
+        /// <returns>Task of ConnectionTestResultWrapper</returns>
+        Task<ConnectionTestResultWrapper> TestExternalDatabaseConnectionAsync(ExternalDatabaseSettings? externalDatabaseSettings = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Test external database connection
+        /// </summary>
+        /// <remarks>
+        /// Tests an external database connection with the provided settings without saving them.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
+        /// <returns>Task of ApiResponse (ConnectionTestResultWrapper)</returns>
+        Task<ApiResponse<ConnectionTestResultWrapper>> TestExternalDatabaseConnectionWithHttpInfoAsync(ExternalDatabaseSettings? externalDatabaseSettings = default, CancellationToken cancellationToken = default);
         #endregion Asynchronous Operations
     }
 
@@ -688,6 +743,188 @@ namespace DocSpace.API.SDK.Api.Settings
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("SaveAuthKeys", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Test external database connection
+        /// </summary>
+        /// <remarks>
+        /// Tests an external database connection with the provided settings without saving them.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
+        /// <returns>ConnectionTestResultWrapper</returns>
+        public ConnectionTestResultWrapper TestExternalDatabaseConnection(ExternalDatabaseSettings? externalDatabaseSettings = default)
+        {
+            var localVarResponse = TestExternalDatabaseConnectionWithHttpInfo(externalDatabaseSettings);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Test external database connection
+        /// </summary>
+        /// <remarks>
+        /// Tests an external database connection with the provided settings without saving them.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
+        /// <returns>ApiResponse of ConnectionTestResultWrapper</returns>
+        public ApiResponse<ConnectionTestResultWrapper> TestExternalDatabaseConnectionWithHttpInfo(ExternalDatabaseSettings? externalDatabaseSettings = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (externalDatabaseSettings != null) localVarRequestOptions.Data = externalDatabaseSettings;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<ConnectionTestResultWrapper>("/api/2.0/settings/authservice/externaldb/test", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("TestExternalDatabaseConnection", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Test external database connection
+        /// </summary>
+        /// <remarks>
+        /// Tests an external database connection with the provided settings without saving them.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
+        /// <returns>Task of ConnectionTestResultWrapper</returns>
+        public async Task<ConnectionTestResultWrapper> TestExternalDatabaseConnectionAsync(ExternalDatabaseSettings? externalDatabaseSettings = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await TestExternalDatabaseConnectionWithHttpInfoAsync(externalDatabaseSettings, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Test external database connection
+        /// </summary>
+        /// <remarks>
+        /// Tests an external database connection with the provided settings without saving them.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="externalDatabaseSettings"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/test-external-database-connection/">REST API Reference for TestExternalDatabaseConnection Operation</seealso>
+        /// <returns>Task of ApiResponse (ConnectionTestResultWrapper)</returns>
+        public async Task<ApiResponse<ConnectionTestResultWrapper>> TestExternalDatabaseConnectionWithHttpInfoAsync(ExternalDatabaseSettings? externalDatabaseSettings = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (externalDatabaseSettings != null) localVarRequestOptions.Data = externalDatabaseSettings;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<ConnectionTestResultWrapper>("/api/2.0/settings/authservice/externaldb/test", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("TestExternalDatabaseConnection", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

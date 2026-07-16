@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -43,12 +56,14 @@ namespace DocSpace.API.SDK.Model
         /// <param name="linkId">The room link ID..</param>
         /// <param name="access">access.</param>
         /// <param name="expirationDate">expirationDate.</param>
-        /// <param name="@internal">The link scope, whether it is internal or not..</param>
+        /// <param name="internal">The link scope, whether it is internal or not..</param>
         /// <param name="title">The link name..</param>
         /// <param name="linkType">linkType.</param>
         /// <param name="password">The link password..</param>
         /// <param name="denyDownload">Specifies if downloading the file from the link is disabled or not..</param>
-        public RoomLinkRequest(Guid linkId = default, FileShare? access = default, ApiDateTime expirationDate = default, bool @internal = default, string title = default, LinkType? linkType = default, string password = default, bool denyDownload = default)
+        /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
+        /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>
+        public RoomLinkRequest(Guid linkId = default, FileShare? access = default, ApiDateTime expirationDate = default, bool @internal = default, string title = default, LinkType? linkType = default, string password = default, bool denyDownload = default, int? maxUseCount = default, int currentUseCount = default)
         {
             this.LinkId = linkId;
             this.Access = access;
@@ -58,6 +73,8 @@ namespace DocSpace.API.SDK.Model
             this.LinkType = linkType;
             this.Password = password;
             this.DenyDownload = denyDownload;
+            this.MaxUseCount = maxUseCount;
+            this.CurrentUseCount = currentUseCount;
         }
 
         /// <summary>
@@ -65,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room link ID.</value>
         /*
-        <example>75a5f745-f697-4418-b38d-0fe0d277e258</example>
+        <example>00000000-0000-0000-0000-000000000000</example>
         */
         [DataMember(Name = "linkId", EmitDefaultValue = false)]
         public Guid LinkId { get; set; }
@@ -81,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The link scope, whether it is internal or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "internal", EmitDefaultValue = true)]
         public bool Internal { get; set; }
@@ -91,7 +108,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The link name.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>My Document</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -101,7 +118,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The link password.</value>
         /*
-        <example>vfmf2vO1Kp</example>
+        <example>doc_key_123</example>
         */
         [DataMember(Name = "password", EmitDefaultValue = true)]
         public string Password { get; set; }
@@ -111,10 +128,30 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if downloading the file from the link is disabled or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool DenyDownload { get; set; }
+
+        /// <summary>
+        /// The maximum number of times the invitation link can be used.
+        /// </summary>
+        /// <value>The maximum number of times the invitation link can be used.</value>
+        /*
+        <example>25</example>
+        */
+        [DataMember(Name = "maxUseCount", EmitDefaultValue = true)]
+        public int? MaxUseCount { get; set; }
+
+        /// <summary>
+        /// The current number of times the invitation link has been used.
+        /// </summary>
+        /// <value>The current number of times the invitation link has been used.</value>
+        /*
+        <example>0</example>
+        */
+        [DataMember(Name = "currentUseCount", EmitDefaultValue = false)]
+        public int CurrentUseCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -132,6 +169,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  LinkType: ").Append(LinkType).Append("\n");
             sb.Append("  Password: ").Append(Password).Append("\n");
             sb.Append("  DenyDownload: ").Append(DenyDownload).Append("\n");
+            sb.Append("  MaxUseCount: ").Append(MaxUseCount).Append("\n");
+            sb.Append("  CurrentUseCount: ").Append(CurrentUseCount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,7 +181,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -174,6 +213,18 @@ namespace DocSpace.API.SDK.Model
             if (this.Password != null && this.Password.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Password, length must be greater than 0.", new [] { "Password" });
+            }
+
+            // MaxUseCount (int?) maximum
+            if (this.MaxUseCount > (int?)1000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxUseCount, must be a value less than or equal to 1000.", new [] { "MaxUseCount" });
+            }
+
+            // MaxUseCount (int?) minimum
+            if (this.MaxUseCount < (int?)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MaxUseCount, must be a value greater than or equal to 1.", new [] { "MaxUseCount" });
             }
 
             yield break;

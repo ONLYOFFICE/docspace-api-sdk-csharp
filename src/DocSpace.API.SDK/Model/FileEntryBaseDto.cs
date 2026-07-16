@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -58,6 +71,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="ownedBy">ownedBy.</param>
         /// <param name="shared">Specifies if the file entry is shared via link or not..</param>
         /// <param name="sharedForUser">Specifies if the file entry is shared for user or not..</param>
+        /// <param name="sharedExternal">Specifies if the file entry is shared via a public (non-internal) external link..</param>
         /// <param name="parentShared">Indicates whether the parent entity is shared..</param>
         /// <param name="shortWebUrl">The short Web URL..</param>
         /// <param name="created">created.</param>
@@ -73,7 +87,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="order">The order of the file entry..</param>
         /// <param name="isFavorite">Specifies if the file is a favorite or not..</param>
         /// <param name="fileEntryType">fileEntryType.</param>
-        public FileEntryBaseDto(string title = default, FileShare? access = default, EmployeeDto sharedBy = default, EmployeeDto ownedBy = default, bool shared = default, bool sharedForUser = default, bool parentShared = default, string shortWebUrl = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, bool? isFavorite = default, FileEntryType? fileEntryType = default)
+        public FileEntryBaseDto(string title = default, FileShare? access = default, EmployeeDto sharedBy = default, EmployeeDto ownedBy = default, bool shared = default, bool sharedForUser = default, bool sharedExternal = default, bool parentShared = default, string shortWebUrl = default, ApiDateTime created = default, EmployeeDto createdBy = default, ApiDateTime updated = default, ApiDateTime autoDelete = default, FolderType? rootFolderType = default, FolderType? parentRoomType = default, EmployeeDto updatedBy = default, bool? providerItem = default, string providerKey = default, int? providerId = default, string order = default, bool? isFavorite = default, FileEntryType? fileEntryType = default)
         {
             this.Title = title;
             this.Access = access;
@@ -81,6 +95,7 @@ namespace DocSpace.API.SDK.Model
             this.OwnedBy = ownedBy;
             this.Shared = shared;
             this.SharedForUser = sharedForUser;
+            this.SharedExternal = sharedExternal;
             this.ParentShared = parentShared;
             this.ShortWebUrl = shortWebUrl;
             this.Created = created;
@@ -103,7 +118,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The file entry title.</value>
         /*
-        <example>Some titile.txt/ Some title</example>
+        <example>Some title.txt</example>
         */
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -141,11 +156,21 @@ namespace DocSpace.API.SDK.Model
         public bool SharedForUser { get; set; }
 
         /// <summary>
+        /// Specifies if the file entry is shared via a public (non-internal) external link.
+        /// </summary>
+        /// <value>Specifies if the file entry is shared via a public (non-internal) external link.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "sharedExternal", EmitDefaultValue = true)]
+        public bool SharedExternal { get; set; }
+
+        /// <summary>
         /// Indicates whether the parent entity is shared.
         /// </summary>
         /// <value>Indicates whether the parent entity is shared.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "parentShared", EmitDefaultValue = true)]
         public bool ParentShared { get; set; }
@@ -155,7 +180,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The short Web URL.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/s/abc123</example>
         */
         [DataMember(Name = "shortWebUrl", EmitDefaultValue = true)]
         public string ShortWebUrl { get; set; }
@@ -195,7 +220,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the file entry provider is specified or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "providerItem", EmitDefaultValue = true)]
         public bool? ProviderItem { get; set; }
@@ -205,7 +230,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The provider key of the file entry.</value>
         /*
-        <example>some text</example>
+        <example>google-drive</example>
         */
         [DataMember(Name = "providerKey", EmitDefaultValue = true)]
         public string ProviderKey { get; set; }
@@ -215,7 +240,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The provider ID of the file entry.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "providerId", EmitDefaultValue = true)]
         public int? ProviderId { get; set; }
@@ -225,7 +250,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The order of the file entry.</value>
         /*
-        <example>some text</example>
+        <example>1</example>
         */
         [DataMember(Name = "order", EmitDefaultValue = true)]
         public string Order { get; set; }
@@ -235,7 +260,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the file is a favorite or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isFavorite", EmitDefaultValue = true)]
         public bool? IsFavorite { get; set; }
@@ -254,6 +279,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  OwnedBy: ").Append(OwnedBy).Append("\n");
             sb.Append("  Shared: ").Append(Shared).Append("\n");
             sb.Append("  SharedForUser: ").Append(SharedForUser).Append("\n");
+            sb.Append("  SharedExternal: ").Append(SharedExternal).Append("\n");
             sb.Append("  ParentShared: ").Append(ParentShared).Append("\n");
             sb.Append("  ShortWebUrl: ").Append(ShortWebUrl).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
@@ -279,7 +305,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

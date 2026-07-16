@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,28 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters;
+using System.Text;
+using System.Threading;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Web;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using ErrorEventArgs = Newtonsoft.Json.Serialization.ErrorEventArgs;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Polly;
+
 namespace DocSpace.API.SDK.Client
 {
     /// <summary>
@@ -22,12 +44,17 @@ namespace DocSpace.API.SDK.Client
     {
         private readonly IReadableConfiguration _configuration;
         private static readonly string _contentType = "application/json";
-        private readonly JsonSerializerOptions _serializerOptions = new JsonSerializerOptions
+        private readonly JsonSerializerSettings _serializerSettings = new JsonSerializerSettings
         {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            PropertyNameCaseInsensitive = true,
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-            WriteIndented = true
+            // OpenAPI generated types generally hide default constructors.
+            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+            ContractResolver = new DefaultContractResolver
+            {
+                NamingStrategy = new CamelCaseNamingStrategy
+                {
+                    OverrideSpecifiedNames = false
+                }
+            }
         };
 
         public CustomJsonCodec(IReadableConfiguration configuration)
@@ -35,9 +62,9 @@ namespace DocSpace.API.SDK.Client
             _configuration = configuration;
         }
 
-        public CustomJsonCodec(JsonSerializerOptions serializerOptions, IReadableConfiguration configuration)
+        public CustomJsonCodec(JsonSerializerSettings serializerSettings, IReadableConfiguration configuration)
         {
-            _serializerOptions = serializerOptions;
+            _serializerSettings = serializerSettings;
             _configuration = configuration;
         }
 
@@ -48,20 +75,20 @@ namespace DocSpace.API.SDK.Client
         /// <returns>A JSON string.</returns>
         public string Serialize(object obj)
         {
-            if (obj != null && obj is Model.AbstractOpenAPISchema)
+            if (obj != null && obj is DocSpace.API.SDK.Model.AbstractOpenAPISchema)
             {
                 // the object to be serialized is an oneOf/anyOf schema
-                return ((Model.AbstractOpenAPISchema)obj).ToJson();
+                return ((DocSpace.API.SDK.Model.AbstractOpenAPISchema)obj).ToJson();
             }
             else
             {
-                return JsonSerializer.Serialize(obj, _serializerOptions);
+                return JsonConvert.SerializeObject(obj, _serializerSettings);
             }
         }
 
         public async Task<T> Deserialize<T>(HttpResponseMessage response)
         {
-            var result = (T) await Deserialize(response, typeof(T)).ConfigureAwait(false);
+            var result = (T)await Deserialize(response, typeof(T)).ConfigureAwait(false);
             return result;
         }
 
@@ -77,13 +104,13 @@ namespace DocSpace.API.SDK.Client
             // process response headers, e.g. Access-Control-Allow-Methods
             foreach (var responseHeader in response.Headers)
             {
-                headers.Add(responseHeader.Key + "=" +  ClientUtils.ParameterToString(responseHeader.Value));
+                headers.Add(responseHeader.Key + "=" + ClientUtils.ParameterToString(responseHeader.Value));
             }
 
             // process response content headers, e.g. Content-Type
             foreach (var responseHeader in response.Content.Headers)
             {
-                headers.Add(responseHeader.Key + "=" +  ClientUtils.ParameterToString(responseHeader.Value));
+                headers.Add(responseHeader.Key + "=" + ClientUtils.ParameterToString(responseHeader.Value));
             }
 
             // RFC 2183 & RFC 2616
@@ -94,13 +121,14 @@ namespace DocSpace.API.SDK.Client
             }
             else if (type == typeof(FileParameter))
             {
-                if (headers != null) {
+                if (headers != null)
+                {
                     foreach (var header in headers)
                     {
                         var match = fileNameRegex.Match(header.ToString());
                         if (match.Success)
                         {
-                            var fileName = ClientUtils.SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
+                            string fileName = ClientUtils.SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
                             return new FileParameter(fileName, await response.Content.ReadAsStreamAsync().ConfigureAwait(false));
                         }
                     }
@@ -123,7 +151,7 @@ namespace DocSpace.API.SDK.Client
                         var match = fileNameRegex.Match(header.ToString());
                         if (match.Success)
                         {
-                            var fileName = filePath + ClientUtils.SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
+                            string fileName = filePath + ClientUtils.SanitizeFilename(match.Groups[1].Value.Replace("\"", "").Replace("'", ""));
                             File.WriteAllBytes(fileName, bytes);
                             return new FileStream(fileName, FileMode.Open);
                         }
@@ -146,8 +174,7 @@ namespace DocSpace.API.SDK.Client
             // at this point, it must be a model (json)
             try
             {
-                var jsonString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                return JsonSerializer.Deserialize(jsonString, type, _serializerOptions);
+                return JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync().ConfigureAwait(false), type, _serializerSettings);
             }
             catch (Exception e)
             {
@@ -174,6 +201,7 @@ namespace DocSpace.API.SDK.Client
     /// </remarks>
     public partial class ApiClient : IDisposable, ISynchronousClient, IAsynchronousClient
     {
+        private static readonly HttpRequestOptionsKey<List<Cookie>> _httpOptionsCookieContainerKey = new("CookieContainer");
         private readonly string _baseUrl;
 
         private readonly HttpClientHandler _httpClientHandler;
@@ -184,12 +212,17 @@ namespace DocSpace.API.SDK.Client
         /// Specifies the settings on a <see cref="JsonSerializer" /> object.
         /// These settings can be adjusted to accommodate custom serialization rules.
         /// </summary>
-        public JsonSerializerOptions SerializerSettings { get; set; } = new JsonSerializerOptions
+        public JsonSerializerSettings SerializerSettings { get; set; } = new JsonSerializerSettings
         {
-            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
-            PropertyNameCaseInsensitive = true,
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-            WriteIndented = true
+            // OpenAPI generated types generally hide default constructors.
+            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+            ContractResolver = new DefaultContractResolver
+            {
+                NamingStrategy = new CamelCaseNamingStrategy
+                {
+                    OverrideSpecifiedNames = false
+                }
+            }
         };
 
         /// <summary>
@@ -261,7 +294,8 @@ namespace DocSpace.API.SDK.Client
         /// </summary>
         public void Dispose()
         {
-            if(_disposeClient) {
+            if(_disposeClient)
+            {
                 _httpClient.Dispose();
             }
         }
@@ -389,7 +423,7 @@ namespace DocSpace.API.SDK.Client
             // TODO provide an alternative that allows cookies per request instead of per API client
             if (options.Cookies != null && options.Cookies.Count > 0)
             {
-                request.Properties["CookieContainer"] = options.Cookies;
+                request.Options.Set(_httpOptionsCookieContainerKey, options.Cookies);
             }
 
             return request;
@@ -400,7 +434,7 @@ namespace DocSpace.API.SDK.Client
 
         private async Task<ApiResponse<T>> ToApiResponse<T>(HttpResponseMessage response, object responseData, Uri uri)
         {
-            T result = (T) responseData;
+            T result = (T)responseData;
             string rawContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
             var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(), result, rawContent)
@@ -435,7 +469,7 @@ namespace DocSpace.API.SDK.Client
                         transformed.Cookies.Add(cookie);
                     }
                 }
-                catch (PlatformNotSupportedException) {}
+                catch (PlatformNotSupportedException) { }
             }
 
             return transformed;
@@ -472,15 +506,14 @@ namespace DocSpace.API.SDK.Client
 
                 if (configuration.ClientCertificates != null)
                 {
-                    if(_httpClientHandler == null) throw new InvalidOperationException("Configuration `ClientCertificates` not supported when the client is explicitly created without an HttpClientHandler, use the proper constructor.");
+                    if (_httpClientHandler == null) throw new InvalidOperationException("Configuration `ClientCertificates` not supported when the client is explicitly created without an HttpClientHandler, use the proper constructor.");
                     _httpClientHandler.ClientCertificates.AddRange(configuration.ClientCertificates);
                 }
 
-                var cookieContainer = req.Properties.ContainsKey("CookieContainer") ? req.Properties["CookieContainer"] as List<Cookie> : null;
 
-                if (cookieContainer != null)
+                if (req.Options.TryGetValue(_httpOptionsCookieContainerKey, out var cookieContainer))
                 {
-                    if(_httpClientHandler == null) throw new InvalidOperationException("Request property `CookieContainer` not supported when the client is explicitly created without an HttpClientHandler, use the proper constructor.");
+                    if (_httpClientHandler == null) throw new InvalidOperationException("Request property `CookieContainer` not supported when the client is explicitly created without an HttpClientHandler, use the proper constructor.");
                     foreach (var cookie in cookieContainer)
                     {
                         _httpClientHandler.CookieContainer.Add(cookie);
@@ -518,11 +551,11 @@ namespace DocSpace.API.SDK.Client
                 // if the response type is oneOf/anyOf, call FromJSON to deserialize the data
                 if (typeof(DocSpace.API.SDK.Model.AbstractOpenAPISchema).IsAssignableFrom(typeof(T)))
                 {
-                    responseData = (T) typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
+                    responseData = (T)typeof(T).GetMethod("FromJson").Invoke(null, new object[] { response.Content });
                 }
                 else if (typeof(T).Name == "Stream") // for binary response
                 {
-                    responseData = (T) (object) await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
+                    responseData = (T)(object) await response.Content.ReadAsStreamAsync().ConfigureAwait(false);
                 }
 
                 InterceptResponse(req, response);

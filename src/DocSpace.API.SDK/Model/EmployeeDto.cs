@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -29,8 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="EmployeeDto" /> class.
         /// </summary>
         /// <param name="id">The user ID..</param>
-        /// <param name="displayName">The user display name..</param>
-        /// <param name="title">The user title..</param>
+        /// <param name="displayName">The HTML-encoded user&#39;s display name formatted according to the default format for the current culture..</param>
         /// <param name="avatar">The user avatar..</param>
         /// <param name="avatarOriginal">The user original size avatar..</param>
         /// <param name="avatarMax">The user maximum size avatar..</param>
@@ -39,11 +51,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="profileUrl">The user profile URL..</param>
         /// <param name="hasAvatar">Specifies if the user has an avatar or not..</param>
         /// <param name="isAnonim">Specifies if the user is anonymous or not..</param>
-        public EmployeeDto(Guid id = default, string displayName = default, string title = default, string avatar = default, string avatarOriginal = default, string avatarMax = default, string avatarMedium = default, string avatarSmall = default, string profileUrl = default, bool hasAvatar = default, bool isAnonim = default)
+        public EmployeeDto(Guid id = default, string displayName = default, string avatar = default, string avatarOriginal = default, string avatarMax = default, string avatarMedium = default, string avatarSmall = default, string profileUrl = default, bool hasAvatar = default, bool isAnonim = default)
         {
             this.Id = id;
             this.DisplayName = displayName;
-            this.Title = title;
             this.Avatar = avatar;
             this.AvatarOriginal = avatarOriginal;
             this.AvatarMax = avatarMax;
@@ -58,13 +69,16 @@ namespace DocSpace.API.SDK.Model
         /// The user ID.
         /// </summary>
         /// <value>The user ID.</value>
+        /*
+        <example>00000000-0000-0000-0000-000000000000</example>
+        */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// The user display name.
+        /// The HTML-encoded user&#39;s display name formatted according to the default format for the current culture.
         /// </summary>
-        /// <value>The user display name.</value>
+        /// <value>The HTML-encoded user&#39;s display name formatted according to the default format for the current culture.</value>
         /*
         <example>Mike Zanyatski</example>
         */
@@ -72,21 +86,11 @@ namespace DocSpace.API.SDK.Model
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The user title.
-        /// </summary>
-        /// <value>The user title.</value>
-        /*
-        <example>Manager</example>
-        */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
-        public string Title { get; set; }
-
-        /// <summary>
         /// The user avatar.
         /// </summary>
         /// <value>The user avatar.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/avatar.jpg</example>
         */
         [DataMember(Name = "avatar", EmitDefaultValue = true)]
         public string Avatar { get; set; }
@@ -96,7 +100,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user original size avatar.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/avatar_original.jpg</example>
         */
         [DataMember(Name = "avatarOriginal", EmitDefaultValue = true)]
         public string AvatarOriginal { get; set; }
@@ -106,7 +110,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user maximum size avatar.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/avatar_max.jpg</example>
         */
         [DataMember(Name = "avatarMax", EmitDefaultValue = true)]
         public string AvatarMax { get; set; }
@@ -116,7 +120,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user medium size avatar.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/avatar_medium.jpg</example>
         */
         [DataMember(Name = "avatarMedium", EmitDefaultValue = true)]
         public string AvatarMedium { get; set; }
@@ -126,7 +130,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user small size avatar.</value>
         /*
-        <example>url to small avatar</example>
+        <example>https://example.com/avatar_small.jpg</example>
         */
         [DataMember(Name = "avatarSmall", EmitDefaultValue = true)]
         public string AvatarSmall { get; set; }
@@ -136,7 +140,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user profile URL.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/profile/user123</example>
         */
         [DataMember(Name = "profileUrl", EmitDefaultValue = true)]
         public string ProfileUrl { get; set; }
@@ -156,7 +160,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user is anonymous or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isAnonim", EmitDefaultValue = true)]
         public bool IsAnonim { get; set; }
@@ -171,7 +175,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class EmployeeDto {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Avatar: ").Append(Avatar).Append("\n");
             sb.Append("  AvatarOriginal: ").Append(AvatarOriginal).Append("\n");
             sb.Append("  AvatarMax: ").Append(AvatarMax).Append("\n");
@@ -190,7 +193,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -61,7 +74,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The token expiration time.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>2024-01-15T10:30Z</example>
         */
         [DataMember(Name = "expires", EmitDefaultValue = false)]
         public DateTime Expires { get; set; }
@@ -71,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the authentication code is sent by SMS or not.</value>
         /*
-        <example>false</example>
+        <example>true</example>
         */
         [DataMember(Name = "sms", EmitDefaultValue = true)]
         public bool Sms { get; set; }
@@ -80,6 +93,9 @@ namespace DocSpace.API.SDK.Model
         /// The phone number.
         /// </summary>
         /// <value>The phone number.</value>
+        /*
+        <example>+1***1234</example>
+        */
         [DataMember(Name = "phoneNoise", EmitDefaultValue = true)]
         public string PhoneNoise { get; set; }
 
@@ -88,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the two-factor application is used or not.</value>
         /*
-        <example>false</example>
+        <example>true</example>
         */
         [DataMember(Name = "tfa", EmitDefaultValue = true)]
         public bool Tfa { get; set; }
@@ -97,6 +113,9 @@ namespace DocSpace.API.SDK.Model
         /// The two-factor authentication key.
         /// </summary>
         /// <value>The two-factor authentication key.</value>
+        /*
+        <example>JBSWY3DPEHPK3PXP</example>
+        */
         [DataMember(Name = "tfaKey", EmitDefaultValue = true)]
         public string TfaKey { get; set; }
 
@@ -105,7 +124,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The confirmation email URL.</value>
         /*
-        <example>some text</example>
+        <example>https://example.com/confirm?token=abc123</example>
         */
         [DataMember(Name = "confirmUrl", EmitDefaultValue = true)]
         public string ConfirmUrl { get; set; }
@@ -135,7 +154,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

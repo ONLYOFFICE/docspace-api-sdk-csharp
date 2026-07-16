@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -28,7 +41,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SsoSettingsV2" /> class.
         /// </summary>
-        /// <param name="lastModified">lastModified.</param>
+        /// <param name="lastModified">The timestamp indicating when the settings were last modified..</param>
         /// <param name="enableSso">Specifies if the SSO settings are enabled or not..</param>
         /// <param name="idpSettings">idpSettings.</param>
         /// <param name="idpCertificates">The list of the IdP certificates..</param>
@@ -57,10 +70,11 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// Gets or Sets LastModified
+        /// The timestamp indicating when the settings were last modified.
         /// </summary>
+        /// <value>The timestamp indicating when the settings were last modified.</value>
         /*
-        <example>2008-04-10T06:30+04:00</example>
+        <example>1990-01-01T00:00Z</example>
         */
         [DataMember(Name = "lastModified", EmitDefaultValue = false)]
         public DateTime LastModified { get; set; }
@@ -70,7 +84,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the SSO settings are enabled or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "enableSso", EmitDefaultValue = true)]
         public bool? EnableSso { get; set; }
@@ -85,6 +99,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of the IdP certificates.
         /// </summary>
         /// <value>The list of the IdP certificates.</value>
+        /*
+        <example>[{"crt":"base64-cert-data","key":"base64-key-data"}]</example>
+        */
         [DataMember(Name = "idpCertificates", EmitDefaultValue = true)]
         public List<SsoCertificate> IdpCertificates { get; set; }
 
@@ -99,7 +116,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The SP login label.</value>
         /*
-        <example>some text</example>
+        <example>Single Sign-on</example>
         */
         [DataMember(Name = "spLoginLabel", EmitDefaultValue = true)]
         public string SpLoginLabel { get; set; }
@@ -108,6 +125,9 @@ namespace DocSpace.API.SDK.Model
         /// The list of the SP certificates.
         /// </summary>
         /// <value>The list of the SP certificates.</value>
+        /*
+        <example>[{"crt":"base64-cert-data","key":"base64-key-data"}]</example>
+        */
         [DataMember(Name = "spCertificates", EmitDefaultValue = true)]
         public List<SsoCertificate> SpCertificates { get; set; }
 
@@ -128,7 +148,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the authentication page will be hidden or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "hideAuthPage", EmitDefaultValue = true)]
         public bool HideAuthPage { get; set; }
@@ -138,7 +158,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user type.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "usersType", EmitDefaultValue = false)]
         public int UsersType { get; set; }
@@ -148,7 +168,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the email verification is disabled or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "disableEmailVerification", EmitDefaultValue = true)]
         public bool DisableEmailVerification { get; set; }
@@ -183,7 +203,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

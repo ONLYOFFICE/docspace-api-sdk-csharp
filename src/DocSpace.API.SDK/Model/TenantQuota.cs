@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -35,6 +48,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="priceISOCurrencySymbol">The tenant price three-character ISO 4217 currency symbol..</param>
         /// <param name="productId">The tenant product ID..</param>
         /// <param name="serviceName">The service name..</param>
+        /// <param name="serviceGroup">The service group..</param>
         /// <param name="visible">Specifies if the tenant quota is visible or not..</param>
         /// <param name="wallet">Specifies if the tenant quota applies to the wallet or not.</param>
         /// <param name="dueDate">The quota due date..</param>
@@ -57,6 +71,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="branding">Specifies if the branding settings are available or not..</param>
         /// <param name="customization">Specifies if the customization settings are available or not..</param>
         /// <param name="lifetime">Specifies if the license has the lifetime settings or not..</param>
+        /// <param name="automationApi">Specifies if the Automation API is available or not..</param>
         /// <param name="custom">Specifies if the custom domain URL is available or not..</param>
         /// <param name="restore">Specifies if the restore is enabled or not..</param>
         /// <param name="oauth">Specifies if Oauth is available or not..</param>
@@ -64,9 +79,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="thirdParty">Specifies if the third-party accounts linking is available or not..</param>
         /// <param name="year">Specifies if the tenant quota is yearly subscription or not..</param>
         /// <param name="countFreeBackup">The number of free backups within a month..</param>
-        /// <param name="backup">Specifies if the backup anabled as a wallet service or not..</param>
+        /// <param name="backup">Specifies if the backup enabled as a wallet service or not..</param>
         /// <param name="countAIAgent">The number of AI agents..</param>
-        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, bool visible = default, bool wallet = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default)
+        /// <param name="aiTools">Specifies if the AI tools enabled as a wallet service or not..</param>
+        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, string serviceGroup = default, bool visible = default, bool wallet = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool automationApi = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default, bool aiTools = default)
         {
             this.TenantId = tenantId;
             this.Name = name;
@@ -75,6 +91,7 @@ namespace DocSpace.API.SDK.Model
             this.PriceISOCurrencySymbol = priceISOCurrencySymbol;
             this.ProductId = productId;
             this.ServiceName = serviceName;
+            this.ServiceGroup = serviceGroup;
             this.Visible = visible;
             this.Wallet = wallet;
             this.DueDate = dueDate;
@@ -97,6 +114,7 @@ namespace DocSpace.API.SDK.Model
             this.Branding = branding;
             this.Customization = customization;
             this.Lifetime = lifetime;
+            this.AutomationApi = automationApi;
             this.Custom = custom;
             this.Restore = restore;
             this.Oauth = oauth;
@@ -106,6 +124,7 @@ namespace DocSpace.API.SDK.Model
             this.CountFreeBackup = countFreeBackup;
             this.Backup = backup;
             this.CountAIAgent = countAIAgent;
+            this.AiTools = aiTools;
         }
 
         /// <summary>
@@ -113,7 +132,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant ID.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "tenantId", EmitDefaultValue = false)]
         public int TenantId { get; set; }
@@ -133,7 +152,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant price.</value>
         /*
-        <example>10</example>
+        <example>10.0</example>
         */
         [DataMember(Name = "price", EmitDefaultValue = false)]
         public double Price { get; set; }
@@ -143,7 +162,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant price currency symbol.</value>
         /*
-        <example>some text</example>
+        <example>$</example>
         */
         [DataMember(Name = "priceCurrencySymbol", EmitDefaultValue = true)]
         public string PriceCurrencySymbol { get; set; }
@@ -153,7 +172,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant price three-character ISO 4217 currency symbol.</value>
         /*
-        <example>some text</example>
+        <example>USD</example>
         */
         [DataMember(Name = "priceISOCurrencySymbol", EmitDefaultValue = true)]
         public string PriceISOCurrencySymbol { get; set; }
@@ -163,7 +182,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant product ID.</value>
         /*
-        <example>9846</example>
+        <example>64</example>
         */
         [DataMember(Name = "productId", EmitDefaultValue = true)]
         public string ProductId { get; set; }
@@ -173,10 +192,20 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The service name.</value>
         /*
-        <example>some text</example>
+        <example>backup</example>
         */
         [DataMember(Name = "serviceName", EmitDefaultValue = true)]
         public string ServiceName { get; set; }
+
+        /// <summary>
+        /// The service group.
+        /// </summary>
+        /// <value>The service group.</value>
+        /*
+        <example>services</example>
+        */
+        [DataMember(Name = "serviceGroup", EmitDefaultValue = true)]
+        public string ServiceGroup { get; set; }
 
         /// <summary>
         /// Specifies if the tenant quota is visible or not.
@@ -202,9 +231,6 @@ namespace DocSpace.API.SDK.Model
         /// The quota due date.
         /// </summary>
         /// <value>The quota due date.</value>
-        /*
-        <example>2008-04-10T06:30+04:00</example>
-        */
         [DataMember(Name = "dueDate", EmitDefaultValue = true)]
         public DateTime? DueDate { get; set; }
 
@@ -213,7 +239,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant quota features.</value>
         /*
-        <example>some text</example>
+        <example>audit,ldap,sso</example>
         */
         [DataMember(Name = "features", EmitDefaultValue = true)]
         public string Features { get; set; }
@@ -223,7 +249,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The tenant maximum file size.</value>
         /*
-        <example>26214400</example>
+        <example>25000000</example>
         */
         [DataMember(Name = "maxFileSize", EmitDefaultValue = false)]
         public long MaxFileSize { get; set; }
@@ -232,6 +258,9 @@ namespace DocSpace.API.SDK.Model
         /// The tenant maximum total size.
         /// </summary>
         /// <value>The tenant maximum total size.</value>
+        /*
+        <example>25000000000</example>
+        */
         [DataMember(Name = "maxTotalSize", EmitDefaultValue = false)]
         public long MaxTotalSize { get; set; }
 
@@ -240,7 +269,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The number of portal users.</value>
         /*
-        <example>1234</example>
+        <example>100</example>
         */
         [DataMember(Name = "countUser", EmitDefaultValue = false)]
         public int CountUser { get; set; }
@@ -250,7 +279,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The number of portal room administrators.</value>
         /*
-        <example>1234</example>
+        <example>10</example>
         */
         [DataMember(Name = "countRoomAdmin", EmitDefaultValue = false)]
         public int CountRoomAdmin { get; set; }
@@ -260,7 +289,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The number of room users.</value>
         /*
-        <example>1234</example>
+        <example>50</example>
         */
         [DataMember(Name = "usersInRoom", EmitDefaultValue = false)]
         public int UsersInRoom { get; set; }
@@ -270,7 +299,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The number of rooms.</value>
         /*
-        <example>1234</example>
+        <example>500</example>
         */
         [DataMember(Name = "countRoom", EmitDefaultValue = false)]
         public int CountRoom { get; set; }
@@ -280,7 +309,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the tenant quota is nonprofit or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "nonProfit", EmitDefaultValue = true)]
         public bool NonProfit { get; set; }
@@ -290,7 +319,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the tenant quota is trial or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "trial", EmitDefaultValue = true)]
         public bool Trial { get; set; }
@@ -300,7 +329,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the tenant quota is free or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "free", EmitDefaultValue = true)]
         public bool Free { get; set; }
@@ -310,7 +339,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the tenant quota is updated or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "update", EmitDefaultValue = true)]
         public bool Update { get; set; }
@@ -390,17 +419,27 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the license has the lifetime settings or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "lifetime", EmitDefaultValue = true)]
         public bool Lifetime { get; set; }
+
+        /// <summary>
+        /// Specifies if the Automation API is available or not.
+        /// </summary>
+        /// <value>Specifies if the Automation API is available or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "automationApi", EmitDefaultValue = true)]
+        public bool AutomationApi { get; set; }
 
         /// <summary>
         /// Specifies if the custom domain URL is available or not.
         /// </summary>
         /// <value>Specifies if the custom domain URL is available or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "custom", EmitDefaultValue = true)]
         public bool Custom { get; set; }
@@ -460,15 +499,15 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The number of free backups within a month.</value>
         /*
-        <example>1234</example>
+        <example>1</example>
         */
         [DataMember(Name = "countFreeBackup", EmitDefaultValue = false)]
         public int CountFreeBackup { get; set; }
 
         /// <summary>
-        /// Specifies if the backup anabled as a wallet service or not.
+        /// Specifies if the backup enabled as a wallet service or not.
         /// </summary>
-        /// <value>Specifies if the backup anabled as a wallet service or not.</value>
+        /// <value>Specifies if the backup enabled as a wallet service or not.</value>
         /*
         <example>true</example>
         */
@@ -480,10 +519,20 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The number of AI agents.</value>
         /*
-        <example>1234</example>
+        <example>5</example>
         */
         [DataMember(Name = "countAIAgent", EmitDefaultValue = false)]
         public int CountAIAgent { get; set; }
+
+        /// <summary>
+        /// Specifies if the AI tools enabled as a wallet service or not.
+        /// </summary>
+        /// <value>Specifies if the AI tools enabled as a wallet service or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiTools", EmitDefaultValue = true)]
+        public bool AiTools { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -500,6 +549,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  PriceISOCurrencySymbol: ").Append(PriceISOCurrencySymbol).Append("\n");
             sb.Append("  ProductId: ").Append(ProductId).Append("\n");
             sb.Append("  ServiceName: ").Append(ServiceName).Append("\n");
+            sb.Append("  ServiceGroup: ").Append(ServiceGroup).Append("\n");
             sb.Append("  Visible: ").Append(Visible).Append("\n");
             sb.Append("  Wallet: ").Append(Wallet).Append("\n");
             sb.Append("  DueDate: ").Append(DueDate).Append("\n");
@@ -522,6 +572,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Branding: ").Append(Branding).Append("\n");
             sb.Append("  Customization: ").Append(Customization).Append("\n");
             sb.Append("  Lifetime: ").Append(Lifetime).Append("\n");
+            sb.Append("  AutomationApi: ").Append(AutomationApi).Append("\n");
             sb.Append("  Custom: ").Append(Custom).Append("\n");
             sb.Append("  Restore: ").Append(Restore).Append("\n");
             sb.Append("  Oauth: ").Append(Oauth).Append("\n");
@@ -531,6 +582,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  CountFreeBackup: ").Append(CountFreeBackup).Append("\n");
             sb.Append("  Backup: ").Append(Backup).Append("\n");
             sb.Append("  CountAIAgent: ").Append(CountAIAgent).Append("\n");
+            sb.Append("  AiTools: ").Append(AiTools).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -541,7 +593,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

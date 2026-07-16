@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,14 +12,27 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The culture code parameters.
+    /// The culture name parameters.
     /// </summary>
     [DataContract(Name = "Culture")]
     public partial class Culture : IValidatableObject
@@ -28,20 +41,30 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Culture" /> class.
         /// </summary>
-        /// <param name="cultureName">The user language..</param>
+        [JsonConstructorAttribute]
+        protected Culture() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Culture" /> class.
+        /// </summary>
+        /// <param name="cultureName">The user culture name (en-US, de, fr, es, ...). (required).</param>
         public Culture(string cultureName = default)
         {
+            // to ensure "cultureName" is required (not null)
+            if (cultureName == null)
+            {
+                throw new ArgumentNullException("cultureName is a required property for Culture and cannot be null");
+            }
             this.CultureName = cultureName;
         }
 
         /// <summary>
-        /// The user language.
+        /// The user culture name (en-US, de, fr, es, ...).
         /// </summary>
-        /// <value>The user language.</value>
+        /// <value>The user culture name (en-US, de, fr, es, ...).</value>
         /*
-        <example>some text</example>
+        <example>en-US</example>
         */
-        [DataMember(Name = "cultureName", EmitDefaultValue = true)]
+        [DataMember(Name = "cultureName", IsRequired = true, EmitDefaultValue = true)]
         public string CultureName { get; set; }
 
         /// <summary>
@@ -63,7 +86,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -73,6 +96,18 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CultureName (string) maxLength
+            if (this.CultureName != null && this.CultureName.Length > 85)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CultureName, length must be less than 85.", new [] { "CultureName" });
+            }
+
+            // CultureName (string) minLength
+            if (this.CultureName != null && this.CultureName.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CultureName, length must be greater than 0.", new [] { "CultureName" });
+            }
+
             yield break;
         }
 

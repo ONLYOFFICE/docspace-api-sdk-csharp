@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -57,13 +70,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="userName">The user username..</param>
         /// <param name="email">The user email..</param>
         /// <param name="contacts">The list of user contacts..</param>
-        /// <param name="birthday">birthday.</param>
-        /// <param name="sex">The user sex..</param>
         /// <param name="status">status.</param>
         /// <param name="activationStatus">activationStatus.</param>
         /// <param name="terminated">terminated.</param>
         /// <param name="department">The user department..</param>
-        /// <param name="workFrom">workFrom.</param>
         /// <param name="groups">The list of user groups..</param>
         /// <param name="location">The user location..</param>
         /// <param name="notes">The user notes..</param>
@@ -89,20 +99,17 @@ namespace DocSpace.API.SDK.Model
         /// <param name="registrationDate">registrationDate.</param>
         /// <param name="hasPersonalFolder">Specifies if the user has a personal folder or not..</param>
         /// <param name="tfaAppEnabled">Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app..</param>
-        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, ApiDateTime birthday = default, string sex = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, ApiDateTime workFrom = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, double? authCookieLifetime = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool hasPersonalFolder = default, bool? tfaAppEnabled = default)
+        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, double? authCookieLifetime = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool? hasPersonalFolder = default, bool? tfaAppEnabled = default)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.UserName = userName;
             this.Email = email;
             this.Contacts = contacts;
-            this.Birthday = birthday;
-            this.Sex = sex;
             this.Status = status;
             this.ActivationStatus = activationStatus;
             this.Terminated = terminated;
             this.Department = department;
-            this.WorkFrom = workFrom;
             this.Groups = groups;
             this.Location = location;
             this.Notes = notes;
@@ -174,24 +181,11 @@ namespace DocSpace.API.SDK.Model
         /// The list of user contacts.
         /// </summary>
         /// <value>The list of user contacts.</value>
+        /*
+        <example>[{&quot;type&quot;:&quot;email&quot;,&quot;value&quot;:&quot;user@example.com&quot;}]</example>
+        */
         [DataMember(Name = "contacts", EmitDefaultValue = true)]
         public List<Contact> Contacts { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Birthday
-        /// </summary>
-        [DataMember(Name = "birthday", EmitDefaultValue = false)]
-        public ApiDateTime Birthday { get; set; }
-
-        /// <summary>
-        /// The user sex.
-        /// </summary>
-        /// <value>The user sex.</value>
-        /*
-        <example>male</example>
-        */
-        [DataMember(Name = "sex", EmitDefaultValue = true)]
-        public string Sex { get; set; }
 
         /// <summary>
         /// Gets or Sets Terminated
@@ -210,15 +204,12 @@ namespace DocSpace.API.SDK.Model
         public string Department { get; set; }
 
         /// <summary>
-        /// Gets or Sets WorkFrom
-        /// </summary>
-        [DataMember(Name = "workFrom", EmitDefaultValue = false)]
-        public ApiDateTime WorkFrom { get; set; }
-
-        /// <summary>
         /// The list of user groups.
         /// </summary>
         /// <value>The list of user groups.</value>
+        /*
+        <example>[{&quot;id&quot;:&quot;00000000-0000-0000-0000-000000000000&quot;,&quot;name&quot;:&quot;Marketing&quot;}]</example>
+        */
         [DataMember(Name = "groups", EmitDefaultValue = true)]
         public List<GroupSummaryDto> Groups { get; set; }
 
@@ -257,7 +248,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user is a room administrator or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isRoomAdmin", EmitDefaultValue = true)]
         public bool IsRoomAdmin { get; set; }
@@ -277,7 +268,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of the administrator modules.</value>
         /*
-        <example>[&quot;projects&quot;, &quot;crm&quot;]</example>
+        <example>[&quot;projects&quot;,&quot;crm&quot;]</example>
         */
         [DataMember(Name = "listAdminModules", EmitDefaultValue = true)]
         public List<string> ListAdminModules { get; set; }
@@ -287,7 +278,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user is a portal owner or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isOwner", EmitDefaultValue = true)]
         public bool IsOwner { get; set; }
@@ -297,7 +288,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user is a portal visitor or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isVisitor", EmitDefaultValue = true)]
         public bool IsVisitor { get; set; }
@@ -307,7 +298,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user is a portal collaborator or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isCollaborator", EmitDefaultValue = true)]
         public bool IsCollaborator { get; set; }
@@ -327,7 +318,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user mobile phone number.</value>
         /*
-        <example>some text</example>
+        <example>+1 (555) 123-4567</example>
         */
         [DataMember(Name = "mobilePhone", EmitDefaultValue = true)]
         public string MobilePhone { get; set; }
@@ -347,7 +338,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user quota limit.</value>
         /*
-        <example>1234</example>
+        <example>1073741824</example>
         */
         [DataMember(Name = "quotaLimit", EmitDefaultValue = true)]
         public long? QuotaLimit { get; set; }
@@ -367,7 +358,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user has access rights.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "shared", EmitDefaultValue = true)]
         public bool? Shared { get; set; }
@@ -377,7 +368,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies if the user has a custom quota or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "isCustomQuota", EmitDefaultValue = true)]
         public bool? IsCustomQuota { get; set; }
@@ -387,7 +378,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The current login event ID.</value>
         /*
-        <example>1234</example>
+        <example>123</example>
         */
         [DataMember(Name = "loginEventId", EmitDefaultValue = true)]
         public int? LoginEventId { get; set; }
@@ -397,7 +388,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The auth cookie lifetime in seconds.</value>
         /*
-        <example>-8.5</example>
+        <example>3600</example>
         */
         [DataMember(Name = "authCookieLifetime", EmitDefaultValue = true)]
         public double? AuthCookieLifetime { get; set; }
@@ -422,14 +413,14 @@ namespace DocSpace.API.SDK.Model
         <example>true</example>
         */
         [DataMember(Name = "hasPersonalFolder", EmitDefaultValue = true)]
-        public bool HasPersonalFolder { get; set; }
+        public bool? HasPersonalFolder { get; set; }
 
         /// <summary>
         /// Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app.
         /// </summary>
         /// <value>Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "tfaAppEnabled", EmitDefaultValue = true)]
         public bool? TfaAppEnabled { get; set; }
@@ -447,13 +438,10 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  UserName: ").Append(UserName).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Contacts: ").Append(Contacts).Append("\n");
-            sb.Append("  Birthday: ").Append(Birthday).Append("\n");
-            sb.Append("  Sex: ").Append(Sex).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  ActivationStatus: ").Append(ActivationStatus).Append("\n");
             sb.Append("  Terminated: ").Append(Terminated).Append("\n");
             sb.Append("  Department: ").Append(Department).Append("\n");
-            sb.Append("  WorkFrom: ").Append(WorkFrom).Append("\n");
             sb.Append("  Groups: ").Append(Groups).Append("\n");
             sb.Append("  Location: ").Append(Location).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
@@ -489,7 +477,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public override string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
         }
     
 

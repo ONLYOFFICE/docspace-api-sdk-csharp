@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -41,7 +54,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The crypto engine ID of the encryption key.</value>
         /*
-        <example>some text</example>
+        <example>{FFF0E1EB-13DB-4678-B67D-FF0A41DBBCEF}</example>
         */
         [DataMember(Name = "cryptoEngineId", EmitDefaultValue = true)]
         public string CryptoEngineId { get; private set; }
@@ -59,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The private key.</value>
         /*
-        <example>some text</example>
+        <example>MIIEvQIBADANBgkqhkiG9w0BAQEFAASC...</example>
         */
         [DataMember(Name = "privateKeyEnc", EmitDefaultValue = true)]
         public string PrivateKeyEnc { get; set; }
@@ -69,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The public key.</value>
         /*
-        <example>some text</example>
+        <example>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A...</example>
         */
         [DataMember(Name = "publicKey", EmitDefaultValue = true)]
         public string PublicKey { get; set; }
@@ -95,7 +108,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

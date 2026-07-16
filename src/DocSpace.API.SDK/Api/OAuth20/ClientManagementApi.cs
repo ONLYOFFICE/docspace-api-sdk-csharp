@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.OAuth20
@@ -24,27 +31,27 @@ namespace DocSpace.API.SDK.Api.OAuth20
     {
         #region Synchronous Operations
         /// <summary>
-        /// Change the client activation status
+        /// Change client activation status
         /// </summary>
         /// <remarks>
         /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="changeClientActivationRequest">The request parameters for changing the client activation status.</param>
+        /// <param name="clientId">ID of the client to change activation for</param>
+        /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
         /// <returns>Object</returns>
         Object ChangeActivation(string clientId, ChangeClientActivationRequest changeClientActivationRequest);
 
         /// <summary>
-        /// Change the client activation status
+        /// Change client activation status
         /// </summary>
         /// <remarks>
         /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="changeClientActivationRequest">The request parameters for changing the client activation status.</param>
+        /// <param name="clientId">ID of the client to change activation for</param>
+        /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> ChangeActivationWithHttpInfo(string clientId, ChangeClientActivationRequest changeClientActivationRequest);
@@ -55,7 +62,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createClientRequest">The request parameters for creating a client.</param>
+        /// <param name="createClientRequest">Client creation request containing client details</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-client/">REST API Reference for CreateClient Operation</seealso>
         /// <returns>ClientResponse</returns>
         ClientResponse CreateClient(CreateClientRequest createClientRequest);
@@ -67,7 +74,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createClientRequest">The request parameters for creating a client.</param>
+        /// <param name="createClientRequest">Client creation request containing client details</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-client/">REST API Reference for CreateClient Operation</seealso>
         /// <returns>ApiResponse of ClientResponse</returns>
         ApiResponse<ClientResponse> CreateClientWithHttpInfo(CreateClientRequest createClientRequest);
@@ -75,10 +82,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. All access and refresh tokens issued to this client will be invalidated. This operation cannot be undone.
+        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to delete</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
         /// <returns>Object</returns>
         Object DeleteClient(string clientId);
@@ -87,33 +94,75 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. All access and refresh tokens issued to this client will be invalidated. This operation cannot be undone.
+        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to delete</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> DeleteClientWithHttpInfo(string clientId);
         /// <summary>
-        /// Regenerate the client secret
+        /// Delete all tenant OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
+        /// <returns>Object</returns>
+        Object DeleteTenantClients();
+
+        /// <summary>
+        /// Delete all tenant OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> DeleteTenantClientsWithHttpInfo();
+        /// <summary>
+        /// Delete all user OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
+        /// <returns>Object</returns>
+        Object DeleteUserClients();
+
+        /// <summary>
+        /// Delete all user OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> DeleteUserClientsWithHttpInfo();
+        /// <summary>
+        /// Regenerate client secret
         /// </summary>
         /// <remarks>
         /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to regenerate secret for</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/regenerate-secret/">REST API Reference for RegenerateSecret Operation</seealso>
         /// <returns>ClientSecretResponse</returns>
         ClientSecretResponse RegenerateSecret(string clientId);
 
         /// <summary>
-        /// Regenerate the client secret
+        /// Regenerate client secret
         /// </summary>
         /// <remarks>
         /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to regenerate secret for</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/regenerate-secret/">REST API Reference for RegenerateSecret Operation</seealso>
         /// <returns>ApiResponse of ClientSecretResponse</returns>
         ApiResponse<ClientSecretResponse> RegenerateSecretWithHttpInfo(string clientId);
@@ -124,7 +173,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
         /// <returns>Object</returns>
         Object RevokeUserClient(string clientId);
@@ -136,7 +185,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> RevokeUserClientWithHttpInfo(string clientId);
@@ -144,11 +193,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client, allowing modifications to the client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="updateClientRequest">The request for updating client details.</param>
+        /// <param name="clientId">ID of the client to update</param>
+        /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
         /// <returns>Object</returns>
         Object UpdateClient(string clientId, UpdateClientRequest updateClientRequest);
@@ -157,11 +206,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client, allowing modifications to the client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="updateClientRequest">The request for updating client details.</param>
+        /// <param name="clientId">ID of the client to update</param>
+        /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> UpdateClientWithHttpInfo(string clientId, UpdateClientRequest updateClientRequest);
@@ -175,28 +224,28 @@ namespace DocSpace.API.SDK.Api.OAuth20
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Change the client activation status
+        /// Change client activation status
         /// </summary>
         /// <remarks>
         /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="changeClientActivationRequest">The request parameters for changing the client activation status.</param>
+        /// <param name="clientId">ID of the client to change activation for</param>
+        /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
         /// <returns>Task of Object</returns>
         Task<Object> ChangeActivationAsync(string clientId, ChangeClientActivationRequest changeClientActivationRequest, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Change the client activation status
+        /// Change client activation status
         /// </summary>
         /// <remarks>
         /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="changeClientActivationRequest">The request parameters for changing the client activation status.</param>
+        /// <param name="clientId">ID of the client to change activation for</param>
+        /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
@@ -208,7 +257,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createClientRequest">The request parameters for creating a client.</param>
+        /// <param name="createClientRequest">Client creation request containing client details</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-client/">REST API Reference for CreateClient Operation</seealso>
         /// <returns>Task of ClientResponse</returns>
@@ -221,7 +270,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createClientRequest">The request parameters for creating a client.</param>
+        /// <param name="createClientRequest">Client creation request containing client details</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-client/">REST API Reference for CreateClient Operation</seealso>
         /// <returns>Task of ApiResponse (ClientResponse)</returns>
@@ -230,10 +279,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. All access and refresh tokens issued to this client will be invalidated. This operation cannot be undone.
+        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
         /// <returns>Task of Object</returns>
@@ -243,35 +292,81 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. All access and refresh tokens issued to this client will be invalidated. This operation cannot be undone.
+        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
         Task<ApiResponse<Object>> DeleteClientWithHttpInfoAsync(string clientId, CancellationToken cancellationToken = default);
         /// <summary>
-        /// Regenerate the client secret
+        /// Delete all tenant OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
+        /// <returns>Task of Object</returns>
+        Task<Object> DeleteTenantClientsAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Delete all tenant OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        Task<ApiResponse<Object>> DeleteTenantClientsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Delete all user OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
+        /// <returns>Task of Object</returns>
+        Task<Object> DeleteUserClientsAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Delete all user OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        Task<ApiResponse<Object>> DeleteUserClientsWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Regenerate client secret
         /// </summary>
         /// <remarks>
         /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to regenerate secret for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/regenerate-secret/">REST API Reference for RegenerateSecret Operation</seealso>
         /// <returns>Task of ClientSecretResponse</returns>
         Task<ClientSecretResponse> RegenerateSecretAsync(string clientId, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Regenerate the client secret
+        /// Regenerate client secret
         /// </summary>
         /// <remarks>
         /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to regenerate secret for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/regenerate-secret/">REST API Reference for RegenerateSecret Operation</seealso>
         /// <returns>Task of ApiResponse (ClientSecretResponse)</returns>
@@ -283,7 +378,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
         /// <returns>Task of Object</returns>
@@ -296,7 +391,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
@@ -305,11 +400,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client, allowing modifications to the client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="updateClientRequest">The request for updating client details.</param>
+        /// <param name="clientId">ID of the client to update</param>
+        /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
         /// <returns>Task of Object</returns>
@@ -319,11 +414,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client, allowing modifications to the client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="updateClientRequest">The request for updating client details.</param>
+        /// <param name="clientId">ID of the client to update</param>
+        /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
@@ -544,14 +639,14 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
         
         /// <summary>
-        /// Change the client activation status
+        /// Change client activation status
         /// </summary>
         /// <remarks>
         /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="changeClientActivationRequest">The request parameters for changing the client activation status.</param>
+        /// <param name="clientId">ID of the client to change activation for</param>
+        /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
         /// <returns>Object</returns>
         public Object ChangeActivation(string clientId, ChangeClientActivationRequest changeClientActivationRequest)
@@ -561,14 +656,14 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Change the client activation status
+        /// Change client activation status
         /// </summary>
         /// <remarks>
         /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="changeClientActivationRequest">The request parameters for changing the client activation status.</param>
+        /// <param name="clientId">ID of the client to change activation for</param>
+        /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
         public ApiResponse<Object> ChangeActivationWithHttpInfo(string clientId, ChangeClientActivationRequest changeClientActivationRequest)
@@ -597,11 +692,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
             if (changeClientActivationRequest != null) localVarRequestOptions.Data = changeClientActivationRequest;
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -620,14 +715,14 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Change the client activation status
+        /// Change client activation status
         /// </summary>
         /// <remarks>
         /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="changeClientActivationRequest">The request parameters for changing the client activation status.</param>
+        /// <param name="clientId">ID of the client to change activation for</param>
+        /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
         /// <returns>Task of Object</returns>
@@ -638,14 +733,14 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Change the client activation status
+        /// Change client activation status
         /// </summary>
         /// <remarks>
         /// Activates or deactivates an OAuth2 client. When deactivated, the client cannot request new access tokens, but existing tokens will remain valid until they expire.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="changeClientActivationRequest">The request parameters for changing the client activation status.</param>
+        /// <param name="clientId">ID of the client to change activation for</param>
+        /// <param name="changeClientActivationRequest">Client activation change request</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/change-activation/">REST API Reference for ChangeActivation Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
@@ -676,11 +771,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
             if (changeClientActivationRequest != null) localVarRequestOptions.Data = changeClientActivationRequest;
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -706,7 +801,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createClientRequest">The request parameters for creating a client.</param>
+        /// <param name="createClientRequest">Client creation request containing client details</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-client/">REST API Reference for CreateClient Operation</seealso>
         /// <returns>ClientResponse</returns>
         public ClientResponse CreateClient(CreateClientRequest createClientRequest)
@@ -722,7 +817,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createClientRequest">The request parameters for creating a client.</param>
+        /// <param name="createClientRequest">Client creation request containing client details</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-client/">REST API Reference for CreateClient Operation</seealso>
         /// <returns>ApiResponse of ClientResponse</returns>
         public ApiResponse<ClientResponse> CreateClientWithHttpInfo(CreateClientRequest createClientRequest)
@@ -746,11 +841,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             if (createClientRequest != null) localVarRequestOptions.Data = createClientRequest;
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -775,7 +870,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createClientRequest">The request parameters for creating a client.</param>
+        /// <param name="createClientRequest">Client creation request containing client details</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-client/">REST API Reference for CreateClient Operation</seealso>
         /// <returns>Task of ClientResponse</returns>
@@ -792,7 +887,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Creates a new OAuth2 client with the specified configuration. The client will be created with the provided scopes, redirect URIs, and other settings. Returns the created client details including the generated client ID.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createClientRequest">The request parameters for creating a client.</param>
+        /// <param name="createClientRequest">Client creation request containing client details</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-client/">REST API Reference for CreateClient Operation</seealso>
         /// <returns>Task of ApiResponse (ClientResponse)</returns>
@@ -818,11 +913,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             if (createClientRequest != null) localVarRequestOptions.Data = createClientRequest;
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -845,10 +940,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. All access and refresh tokens issued to this client will be invalidated. This operation cannot be undone.
+        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to delete</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
         /// <returns>Object</returns>
         public Object DeleteClient(string clientId)
@@ -861,10 +956,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. All access and refresh tokens issued to this client will be invalidated. This operation cannot be undone.
+        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to delete</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
         public ApiResponse<Object> DeleteClientWithHttpInfo(string clientId)
@@ -888,11 +983,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -914,10 +1009,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. All access and refresh tokens issued to this client will be invalidated. This operation cannot be undone.
+        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
         /// <returns>Task of Object</returns>
@@ -931,10 +1026,10 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Delete an OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Permanently deletes an OAuth2 client and all associated data. All access and refresh tokens issued to this client will be invalidated. This operation cannot be undone.
+        /// Permanently deletes an OAuth2 client and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to delete</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-client/">REST API Reference for DeleteClient Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
@@ -960,11 +1055,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -984,13 +1079,269 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Regenerate the client secret
+        /// Delete all tenant OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
+        /// <returns>Object</returns>
+        public Object DeleteTenantClients()
+        {
+            var localVarResponse = DeleteTenantClientsWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete all tenant OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
+        /// <returns>ApiResponse of Object</returns>
+        public ApiResponse<Object> DeleteTenantClientsWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (x-signature) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
+            }
+
+            // make the HTTP request
+            var localVarResponse = Client.Delete<Object>("/api/2.0/clients/tenant", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("DeleteTenantClients", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete all tenant OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
+        /// <returns>Task of Object</returns>
+        public async Task<Object> DeleteTenantClientsAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await DeleteTenantClientsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete all tenant OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes tenant OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-tenant-clients/">REST API Reference for DeleteTenantClients Operation</seealso>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async Task<ApiResponse<Object>> DeleteTenantClientsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (x-signature) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/clients/tenant", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("DeleteTenantClients", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete all user OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
+        /// <returns>Object</returns>
+        public Object DeleteUserClients()
+        {
+            var localVarResponse = DeleteUserClientsWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete all user OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
+        /// <returns>ApiResponse of Object</returns>
+        public ApiResponse<Object> DeleteUserClientsWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (x-signature) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
+            }
+
+            // make the HTTP request
+            var localVarResponse = Client.Delete<Object>("/api/2.0/clients", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("DeleteUserClients", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete all user OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
+        /// <returns>Task of Object</returns>
+        public async Task<Object> DeleteUserClientsAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await DeleteUserClientsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete all user OAuth2 clients
+        /// </summary>
+        /// <remarks>
+        /// Permanently deletes user OAuth2 clients and all associated data. This will invalidate all access tokens and refresh tokens issued to this client. This operation cannot be undone.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-user-clients/">REST API Reference for DeleteUserClients Operation</seealso>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async Task<ApiResponse<Object>> DeleteUserClientsWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (x-signature) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/clients", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("DeleteUserClients", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Regenerate client secret
         /// </summary>
         /// <remarks>
         /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to regenerate secret for</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/regenerate-secret/">REST API Reference for RegenerateSecret Operation</seealso>
         /// <returns>ClientSecretResponse</returns>
         public ClientSecretResponse RegenerateSecret(string clientId)
@@ -1000,13 +1351,13 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Regenerate the client secret
+        /// Regenerate client secret
         /// </summary>
         /// <remarks>
         /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to regenerate secret for</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/regenerate-secret/">REST API Reference for RegenerateSecret Operation</seealso>
         /// <returns>ApiResponse of ClientSecretResponse</returns>
         public ApiResponse<ClientSecretResponse> RegenerateSecretWithHttpInfo(string clientId)
@@ -1030,11 +1381,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -1053,13 +1404,13 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Regenerate the client secret
+        /// Regenerate client secret
         /// </summary>
         /// <remarks>
         /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to regenerate secret for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/regenerate-secret/">REST API Reference for RegenerateSecret Operation</seealso>
         /// <returns>Task of ClientSecretResponse</returns>
@@ -1070,13 +1421,13 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Regenerate the client secret
+        /// Regenerate client secret
         /// </summary>
         /// <remarks>
         /// Generates a new client secret for the specified OAuth2 client. The old secret will be immediately invalidated. This operation should be used with caution as it requires updating the secret in all client applications.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to regenerate secret for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/regenerate-secret/">REST API Reference for RegenerateSecret Operation</seealso>
         /// <returns>Task of ApiResponse (ClientSecretResponse)</returns>
@@ -1102,11 +1453,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -1132,7 +1483,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
         /// <returns>Object</returns>
         public Object RevokeUserClient(string clientId)
@@ -1148,7 +1499,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
         public ApiResponse<Object> RevokeUserClientWithHttpInfo(string clientId)
@@ -1172,11 +1523,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -1201,7 +1552,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
         /// <returns>Task of Object</returns>
@@ -1218,7 +1569,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Revokes all user consents for the specified OAuth2 client. This will invalidate all access tokens and refresh tokens issued to this client for the current user. The user will need to re-authorize the client to access their resources.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
+        /// <param name="clientId">ID of the client to revoke consent for</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/revoke-user-client/">REST API Reference for RevokeUserClient Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
@@ -1244,11 +1595,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -1271,11 +1622,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client, allowing modifications to the client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="updateClientRequest">The request for updating client details.</param>
+        /// <param name="clientId">ID of the client to update</param>
+        /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
         /// <returns>Object</returns>
         public Object UpdateClient(string clientId, UpdateClientRequest updateClientRequest)
@@ -1288,11 +1639,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client, allowing modifications to the client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="updateClientRequest">The request for updating client details.</param>
+        /// <param name="clientId">ID of the client to update</param>
+        /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
         /// <returns>ApiResponse of Object</returns>
         public ApiResponse<Object> UpdateClientWithHttpInfo(string clientId, UpdateClientRequest updateClientRequest)
@@ -1321,11 +1672,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
             if (updateClientRequest != null) localVarRequestOptions.Data = updateClientRequest;
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -1347,11 +1698,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client, allowing modifications to the client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="updateClientRequest">The request for updating client details.</param>
+        /// <param name="clientId">ID of the client to update</param>
+        /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
         /// <returns>Task of Object</returns>
@@ -1365,11 +1716,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
         /// Update an existing OAuth2 client
         /// </summary>
         /// <remarks>
-        /// Updates the configuration of an existing OAuth2 client, allowing modifications to the client name, description, redirect URIs, and other settings. The client ID cannot be modified.
+        /// Updates the configuration of an existing OAuth2 client. Allows modification of client name, description, redirect URIs, and other settings. The client ID cannot be modified.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="clientId">The client identifier.</param>
-        /// <param name="updateClientRequest">The request for updating client details.</param>
+        /// <param name="clientId">ID of the client to update</param>
+        /// <param name="updateClientRequest">Client update request containing modified client details</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/update-client/">REST API Reference for UpdateClient Operation</seealso>
         /// <returns>Task of ApiResponse (Object)</returns>
@@ -1400,11 +1751,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
             localVarRequestOptions.PathParameters.Add("clientId", ClientUtils.ParameterToString(clientId)); // path parameter
             if (updateClientRequest != null) localVarRequestOptions.Data = updateClientRequest;
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request

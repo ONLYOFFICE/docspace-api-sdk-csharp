@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -45,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="plugins">plugins.</param>
         /// <param name="recent">The recent configuration of the editor..</param>
         /// <param name="templates">The templates of the editor configuration..</param>
-        /// <param name="user">user (required).</param>
+        /// <param name="user">user.</param>
         public EditorConfigurationDto(string callbackUrl = default, CoEditingConfig coEditing = default, string createUrl = default, CustomizationConfigDto customization = default, EmbeddedConfig embedded = default, EncryptionKeysConfig encryptionKeys = default, string lang = default, string mode = default, bool modeWrite = default, PluginsConfig plugins = default, List<RecentConfig> recent = default, List<TemplatesConfig> templates = default, UserConfig user = default)
         {
             // to ensure "lang" is required (not null)
@@ -60,12 +73,6 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("mode is a required property for EditorConfigurationDto and cannot be null");
             }
             this.Mode = mode;
-            // to ensure "user" is required (not null)
-            if (user == null)
-            {
-                throw new ArgumentNullException("user is a required property for EditorConfigurationDto and cannot be null");
-            }
-            this.User = user;
             this.CallbackUrl = callbackUrl;
             this.CoEditing = coEditing;
             this.CreateUrl = createUrl;
@@ -76,6 +83,7 @@ namespace DocSpace.API.SDK.Model
             this.Plugins = plugins;
             this.Recent = recent;
             this.Templates = templates;
+            this.User = user;
         }
 
         /// <summary>
@@ -83,7 +91,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The callback URL of the editor.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/callback</example>
         */
         [DataMember(Name = "callbackUrl", EmitDefaultValue = true)]
         public string CallbackUrl { get; set; }
@@ -99,7 +107,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The creation URL of the editor.</value>
         /*
-        <example>some text</example>
+        <example>http://localhost/create</example>
         */
         [DataMember(Name = "createUrl", EmitDefaultValue = true)]
         public string CreateUrl { get; set; }
@@ -127,7 +135,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The language of the editor configuration.</value>
         /*
-        <example>some text</example>
+        <example>en-US</example>
         */
         [DataMember(Name = "lang", IsRequired = true, EmitDefaultValue = true)]
         public string Lang { get; set; }
@@ -137,7 +145,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The mode of the editor configuration.</value>
         /*
-        <example>some text</example>
+        <example>edit</example>
         */
         [DataMember(Name = "mode", IsRequired = true, EmitDefaultValue = true)]
         public string Mode { get; set; }
@@ -162,6 +170,9 @@ namespace DocSpace.API.SDK.Model
         /// The recent configuration of the editor.
         /// </summary>
         /// <value>The recent configuration of the editor.</value>
+        /*
+        <example>[]</example>
+        */
         [DataMember(Name = "recent", EmitDefaultValue = true)]
         public List<RecentConfig> Recent { get; set; }
 
@@ -169,13 +180,16 @@ namespace DocSpace.API.SDK.Model
         /// The templates of the editor configuration.
         /// </summary>
         /// <value>The templates of the editor configuration.</value>
+        /*
+        <example>[]</example>
+        */
         [DataMember(Name = "templates", EmitDefaultValue = true)]
         public List<TemplatesConfig> Templates { get; set; }
 
         /// <summary>
         /// Gets or Sets User
         /// </summary>
-        [DataMember(Name = "user", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "user", EmitDefaultValue = false)]
         public UserConfig User { get; set; }
 
         /// <summary>
@@ -209,7 +223,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

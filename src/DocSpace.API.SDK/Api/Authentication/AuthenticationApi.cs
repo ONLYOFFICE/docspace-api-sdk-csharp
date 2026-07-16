@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -13,6 +13,13 @@
 // limitations under the License.
 
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
 using DocSpace.API.SDK.Client;
 using DocSpace.API.SDK.Model;
 namespace DocSpace.API.SDK.Api.Authentication
@@ -54,10 +61,10 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
-        AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode(string code, AuthRequestsDto? authRequestsDto = default);
+        AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default);
 
         /// <summary>
         /// Authenticate a user by code
@@ -67,10 +74,10 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
-        ApiResponse<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeWithHttpInfo(string code, AuthRequestsDto? authRequestsDto = default);
+        ApiResponse<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeWithHttpInfo(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default);
         /// <summary>
         /// Open confirmation email URL
         /// </summary>
@@ -224,11 +231,11 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
-        Task<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeAsync(string code, AuthRequestsDto? authRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeAsync(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Authenticate a user by code
@@ -238,11 +245,11 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
-        Task<ApiResponse<AuthenticationTokenWrapper>> AuthenticateMeFromBodyWithCodeWithHttpInfoAsync(string code, AuthRequestsDto? authRequestsDto = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<AuthenticationTokenWrapper>> AuthenticateMeFromBodyWithCodeWithHttpInfoAsync(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Open confirmation email URL
         /// </summary>
@@ -709,12 +716,12 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>AuthenticationTokenWrapper</returns>
-        public AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode(string code, AuthRequestsDto? authRequestsDto = default)
+        public AuthenticationTokenWrapper AuthenticateMeFromBodyWithCode(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default)
         {
-            var localVarResponse = AuthenticateMeFromBodyWithCodeWithHttpInfo(code, authRequestsDto);
+            var localVarResponse = AuthenticateMeFromBodyWithCodeWithHttpInfo(code, authWithCodeRequestsDto);
             return localVarResponse.Data;
         }
 
@@ -726,10 +733,10 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>ApiResponse of AuthenticationTokenWrapper</returns>
-        public ApiResponse<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeWithHttpInfo(string code, AuthRequestsDto? authRequestsDto = default)
+        public ApiResponse<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeWithHttpInfo(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default)
         {
             // verify the required parameter 'code' is set
             if (code == null)
@@ -749,7 +756,7 @@ namespace DocSpace.API.SDK.Api.Authentication
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("code", ClientUtils.ParameterToString(code)); // path parameter
-            if (authRequestsDto != null) localVarRequestOptions.Data = authRequestsDto;
+            if (authWithCodeRequestsDto != null) localVarRequestOptions.Data = authWithCodeRequestsDto;
 
 
             // make the HTTP request
@@ -775,13 +782,13 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>Task of AuthenticationTokenWrapper</returns>
-        public async Task<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeAsync(string code, AuthRequestsDto? authRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<AuthenticationTokenWrapper> AuthenticateMeFromBodyWithCodeAsync(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await AuthenticateMeFromBodyWithCodeWithHttpInfoAsync(code, authRequestsDto, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AuthenticateMeFromBodyWithCodeWithHttpInfoAsync(code, authWithCodeRequestsDto, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -793,11 +800,11 @@ namespace DocSpace.API.SDK.Api.Authentication
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
-        /// <param name="authRequestsDto">The parameters required for the user authentication requests. (optional)</param>
+        /// <param name="authWithCodeRequestsDto">The parameters required for the user two-factor authentication requests. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/authenticate-me-from-body-with-code/">REST API Reference for AuthenticateMeFromBodyWithCode Operation</seealso>
         /// <returns>Task of ApiResponse (AuthenticationTokenWrapper)</returns>
-        public async Task<ApiResponse<AuthenticationTokenWrapper>> AuthenticateMeFromBodyWithCodeWithHttpInfoAsync(string code, AuthRequestsDto? authRequestsDto = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<AuthenticationTokenWrapper>> AuthenticateMeFromBodyWithCodeWithHttpInfoAsync(string code, AuthWithCodeRequestsDto? authWithCodeRequestsDto = default, CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'code' is set
             if (code == null)
@@ -818,7 +825,7 @@ namespace DocSpace.API.SDK.Api.Authentication
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("code", ClientUtils.ParameterToString(code)); // path parameter
-            if (authRequestsDto != null) localVarRequestOptions.Data = authRequestsDto;
+            if (authWithCodeRequestsDto != null) localVarRequestOptions.Data = authWithCodeRequestsDto;
 
 
             // make the HTTP request

@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -50,10 +63,12 @@ namespace DocSpace.API.SDK.Model
         /// <param name="color">The room color..</param>
         /// <param name="cover">The room cover..</param>
         /// <param name="roomType">roomType (required).</param>
-        /// <param name="@private">Specifies whether the room to be created is private or not..</param>
+        /// <param name="private">Specifies whether the room to be created is private or not..</param>
         /// <param name="share">The collection of sharing parameters..</param>
         /// <param name="chatSettings">chatSettings.</param>
-        public CreateRoomRequestDto(string title = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, RoomType roomType = default, bool @private = default, List<FileShareParams> share = default, ChatSettings chatSettings = default)
+        /// <param name="sendFormToExternalDB">Specifies whether to send form data to external database..</param>
+        /// <param name="saveFormAsXLSX">Specifies whether to save form data as XLSX file..</param>
+        public CreateRoomRequestDto(string title = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, RoomType roomType = default, bool @private = default, List<FileShareParams> share = default, ChatSettings chatSettings = default, bool? sendFormToExternalDB = default, bool? saveFormAsXLSX = default)
         {
             // to ensure "title" is required (not null)
             if (title == null)
@@ -74,6 +89,8 @@ namespace DocSpace.API.SDK.Model
             this.Private = @private;
             this.Share = share;
             this.ChatSettings = chatSettings;
+            this.SendFormToExternalDB = sendFormToExternalDB;
+            this.SaveFormAsXLSX = saveFormAsXLSX;
         }
 
         /// <summary>
@@ -81,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room name.</value>
         /*
-        <example>legacy_1080p_small_wooden_mouse</example>
+        <example>My Room</example>
         */
         [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
@@ -91,7 +108,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room quota.</value>
         /*
-        <example>1234</example>
+        <example>1073741824</example>
         */
         [DataMember(Name = "quota", EmitDefaultValue = true)]
         public long? Quota { get; set; }
@@ -111,7 +128,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether to deny downloads from the room.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
         public bool? DenyDownload { get; set; }
@@ -139,7 +156,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The list of tags.</value>
         /*
-        <example>[&quot;some text&quot;]</example>
+        <example>["tag1","tag2","tag3"]</example>
         */
         [DataMember(Name = "tags", EmitDefaultValue = true)]
         public List<string> Tags { get; set; }
@@ -149,7 +166,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room color.</value>
         /*
-        <example>some text</example>
+        <example>#FF0000</example>
         */
         [DataMember(Name = "color", EmitDefaultValue = true)]
         public string Color { get; set; }
@@ -159,7 +176,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The room cover.</value>
         /*
-        <example>some text</example>
+        <example>cover1.jpg</example>
         */
         [DataMember(Name = "cover", EmitDefaultValue = true)]
         public string Cover { get; set; }
@@ -169,7 +186,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>Specifies whether the room to be created is private or not.</value>
         /*
-        <example>true</example>
+        <example>false</example>
         */
         [DataMember(Name = "private", EmitDefaultValue = true)]
         public bool Private { get; set; }
@@ -178,6 +195,9 @@ namespace DocSpace.API.SDK.Model
         /// The collection of sharing parameters.
         /// </summary>
         /// <value>The collection of sharing parameters.</value>
+        /*
+        <example>[{"shareTo":"00000000-0000-0000-0000-000000000000","access":1}]</example>
+        */
         [DataMember(Name = "share", EmitDefaultValue = true)]
         public List<FileShareParams> Share { get; set; }
 
@@ -186,6 +206,26 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "chatSettings", EmitDefaultValue = false)]
         public ChatSettings ChatSettings { get; set; }
+
+        /// <summary>
+        /// Specifies whether to send form data to external database.
+        /// </summary>
+        /// <value>Specifies whether to send form data to external database.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "sendFormToExternalDB", EmitDefaultValue = true)]
+        public bool? SendFormToExternalDB { get; set; }
+
+        /// <summary>
+        /// Specifies whether to save form data as XLSX file.
+        /// </summary>
+        /// <value>Specifies whether to save form data as XLSX file.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "saveFormAsXLSX", EmitDefaultValue = true)]
+        public bool? SaveFormAsXLSX { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -209,6 +249,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Private: ").Append(Private).Append("\n");
             sb.Append("  Share: ").Append(Share).Append("\n");
             sb.Append("  ChatSettings: ").Append(ChatSettings).Append("\n");
+            sb.Append("  SendFormToExternalDB: ").Append(SendFormToExternalDB).Append("\n");
+            sb.Append("  SaveFormAsXLSX: ").Append(SaveFormAsXLSX).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -219,7 +261,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>

@@ -1,4 +1,4 @@
-// (c) Copyright Ascensio System SIA 2025
+// (c) Copyright Ascensio System SIA 2026
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -12,9 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
- 
- using DocSpace.API.SDK.Client;
- 
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 
 namespace DocSpace.API.SDK.Model
 {
@@ -69,7 +82,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The login event ID.</value>
         /*
-        <example>9846</example>
+        <example>1</example>
         */
         [DataMember(Name = "id", EmitDefaultValue = false)]
         public int Id { get; set; }
@@ -85,7 +98,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user name of the login event.</value>
         /*
-        <example>some text</example>
+        <example>John Doe</example>
         */
         [DataMember(Name = "user", EmitDefaultValue = true)]
         public string User { get; set; }
@@ -94,9 +107,6 @@ namespace DocSpace.API.SDK.Model
         /// The user ID of the login event.
         /// </summary>
         /// <value>The user ID of the login event.</value>
-        /*
-        <example>aae1e103-bca5-9fa1-ba8c-42058b4abf28</example>
-        */
         [DataMember(Name = "userId", EmitDefaultValue = false)]
         public Guid UserId { get; set; }
 
@@ -105,7 +115,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The user login of the login event.</value>
         /*
-        <example>some text</example>
+        <example>user@example.com</example>
         */
         [DataMember(Name = "login", EmitDefaultValue = true)]
         public string Login { get; set; }
@@ -115,7 +125,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The login event action.</value>
         /*
-        <example>some text</example>
+        <example>User logged in</example>
         */
         [DataMember(Name = "action", EmitDefaultValue = true)]
         public string Action { get; set; }
@@ -125,7 +135,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The login event IP.</value>
         /*
-        <example>some text</example>
+        <example>192.0.2.1</example>
         */
         [DataMember(Name = "ip", EmitDefaultValue = true)]
         public string Ip { get; set; }
@@ -135,7 +145,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The login event country.</value>
         /*
-        <example>some text</example>
+        <example>United States</example>
         */
         [DataMember(Name = "country", EmitDefaultValue = true)]
         public string Country { get; set; }
@@ -145,7 +155,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The login event city.</value>
         /*
-        <example>some text</example>
+        <example>New York</example>
         */
         [DataMember(Name = "city", EmitDefaultValue = true)]
         public string City { get; set; }
@@ -155,7 +165,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The login event browser.</value>
         /*
-        <example>some text</example>
+        <example>Chrome 120.0</example>
         */
         [DataMember(Name = "browser", EmitDefaultValue = true)]
         public string Browser { get; set; }
@@ -165,7 +175,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The login event platform.</value>
         /*
-        <example>some text</example>
+        <example>Windows</example>
         */
         [DataMember(Name = "platform", EmitDefaultValue = true)]
         public string Platform { get; set; }
@@ -175,7 +185,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The login event page.</value>
         /*
-        <example>some text</example>
+        <example>/login</example>
         */
         [DataMember(Name = "page", EmitDefaultValue = true)]
         public string Page { get; set; }
@@ -211,7 +221,7 @@ namespace DocSpace.API.SDK.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
