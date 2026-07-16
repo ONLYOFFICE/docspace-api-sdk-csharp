@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="createBy">createBy (required).</param>
         /// <param name="createOn">The date and time when the web plugin was created. (required).</param>
         /// <param name="enabled">Specifies if the web plugin is enabled or not. (required).</param>
-        /// <param name="@system">Specifies if the web plugin is system or not. (required).</param>
+        /// <param name="system">Specifies if the web plugin is system or not. (required).</param>
         /// <param name="url">The web plugin URL. (required).</param>
         /// <param name="cssUrl">The web plugin css URL. (required).</param>
         /// <param name="settings">The web plugin settings. (required).</param>

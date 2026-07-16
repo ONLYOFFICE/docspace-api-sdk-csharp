@@ -2068,6 +2068,10 @@ namespace DocSpace.API.SDK.Api.Files
 
         private bool _useAtRecent ;
 
+        /// <summary>
+        /// Enables the "@" address prefix so the request targets the current user's recent items.
+        /// </summary>
+        /// <returns></returns>
         public FoldersApi WithFields()
         {
             _useAtRecent = true;
@@ -4162,10 +4166,7 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("folderId", ClientUtils.ParameterToString(folderId)); // path parameter
             if (fromDate != null)
             {
-                if (fromDate.UtcTime != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", fromDate.UtcTime));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", fromDate.UtcTime));
                 if (fromDate.TimeZoneOffset != null)
                 {
                     localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", fromDate.TimeZoneOffset));
@@ -4173,10 +4174,7 @@ namespace DocSpace.API.SDK.Api.Files
             }
             if (toDate != null)
             {
-                if (toDate.UtcTime != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", toDate.UtcTime));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", toDate.UtcTime));
                 if (toDate.TimeZoneOffset != null)
                 {
                     localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", toDate.TimeZoneOffset));

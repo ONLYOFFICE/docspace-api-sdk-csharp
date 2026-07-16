@@ -63,13 +63,13 @@ namespace DocSpace.API.SDK.Model
         /// <param name="filesCount">The number of files that the folder contains..</param>
         /// <param name="foldersCount">The number of folders that the folder contains..</param>
         /// <param name="isShareable">Specifies if the folder can be shared or not..</param>
-        /// <param name="@new">The new element index in the folder..</param>
+        /// <param name="new">The new element index in the folder..</param>
         /// <param name="mute">Specifies if the folder notifications are enabled or not..</param>
         /// <param name="tags">The list of tags of the folder..</param>
         /// <param name="logo">logo.</param>
         /// <param name="pinned">Specifies if the folder is pinned or not..</param>
         /// <param name="roomType">roomType.</param>
-        /// <param name="@private">Specifies if the folder is private or not..</param>
+        /// <param name="private">Specifies if the folder is private or not..</param>
         /// <param name="indexing">Specifies if the folder is indexed or not..</param>
         /// <param name="denyDownload">Specifies if the folder can be downloaded or not..</param>
         /// <param name="lifetime">lifetime.</param>

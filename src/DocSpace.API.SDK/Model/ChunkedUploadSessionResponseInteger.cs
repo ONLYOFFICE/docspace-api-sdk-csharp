@@ -45,7 +45,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="path">Represents the hierarchical path of folders associated with a chunked upload session..</param>
         /// <param name="created">The timestamp indicating when the chunked upload session was created..</param>
         /// <param name="expired">The date and time when the chunked upload session is set to expire..</param>
-        /// <param name="location">Represents the URI or path of the chunked upload session's current location..</param>
+        /// <param name="location">Represents the URI or path of the chunked upload session&#39;s current location..</param>
         /// <param name="bytesTotal">The total size, in bytes, of the file being uploaded in the chunked upload session..</param>
         public ChunkedUploadSessionResponseInteger(string id = default, List<int> path = default, DateTime created = default, DateTime expired = default, string location = default, long bytesTotal = default)
         {
@@ -98,9 +98,9 @@ namespace DocSpace.API.SDK.Model
         public DateTime Expired { get; set; }
 
         /// <summary>
-        /// Represents the URI or path of the chunked upload session's current location.
+        /// Represents the URI or path of the chunked upload session&#39;s current location.
         /// </summary>
-        /// <value>Represents the URI or path of the chunked upload session's current location.</value>
+        /// <value>Represents the URI or path of the chunked upload session&#39;s current location.</value>
         /*
         <example>https://example.com/products/files/httphandlers/filehandler.ashx?action=upload</example>
         */

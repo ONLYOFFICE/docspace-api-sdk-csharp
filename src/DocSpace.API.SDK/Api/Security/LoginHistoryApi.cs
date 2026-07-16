@@ -836,10 +836,7 @@ namespace DocSpace.API.SDK.Api.Security
             }
             if (from != null)
             {
-                if (from.UtcTime != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", from.UtcTime));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", from.UtcTime));
                 if (from.TimeZoneOffset != null)
                 {
                     localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", from.TimeZoneOffset));
@@ -847,10 +844,7 @@ namespace DocSpace.API.SDK.Api.Security
             }
             if (to != null)
             {
-                if (to.UtcTime != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", to.UtcTime));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", to.UtcTime));
                 if (to.TimeZoneOffset != null)
                 {
                     localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", to.TimeZoneOffset));

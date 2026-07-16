@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// MCP server status within a room, reflecting the current user's connection state for OAuth-based servers.
+    /// MCP server status within a room, reflecting the current user&#39;s connection state for OAuth-based servers.
     /// </summary>
     [DataContract(Name = "McpServerStatusDto")]
     public partial class McpServerStatusDto : IValidatableObject

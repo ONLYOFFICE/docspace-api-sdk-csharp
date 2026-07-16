@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="editRoom">editRoom.</param>
         /// <param name="rename">rename.</param>
         /// <param name="readHistory">readHistory.</param>
-        /// <param name="@lock">@lock.</param>
+        /// <param name="lock">@lock.</param>
         /// <param name="editHistory">editHistory.</param>
         /// <param name="copyTo">copyTo.</param>
         /// <param name="copy">copy.</param>

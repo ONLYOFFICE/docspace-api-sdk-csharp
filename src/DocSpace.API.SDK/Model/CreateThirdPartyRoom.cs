@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="createAsNewFolder">Specifies whether to create a third-party room as a new folder or not..</param>
         /// <param name="title">The third-party room name to be created. (required).</param>
         /// <param name="roomType">roomType (required).</param>
-        /// <param name="@private">Specifies whether to create the private third-party room or not..</param>
+        /// <param name="private">Specifies whether to create the private third-party room or not..</param>
         /// <param name="indexing">Specifies whether to create the third-party room with indexing..</param>
         /// <param name="denyDownload">Specifies whether to deny downloads from the third-party room..</param>
         /// <param name="color">The color of the third-party room..</param>

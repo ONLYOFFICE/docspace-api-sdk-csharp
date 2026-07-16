@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="IsDefaultWhiteLabelLogosDto" /> class.
         /// </summary>
         /// <param name="name">The white label logo name. (required).</param>
-        /// <param name="@default">Specifies if the white label logo is default or not. (required).</param>
+        /// <param name="default">Specifies if the white label logo is default or not. (required).</param>
         public IsDefaultWhiteLabelLogosDto(string name = default, bool @default = default)
         {
             // to ensure "name" is required (not null)

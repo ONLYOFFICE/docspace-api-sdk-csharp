@@ -32,42 +32,30 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The tenant-level settings for enabling or disabling all AI functionality in DocSpace.
+    /// Request to update per-user AI recommended model visibility settings.
     /// </summary>
-    [DataContract(Name = "TenantAiAccessSettings")]
-    public partial class TenantAiAccessSettings : IValidatableObject
+    [DataContract(Name = "SetAiUserSettingsRequestDto")]
+    public partial class SetAiUserSettingsRequestDto : IValidatableObject
     {
     
         /// <summary>
-        /// Initializes a new instance of the <see cref="TenantAiAccessSettings" /> class.
+        /// Initializes a new instance of the <see cref="SetAiUserSettingsRequestDto" /> class.
         /// </summary>
-        /// <param name="enabled">Specifies whether AI functionality is enabled for the tenant.  When set to &#x60;false&#x60;, all AI features (chat, agents, vectorization) are disabled tenant-wide..</param>
-        /// <param name="lastModified">The timestamp indicating when the settings were last modified..</param>
-        public TenantAiAccessSettings(bool enabled = default, DateTime lastModified = default)
+        /// <param name="chatRecommendedModelVisible">Indicates whether the recommended model banner is visible in the AI chat..</param>
+        public SetAiUserSettingsRequestDto(bool chatRecommendedModelVisible = default)
         {
-            this.Enabled = enabled;
-            this.LastModified = lastModified;
+            this.ChatRecommendedModelVisible = chatRecommendedModelVisible;
         }
 
         /// <summary>
-        /// Specifies whether AI functionality is enabled for the tenant.  When set to &#x60;false&#x60;, all AI features (chat, agents, vectorization) are disabled tenant-wide.
+        /// Indicates whether the recommended model banner is visible in the AI chat.
         /// </summary>
-        /// <value>Specifies whether AI functionality is enabled for the tenant.  When set to &#x60;false&#x60;, all AI features (chat, agents, vectorization) are disabled tenant-wide.</value>
+        /// <value>Indicates whether the recommended model banner is visible in the AI chat.</value>
         /*
         <example>true</example>
         */
-        [DataMember(Name = "enabled", EmitDefaultValue = true)]
-        public bool Enabled { get; set; }
-
-        /// <summary>
-        /// The timestamp indicating when the settings were last modified.
-        /// </summary>
-        /// <value>The timestamp indicating when the settings were last modified.</value>
-        /*
-        <example>1990-01-01T00:00Z</example>
-        */
-        [DataMember(Name = "lastModified", EmitDefaultValue = false)]
-        public DateTime LastModified { get; set; }
+        [DataMember(Name = "chatRecommendedModelVisible", EmitDefaultValue = true)]
+        public bool ChatRecommendedModelVisible { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -76,9 +64,8 @@ namespace DocSpace.API.SDK.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TenantAiAccessSettings {\n");
-            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  LastModified: ").Append(LastModified).Append("\n");
+            sb.Append("class SetAiUserSettingsRequestDto {\n");
+            sb.Append("  ChatRecommendedModelVisible: ").Append(ChatRecommendedModelVisible).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

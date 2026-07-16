@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ExternalSharingSettingsDto" /> class.
         /// </summary>
         /// <param name="externalShare">Specifies whether external (public) link creation is allowed..</param>
-        /// <param name="defaultShareLinkInternal">Specifies the default sharing link type: true = DocSpace users only, false = Anyone with the link..</param>
+        /// <param name="defaultShareLinkInternal">Specifies the default sharing link type: true &#x3D; DocSpace users only, false &#x3D; Anyone with the link..</param>
         /// <param name="externalShareApplyToDocuments">When external sharing is restricted, specifies whether the restriction applies to the My Documents section..</param>
         /// <param name="externalShareApplyToRooms">When external sharing is restricted, specifies whether the restriction applies to the Rooms section..</param>
         /// <param name="blockExistingLinksOnRestrict">When external sharing is restricted, specifies whether existing public links are blocked immediately..</param>
@@ -66,9 +66,9 @@ namespace DocSpace.API.SDK.Model
         public bool ExternalShare { get; set; }
 
         /// <summary>
-        /// Specifies the default sharing link type: true = DocSpace users only, false = Anyone with the link.
+        /// Specifies the default sharing link type: true &#x3D; DocSpace users only, false &#x3D; Anyone with the link.
         /// </summary>
-        /// <value>Specifies the default sharing link type: true = DocSpace users only, false = Anyone with the link.</value>
+        /// <value>Specifies the default sharing link type: true &#x3D; DocSpace users only, false &#x3D; Anyone with the link.</value>
         /*
         <example>false</example>
         */

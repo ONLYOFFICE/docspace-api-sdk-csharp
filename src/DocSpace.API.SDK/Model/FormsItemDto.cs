@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="FormsItemDto" /> class.
         /// </summary>
-        /// <param name="key">The form item key.              <example>field_name</example>.</param>
-        /// <param name="type">The form item type.              <example>text</example>.</param>
+        /// <param name="key">The form item key.              &lt;example&gt;field_name&lt;/example&gt;.</param>
+        /// <param name="type">The form item type.              &lt;example&gt;text&lt;/example&gt;.</param>
         public FormsItemDto(string key = default, string type = default)
         {
             this.Key = key;
@@ -50,16 +50,16 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The form item key.              <example>field_name</example>
+        /// The form item key.              &lt;example&gt;field_name&lt;/example&gt;
         /// </summary>
-        /// <value>The form item key.              <example>field_name</example></value>
+        /// <value>The form item key.              &lt;example&gt;field_name&lt;/example&gt;</value>
         [DataMember(Name = "key", EmitDefaultValue = true)]
         public string Key { get; set; }
 
         /// <summary>
-        /// The form item type.              <example>text</example>
+        /// The form item type.              &lt;example&gt;text&lt;/example&gt;
         /// </summary>
-        /// <value>The form item type.              <example>text</example></value>
+        /// <value>The form item type.              &lt;example&gt;text&lt;/example&gt;</value>
         [DataMember(Name = "type", EmitDefaultValue = true)]
         public string Type { get; set; }
 

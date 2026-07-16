@@ -53,7 +53,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="startIndex">The folder start index..</param>
         /// <param name="count">The number of folder elements..</param>
         /// <param name="total">The total number of elements in the folder. (required).</param>
-        /// <param name="@new">The new element index in the folder..</param>
+        /// <param name="new">The new element index in the folder..</param>
         public FolderContentDtoInteger(List<FileEntryBaseDto> files = default, List<FileEntryBaseDto> folders = default, FolderDtoInteger current = default, Object pathParts = default, int startIndex = default, int count = default, int total = default, int @new = default)
         {
             // to ensure "pathParts" is required (not null)

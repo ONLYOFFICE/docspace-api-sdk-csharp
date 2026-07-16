@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="id">Unique identifier of the MCP server..</param>
         /// <param name="name">Display name of the MCP server..</param>
-        /// <param name="description">Human-readable description of the server's purpose and capabilities..</param>
+        /// <param name="description">Human-readable description of the server&#39;s purpose and capabilities..</param>
         /// <param name="endpoint">Base URL of the MCP server endpoint..</param>
         /// <param name="serverType">serverType.</param>
         /// <param name="headers">HTTP headers sent with every request to the server (e.g., authentication tokens)..</param>
@@ -90,9 +90,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Human-readable description of the server's purpose and capabilities.
+        /// Human-readable description of the server&#39;s purpose and capabilities.
         /// </summary>
-        /// <value>Human-readable description of the server's purpose and capabilities.</value>
+        /// <value>Human-readable description of the server&#39;s purpose and capabilities.</value>
         /*
         <example>Provides document management tools</example>
         */

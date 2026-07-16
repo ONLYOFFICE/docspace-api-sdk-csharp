@@ -48,10 +48,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="enabled">Specifies if the client is currently enabled or not..</param>
         /// <param name="clientId">The client identifier issued to the client during registration..</param>
         /// <param name="clientSecret">The client secret issued to the client during registration..</param>
-        /// <param name="websiteUrl">The URL to the client's website..</param>
-        /// <param name="termsUrl">The URL to the client's terms of service..</param>
-        /// <param name="policyUrl">The URL to the client's privacy policy..</param>
-        /// <param name="logo">The URL to the client's logo..</param>
+        /// <param name="websiteUrl">The URL to the client&#39;s website..</param>
+        /// <param name="termsUrl">The URL to the client&#39;s terms of service..</param>
+        /// <param name="policyUrl">The URL to the client&#39;s privacy policy..</param>
+        /// <param name="logo">The URL to the client&#39;s logo..</param>
         /// <param name="authenticationMethods">The authentication methods supported by the client..</param>
         /// <param name="redirectUris">The list of allowed redirect URIs..</param>
         /// <param name="allowedOrigins">The list of allowed CORS origins..</param>
@@ -135,30 +135,30 @@ namespace DocSpace.API.SDK.Model
         public string ClientSecret { get; set; }
 
         /// <summary>
-        /// The URL to the client's website.
+        /// The URL to the client&#39;s website.
         /// </summary>
-        /// <value>The URL to the client's website.</value>
+        /// <value>The URL to the client&#39;s website.</value>
         [DataMember(Name = "website_url", EmitDefaultValue = false)]
         public string WebsiteUrl { get; set; }
 
         /// <summary>
-        /// The URL to the client's terms of service.
+        /// The URL to the client&#39;s terms of service.
         /// </summary>
-        /// <value>The URL to the client's terms of service.</value>
+        /// <value>The URL to the client&#39;s terms of service.</value>
         [DataMember(Name = "terms_url", EmitDefaultValue = false)]
         public string TermsUrl { get; set; }
 
         /// <summary>
-        /// The URL to the client's privacy policy.
+        /// The URL to the client&#39;s privacy policy.
         /// </summary>
-        /// <value>The URL to the client's privacy policy.</value>
+        /// <value>The URL to the client&#39;s privacy policy.</value>
         [DataMember(Name = "policy_url", EmitDefaultValue = false)]
         public string PolicyUrl { get; set; }
 
         /// <summary>
-        /// The URL to the client's logo.
+        /// The URL to the client&#39;s logo.
         /// </summary>
-        /// <value>The URL to the client's logo.</value>
+        /// <value>The URL to the client&#39;s logo.</value>
         [DataMember(Name = "logo", EmitDefaultValue = false)]
         public string Logo { get; set; }
 
