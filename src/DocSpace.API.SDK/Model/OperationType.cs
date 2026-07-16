@@ -32,105 +32,110 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - Any, 1 - Unknown, 2 - ServicePayment, 4 - PackagePayment, 8 - ServiceUsage, 16 - Deposit, 32 - ReceiveProviderInvoice, 64 - ProcessProviderInvoice, 128 - WriteOffServiceProfit, 256 - Profit, 512 - PartnerAccrual, 1024 - ProviderPayment, 2048 - PartnerPayment, 4096 - Refund, 8192 - BankDeposit, 16384 - BankWithdrawal, 32768 - GoodwillCredit, 65536 - WriteOffProfit, 131072 - WriteOffDifferenceCurrency]
+    /// [0 - Unknown, 1 - ServicePayment, 2 - PackagePayment, 3 - AiServicePayment, 4 - Deposit, 5 - ReceiveProviderInvoice, 6 - ProcessProviderInvoice, 7 - WriteOffServiceProfit, 8 - Profit, 9 - PartnerAccrual, 10 - ProviderPayment, 11 - PartnerPayment, 12 - Refund, 13 - BankDeposit, 14 - BankWithdrawal, 15 - GoodwillCredit, 16 - WriteOffProfit, 17 - WriteOffDifferenceCurrency, 18 - AiDebit, 19 - AiCredit]
     /// </summary>
-    /// <value>[0 - Any, 1 - Unknown, 2 - ServicePayment, 4 - PackagePayment, 8 - ServiceUsage, 16 - Deposit, 32 - ReceiveProviderInvoice, 64 - ProcessProviderInvoice, 128 - WriteOffServiceProfit, 256 - Profit, 512 - PartnerAccrual, 1024 - ProviderPayment, 2048 - PartnerPayment, 4096 - Refund, 8192 - BankDeposit, 16384 - BankWithdrawal, 32768 - GoodwillCredit, 65536 - WriteOffProfit, 131072 - WriteOffDifferenceCurrency]</value>
+    /// <value>[0 - Unknown, 1 - ServicePayment, 2 - PackagePayment, 3 - AiServicePayment, 4 - Deposit, 5 - ReceiveProviderInvoice, 6 - ProcessProviderInvoice, 7 - WriteOffServiceProfit, 8 - Profit, 9 - PartnerAccrual, 10 - ProviderPayment, 11 - PartnerPayment, 12 - Refund, 13 - BankDeposit, 14 - BankWithdrawal, 15 - GoodwillCredit, 16 - WriteOffProfit, 17 - WriteOffDifferenceCurrency, 18 - AiDebit, 19 - AiCredit]</value>
     public enum OperationType
     {
         /// <summary>
-        /// Enum Any for value: 0
+        /// Enum Unknown for value: 0
         /// </summary>
-        Any = 0,
+        Unknown = 0,
 
         /// <summary>
-        /// Enum Unknown for value: 1
+        /// Enum ServicePayment for value: 1
         /// </summary>
-        Unknown = 1,
+        ServicePayment = 1,
 
         /// <summary>
-        /// Enum ServicePayment for value: 2
+        /// Enum PackagePayment for value: 2
         /// </summary>
-        ServicePayment = 2,
+        PackagePayment = 2,
 
         /// <summary>
-        /// Enum PackagePayment for value: 4
+        /// Enum AiServicePayment for value: 3
         /// </summary>
-        PackagePayment = 4,
+        AiServicePayment = 3,
 
         /// <summary>
-        /// Enum ServiceUsage for value: 8
+        /// Enum Deposit for value: 4
         /// </summary>
-        ServiceUsage = 8,
+        Deposit = 4,
 
         /// <summary>
-        /// Enum Deposit for value: 16
+        /// Enum ReceiveProviderInvoice for value: 5
         /// </summary>
-        Deposit = 16,
+        ReceiveProviderInvoice = 5,
 
         /// <summary>
-        /// Enum ReceiveProviderInvoice for value: 32
+        /// Enum ProcessProviderInvoice for value: 6
         /// </summary>
-        ReceiveProviderInvoice = 32,
+        ProcessProviderInvoice = 6,
 
         /// <summary>
-        /// Enum ProcessProviderInvoice for value: 64
+        /// Enum WriteOffServiceProfit for value: 7
         /// </summary>
-        ProcessProviderInvoice = 64,
+        WriteOffServiceProfit = 7,
 
         /// <summary>
-        /// Enum WriteOffServiceProfit for value: 128
+        /// Enum Profit for value: 8
         /// </summary>
-        WriteOffServiceProfit = 128,
+        Profit = 8,
 
         /// <summary>
-        /// Enum Profit for value: 256
+        /// Enum PartnerAccrual for value: 9
         /// </summary>
-        Profit = 256,
+        PartnerAccrual = 9,
 
         /// <summary>
-        /// Enum PartnerAccrual for value: 512
+        /// Enum ProviderPayment for value: 10
         /// </summary>
-        PartnerAccrual = 512,
+        ProviderPayment = 10,
 
         /// <summary>
-        /// Enum ProviderPayment for value: 1024
+        /// Enum PartnerPayment for value: 11
         /// </summary>
-        ProviderPayment = 1024,
+        PartnerPayment = 11,
 
         /// <summary>
-        /// Enum PartnerPayment for value: 2048
+        /// Enum Refund for value: 12
         /// </summary>
-        PartnerPayment = 2048,
+        Refund = 12,
 
         /// <summary>
-        /// Enum Refund for value: 4096
+        /// Enum BankDeposit for value: 13
         /// </summary>
-        Refund = 4096,
+        BankDeposit = 13,
 
         /// <summary>
-        /// Enum BankDeposit for value: 8192
+        /// Enum BankWithdrawal for value: 14
         /// </summary>
-        BankDeposit = 8192,
+        BankWithdrawal = 14,
 
         /// <summary>
-        /// Enum BankWithdrawal for value: 16384
+        /// Enum GoodwillCredit for value: 15
         /// </summary>
-        BankWithdrawal = 16384,
+        GoodwillCredit = 15,
 
         /// <summary>
-        /// Enum GoodwillCredit for value: 32768
+        /// Enum WriteOffProfit for value: 16
         /// </summary>
-        GoodwillCredit = 32768,
+        WriteOffProfit = 16,
 
         /// <summary>
-        /// Enum WriteOffProfit for value: 65536
+        /// Enum WriteOffDifferenceCurrency for value: 17
         /// </summary>
-        WriteOffProfit = 65536,
+        WriteOffDifferenceCurrency = 17,
 
         /// <summary>
-        /// Enum WriteOffDifferenceCurrency for value: 131072
+        /// Enum AiDebit for value: 18
         /// </summary>
-        WriteOffDifferenceCurrency = 131072
+        AiDebit = 18,
+
+        /// <summary>
+        /// Enum AiCredit for value: 19
+        /// </summary>
+        AiCredit = 19
     }
 
 }

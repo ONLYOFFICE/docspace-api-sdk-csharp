@@ -39,10 +39,10 @@ namespace DocSpace.API.SDK.Model
     {
 
         /// <summary>
-        /// Gets or Sets Types
+        /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name = "types", EmitDefaultValue = false)]
-        public OperationType? Types { get; set; }
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public OperationType? Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
@@ -60,26 +60,24 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="CustomerOperationsReportRequestDto" /> class.
         /// </summary>
         /// <param name="serviceName">The service name..</param>
-        /// <param name="writeOffServiceQuota">Write-off of the quota for the service.</param>
         /// <param name="startDate">The report start date..</param>
         /// <param name="endDate">The report end date..</param>
         /// <param name="participantName">The participant name..</param>
         /// <param name="credit">Specifies whether to include credit operations in the report..</param>
         /// <param name="debit">Specifies whether to include debit operations in the report..</param>
-        /// <param name="types">types.</param>
+        /// <param name="type">type.</param>
         /// <param name="status">status.</param>
         /// <param name="orderBy">The field to order by..</param>
         /// <param name="orderType">orderType.</param>
-        public CustomerOperationsReportRequestDto(string serviceName = default, bool writeOffServiceQuota = default, DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default, OperationType? types = default, OperationStatus? status = default, string orderBy = default, OperationOrderType? orderType = default)
+        public CustomerOperationsReportRequestDto(string serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string orderBy = default, OperationOrderType? orderType = default)
         {
             this.ServiceName = serviceName;
-            this.WriteOffServiceQuota = writeOffServiceQuota;
             this.StartDate = startDate;
             this.EndDate = endDate;
             this.ParticipantName = participantName;
             this.Credit = credit;
             this.Debit = debit;
-            this.Types = types;
+            this.Type = type;
             this.Status = status;
             this.OrderBy = orderBy;
             this.OrderType = orderType;
@@ -94,16 +92,6 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "serviceName", EmitDefaultValue = true)]
         public string ServiceName { get; set; }
-
-        /// <summary>
-        /// Write-off of the quota for the service
-        /// </summary>
-        /// <value>Write-off of the quota for the service</value>
-        /*
-        <example>false</example>
-        */
-        [DataMember(Name = "writeOffServiceQuota", EmitDefaultValue = true)]
-        public bool WriteOffServiceQuota { get; set; }
 
         /// <summary>
         /// The report start date.
@@ -130,7 +118,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The participant name.</value>
         /*
-        <example>ACME Corp</example>
+        <example>My Own Corporation</example>
         */
         [DataMember(Name = "participantName", EmitDefaultValue = true)]
         public string ParticipantName { get; set; }
@@ -174,13 +162,12 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class CustomerOperationsReportRequestDto {\n");
             sb.Append("  ServiceName: ").Append(ServiceName).Append("\n");
-            sb.Append("  WriteOffServiceQuota: ").Append(WriteOffServiceQuota).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  ParticipantName: ").Append(ParticipantName).Append("\n");
             sb.Append("  Credit: ").Append(Credit).Append("\n");
             sb.Append("  Debit: ").Append(Debit).Append("\n");
-            sb.Append("  Types: ").Append(Types).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  OrderBy: ").Append(OrderBy).Append("\n");
             sb.Append("  OrderType: ").Append(OrderType).Append("\n");

@@ -37,7 +37,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>WebPluginWrapper</returns>
         WebPluginWrapper AddWebPluginFromFile(bool? @system = default);
@@ -49,7 +49,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>ApiResponse of WebPluginWrapper</returns>
         ApiResponse<WebPluginWrapper> AddWebPluginFromFileWithHttpInfo(bool? @system = default);
@@ -163,7 +163,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>Task of WebPluginWrapper</returns>
@@ -176,7 +176,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>Task of ApiResponse (WebPluginWrapper)</returns>
@@ -505,7 +505,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>WebPluginWrapper</returns>
         public WebPluginWrapper AddWebPluginFromFile(bool? @system = default)
@@ -521,7 +521,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>ApiResponse of WebPluginWrapper</returns>
         public ApiResponse<WebPluginWrapper> AddWebPluginFromFileWithHttpInfo(bool? @system = default)
@@ -597,7 +597,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>Task of WebPluginWrapper</returns>
@@ -614,7 +614,7 @@ namespace DocSpace.API.SDK.Api.Settings
         /// Adds a web plugin from a file to the current portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="@system">Specifies whether to load the system plugins or not. (optional)</param>
+        /// <param name="system">Specifies whether to load the system plugins or not. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/add-web-plugin-from-file/">REST API Reference for AddWebPluginFromFile Operation</seealso>
         /// <returns>Task of ApiResponse (WebPluginWrapper)</returns>

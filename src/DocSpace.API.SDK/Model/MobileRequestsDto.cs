@@ -41,16 +41,16 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MobileRequestsDto" /> class.
         /// </summary>
-        /// <param name="mobilePhone">The user's mobile phone number..</param>
+        /// <param name="mobilePhone">The user&#39;s mobile phone number..</param>
         public MobileRequestsDto(string mobilePhone = default)
         {
             this.MobilePhone = mobilePhone;
         }
 
         /// <summary>
-        /// The user's mobile phone number.
+        /// The user&#39;s mobile phone number.
         /// </summary>
-        /// <value>The user's mobile phone number.</value>
+        /// <value>The user&#39;s mobile phone number.</value>
         /*
         <example>+1234567890</example>
         */

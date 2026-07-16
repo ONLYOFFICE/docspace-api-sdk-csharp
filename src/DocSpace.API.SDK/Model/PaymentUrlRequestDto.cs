@@ -41,23 +41,50 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentUrlRequestDto" /> class.
         /// </summary>
-        /// <param name="backUrl">The URL where the user will be redirected after payment processing..</param>
+        [JsonConstructorAttribute]
+        protected PaymentUrlRequestDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PaymentUrlRequestDto" /> class.
+        /// </summary>
+        /// <param name="backUrl">The URL where the user will be redirected after payment cancellation. (required).</param>
+        /// <param name="successUrl">The URL where the user will be redirected after successful payment. (required).</param>
         /// <param name="quantity">The payment quantity..</param>
-        public PaymentUrlRequestDto(string backUrl = default, Dictionary<string, int> quantity = default)
+        public PaymentUrlRequestDto(string backUrl = default, string successUrl = default, Dictionary<string, int> quantity = default)
         {
+            // to ensure "backUrl" is required (not null)
+            if (backUrl == null)
+            {
+                throw new ArgumentNullException("backUrl is a required property for PaymentUrlRequestDto and cannot be null");
+            }
             this.BackUrl = backUrl;
+            // to ensure "successUrl" is required (not null)
+            if (successUrl == null)
+            {
+                throw new ArgumentNullException("successUrl is a required property for PaymentUrlRequestDto and cannot be null");
+            }
+            this.SuccessUrl = successUrl;
             this.Quantity = quantity;
         }
 
         /// <summary>
-        /// The URL where the user will be redirected after payment processing.
+        /// The URL where the user will be redirected after payment cancellation.
         /// </summary>
-        /// <value>The URL where the user will be redirected after payment processing.</value>
+        /// <value>The URL where the user will be redirected after payment cancellation.</value>
         /*
-        <example>https://example.com</example>
+        <example>https://example.com/payment/back</example>
         */
-        [DataMember(Name = "backUrl", EmitDefaultValue = true)]
+        [DataMember(Name = "backUrl", IsRequired = true, EmitDefaultValue = true)]
         public string BackUrl { get; set; }
+
+        /// <summary>
+        /// The URL where the user will be redirected after successful payment.
+        /// </summary>
+        /// <value>The URL where the user will be redirected after successful payment.</value>
+        /*
+        <example>https://example.com/payment/success</example>
+        */
+        [DataMember(Name = "successUrl", IsRequired = true, EmitDefaultValue = true)]
+        public string SuccessUrl { get; set; }
 
         /// <summary>
         /// The payment quantity.
@@ -75,6 +102,7 @@ namespace DocSpace.API.SDK.Model
             var sb = new StringBuilder();
             sb.Append("class PaymentUrlRequestDto {\n");
             sb.Append("  BackUrl: ").Append(BackUrl).Append("\n");
+            sb.Append("  SuccessUrl: ").Append(SuccessUrl).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -96,6 +124,30 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // BackUrl (string) maxLength
+            if (this.BackUrl != null && this.BackUrl.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BackUrl, length must be less than 255.", new [] { "BackUrl" });
+            }
+
+            // BackUrl (string) minLength
+            if (this.BackUrl != null && this.BackUrl.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for BackUrl, length must be greater than 0.", new [] { "BackUrl" });
+            }
+
+            // SuccessUrl (string) maxLength
+            if (this.SuccessUrl != null && this.SuccessUrl.Length > 255)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SuccessUrl, length must be less than 255.", new [] { "SuccessUrl" });
+            }
+
+            // SuccessUrl (string) minLength
+            if (this.SuccessUrl != null && this.SuccessUrl.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SuccessUrl, length must be greater than 0.", new [] { "SuccessUrl" });
+            }
+
             yield break;
         }
 

@@ -63,10 +63,12 @@ namespace DocSpace.API.SDK.Model
         /// <param name="color">The room color..</param>
         /// <param name="cover">The room cover..</param>
         /// <param name="roomType">roomType (required).</param>
-        /// <param name="@private">Specifies whether the room to be created is private or not..</param>
+        /// <param name="private">Specifies whether the room to be created is private or not..</param>
         /// <param name="share">The collection of sharing parameters..</param>
         /// <param name="chatSettings">chatSettings.</param>
-        public CreateRoomRequestDto(string title = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, RoomType roomType = default, bool @private = default, List<FileShareParams> share = default, ChatSettings chatSettings = default)
+        /// <param name="sendFormToExternalDB">Specifies whether to send form data to external database..</param>
+        /// <param name="saveFormAsXLSX">Specifies whether to save form data as XLSX file..</param>
+        public CreateRoomRequestDto(string title = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, LogoRequest logo = default, List<string> tags = default, string color = default, string cover = default, RoomType roomType = default, bool @private = default, List<FileShareParams> share = default, ChatSettings chatSettings = default, bool? sendFormToExternalDB = default, bool? saveFormAsXLSX = default)
         {
             // to ensure "title" is required (not null)
             if (title == null)
@@ -87,6 +89,8 @@ namespace DocSpace.API.SDK.Model
             this.Private = @private;
             this.Share = share;
             this.ChatSettings = chatSettings;
+            this.SendFormToExternalDB = sendFormToExternalDB;
+            this.SaveFormAsXLSX = saveFormAsXLSX;
         }
 
         /// <summary>
@@ -204,6 +208,26 @@ namespace DocSpace.API.SDK.Model
         public ChatSettings ChatSettings { get; set; }
 
         /// <summary>
+        /// Specifies whether to send form data to external database.
+        /// </summary>
+        /// <value>Specifies whether to send form data to external database.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "sendFormToExternalDB", EmitDefaultValue = true)]
+        public bool? SendFormToExternalDB { get; set; }
+
+        /// <summary>
+        /// Specifies whether to save form data as XLSX file.
+        /// </summary>
+        /// <value>Specifies whether to save form data as XLSX file.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "saveFormAsXLSX", EmitDefaultValue = true)]
+        public bool? SaveFormAsXLSX { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -225,6 +249,8 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Private: ").Append(Private).Append("\n");
             sb.Append("  Share: ").Append(Share).Append("\n");
             sb.Append("  ChatSettings: ").Append(ChatSettings).Append("\n");
+            sb.Append("  SendFormToExternalDB: ").Append(SendFormToExternalDB).Append("\n");
+            sb.Append("  SaveFormAsXLSX: ").Append(SaveFormAsXLSX).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

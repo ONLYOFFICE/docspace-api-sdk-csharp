@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="ExchangeToken200Response" /> class.
         /// </summary>
         /// <param name="accessToken">The access token issued by the authorization server..</param>
-        /// <param name="tokenType">The type of token issued, typically 'Bearer'..</param>
+        /// <param name="tokenType">The type of token issued, typically &#39;Bearer&#39;..</param>
         /// <param name="expiresIn">The number of seconds until the access token expires..</param>
         /// <param name="refreshToken">The token used to obtain a new access token when the current one expires..</param>
         public ExchangeToken200Response(string accessToken = default, string tokenType = default, int expiresIn = default, string refreshToken = default)
@@ -64,9 +64,9 @@ namespace DocSpace.API.SDK.Model
         public string AccessToken { get; set; }
 
         /// <summary>
-        /// The type of token issued, typically 'Bearer'.
+        /// The type of token issued, typically &#39;Bearer&#39;.
         /// </summary>
-        /// <value>The type of token issued, typically 'Bearer'.</value>
+        /// <value>The type of token issued, typically &#39;Bearer&#39;.</value>
         /*
         <example>Bearer</example>
         */

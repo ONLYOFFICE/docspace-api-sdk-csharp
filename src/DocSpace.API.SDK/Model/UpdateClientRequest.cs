@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The request for updating client details.
+    /// Client update request containing modified client details
     /// </summary>
     [DataContract(Name = "UpdateClientRequest")]
     public partial class UpdateClientRequest : IValidatableObject
@@ -41,26 +41,28 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateClientRequest" /> class.
         /// </summary>
-        /// <param name="name">The client name..</param>
-        /// <param name="description">The client description.</param>
-        /// <param name="logo">The client logo in base64 format..</param>
-        /// <param name="allowPkce">Indicates whether PKCE is allowed for the client..</param>
-        /// <param name="isPublic">Indicates whether the client is accessible by third-party tenants..</param>
-        /// <param name="allowedOrigins">The allowed origins for the client..</param>
-        public UpdateClientRequest(string name = default, string description = default, string logo = default, bool allowPkce = default, bool isPublic = default, List<string> allowedOrigins = default)
+        /// <param name="name">The name of the client.</param>
+        /// <param name="description">The description of the client.</param>
+        /// <param name="logo">The logo of the client in base64 format.</param>
+        /// <param name="public">@public.</param>
+        /// <param name="allowPkce">Indicates whether PKCE is allowed for the client.</param>
+        /// <param name="isPublic">Indicates whether client is accessible by third-party tenants.</param>
+        /// <param name="allowedOrigins">The allowed origins for the client.</param>
+        public UpdateClientRequest(string name = default, string description = default, string logo = default, bool @public = default, bool allowPkce = default, bool isPublic = default, List<string> allowedOrigins = default)
         {
             this.Name = name;
             this.Description = description;
             this.Logo = logo;
+            this.Public = @public;
             this.AllowPkce = allowPkce;
             this.IsPublic = isPublic;
             this.AllowedOrigins = allowedOrigins;
         }
 
         /// <summary>
-        /// The client name.
+        /// The name of the client
         /// </summary>
-        /// <value>The client name.</value>
+        /// <value>The name of the client</value>
         /*
         <example>Updated Client</example>
         */
@@ -68,9 +70,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The client description
+        /// The description of the client
         /// </summary>
-        /// <value>The client description</value>
+        /// <value>The description of the client</value>
         /*
         <example>Updated description of the client</example>
         */
@@ -78,9 +80,9 @@ namespace DocSpace.API.SDK.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The client logo in base64 format.
+        /// The logo of the client in base64 format
         /// </summary>
-        /// <value>The client logo in base64 format.</value>
+        /// <value>The logo of the client in base64 format</value>
         /*
         <example>data:image/png;base64,...</example>
         */
@@ -88,9 +90,15 @@ namespace DocSpace.API.SDK.Model
         public string Logo { get; set; }
 
         /// <summary>
-        /// Indicates whether PKCE is allowed for the client.
+        /// Gets or Sets Public
         /// </summary>
-        /// <value>Indicates whether PKCE is allowed for the client.</value>
+        [DataMember(Name = "public", EmitDefaultValue = true)]
+        public bool Public { get; set; }
+
+        /// <summary>
+        /// Indicates whether PKCE is allowed for the client
+        /// </summary>
+        /// <value>Indicates whether PKCE is allowed for the client</value>
         /*
         <example>true</example>
         */
@@ -98,9 +106,9 @@ namespace DocSpace.API.SDK.Model
         public bool AllowPkce { get; set; }
 
         /// <summary>
-        /// Indicates whether the client is accessible by third-party tenants.
+        /// Indicates whether client is accessible by third-party tenants
         /// </summary>
-        /// <value>Indicates whether the client is accessible by third-party tenants.</value>
+        /// <value>Indicates whether client is accessible by third-party tenants</value>
         /*
         <example>false</example>
         */
@@ -108,9 +116,9 @@ namespace DocSpace.API.SDK.Model
         public bool IsPublic { get; set; }
 
         /// <summary>
-        /// The allowed origins for the client.
+        /// The allowed origins for the client
         /// </summary>
-        /// <value>The allowed origins for the client.</value>
+        /// <value>The allowed origins for the client</value>
         /*
         <example>["http://allowed.origin"]</example>
         */
@@ -128,6 +136,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Logo: ").Append(Logo).Append("\n");
+            sb.Append("  Public: ").Append(Public).Append("\n");
             sb.Append("  AllowPkce: ").Append(AllowPkce).Append("\n");
             sb.Append("  IsPublic: ").Append(IsPublic).Append("\n");
             sb.Append("  AllowedOrigins: ").Append(AllowedOrigins).Append("\n");

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **OwnedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
 **Shared** | **bool** | Specifies if the file entry is shared via link or not. | [optional] 
 **SharedForUser** | **bool** | Specifies if the file entry is shared for user or not. | [optional] 
+**SharedExternal** | **bool** | Specifies if the file entry is shared via a public (non-internal) external link. | [optional] 
 **ParentShared** | **bool** | Indicates whether the parent entity is shared. | [optional] 
 **ShortWebUrl** | **string** | The short Web URL. | [optional] 
 **Created** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 

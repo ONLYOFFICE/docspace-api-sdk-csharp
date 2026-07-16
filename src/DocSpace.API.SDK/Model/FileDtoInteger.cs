@@ -98,13 +98,15 @@ namespace DocSpace.API.SDK.Model
         /// <param name="isFillingPreparing">Specifies if the form filling has started but the file is still being saved by the document editor. Filling and editing are not allowed..</param>
         /// <param name="inProcessFolderId">The InProcess folder ID of the file..</param>
         /// <param name="inProcessFolderTitle">The InProcess folder title of the file..</param>
+        /// <param name="resultsFolderId">The ID of the FormFillingFolderDone folder that corresponds to this original form..</param>
         /// <param name="draftLocation">draftLocation.</param>
         /// <param name="viewAccessibility">viewAccessibility.</param>
         /// <param name="lastOpened">lastOpened.</param>
         /// <param name="expired">expired.</param>
         /// <param name="vectorizationStatus">vectorizationStatus.</param>
+        /// <param name="externalDbTableName">The name of the table in the external database that corresponds to this form..</param>
         /// <param name="dimensions">dimensions.</param>
-        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, Dictionary<string, string> editingBy = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, bool? isFillingPreparing = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, VectorizationStatus? vectorizationStatus = default, Size dimensions = default)
+        public FileDtoInteger(int folderId = default, int version = default, int versionGroup = default, string contentLength = default, long? pureContentLength = default, FileStatus? fileStatus = default, Dictionary<string, string> editingBy = default, bool mute = default, string viewUrl = default, string webUrl = default, FileType? fileType = default, string fileExst = default, string comment = default, bool? encrypted = default, string thumbnailUrl = default, Thumbnail? thumbnailStatus = default, bool? locked = default, string lockedBy = default, bool? hasDraft = default, FormFillingStatus? formFillingStatus = default, bool? isForm = default, bool? customFilterEnabled = default, string customFilterEnabledBy = default, bool? startFilling = default, bool? isFillingPreparing = default, int? inProcessFolderId = default, string inProcessFolderTitle = default, int? resultsFolderId = default, DraftLocationInteger draftLocation = default, FileDtoIntegerAllOfViewAccessibility viewAccessibility = default, ApiDateTime lastOpened = default, ApiDateTime expired = default, VectorizationStatus? vectorizationStatus = default, string externalDbTableName = default, Size dimensions = default)
         {
             this.FolderId = folderId;
             this.@Version = version;
@@ -133,11 +135,13 @@ namespace DocSpace.API.SDK.Model
             this.IsFillingPreparing = isFillingPreparing;
             this.InProcessFolderId = inProcessFolderId;
             this.InProcessFolderTitle = inProcessFolderTitle;
+            this.ResultsFolderId = resultsFolderId;
             this.DraftLocation = draftLocation;
             this.ViewAccessibility = viewAccessibility;
             this.LastOpened = lastOpened;
             this.Expired = expired;
             this.VectorizationStatus = vectorizationStatus;
+            this.ExternalDbTableName = externalDbTableName;
             this.Dimensions = dimensions;
         }
 
@@ -372,6 +376,16 @@ namespace DocSpace.API.SDK.Model
         public string InProcessFolderTitle { get; set; }
 
         /// <summary>
+        /// The ID of the FormFillingFolderDone folder that corresponds to this original form.
+        /// </summary>
+        /// <value>The ID of the FormFillingFolderDone folder that corresponds to this original form.</value>
+        /*
+        <example>55</example>
+        */
+        [DataMember(Name = "resultsFolderId", EmitDefaultValue = true)]
+        public int? ResultsFolderId { get; set; }
+
+        /// <summary>
         /// Gets or Sets DraftLocation
         /// </summary>
         [DataMember(Name = "draftLocation", EmitDefaultValue = false)]
@@ -394,6 +408,16 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         [DataMember(Name = "expired", EmitDefaultValue = false)]
         public ApiDateTime Expired { get; set; }
+
+        /// <summary>
+        /// The name of the table in the external database that corresponds to this form.
+        /// </summary>
+        /// <value>The name of the table in the external database that corresponds to this form.</value>
+        /*
+        <example>form_123_v1</example>
+        */
+        [DataMember(Name = "externalDbTableName", EmitDefaultValue = true)]
+        public string ExternalDbTableName { get; set; }
 
         /// <summary>
         /// Gets or Sets Dimensions
@@ -436,11 +460,13 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  IsFillingPreparing: ").Append(IsFillingPreparing).Append("\n");
             sb.Append("  InProcessFolderId: ").Append(InProcessFolderId).Append("\n");
             sb.Append("  InProcessFolderTitle: ").Append(InProcessFolderTitle).Append("\n");
+            sb.Append("  ResultsFolderId: ").Append(ResultsFolderId).Append("\n");
             sb.Append("  DraftLocation: ").Append(DraftLocation).Append("\n");
             sb.Append("  ViewAccessibility: ").Append(ViewAccessibility).Append("\n");
             sb.Append("  LastOpened: ").Append(LastOpened).Append("\n");
             sb.Append("  Expired: ").Append(Expired).Append("\n");
             sb.Append("  VectorizationStatus: ").Append(VectorizationStatus).Append("\n");
+            sb.Append("  ExternalDbTableName: ").Append(ExternalDbTableName).Append("\n");
             sb.Append("  Dimensions: ").Append(Dimensions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

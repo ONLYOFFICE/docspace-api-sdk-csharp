@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.OperationStatus
-[0 - Any, 1 - Pending, 2 - Completed, 4 - Rejected, 8 - Canceled]
+[0 - Pending, 1 - Completed, 2 - Rejected, 3 - Canceled]
 
 ## Properties
 

@@ -37,12 +37,6 @@ namespace DocSpace.API.SDK.Model
     [DataContract(Name = "UpdateMemberRequestDto")]
     public partial class UpdateMemberRequestDto : IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets Sex
-        /// </summary>
-        [DataMember(Name = "sex", EmitDefaultValue = false)]
-        public SexEnum? Sex { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateMemberRequestDto" /> class.
@@ -54,16 +48,12 @@ namespace DocSpace.API.SDK.Model
         /// <param name="firstName">The user first name..</param>
         /// <param name="lastName">The user last name..</param>
         /// <param name="department">The list of the user departments..</param>
-        /// <param name="title">The user title..</param>
         /// <param name="location">The user location..</param>
-        /// <param name="sex">sex.</param>
-        /// <param name="birthday">birthday.</param>
-        /// <param name="worksfrom">worksfrom.</param>
         /// <param name="comment">The user comment..</param>
         /// <param name="contacts">The list of the user contacts..</param>
         /// <param name="files">The user avatar photo URL..</param>
         /// <param name="spam">Specifies if tips, updates and offers are allowed to be sent to the user or not..</param>
-        public UpdateMemberRequestDto(string userId = default, bool? disable = default, string email = default, bool? isUser = default, string firstName = default, string lastName = default, List<Guid> department = default, string title = default, string location = default, SexEnum? sex = default, ApiDateTime birthday = default, ApiDateTime worksfrom = default, string comment = default, List<Contact> contacts = default, string files = default, bool? spam = default)
+        public UpdateMemberRequestDto(string userId = default, bool? disable = default, string email = default, bool? isUser = default, string firstName = default, string lastName = default, List<Guid> department = default, string location = default, string comment = default, List<Contact> contacts = default, string files = default, bool? spam = default)
         {
             this.UserId = userId;
             this.Disable = disable;
@@ -72,11 +62,7 @@ namespace DocSpace.API.SDK.Model
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Department = department;
-            this.Title = title;
             this.Location = location;
-            this.Sex = sex;
-            this.Birthday = birthday;
-            this.Worksfrom = worksfrom;
             this.Comment = comment;
             this.Contacts = contacts;
             this.Files = files;
@@ -154,16 +140,6 @@ namespace DocSpace.API.SDK.Model
         public List<Guid> Department { get; set; }
 
         /// <summary>
-        /// The user title.
-        /// </summary>
-        /// <value>The user title.</value>
-        /*
-        <example>Manager</example>
-        */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
-        public string Title { get; set; }
-
-        /// <summary>
         /// The user location.
         /// </summary>
         /// <value>The user location.</value>
@@ -172,18 +148,6 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "location", EmitDefaultValue = true)]
         public string Location { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Birthday
-        /// </summary>
-        [DataMember(Name = "birthday", EmitDefaultValue = false)]
-        public ApiDateTime Birthday { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Worksfrom
-        /// </summary>
-        [DataMember(Name = "worksfrom", EmitDefaultValue = false)]
-        public ApiDateTime Worksfrom { get; set; }
 
         /// <summary>
         /// The user comment.
@@ -240,11 +204,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
             sb.Append("  Department: ").Append(Department).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Location: ").Append(Location).Append("\n");
-            sb.Append("  Sex: ").Append(Sex).Append("\n");
-            sb.Append("  Birthday: ").Append(Birthday).Append("\n");
-            sb.Append("  Worksfrom: ").Append(Worksfrom).Append("\n");
             sb.Append("  Comment: ").Append(Comment).Append("\n");
             sb.Append("  Contacts: ").Append(Contacts).Append("\n");
             sb.Append("  Files: ").Append(Files).Append("\n");
@@ -303,18 +263,6 @@ namespace DocSpace.API.SDK.Model
             if (this.LastName != null && this.LastName.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LastName, length must be greater than 0.", new [] { "LastName" });
-            }
-
-            // Title (string) maxLength
-            if (this.Title != null && this.Title.Length > 255)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be less than 255.", new [] { "Title" });
-            }
-
-            // Title (string) minLength
-            if (this.Title != null && this.Title.Length < 0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 0.", new [] { "Title" });
             }
 
             yield break;

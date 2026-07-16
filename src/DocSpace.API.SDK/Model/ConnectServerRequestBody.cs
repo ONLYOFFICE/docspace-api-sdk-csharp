@@ -46,7 +46,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConnectServerRequestBody" /> class.
         /// </summary>
-        /// <param name="code">OAuth authorization code received from the provider's redirect. Used to exchange for access and refresh tokens. (required).</param>
+        /// <param name="code">OAuth authorization code received from the provider&#39;s redirect. Used to exchange for access and refresh tokens. (required).</param>
         public ConnectServerRequestBody(string code = default)
         {
             // to ensure "code" is required (not null)
@@ -58,9 +58,9 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// OAuth authorization code received from the provider's redirect. Used to exchange for access and refresh tokens.
+        /// OAuth authorization code received from the provider&#39;s redirect. Used to exchange for access and refresh tokens.
         /// </summary>
-        /// <value>OAuth authorization code received from the provider's redirect. Used to exchange for access and refresh tokens.</value>
+        /// <value>OAuth authorization code received from the provider&#39;s redirect. Used to exchange for access and refresh tokens.</value>
         /*
         <example>abc123def456</example>
         */

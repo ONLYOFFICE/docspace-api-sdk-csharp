@@ -63,13 +63,13 @@ namespace DocSpace.API.SDK.Model
         /// <param name="filesCount">The number of files that the folder contains..</param>
         /// <param name="foldersCount">The number of folders that the folder contains..</param>
         /// <param name="isShareable">Specifies if the folder can be shared or not..</param>
-        /// <param name="@new">The new element index in the folder..</param>
+        /// <param name="new">The new element index in the folder..</param>
         /// <param name="mute">Specifies if the folder notifications are enabled or not..</param>
         /// <param name="tags">The list of tags of the folder..</param>
         /// <param name="logo">logo.</param>
         /// <param name="pinned">Specifies if the folder is pinned or not..</param>
         /// <param name="roomType">roomType.</param>
-        /// <param name="@private">Specifies if the folder is private or not..</param>
+        /// <param name="private">Specifies if the folder is private or not..</param>
         /// <param name="indexing">Specifies if the folder is indexed or not..</param>
         /// <param name="denyDownload">Specifies if the folder can be downloaded or not..</param>
         /// <param name="lifetime">lifetime.</param>
@@ -85,7 +85,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="rootRoomType">rootRoomType.</param>
         /// <param name="saveFormAsXLSX">Specifies whether to save form data as XLSX file..</param>
         /// <param name="sendFormToExternalDB">Specifies whether to send form data to external database..</param>
-        public FolderDtoInteger(int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? passwordProtected = default, bool? expired = default, ChatSettingsDto chatSettings = default, RoomType? rootRoomType = default, bool? saveFormAsXLSX = default, bool? sendFormToExternalDB = default)
+        /// <param name="originalFormId">The original form ID that corresponds to this FormFillingFolderDone folder..</param>
+        public FolderDtoInteger(int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, Logo logo = default, bool pinned = default, RoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkDto watermark = default, FolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? passwordProtected = default, bool? expired = default, ChatSettingsDto chatSettings = default, RoomType? rootRoomType = default, bool? saveFormAsXLSX = default, bool? sendFormToExternalDB = default, int? originalFormId = default)
         {
             this.ParentId = parentId;
             this.FilesCount = filesCount;
@@ -113,6 +114,7 @@ namespace DocSpace.API.SDK.Model
             this.RootRoomType = rootRoomType;
             this.SaveFormAsXLSX = saveFormAsXLSX;
             this.SendFormToExternalDB = sendFormToExternalDB;
+            this.OriginalFormId = originalFormId;
         }
 
         /// <summary>
@@ -314,6 +316,9 @@ namespace DocSpace.API.SDK.Model
         /// Specifies whether to save form data as XLSX file.
         /// </summary>
         /// <value>Specifies whether to save form data as XLSX file.</value>
+        /*
+        <example>false</example>
+        */
         [DataMember(Name = "saveFormAsXLSX", EmitDefaultValue = true)]
         public bool? SaveFormAsXLSX { get; set; }
 
@@ -321,8 +326,21 @@ namespace DocSpace.API.SDK.Model
         /// Specifies whether to send form data to external database.
         /// </summary>
         /// <value>Specifies whether to send form data to external database.</value>
+        /*
+        <example>false</example>
+        */
         [DataMember(Name = "sendFormToExternalDB", EmitDefaultValue = true)]
         public bool? SendFormToExternalDB { get; set; }
+
+        /// <summary>
+        /// The original form ID that corresponds to this FormFillingFolderDone folder.
+        /// </summary>
+        /// <value>The original form ID that corresponds to this FormFillingFolderDone folder.</value>
+        /*
+        <example>42</example>
+        */
+        [DataMember(Name = "originalFormId", EmitDefaultValue = true)]
+        public int? OriginalFormId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -358,6 +376,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  RootRoomType: ").Append(RootRoomType).Append("\n");
             sb.Append("  SaveFormAsXLSX: ").Append(SaveFormAsXLSX).Append("\n");
             sb.Append("  SendFormToExternalDB: ").Append(SendFormToExternalDB).Append("\n");
+            sb.Append("  OriginalFormId: ").Append(OriginalFormId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

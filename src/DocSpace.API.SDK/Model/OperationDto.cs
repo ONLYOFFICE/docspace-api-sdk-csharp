@@ -37,6 +37,12 @@ namespace DocSpace.API.SDK.Model
     [DataContract(Name = "OperationDto")]
     public partial class OperationDto : IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public OperationType? Type { get; set; }
     
         /// <summary>
         /// Initializes a new instance of the <see cref="OperationDto" /> class.
@@ -52,7 +58,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="debit">The debit amount of the operation..</param>
         /// <param name="participantName">The participant original name..</param>
         /// <param name="participantDisplayName">The participant display name..</param>
-        public OperationDto(ApiDateTime date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, string participantName = default, string participantDisplayName = default)
+        /// <param name="agentId">AI Agent id..</param>
+        /// <param name="agentTitle">AI Agent name..</param>
+        /// <param name="type">type.</param>
+        public OperationDto(ApiDateTime date = default, string service = default, string description = default, string details = default, string serviceUnit = default, int quantity = default, string currency = default, double credit = default, double debit = default, string participantName = default, string participantDisplayName = default, string agentId = default, string agentTitle = default, OperationType? type = default)
         {
             this.Date = date;
             this.Service = service;
@@ -65,6 +74,9 @@ namespace DocSpace.API.SDK.Model
             this.Debit = debit;
             this.ParticipantName = participantName;
             this.ParticipantDisplayName = participantDisplayName;
+            this.AgentId = agentId;
+            this.AgentTitle = agentTitle;
+            this.Type = type;
         }
 
         /// <summary>
@@ -174,6 +186,26 @@ namespace DocSpace.API.SDK.Model
         public string ParticipantDisplayName { get; set; }
 
         /// <summary>
+        /// AI Agent id.
+        /// </summary>
+        /// <value>AI Agent id.</value>
+        /*
+        <example>123</example>
+        */
+        [DataMember(Name = "agentId", EmitDefaultValue = true)]
+        public string AgentId { get; set; }
+
+        /// <summary>
+        /// AI Agent name.
+        /// </summary>
+        /// <value>AI Agent name.</value>
+        /*
+        <example>My AI Agent</example>
+        */
+        [DataMember(Name = "agentTitle", EmitDefaultValue = true)]
+        public string AgentTitle { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -192,6 +224,9 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Debit: ").Append(Debit).Append("\n");
             sb.Append("  ParticipantName: ").Append(ParticipantName).Append("\n");
             sb.Append("  ParticipantDisplayName: ").Append(ParticipantDisplayName).Append("\n");
+            sb.Append("  AgentId: ").Append(AgentId).Append("\n");
+            sb.Append("  AgentTitle: ").Append(AgentTitle).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

@@ -52,7 +52,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="copyLogo">Specifies whether to copy room logo or not..</param>
         /// <param name="share">The collection of email addresses of users with whom to share a room..</param>
         /// <param name="groups">The collection of groups with whom to share a room..</param>
-        /// <param name="@public">Specifies whether the room template is public or not..</param>
+        /// <param name="public">Specifies whether the room template is public or not..</param>
         /// <param name="tags">The collection of tags..</param>
         /// <param name="color">The color of the room template..</param>
         /// <param name="cover">The cover of the room template..</param>

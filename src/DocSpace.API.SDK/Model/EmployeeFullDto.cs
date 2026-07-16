@@ -70,13 +70,10 @@ namespace DocSpace.API.SDK.Model
         /// <param name="userName">The user username..</param>
         /// <param name="email">The user email..</param>
         /// <param name="contacts">The list of user contacts..</param>
-        /// <param name="birthday">birthday.</param>
-        /// <param name="sex">The user sex..</param>
         /// <param name="status">status.</param>
         /// <param name="activationStatus">activationStatus.</param>
         /// <param name="terminated">terminated.</param>
         /// <param name="department">The user department..</param>
-        /// <param name="workFrom">workFrom.</param>
         /// <param name="groups">The list of user groups..</param>
         /// <param name="location">The user location..</param>
         /// <param name="notes">The user notes..</param>
@@ -102,20 +99,17 @@ namespace DocSpace.API.SDK.Model
         /// <param name="registrationDate">registrationDate.</param>
         /// <param name="hasPersonalFolder">Specifies if the user has a personal folder or not..</param>
         /// <param name="tfaAppEnabled">Indicates whether the user has enabled two-factor authentication (TFA) using an authentication app..</param>
-        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, ApiDateTime birthday = default, string sex = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, ApiDateTime workFrom = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, double? authCookieLifetime = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool? hasPersonalFolder = default, bool? tfaAppEnabled = default)
+        public EmployeeFullDto(string firstName = default, string lastName = default, string userName = default, string email = default, List<Contact> contacts = default, EmployeeStatus? status = default, EmployeeActivationStatus? activationStatus = default, ApiDateTime terminated = default, string department = default, List<GroupSummaryDto> groups = default, string location = default, string notes = default, bool isAdmin = default, bool isRoomAdmin = default, bool isLDAP = default, List<string> listAdminModules = default, bool isOwner = default, bool isVisitor = default, bool isCollaborator = default, string cultureName = default, string mobilePhone = default, MobilePhoneActivationStatus? mobilePhoneActivationStatus = default, bool isSSO = default, DarkThemeSettingsType? theme = default, long? quotaLimit = default, double? usedSpace = default, bool? shared = default, bool? isCustomQuota = default, int? loginEventId = default, double? authCookieLifetime = default, EmployeeDto createdBy = default, ApiDateTime registrationDate = default, bool? hasPersonalFolder = default, bool? tfaAppEnabled = default)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.UserName = userName;
             this.Email = email;
             this.Contacts = contacts;
-            this.Birthday = birthday;
-            this.Sex = sex;
             this.Status = status;
             this.ActivationStatus = activationStatus;
             this.Terminated = terminated;
             this.Department = department;
-            this.WorkFrom = workFrom;
             this.Groups = groups;
             this.Location = location;
             this.Notes = notes;
@@ -194,22 +188,6 @@ namespace DocSpace.API.SDK.Model
         public List<Contact> Contacts { get; set; }
 
         /// <summary>
-        /// Gets or Sets Birthday
-        /// </summary>
-        [DataMember(Name = "birthday", EmitDefaultValue = false)]
-        public ApiDateTime Birthday { get; set; }
-
-        /// <summary>
-        /// The user sex.
-        /// </summary>
-        /// <value>The user sex.</value>
-        /*
-        <example>male</example>
-        */
-        [DataMember(Name = "sex", EmitDefaultValue = true)]
-        public string Sex { get; set; }
-
-        /// <summary>
         /// Gets or Sets Terminated
         /// </summary>
         [DataMember(Name = "terminated", EmitDefaultValue = false)]
@@ -224,12 +202,6 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "department", EmitDefaultValue = true)]
         public string Department { get; set; }
-
-        /// <summary>
-        /// Gets or Sets WorkFrom
-        /// </summary>
-        [DataMember(Name = "workFrom", EmitDefaultValue = false)]
-        public ApiDateTime WorkFrom { get; set; }
 
         /// <summary>
         /// The list of user groups.
@@ -466,13 +438,10 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  UserName: ").Append(UserName).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Contacts: ").Append(Contacts).Append("\n");
-            sb.Append("  Birthday: ").Append(Birthday).Append("\n");
-            sb.Append("  Sex: ").Append(Sex).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  ActivationStatus: ").Append(ActivationStatus).Append("\n");
             sb.Append("  Terminated: ").Append(Terminated).Append("\n");
             sb.Append("  Department: ").Append(Department).Append("\n");
-            sb.Append("  WorkFrom: ").Append(WorkFrom).Append("\n");
             sb.Append("  Groups: ").Append(Groups).Append("\n");
             sb.Append("  Location: ").Append(Location).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");

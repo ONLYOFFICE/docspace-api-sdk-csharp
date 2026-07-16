@@ -41,13 +41,23 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LogoRequest" /> class.
         /// </summary>
-        /// <param name="tmpFile">The path to the temporary image file..</param>
+        [JsonConstructorAttribute]
+        protected LogoRequest() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LogoRequest" /> class.
+        /// </summary>
+        /// <param name="tmpFile">The path to the temporary image file. (required).</param>
         /// <param name="x">The X coordinate of the rectangle starting point..</param>
         /// <param name="y">The Y coordinate of the rectangle starting point..</param>
         /// <param name="width">The rectangle width..</param>
         /// <param name="height">The rectangle height..</param>
         public LogoRequest(string tmpFile = default, int x = default, int y = default, int width = default, int height = default)
         {
+            // to ensure "tmpFile" is required (not null)
+            if (tmpFile == null)
+            {
+                throw new ArgumentNullException("tmpFile is a required property for LogoRequest and cannot be null");
+            }
             this.TmpFile = tmpFile;
             this.X = x;
             this.Y = y;
@@ -62,7 +72,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>/tmp/logo.png</example>
         */
-        [DataMember(Name = "tmpFile", EmitDefaultValue = true)]
+        [DataMember(Name = "tmpFile", IsRequired = true, EmitDefaultValue = true)]
         public string TmpFile { get; set; }
 
         /// <summary>
@@ -138,6 +148,60 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // TmpFile (string) minLength
+            if (this.TmpFile != null && this.TmpFile.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TmpFile, length must be greater than 1.", new [] { "TmpFile" });
+            }
+
+            // X (int) maximum
+            if (this.X > (int)1280)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for X, must be a value less than or equal to 1280.", new [] { "X" });
+            }
+
+            // X (int) minimum
+            if (this.X < (int)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for X, must be a value greater than or equal to 0.", new [] { "X" });
+            }
+
+            // Y (int) maximum
+            if (this.Y > (int)1280)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Y, must be a value less than or equal to 1280.", new [] { "Y" });
+            }
+
+            // Y (int) minimum
+            if (this.Y < (int)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Y, must be a value greater than or equal to 0.", new [] { "Y" });
+            }
+
+            // Width (int) maximum
+            if (this.Width > (int)1280)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Width, must be a value less than or equal to 1280.", new [] { "Width" });
+            }
+
+            // Width (int) minimum
+            if (this.Width < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Width, must be a value greater than or equal to 1.", new [] { "Width" });
+            }
+
+            // Height (int) maximum
+            if (this.Height > (int)1280)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Height, must be a value less than or equal to 1280.", new [] { "Height" });
+            }
+
+            // Height (int) minimum
+            if (this.Height < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Height, must be a value greater than or equal to 1.", new [] { "Height" });
+            }
+
             yield break;
         }
 

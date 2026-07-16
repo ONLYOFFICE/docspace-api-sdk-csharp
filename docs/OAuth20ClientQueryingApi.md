@@ -5,11 +5,11 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**GetClient**](#getclient) | **GET** /api/2.0/clients/{clientId} | Get client details |
-| [**GetClientInfo**](#getclientinfo) | **GET** /api/2.0/clients/{clientId}/info | Get detailed client information |
-| [**GetClients**](#getclients) | **GET** /api/2.0/clients | Get clients |
-| [**GetClientsInfo**](#getclientsinfo) | **GET** /api/2.0/clients/info | Get detailed information of clients |
-| [**GetConsents**](#getconsents) | **GET** /api/2.0/clients/consents | Get user consents |
-| [**GetPublicClientInfo**](#getpublicclientinfo) | **GET** /api/2.0/clients/{clientId}/public/info | Get public client information |
+| [**GetClientInfo**](#getclientinfo) | **GET** /api/2.0/clients/{clientId}/info | Retrieves detailed information for a specific client |
+| [**GetClients**](#getclients) | **GET** /api/2.0/clients | List clients |
+| [**GetClientsInfo**](#getclientsinfo) | **GET** /api/2.0/clients/info | Retrieves a pageable list of client information |
+| [**GetConsents**](#getconsents) | **GET** /api/2.0/clients/consents | Retrieves a pageable list of consents |
+| [**GetPublicClientInfo**](#getpublicclientinfo) | **GET** /api/2.0/clients/{clientId}/public/info | Handles the GET request for public client information |
 
 <a id="getclient"></a>
 # **GetClient**
@@ -23,7 +23,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **clientId** | **string** | The client identifier. |  |
+| **clientId** | **string** | ID of the client to retrieve |  |
 
 ### Return type
 
@@ -31,7 +31,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 ```csharp
@@ -50,16 +50,16 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Configure API key authorization: x-signature
+            config.AddApiKey("x-signature", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // config.AddApiKeyPrefix("x-signature", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ClientQueryingApi(httpClient, config, httpClientHandler);
-            var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier.
+            var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | ID of the client to retrieve
 
             try
             {
@@ -128,7 +128,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **clientId** | **string** | The client identifier. |  |
+| **clientId** | **string** | ID of the client to retrieve |  |
 
 ### Return type
 
@@ -136,7 +136,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 ```csharp
@@ -155,20 +155,20 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Configure API key authorization: x-signature
+            config.AddApiKey("x-signature", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // config.AddApiKeyPrefix("x-signature", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ClientQueryingApi(httpClient, config, httpClientHandler);
-            var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier.
+            var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | ID of the client to retrieve
 
             try
             {
-                // Get detailed client information
+                // Retrieves detailed information for a specific client
                 ClientInfoResponse result = apiInstance.GetClientInfo(clientId);
                 Debug.WriteLine(result);
             }
@@ -189,7 +189,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get detailed client information
+    // Retrieves detailed information for a specific client
     ApiResponse<ClientInfoResponse> response = apiInstance.GetClientInfoWithHttpInfo(clientId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -223,7 +223,7 @@ catch (ApiException e)
 # **GetClients**
 > PageableResponse GetClients (int limit, string? lastClientId = null, DateTime? lastCreatedOn = null)
 
-Retrieves a paginated list of OAuth2 clients. The results can be paginated using the 'limit' parameter and the last seen client ID or creation date.
+Retrieves a paginated list of OAuth2 clients. The results can be paginated using the limit parameter and last seen client ID/creation date.
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-clients/).
 
@@ -231,9 +231,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **limit** | **int** | The maximum number of results returned per page. |  |
-| **lastClientId** | **string?** | The ID of the last retrieved client. | [optional]  |
-| **lastCreatedOn** | **DateTime?** | The creation date of the last retrieved client. | [optional]  |
+| **limit** | **int** | Pagination limit | [default to 30] |
+| **lastClientId** | **string?** | ID of the last retrieved client | [optional]  |
+| **lastCreatedOn** | **DateTime?** | Date of the last retrieved client | [optional]  |
 
 ### Return type
 
@@ -241,7 +241,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 ```csharp
@@ -260,22 +260,22 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Configure API key authorization: x-signature
+            config.AddApiKey("x-signature", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // config.AddApiKeyPrefix("x-signature", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ClientQueryingApi(httpClient, config, httpClientHandler);
-            var limit = 1;  // int | The maximum number of results returned per page.
-            var lastClientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string? | The ID of the last retrieved client. (optional) 
-            var lastCreatedOn = 2024-04-04T12:00:00Z;  // DateTime? | The creation date of the last retrieved client. (optional) 
+            var limit = 1;  // int | Pagination limit (default to 30)
+            var lastClientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string? | ID of the last retrieved client (optional) 
+            var lastCreatedOn = 2024-04-04T12:00:00Z;  // DateTime? | Date of the last retrieved client (optional) 
 
             try
             {
-                // Get clients
+                // List clients
                 PageableResponse result = apiInstance.GetClients(limit, lastClientId, lastCreatedOn);
                 Debug.WriteLine(result);
             }
@@ -296,7 +296,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get clients
+    // List clients
     ApiResponse<PageableResponse> response = apiInstance.GetClientsWithHttpInfo(limit, lastClientId, lastCreatedOn);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -321,7 +321,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Client list successfully retrieved |  -  |
 | **400** | Invalid pagination parameters |  -  |
-| **403** | Insufficient permissions to create a client list |  -  |
+| **403** | Insufficient permissions to list clients |  -  |
 | **429** | Too many requests - rate limit exceeded |  -  |
 | **500** | Internal server error occurred |  -  |
 
@@ -339,9 +339,9 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **limit** | **int** | The maximum number of results returned per page. |  |
-| **lastClientId** | **string?** | The identifier of the last retrieved client. | [optional]  |
-| **lastCreatedOn** | **DateTime?** | The creation date of the last retrieved client. | [optional]  |
+| **limit** | **int** | Pagination limit |  |
+| **lastClientId** | **string?** | ID of the last retrieved client | [optional]  |
+| **lastCreatedOn** | **DateTime?** | Date of the last retrieved client | [optional]  |
 
 ### Return type
 
@@ -349,7 +349,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 ```csharp
@@ -368,22 +368,22 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Configure API key authorization: x-signature
+            config.AddApiKey("x-signature", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // config.AddApiKeyPrefix("x-signature", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ClientQueryingApi(httpClient, config, httpClientHandler);
-            var limit = 1;  // int | The maximum number of results returned per page.
-            var lastClientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string? | The identifier of the last retrieved client. (optional) 
-            var lastCreatedOn = 2024-04-04T12:00:00Z;  // DateTime? | The creation date of the last retrieved client. (optional) 
+            var limit = 1;  // int | Pagination limit
+            var lastClientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string? | ID of the last retrieved client (optional) 
+            var lastCreatedOn = 2024-04-04T12:00:00Z;  // DateTime? | Date of the last retrieved client (optional) 
 
             try
             {
-                // Get detailed information of clients
+                // Retrieves a pageable list of client information
                 PageableResponseClientInfoResponse result = apiInstance.GetClientsInfo(limit, lastClientId, lastCreatedOn);
                 Debug.WriteLine(result);
             }
@@ -404,7 +404,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get detailed information of clients
+    // Retrieves a pageable list of client information
     ApiResponse<PageableResponseClientInfoResponse> response = apiInstance.GetClientsInfoWithHttpInfo(limit, lastClientId, lastCreatedOn);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -446,8 +446,8 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **limit** | **int** | The maximum number of results returned per page. |  |
-| **lastModifiedOn** | **DateTime?** | The date when the user consent was last modified. | [optional]  |
+| **limit** | **int** | Pagination limit |  |
+| **lastModifiedOn** | **DateTime?** | Date of the last retrieved consent | [optional]  |
 
 ### Return type
 
@@ -455,7 +455,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 ```csharp
@@ -474,21 +474,21 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Configure API key authorization: x-signature
+            config.AddApiKey("x-signature", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // config.AddApiKeyPrefix("x-signature", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ClientQueryingApi(httpClient, config, httpClientHandler);
-            var limit = 1;  // int | The maximum number of results returned per page.
-            var lastModifiedOn = 2024-04-04T12:00:00Z;  // DateTime? | The date when the user consent was last modified. (optional) 
+            var limit = 1;  // int | Pagination limit
+            var lastModifiedOn = 2024-04-04T12:00:00Z;  // DateTime? | Date of the last retrieved consent (optional) 
 
             try
             {
-                // Get user consents
+                // Retrieves a pageable list of consents
                 PageableModificationResponse result = apiInstance.GetConsents(limit, lastModifiedOn);
                 Debug.WriteLine(result);
             }
@@ -509,7 +509,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get user consents
+    // Retrieves a pageable list of consents
     ApiResponse<PageableModificationResponse> response = apiInstance.GetConsentsWithHttpInfo(limit, lastModifiedOn);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -540,7 +540,7 @@ catch (ApiException e)
 # **GetPublicClientInfo**
 > ClientInfoResponse GetPublicClientInfo (string clientId)
 
-Returns the public information for a client with the ID secified din the request.
+
 
 For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspace/api-backend/usage-api/get-public-client-info/).
 
@@ -548,7 +548,7 @@ For more information, see [api.onlyoffice.com](https://api.onlyoffice.com/docspa
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **clientId** | **string** | The client identifier. |  |
+| **clientId** | **string** | ID of the client to retrieve |  |
 
 ### Return type
 
@@ -579,11 +579,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new ClientQueryingApi(httpClient, config, httpClientHandler);
-            var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | The client identifier.
+            var clientId = 6c7cf17b-1bd3-47d5-94c6-be2d3570e168;  // string | ID of the client to retrieve
 
             try
             {
-                // Get public client information
+                // Handles the GET request for public client information
                 ClientInfoResponse result = apiInstance.GetPublicClientInfo(clientId);
                 Debug.WriteLine(result);
             }
@@ -604,7 +604,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get public client information
+    // Handles the GET request for public client information
     ApiResponse<ClientInfoResponse> response = apiInstance.GetPublicClientInfoWithHttpInfo(clientId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);

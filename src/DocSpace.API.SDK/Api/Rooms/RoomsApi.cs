@@ -344,6 +344,29 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <returns>ApiResponse of FolderIntegerWrapper</returns>
         ApiResponse<FolderIntegerWrapper> DeleteRoomTagsWithHttpInfo(int id, BatchTagsRequestDto? batchTagsRequestDto = default);
         /// <summary>
+        /// Get external DB sync status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the external DB synchronization task for the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-db-sync-status/">REST API Reference for GetExternalDbSyncStatus Operation</seealso>
+        /// <returns>ExternalDbSyncTaskWrapper</returns>
+        ExternalDbSyncTaskWrapper GetExternalDbSyncStatus(int id);
+
+        /// <summary>
+        /// Get external DB sync status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the external DB synchronization task for the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-db-sync-status/">REST API Reference for GetExternalDbSyncStatus Operation</seealso>
+        /// <returns>ApiResponse of ExternalDbSyncTaskWrapper</returns>
+        ApiResponse<ExternalDbSyncTaskWrapper> GetExternalDbSyncStatusWithHttpInfo(int id);
+        /// <summary>
         /// Get the new room items
         /// </summary>
         /// <remarks>
@@ -847,6 +870,29 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/">REST API Reference for SetRoomSecurity Operation</seealso>
         /// <returns>ApiResponse of RoomSecurityWrapper</returns>
         ApiResponse<RoomSecurityWrapper> SetRoomSecurityWithHttpInfo(int id, RoomInvitationRequest roomInvitationRequest);
+        /// <summary>
+        /// Start external DB sync
+        /// </summary>
+        /// <remarks>
+        /// Triggers external DB synchronization for all form templates in the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-external-db-sync/">REST API Reference for StartExternalDbSync Operation</seealso>
+        /// <returns>ExternalDbSyncTaskWrapper</returns>
+        ExternalDbSyncTaskWrapper StartExternalDbSync(int id);
+
+        /// <summary>
+        /// Start external DB sync
+        /// </summary>
+        /// <remarks>
+        /// Triggers external DB synchronization for all form templates in the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-external-db-sync/">REST API Reference for StartExternalDbSync Operation</seealso>
+        /// <returns>ApiResponse of ExternalDbSyncTaskWrapper</returns>
+        ApiResponse<ExternalDbSyncTaskWrapper> StartExternalDbSyncWithHttpInfo(int id);
         /// <summary>
         /// Start the room index export
         /// </summary>
@@ -1358,6 +1404,31 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/delete-room-tags/">REST API Reference for DeleteRoomTags Operation</seealso>
         /// <returns>Task of ApiResponse (FolderIntegerWrapper)</returns>
         Task<ApiResponse<FolderIntegerWrapper>> DeleteRoomTagsWithHttpInfoAsync(int id, BatchTagsRequestDto? batchTagsRequestDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get external DB sync status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the external DB synchronization task for the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-db-sync-status/">REST API Reference for GetExternalDbSyncStatus Operation</seealso>
+        /// <returns>Task of ExternalDbSyncTaskWrapper</returns>
+        Task<ExternalDbSyncTaskWrapper> GetExternalDbSyncStatusAsync(int id, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get external DB sync status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the external DB synchronization task for the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-db-sync-status/">REST API Reference for GetExternalDbSyncStatus Operation</seealso>
+        /// <returns>Task of ApiResponse (ExternalDbSyncTaskWrapper)</returns>
+        Task<ApiResponse<ExternalDbSyncTaskWrapper>> GetExternalDbSyncStatusWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the new room items
         /// </summary>
@@ -1902,6 +1973,31 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-room-security/">REST API Reference for SetRoomSecurity Operation</seealso>
         /// <returns>Task of ApiResponse (RoomSecurityWrapper)</returns>
         Task<ApiResponse<RoomSecurityWrapper>> SetRoomSecurityWithHttpInfoAsync(int id, RoomInvitationRequest roomInvitationRequest, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Start external DB sync
+        /// </summary>
+        /// <remarks>
+        /// Triggers external DB synchronization for all form templates in the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-external-db-sync/">REST API Reference for StartExternalDbSync Operation</seealso>
+        /// <returns>Task of ExternalDbSyncTaskWrapper</returns>
+        Task<ExternalDbSyncTaskWrapper> StartExternalDbSyncAsync(int id, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Start external DB sync
+        /// </summary>
+        /// <remarks>
+        /// Triggers external DB synchronization for all form templates in the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-external-db-sync/">REST API Reference for StartExternalDbSync Operation</seealso>
+        /// <returns>Task of ApiResponse (ExternalDbSyncTaskWrapper)</returns>
+        Task<ApiResponse<ExternalDbSyncTaskWrapper>> StartExternalDbSyncWithHttpInfoAsync(int id, CancellationToken cancellationToken = default);
         /// <summary>
         /// Start the room index export
         /// </summary>
@@ -4744,6 +4840,188 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("DeleteRoomTags", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get external DB sync status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the external DB synchronization task for the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-db-sync-status/">REST API Reference for GetExternalDbSyncStatus Operation</seealso>
+        /// <returns>ExternalDbSyncTaskWrapper</returns>
+        public ExternalDbSyncTaskWrapper GetExternalDbSyncStatus(int id)
+        {
+            var localVarResponse = GetExternalDbSyncStatusWithHttpInfo(id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get external DB sync status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the external DB synchronization task for the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-db-sync-status/">REST API Reference for GetExternalDbSyncStatus Operation</seealso>
+        /// <returns>ApiResponse of ExternalDbSyncTaskWrapper</returns>
+        public ApiResponse<ExternalDbSyncTaskWrapper> GetExternalDbSyncStatusWithHttpInfo(int id)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<ExternalDbSyncTaskWrapper>("/api/2.0/files/rooms/{id}/externaldbsync", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetExternalDbSyncStatus", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get external DB sync status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the external DB synchronization task for the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-db-sync-status/">REST API Reference for GetExternalDbSyncStatus Operation</seealso>
+        /// <returns>Task of ExternalDbSyncTaskWrapper</returns>
+        public async Task<ExternalDbSyncTaskWrapper> GetExternalDbSyncStatusAsync(int id, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetExternalDbSyncStatusWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get external DB sync status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the external DB synchronization task for the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-external-db-sync-status/">REST API Reference for GetExternalDbSyncStatus Operation</seealso>
+        /// <returns>Task of ApiResponse (ExternalDbSyncTaskWrapper)</returns>
+        public async Task<ApiResponse<ExternalDbSyncTaskWrapper>> GetExternalDbSyncStatusWithHttpInfoAsync(int id, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<ExternalDbSyncTaskWrapper>("/api/2.0/files/rooms/{id}/externaldbsync", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetExternalDbSyncStatus", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -8647,6 +8925,188 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("SetRoomSecurity", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Start external DB sync
+        /// </summary>
+        /// <remarks>
+        /// Triggers external DB synchronization for all form templates in the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-external-db-sync/">REST API Reference for StartExternalDbSync Operation</seealso>
+        /// <returns>ExternalDbSyncTaskWrapper</returns>
+        public ExternalDbSyncTaskWrapper StartExternalDbSync(int id)
+        {
+            var localVarResponse = StartExternalDbSyncWithHttpInfo(id);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Start external DB sync
+        /// </summary>
+        /// <remarks>
+        /// Triggers external DB synchronization for all form templates in the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-external-db-sync/">REST API Reference for StartExternalDbSync Operation</seealso>
+        /// <returns>ApiResponse of ExternalDbSyncTaskWrapper</returns>
+        public ApiResponse<ExternalDbSyncTaskWrapper> StartExternalDbSyncWithHttpInfo(int id)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<ExternalDbSyncTaskWrapper>("/api/2.0/files/rooms/{id}/externaldbsync", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("StartExternalDbSync", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Start external DB sync
+        /// </summary>
+        /// <remarks>
+        /// Triggers external DB synchronization for all form templates in the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-external-db-sync/">REST API Reference for StartExternalDbSync Operation</seealso>
+        /// <returns>Task of ExternalDbSyncTaskWrapper</returns>
+        public async Task<ExternalDbSyncTaskWrapper> StartExternalDbSyncAsync(int id, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await StartExternalDbSyncWithHttpInfoAsync(id, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Start external DB sync
+        /// </summary>
+        /// <remarks>
+        /// Triggers external DB synchronization for all form templates in the specified filling forms room.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The room ID.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/start-external-db-sync/">REST API Reference for StartExternalDbSync Operation</seealso>
+        /// <returns>Task of ApiResponse (ExternalDbSyncTaskWrapper)</returns>
+        public async Task<ApiResponse<ExternalDbSyncTaskWrapper>> StartExternalDbSyncWithHttpInfoAsync(int id, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("id", ClientUtils.ParameterToString(id)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<ExternalDbSyncTaskWrapper>("/api/2.0/files/rooms/{id}/externaldbsync", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("StartExternalDbSync", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

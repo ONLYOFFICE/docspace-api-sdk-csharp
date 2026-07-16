@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **OwnedBy** | [**EmployeeDto**](EmployeeDto.md) |  | [optional] 
 **Shared** | **bool** | Specifies if the file entry is shared via link or not. | [optional] 
 **SharedForUser** | **bool** | Specifies if the file entry is shared for user or not. | [optional] 
+**SharedExternal** | **bool** | Specifies if the file entry is shared via a public (non-internal) external link. | [optional] 
 **ParentShared** | **bool** | Indicates whether the parent entity is shared. | [optional] 
 **ShortWebUrl** | **string** | The short Web URL. | [optional] 
 **Created** | [**ApiDateTime**](ApiDateTime.md) |  | [optional] 
@@ -66,6 +67,7 @@ Name | Type | Description | Notes
 **RootRoomType** | **RoomType** |  | [optional] 
 **SaveFormAsXLSX** | **bool?** | Specifies whether to save form data as XLSX file. | [optional] 
 **SendFormToExternalDB** | **bool?** | Specifies whether to send form data to external database. | [optional] 
+**OriginalFormId** | **int?** | The original form ID that corresponds to this FormFillingFolderDone folder. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -165,9 +165,13 @@ namespace DocSpace.API.SDK.Model
         /// <param name="chunkUploadSize">The size of a large file that is uploaded in chunks..</param>
         /// <param name="openEditorInSameTab">Specifies whether to open the editor in the same tab or not..</param>
         /// <param name="organizeRoomsGrouping">Specifies whether the grouping of rooms is enabled or not..</param>
+        /// <param name="defaultShareLinkInternal">Specifies the default sharing link type: true &#x3D; DocSpace users only (internal), false &#x3D; Anyone with the link..</param>
+        /// <param name="externalShareApplyToDocuments">When external sharing is restricted, specifies whether the restriction applies to the My Documents section..</param>
+        /// <param name="externalShareApplyToRooms">When external sharing is restricted, specifies whether the restriction applies to the Rooms section..</param>
+        /// <param name="blockExistingLinksOnRestrict">When external sharing is restricted, specifies whether existing public links are blocked immediately..</param>
         /// <param name="extsFilesVectorized">List of extensions available for vectorization.</param>
         /// <param name="maxVectorizationFileSize">The maximum file size for vectorization.</param>
-        public FilesSettingsDto(List<string> extsImagePreviewed = default, List<string> extsMediaPreviewed = default, List<string> extsWebPreviewed = default, List<string> extsWebEdited = default, List<string> extsWebEncrypt = default, List<string> extsWebReviewed = default, List<string> extsWebCustomFilterEditing = default, List<string> extsWebRestrictedEditing = default, List<string> extsWebCommented = default, List<string> extsWebTemplate = default, List<string> extsMustConvert = default, Dictionary<string, List<string>> extsConvertible = default, List<string> extsUploadable = default, List<string> extsArchive = default, List<string> extsVideo = default, List<string> extsAudio = default, List<string> extsImage = default, List<string> extsSpreadsheet = default, List<string> extsPresentation = default, List<string> extsDocument = default, List<string> extsDiagram = default, FilesSettingsDtoInternalFormats internalFormats = default, string masterFormExtension = default, string paramVersion = default, string paramOutType = default, string fileDownloadUrlString = default, string fileWebViewerUrlString = default, string fileWebViewerExternalUrlString = default, string fileWebEditorUrlString = default, string fileWebEditorExternalUrlString = default, string fileRedirectPreviewUrlString = default, string fileThumbnailUrlString = default, bool confirmDelete = default, bool enableThirdParty = default, bool externalShare = default, bool externalShareSocialMedia = default, bool storeOriginalFiles = default, bool keepNewFileName = default, bool displayFileExtension = default, bool convertNotify = default, bool hideConfirmCancelOperation = default, bool hideConfirmConvertSave = default, bool hideConfirmConvertOpen = default, bool hideConfirmRoomLifetime = default, OrderBy defaultOrder = default, bool forcesave = default, bool storeForcesave = default, bool recentSection = default, bool favoritesSection = default, bool templatesSection = default, bool downloadTarGz = default, AutoCleanUpData automaticallyCleanUp = default, bool canSearchByContent = default, List<FilesSettingsDto.DefaultSharingAccessRightsEnum> defaultSharingAccessRights = default, int maxUploadThreadCount = default, long chunkUploadSize = default, bool openEditorInSameTab = default, bool organizeRoomsGrouping = default, List<string> extsFilesVectorized = default, long maxVectorizationFileSize = default)
+        public FilesSettingsDto(List<string> extsImagePreviewed = default, List<string> extsMediaPreviewed = default, List<string> extsWebPreviewed = default, List<string> extsWebEdited = default, List<string> extsWebEncrypt = default, List<string> extsWebReviewed = default, List<string> extsWebCustomFilterEditing = default, List<string> extsWebRestrictedEditing = default, List<string> extsWebCommented = default, List<string> extsWebTemplate = default, List<string> extsMustConvert = default, Dictionary<string, List<string>> extsConvertible = default, List<string> extsUploadable = default, List<string> extsArchive = default, List<string> extsVideo = default, List<string> extsAudio = default, List<string> extsImage = default, List<string> extsSpreadsheet = default, List<string> extsPresentation = default, List<string> extsDocument = default, List<string> extsDiagram = default, FilesSettingsDtoInternalFormats internalFormats = default, string masterFormExtension = default, string paramVersion = default, string paramOutType = default, string fileDownloadUrlString = default, string fileWebViewerUrlString = default, string fileWebViewerExternalUrlString = default, string fileWebEditorUrlString = default, string fileWebEditorExternalUrlString = default, string fileRedirectPreviewUrlString = default, string fileThumbnailUrlString = default, bool confirmDelete = default, bool enableThirdParty = default, bool externalShare = default, bool externalShareSocialMedia = default, bool storeOriginalFiles = default, bool keepNewFileName = default, bool displayFileExtension = default, bool convertNotify = default, bool hideConfirmCancelOperation = default, bool hideConfirmConvertSave = default, bool hideConfirmConvertOpen = default, bool hideConfirmRoomLifetime = default, OrderBy defaultOrder = default, bool forcesave = default, bool storeForcesave = default, bool recentSection = default, bool favoritesSection = default, bool templatesSection = default, bool downloadTarGz = default, AutoCleanUpData automaticallyCleanUp = default, bool canSearchByContent = default, List<FilesSettingsDto.DefaultSharingAccessRightsEnum> defaultSharingAccessRights = default, int maxUploadThreadCount = default, long chunkUploadSize = default, bool openEditorInSameTab = default, bool organizeRoomsGrouping = default, bool defaultShareLinkInternal = default, bool externalShareApplyToDocuments = default, bool externalShareApplyToRooms = default, bool blockExistingLinksOnRestrict = default, List<string> extsFilesVectorized = default, long maxVectorizationFileSize = default)
         {
             this.ExtsImagePreviewed = extsImagePreviewed;
             this.ExtsMediaPreviewed = extsMediaPreviewed;
@@ -227,6 +231,10 @@ namespace DocSpace.API.SDK.Model
             this.ChunkUploadSize = chunkUploadSize;
             this.OpenEditorInSameTab = openEditorInSameTab;
             this.OrganizeRoomsGrouping = organizeRoomsGrouping;
+            this.DefaultShareLinkInternal = defaultShareLinkInternal;
+            this.ExternalShareApplyToDocuments = externalShareApplyToDocuments;
+            this.ExternalShareApplyToRooms = externalShareApplyToRooms;
+            this.BlockExistingLinksOnRestrict = blockExistingLinksOnRestrict;
             this.ExtsFilesVectorized = extsFilesVectorized;
             this.MaxVectorizationFileSize = maxVectorizationFileSize;
         }
@@ -800,6 +808,46 @@ namespace DocSpace.API.SDK.Model
         public bool OrganizeRoomsGrouping { get; set; }
 
         /// <summary>
+        /// Specifies the default sharing link type: true &#x3D; DocSpace users only (internal), false &#x3D; Anyone with the link.
+        /// </summary>
+        /// <value>Specifies the default sharing link type: true &#x3D; DocSpace users only (internal), false &#x3D; Anyone with the link.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "defaultShareLinkInternal", EmitDefaultValue = true)]
+        public bool DefaultShareLinkInternal { get; set; }
+
+        /// <summary>
+        /// When external sharing is restricted, specifies whether the restriction applies to the My Documents section.
+        /// </summary>
+        /// <value>When external sharing is restricted, specifies whether the restriction applies to the My Documents section.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "externalShareApplyToDocuments", EmitDefaultValue = true)]
+        public bool ExternalShareApplyToDocuments { get; set; }
+
+        /// <summary>
+        /// When external sharing is restricted, specifies whether the restriction applies to the Rooms section.
+        /// </summary>
+        /// <value>When external sharing is restricted, specifies whether the restriction applies to the Rooms section.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "externalShareApplyToRooms", EmitDefaultValue = true)]
+        public bool ExternalShareApplyToRooms { get; set; }
+
+        /// <summary>
+        /// When external sharing is restricted, specifies whether existing public links are blocked immediately.
+        /// </summary>
+        /// <value>When external sharing is restricted, specifies whether existing public links are blocked immediately.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "blockExistingLinksOnRestrict", EmitDefaultValue = true)]
+        public bool BlockExistingLinksOnRestrict { get; set; }
+
+        /// <summary>
         /// List of extensions available for vectorization
         /// </summary>
         /// <value>List of extensions available for vectorization</value>
@@ -885,6 +933,10 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ChunkUploadSize: ").Append(ChunkUploadSize).Append("\n");
             sb.Append("  OpenEditorInSameTab: ").Append(OpenEditorInSameTab).Append("\n");
             sb.Append("  OrganizeRoomsGrouping: ").Append(OrganizeRoomsGrouping).Append("\n");
+            sb.Append("  DefaultShareLinkInternal: ").Append(DefaultShareLinkInternal).Append("\n");
+            sb.Append("  ExternalShareApplyToDocuments: ").Append(ExternalShareApplyToDocuments).Append("\n");
+            sb.Append("  ExternalShareApplyToRooms: ").Append(ExternalShareApplyToRooms).Append("\n");
+            sb.Append("  BlockExistingLinksOnRestrict: ").Append(BlockExistingLinksOnRestrict).Append("\n");
             sb.Append("  ExtsFilesVectorized: ").Append(ExtsFilesVectorized).Append("\n");
             sb.Append("  MaxVectorizationFileSize: ").Append(MaxVectorizationFileSize).Append("\n");
             sb.Append("}\n");

@@ -32,35 +32,30 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// [0 - Any, 1 - Pending, 2 - Completed, 4 - Rejected, 8 - Canceled]
+    /// [0 - Pending, 1 - Completed, 2 - Rejected, 3 - Canceled]
     /// </summary>
-    /// <value>[0 - Any, 1 - Pending, 2 - Completed, 4 - Rejected, 8 - Canceled]</value>
+    /// <value>[0 - Pending, 1 - Completed, 2 - Rejected, 3 - Canceled]</value>
     public enum OperationStatus
     {
         /// <summary>
-        /// Enum Any for value: 0
+        /// Enum Pending for value: 0
         /// </summary>
-        Any = 0,
+        Pending = 0,
 
         /// <summary>
-        /// Enum Pending for value: 1
+        /// Enum Completed for value: 1
         /// </summary>
-        Pending = 1,
+        Completed = 1,
 
         /// <summary>
-        /// Enum Completed for value: 2
+        /// Enum Rejected for value: 2
         /// </summary>
-        Completed = 2,
+        Rejected = 2,
 
         /// <summary>
-        /// Enum Rejected for value: 4
+        /// Enum Canceled for value: 3
         /// </summary>
-        Rejected = 4,
-
-        /// <summary>
-        /// Enum Canceled for value: 8
-        /// </summary>
-        Canceled = 8
+        Canceled = 3
     }
 
 }

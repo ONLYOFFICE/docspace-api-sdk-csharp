@@ -44,10 +44,11 @@ namespace DocSpace.API.SDK.Model
         /// <param name="name">The client name..</param>
         /// <param name="description">The client description..</param>
         /// <param name="scopes">The client scopes..</param>
+        /// <param name="public">@public.</param>
         /// <param name="clientId">The client ID..</param>
-        /// <param name="websiteUrl">The URL to the client's website.</param>
-        /// <param name="termsUrl">The URL to the client's terms of service..</param>
-        /// <param name="policyUrl">The URL to the client's privacy policy..</param>
+        /// <param name="websiteUrl">The URL to the client&#39;s website.</param>
+        /// <param name="termsUrl">The URL to the client&#39;s terms of service..</param>
+        /// <param name="policyUrl">The URL to the client&#39;s privacy policy..</param>
         /// <param name="logo">The client logo in base64 format..</param>
         /// <param name="authenticationMethods">The authentication methods supported by the client..</param>
         /// <param name="isPublic">Indicates whether the client is accessible by third-party tenants..</param>
@@ -55,11 +56,12 @@ namespace DocSpace.API.SDK.Model
         /// <param name="createdBy">The user who created the client..</param>
         /// <param name="modifiedOn">The date and time when the client was last modified..</param>
         /// <param name="modifiedBy">The user who last modified the client..</param>
-        public ClientInfoResponse(string name = default, string description = default, List<string> scopes = default, string clientId = default, string websiteUrl = default, string termsUrl = default, string policyUrl = default, string logo = default, List<string> authenticationMethods = default, bool isPublic = default, DateTime createdOn = default, string createdBy = default, DateTime modifiedOn = default, string modifiedBy = default)
+        public ClientInfoResponse(string name = default, string description = default, List<string> scopes = default, bool @public = default, string clientId = default, string websiteUrl = default, string termsUrl = default, string policyUrl = default, string logo = default, List<string> authenticationMethods = default, bool isPublic = default, DateTime createdOn = default, string createdBy = default, DateTime modifiedOn = default, string modifiedBy = default)
         {
             this.Name = name;
             this.Description = description;
             this.Scopes = scopes;
+            this.Public = @public;
             this.ClientId = clientId;
             this.WebsiteUrl = websiteUrl;
             this.TermsUrl = termsUrl;
@@ -95,6 +97,12 @@ namespace DocSpace.API.SDK.Model
         public List<string> Scopes { get; set; }
 
         /// <summary>
+        /// Gets or Sets Public
+        /// </summary>
+        [DataMember(Name = "public", EmitDefaultValue = true)]
+        public bool Public { get; set; }
+
+        /// <summary>
         /// The client ID.
         /// </summary>
         /// <value>The client ID.</value>
@@ -102,23 +110,23 @@ namespace DocSpace.API.SDK.Model
         public string ClientId { get; set; }
 
         /// <summary>
-        /// The URL to the client's website
+        /// The URL to the client&#39;s website
         /// </summary>
-        /// <value>The URL to the client's website</value>
+        /// <value>The URL to the client&#39;s website</value>
         [DataMember(Name = "website_url", EmitDefaultValue = false)]
         public string WebsiteUrl { get; set; }
 
         /// <summary>
-        /// The URL to the client's terms of service.
+        /// The URL to the client&#39;s terms of service.
         /// </summary>
-        /// <value>The URL to the client's terms of service.</value>
+        /// <value>The URL to the client&#39;s terms of service.</value>
         [DataMember(Name = "terms_url", EmitDefaultValue = false)]
         public string TermsUrl { get; set; }
 
         /// <summary>
-        /// The URL to the client's privacy policy.
+        /// The URL to the client&#39;s privacy policy.
         /// </summary>
-        /// <value>The URL to the client's privacy policy.</value>
+        /// <value>The URL to the client&#39;s privacy policy.</value>
         [DataMember(Name = "policy_url", EmitDefaultValue = false)]
         public string PolicyUrl { get; set; }
 
@@ -182,6 +190,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Scopes: ").Append(Scopes).Append("\n");
+            sb.Append("  Public: ").Append(Public).Append("\n");
             sb.Append("  ClientId: ").Append(ClientId).Append("\n");
             sb.Append("  WebsiteUrl: ").Append(WebsiteUrl).Append("\n");
             sb.Append("  TermsUrl: ").Append(TermsUrl).Append("\n");

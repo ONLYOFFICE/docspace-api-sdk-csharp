@@ -119,6 +119,29 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>ApiResponse of DefaultProviderWrapper</returns>
         ApiResponse<DefaultProviderWrapper> GetDefaultProviderWithHttpInfo();
         /// <summary>
+        /// Get all models for a provider with their settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the full list of AI models available from a provider, including both recommended and additional models.  Each model includes its current settings: enabled state, display alias, and capabilities (vision, tool calling, thinking).  Recommended models are enabled by default and their alias and capabilities come from configuration.  Additional models are disabled by default and can be configured by the admin.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="providerId">The identifier of the AI provider.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-provider-models/">REST API Reference for GetProviderModels Operation</seealso>
+        /// <returns>ModelSettingsArrayWrapper</returns>
+        ModelSettingsArrayWrapper GetProviderModels(int providerId);
+
+        /// <summary>
+        /// Get all models for a provider with their settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the full list of AI models available from a provider, including both recommended and additional models.  Each model includes its current settings: enabled state, display alias, and capabilities (vision, tool calling, thinking).  Recommended models are enabled by default and their alias and capabilities come from configuration.  Additional models are disabled by default and can be configured by the admin.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="providerId">The identifier of the AI provider.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-provider-models/">REST API Reference for GetProviderModels Operation</seealso>
+        /// <returns>ApiResponse of ModelSettingsArrayWrapper</returns>
+        ApiResponse<ModelSettingsArrayWrapper> GetProviderModelsWithHttpInfo(int providerId);
+        /// <summary>
         /// Get AI providers
         /// </summary>
         /// <remarks>
@@ -143,6 +166,29 @@ namespace DocSpace.API.SDK.Api.AI
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-providers/">REST API Reference for GetProviders Operation</seealso>
         /// <returns>ApiResponse of AiProviderArrayWrapper</returns>
         ApiResponse<AiProviderArrayWrapper> GetProvidersWithHttpInfo(int? startIndex = default, int? count = default);
+        /// <summary>
+        /// Preview models for a new AI provider
+        /// </summary>
+        /// <remarks>
+        /// Connects to the specified AI provider using the provided credentials and returns the available models  with their default settings. This is used to preview models before saving the provider.  Recommended models are enabled by default with configuration-defined settings.  Additional models are disabled by default with empty capabilities.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="previewProviderModelsRequestDto">Request parameters for previewing models available from a provider before saving it. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/preview-provider-models/">REST API Reference for PreviewProviderModels Operation</seealso>
+        /// <returns>ModelSettingsArrayWrapper</returns>
+        ModelSettingsArrayWrapper PreviewProviderModels(PreviewProviderModelsRequestDto? previewProviderModelsRequestDto = default);
+
+        /// <summary>
+        /// Preview models for a new AI provider
+        /// </summary>
+        /// <remarks>
+        /// Connects to the specified AI provider using the provided credentials and returns the available models  with their default settings. This is used to preview models before saving the provider.  Recommended models are enabled by default with configuration-defined settings.  Additional models are disabled by default with empty capabilities.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="previewProviderModelsRequestDto">Request parameters for previewing models available from a provider before saving it. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/preview-provider-models/">REST API Reference for PreviewProviderModels Operation</seealso>
+        /// <returns>ApiResponse of ModelSettingsArrayWrapper</returns>
+        ApiResponse<ModelSettingsArrayWrapper> PreviewProviderModelsWithHttpInfo(PreviewProviderModelsRequestDto? previewProviderModelsRequestDto = default);
         /// <summary>
         /// Set the default AI provider
         /// </summary>
@@ -297,6 +343,31 @@ namespace DocSpace.API.SDK.Api.AI
         /// <returns>Task of ApiResponse (DefaultProviderWrapper)</returns>
         Task<ApiResponse<DefaultProviderWrapper>> GetDefaultProviderWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get all models for a provider with their settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the full list of AI models available from a provider, including both recommended and additional models.  Each model includes its current settings: enabled state, display alias, and capabilities (vision, tool calling, thinking).  Recommended models are enabled by default and their alias and capabilities come from configuration.  Additional models are disabled by default and can be configured by the admin.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="providerId">The identifier of the AI provider.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-provider-models/">REST API Reference for GetProviderModels Operation</seealso>
+        /// <returns>Task of ModelSettingsArrayWrapper</returns>
+        Task<ModelSettingsArrayWrapper> GetProviderModelsAsync(int providerId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get all models for a provider with their settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the full list of AI models available from a provider, including both recommended and additional models.  Each model includes its current settings: enabled state, display alias, and capabilities (vision, tool calling, thinking).  Recommended models are enabled by default and their alias and capabilities come from configuration.  Additional models are disabled by default and can be configured by the admin.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="providerId">The identifier of the AI provider.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-provider-models/">REST API Reference for GetProviderModels Operation</seealso>
+        /// <returns>Task of ApiResponse (ModelSettingsArrayWrapper)</returns>
+        Task<ApiResponse<ModelSettingsArrayWrapper>> GetProviderModelsWithHttpInfoAsync(int providerId, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get AI providers
         /// </summary>
         /// <remarks>
@@ -323,6 +394,31 @@ namespace DocSpace.API.SDK.Api.AI
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-providers/">REST API Reference for GetProviders Operation</seealso>
         /// <returns>Task of ApiResponse (AiProviderArrayWrapper)</returns>
         Task<ApiResponse<AiProviderArrayWrapper>> GetProvidersWithHttpInfoAsync(int? startIndex = default, int? count = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Preview models for a new AI provider
+        /// </summary>
+        /// <remarks>
+        /// Connects to the specified AI provider using the provided credentials and returns the available models  with their default settings. This is used to preview models before saving the provider.  Recommended models are enabled by default with configuration-defined settings.  Additional models are disabled by default with empty capabilities.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="previewProviderModelsRequestDto">Request parameters for previewing models available from a provider before saving it. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/preview-provider-models/">REST API Reference for PreviewProviderModels Operation</seealso>
+        /// <returns>Task of ModelSettingsArrayWrapper</returns>
+        Task<ModelSettingsArrayWrapper> PreviewProviderModelsAsync(PreviewProviderModelsRequestDto? previewProviderModelsRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Preview models for a new AI provider
+        /// </summary>
+        /// <remarks>
+        /// Connects to the specified AI provider using the provided credentials and returns the available models  with their default settings. This is used to preview models before saving the provider.  Recommended models are enabled by default with configuration-defined settings.  Additional models are disabled by default with empty capabilities.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="previewProviderModelsRequestDto">Request parameters for previewing models available from a provider before saving it. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/preview-provider-models/">REST API Reference for PreviewProviderModels Operation</seealso>
+        /// <returns>Task of ApiResponse (ModelSettingsArrayWrapper)</returns>
+        Task<ApiResponse<ModelSettingsArrayWrapper>> PreviewProviderModelsWithHttpInfoAsync(PreviewProviderModelsRequestDto? previewProviderModelsRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set the default AI provider
         /// </summary>
@@ -1318,6 +1414,188 @@ namespace DocSpace.API.SDK.Api.AI
         }
 
         /// <summary>
+        /// Get all models for a provider with their settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the full list of AI models available from a provider, including both recommended and additional models.  Each model includes its current settings: enabled state, display alias, and capabilities (vision, tool calling, thinking).  Recommended models are enabled by default and their alias and capabilities come from configuration.  Additional models are disabled by default and can be configured by the admin.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="providerId">The identifier of the AI provider.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-provider-models/">REST API Reference for GetProviderModels Operation</seealso>
+        /// <returns>ModelSettingsArrayWrapper</returns>
+        public ModelSettingsArrayWrapper GetProviderModels(int providerId)
+        {
+            var localVarResponse = GetProviderModelsWithHttpInfo(providerId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get all models for a provider with their settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the full list of AI models available from a provider, including both recommended and additional models.  Each model includes its current settings: enabled state, display alias, and capabilities (vision, tool calling, thinking).  Recommended models are enabled by default and their alias and capabilities come from configuration.  Additional models are disabled by default and can be configured by the admin.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="providerId">The identifier of the AI provider.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-provider-models/">REST API Reference for GetProviderModels Operation</seealso>
+        /// <returns>ApiResponse of ModelSettingsArrayWrapper</returns>
+        public ApiResponse<ModelSettingsArrayWrapper> GetProviderModelsWithHttpInfo(int providerId)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("providerId", ClientUtils.ParameterToString(providerId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<ModelSettingsArrayWrapper>("/api/2.0/ai/providers/{providerId}/models", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetProviderModels", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get all models for a provider with their settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the full list of AI models available from a provider, including both recommended and additional models.  Each model includes its current settings: enabled state, display alias, and capabilities (vision, tool calling, thinking).  Recommended models are enabled by default and their alias and capabilities come from configuration.  Additional models are disabled by default and can be configured by the admin.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="providerId">The identifier of the AI provider.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-provider-models/">REST API Reference for GetProviderModels Operation</seealso>
+        /// <returns>Task of ModelSettingsArrayWrapper</returns>
+        public async Task<ModelSettingsArrayWrapper> GetProviderModelsAsync(int providerId, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetProviderModelsWithHttpInfoAsync(providerId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get all models for a provider with their settings
+        /// </summary>
+        /// <remarks>
+        /// Returns the full list of AI models available from a provider, including both recommended and additional models.  Each model includes its current settings: enabled state, display alias, and capabilities (vision, tool calling, thinking).  Recommended models are enabled by default and their alias and capabilities come from configuration.  Additional models are disabled by default and can be configured by the admin.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="providerId">The identifier of the AI provider.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-provider-models/">REST API Reference for GetProviderModels Operation</seealso>
+        /// <returns>Task of ApiResponse (ModelSettingsArrayWrapper)</returns>
+        public async Task<ApiResponse<ModelSettingsArrayWrapper>> GetProviderModelsWithHttpInfoAsync(int providerId, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("providerId", ClientUtils.ParameterToString(providerId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<ModelSettingsArrayWrapper>("/api/2.0/ai/providers/{providerId}/models", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetProviderModels", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get AI providers
         /// </summary>
         /// <remarks>
@@ -1512,6 +1790,188 @@ namespace DocSpace.API.SDK.Api.AI
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetProviders", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Preview models for a new AI provider
+        /// </summary>
+        /// <remarks>
+        /// Connects to the specified AI provider using the provided credentials and returns the available models  with their default settings. This is used to preview models before saving the provider.  Recommended models are enabled by default with configuration-defined settings.  Additional models are disabled by default with empty capabilities.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="previewProviderModelsRequestDto">Request parameters for previewing models available from a provider before saving it. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/preview-provider-models/">REST API Reference for PreviewProviderModels Operation</seealso>
+        /// <returns>ModelSettingsArrayWrapper</returns>
+        public ModelSettingsArrayWrapper PreviewProviderModels(PreviewProviderModelsRequestDto? previewProviderModelsRequestDto = default)
+        {
+            var localVarResponse = PreviewProviderModelsWithHttpInfo(previewProviderModelsRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Preview models for a new AI provider
+        /// </summary>
+        /// <remarks>
+        /// Connects to the specified AI provider using the provided credentials and returns the available models  with their default settings. This is used to preview models before saving the provider.  Recommended models are enabled by default with configuration-defined settings.  Additional models are disabled by default with empty capabilities.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="previewProviderModelsRequestDto">Request parameters for previewing models available from a provider before saving it. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/preview-provider-models/">REST API Reference for PreviewProviderModels Operation</seealso>
+        /// <returns>ApiResponse of ModelSettingsArrayWrapper</returns>
+        public ApiResponse<ModelSettingsArrayWrapper> PreviewProviderModelsWithHttpInfo(PreviewProviderModelsRequestDto? previewProviderModelsRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (previewProviderModelsRequestDto != null) localVarRequestOptions.Data = previewProviderModelsRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<ModelSettingsArrayWrapper>("/api/2.0/ai/providers/models/preview", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("PreviewProviderModels", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Preview models for a new AI provider
+        /// </summary>
+        /// <remarks>
+        /// Connects to the specified AI provider using the provided credentials and returns the available models  with their default settings. This is used to preview models before saving the provider.  Recommended models are enabled by default with configuration-defined settings.  Additional models are disabled by default with empty capabilities.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="previewProviderModelsRequestDto">Request parameters for previewing models available from a provider before saving it. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/preview-provider-models/">REST API Reference for PreviewProviderModels Operation</seealso>
+        /// <returns>Task of ModelSettingsArrayWrapper</returns>
+        public async Task<ModelSettingsArrayWrapper> PreviewProviderModelsAsync(PreviewProviderModelsRequestDto? previewProviderModelsRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await PreviewProviderModelsWithHttpInfoAsync(previewProviderModelsRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Preview models for a new AI provider
+        /// </summary>
+        /// <remarks>
+        /// Connects to the specified AI provider using the provided credentials and returns the available models  with their default settings. This is used to preview models before saving the provider.  Recommended models are enabled by default with configuration-defined settings.  Additional models are disabled by default with empty capabilities.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="previewProviderModelsRequestDto">Request parameters for previewing models available from a provider before saving it. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/preview-provider-models/">REST API Reference for PreviewProviderModels Operation</seealso>
+        /// <returns>Task of ApiResponse (ModelSettingsArrayWrapper)</returns>
+        public async Task<ApiResponse<ModelSettingsArrayWrapper>> PreviewProviderModelsWithHttpInfoAsync(PreviewProviderModelsRequestDto? previewProviderModelsRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (previewProviderModelsRequestDto != null) localVarRequestOptions.Data = previewProviderModelsRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<ModelSettingsArrayWrapper>("/api/2.0/ai/providers/models/preview", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("PreviewProviderModels", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

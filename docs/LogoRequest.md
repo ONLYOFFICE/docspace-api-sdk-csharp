@@ -5,7 +5,7 @@ The logo request parameters.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TmpFile** | **string** | The path to the temporary image file. | [optional] 
+**TmpFile** | **string** | The path to the temporary image file. | 
 **X** | **int** | The X coordinate of the rectangle starting point. | [optional] 
 **Y** | **int** | The Y coordinate of the rectangle starting point. | [optional] 
 **Width** | **int** | The rectangle width. | [optional] 

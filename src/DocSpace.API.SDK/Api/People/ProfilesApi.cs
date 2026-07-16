@@ -57,29 +57,29 @@ namespace DocSpace.API.SDK.Api.People
         /// Check if a user exists by email
         /// </summary>
         /// <remarks>
-        /// Returns a boolean indicating whether a user with the specified email exists on the portal.
+        /// Returns data indicating whether a user with the specified email exists on the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
         /// <param name="encemail">The user encrypted email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
-        /// <returns>BooleanWrapper</returns>
-        BooleanWrapper CheckUserExistsByEmail(string? email = default, string? encemail = default, string? culture = default);
+        /// <returns>UserExistsResponseWrapper</returns>
+        UserExistsResponseWrapper CheckUserExistsByEmail(string? email = default, string? encemail = default, string? culture = default);
 
         /// <summary>
         /// Check if a user exists by email
         /// </summary>
         /// <remarks>
-        /// Returns a boolean indicating whether a user with the specified email exists on the portal.
+        /// Returns data indicating whether a user with the specified email exists on the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
         /// <param name="encemail">The user encrypted email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
-        /// <returns>ApiResponse of BooleanWrapper</returns>
-        ApiResponse<BooleanWrapper> CheckUserExistsByEmailWithHttpInfo(string? email = default, string? encemail = default, string? culture = default);
+        /// <returns>ApiResponse of UserExistsResponseWrapper</returns>
+        ApiResponse<UserExistsResponseWrapper> CheckUserExistsByEmailWithHttpInfo(string? email = default, string? encemail = default, string? culture = default);
         /// <summary>
         /// Delete a user
         /// </summary>
@@ -408,7 +408,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Check if a user exists by email
         /// </summary>
         /// <remarks>
-        /// Returns a boolean indicating whether a user with the specified email exists on the portal.
+        /// Returns data indicating whether a user with the specified email exists on the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
@@ -416,14 +416,14 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="culture">Culture (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
-        /// <returns>Task of BooleanWrapper</returns>
-        Task<BooleanWrapper> CheckUserExistsByEmailAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of UserExistsResponseWrapper</returns>
+        Task<UserExistsResponseWrapper> CheckUserExistsByEmailAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Check if a user exists by email
         /// </summary>
         /// <remarks>
-        /// Returns a boolean indicating whether a user with the specified email exists on the portal.
+        /// Returns data indicating whether a user with the specified email exists on the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
@@ -431,8 +431,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="culture">Culture (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
-        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        Task<ApiResponse<BooleanWrapper>> CheckUserExistsByEmailWithHttpInfoAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (UserExistsResponseWrapper)</returns>
+        Task<ApiResponse<UserExistsResponseWrapper>> CheckUserExistsByEmailWithHttpInfoAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a user
         /// </summary>
@@ -1161,15 +1161,15 @@ namespace DocSpace.API.SDK.Api.People
         /// Check if a user exists by email
         /// </summary>
         /// <remarks>
-        /// Returns a boolean indicating whether a user with the specified email exists on the portal.
+        /// Returns data indicating whether a user with the specified email exists on the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
         /// <param name="encemail">The user encrypted email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
-        /// <returns>BooleanWrapper</returns>
-        public BooleanWrapper CheckUserExistsByEmail(string? email = default, string? encemail = default, string? culture = default)
+        /// <returns>UserExistsResponseWrapper</returns>
+        public UserExistsResponseWrapper CheckUserExistsByEmail(string? email = default, string? encemail = default, string? culture = default)
         {
             var localVarResponse = CheckUserExistsByEmailWithHttpInfo(email, encemail, culture);
             return localVarResponse.Data;
@@ -1179,15 +1179,15 @@ namespace DocSpace.API.SDK.Api.People
         /// Check if a user exists by email
         /// </summary>
         /// <remarks>
-        /// Returns a boolean indicating whether a user with the specified email exists on the portal.
+        /// Returns data indicating whether a user with the specified email exists on the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
         /// <param name="encemail">The user encrypted email address. (optional)</param>
         /// <param name="culture">Culture (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
-        /// <returns>ApiResponse of BooleanWrapper</returns>
-        public ApiResponse<BooleanWrapper> CheckUserExistsByEmailWithHttpInfo(string? email = default, string? encemail = default, string? culture = default)
+        /// <returns>ApiResponse of UserExistsResponseWrapper</returns>
+        public ApiResponse<UserExistsResponseWrapper> CheckUserExistsByEmailWithHttpInfo(string? email = default, string? encemail = default, string? culture = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1247,7 +1247,7 @@ namespace DocSpace.API.SDK.Api.People
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Get<BooleanWrapper>("/api/2.0/people/exists", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Get<UserExistsResponseWrapper>("/api/2.0/people/exists", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -1265,7 +1265,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Check if a user exists by email
         /// </summary>
         /// <remarks>
-        /// Returns a boolean indicating whether a user with the specified email exists on the portal.
+        /// Returns data indicating whether a user with the specified email exists on the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
@@ -1273,8 +1273,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="culture">Culture (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
-        /// <returns>Task of BooleanWrapper</returns>
-        public async Task<BooleanWrapper> CheckUserExistsByEmailAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of UserExistsResponseWrapper</returns>
+        public async Task<UserExistsResponseWrapper> CheckUserExistsByEmailAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await CheckUserExistsByEmailWithHttpInfoAsync(email, encemail, culture, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1284,7 +1284,7 @@ namespace DocSpace.API.SDK.Api.People
         /// Check if a user exists by email
         /// </summary>
         /// <remarks>
-        /// Returns a boolean indicating whether a user with the specified email exists on the portal.
+        /// Returns data indicating whether a user with the specified email exists on the portal.
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="email">The user email address. (optional)</param>
@@ -1292,8 +1292,8 @@ namespace DocSpace.API.SDK.Api.People
         /// <param name="culture">Culture (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/check-user-exists-by-email/">REST API Reference for CheckUserExistsByEmail Operation</seealso>
-        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
-        public async Task<ApiResponse<BooleanWrapper>> CheckUserExistsByEmailWithHttpInfoAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (UserExistsResponseWrapper)</returns>
+        public async Task<ApiResponse<UserExistsResponseWrapper>> CheckUserExistsByEmailWithHttpInfoAsync(string? email = default, string? encemail = default, string? culture = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -1355,7 +1355,7 @@ namespace DocSpace.API.SDK.Api.People
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.GetAsync<BooleanWrapper>("/api/2.0/people/exists", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.GetAsync<UserExistsResponseWrapper>("/api/2.0/people/exists", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {

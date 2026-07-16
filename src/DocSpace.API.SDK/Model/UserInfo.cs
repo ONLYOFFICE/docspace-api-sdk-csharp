@@ -60,8 +60,8 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="UserInfo" /> class.
         /// </summary>
         /// <param name="id">The user ID..</param>
-        /// <param name="firstName">The user's first name..</param>
-        /// <param name="lastName">The user's last name..</param>
+        /// <param name="firstName">The user&#39;s first name..</param>
+        /// <param name="lastName">The user&#39;s last name..</param>
         /// <param name="userName">The user username..</param>
         /// <param name="birthDate">The user birthday..</param>
         /// <param name="sex">The user sex (male or female)..</param>
@@ -132,9 +132,9 @@ namespace DocSpace.API.SDK.Model
         public Guid Id { get; set; }
 
         /// <summary>
-        /// The user's first name.
+        /// The user&#39;s first name.
         /// </summary>
-        /// <value>The user's first name.</value>
+        /// <value>The user&#39;s first name.</value>
         /*
         <example>John</example>
         */
@@ -142,9 +142,9 @@ namespace DocSpace.API.SDK.Model
         public string FirstName { get; set; }
 
         /// <summary>
-        /// The user's last name.
+        /// The user&#39;s last name.
         /// </summary>
-        /// <value>The user's last name.</value>
+        /// <value>The user&#39;s last name.</value>
         /*
         <example>Doe</example>
         */

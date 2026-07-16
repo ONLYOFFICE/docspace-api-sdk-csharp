@@ -31,7 +31,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
         /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         ScopeResponse GetScopes();
 
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
         /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
@@ -61,7 +61,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
         /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
@@ -73,7 +73,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         Task<ScopeResponse> GetScopesAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
         /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
@@ -299,7 +299,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
 
         
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
         /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
@@ -314,7 +314,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
         /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
@@ -338,11 +338,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request
@@ -361,7 +361,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
         /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
@@ -377,7 +377,7 @@ namespace DocSpace.API.SDK.Api.OAuth20
         }
 
         /// <summary>
-        /// Get available OAuth2 scopes
+        /// List available OAuth2 scopes
         /// </summary>
         /// <remarks>
         /// Retrieves a list of all available OAuth2 scopes for the specified tenant. The scopes define the permissions that can be requested by OAuth2 clients. The list is ordered alphabetically, with the 'openid' scope always appearing first.
@@ -403,11 +403,11 @@ namespace DocSpace.API.SDK.Api.OAuth20
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
-            // authentication (asc_auth_key) required
+            // authentication (x-signature) required
             // cookie parameter support
-            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("x-signature")))
             {
-                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+                localVarRequestOptions.Cookies.Add(new Cookie("x-signature", Configuration.GetApiKeyWithPrefix("x-signature")));
             }
 
             // make the HTTP request

@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="access">access.</param>
         /// <param name="expirationDate">expirationDate.</param>
         /// <param name="title">The link name..</param>
-        /// <param name="@internal">The link scope, whether it is internal or not..</param>
+        /// <param name="internal">The link scope, whether it is internal or not..</param>
         /// <param name="primary">Specifies whether the file link is primary or not..</param>
         /// <param name="denyDownload">Specifies whether to deny downloading the file or not..</param>
         /// <param name="password">Password for access via link..</param>

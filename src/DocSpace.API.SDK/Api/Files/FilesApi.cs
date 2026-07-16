@@ -450,8 +450,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns></returns>
-        void GenerateXlsx(int fileId);
+        /// <returns>XlsxReportResponseWrapper</returns>
+        XlsxReportResponseWrapper GenerateXlsx(int fileId);
 
         /// <summary>
         /// Generate XLSX report
@@ -462,8 +462,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> GenerateXlsxWithHttpInfo(int fileId);
+        /// <returns>ApiResponse of XlsxReportResponseWrapper</returns>
+        ApiResponse<XlsxReportResponseWrapper> GenerateXlsxWithHttpInfo(int fileId);
         /// <summary>
         /// Get form roles
         /// </summary>
@@ -806,6 +806,29 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
         /// <returns>ApiResponse of FileReferenceWrapper</returns>
         ApiResponse<FileReferenceWrapper> GetReferenceDataWithHttpInfo(GetReferenceDataDtoInteger? getReferenceDataDtoInteger = default);
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        DocumentBuilderTaskWrapper GetXlsx(int fileId);
+
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        ApiResponse<DocumentBuilderTaskWrapper> GetXlsxWithHttpInfo(int fileId);
         /// <summary>
         /// Check the PDF file
         /// </summary>
@@ -1709,8 +1732,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns>Task of void</returns>
-        Task GenerateXlsxAsync(int fileId, CancellationToken cancellationToken = default);
+        /// <returns>Task of XlsxReportResponseWrapper</returns>
+        Task<XlsxReportResponseWrapper> GenerateXlsxAsync(int fileId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Generate XLSX report
@@ -1722,8 +1745,8 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns>Task of ApiResponse</returns>
-        Task<ApiResponse<Object>> GenerateXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
+        /// <returns>Task of ApiResponse (XlsxReportResponseWrapper)</returns>
+        Task<ApiResponse<XlsxReportResponseWrapper>> GenerateXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get form roles
         /// </summary>
@@ -2094,6 +2117,31 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-reference-data/">REST API Reference for GetReferenceData Operation</seealso>
         /// <returns>Task of ApiResponse (FileReferenceWrapper)</returns>
         Task<ApiResponse<FileReferenceWrapper>> GetReferenceDataWithHttpInfoAsync(GetReferenceDataDtoInteger? getReferenceDataDtoInteger = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        Task<DocumentBuilderTaskWrapper> GetXlsxAsync(int fileId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        Task<ApiResponse<DocumentBuilderTaskWrapper>> GetXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
         /// Check the PDF file
         /// </summary>
@@ -5901,10 +5949,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns></returns>
-        public void GenerateXlsx(int fileId)
+        /// <returns>XlsxReportResponseWrapper</returns>
+        public XlsxReportResponseWrapper GenerateXlsx(int fileId)
         {
-            GenerateXlsxWithHttpInfo(fileId);
+            var localVarResponse = GenerateXlsxWithHttpInfo(fileId);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -5916,15 +5965,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="fileId">The file unique identifier.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> GenerateXlsxWithHttpInfo(int fileId)
+        /// <returns>ApiResponse of XlsxReportResponseWrapper</returns>
+        public ApiResponse<XlsxReportResponseWrapper> GenerateXlsxWithHttpInfo(int fileId)
         {
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = ["application/json"];
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
             if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
@@ -5966,7 +6015,7 @@ namespace DocSpace.API.SDK.Api.Files
             // authentication (OpenId) required
 
             // make the HTTP request
-            var localVarResponse = Client.Post<Object>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration);
+            var localVarResponse = Client.Post<XlsxReportResponseWrapper>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration);
 
             if (ExceptionFactory != null)
             {
@@ -5990,10 +6039,11 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns>Task of void</returns>
-        public async Task GenerateXlsxAsync(int fileId, CancellationToken cancellationToken = default)
+        /// <returns>Task of XlsxReportResponseWrapper</returns>
+        public async Task<XlsxReportResponseWrapper> GenerateXlsxAsync(int fileId, CancellationToken cancellationToken = default)
         {
-            await GenerateXlsxWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GenerateXlsxWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -6006,15 +6056,15 @@ namespace DocSpace.API.SDK.Api.Files
         /// <param name="fileId">The file unique identifier.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/generate-xlsx/">REST API Reference for GenerateXlsx Operation</seealso>
-        /// <returns>Task of ApiResponse</returns>
-        public async Task<ApiResponse<Object>> GenerateXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        /// <returns>Task of ApiResponse (XlsxReportResponseWrapper)</returns>
+        public async Task<ApiResponse<XlsxReportResponseWrapper>> GenerateXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
             string[] contentTypes = [];
 
             // to determine the Accept header
-            string[] accepts = [];
+            string[] accepts = [ "application/json"];
 
 
             var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
@@ -6058,7 +6108,7 @@ namespace DocSpace.API.SDK.Api.Files
 
             // make the HTTP request
 
-            var localVarResponse = await AsynchronousClient.PostAsync<Object>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await AsynchronousClient.PostAsync<XlsxReportResponseWrapper>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
 
             if (ExceptionFactory != null)
             {
@@ -6562,10 +6612,7 @@ namespace DocSpace.API.SDK.Api.Files
             localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
             if (fromDate != null)
             {
-                if (fromDate.UtcTime != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", fromDate.UtcTime));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", fromDate.UtcTime));
                 if (fromDate.TimeZoneOffset != null)
                 {
                     localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", fromDate.TimeZoneOffset));
@@ -6573,10 +6620,7 @@ namespace DocSpace.API.SDK.Api.Files
             }
             if (toDate != null)
             {
-                if (toDate.UtcTime != null)
-                {
-                    localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", toDate.UtcTime));
-                }
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "utcTime", toDate.UtcTime));
                 if (toDate.TimeZoneOffset != null)
                 {
                     localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "timeZoneOffset", toDate.TimeZoneOffset));
@@ -8391,6 +8435,188 @@ namespace DocSpace.API.SDK.Api.Files
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetReferenceData", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        public DocumentBuilderTaskWrapper GetXlsx(int fileId)
+        {
+            var localVarResponse = GetXlsxWithHttpInfo(fileId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        public ApiResponse<DocumentBuilderTaskWrapper> GetXlsxWithHttpInfo(int fileId)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<DocumentBuilderTaskWrapper>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetXlsx", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        public async Task<DocumentBuilderTaskWrapper> GetXlsxAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetXlsxWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get XLSX report generation status
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of the XLSX report generation task for the specified form.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">The file unique identifier.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-xlsx/">REST API Reference for GetXlsx Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        public async Task<ApiResponse<DocumentBuilderTaskWrapper>> GetXlsxWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<DocumentBuilderTaskWrapper>("/api/2.0/files/file/{fileId}/xlsx", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetXlsx", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

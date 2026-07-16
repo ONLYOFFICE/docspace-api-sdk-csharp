@@ -90,9 +90,9 @@ namespace DocSpace.API.SDK.Model
             return false;
         }
         /// <summary>
-        /// The path to the user's avatar.
+        /// The path to the user&#39;s avatar.
         /// </summary>
-        /// <value>The path to the user's avatar.</value>
+        /// <value>The path to the user&#39;s avatar.</value>
         /*
         <example>https://portal.example.com/avatar/user_0001.png</example>
         */

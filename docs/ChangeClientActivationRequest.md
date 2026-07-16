@@ -1,11 +1,11 @@
 # DocSpace.API.SDK.Model.ChangeClientActivationRequest
-The request parameters for changing the client activation status.
+Client activation change request
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | **bool** | The client activation status. | 
+**Status** | **bool** | The activation status of the client | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

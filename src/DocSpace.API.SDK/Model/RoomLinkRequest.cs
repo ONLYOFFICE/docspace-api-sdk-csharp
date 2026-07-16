@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="linkId">The room link ID..</param>
         /// <param name="access">access.</param>
         /// <param name="expirationDate">expirationDate.</param>
-        /// <param name="@internal">The link scope, whether it is internal or not..</param>
+        /// <param name="internal">The link scope, whether it is internal or not..</param>
         /// <param name="title">The link name..</param>
         /// <param name="linkType">linkType.</param>
         /// <param name="password">The link password..</param>

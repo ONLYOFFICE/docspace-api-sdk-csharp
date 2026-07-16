@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="tags">The list of tags..</param>
         /// <param name="color">The room color..</param>
         /// <param name="cover">The room cover..</param>
-        /// <param name="@private">Specifies whether the room to be created is private or not..</param>
+        /// <param name="private">Specifies whether the room to be created is private or not..</param>
         /// <param name="share">The collection of sharing parameters..</param>
         /// <param name="chatSettings">chatSettings (required).</param>
         /// <param name="attachDefaultTools">Specifies whether to attach default tools to the agent or not..</param>

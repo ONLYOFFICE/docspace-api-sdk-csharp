@@ -4,7 +4,7 @@ All URIs are relative to *https://your-docspace.onlyoffice.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetScopes**](#getscopes) | **GET** /api/2.0/scopes | Get available OAuth2 scopes |
+| [**GetScopes**](#getscopes) | **GET** /api/2.0/scopes | List available OAuth2 scopes |
 
 <a id="getscopes"></a>
 # **GetScopes**
@@ -22,7 +22,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[asc_auth_key](../README.md#asc_auth_key)
+[x-signature](../README.md#x-signature)
 
 ### Example
 ```csharp
@@ -41,10 +41,10 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-docspace.onlyoffice.com";
-            // Configure API key authorization: asc_auth_key
-            config.AddApiKey("asc_auth_key", "YOUR_API_KEY");
+            // Configure API key authorization: x-signature
+            config.AddApiKey("x-signature", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("asc_auth_key", "Bearer");
+            // config.AddApiKeyPrefix("x-signature", "Bearer");
 
             // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
             HttpClient httpClient = new HttpClient();
@@ -53,7 +53,7 @@ namespace Example
 
             try
             {
-                // Get available OAuth2 scopes
+                // List available OAuth2 scopes
                 ScopeResponse result = apiInstance.GetScopes();
                 Debug.WriteLine(result);
             }
@@ -74,7 +74,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // Get available OAuth2 scopes
+    // List available OAuth2 scopes
     ApiResponse<ScopeResponse> response = apiInstance.GetScopesWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
@@ -99,7 +99,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | Scopes successfully retrieved |  -  |
 | **400** | Invalid request parameters |  -  |
-| **403** | Insufficient permissions to get a list of scopes |  -  |
+| **403** | Insufficient permissions to list scopes |  -  |
 | **429** | Too many requests - rate limit exceeded |  -  |
 | **500** | Internal server error occurred |  -  |
 

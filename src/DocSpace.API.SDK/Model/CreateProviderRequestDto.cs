@@ -56,7 +56,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="title">The display title for the AI provider. (required).</param>
         /// <param name="url">The API endpoint URL for the AI provider. Required for OpenAiCompatible type; optional for other types that have default URLs..</param>
         /// <param name="key">The authentication API key for the AI provider. (required).</param>
-        public CreateProviderRequestDto(ProviderType? type = default, string title = default, string url = default, string key = default)
+        /// <param name="modelSettings">Optional list of model settings to configure atomically with the provider creation..</param>
+        public CreateProviderRequestDto(ProviderType? type = default, string title = default, string url = default, string key = default, List<ModelSettingsItemDto> modelSettings = default)
         {
             // to ensure "title" is required (not null)
             if (title == null)
@@ -72,6 +73,7 @@ namespace DocSpace.API.SDK.Model
             this.Key = key;
             this.Type = type;
             this.Url = url;
+            this.ModelSettings = modelSettings;
         }
 
         /// <summary>
@@ -105,6 +107,16 @@ namespace DocSpace.API.SDK.Model
         public string Key { get; set; }
 
         /// <summary>
+        /// Optional list of model settings to configure atomically with the provider creation.
+        /// </summary>
+        /// <value>Optional list of model settings to configure atomically with the provider creation.</value>
+        /*
+        <example>[{"modelId":"claude-opus-4-1-20250805","isEnabled":true,"alias":"Claude Opus 4.1","capabilities":{"vision":true,"toolCalling":true,"thinking":false}}]</example>
+        */
+        [DataMember(Name = "modelSettings", EmitDefaultValue = true)]
+        public List<ModelSettingsItemDto> ModelSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -116,6 +128,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  ModelSettings: ").Append(ModelSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
