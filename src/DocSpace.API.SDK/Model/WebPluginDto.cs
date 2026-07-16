@@ -59,13 +59,14 @@ namespace DocSpace.API.SDK.Model
         /// <param name="createBy">createBy (required).</param>
         /// <param name="createOn">The date and time when the web plugin was created. (required).</param>
         /// <param name="enabled">Specifies if the web plugin is enabled or not. (required).</param>
-        /// <param name="@system">Specifies if the web plugin is system or not. (required).</param>
+        /// <param name="system">Specifies if the web plugin is system or not. (required).</param>
         /// <param name="url">The web plugin URL. (required).</param>
         /// <param name="cssUrl">The web plugin css URL. (required).</param>
         /// <param name="settings">The web plugin settings. (required).</param>
         /// <param name="nameLocale">The web plugin localized name..</param>
         /// <param name="descriptionLocale">The web plugin localized description..</param>
-        public WebPluginDto(string name = default, string version = default, string minDocSpaceVersion = default, string description = default, string license = default, string author = default, string homePage = default, string pluginName = default, string scopes = default, string image = default, EmployeeDto createBy = default, DateTime createOn = default, bool enabled = default, bool @system = default, string url = default, string cssUrl = default, string settings = default, Dictionary<string, string> nameLocale = default, Dictionary<string, string> descriptionLocale = default)
+        /// <param name="runtime">The web plugin loading method.</param>
+        public WebPluginDto(string name = default, string version = default, string minDocSpaceVersion = default, string description = default, string license = default, string author = default, string homePage = default, string pluginName = default, string scopes = default, string image = default, EmployeeDto createBy = default, DateTime createOn = default, bool enabled = default, bool @system = default, string url = default, string cssUrl = default, string settings = default, Dictionary<string, string> nameLocale = default, Dictionary<string, string> descriptionLocale = default, string runtime = default)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -151,6 +152,7 @@ namespace DocSpace.API.SDK.Model
             this.MinDocSpaceVersion = minDocSpaceVersion;
             this.NameLocale = nameLocale;
             this.DescriptionLocale = descriptionLocale;
+            this.Runtime = runtime;
         }
 
         /// <summary>
@@ -313,6 +315,9 @@ namespace DocSpace.API.SDK.Model
         /// The web plugin settings.
         /// </summary>
         /// <value>The web plugin settings.</value>
+        /*
+        <example>{}</example>
+        */
         [DataMember(Name = "settings", IsRequired = true, EmitDefaultValue = true)]
         public string Settings { get; set; }
 
@@ -329,6 +334,16 @@ namespace DocSpace.API.SDK.Model
         /// <value>The web plugin localized description.</value>
         [DataMember(Name = "descriptionLocale", EmitDefaultValue = true)]
         public Dictionary<string, string> DescriptionLocale { get; set; }
+
+        /// <summary>
+        /// The web plugin loading method
+        /// </summary>
+        /// <value>The web plugin loading method</value>
+        /*
+        <example>module</example>
+        */
+        [DataMember(Name = "runtime", EmitDefaultValue = true)]
+        public string Runtime { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -357,6 +372,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("  NameLocale: ").Append(NameLocale).Append("\n");
             sb.Append("  DescriptionLocale: ").Append(DescriptionLocale).Append("\n");
+            sb.Append("  Runtime: ").Append(Runtime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

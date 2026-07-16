@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="SetPublicDto" /> class.
         /// </summary>
         /// <param name="id">The room template ID. (required).</param>
-        /// <param name="@public">Specifies whether the room template is public or not..</param>
+        /// <param name="public">Specifies whether the room template is public or not..</param>
         public SetPublicDto(int id = default, bool @public = default)
         {
             this.Id = id;

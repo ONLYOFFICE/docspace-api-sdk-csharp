@@ -51,7 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="createUrl">The creation URL of the editor..</param>
         /// <param name="customization">customization.</param>
         /// <param name="embedded">embedded.</param>
-        /// <param name="encryptionKeys">encryptionKeys.</param>
+        /// <param name="encryptionKeys">The encryption keys of the editor configuration..</param>
         /// <param name="lang">The language of the editor configuration. (required).</param>
         /// <param name="mode">The mode of the editor configuration. (required).</param>
         /// <param name="modeWrite">Specifies if the mode is write of the editor configuration..</param>
@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="recent">The recent configuration of the editor..</param>
         /// <param name="templates">The templates of the editor configuration..</param>
         /// <param name="user">user.</param>
-        public EditorConfigurationDto(string callbackUrl = default, CoEditingConfig coEditing = default, string createUrl = default, CustomizationConfigDto customization = default, EmbeddedConfig embedded = default, EncryptionKeysConfig encryptionKeys = default, string lang = default, string mode = default, bool modeWrite = default, PluginsConfig plugins = default, List<RecentConfig> recent = default, List<TemplatesConfig> templates = default, UserConfig user = default)
+        public EditorConfigurationDto(string callbackUrl = default, CoEditingConfig coEditing = default, string createUrl = default, CustomizationConfigDto customization = default, EmbeddedConfig embedded = default, List<EncryptionKeyDto> encryptionKeys = default, string lang = default, string mode = default, bool modeWrite = default, PluginsConfig plugins = default, List<RecentConfig> recent = default, List<TemplatesConfig> templates = default, UserConfig user = default)
         {
             // to ensure "lang" is required (not null)
             if (lang == null)
@@ -125,10 +125,11 @@ namespace DocSpace.API.SDK.Model
         public EmbeddedConfig Embedded { get; set; }
 
         /// <summary>
-        /// Gets or Sets EncryptionKeys
+        /// The encryption keys of the editor configuration.
         /// </summary>
-        [DataMember(Name = "encryptionKeys", EmitDefaultValue = false)]
-        public EncryptionKeysConfig EncryptionKeys { get; set; }
+        /// <value>The encryption keys of the editor configuration.</value>
+        [DataMember(Name = "encryptionKeys", EmitDefaultValue = true)]
+        public List<EncryptionKeyDto> EncryptionKeys { get; set; }
 
         /// <summary>
         /// The language of the editor configuration.

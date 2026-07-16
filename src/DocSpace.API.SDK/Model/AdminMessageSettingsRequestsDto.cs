@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="email">Email (required).</param>
         /// <param name="culture">Culture.</param>
         /// <param name="recaptchaType">recaptchaType.</param>
-        /// <param name="recaptchaResponse">The user's response to the CAPTCHA challenge..</param>
+        /// <param name="recaptchaResponse">The user&#39;s response to the CAPTCHA challenge..</param>
         public AdminMessageSettingsRequestsDto(string message = default, string email = default, string culture = default, RecaptchaType? recaptchaType = default, string recaptchaResponse = default)
         {
             // to ensure "message" is required (not null)
@@ -107,9 +107,9 @@ namespace DocSpace.API.SDK.Model
         public string Culture { get; set; }
 
         /// <summary>
-        /// The user's response to the CAPTCHA challenge.
+        /// The user&#39;s response to the CAPTCHA challenge.
         /// </summary>
-        /// <value>The user's response to the CAPTCHA challenge.</value>
+        /// <value>The user&#39;s response to the CAPTCHA challenge.</value>
         /*
         <example>03AGdBq24PBCbwiDRaS...</example>
         */

@@ -51,6 +51,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="serviceGroup">The service group..</param>
         /// <param name="visible">Specifies if the tenant quota is visible or not..</param>
         /// <param name="wallet">Specifies if the tenant quota applies to the wallet or not.</param>
+        /// <param name="additional">Specifies if the tenant quota is primary or additional..</param>
         /// <param name="dueDate">The quota due date..</param>
         /// <param name="features">The tenant quota features..</param>
         /// <param name="maxFileSize">The tenant maximum file size..</param>
@@ -82,7 +83,8 @@ namespace DocSpace.API.SDK.Model
         /// <param name="backup">Specifies if the backup enabled as a wallet service or not..</param>
         /// <param name="countAIAgent">The number of AI agents..</param>
         /// <param name="aiTools">Specifies if the AI tools enabled as a wallet service or not..</param>
-        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, string serviceGroup = default, bool visible = default, bool wallet = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool automationApi = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default, bool aiTools = default)
+        /// <param name="aiSearch">Specifies if the AI search enabled as a wallet service or not..</param>
+        public TenantQuota(int tenantId = default, string name = default, double price = default, string priceCurrencySymbol = default, string priceISOCurrencySymbol = default, string productId = default, string serviceName = default, string serviceGroup = default, bool visible = default, bool wallet = default, bool additional = default, DateTime? dueDate = default, string features = default, long maxFileSize = default, long maxTotalSize = default, int countUser = default, int countRoomAdmin = default, int usersInRoom = default, int countRoom = default, bool nonProfit = default, bool trial = default, bool free = default, bool update = default, bool audit = default, bool docsEdition = default, bool ldap = default, bool sso = default, bool statistic = default, bool branding = default, bool customization = default, bool lifetime = default, bool automationApi = default, bool custom = default, bool restore = default, bool oauth = default, bool contentSearch = default, bool thirdParty = default, bool year = default, int countFreeBackup = default, bool backup = default, int countAIAgent = default, bool aiTools = default, bool aiSearch = default)
         {
             this.TenantId = tenantId;
             this.Name = name;
@@ -94,6 +96,7 @@ namespace DocSpace.API.SDK.Model
             this.ServiceGroup = serviceGroup;
             this.Visible = visible;
             this.Wallet = wallet;
+            this.Additional = additional;
             this.DueDate = dueDate;
             this.Features = features;
             this.MaxFileSize = maxFileSize;
@@ -125,6 +128,7 @@ namespace DocSpace.API.SDK.Model
             this.Backup = backup;
             this.CountAIAgent = countAIAgent;
             this.AiTools = aiTools;
+            this.AiSearch = aiSearch;
         }
 
         /// <summary>
@@ -226,6 +230,16 @@ namespace DocSpace.API.SDK.Model
         */
         [DataMember(Name = "wallet", EmitDefaultValue = true)]
         public bool Wallet { get; set; }
+
+        /// <summary>
+        /// Specifies if the tenant quota is primary or additional.
+        /// </summary>
+        /// <value>Specifies if the tenant quota is primary or additional.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "additional", EmitDefaultValue = true)]
+        public bool Additional { get; set; }
 
         /// <summary>
         /// The quota due date.
@@ -535,6 +549,16 @@ namespace DocSpace.API.SDK.Model
         public bool AiTools { get; set; }
 
         /// <summary>
+        /// Specifies if the AI search enabled as a wallet service or not.
+        /// </summary>
+        /// <value>Specifies if the AI search enabled as a wallet service or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "aiSearch", EmitDefaultValue = true)]
+        public bool AiSearch { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -552,6 +576,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ServiceGroup: ").Append(ServiceGroup).Append("\n");
             sb.Append("  Visible: ").Append(Visible).Append("\n");
             sb.Append("  Wallet: ").Append(Wallet).Append("\n");
+            sb.Append("  Additional: ").Append(Additional).Append("\n");
             sb.Append("  DueDate: ").Append(DueDate).Append("\n");
             sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("  MaxFileSize: ").Append(MaxFileSize).Append("\n");
@@ -583,6 +608,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Backup: ").Append(Backup).Append("\n");
             sb.Append("  CountAIAgent: ").Append(CountAIAgent).Append("\n");
             sb.Append("  AiTools: ").Append(AiTools).Append("\n");
+            sb.Append("  AiSearch: ").Append(AiSearch).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

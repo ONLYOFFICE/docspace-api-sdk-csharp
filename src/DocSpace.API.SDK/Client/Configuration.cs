@@ -81,7 +81,7 @@ namespace DocSpace.API.SDK.Client
         /// </summary>
         private string _basePath;
 
-        private bool _useDefaultCredentials = false;
+        private bool _useDefaultCredentials;
 
         /// <summary>
         /// Gets or sets the API key based on the authentication name.

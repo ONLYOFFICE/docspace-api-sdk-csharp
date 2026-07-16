@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="url">API endpoint URL for the AI provider..</param>
         /// <param name="createdOn">createdOn (required).</param>
         /// <param name="modifiedOn">modifiedOn (required).</param>
-        /// <param name="needReset">Indicates whether the provider's API key needs to be reset..</param>
+        /// <param name="needReset">Indicates whether the provider&#39;s API key needs to be reset..</param>
         /// <param name="isDefault">Indicates whether this provider is the default provider for the tenant..</param>
         public AiProviderDto(int id = default, string title = default, ProviderType? type = default, string url = default, ApiDateTime createdOn = default, ApiDateTime modifiedOn = default, bool needReset = default, bool isDefault = default)
         {
@@ -130,9 +130,9 @@ namespace DocSpace.API.SDK.Model
         public ApiDateTime ModifiedOn { get; set; }
 
         /// <summary>
-        /// Indicates whether the provider's API key needs to be reset.
+        /// Indicates whether the provider&#39;s API key needs to be reset.
         /// </summary>
-        /// <value>Indicates whether the provider's API key needs to be reset.</value>
+        /// <value>Indicates whether the provider&#39;s API key needs to be reset.</value>
         /*
         <example>false</example>
         */

@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="id">The user ID..</param>
         /// <param name="name">The full name of the user..</param>
-        /// <param name="image">The path to the user's avatar..</param>
+        /// <param name="image">The path to the user&#39;s avatar..</param>
         /// <param name="roles">Roles.</param>
         /// <param name="customerId">Customer identifier associated with the user..</param>
         public UserConfig(string id = default, string name = default, string image = default, List<string> roles = default, string customerId = default)
@@ -76,9 +76,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The path to the user's avatar.
+        /// The path to the user&#39;s avatar.
         /// </summary>
-        /// <value>The path to the user's avatar.</value>
+        /// <value>The path to the user&#39;s avatar.</value>
         /*
         <example>https://portal.example.com/avatar/user_0001.png</example>
         */

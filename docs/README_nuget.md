@@ -61,18 +61,18 @@ config.AccessToken = "YOUR_BEARER_TOKEN";
 // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
 HttpClient httpClient = new HttpClient();
 HttpClientHandler httpClientHandler = new HttpClientHandler();
-var apiInstance = new AIAgentsApi(httpClient, config, httpClientHandler);
-var createAgentRequestDto = new CreateAgentRequestDto?(); // CreateAgentRequestDto? | Request to create a new AI agent room. (optional) 
+var apiInstance = new AIChatApi(httpClient, config, httpClientHandler);
+var chatId = 00000000-0000-0000-0000-000000000000;  // Guid | The unique identifier of the existing AI chat session to continue.
+var continueChatBody = new ContinueChatBody(); // ContinueChatBody | The message and optional file attachments.
 
 try
 {
-    // Create an ai agent
-    FolderIntegerWrapper result = apiInstance.CreateAgent(createAgentRequestDto);
-    Debug.WriteLine(result);
+    // Send a message to an existing AI chat
+    apiInstance.ContinueChat(chatId, continueChatBody);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling AIAgentsApi.CreateAgent: " + e.Message );
+    Debug.Print("Exception when calling AIChatApi.ContinueChat: " + e.Message );
     Debug.Print("Status Code: "+ e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

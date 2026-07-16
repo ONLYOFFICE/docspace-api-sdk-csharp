@@ -58,7 +58,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="denyDownload">Specifies whether to deny downloads from the room..</param>
         /// <param name="lifetime">lifetime.</param>
         /// <param name="watermark">watermark.</param>
-        /// <param name="@private">Specifies whether the room to be created is private or not..</param>
+        /// <param name="private">Specifies whether the room to be created is private or not..</param>
         public CreateRoomFromTemplateDto(int templateId = default, string title = default, LogoRequest logo = default, bool copyLogo = default, List<string> tags = default, string color = default, string cover = default, long? quota = default, bool? indexing = default, bool? denyDownload = default, RoomDataLifetimeDto lifetime = default, WatermarkRequestDto watermark = default, bool? @private = default)
         {
             this.TemplateId = templateId;

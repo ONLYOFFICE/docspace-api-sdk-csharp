@@ -92,7 +92,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The account currency.</value>
         /*
-        <example>USD</example>
+        <example>"USD"</example>
         */
         [DataMember(Name = "accountCurrency", EmitDefaultValue = true)]
         public string AccountCurrency { get; set; }

@@ -4,9 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **string** |  | [optional] 
 **Provider** | **string** |  | [optional] 
-**Search** | **double** |  | [optional] 
-**Contents** | **double** |  | [optional] 
+**Price** | **double** |  | [optional] 
+**Link** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

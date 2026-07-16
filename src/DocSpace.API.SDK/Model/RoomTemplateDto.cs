@@ -47,12 +47,12 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="RoomTemplateDto" /> class.
         /// </summary>
         /// <param name="roomId">The room template ID. (required).</param>
-        /// <param name="title">The room template title..</param>
+        /// <param name="title">The room template title. (required).</param>
         /// <param name="logo">logo.</param>
         /// <param name="copyLogo">Specifies whether to copy room logo or not..</param>
         /// <param name="share">The collection of email addresses of users with whom to share a room..</param>
         /// <param name="groups">The collection of groups with whom to share a room..</param>
-        /// <param name="@public">Specifies whether the room template is public or not..</param>
+        /// <param name="public">Specifies whether the room template is public or not..</param>
         /// <param name="tags">The collection of tags..</param>
         /// <param name="color">The color of the room template..</param>
         /// <param name="cover">The cover of the room template..</param>
@@ -60,6 +60,11 @@ namespace DocSpace.API.SDK.Model
         public RoomTemplateDto(int roomId = default, string title = default, LogoRequest logo = default, bool copyLogo = default, List<string> share = default, List<Guid> groups = default, bool @public = default, List<string> tags = default, string color = default, string cover = default, long? quota = default)
         {
             this.RoomId = roomId;
+            // to ensure "title" is required (not null)
+            if (title == null)
+            {
+                throw new ArgumentNullException("title is a required property for RoomTemplateDto and cannot be null");
+            }
             this.Title = title;
             this.Logo = logo;
             this.CopyLogo = copyLogo;
@@ -89,7 +94,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>My Document</example>
         */
-        [DataMember(Name = "title", EmitDefaultValue = true)]
+        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>
@@ -217,6 +222,18 @@ namespace DocSpace.API.SDK.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Title (string) maxLength
+            if (this.Title != null && this.Title.Length > 400)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be less than 400.", new [] { "Title" });
+            }
+
+            // Title (string) minLength
+            if (this.Title != null && this.Title.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 0.", new [] { "Title" });
+            }
+
             // Color (string) maxLength
             if (this.Color != null && this.Color.Length > 6)
             {

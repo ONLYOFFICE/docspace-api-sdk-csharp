@@ -41,53 +41,11 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChatSettingsDto" /> class.
         /// </summary>
-        /// <param name="providerId">The AI provider ID..</param>
-        /// <param name="modelId">The AI model ID used for chat completions..</param>
-        /// <param name="modelAlias">The AI model display alias..</param>
         /// <param name="prompt">The system prompt for the chat..</param>
-        /// <param name="multimodal">multimodal.</param>
-        /// <param name="thinking">Indicates whether the model supports extended thinking mode..</param>
-        /// <param name="capabilities">capabilities.</param>
-        public ChatSettingsDto(int providerId = default, string modelId = default, string modelAlias = default, string prompt = default, ChatMultimodalSettingsDto multimodal = default, bool thinking = default, AiModelCapabilities capabilities = default)
+        public ChatSettingsDto(string prompt = default)
         {
-            this.ProviderId = providerId;
-            this.ModelId = modelId;
-            this.ModelAlias = modelAlias;
             this.Prompt = prompt;
-            this.Multimodal = multimodal;
-            this.Thinking = thinking;
-            this.Capabilities = capabilities;
         }
-
-        /// <summary>
-        /// The AI provider ID.
-        /// </summary>
-        /// <value>The AI provider ID.</value>
-        /*
-        <example>1</example>
-        */
-        [DataMember(Name = "providerId", EmitDefaultValue = false)]
-        public int ProviderId { get; set; }
-
-        /// <summary>
-        /// The AI model ID used for chat completions.
-        /// </summary>
-        /// <value>The AI model ID used for chat completions.</value>
-        /*
-        <example>gpt-5.2</example>
-        */
-        [DataMember(Name = "modelId", EmitDefaultValue = true)]
-        public string ModelId { get; set; }
-
-        /// <summary>
-        /// The AI model display alias.
-        /// </summary>
-        /// <value>The AI model display alias.</value>
-        /*
-        <example>GPT-5.2</example>
-        */
-        [DataMember(Name = "modelAlias", EmitDefaultValue = true)]
-        public string ModelAlias { get; set; }
 
         /// <summary>
         /// The system prompt for the chat.
@@ -100,47 +58,6 @@ namespace DocSpace.API.SDK.Model
         public string Prompt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Multimodal
-        /// </summary>
-        [DataMember(Name = "multimodal", EmitDefaultValue = false)]
-        public ChatMultimodalSettingsDto Multimodal { get; set; }
-
-        /// <summary>
-        /// Indicates whether the model supports extended thinking mode.
-        /// </summary>
-        /// <value>Indicates whether the model supports extended thinking mode.</value>
-        /*
-        <example>false</example>
-        */
-        [DataMember(Name = "thinking", EmitDefaultValue = true)]
-        [Obsolete]
-        public bool Thinking { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Capabilities
-        /// </summary>
-        [DataMember(Name = "capabilities", EmitDefaultValue = false)]
-        public AiModelCapabilities Capabilities { get; set; }
-
-        /// <summary>
-        /// Indicates whether this is an internal AI gateway provider.
-        /// </summary>
-        /// <value>Indicates whether this is an internal AI gateway provider.</value>
-        /*
-        <example>false</example>
-        */
-        [DataMember(Name = "internal", EmitDefaultValue = true)]
-        public bool Internal { get; private set; }
-
-        /// <summary>
-        /// Returns false as Internal should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeInternal()
-        {
-            return false;
-        }
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -148,14 +65,7 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ChatSettingsDto {\n");
-            sb.Append("  ProviderId: ").Append(ProviderId).Append("\n");
-            sb.Append("  ModelId: ").Append(ModelId).Append("\n");
-            sb.Append("  ModelAlias: ").Append(ModelAlias).Append("\n");
             sb.Append("  Prompt: ").Append(Prompt).Append("\n");
-            sb.Append("  Multimodal: ").Append(Multimodal).Append("\n");
-            sb.Append("  Thinking: ").Append(Thinking).Append("\n");
-            sb.Append("  Capabilities: ").Append(Capabilities).Append("\n");
-            sb.Append("  Internal: ").Append(Internal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
