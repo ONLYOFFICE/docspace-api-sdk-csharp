@@ -48,10 +48,9 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="chat">chat (required).</param>
         /// <param name="embedding">embedding (required).</param>
-        /// <param name="image">image (required).</param>
-        /// <param name="search">search (required).</param>
+        /// <param name="webSearch">webSearch (required).</param>
         /// <param name="currency">currency (required).</param>
-        public AiPricesResponse(List<AiChatModelPricing> chat = default, List<AiEmbeddingModelPricing> embedding = default, List<AiImageModelPricing> image = default, List<AiWebSearchPricing> search = default, CurrencyInfo currency = default)
+        public AiPricesResponse(List<AiChatModelPricing> chat = default, List<AiEmbeddingModelPricing> embedding = default, AiWebSearchPricing webSearch = default, CurrencyInfo currency = default)
         {
             // to ensure "chat" is required (not null)
             if (chat == null)
@@ -65,18 +64,12 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("embedding is a required property for AiPricesResponse and cannot be null");
             }
             this.Embedding = embedding;
-            // to ensure "image" is required (not null)
-            if (image == null)
+            // to ensure "webSearch" is required (not null)
+            if (webSearch == null)
             {
-                throw new ArgumentNullException("image is a required property for AiPricesResponse and cannot be null");
+                throw new ArgumentNullException("webSearch is a required property for AiPricesResponse and cannot be null");
             }
-            this.Image = image;
-            // to ensure "search" is required (not null)
-            if (search == null)
-            {
-                throw new ArgumentNullException("search is a required property for AiPricesResponse and cannot be null");
-            }
-            this.Search = search;
+            this.WebSearch = webSearch;
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
@@ -98,16 +91,10 @@ namespace DocSpace.API.SDK.Model
         public List<AiEmbeddingModelPricing> Embedding { get; set; }
 
         /// <summary>
-        /// Gets or Sets Image
+        /// Gets or Sets WebSearch
         /// </summary>
-        [DataMember(Name = "image", IsRequired = true, EmitDefaultValue = true)]
-        public List<AiImageModelPricing> Image { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Search
-        /// </summary>
-        [DataMember(Name = "search", IsRequired = true, EmitDefaultValue = true)]
-        public List<AiWebSearchPricing> Search { get; set; }
+        [DataMember(Name = "webSearch", IsRequired = true, EmitDefaultValue = true)]
+        public AiWebSearchPricing WebSearch { get; set; }
 
         /// <summary>
         /// Gets or Sets Currency
@@ -125,8 +112,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("class AiPricesResponse {\n");
             sb.Append("  Chat: ").Append(Chat).Append("\n");
             sb.Append("  Embedding: ").Append(Embedding).Append("\n");
-            sb.Append("  Image: ").Append(Image).Append("\n");
-            sb.Append("  Search: ").Append(Search).Append("\n");
+            sb.Append("  WebSearch: ").Append(WebSearch).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

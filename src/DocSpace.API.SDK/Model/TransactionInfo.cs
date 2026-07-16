@@ -66,7 +66,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <value>The three-character ISO 4217 currency symbol of the transaction.</value>
         /*
-        <example>"USD"</example>
+        <example>USD</example>
         */
         [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }

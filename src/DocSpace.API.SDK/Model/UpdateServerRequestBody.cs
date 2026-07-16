@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="UpdateServerRequestBody" /> class.
         /// </summary>
         /// <param name="name">New display name for the server. Only letters, numbers, underscores, and hyphens are allowed. Maximum 128 characters..</param>
-        /// <param name="description">New human-readable description of the server&#39;s purpose. Maximum 255 characters..</param>
+        /// <param name="description">New human-readable description of the server's purpose. Maximum 255 characters..</param>
         /// <param name="endpoint">New base URL of the MCP server endpoint. If changed, the system will re-verify connectivity before saving..</param>
         /// <param name="headers">New HTTP headers to include with every request. If changed alongside the endpoint, connectivity is re-verified..</param>
         /// <param name="updateIcon">Set to true to update the server icon. When true, the Icon field value (or null to remove) will be applied..</param>
@@ -68,9 +68,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// New human-readable description of the server&#39;s purpose. Maximum 255 characters.
+        /// New human-readable description of the server's purpose. Maximum 255 characters.
         /// </summary>
-        /// <value>New human-readable description of the server&#39;s purpose. Maximum 255 characters.</value>
+        /// <value>New human-readable description of the server's purpose. Maximum 255 characters.</value>
         /*
         <example>Updated server description</example>
         */

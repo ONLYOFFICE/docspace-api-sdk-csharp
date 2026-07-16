@@ -41,23 +41,15 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AiWebSearchPricing" /> class.
         /// </summary>
-        /// <param name="id">id.</param>
         /// <param name="provider">provider.</param>
-        /// <param name="price">price.</param>
-        /// <param name="link">link.</param>
-        public AiWebSearchPricing(string id = default, string provider = default, double price = default, string link = default)
+        /// <param name="search">search.</param>
+        /// <param name="contents">contents.</param>
+        public AiWebSearchPricing(string provider = default, double search = default, double contents = default)
         {
-            this.Id = id;
             this.Provider = provider;
-            this.Price = price;
-            this.Link = link;
+            this.Search = search;
+            this.Contents = contents;
         }
-
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name = "id", EmitDefaultValue = true)]
-        public string Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Provider
@@ -66,16 +58,16 @@ namespace DocSpace.API.SDK.Model
         public string Provider { get; set; }
 
         /// <summary>
-        /// Gets or Sets Price
+        /// Gets or Sets Search
         /// </summary>
-        [DataMember(Name = "price", EmitDefaultValue = false)]
-        public double Price { get; set; }
+        [DataMember(Name = "search", EmitDefaultValue = false)]
+        public double Search { get; set; }
 
         /// <summary>
-        /// Gets or Sets Link
+        /// Gets or Sets Contents
         /// </summary>
-        [DataMember(Name = "link", EmitDefaultValue = true)]
-        public string Link { get; set; }
+        [DataMember(Name = "contents", EmitDefaultValue = false)]
+        public double Contents { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,10 +77,9 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class AiWebSearchPricing {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Provider: ").Append(Provider).Append("\n");
-            sb.Append("  Price: ").Append(Price).Append("\n");
-            sb.Append("  Link: ").Append(Link).Append("\n");
+            sb.Append("  Search: ").Append(Search).Append("\n");
+            sb.Append("  Contents: ").Append(Contents).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

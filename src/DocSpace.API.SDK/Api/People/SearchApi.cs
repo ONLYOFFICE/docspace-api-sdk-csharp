@@ -1351,7 +1351,6 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
@@ -1515,7 +1514,7 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
@@ -1677,7 +1676,6 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
@@ -1841,7 +1839,7 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
@@ -2003,7 +2001,6 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
@@ -2167,7 +2164,7 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
@@ -2544,7 +2541,6 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
             }
             if (isAdministrator != null)
             {
@@ -2757,7 +2753,7 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
             }
             if (isAdministrator != null)
             {
@@ -2963,7 +2959,6 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
@@ -3127,7 +3122,7 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
@@ -3289,7 +3284,6 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
@@ -3453,7 +3447,7 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
@@ -3615,7 +3609,6 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
@@ -3779,7 +3772,7 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
             }
             if (count != null)
             {
@@ -3942,7 +3935,6 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
             }
             if (isAdministrator != null)
             {
@@ -4155,7 +4147,7 @@ namespace DocSpace.API.SDK.Api.People
             }
             if (employeeTypes != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "employeeTypes", employeeTypes));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "employeeTypes", employeeTypes));
             }
             if (isAdministrator != null)
             {

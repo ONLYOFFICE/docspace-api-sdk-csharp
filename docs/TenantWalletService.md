@@ -1,5 +1,5 @@
 # DocSpace.API.SDK.Model.TenantWalletService
-[-18 - AISearch, -14 - Admin, -13 - AITools, -12 - Backup, -11 - Storage]
+[-13 - AITools, -12 - Backup, -11 - Storage]
 
 ## Properties
 

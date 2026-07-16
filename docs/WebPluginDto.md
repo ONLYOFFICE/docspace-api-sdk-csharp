@@ -24,7 +24,6 @@ Name | Type | Description | Notes
 **Settings** | **string** | The web plugin settings. | 
 **NameLocale** | **Dictionary&lt;string, string&gt;** | The web plugin localized name. | [optional] 
 **DescriptionLocale** | **Dictionary&lt;string, string&gt;** | The web plugin localized description. | [optional] 
-**Runtime** | **string** | The web plugin loading method | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

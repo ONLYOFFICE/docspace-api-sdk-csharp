@@ -32,7 +32,7 @@ using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
 namespace DocSpace.API.SDK.Model
 {
     /// <summary>
-    /// The quota parameters.  &lt;example&gt;  {    id: 1,    quantity: 50,    wallet: false,    additional: false,    dueDate: 2026-03-31T00:00:00Z,    nextQuantity: 100,    state: Active  }  &lt;/example&gt;
+    /// The quota parameters.  <example>  {    id: 1,    quantity: 50,    wallet: false,    dueDate: 2026-03-31T00:00:00Z,    nextQuantity: 100,    state: Active  }  </example>
     /// </summary>
     [DataContract(Name = "Quota")]
     public partial class Quota : IValidatableObject
@@ -52,16 +52,14 @@ namespace DocSpace.API.SDK.Model
         /// <param name="wallet">The quota applies to the wallet or not.</param>
         /// <param name="dueDate">The quota due date..</param>
         /// <param name="nextQuantity">The quota next quantity..</param>
-        /// <param name="additional">Indicates whether the quota is primary or additional..</param>
         /// <param name="state">state.</param>
-        public Quota(int id = default, int quantity = default, bool wallet = default, DateTime? dueDate = default, int? nextQuantity = default, bool additional = default, QuotaState? state = default)
+        public Quota(int id = default, int quantity = default, bool wallet = default, DateTime? dueDate = default, int? nextQuantity = default, QuotaState? state = default)
         {
             this.Id = id;
             this.Quantity = quantity;
             this.Wallet = wallet;
             this.DueDate = dueDate;
             this.NextQuantity = nextQuantity;
-            this.Additional = additional;
             this.State = state;
         }
 
@@ -113,16 +111,6 @@ namespace DocSpace.API.SDK.Model
         public int? NextQuantity { get; set; }
 
         /// <summary>
-        /// Indicates whether the quota is primary or additional.
-        /// </summary>
-        /// <value>Indicates whether the quota is primary or additional.</value>
-        /*
-        <example>false</example>
-        */
-        [DataMember(Name = "additional", EmitDefaultValue = true)]
-        public bool Additional { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,7 +123,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  Wallet: ").Append(Wallet).Append("\n");
             sb.Append("  DueDate: ").Append(DueDate).Append("\n");
             sb.Append("  NextQuantity: ").Append(NextQuantity).Append("\n");
-            sb.Append("  Additional: ").Append(Additional).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("}\n");
             return sb.ToString();

@@ -42,7 +42,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="UpdateRoomsRoomIdsRequestDtoInteger" /> class.
         /// </summary>
         /// <param name="roomIds">The list of room IDs..</param>
-        public UpdateRoomsRoomIdsRequestDtoInteger(List<DuplicateRequestDtoAllOfFileIds> roomIds = default)
+        public UpdateRoomsRoomIdsRequestDtoInteger(List<ContinueChatBodyFilesInner> roomIds = default)
         {
             this.RoomIds = roomIds;
         }
@@ -55,7 +55,7 @@ namespace DocSpace.API.SDK.Model
         <example>[1,2,3]</example>
         */
         [DataMember(Name = "roomIds", EmitDefaultValue = true)]
-        public List<DuplicateRequestDtoAllOfFileIds> RoomIds { get; set; }
+        public List<ContinueChatBodyFilesInner> RoomIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

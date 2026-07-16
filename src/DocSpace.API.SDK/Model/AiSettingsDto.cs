@@ -62,8 +62,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="generateFormToolName">The tool name used by the AI assistant to launch form creation in the editor. (required).</param>
         /// <param name="generatePresentationToolName">The tool name used by the AI assistant to launch presentation creation in the editor. (required).</param>
         /// <param name="systemAiEnabled">Indicates whether the system-level AI provider is enabled..</param>
-        /// <param name="recommendedModelForForms">The identifier of the model recommended for form generation..</param>
-        public AiSettingsDto(bool webSearchEnabled = default, bool webSearchNeedReset = default, bool vectorizationEnabled = default, bool vectorizationNeedReset = default, bool aiReady = default, bool aiReadyNeedReset = default, Guid? portalMcpServerId = default, string embeddingModel = default, Dictionary<string, string> modelAliases = default, string knowledgeSearchToolName = default, string webSearchToolName = default, string webCrawlingToolName = default, string generateDocxToolName = default, string generateFormToolName = default, string generatePresentationToolName = default, bool systemAiEnabled = default, string recommendedModelForForms = default)
+        public AiSettingsDto(bool webSearchEnabled = default, bool webSearchNeedReset = default, bool vectorizationEnabled = default, bool vectorizationNeedReset = default, bool aiReady = default, bool aiReadyNeedReset = default, Guid? portalMcpServerId = default, string embeddingModel = default, Dictionary<string, string> modelAliases = default, string knowledgeSearchToolName = default, string webSearchToolName = default, string webCrawlingToolName = default, string generateDocxToolName = default, string generateFormToolName = default, string generatePresentationToolName = default, bool systemAiEnabled = default)
         {
             // to ensure "embeddingModel" is required (not null)
             if (embeddingModel == null)
@@ -121,7 +120,6 @@ namespace DocSpace.API.SDK.Model
             this.AiReadyNeedReset = aiReadyNeedReset;
             this.PortalMcpServerId = portalMcpServerId;
             this.SystemAiEnabled = systemAiEnabled;
-            this.RecommendedModelForForms = recommendedModelForForms;
         }
 
         /// <summary>
@@ -285,16 +283,6 @@ namespace DocSpace.API.SDK.Model
         public bool SystemAiEnabled { get; set; }
 
         /// <summary>
-        /// The identifier of the model recommended for form generation.
-        /// </summary>
-        /// <value>The identifier of the model recommended for form generation.</value>
-        /*
-        <example>gpt-5.4</example>
-        */
-        [DataMember(Name = "recommendedModelForForms", EmitDefaultValue = true)]
-        public string RecommendedModelForForms { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -318,7 +306,6 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  GenerateFormToolName: ").Append(GenerateFormToolName).Append("\n");
             sb.Append("  GeneratePresentationToolName: ").Append(GeneratePresentationToolName).Append("\n");
             sb.Append("  SystemAiEnabled: ").Append(SystemAiEnabled).Append("\n");
-            sb.Append("  RecommendedModelForForms: ").Append(RecommendedModelForForms).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

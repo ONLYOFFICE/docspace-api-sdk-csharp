@@ -104,7 +104,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="limitedAccessSpace">Specifies whether the access to the space management is limited or not..</param>
         /// <param name="limitedAccessDevToolsForUsers">Specifies whether the access to the Developer Tools is limited for users or not..</param>
         /// <param name="displayBanners">Specifies whether to display the promotional banners..</param>
-        /// <param name="aiEnabled">Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When &#x60;false&#x60;, all AI features are disabled and the AI Agents folder is hidden..</param>
+        /// <param name="aiEnabled">Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When `false`, all AI features are disabled and the AI Agents folder is hidden..</param>
         /// <param name="userNameRegex">The user name validation regex..</param>
         /// <param name="invitationLimit">The maximum number of invitations to the portal..</param>
         /// <param name="plugins">plugins.</param>
@@ -478,9 +478,9 @@ namespace DocSpace.API.SDK.Model
         public bool DisplayBanners { get; set; }
 
         /// <summary>
-        /// Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When &#x60;false&#x60;, all AI features are disabled and the AI Agents folder is hidden.
+        /// Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When `false`, all AI features are disabled and the AI Agents folder is hidden.
         /// </summary>
-        /// <value>Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When &#x60;false&#x60;, all AI features are disabled and the AI Agents folder is hidden.</value>
+        /// <value>Specifies whether AI functionality (chat, agents, vectorization) is enabled for the current tenant.  When `false`, all AI features are disabled and the AI Agents folder is hidden.</value>
         /*
         <example>true</example>
         */

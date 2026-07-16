@@ -43,7 +43,7 @@ namespace DocSpace.API.SDK.Model
         /// </summary>
         /// <param name="name">The trigger name..</param>
         /// <param name="id">The trigger bit value..</param>
-        /// <param name="available">Specifies whether this trigger is available for the current user&#39;s role..</param>
+        /// <param name="available">Specifies whether this trigger is available for the current user's role..</param>
         public WebhookTriggerDto(string name = default, long id = default, bool available = default)
         {
             this.Name = name;
@@ -72,9 +72,9 @@ namespace DocSpace.API.SDK.Model
         public long Id { get; set; }
 
         /// <summary>
-        /// Specifies whether this trigger is available for the current user&#39;s role.
+        /// Specifies whether this trigger is available for the current user's role.
         /// </summary>
-        /// <value>Specifies whether this trigger is available for the current user&#39;s role.</value>
+        /// <value>Specifies whether this trigger is available for the current user's role.</value>
         /*
         <example>true</example>
         */

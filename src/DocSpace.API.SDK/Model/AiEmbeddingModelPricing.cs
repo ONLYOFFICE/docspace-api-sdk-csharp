@@ -35,15 +35,70 @@ namespace DocSpace.API.SDK.Model
     /// AiEmbeddingModelPricing
     /// </summary>
     [DataContract(Name = "AiEmbeddingModelPricing")]
-    public partial class AiEmbeddingModelPricing : AiModelPricingAiEmbeddingPrice, IValidatableObject
+    public partial class AiEmbeddingModelPricing : IValidatableObject
     {
     
         /// <summary>
         /// Initializes a new instance of the <see cref="AiEmbeddingModelPricing" /> class.
         /// </summary>
-        public AiEmbeddingModelPricing()
+        [JsonConstructorAttribute]
+        protected AiEmbeddingModelPricing() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AiEmbeddingModelPricing" /> class.
+        /// </summary>
+        /// <param name="id">id (required).</param>
+        /// <param name="alias">alias.</param>
+        /// <param name="ownedBy">ownedBy.</param>
+        /// <param name="provider">provider.</param>
+        /// <param name="price">price (required).</param>
+        public AiEmbeddingModelPricing(string id = default, string alias = default, string ownedBy = default, string provider = default, AiEmbeddingPrice price = default)
         {
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new ArgumentNullException("id is a required property for AiEmbeddingModelPricing and cannot be null");
+            }
+            this.Id = id;
+            // to ensure "price" is required (not null)
+            if (price == null)
+            {
+                throw new ArgumentNullException("price is a required property for AiEmbeddingModelPricing and cannot be null");
+            }
+            this.Price = price;
+            this.Alias = alias;
+            this.OwnedBy = ownedBy;
+            this.Provider = provider;
         }
+
+        /// <summary>
+        /// Gets or Sets Id
+        /// </summary>
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Alias
+        /// </summary>
+        [DataMember(Name = "alias", EmitDefaultValue = true)]
+        public string Alias { get; set; }
+
+        /// <summary>
+        /// Gets or Sets OwnedBy
+        /// </summary>
+        [DataMember(Name = "ownedBy", EmitDefaultValue = true)]
+        public string OwnedBy { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Provider
+        /// </summary>
+        [DataMember(Name = "provider", EmitDefaultValue = true)]
+        public string Provider { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Price
+        /// </summary>
+        [DataMember(Name = "price", IsRequired = true, EmitDefaultValue = true)]
+        public AiEmbeddingPrice Price { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,6 +108,11 @@ namespace DocSpace.API.SDK.Model
         {
             var sb = new StringBuilder();
             sb.Append("class AiEmbeddingModelPricing {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Alias: ").Append(Alias).Append("\n");
+            sb.Append("  OwnedBy: ").Append(OwnedBy).Append("\n");
+            sb.Append("  Provider: ").Append(Provider).Append("\n");
+            sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -61,11 +121,10 @@ namespace DocSpace.API.SDK.Model
         /// Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public override string ToJson()
+        public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
-    
 
         /// <summary>
         /// To validate all properties of the instance
@@ -78,4 +137,6 @@ namespace DocSpace.API.SDK.Model
         }
 
     }
+
+
 }

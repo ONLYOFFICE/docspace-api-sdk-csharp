@@ -165,7 +165,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="chunkUploadSize">The size of a large file that is uploaded in chunks..</param>
         /// <param name="openEditorInSameTab">Specifies whether to open the editor in the same tab or not..</param>
         /// <param name="organizeRoomsGrouping">Specifies whether the grouping of rooms is enabled or not..</param>
-        /// <param name="defaultShareLinkInternal">Specifies the default sharing link type: true &#x3D; DocSpace users only (internal), false &#x3D; Anyone with the link..</param>
+        /// <param name="defaultShareLinkInternal">Specifies the default sharing link type: true = DocSpace users only (internal), false = Anyone with the link..</param>
         /// <param name="externalShareApplyToDocuments">When external sharing is restricted, specifies whether the restriction applies to the My Documents section..</param>
         /// <param name="externalShareApplyToRooms">When external sharing is restricted, specifies whether the restriction applies to the Rooms section..</param>
         /// <param name="blockExistingLinksOnRestrict">When external sharing is restricted, specifies whether existing public links are blocked immediately..</param>
@@ -808,9 +808,9 @@ namespace DocSpace.API.SDK.Model
         public bool OrganizeRoomsGrouping { get; set; }
 
         /// <summary>
-        /// Specifies the default sharing link type: true &#x3D; DocSpace users only (internal), false &#x3D; Anyone with the link.
+        /// Specifies the default sharing link type: true = DocSpace users only (internal), false = Anyone with the link.
         /// </summary>
-        /// <value>Specifies the default sharing link type: true &#x3D; DocSpace users only (internal), false &#x3D; Anyone with the link.</value>
+        /// <value>Specifies the default sharing link type: true = DocSpace users only (internal), false = Anyone with the link.</value>
         /*
         <example>false</example>
         */

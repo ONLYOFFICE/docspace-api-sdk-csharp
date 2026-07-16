@@ -50,7 +50,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="description">The description of the client.</param>
         /// <param name="logo">The logo of the client in base64 format.</param>
         /// <param name="scopes">The scopes for the client.</param>
-        /// <param name="public">@public.</param>
+        /// <param name="@public">@public.</param>
         /// <param name="allowPkce">Indicates whether PKCE is allowed for the client.</param>
         /// <param name="isPublic">Indicates if the client is public.</param>
         /// <param name="websiteUrl">The website URL of the client.</param>

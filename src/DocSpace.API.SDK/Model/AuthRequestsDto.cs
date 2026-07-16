@@ -57,7 +57,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="session">Specifies whether the authentication is session-based..</param>
         /// <param name="confirmData">confirmData.</param>
         /// <param name="recaptchaType">recaptchaType.</param>
-        /// <param name="recaptchaResponse">The user&#39;s response to the CAPTCHA challenge..</param>
+        /// <param name="recaptchaResponse">The user's response to the CAPTCHA challenge..</param>
         /// <param name="culture">The culture code for localization during authentication..</param>
         public AuthRequestsDto(string userName = default, string password = default, string passwordHash = default, string provider = default, string accessToken = default, string serializedProfile = default, string codeOAuth = default, bool session = default, ConfirmData confirmData = default, RecaptchaType? recaptchaType = default, string recaptchaResponse = default, string culture = default)
         {
@@ -162,9 +162,9 @@ namespace DocSpace.API.SDK.Model
         public ConfirmData ConfirmData { get; set; }
 
         /// <summary>
-        /// The user&#39;s response to the CAPTCHA challenge.
+        /// The user's response to the CAPTCHA challenge.
         /// </summary>
-        /// <value>The user&#39;s response to the CAPTCHA challenge.</value>
+        /// <value>The user's response to the CAPTCHA challenge.</value>
         /*
         <example>03AGdBq25...</example>
         */

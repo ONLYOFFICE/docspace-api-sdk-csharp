@@ -104,20 +104,8 @@ namespace DocSpace.API.SDK.Model
 
     }
 
-    /// <summary>
-    /// Converts <see cref="ApiDateTime" /> instances to and from their JSON representation.
-    /// </summary>
     public class ApiDateTimeConverter : JsonConverter<ApiDateTime>
     {
-        /// <summary>
-        /// Reads the JSON representation and creates an <see cref="ApiDateTime" /> instance.
-        /// </summary>
-        /// <param name="reader">The reader to read from.</param>
-        /// <param name="objectType">The type of the object.</param>
-        /// <param name="existingValue">The existing value of the object being read.</param>
-        /// <param name="hasExistingValue">Indicates whether there is an existing value to read into.</param>
-        /// <param name="serializer">The calling serializer.</param>
-        /// <returns>The deserialized <see cref="ApiDateTime" />, or null.</returns>
         public override ApiDateTime ReadJson(JsonReader reader, Type objectType, ApiDateTime existingValue, bool hasExistingValue, JsonSerializer serializer)
         {
             if (reader.TokenType == JsonToken.Null)
@@ -136,12 +124,6 @@ namespace DocSpace.API.SDK.Model
                 : throw new JsonSerializationException($"Unable to parse datetime: {jsonString}");
         }
 
-        /// <summary>
-        /// Writes the JSON representation of an <see cref="ApiDateTime" /> instance.
-        /// </summary>
-        /// <param name="writer">The writer to write to.</param>
-        /// <param name="value">The value to serialize.</param>
-        /// <param name="serializer">The calling serializer.</param>
         public override void WriteJson(JsonWriter writer, ApiDateTime value, JsonSerializer serializer)
         {
             if (value == null)

@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="AddMcpServerRequestBody" /> class.
         /// </summary>
         /// <param name="name">Unique display name for the server. Only letters, numbers, underscores, and hyphens are allowed. Maximum 128 characters. (required).</param>
-        /// <param name="description">Human-readable description of the server&#39;s purpose and capabilities. Maximum 255 characters. (required).</param>
+        /// <param name="description">Human-readable description of the server's purpose and capabilities. Maximum 255 characters. (required).</param>
         /// <param name="endpoint">Base URL of the MCP server endpoint. Must be a valid, reachable URL. The system will verify connectivity during registration. (required).</param>
         /// <param name="headers">Optional HTTP headers to include with every request to the MCP server (e.g., authentication tokens or API keys)..</param>
         /// <param name="icon">Optional Base64-encoded icon image for the server. Used as the visual identifier in the UI..</param>
@@ -86,9 +86,9 @@ namespace DocSpace.API.SDK.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Human-readable description of the server&#39;s purpose and capabilities. Maximum 255 characters.
+        /// Human-readable description of the server's purpose and capabilities. Maximum 255 characters.
         /// </summary>
-        /// <value>Human-readable description of the server&#39;s purpose and capabilities. Maximum 255 characters.</value>
+        /// <value>Human-readable description of the server's purpose and capabilities. Maximum 255 characters.</value>
         /*
         <example>Custom MCP server for project management tools</example>
         */

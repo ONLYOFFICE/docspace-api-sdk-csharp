@@ -63,7 +63,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="color">The room color..</param>
         /// <param name="cover">The room cover..</param>
         /// <param name="roomType">roomType (required).</param>
-        /// <param name="private">Specifies whether the room to be created is private or not..</param>
+        /// <param name="@private">Specifies whether the room to be created is private or not..</param>
         /// <param name="share">The collection of sharing parameters..</param>
         /// <param name="chatSettings">chatSettings.</param>
         /// <param name="sendFormToExternalDB">Specifies whether to send form data to external database..</param>

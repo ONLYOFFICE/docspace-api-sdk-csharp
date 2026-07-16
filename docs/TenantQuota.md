@@ -15,7 +15,6 @@ Name | Type | Description | Notes
 **ServiceGroup** | **string** | The service group. | [optional] 
 **Visible** | **bool** | Specifies if the tenant quota is visible or not. | [optional] 
 **Wallet** | **bool** | Specifies if the tenant quota applies to the wallet or not | [optional] 
-**Additional** | **bool** | Specifies if the tenant quota is primary or additional. | [optional] 
 **DueDate** | **DateTime?** | The quota due date. | [optional] 
 **Features** | **string** | The tenant quota features. | [optional] 
 **MaxFileSize** | **long** | The tenant maximum file size. | [optional] 
@@ -47,7 +46,6 @@ Name | Type | Description | Notes
 **Backup** | **bool** | Specifies if the backup enabled as a wallet service or not. | [optional] 
 **CountAIAgent** | **int** | The number of AI agents. | [optional] 
 **AiTools** | **bool** | Specifies if the AI tools enabled as a wallet service or not. | [optional] 
-**AiSearch** | **bool** | Specifies if the AI search enabled as a wallet service or not. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

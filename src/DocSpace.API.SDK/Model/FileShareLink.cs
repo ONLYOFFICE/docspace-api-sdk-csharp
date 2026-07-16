@@ -56,7 +56,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="denyDownload">Indicates whether downloading of the shared content is prohibited..</param>
         /// <param name="isExpired">Indicates whether the shared link has expired..</param>
         /// <param name="primary">Indicates whether this is the primary shared link..</param>
-        /// <param name="internal">Indicates whether the link is for the internal sharing only..</param>
+        /// <param name="@internal">Indicates whether the link is for the internal sharing only..</param>
         /// <param name="requestToken">The token for validating access requests..</param>
         /// <param name="maxUseCount">The maximum number of times the invitation link can be used..</param>
         /// <param name="currentUseCount">The current number of times the invitation link has been used..</param>

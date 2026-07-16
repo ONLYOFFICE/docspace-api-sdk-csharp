@@ -1677,7 +1677,6 @@ namespace DocSpace.API.SDK.Api.Settings
 
             if (ids != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "ids", ids));
             }
 
             // authentication (Basic) required
@@ -1772,7 +1771,7 @@ namespace DocSpace.API.SDK.Api.Settings
 
             if (ids != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "ids", ids));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "ids", ids));
             }
 
             // authentication (Basic) required
