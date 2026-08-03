@@ -1,0 +1,405 @@
+// (c) Copyright Ascensio System SIA 2026
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel.DataAnnotations;
+using FileParameter = DocSpace.API.SDK.Client.FileParameter;
+using OpenAPIDateConverter = DocSpace.API.SDK.Client.OpenAPIDateConverter;
+
+namespace DocSpace.API.SDK.Model
+{
+    /// <summary>
+    /// The folder parameters.
+    /// </summary>
+    [DataContract(Name = "NewAiFolderDtoInteger")]
+    public partial class NewAiFolderDtoInteger : NewAiFileEntryDtoInteger, IValidatableObject
+    {
+
+        /// <summary>
+        /// Gets or Sets RoomType
+        /// </summary>
+        [DataMember(Name = "roomType", EmitDefaultValue = false)]
+        public NewAiRoomType? RoomType { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", EmitDefaultValue = false)]
+        public NewAiFolderType? Type { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RootRoomType
+        /// </summary>
+        [DataMember(Name = "rootRoomType", EmitDefaultValue = false)]
+        public NewAiRoomType? RootRoomType { get; set; }
+    
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NewAiFolderDtoInteger" /> class.
+        /// </summary>
+        /// <param name="parentId">The parent folder ID of the folder..</param>
+        /// <param name="filesCount">The number of files that the folder contains..</param>
+        /// <param name="foldersCount">The number of folders that the folder contains..</param>
+        /// <param name="isShareable">Specifies if the folder can be shared or not..</param>
+        /// <param name="new">The new element index in the folder..</param>
+        /// <param name="mute">Specifies if the folder notifications are enabled or not..</param>
+        /// <param name="tags">The list of tags of the folder..</param>
+        /// <param name="logo">logo.</param>
+        /// <param name="pinned">Specifies if the folder is pinned or not..</param>
+        /// <param name="roomType">roomType.</param>
+        /// <param name="private">Specifies if the folder is private or not..</param>
+        /// <param name="indexing">Specifies if the folder is indexed or not..</param>
+        /// <param name="denyDownload">Specifies if the folder can be downloaded or not..</param>
+        /// <param name="lifetime">lifetime.</param>
+        /// <param name="watermark">watermark.</param>
+        /// <param name="type">type.</param>
+        /// <param name="inRoom">Specifies if the folder is placed in the room or not..</param>
+        /// <param name="quotaLimit">The folder quota limit..</param>
+        /// <param name="isCustomQuota">Specifies if the folder room has a custom quota or not..</param>
+        /// <param name="usedSpace">How much folder space is used (counter)..</param>
+        /// <param name="passwordProtected">Specifies if the folder is password protected or not..</param>
+        /// <param name="expired">Specifies if an external link to the folder is expired or not..</param>
+        /// <param name="chatSettings">chatSettings.</param>
+        /// <param name="rootRoomType">rootRoomType.</param>
+        /// <param name="saveFormAsXLSX">Specifies whether to save form data as XLSX file..</param>
+        /// <param name="sendFormToExternalDB">Specifies whether to send form data to external database..</param>
+        /// <param name="originalFormId">The original form ID that corresponds to this FormFillingFolderDone folder..</param>
+        public NewAiFolderDtoInteger(int parentId = default, int filesCount = default, int foldersCount = default, bool? isShareable = default, int @new = default, bool mute = default, List<string> tags = default, NewAiLogo logo = default, bool pinned = default, NewAiRoomType? roomType = default, bool @private = default, bool indexing = default, bool denyDownload = default, NewAiRoomDataLifetimeDto lifetime = default, NewAiWatermarkDto watermark = default, NewAiFolderType? type = default, bool? inRoom = default, long? quotaLimit = default, bool? isCustomQuota = default, long? usedSpace = default, bool? passwordProtected = default, bool? expired = default, NewAiChatSettingsDto chatSettings = default, NewAiRoomType? rootRoomType = default, bool? saveFormAsXLSX = default, bool? sendFormToExternalDB = default, int? originalFormId = default)
+        {
+            this.ParentId = parentId;
+            this.FilesCount = filesCount;
+            this.FoldersCount = foldersCount;
+            this.IsShareable = isShareable;
+            this.New = @new;
+            this.Mute = mute;
+            this.Tags = tags;
+            this.Logo = logo;
+            this.Pinned = pinned;
+            this.RoomType = roomType;
+            this.Private = @private;
+            this.Indexing = indexing;
+            this.DenyDownload = denyDownload;
+            this.Lifetime = lifetime;
+            this.Watermark = watermark;
+            this.Type = type;
+            this.InRoom = inRoom;
+            this.QuotaLimit = quotaLimit;
+            this.IsCustomQuota = isCustomQuota;
+            this.UsedSpace = usedSpace;
+            this.PasswordProtected = passwordProtected;
+            this.Expired = expired;
+            this.ChatSettings = chatSettings;
+            this.RootRoomType = rootRoomType;
+            this.SaveFormAsXLSX = saveFormAsXLSX;
+            this.SendFormToExternalDB = sendFormToExternalDB;
+            this.OriginalFormId = originalFormId;
+        }
+
+        /// <summary>
+        /// The parent folder ID of the folder.
+        /// </summary>
+        /// <value>The parent folder ID of the folder.</value>
+        /*
+        <example>10</example>
+        */
+        [DataMember(Name = "parentId", EmitDefaultValue = false)]
+        public int ParentId { get; set; }
+
+        /// <summary>
+        /// The number of files that the folder contains.
+        /// </summary>
+        /// <value>The number of files that the folder contains.</value>
+        /*
+        <example>5</example>
+        */
+        [DataMember(Name = "filesCount", EmitDefaultValue = false)]
+        public int FilesCount { get; set; }
+
+        /// <summary>
+        /// The number of folders that the folder contains.
+        /// </summary>
+        /// <value>The number of folders that the folder contains.</value>
+        /*
+        <example>7</example>
+        */
+        [DataMember(Name = "foldersCount", EmitDefaultValue = false)]
+        public int FoldersCount { get; set; }
+
+        /// <summary>
+        /// Specifies if the folder can be shared or not.
+        /// </summary>
+        /// <value>Specifies if the folder can be shared or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "isShareable", EmitDefaultValue = true)]
+        public bool? IsShareable { get; set; }
+
+        /// <summary>
+        /// The new element index in the folder.
+        /// </summary>
+        /// <value>The new element index in the folder.</value>
+        /*
+        <example>0</example>
+        */
+        [DataMember(Name = "new", EmitDefaultValue = false)]
+        public int New { get; set; }
+
+        /// <summary>
+        /// Specifies if the folder notifications are enabled or not.
+        /// </summary>
+        /// <value>Specifies if the folder notifications are enabled or not.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "mute", EmitDefaultValue = true)]
+        public bool Mute { get; set; }
+
+        /// <summary>
+        /// The list of tags of the folder.
+        /// </summary>
+        /// <value>The list of tags of the folder.</value>
+        /*
+        <example>[&quot;tag1&quot;,&quot;tag2&quot;]</example>
+        */
+        [DataMember(Name = "tags", EmitDefaultValue = true)]
+        public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Logo
+        /// </summary>
+        [DataMember(Name = "logo", EmitDefaultValue = false)]
+        public NewAiLogo Logo { get; set; }
+
+        /// <summary>
+        /// Specifies if the folder is pinned or not.
+        /// </summary>
+        /// <value>Specifies if the folder is pinned or not.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "pinned", EmitDefaultValue = true)]
+        public bool Pinned { get; set; }
+
+        /// <summary>
+        /// Specifies if the folder is private or not.
+        /// </summary>
+        /// <value>Specifies if the folder is private or not.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "private", EmitDefaultValue = true)]
+        public bool Private { get; set; }
+
+        /// <summary>
+        /// Specifies if the folder is indexed or not.
+        /// </summary>
+        /// <value>Specifies if the folder is indexed or not.</value>
+        /*
+        <example>true</example>
+        */
+        [DataMember(Name = "indexing", EmitDefaultValue = true)]
+        public bool Indexing { get; set; }
+
+        /// <summary>
+        /// Specifies if the folder can be downloaded or not.
+        /// </summary>
+        /// <value>Specifies if the folder can be downloaded or not.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "denyDownload", EmitDefaultValue = true)]
+        public bool DenyDownload { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Lifetime
+        /// </summary>
+        [DataMember(Name = "lifetime", EmitDefaultValue = false)]
+        public NewAiRoomDataLifetimeDto Lifetime { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Watermark
+        /// </summary>
+        [DataMember(Name = "watermark", EmitDefaultValue = false)]
+        public NewAiWatermarkDto Watermark { get; set; }
+
+        /// <summary>
+        /// Specifies if the folder is placed in the room or not.
+        /// </summary>
+        /// <value>Specifies if the folder is placed in the room or not.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "inRoom", EmitDefaultValue = true)]
+        public bool? InRoom { get; set; }
+
+        /// <summary>
+        /// The folder quota limit.
+        /// </summary>
+        /// <value>The folder quota limit.</value>
+        /*
+        <example>1073741824</example>
+        */
+        [DataMember(Name = "quotaLimit", EmitDefaultValue = true)]
+        public long? QuotaLimit { get; set; }
+
+        /// <summary>
+        /// Specifies if the folder room has a custom quota or not.
+        /// </summary>
+        /// <value>Specifies if the folder room has a custom quota or not.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "isCustomQuota", EmitDefaultValue = true)]
+        public bool? IsCustomQuota { get; set; }
+
+        /// <summary>
+        /// How much folder space is used (counter).
+        /// </summary>
+        /// <value>How much folder space is used (counter).</value>
+        /*
+        <example>524288000</example>
+        */
+        [DataMember(Name = "usedSpace", EmitDefaultValue = true)]
+        public long? UsedSpace { get; set; }
+
+        /// <summary>
+        /// Specifies if the folder is password protected or not.
+        /// </summary>
+        /// <value>Specifies if the folder is password protected or not.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "passwordProtected", EmitDefaultValue = true)]
+        public bool? PasswordProtected { get; set; }
+
+        /// <summary>
+        /// Specifies if an external link to the folder is expired or not.
+        /// </summary>
+        /// <value>Specifies if an external link to the folder is expired or not.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "expired", EmitDefaultValue = true)]
+        [Obsolete]
+        public bool? Expired { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ChatSettings
+        /// </summary>
+        [DataMember(Name = "chatSettings", EmitDefaultValue = false)]
+        public NewAiChatSettingsDto ChatSettings { get; set; }
+
+        /// <summary>
+        /// Specifies whether to save form data as XLSX file.
+        /// </summary>
+        /// <value>Specifies whether to save form data as XLSX file.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "saveFormAsXLSX", EmitDefaultValue = true)]
+        public bool? SaveFormAsXLSX { get; set; }
+
+        /// <summary>
+        /// Specifies whether to send form data to external database.
+        /// </summary>
+        /// <value>Specifies whether to send form data to external database.</value>
+        /*
+        <example>false</example>
+        */
+        [DataMember(Name = "sendFormToExternalDB", EmitDefaultValue = true)]
+        public bool? SendFormToExternalDB { get; set; }
+
+        /// <summary>
+        /// The original form ID that corresponds to this FormFillingFolderDone folder.
+        /// </summary>
+        /// <value>The original form ID that corresponds to this FormFillingFolderDone folder.</value>
+        /*
+        <example>42</example>
+        */
+        [DataMember(Name = "originalFormId", EmitDefaultValue = true)]
+        public int? OriginalFormId { get; set; }
+
+        /// <summary>
+        /// Returns the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("class NewAiFolderDtoInteger {\n");
+            sb.Append("  ParentId: ").Append(ParentId).Append("\n");
+            sb.Append("  FilesCount: ").Append(FilesCount).Append("\n");
+            sb.Append("  FoldersCount: ").Append(FoldersCount).Append("\n");
+            sb.Append("  IsShareable: ").Append(IsShareable).Append("\n");
+            sb.Append("  New: ").Append(New).Append("\n");
+            sb.Append("  Mute: ").Append(Mute).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  Logo: ").Append(Logo).Append("\n");
+            sb.Append("  Pinned: ").Append(Pinned).Append("\n");
+            sb.Append("  RoomType: ").Append(RoomType).Append("\n");
+            sb.Append("  Private: ").Append(Private).Append("\n");
+            sb.Append("  Indexing: ").Append(Indexing).Append("\n");
+            sb.Append("  DenyDownload: ").Append(DenyDownload).Append("\n");
+            sb.Append("  Lifetime: ").Append(Lifetime).Append("\n");
+            sb.Append("  Watermark: ").Append(Watermark).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  InRoom: ").Append(InRoom).Append("\n");
+            sb.Append("  QuotaLimit: ").Append(QuotaLimit).Append("\n");
+            sb.Append("  IsCustomQuota: ").Append(IsCustomQuota).Append("\n");
+            sb.Append("  UsedSpace: ").Append(UsedSpace).Append("\n");
+            sb.Append("  PasswordProtected: ").Append(PasswordProtected).Append("\n");
+            sb.Append("  Expired: ").Append(Expired).Append("\n");
+            sb.Append("  ChatSettings: ").Append(ChatSettings).Append("\n");
+            sb.Append("  RootRoomType: ").Append(RootRoomType).Append("\n");
+            sb.Append("  SaveFormAsXLSX: ").Append(SaveFormAsXLSX).Append("\n");
+            sb.Append("  SendFormToExternalDB: ").Append(SendFormToExternalDB).Append("\n");
+            sb.Append("  OriginalFormId: ").Append(OriginalFormId).Append("\n");
+            sb.Append("}\n");
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Returns the JSON string presentation of the object
+        /// </summary>
+        /// <returns>JSON string presentation of the object</returns>
+        public override string ToJson()
+        {
+            return JsonConvert.SerializeObject(this, Formatting.Indented);
+        }
+    
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            yield break;
+        }
+
+    }
+}

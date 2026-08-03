@@ -617,9 +617,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="provider">The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). (optional)</param>
-        /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="privacyFilter">The filter by room privacy (None - 0, Private - 1, NotPrivate - 2). When omitted, all rooms are returned. (optional)</param>
         /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
         /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
@@ -628,7 +628,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="groupId">The group ID (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, string? subjectId = default, string? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default);
+        FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default);
 
         /// <summary>
         /// Get rooms
@@ -645,9 +645,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="provider">The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). (optional)</param>
-        /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="privacyFilter">The filter by room privacy (None - 0, Private - 1, NotPrivate - 2). When omitted, all rooms are returned. (optional)</param>
         /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
         /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
@@ -656,7 +656,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="groupId">The group ID (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, string? subjectId = default, string? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default);
+        ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default);
         /// <summary>
         /// Get the room new items
         /// </summary>
@@ -1700,9 +1700,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="provider">The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). (optional)</param>
-        /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="privacyFilter">The filter by room privacy (None - 0, Private - 1, NotPrivate - 2). When omitted, all rooms are returned. (optional)</param>
         /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
         /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
@@ -1712,7 +1712,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, string? subjectId = default, string? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default);
+        Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get rooms
@@ -1729,9 +1729,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="provider">The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). (optional)</param>
-        /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="privacyFilter">The filter by room privacy (None - 0, Private - 1, NotPrivate - 2). When omitted, all rooms are returned. (optional)</param>
         /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
         /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
@@ -1741,7 +1741,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, string? subjectId = default, string? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the room new items
         /// </summary>
@@ -6876,9 +6876,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="provider">The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). (optional)</param>
-        /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="privacyFilter">The filter by room privacy (None - 0, Private - 1, NotPrivate - 2). When omitted, all rooms are returned. (optional)</param>
         /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
         /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
@@ -6887,9 +6887,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="groupId">The group ID (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>FolderContentIntegerWrapper</returns>
-        public FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, string? subjectId = default, string? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default)
+        public FolderContentIntegerWrapper GetRoomsFolder(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default)
         {
-            var localVarResponse = GetRoomsFolderWithHttpInfo(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
+            var localVarResponse = GetRoomsFolderWithHttpInfo(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId);
             return localVarResponse.Data;
         }
 
@@ -6908,9 +6908,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="provider">The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). (optional)</param>
-        /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="privacyFilter">The filter by room privacy (None - 0, Private - 1, NotPrivate - 2). When omitted, all rooms are returned. (optional)</param>
         /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
         /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
@@ -6919,7 +6919,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="groupId">The group ID (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>ApiResponse of FolderContentIntegerWrapper</returns>
-        public ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, string? subjectId = default, string? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default)
+        public ApiResponse<FolderContentIntegerWrapper> GetRoomsFolderWithHttpInfo(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -6936,6 +6936,7 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (type != null)
             {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "type", type));
             }
             if (subjectId != null)
             {
@@ -6965,10 +6966,6 @@ namespace DocSpace.API.SDK.Api.Rooms
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "provider", provider));
             }
-            if (subjectFilter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "subjectFilter", subjectFilter));
-            }
             if (quotaFilter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
@@ -6976,6 +6973,10 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (storageFilter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "storageFilter", storageFilter));
+            }
+            if (privacyFilter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "privacyFilter", privacyFilter));
             }
             if (count != null)
             {
@@ -7067,9 +7068,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="provider">The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). (optional)</param>
-        /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="privacyFilter">The filter by room privacy (None - 0, Private - 1, NotPrivate - 2). When omitted, all rooms are returned. (optional)</param>
         /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
         /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
@@ -7079,9 +7080,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of FolderContentIntegerWrapper</returns>
-        public async Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, string? subjectId = default, string? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default)
+        public async Task<FolderContentIntegerWrapper> GetRoomsFolderAsync(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetRoomsFolderWithHttpInfoAsync(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, subjectFilter, quotaFilter, storageFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetRoomsFolderWithHttpInfoAsync(type, subjectId, subjectOwnerId, searchArea, withoutTags, tags, excludeSubject, provider, quotaFilter, storageFilter, privacyFilter, count, startIndex, sortBy, sortOrder, filterValue, groupId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7100,9 +7101,9 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="tags">The tags in the serialized format. (optional)</param>
         /// <param name="excludeSubject">Specifies whether to exclude search by user or group ID. (optional)</param>
         /// <param name="provider">The filter by provider name (None, Box, DropBox, GoogleDrive, kDrive, OneDrive, SharePoint, WebDav, Yandex, Storage). (optional)</param>
-        /// <param name="subjectFilter">The filter by user (Owner - 0, Member - 1). (optional)</param>
         /// <param name="quotaFilter">The filter by quota (All - 0, Default - 1, Custom - 2). (optional)</param>
         /// <param name="storageFilter">The filter by storage (None - 0, Internal - 1, ThirdParty - 2). (optional)</param>
+        /// <param name="privacyFilter">The filter by room privacy (None - 0, Private - 1, NotPrivate - 2). When omitted, all rooms are returned. (optional)</param>
         /// <param name="count">Specifies the maximum number of items to retrieve. (optional)</param>
         /// <param name="startIndex">The index from which to start retrieving the room content. (optional)</param>
         /// <param name="sortBy">Specifies the field by which the room content should be sorted. (optional)</param>
@@ -7112,7 +7113,7 @@ namespace DocSpace.API.SDK.Api.Rooms
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-rooms-folder/">REST API Reference for GetRoomsFolder Operation</seealso>
         /// <returns>Task of ApiResponse (FolderContentIntegerWrapper)</returns>
-        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, string? subjectId = default, string? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, SubjectFilter? subjectFilter = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<FolderContentIntegerWrapper>> GetRoomsFolderWithHttpInfoAsync(List<RoomType>? type = default, Guid? subjectId = default, Guid? subjectOwnerId = default, SearchArea? searchArea = default, bool? withoutTags = default, string? tags = default, bool? excludeSubject = default, ProviderFilter? provider = default, QuotaFilter? quotaFilter = default, StorageFilter? storageFilter = default, RoomPrivacyFilter? privacyFilter = default, int? count = default, int? startIndex = default, string? sortBy = default, SortOrder? sortOrder = default, string? filterValue = default, int? groupId = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -7130,7 +7131,7 @@ namespace DocSpace.API.SDK.Api.Rooms
 
             if (type != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("csv", "type", type));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "type", type));
             }
             if (subjectId != null)
             {
@@ -7160,10 +7161,6 @@ namespace DocSpace.API.SDK.Api.Rooms
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "provider", provider));
             }
-            if (subjectFilter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "subjectFilter", subjectFilter));
-            }
             if (quotaFilter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "quotaFilter", quotaFilter));
@@ -7171,6 +7168,10 @@ namespace DocSpace.API.SDK.Api.Rooms
             if (storageFilter != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "storageFilter", storageFilter));
+            }
+            if (privacyFilter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "privacyFilter", privacyFilter));
             }
             if (count != null)
             {

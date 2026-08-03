@@ -536,6 +536,29 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>ApiResponse of EditHistoryArrayWrapper</returns>
         ApiResponse<EditHistoryArrayWrapper> GetEditHistoryWithHttpInfo(int fileId);
         /// <summary>
+        /// Get file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
+        /// <returns>FileEncryptionInfoWrapper</returns>
+        FileEncryptionInfoWrapper GetEncryptionInfo(int fileId);
+
+        /// <summary>
+        /// Get file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
+        /// <returns>ApiResponse of FileEncryptionInfoWrapper</returns>
+        ApiResponse<FileEncryptionInfoWrapper> GetEncryptionInfoWithHttpInfo(int fileId);
+        /// <summary>
         /// Get file history
         /// </summary>
         /// <remarks>
@@ -1068,6 +1091,31 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
         /// <returns>ApiResponse of FileIntegerWrapper</returns>
         ApiResponse<FileIntegerWrapper> SetCustomFilterTagWithHttpInfo(int fileId, CustomFilterParameters customFilterParameters);
+        /// <summary>
+        /// Set file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Sets or updates the encryption keys for a file with the specified identifier. This allows updating the file's encryption configuration.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">File ID</param>
+        /// <param name="accessRequestKeyDto">Collection of encryption key data for users with access to the file (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
+        /// <returns></returns>
+        void SetEncryptionInfo(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default);
+
+        /// <summary>
+        /// Set file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Sets or updates the encryption keys for a file with the specified identifier. This allows updating the file's encryption configuration.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">File ID</param>
+        /// <param name="accessRequestKeyDto">Collection of encryption key data for users with access to the file (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> SetEncryptionInfoWithHttpInfo(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default);
         /// <summary>
         /// Set an external link
         /// </summary>
@@ -1825,6 +1873,31 @@ namespace DocSpace.API.SDK.Api.Files
         /// <returns>Task of ApiResponse (EditHistoryArrayWrapper)</returns>
         Task<ApiResponse<EditHistoryArrayWrapper>> GetEditHistoryWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
+        /// <returns>Task of FileEncryptionInfoWrapper</returns>
+        Task<FileEncryptionInfoWrapper> GetEncryptionInfoAsync(int fileId, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileEncryptionInfoWrapper)</returns>
+        Task<ApiResponse<FileEncryptionInfoWrapper>> GetEncryptionInfoWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get file history
         /// </summary>
         /// <remarks>
@@ -2399,6 +2472,33 @@ namespace DocSpace.API.SDK.Api.Files
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-custom-filter-tag/">REST API Reference for SetCustomFilterTag Operation</seealso>
         /// <returns>Task of ApiResponse (FileIntegerWrapper)</returns>
         Task<ApiResponse<FileIntegerWrapper>> SetCustomFilterTagWithHttpInfoAsync(int fileId, CustomFilterParameters customFilterParameters, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Set file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Sets or updates the encryption keys for a file with the specified identifier. This allows updating the file's encryption configuration.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">File ID</param>
+        /// <param name="accessRequestKeyDto">Collection of encryption key data for users with access to the file (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
+        /// <returns>Task of void</returns>
+        Task SetEncryptionInfoAsync(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Set file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Sets or updates the encryption keys for a file with the specified identifier. This allows updating the file's encryption configuration.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">File ID</param>
+        /// <param name="accessRequestKeyDto">Collection of encryption key data for users with access to the file (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> SetEncryptionInfoWithHttpInfoAsync(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Set an external link
         /// </summary>
@@ -6561,6 +6661,188 @@ namespace DocSpace.API.SDK.Api.Files
         }
 
         /// <summary>
+        /// Get file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
+        /// <returns>FileEncryptionInfoWrapper</returns>
+        public FileEncryptionInfoWrapper GetEncryptionInfo(int fileId)
+        {
+            var localVarResponse = GetEncryptionInfoWithHttpInfo(fileId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId"></param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
+        /// <returns>ApiResponse of FileEncryptionInfoWrapper</returns>
+        public ApiResponse<FileEncryptionInfoWrapper> GetEncryptionInfoWithHttpInfo(int fileId)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<FileEncryptionInfoWrapper>("/api/2.0/files/{fileId}/access", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetEncryptionInfo", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
+        /// <returns>Task of FileEncryptionInfoWrapper</returns>
+        public async Task<FileEncryptionInfoWrapper> GetEncryptionInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetEncryptionInfoWithHttpInfoAsync(fileId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Returns the encryption information for a file with the specified identifier, including user encryption keys and file-specific encryption keys.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-encryption-info/">REST API Reference for GetEncryptionInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (FileEncryptionInfoWrapper)</returns>
+        public async Task<ApiResponse<FileEncryptionInfoWrapper>> GetEncryptionInfoWithHttpInfoAsync(int fileId, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<FileEncryptionInfoWrapper>("/api/2.0/files/{fileId}/access", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetEncryptionInfo", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get file history
         /// </summary>
         /// <remarks>
@@ -10333,6 +10615,192 @@ namespace DocSpace.API.SDK.Api.Files
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("SetCustomFilterTag", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Sets or updates the encryption keys for a file with the specified identifier. This allows updating the file's encryption configuration.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">File ID</param>
+        /// <param name="accessRequestKeyDto">Collection of encryption key data for users with access to the file (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
+        /// <returns></returns>
+        public void SetEncryptionInfo(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default)
+        {
+            SetEncryptionInfoWithHttpInfo(fileId, accessRequestKeyDto);
+        }
+
+        /// <summary>
+        /// Set file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Sets or updates the encryption keys for a file with the specified identifier. This allows updating the file's encryption configuration.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">File ID</param>
+        /// <param name="accessRequestKeyDto">Collection of encryption key data for users with access to the file (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> SetEncryptionInfoWithHttpInfo(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (accessRequestKeyDto != null) localVarRequestOptions.Data = accessRequestKeyDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Put<Object>("/api/2.0/files/{fileId}/access", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SetEncryptionInfo", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Set file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Sets or updates the encryption keys for a file with the specified identifier. This allows updating the file's encryption configuration.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">File ID</param>
+        /// <param name="accessRequestKeyDto">Collection of encryption key data for users with access to the file (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
+        /// <returns>Task of void</returns>
+        public async Task SetEncryptionInfoAsync(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default)
+        {
+            await SetEncryptionInfoWithHttpInfoAsync(fileId, accessRequestKeyDto, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Set file encryption information
+        /// </summary>
+        /// <remarks>
+        /// Sets or updates the encryption keys for a file with the specified identifier. This allows updating the file's encryption configuration.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileId">File ID</param>
+        /// <param name="accessRequestKeyDto">Collection of encryption key data for users with access to the file (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/set-encryption-info/">REST API Reference for SetEncryptionInfo Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> SetEncryptionInfoWithHttpInfoAsync(int fileId, List<AccessRequestKeyDto>? accessRequestKeyDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("fileId", ClientUtils.ParameterToString(fileId)); // path parameter
+            if (accessRequestKeyDto != null) localVarRequestOptions.Data = accessRequestKeyDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PutAsync<Object>("/api/2.0/files/{fileId}/access", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("SetEncryptionInfo", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

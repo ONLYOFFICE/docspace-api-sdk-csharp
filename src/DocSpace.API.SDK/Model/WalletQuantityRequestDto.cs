@@ -47,10 +47,20 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WalletQuantityRequestDto" /> class.
         /// </summary>
-        /// <param name="quantity">The mapping of item identifiers to their respective quantities in the payment..</param>
+        [JsonConstructorAttribute]
+        protected WalletQuantityRequestDto() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WalletQuantityRequestDto" /> class.
+        /// </summary>
+        /// <param name="quantity">The mapping of item identifiers to their respective quantities in the payment. (required).</param>
         /// <param name="productQuantityType">productQuantityType.</param>
         public WalletQuantityRequestDto(Dictionary<string, int?> quantity = default, ProductQuantityType? productQuantityType = default)
         {
+            // to ensure "quantity" is required (not null)
+            if (quantity == null)
+            {
+                throw new ArgumentNullException("quantity is a required property for WalletQuantityRequestDto and cannot be null");
+            }
             this.Quantity = quantity;
             this.ProductQuantityType = productQuantityType;
         }
@@ -59,7 +69,10 @@ namespace DocSpace.API.SDK.Model
         /// The mapping of item identifiers to their respective quantities in the payment.
         /// </summary>
         /// <value>The mapping of item identifiers to their respective quantities in the payment.</value>
-        [DataMember(Name = "quantity", EmitDefaultValue = true)]
+        /*
+        <example>{"admin":1}</example>
+        */
+        [DataMember(Name = "quantity", IsRequired = true, EmitDefaultValue = true)]
         public Dictionary<string, int?> Quantity { get; set; }
 
         /// <summary>

@@ -59,7 +59,7 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerOperationsReportRequestDto" /> class.
         /// </summary>
-        /// <param name="serviceName">The service name..</param>
+        /// <param name="serviceName">The service name list. A single string is also accepted for backward compatibility..</param>
         /// <param name="startDate">The report start date..</param>
         /// <param name="endDate">The report end date..</param>
         /// <param name="participantName">The participant name..</param>
@@ -69,7 +69,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="status">status.</param>
         /// <param name="orderBy">The field to order by..</param>
         /// <param name="orderType">orderType.</param>
-        public CustomerOperationsReportRequestDto(string serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string orderBy = default, OperationOrderType? orderType = default)
+        public CustomerOperationsReportRequestDto(List<string> serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string orderBy = default, OperationOrderType? orderType = default)
         {
             this.ServiceName = serviceName;
             this.StartDate = startDate;
@@ -84,14 +84,14 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The service name.
+        /// The service name list. A single string is also accepted for backward compatibility.
         /// </summary>
-        /// <value>The service name.</value>
+        /// <value>The service name list. A single string is also accepted for backward compatibility.</value>
         /*
-        <example>backup</example>
+        <example>[backup]</example>
         */
         [DataMember(Name = "serviceName", EmitDefaultValue = true)]
-        public string ServiceName { get; set; }
+        public List<string> ServiceName { get; set; }
 
         /// <summary>
         /// The report start date.

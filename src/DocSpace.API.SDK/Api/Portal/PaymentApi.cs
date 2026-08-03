@@ -77,6 +77,29 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>ApiResponse of TenantWalletServiceSettingsWrapper</returns>
         ApiResponse<TenantWalletServiceSettingsWrapper> ChangeTenantWalletServiceStateWithHttpInfo(ChangeWalletServiceStateRequestDto? changeWalletServiceStateRequestDto = default);
         /// <summary>
+        /// Start the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer monthly usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerMonthlyUsageReportRequestDto">The request parameters for generating a customer monthly usage report. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-monthly-usage-report/">REST API Reference for CreateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        DocumentBuilderTaskWrapper CreateCustomerMonthlyUsageReport(CustomerMonthlyUsageReportRequestDto? customerMonthlyUsageReportRequestDto = default);
+
+        /// <summary>
+        /// Start the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer monthly usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerMonthlyUsageReportRequestDto">The request parameters for generating a customer monthly usage report. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-monthly-usage-report/">REST API Reference for CreateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        ApiResponse<DocumentBuilderTaskWrapper> CreateCustomerMonthlyUsageReportWithHttpInfo(CustomerMonthlyUsageReportRequestDto? customerMonthlyUsageReportRequestDto = default);
+        /// <summary>
         /// Start the customer operations report generation
         /// </summary>
         /// <remarks>
@@ -99,6 +122,29 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-operations-report/">REST API Reference for CreateCustomerOperationsReport Operation</seealso>
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
         ApiResponse<DocumentBuilderTaskWrapper> CreateCustomerOperationsReportWithHttpInfo(CustomerOperationsReportRequestDto? customerOperationsReportRequestDto = default);
+        /// <summary>
+        /// Start the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer service usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerServiceUsageReportRequestDto">The request parameters for generating a customer service usage report. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-service-usage-report/">REST API Reference for CreateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        DocumentBuilderTaskWrapper CreateCustomerServiceUsageReport(CustomerServiceUsageReportRequestDto? customerServiceUsageReportRequestDto = default);
+
+        /// <summary>
+        /// Start the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer service usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerServiceUsageReportRequestDto">The request parameters for generating a customer service usage report. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-service-usage-report/">REST API Reference for CreateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        ApiResponse<DocumentBuilderTaskWrapper> CreateCustomerServiceUsageReportWithHttpInfo(CustomerServiceUsageReportRequestDto? customerServiceUsageReportRequestDto = default);
         /// <summary>
         /// Credit AI balance
         /// </summary>
@@ -238,6 +284,52 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>ApiResponse of CustomerInfoWrapper</returns>
         ApiResponse<CustomerInfoWrapper> GetCustomerInfoWithHttpInfo(bool? refresh = default);
         /// <summary>
+        /// Get the customer monthly usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer spending aggregated per calendar month from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage/">REST API Reference for GetCustomerMonthlyUsage Operation</seealso>
+        /// <returns>CustomerMonthlyUsageArrayWrapper</returns>
+        CustomerMonthlyUsageArrayWrapper GetCustomerMonthlyUsage(DateTime? startDate = default, DateTime? endDate = default);
+
+        /// <summary>
+        /// Get the customer monthly usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer spending aggregated per calendar month from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage/">REST API Reference for GetCustomerMonthlyUsage Operation</seealso>
+        /// <returns>ApiResponse of CustomerMonthlyUsageArrayWrapper</returns>
+        ApiResponse<CustomerMonthlyUsageArrayWrapper> GetCustomerMonthlyUsageWithHttpInfo(DateTime? startDate = default, DateTime? endDate = default);
+        /// <summary>
+        /// Get the status of the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage-report/">REST API Reference for GetCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        DocumentBuilderTaskWrapper GetCustomerMonthlyUsageReport();
+
+        /// <summary>
+        /// Get the status of the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage-report/">REST API Reference for GetCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        ApiResponse<DocumentBuilderTaskWrapper> GetCustomerMonthlyUsageReportWithHttpInfo();
+        /// <summary>
         /// Get the customer operations
         /// </summary>
         /// <remarks>
@@ -246,7 +338,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
-        /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="serviceName">The service name list. A single string is also accepted for backward compatibility. (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -258,7 +350,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>ReportWrapper</returns>
-        ReportWrapper GetCustomerOperations(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default);
+        ReportWrapper GetCustomerOperations(int? offset = default, int? limit = default, List<string>? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default);
 
         /// <summary>
         /// Get the customer operations
@@ -269,7 +361,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
-        /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="serviceName">The service name list. A single string is also accepted for backward compatibility. (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -281,7 +373,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>ApiResponse of ReportWrapper</returns>
-        ApiResponse<ReportWrapper> GetCustomerOperationsWithHttpInfo(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default);
+        ApiResponse<ReportWrapper> GetCustomerOperationsWithHttpInfo(int? offset = default, int? limit = default, List<string>? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default);
         /// <summary>
         /// Get the status of the customer operations report generation
         /// </summary>
@@ -303,6 +395,68 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations-report/">REST API Reference for GetCustomerOperationsReport Operation</seealso>
         /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
         ApiResponse<DocumentBuilderTaskWrapper> GetCustomerOperationsReportWithHttpInfo();
+        /// <summary>
+        /// Get the customer service usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer usage statistics aggregated per service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name list. (optional)</param>
+        /// <param name="participantName">The participant name. (optional)</param>
+        /// <param name="status">The operation status to filter by. (optional)</param>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <param name="metadata">Metadata key-value pairs to filter by. (optional)</param>
+        /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
+        /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
+        /// <param name="orderBy">The field to order by. (optional)</param>
+        /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage/">REST API Reference for GetCustomerServiceUsage Operation</seealso>
+        /// <returns>CustomerServiceUsageReportWrapper</returns>
+        CustomerServiceUsageReportWrapper GetCustomerServiceUsage(List<string>? serviceName = default, string? participantName = default, OperationStatus? status = default, DateTime? startDate = default, DateTime? endDate = default, Dictionary<string, string>? metadata = default, int? offset = default, int? limit = default, string? orderBy = default, OperationOrderType? orderType = default);
+
+        /// <summary>
+        /// Get the customer service usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer usage statistics aggregated per service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name list. (optional)</param>
+        /// <param name="participantName">The participant name. (optional)</param>
+        /// <param name="status">The operation status to filter by. (optional)</param>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <param name="metadata">Metadata key-value pairs to filter by. (optional)</param>
+        /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
+        /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
+        /// <param name="orderBy">The field to order by. (optional)</param>
+        /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage/">REST API Reference for GetCustomerServiceUsage Operation</seealso>
+        /// <returns>ApiResponse of CustomerServiceUsageReportWrapper</returns>
+        ApiResponse<CustomerServiceUsageReportWrapper> GetCustomerServiceUsageWithHttpInfo(List<string>? serviceName = default, string? participantName = default, OperationStatus? status = default, DateTime? startDate = default, DateTime? endDate = default, Dictionary<string, string>? metadata = default, int? offset = default, int? limit = default, string? orderBy = default, OperationOrderType? orderType = default);
+        /// <summary>
+        /// Get the status of the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage-report/">REST API Reference for GetCustomerServiceUsageReport Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        DocumentBuilderTaskWrapper GetCustomerServiceUsageReport();
+
+        /// <summary>
+        /// Get the status of the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage-report/">REST API Reference for GetCustomerServiceUsageReport Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        ApiResponse<DocumentBuilderTaskWrapper> GetCustomerServiceUsageReportWithHttpInfo();
         /// <summary>
         /// Get the payment account
         /// </summary>
@@ -355,9 +509,10 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Specifies whether to return the wallet quotas only. (optional)</param>
+        /// <param name="additional">Specifies whether to return additional quotas only. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
         /// <returns>QuotaArrayWrapper</returns>
-        QuotaArrayWrapper GetPaymentQuotas(bool? wallet = default);
+        QuotaArrayWrapper GetPaymentQuotas(bool? wallet = default, bool? additional = default);
 
         /// <summary>
         /// Get quotas
@@ -367,9 +522,10 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Specifies whether to return the wallet quotas only. (optional)</param>
+        /// <param name="additional">Specifies whether to return additional quotas only. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
         /// <returns>ApiResponse of QuotaArrayWrapper</returns>
-        ApiResponse<QuotaArrayWrapper> GetPaymentQuotasWithHttpInfo(bool? wallet = default);
+        ApiResponse<QuotaArrayWrapper> GetPaymentQuotasWithHttpInfo(bool? wallet = default, bool? additional = default);
         /// <summary>
         /// Get the payment page URL
         /// </summary>
@@ -459,6 +615,27 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>ApiResponse of RestrictedModelsResponseWrapper</returns>
         ApiResponse<RestrictedModelsResponseWrapper> GetRestrictedAiModelsWithHttpInfo();
         /// <summary>
+        /// Get the subscription balance information
+        /// </summary>
+        /// <remarks>
+        /// Returns the information about the current subscription and its unused (prorated) balance.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
+        /// <returns>SubscriptionBalanceInfoWrapper</returns>
+        SubscriptionBalanceInfoWrapper GetSubscriptionBalanceInfo();
+
+        /// <summary>
+        /// Get the subscription balance information
+        /// </summary>
+        /// <remarks>
+        /// Returns the information about the current subscription and its unused (prorated) balance.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
+        /// <returns>ApiResponse of SubscriptionBalanceInfoWrapper</returns>
+        ApiResponse<SubscriptionBalanceInfoWrapper> GetSubscriptionBalanceInfoWithHttpInfo();
+        /// <summary>
         /// Gets the wallet service settings for the tenant.
         /// </summary>
         /// <remarks>
@@ -545,6 +722,29 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>ApiResponse of WalletServiceArrayWrapper</returns>
         ApiResponse<WalletServiceArrayWrapper> GetWalletServicesWithHttpInfo();
         /// <summary>
+        /// Move the subscription balance to the wallet and purchase admins
+        /// </summary>
+        /// <remarks>
+        /// Cancels the current subscription, moves its unused balance to the wallet, and purchases the requested number of  admins from the wallet. If the wallet balance is not enough, it is topped up for the missing amount first  (with several attempts, as the balance may be consumed concurrently).
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for specifying payment quantity. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-subscription-to-wallet/">REST API Reference for MoveSubscriptionToWallet Operation</seealso>
+        /// <returns>BooleanWrapper</returns>
+        BooleanWrapper MoveSubscriptionToWallet(QuantityRequestDto? quantityRequestDto = default);
+
+        /// <summary>
+        /// Move the subscription balance to the wallet and purchase admins
+        /// </summary>
+        /// <remarks>
+        /// Cancels the current subscription, moves its unused balance to the wallet, and purchases the requested number of  admins from the wallet. If the wallet balance is not enough, it is topped up for the missing amount first  (with several attempts, as the balance may be consumed concurrently).
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for specifying payment quantity. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-subscription-to-wallet/">REST API Reference for MoveSubscriptionToWallet Operation</seealso>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        ApiResponse<BooleanWrapper> MoveSubscriptionToWalletWithHttpInfo(QuantityRequestDto? quantityRequestDto = default);
+        /// <summary>
         /// Send a payment request
         /// </summary>
         /// <remarks>
@@ -614,6 +814,27 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>ApiResponse of TenantWalletSettingsWrapper</returns>
         ApiResponse<TenantWalletSettingsWrapper> SetTenantWalletSettingsWithHttpInfo(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default);
         /// <summary>
+        /// Terminate the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-monthly-usage-report/">REST API Reference for TerminateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns></returns>
+        void TerminateCustomerMonthlyUsageReport();
+
+        /// <summary>
+        /// Terminate the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-monthly-usage-report/">REST API Reference for TerminateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> TerminateCustomerMonthlyUsageReportWithHttpInfo();
+        /// <summary>
         /// Terminate the customer operations report generation
         /// </summary>
         /// <remarks>
@@ -634,6 +855,27 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-operations-report/">REST API Reference for TerminateCustomerOperationsReport Operation</seealso>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> TerminateCustomerOperationsReportWithHttpInfo();
+        /// <summary>
+        /// Terminate the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-service-usage-report/">REST API Reference for TerminateCustomerServiceUsageReport Operation</seealso>
+        /// <returns></returns>
+        void TerminateCustomerServiceUsageReport();
+
+        /// <summary>
+        /// Terminate the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-service-usage-report/">REST API Reference for TerminateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> TerminateCustomerServiceUsageReportWithHttpInfo();
         /// <summary>
         /// Put money on deposit
         /// </summary>
@@ -763,6 +1005,31 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>Task of ApiResponse (TenantWalletServiceSettingsWrapper)</returns>
         Task<ApiResponse<TenantWalletServiceSettingsWrapper>> ChangeTenantWalletServiceStateWithHttpInfoAsync(ChangeWalletServiceStateRequestDto? changeWalletServiceStateRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
+        /// Start the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer monthly usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerMonthlyUsageReportRequestDto">The request parameters for generating a customer monthly usage report. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-monthly-usage-report/">REST API Reference for CreateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        Task<DocumentBuilderTaskWrapper> CreateCustomerMonthlyUsageReportAsync(CustomerMonthlyUsageReportRequestDto? customerMonthlyUsageReportRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Start the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer monthly usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerMonthlyUsageReportRequestDto">The request parameters for generating a customer monthly usage report. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-monthly-usage-report/">REST API Reference for CreateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateCustomerMonthlyUsageReportWithHttpInfoAsync(CustomerMonthlyUsageReportRequestDto? customerMonthlyUsageReportRequestDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Start the customer operations report generation
         /// </summary>
         /// <remarks>
@@ -787,6 +1054,31 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-operations-report/">REST API Reference for CreateCustomerOperationsReport Operation</seealso>
         /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
         Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateCustomerOperationsReportWithHttpInfoAsync(CustomerOperationsReportRequestDto? customerOperationsReportRequestDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Start the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer service usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerServiceUsageReportRequestDto">The request parameters for generating a customer service usage report. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-service-usage-report/">REST API Reference for CreateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        Task<DocumentBuilderTaskWrapper> CreateCustomerServiceUsageReportAsync(CustomerServiceUsageReportRequestDto? customerServiceUsageReportRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Start the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer service usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerServiceUsageReportRequestDto">The request parameters for generating a customer service usage report. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-service-usage-report/">REST API Reference for CreateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateCustomerServiceUsageReportWithHttpInfoAsync(CustomerServiceUsageReportRequestDto? customerServiceUsageReportRequestDto = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Credit AI balance
         /// </summary>
@@ -938,6 +1230,56 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>Task of ApiResponse (CustomerInfoWrapper)</returns>
         Task<ApiResponse<CustomerInfoWrapper>> GetCustomerInfoWithHttpInfoAsync(bool? refresh = default, CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get the customer monthly usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer spending aggregated per calendar month from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage/">REST API Reference for GetCustomerMonthlyUsage Operation</seealso>
+        /// <returns>Task of CustomerMonthlyUsageArrayWrapper</returns>
+        Task<CustomerMonthlyUsageArrayWrapper> GetCustomerMonthlyUsageAsync(DateTime? startDate = default, DateTime? endDate = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get the customer monthly usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer spending aggregated per calendar month from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage/">REST API Reference for GetCustomerMonthlyUsage Operation</seealso>
+        /// <returns>Task of ApiResponse (CustomerMonthlyUsageArrayWrapper)</returns>
+        Task<ApiResponse<CustomerMonthlyUsageArrayWrapper>> GetCustomerMonthlyUsageWithHttpInfoAsync(DateTime? startDate = default, DateTime? endDate = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get the status of the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage-report/">REST API Reference for GetCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        Task<DocumentBuilderTaskWrapper> GetCustomerMonthlyUsageReportAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get the status of the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage-report/">REST API Reference for GetCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        Task<ApiResponse<DocumentBuilderTaskWrapper>> GetCustomerMonthlyUsageReportWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
         /// Get the customer operations
         /// </summary>
         /// <remarks>
@@ -946,7 +1288,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
-        /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="serviceName">The service name list. A single string is also accepted for backward compatibility. (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -959,7 +1301,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>Task of ReportWrapper</returns>
-        Task<ReportWrapper> GetCustomerOperationsAsync(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default);
+        Task<ReportWrapper> GetCustomerOperationsAsync(int? offset = default, int? limit = default, List<string>? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get the customer operations
@@ -970,7 +1312,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
-        /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="serviceName">The service name list. A single string is also accepted for backward compatibility. (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -983,7 +1325,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>Task of ApiResponse (ReportWrapper)</returns>
-        Task<ApiResponse<ReportWrapper>> GetCustomerOperationsWithHttpInfoAsync(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<ReportWrapper>> GetCustomerOperationsWithHttpInfoAsync(int? offset = default, int? limit = default, List<string>? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the status of the customer operations report generation
         /// </summary>
@@ -1007,6 +1349,72 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations-report/">REST API Reference for GetCustomerOperationsReport Operation</seealso>
         /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
         Task<ApiResponse<DocumentBuilderTaskWrapper>> GetCustomerOperationsReportWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get the customer service usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer usage statistics aggregated per service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name list. (optional)</param>
+        /// <param name="participantName">The participant name. (optional)</param>
+        /// <param name="status">The operation status to filter by. (optional)</param>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <param name="metadata">Metadata key-value pairs to filter by. (optional)</param>
+        /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
+        /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
+        /// <param name="orderBy">The field to order by. (optional)</param>
+        /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage/">REST API Reference for GetCustomerServiceUsage Operation</seealso>
+        /// <returns>Task of CustomerServiceUsageReportWrapper</returns>
+        Task<CustomerServiceUsageReportWrapper> GetCustomerServiceUsageAsync(List<string>? serviceName = default, string? participantName = default, OperationStatus? status = default, DateTime? startDate = default, DateTime? endDate = default, Dictionary<string, string>? metadata = default, int? offset = default, int? limit = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get the customer service usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer usage statistics aggregated per service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name list. (optional)</param>
+        /// <param name="participantName">The participant name. (optional)</param>
+        /// <param name="status">The operation status to filter by. (optional)</param>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <param name="metadata">Metadata key-value pairs to filter by. (optional)</param>
+        /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
+        /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
+        /// <param name="orderBy">The field to order by. (optional)</param>
+        /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage/">REST API Reference for GetCustomerServiceUsage Operation</seealso>
+        /// <returns>Task of ApiResponse (CustomerServiceUsageReportWrapper)</returns>
+        Task<ApiResponse<CustomerServiceUsageReportWrapper>> GetCustomerServiceUsageWithHttpInfoAsync(List<string>? serviceName = default, string? participantName = default, OperationStatus? status = default, DateTime? startDate = default, DateTime? endDate = default, Dictionary<string, string>? metadata = default, int? offset = default, int? limit = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Get the status of the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage-report/">REST API Reference for GetCustomerServiceUsageReport Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        Task<DocumentBuilderTaskWrapper> GetCustomerServiceUsageReportAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get the status of the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage-report/">REST API Reference for GetCustomerServiceUsageReport Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        Task<ApiResponse<DocumentBuilderTaskWrapper>> GetCustomerServiceUsageReportWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the payment account
         /// </summary>
@@ -1063,10 +1471,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Specifies whether to return the wallet quotas only. (optional)</param>
+        /// <param name="additional">Specifies whether to return additional quotas only. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
         /// <returns>Task of QuotaArrayWrapper</returns>
-        Task<QuotaArrayWrapper> GetPaymentQuotasAsync(bool? wallet = default, CancellationToken cancellationToken = default);
+        Task<QuotaArrayWrapper> GetPaymentQuotasAsync(bool? wallet = default, bool? additional = default, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Get quotas
@@ -1076,10 +1485,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Specifies whether to return the wallet quotas only. (optional)</param>
+        /// <param name="additional">Specifies whether to return additional quotas only. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
         /// <returns>Task of ApiResponse (QuotaArrayWrapper)</returns>
-        Task<ApiResponse<QuotaArrayWrapper>> GetPaymentQuotasWithHttpInfoAsync(bool? wallet = default, CancellationToken cancellationToken = default);
+        Task<ApiResponse<QuotaArrayWrapper>> GetPaymentQuotasWithHttpInfoAsync(bool? wallet = default, bool? additional = default, CancellationToken cancellationToken = default);
         /// <summary>
         /// Get the payment page URL
         /// </summary>
@@ -1177,6 +1587,29 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>Task of ApiResponse (RestrictedModelsResponseWrapper)</returns>
         Task<ApiResponse<RestrictedModelsResponseWrapper>> GetRestrictedAiModelsWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
+        /// Get the subscription balance information
+        /// </summary>
+        /// <remarks>
+        /// Returns the information about the current subscription and its unused (prorated) balance.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
+        /// <returns>Task of SubscriptionBalanceInfoWrapper</returns>
+        Task<SubscriptionBalanceInfoWrapper> GetSubscriptionBalanceInfoAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get the subscription balance information
+        /// </summary>
+        /// <remarks>
+        /// Returns the information about the current subscription and its unused (prorated) balance.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (SubscriptionBalanceInfoWrapper)</returns>
+        Task<ApiResponse<SubscriptionBalanceInfoWrapper>> GetSubscriptionBalanceInfoWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
         /// Gets the wallet service settings for the tenant.
         /// </summary>
         /// <remarks>
@@ -1271,6 +1704,31 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>Task of ApiResponse (WalletServiceArrayWrapper)</returns>
         Task<ApiResponse<WalletServiceArrayWrapper>> GetWalletServicesWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
+        /// Move the subscription balance to the wallet and purchase admins
+        /// </summary>
+        /// <remarks>
+        /// Cancels the current subscription, moves its unused balance to the wallet, and purchases the requested number of  admins from the wallet. If the wallet balance is not enough, it is topped up for the missing amount first  (with several attempts, as the balance may be consumed concurrently).
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for specifying payment quantity. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-subscription-to-wallet/">REST API Reference for MoveSubscriptionToWallet Operation</seealso>
+        /// <returns>Task of BooleanWrapper</returns>
+        Task<BooleanWrapper> MoveSubscriptionToWalletAsync(QuantityRequestDto? quantityRequestDto = default, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Move the subscription balance to the wallet and purchase admins
+        /// </summary>
+        /// <remarks>
+        /// Cancels the current subscription, moves its unused balance to the wallet, and purchases the requested number of  admins from the wallet. If the wallet balance is not enough, it is topped up for the missing amount first  (with several attempts, as the balance may be consumed concurrently).
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for specifying payment quantity. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-subscription-to-wallet/">REST API Reference for MoveSubscriptionToWallet Operation</seealso>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        Task<ApiResponse<BooleanWrapper>> MoveSubscriptionToWalletWithHttpInfoAsync(QuantityRequestDto? quantityRequestDto = default, CancellationToken cancellationToken = default);
+        /// <summary>
         /// Send a payment request
         /// </summary>
         /// <remarks>
@@ -1346,6 +1804,29 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <returns>Task of ApiResponse (TenantWalletSettingsWrapper)</returns>
         Task<ApiResponse<TenantWalletSettingsWrapper>> SetTenantWalletSettingsWithHttpInfoAsync(TenantWalletSettingsWrapper? tenantWalletSettingsWrapper = default, CancellationToken cancellationToken = default);
         /// <summary>
+        /// Terminate the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-monthly-usage-report/">REST API Reference for TerminateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>Task of void</returns>
+        Task TerminateCustomerMonthlyUsageReportAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Terminate the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-monthly-usage-report/">REST API Reference for TerminateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> TerminateCustomerMonthlyUsageReportWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
         /// Terminate the customer operations report generation
         /// </summary>
         /// <remarks>
@@ -1368,6 +1849,29 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-operations-report/">REST API Reference for TerminateCustomerOperationsReport Operation</seealso>
         /// <returns>Task of ApiResponse</returns>
         Task<ApiResponse<Object>> TerminateCustomerOperationsReportWithHttpInfoAsync(CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Terminate the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-service-usage-report/">REST API Reference for TerminateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>Task of void</returns>
+        Task TerminateCustomerServiceUsageReportAsync(CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Terminate the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-service-usage-report/">REST API Reference for TerminateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        Task<ApiResponse<Object>> TerminateCustomerServiceUsageReportWithHttpInfoAsync(CancellationToken cancellationToken = default);
         /// <summary>
         /// Put money on deposit
         /// </summary>
@@ -2023,6 +2527,188 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
         /// <summary>
+        /// Start the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer monthly usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerMonthlyUsageReportRequestDto">The request parameters for generating a customer monthly usage report. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-monthly-usage-report/">REST API Reference for CreateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        public DocumentBuilderTaskWrapper CreateCustomerMonthlyUsageReport(CustomerMonthlyUsageReportRequestDto? customerMonthlyUsageReportRequestDto = default)
+        {
+            var localVarResponse = CreateCustomerMonthlyUsageReportWithHttpInfo(customerMonthlyUsageReportRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Start the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer monthly usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerMonthlyUsageReportRequestDto">The request parameters for generating a customer monthly usage report. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-monthly-usage-report/">REST API Reference for CreateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        public ApiResponse<DocumentBuilderTaskWrapper> CreateCustomerMonthlyUsageReportWithHttpInfo(CustomerMonthlyUsageReportRequestDto? customerMonthlyUsageReportRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (customerMonthlyUsageReportRequestDto != null) localVarRequestOptions.Data = customerMonthlyUsageReportRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<DocumentBuilderTaskWrapper>("/api/2.0/portal/payment/customer/usage/monthly/report", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("CreateCustomerMonthlyUsageReport", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Start the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer monthly usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerMonthlyUsageReportRequestDto">The request parameters for generating a customer monthly usage report. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-monthly-usage-report/">REST API Reference for CreateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        public async Task<DocumentBuilderTaskWrapper> CreateCustomerMonthlyUsageReportAsync(CustomerMonthlyUsageReportRequestDto? customerMonthlyUsageReportRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await CreateCustomerMonthlyUsageReportWithHttpInfoAsync(customerMonthlyUsageReportRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Start the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer monthly usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerMonthlyUsageReportRequestDto">The request parameters for generating a customer monthly usage report. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-monthly-usage-report/">REST API Reference for CreateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        public async Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateCustomerMonthlyUsageReportWithHttpInfoAsync(CustomerMonthlyUsageReportRequestDto? customerMonthlyUsageReportRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (customerMonthlyUsageReportRequestDto != null) localVarRequestOptions.Data = customerMonthlyUsageReportRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<DocumentBuilderTaskWrapper>("/api/2.0/portal/payment/customer/usage/monthly/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("CreateCustomerMonthlyUsageReport", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Start the customer operations report generation
         /// </summary>
         /// <remarks>
@@ -2195,6 +2881,188 @@ namespace DocSpace.API.SDK.Api.Portal
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("CreateCustomerOperationsReport", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Start the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer service usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerServiceUsageReportRequestDto">The request parameters for generating a customer service usage report. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-service-usage-report/">REST API Reference for CreateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        public DocumentBuilderTaskWrapper CreateCustomerServiceUsageReport(CustomerServiceUsageReportRequestDto? customerServiceUsageReportRequestDto = default)
+        {
+            var localVarResponse = CreateCustomerServiceUsageReportWithHttpInfo(customerServiceUsageReportRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Start the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer service usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerServiceUsageReportRequestDto">The request parameters for generating a customer service usage report. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-service-usage-report/">REST API Reference for CreateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        public ApiResponse<DocumentBuilderTaskWrapper> CreateCustomerServiceUsageReportWithHttpInfo(CustomerServiceUsageReportRequestDto? customerServiceUsageReportRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (customerServiceUsageReportRequestDto != null) localVarRequestOptions.Data = customerServiceUsageReportRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<DocumentBuilderTaskWrapper>("/api/2.0/portal/payment/customer/usage/report", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("CreateCustomerServiceUsageReport", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Start the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer service usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerServiceUsageReportRequestDto">The request parameters for generating a customer service usage report. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-service-usage-report/">REST API Reference for CreateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        public async Task<DocumentBuilderTaskWrapper> CreateCustomerServiceUsageReportAsync(CustomerServiceUsageReportRequestDto? customerServiceUsageReportRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await CreateCustomerServiceUsageReportWithHttpInfoAsync(customerServiceUsageReportRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Start the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Starts generating a customer service usage report as an xlsx file and saves it in Documents.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerServiceUsageReportRequestDto">The request parameters for generating a customer service usage report. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/create-customer-service-usage-report/">REST API Reference for CreateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        public async Task<ApiResponse<DocumentBuilderTaskWrapper>> CreateCustomerServiceUsageReportWithHttpInfoAsync(CustomerServiceUsageReportRequestDto? customerServiceUsageReportRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (customerServiceUsageReportRequestDto != null) localVarRequestOptions.Data = customerServiceUsageReportRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<DocumentBuilderTaskWrapper>("/api/2.0/portal/payment/customer/usage/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("CreateCustomerServiceUsageReport", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -3331,6 +4199,382 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
         /// <summary>
+        /// Get the customer monthly usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer spending aggregated per calendar month from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage/">REST API Reference for GetCustomerMonthlyUsage Operation</seealso>
+        /// <returns>CustomerMonthlyUsageArrayWrapper</returns>
+        public CustomerMonthlyUsageArrayWrapper GetCustomerMonthlyUsage(DateTime? startDate = default, DateTime? endDate = default)
+        {
+            var localVarResponse = GetCustomerMonthlyUsageWithHttpInfo(startDate, endDate);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the customer monthly usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer spending aggregated per calendar month from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage/">REST API Reference for GetCustomerMonthlyUsage Operation</seealso>
+        /// <returns>ApiResponse of CustomerMonthlyUsageArrayWrapper</returns>
+        public ApiResponse<CustomerMonthlyUsageArrayWrapper> GetCustomerMonthlyUsageWithHttpInfo(DateTime? startDate = default, DateTime? endDate = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (startDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+            }
+            if (endDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<CustomerMonthlyUsageArrayWrapper>("/api/2.0/portal/payment/customer/usage/monthly", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetCustomerMonthlyUsage", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the customer monthly usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer spending aggregated per calendar month from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage/">REST API Reference for GetCustomerMonthlyUsage Operation</seealso>
+        /// <returns>Task of CustomerMonthlyUsageArrayWrapper</returns>
+        public async Task<CustomerMonthlyUsageArrayWrapper> GetCustomerMonthlyUsageAsync(DateTime? startDate = default, DateTime? endDate = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetCustomerMonthlyUsageWithHttpInfoAsync(startDate, endDate, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the customer monthly usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer spending aggregated per calendar month from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage/">REST API Reference for GetCustomerMonthlyUsage Operation</seealso>
+        /// <returns>Task of ApiResponse (CustomerMonthlyUsageArrayWrapper)</returns>
+        public async Task<ApiResponse<CustomerMonthlyUsageArrayWrapper>> GetCustomerMonthlyUsageWithHttpInfoAsync(DateTime? startDate = default, DateTime? endDate = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (startDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+            }
+            if (endDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<CustomerMonthlyUsageArrayWrapper>("/api/2.0/portal/payment/customer/usage/monthly", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetCustomerMonthlyUsage", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the status of the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage-report/">REST API Reference for GetCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        public DocumentBuilderTaskWrapper GetCustomerMonthlyUsageReport()
+        {
+            var localVarResponse = GetCustomerMonthlyUsageReportWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the status of the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage-report/">REST API Reference for GetCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        public ApiResponse<DocumentBuilderTaskWrapper> GetCustomerMonthlyUsageReportWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<DocumentBuilderTaskWrapper>("/api/2.0/portal/payment/customer/usage/monthly/report", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetCustomerMonthlyUsageReport", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the status of the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage-report/">REST API Reference for GetCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        public async Task<DocumentBuilderTaskWrapper> GetCustomerMonthlyUsageReportAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetCustomerMonthlyUsageReportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the status of the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-monthly-usage-report/">REST API Reference for GetCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        public async Task<ApiResponse<DocumentBuilderTaskWrapper>> GetCustomerMonthlyUsageReportWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<DocumentBuilderTaskWrapper>("/api/2.0/portal/payment/customer/usage/monthly/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetCustomerMonthlyUsageReport", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get the customer operations
         /// </summary>
         /// <remarks>
@@ -3339,7 +4583,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
-        /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="serviceName">The service name list. A single string is also accepted for backward compatibility. (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -3351,7 +4595,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>ReportWrapper</returns>
-        public ReportWrapper GetCustomerOperations(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default)
+        public ReportWrapper GetCustomerOperations(int? offset = default, int? limit = default, List<string>? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default)
         {
             var localVarResponse = GetCustomerOperationsWithHttpInfo(offset, limit, serviceName, startDate, endDate, participantName, credit, debit, type, status, orderBy, orderType);
             return localVarResponse.Data;
@@ -3366,7 +4610,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
-        /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="serviceName">The service name list. A single string is also accepted for backward compatibility. (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -3378,7 +4622,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>ApiResponse of ReportWrapper</returns>
-        public ApiResponse<ReportWrapper> GetCustomerOperationsWithHttpInfo(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default)
+        public ApiResponse<ReportWrapper> GetCustomerOperationsWithHttpInfo(int? offset = default, int? limit = default, List<string>? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3403,7 +4647,7 @@ namespace DocSpace.API.SDK.Api.Portal
             }
             if (serviceName != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ServiceName", serviceName));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "ServiceName", serviceName));
             }
             if (startDate != null)
             {
@@ -3497,7 +4741,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
-        /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="serviceName">The service name list. A single string is also accepted for backward compatibility. (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -3510,7 +4754,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>Task of ReportWrapper</returns>
-        public async Task<ReportWrapper> GetCustomerOperationsAsync(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default)
+        public async Task<ReportWrapper> GetCustomerOperationsAsync(int? offset = default, int? limit = default, List<string>? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default)
         {
             var localVarResponse = await GetCustomerOperationsWithHttpInfoAsync(offset, limit, serviceName, startDate, endDate, participantName, credit, debit, type, status, orderBy, orderType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -3525,7 +4769,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
         /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
-        /// <param name="serviceName">The service name. (optional)</param>
+        /// <param name="serviceName">The service name list. A single string is also accepted for backward compatibility. (optional)</param>
         /// <param name="startDate">The report start date. (optional)</param>
         /// <param name="endDate">The report end date. (optional)</param>
         /// <param name="participantName">The participant name. (optional)</param>
@@ -3538,7 +4782,7 @@ namespace DocSpace.API.SDK.Api.Portal
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-operations/">REST API Reference for GetCustomerOperations Operation</seealso>
         /// <returns>Task of ApiResponse (ReportWrapper)</returns>
-        public async Task<ApiResponse<ReportWrapper>> GetCustomerOperationsWithHttpInfoAsync(int? offset = default, int? limit = default, string? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<ReportWrapper>> GetCustomerOperationsWithHttpInfoAsync(int? offset = default, int? limit = default, List<string>? serviceName = default, DateTime? startDate = default, DateTime? endDate = default, string? participantName = default, bool? credit = default, bool? debit = default, OperationType? type = default, OperationStatus? status = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -3564,7 +4808,7 @@ namespace DocSpace.API.SDK.Api.Portal
             }
             if (serviceName != null)
             {
-                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ServiceName", serviceName));
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "ServiceName", serviceName));
             }
             if (startDate != null)
             {
@@ -3817,6 +5061,477 @@ namespace DocSpace.API.SDK.Api.Portal
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("GetCustomerOperationsReport", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the customer service usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer usage statistics aggregated per service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name list. (optional)</param>
+        /// <param name="participantName">The participant name. (optional)</param>
+        /// <param name="status">The operation status to filter by. (optional)</param>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <param name="metadata">Metadata key-value pairs to filter by. (optional)</param>
+        /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
+        /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
+        /// <param name="orderBy">The field to order by. (optional)</param>
+        /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage/">REST API Reference for GetCustomerServiceUsage Operation</seealso>
+        /// <returns>CustomerServiceUsageReportWrapper</returns>
+        public CustomerServiceUsageReportWrapper GetCustomerServiceUsage(List<string>? serviceName = default, string? participantName = default, OperationStatus? status = default, DateTime? startDate = default, DateTime? endDate = default, Dictionary<string, string>? metadata = default, int? offset = default, int? limit = default, string? orderBy = default, OperationOrderType? orderType = default)
+        {
+            var localVarResponse = GetCustomerServiceUsageWithHttpInfo(serviceName, participantName, status, startDate, endDate, metadata, offset, limit, orderBy, orderType);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the customer service usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer usage statistics aggregated per service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name list. (optional)</param>
+        /// <param name="participantName">The participant name. (optional)</param>
+        /// <param name="status">The operation status to filter by. (optional)</param>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <param name="metadata">Metadata key-value pairs to filter by. (optional)</param>
+        /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
+        /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
+        /// <param name="orderBy">The field to order by. (optional)</param>
+        /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage/">REST API Reference for GetCustomerServiceUsage Operation</seealso>
+        /// <returns>ApiResponse of CustomerServiceUsageReportWrapper</returns>
+        public ApiResponse<CustomerServiceUsageReportWrapper> GetCustomerServiceUsageWithHttpInfo(List<string>? serviceName = default, string? participantName = default, OperationStatus? status = default, DateTime? startDate = default, DateTime? endDate = default, Dictionary<string, string>? metadata = default, int? offset = default, int? limit = default, string? orderBy = default, OperationOrderType? orderType = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (serviceName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "ServiceName", serviceName));
+            }
+            if (participantName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ParticipantName", participantName));
+            }
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Status", status));
+            }
+            if (startDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "StartDate", startDate));
+            }
+            if (endDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "EndDate", endDate));
+            }
+            if (metadata != null)
+            {
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (orderBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "OrderBy", orderBy));
+            }
+            if (orderType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "OrderType", orderType));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<CustomerServiceUsageReportWrapper>("/api/2.0/portal/payment/customer/usage", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetCustomerServiceUsage", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the customer service usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer usage statistics aggregated per service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name list. (optional)</param>
+        /// <param name="participantName">The participant name. (optional)</param>
+        /// <param name="status">The operation status to filter by. (optional)</param>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <param name="metadata">Metadata key-value pairs to filter by. (optional)</param>
+        /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
+        /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
+        /// <param name="orderBy">The field to order by. (optional)</param>
+        /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage/">REST API Reference for GetCustomerServiceUsage Operation</seealso>
+        /// <returns>Task of CustomerServiceUsageReportWrapper</returns>
+        public async Task<CustomerServiceUsageReportWrapper> GetCustomerServiceUsageAsync(List<string>? serviceName = default, string? participantName = default, OperationStatus? status = default, DateTime? startDate = default, DateTime? endDate = default, Dictionary<string, string>? metadata = default, int? offset = default, int? limit = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetCustomerServiceUsageWithHttpInfoAsync(serviceName, participantName, status, startDate, endDate, metadata, offset, limit, orderBy, orderType, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the customer service usage
+        /// </summary>
+        /// <remarks>
+        /// Returns the customer usage statistics aggregated per service from the accounting service.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="serviceName">The service name list. (optional)</param>
+        /// <param name="participantName">The participant name. (optional)</param>
+        /// <param name="status">The operation status to filter by. (optional)</param>
+        /// <param name="startDate">Start of the period (inclusive). (optional)</param>
+        /// <param name="endDate">End of the period (inclusive). (optional)</param>
+        /// <param name="metadata">Metadata key-value pairs to filter by. (optional)</param>
+        /// <param name="offset">The number of items to skip for pagination. The default value is 0. (optional)</param>
+        /// <param name="limit">The maximum number of items to return for pagination. The default value is 25. (optional)</param>
+        /// <param name="orderBy">The field to order by. (optional)</param>
+        /// <param name="orderType">Order direction: Ascending or Descending. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage/">REST API Reference for GetCustomerServiceUsage Operation</seealso>
+        /// <returns>Task of ApiResponse (CustomerServiceUsageReportWrapper)</returns>
+        public async Task<ApiResponse<CustomerServiceUsageReportWrapper>> GetCustomerServiceUsageWithHttpInfoAsync(List<string>? serviceName = default, string? participantName = default, OperationStatus? status = default, DateTime? startDate = default, DateTime? endDate = default, Dictionary<string, string>? metadata = default, int? offset = default, int? limit = default, string? orderBy = default, OperationOrderType? orderType = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (serviceName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("multi", "ServiceName", serviceName));
+            }
+            if (participantName != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "ParticipantName", participantName));
+            }
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Status", status));
+            }
+            if (startDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "StartDate", startDate));
+            }
+            if (endDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "EndDate", endDate));
+            }
+            if (metadata != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "Metadata", metadata));
+            }
+            if (offset != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "offset", offset));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (orderBy != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "OrderBy", orderBy));
+            }
+            if (orderType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "OrderType", orderType));
+            }
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<CustomerServiceUsageReportWrapper>("/api/2.0/portal/payment/customer/usage", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetCustomerServiceUsage", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the status of the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage-report/">REST API Reference for GetCustomerServiceUsageReport Operation</seealso>
+        /// <returns>DocumentBuilderTaskWrapper</returns>
+        public DocumentBuilderTaskWrapper GetCustomerServiceUsageReport()
+        {
+            var localVarResponse = GetCustomerServiceUsageReportWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the status of the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage-report/">REST API Reference for GetCustomerServiceUsageReport Operation</seealso>
+        /// <returns>ApiResponse of DocumentBuilderTaskWrapper</returns>
+        public ApiResponse<DocumentBuilderTaskWrapper> GetCustomerServiceUsageReportWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<DocumentBuilderTaskWrapper>("/api/2.0/portal/payment/customer/usage/report", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetCustomerServiceUsageReport", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the status of the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage-report/">REST API Reference for GetCustomerServiceUsageReport Operation</seealso>
+        /// <returns>Task of DocumentBuilderTaskWrapper</returns>
+        public async Task<DocumentBuilderTaskWrapper> GetCustomerServiceUsageReportAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetCustomerServiceUsageReportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the status of the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Returns the status of generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-customer-service-usage-report/">REST API Reference for GetCustomerServiceUsageReport Operation</seealso>
+        /// <returns>Task of ApiResponse (DocumentBuilderTaskWrapper)</returns>
+        public async Task<ApiResponse<DocumentBuilderTaskWrapper>> GetCustomerServiceUsageReportWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<DocumentBuilderTaskWrapper>("/api/2.0/portal/payment/customer/usage/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetCustomerServiceUsageReport", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;
@@ -4198,11 +5913,12 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Specifies whether to return the wallet quotas only. (optional)</param>
+        /// <param name="additional">Specifies whether to return additional quotas only. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
         /// <returns>QuotaArrayWrapper</returns>
-        public QuotaArrayWrapper GetPaymentQuotas(bool? wallet = default)
+        public QuotaArrayWrapper GetPaymentQuotas(bool? wallet = default, bool? additional = default)
         {
-            var localVarResponse = GetPaymentQuotasWithHttpInfo(wallet);
+            var localVarResponse = GetPaymentQuotasWithHttpInfo(wallet, additional);
             return localVarResponse.Data;
         }
 
@@ -4214,9 +5930,10 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Specifies whether to return the wallet quotas only. (optional)</param>
+        /// <param name="additional">Specifies whether to return additional quotas only. (optional)</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
         /// <returns>ApiResponse of QuotaArrayWrapper</returns>
-        public ApiResponse<QuotaArrayWrapper> GetPaymentQuotasWithHttpInfo(bool? wallet = default)
+        public ApiResponse<QuotaArrayWrapper> GetPaymentQuotasWithHttpInfo(bool? wallet = default, bool? additional = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4234,6 +5951,10 @@ namespace DocSpace.API.SDK.Api.Portal
             if (wallet != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "wallet", wallet));
+            }
+            if (additional != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "additional", additional));
             }
 
             // authentication (Basic) required
@@ -4290,12 +6011,13 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Specifies whether to return the wallet quotas only. (optional)</param>
+        /// <param name="additional">Specifies whether to return additional quotas only. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
         /// <returns>Task of QuotaArrayWrapper</returns>
-        public async Task<QuotaArrayWrapper> GetPaymentQuotasAsync(bool? wallet = default, CancellationToken cancellationToken = default)
+        public async Task<QuotaArrayWrapper> GetPaymentQuotasAsync(bool? wallet = default, bool? additional = default, CancellationToken cancellationToken = default)
         {
-            var localVarResponse = await GetPaymentQuotasWithHttpInfoAsync(wallet, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await GetPaymentQuotasWithHttpInfoAsync(wallet, additional, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4307,10 +6029,11 @@ namespace DocSpace.API.SDK.Api.Portal
         /// </remarks>
         /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="wallet">Specifies whether to return the wallet quotas only. (optional)</param>
+        /// <param name="additional">Specifies whether to return additional quotas only. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-payment-quotas/">REST API Reference for GetPaymentQuotas Operation</seealso>
         /// <returns>Task of ApiResponse (QuotaArrayWrapper)</returns>
-        public async Task<ApiResponse<QuotaArrayWrapper>> GetPaymentQuotasWithHttpInfoAsync(bool? wallet = default, CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<QuotaArrayWrapper>> GetPaymentQuotasWithHttpInfoAsync(bool? wallet = default, bool? additional = default, CancellationToken cancellationToken = default)
         {
             var localVarRequestOptions = new RequestOptions();
 
@@ -4329,6 +6052,10 @@ namespace DocSpace.API.SDK.Api.Portal
             if (wallet != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "wallet", wallet));
+            }
+            if (additional != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ClientUtils.ParameterToMultiMap("", "additional", additional));
             }
 
             // authentication (Basic) required
@@ -5101,6 +6828,182 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
         /// <summary>
+        /// Get the subscription balance information
+        /// </summary>
+        /// <remarks>
+        /// Returns the information about the current subscription and its unused (prorated) balance.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
+        /// <returns>SubscriptionBalanceInfoWrapper</returns>
+        public SubscriptionBalanceInfoWrapper GetSubscriptionBalanceInfo()
+        {
+            var localVarResponse = GetSubscriptionBalanceInfoWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the subscription balance information
+        /// </summary>
+        /// <remarks>
+        /// Returns the information about the current subscription and its unused (prorated) balance.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
+        /// <returns>ApiResponse of SubscriptionBalanceInfoWrapper</returns>
+        public ApiResponse<SubscriptionBalanceInfoWrapper> GetSubscriptionBalanceInfoWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Get<SubscriptionBalanceInfoWrapper>("/api/2.0/portal/payment/subscription/balance", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetSubscriptionBalanceInfo", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get the subscription balance information
+        /// </summary>
+        /// <remarks>
+        /// Returns the information about the current subscription and its unused (prorated) balance.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
+        /// <returns>Task of SubscriptionBalanceInfoWrapper</returns>
+        public async Task<SubscriptionBalanceInfoWrapper> GetSubscriptionBalanceInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await GetSubscriptionBalanceInfoWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the subscription balance information
+        /// </summary>
+        /// <remarks>
+        /// Returns the information about the current subscription and its unused (prorated) balance.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/get-subscription-balance-info/">REST API Reference for GetSubscriptionBalanceInfo Operation</seealso>
+        /// <returns>Task of ApiResponse (SubscriptionBalanceInfoWrapper)</returns>
+        public async Task<ApiResponse<SubscriptionBalanceInfoWrapper>> GetSubscriptionBalanceInfoWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.GetAsync<SubscriptionBalanceInfoWrapper>("/api/2.0/portal/payment/subscription/balance", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("GetSubscriptionBalanceInfo", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Gets the wallet service settings for the tenant.
         /// </summary>
         /// <remarks>
@@ -5811,6 +7714,188 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
         /// <summary>
+        /// Move the subscription balance to the wallet and purchase admins
+        /// </summary>
+        /// <remarks>
+        /// Cancels the current subscription, moves its unused balance to the wallet, and purchases the requested number of  admins from the wallet. If the wallet balance is not enough, it is topped up for the missing amount first  (with several attempts, as the balance may be consumed concurrently).
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for specifying payment quantity. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-subscription-to-wallet/">REST API Reference for MoveSubscriptionToWallet Operation</seealso>
+        /// <returns>BooleanWrapper</returns>
+        public BooleanWrapper MoveSubscriptionToWallet(QuantityRequestDto? quantityRequestDto = default)
+        {
+            var localVarResponse = MoveSubscriptionToWalletWithHttpInfo(quantityRequestDto);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Move the subscription balance to the wallet and purchase admins
+        /// </summary>
+        /// <remarks>
+        /// Cancels the current subscription, moves its unused balance to the wallet, and purchases the requested number of  admins from the wallet. If the wallet balance is not enough, it is topped up for the missing amount first  (with several attempts, as the balance may be consumed concurrently).
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for specifying payment quantity. (optional)</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-subscription-to-wallet/">REST API Reference for MoveSubscriptionToWallet Operation</seealso>
+        /// <returns>ApiResponse of BooleanWrapper</returns>
+        public ApiResponse<BooleanWrapper> MoveSubscriptionToWalletWithHttpInfo(QuantityRequestDto? quantityRequestDto = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = ["application/json"];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (quantityRequestDto != null) localVarRequestOptions.Data = quantityRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Post<BooleanWrapper>("/api/2.0/portal/payment/subscription/movetowallet", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("MoveSubscriptionToWallet", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Move the subscription balance to the wallet and purchase admins
+        /// </summary>
+        /// <remarks>
+        /// Cancels the current subscription, moves its unused balance to the wallet, and purchases the requested number of  admins from the wallet. If the wallet balance is not enough, it is topped up for the missing amount first  (with several attempts, as the balance may be consumed concurrently).
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for specifying payment quantity. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-subscription-to-wallet/">REST API Reference for MoveSubscriptionToWallet Operation</seealso>
+        /// <returns>Task of BooleanWrapper</returns>
+        public async Task<BooleanWrapper> MoveSubscriptionToWalletAsync(QuantityRequestDto? quantityRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarResponse = await MoveSubscriptionToWalletWithHttpInfoAsync(quantityRequestDto, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Move the subscription balance to the wallet and purchase admins
+        /// </summary>
+        /// <remarks>
+        /// Cancels the current subscription, moves its unused balance to the wallet, and purchases the requested number of  admins from the wallet. If the wallet balance is not enough, it is topped up for the missing amount first  (with several attempts, as the balance may be consumed concurrently).
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="quantityRequestDto">The request parameters for specifying payment quantity. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/move-subscription-to-wallet/">REST API Reference for MoveSubscriptionToWallet Operation</seealso>
+        /// <returns>Task of ApiResponse (BooleanWrapper)</returns>
+        public async Task<ApiResponse<BooleanWrapper>> MoveSubscriptionToWalletWithHttpInfoAsync(QuantityRequestDto? quantityRequestDto = default, CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [ "application/json"];
+
+            // to determine the Accept header
+            string[] accepts = [ "application/json"];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (quantityRequestDto != null) localVarRequestOptions.Data = quantityRequestDto;
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.PostAsync<BooleanWrapper>("/api/2.0/portal/payment/subscription/movetowallet", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("MoveSubscriptionToWallet", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Send a payment request
         /// </summary>
         /// <remarks>
@@ -6355,6 +8440,180 @@ namespace DocSpace.API.SDK.Api.Portal
         }
 
         /// <summary>
+        /// Terminate the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-monthly-usage-report/">REST API Reference for TerminateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns></returns>
+        public void TerminateCustomerMonthlyUsageReport()
+        {
+            TerminateCustomerMonthlyUsageReportWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Terminate the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-monthly-usage-report/">REST API Reference for TerminateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> TerminateCustomerMonthlyUsageReportWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Delete<Object>("/api/2.0/portal/payment/customer/usage/monthly/report", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("TerminateCustomerMonthlyUsageReport", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Terminate the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-monthly-usage-report/">REST API Reference for TerminateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>Task of void</returns>
+        public async Task TerminateCustomerMonthlyUsageReportAsync(CancellationToken cancellationToken = default)
+        {
+            await TerminateCustomerMonthlyUsageReportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Terminate the customer monthly usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer monthly usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-monthly-usage-report/">REST API Reference for TerminateCustomerMonthlyUsageReport Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> TerminateCustomerMonthlyUsageReportWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/portal/payment/customer/usage/monthly/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("TerminateCustomerMonthlyUsageReport", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Terminate the customer operations report generation
         /// </summary>
         /// <remarks>
@@ -6519,6 +8778,180 @@ namespace DocSpace.API.SDK.Api.Portal
             if (ExceptionFactory != null)
             {
                 var exception = ExceptionFactory("TerminateCustomerOperationsReport", localVarResponse);
+                if (exception != null) 
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Terminate the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-service-usage-report/">REST API Reference for TerminateCustomerServiceUsageReport Operation</seealso>
+        /// <returns></returns>
+        public void TerminateCustomerServiceUsageReport()
+        {
+            TerminateCustomerServiceUsageReportWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Terminate the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-service-usage-report/">REST API Reference for TerminateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> TerminateCustomerServiceUsageReportWithHttpInfo()
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [];
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+            var localVarResponse = Client.Delete<Object>("/api/2.0/portal/payment/customer/usage/report", localVarRequestOptions, Configuration);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("TerminateCustomerServiceUsageReport", localVarResponse);
+                if (exception != null)
+                {
+                    throw exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Terminate the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-service-usage-report/">REST API Reference for TerminateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>Task of void</returns>
+        public async Task TerminateCustomerServiceUsageReportAsync(CancellationToken cancellationToken = default)
+        {
+            await TerminateCustomerServiceUsageReportWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Terminate the customer service usage report generation
+        /// </summary>
+        /// <remarks>
+        /// Terminates generating a customer service usage report.
+        /// </remarks>
+        /// <exception cref="DocSpace.API.SDK.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <seealso href="https://api.onlyoffice.com/docspace/api-backend/usage-api/terminate-customer-service-usage-report/">REST API Reference for TerminateCustomerServiceUsageReport Operation</seealso>
+        /// <returns>Task of ApiResponse</returns>
+        public async Task<ApiResponse<Object>> TerminateCustomerServiceUsageReportWithHttpInfoAsync(CancellationToken cancellationToken = default)
+        {
+            var localVarRequestOptions = new RequestOptions();
+
+            string[] contentTypes = [];
+
+            // to determine the Accept header
+            string[] accepts = [];
+
+
+            var localVarContentType = ClientUtils.SelectHeaderContentType(contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ClientUtils.SelectHeaderAccept(accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (Basic) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(Configuration.Username) || !string.IsNullOrEmpty(Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + ClientUtils.Base64Encode(Configuration.Username + ":" + Configuration.Password));
+            }
+            // authentication (OAuth2) required
+            // oauth required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (ApiKeyBearer) required
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("ApiKeyBearer")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("ApiKeyBearer", Configuration.GetApiKeyWithPrefix("ApiKeyBearer"));
+            }
+            // authentication (asc_auth_key) required
+            // cookie parameter support
+            if (!string.IsNullOrEmpty(Configuration.GetApiKeyWithPrefix("asc_auth_key")))
+            {
+                localVarRequestOptions.Cookies.Add(new Cookie("asc_auth_key", Configuration.GetApiKeyWithPrefix("asc_auth_key")));
+            }
+            // authentication (Bearer) required
+            // bearer authentication required
+            if (!string.IsNullOrEmpty(Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + Configuration.AccessToken);
+            }
+            // authentication (OpenId) required
+
+            // make the HTTP request
+
+            var localVarResponse = await AsynchronousClient.DeleteAsync<Object>("/api/2.0/portal/payment/customer/usage/report", localVarRequestOptions, Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (ExceptionFactory != null)
+            {
+                var exception = ExceptionFactory("TerminateCustomerServiceUsageReport", localVarResponse);
                 if (exception != null) 
                 {
                     throw exception;

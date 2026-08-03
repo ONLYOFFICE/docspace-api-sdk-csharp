@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **ArchiveUsedSpace** | [**FilesStatisticsFolder**](FilesStatisticsFolder.md) |  | [optional] 
 **RoomsUsedSpace** | [**FilesStatisticsFolder**](FilesStatisticsFolder.md) |  | [optional] 
 **AiAgentsUsedSpace** | [**FilesStatisticsFolder**](FilesStatisticsFolder.md) |  | [optional] 
+**FormsUsedSpace** | [**FilesStatisticsFolder**](FilesStatisticsFolder.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

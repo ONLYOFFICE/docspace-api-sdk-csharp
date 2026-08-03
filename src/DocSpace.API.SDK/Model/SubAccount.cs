@@ -41,8 +41,8 @@ namespace DocSpace.API.SDK.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SubAccount" /> class.
         /// </summary>
-        /// <param name="currency">The three-character ISO 4217 currency symbol of the sub-account..</param>
-        /// <param name="amount">The balance of the sub-account in the specified currency..</param>
+        /// <param name="currency">The three-character ISO 4217 currency symbol..</param>
+        /// <param name="amount">The amount in the specified currency..</param>
         public SubAccount(string currency = default, double amount = default)
         {
             this.Currency = currency;
@@ -50,19 +50,19 @@ namespace DocSpace.API.SDK.Model
         }
 
         /// <summary>
-        /// The three-character ISO 4217 currency symbol of the sub-account.
+        /// The three-character ISO 4217 currency symbol.
         /// </summary>
-        /// <value>The three-character ISO 4217 currency symbol of the sub-account.</value>
+        /// <value>The three-character ISO 4217 currency symbol.</value>
         /*
-        <example>USD</example>
+        <example>"USD"</example>
         */
         [DataMember(Name = "currency", EmitDefaultValue = true)]
         public string Currency { get; set; }
 
         /// <summary>
-        /// The balance of the sub-account in the specified currency.
+        /// The amount in the specified currency.
         /// </summary>
-        /// <value>The balance of the sub-account in the specified currency.</value>
+        /// <value>The amount in the specified currency.</value>
         /*
         <example>1500.75</example>
         */

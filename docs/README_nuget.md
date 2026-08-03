@@ -61,18 +61,18 @@ config.AccessToken = "YOUR_BEARER_TOKEN";
 // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
 HttpClient httpClient = new HttpClient();
 HttpClientHandler httpClientHandler = new HttpClientHandler();
-var apiInstance = new AIAgentsApi(httpClient, config, httpClientHandler);
-var createAgentRequestDto = new CreateAgentRequestDto?(); // CreateAgentRequestDto? | Request to create a new AI agent room. (optional) 
+var apiInstance = new ApiKeysApi(httpClient, config, httpClientHandler);
+var createApiKeyRequestDto = new CreateApiKeyRequestDto?(); // CreateApiKeyRequestDto? | The request parameters for creating a new API key. (optional) 
 
 try
 {
-    // Create an ai agent
-    FolderIntegerWrapper result = apiInstance.CreateAgent(createAgentRequestDto);
+    // Create a user API key
+    ApiKeyResponseWrapper result = apiInstance.CreateApiKey(createApiKeyRequestDto);
     Debug.WriteLine(result);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling AIAgentsApi.CreateAgent: " + e.Message );
+    Debug.Print("Exception when calling ApiKeysApi.CreateApiKey: " + e.Message );
     Debug.Print("Status Code: "+ e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -123,6 +123,18 @@ Authentication schemes defined for the API:
 
 - **Type**: OpenId Connect
 - **OpenId Connect URL**: {{authBaseUrl}}/.well-known/openid-configuration
+
+<a id="cookieAuth"></a>
+### cookieAuth
+
+- **Type**: API key
+- **API key parameter name**: asc_auth_key
+- **Location**: Cookie
+
+<a id="bearerAuth"></a>
+### bearerAuth
+
+- **Type**: Bearer Authentication
 
 <a id="x-signature"></a>
 ### x-signature

@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// Initializes a new instance of the <see cref="QuotaDto" /> class.
         /// </summary>
         /// <param name="id">The quota ID. (required).</param>
-        /// <param name="title">The quota title. (required).</param>
+        /// <param name="title">The quota title..</param>
         /// <param name="price">price (required).</param>
         /// <param name="nonProfit">Specifies if the quota is nonprofit or not. (required).</param>
         /// <param name="free">Specifies if the quota is free or not. (required).</param>
@@ -61,12 +61,6 @@ namespace DocSpace.API.SDK.Model
         public QuotaDto(int id = default, string title = default, PriceDto price = default, bool nonProfit = default, bool free = default, bool trial = default, List<TenantQuotaFeatureDto> features = default, TenantEntityQuotaSettings usersQuota = default, TenantEntityQuotaSettings roomsQuota = default, TenantEntityQuotaSettings aiAgentsQuota = default, TenantQuotaSettings tenantCustomQuota = default, DateTime? dueDate = default)
         {
             this.Id = id;
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new ArgumentNullException("title is a required property for QuotaDto and cannot be null");
-            }
-            this.Title = title;
             // to ensure "price" is required (not null)
             if (price == null)
             {
@@ -82,6 +76,7 @@ namespace DocSpace.API.SDK.Model
                 throw new ArgumentNullException("features is a required property for QuotaDto and cannot be null");
             }
             this.Features = features;
+            this.Title = title;
             this.UsersQuota = usersQuota;
             this.RoomsQuota = roomsQuota;
             this.AiAgentsQuota = aiAgentsQuota;
@@ -106,7 +101,7 @@ namespace DocSpace.API.SDK.Model
         /*
         <example>Basic Plan</example>
         */
-        [DataMember(Name = "title", IsRequired = true, EmitDefaultValue = true)]
+        [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title { get; set; }
 
         /// <summary>

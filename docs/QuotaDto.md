@@ -6,7 +6,7 @@ The quota information.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** | The quota ID. | 
-**Title** | **string** | The quota title. | 
+**Title** | **string** | The quota title. | [optional] 
 **Price** | [**PriceDto**](PriceDto.md) |  | 
 **NonProfit** | **bool** | Specifies if the quota is nonprofit or not. | 
 **Free** | **bool** | Specifies if the quota is free or not. | 

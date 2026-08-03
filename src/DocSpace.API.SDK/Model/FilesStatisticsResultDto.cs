@@ -46,13 +46,15 @@ namespace DocSpace.API.SDK.Model
         /// <param name="archiveUsedSpace">archiveUsedSpace.</param>
         /// <param name="roomsUsedSpace">roomsUsedSpace.</param>
         /// <param name="aiAgentsUsedSpace">aiAgentsUsedSpace.</param>
-        public FilesStatisticsResultDto(FilesStatisticsFolder myDocumentsUsedSpace = default, FilesStatisticsFolder trashUsedSpace = default, FilesStatisticsFolder archiveUsedSpace = default, FilesStatisticsFolder roomsUsedSpace = default, FilesStatisticsFolder aiAgentsUsedSpace = default)
+        /// <param name="formsUsedSpace">formsUsedSpace.</param>
+        public FilesStatisticsResultDto(FilesStatisticsFolder myDocumentsUsedSpace = default, FilesStatisticsFolder trashUsedSpace = default, FilesStatisticsFolder archiveUsedSpace = default, FilesStatisticsFolder roomsUsedSpace = default, FilesStatisticsFolder aiAgentsUsedSpace = default, FilesStatisticsFolder formsUsedSpace = default)
         {
             this.MyDocumentsUsedSpace = myDocumentsUsedSpace;
             this.TrashUsedSpace = trashUsedSpace;
             this.ArchiveUsedSpace = archiveUsedSpace;
             this.RoomsUsedSpace = roomsUsedSpace;
             this.AiAgentsUsedSpace = aiAgentsUsedSpace;
+            this.FormsUsedSpace = formsUsedSpace;
         }
 
         /// <summary>
@@ -86,6 +88,12 @@ namespace DocSpace.API.SDK.Model
         public FilesStatisticsFolder AiAgentsUsedSpace { get; set; }
 
         /// <summary>
+        /// Gets or Sets FormsUsedSpace
+        /// </summary>
+        [DataMember(Name = "formsUsedSpace", EmitDefaultValue = false)]
+        public FilesStatisticsFolder FormsUsedSpace { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -98,6 +106,7 @@ namespace DocSpace.API.SDK.Model
             sb.Append("  ArchiveUsedSpace: ").Append(ArchiveUsedSpace).Append("\n");
             sb.Append("  RoomsUsedSpace: ").Append(RoomsUsedSpace).Append("\n");
             sb.Append("  AiAgentsUsedSpace: ").Append(AiAgentsUsedSpace).Append("\n");
+            sb.Append("  FormsUsedSpace: ").Append(FormsUsedSpace).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

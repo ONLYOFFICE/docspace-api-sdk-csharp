@@ -47,7 +47,7 @@ namespace DocSpace.API.SDK.Model
         /// <param name="totalQuantity">The total quantity of operations in the report..</param>
         /// <param name="totalPage">The total number of pages in the report..</param>
         /// <param name="currentPage">The current page number of the report..</param>
-        public ReportDto(List<OperationDto> collection = default, int offset = default, int limit = default, int totalQuantity = default, int totalPage = default, int currentPage = default)
+        public ReportDto(List<OperationDto> collection = default, int offset = default, int limit = default, long totalQuantity = default, int totalPage = default, int currentPage = default)
         {
             this.Collection = collection;
             this.Offset = offset;
@@ -95,7 +95,7 @@ namespace DocSpace.API.SDK.Model
         <example>1</example>
         */
         [DataMember(Name = "totalQuantity", EmitDefaultValue = false)]
-        public int TotalQuantity { get; set; }
+        public long TotalQuantity { get; set; }
 
         /// <summary>
         /// The total number of pages in the report.
